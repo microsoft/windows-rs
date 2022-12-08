@@ -986,9 +986,9 @@ impl IInkStrokeContainer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SelectWithPolyLine<'a, P0, E0>(&self, polyline: P0) -> ::windows::core::Result<super::super::super::Foundation::Rect>
+    pub fn SelectWithPolyLine<P0, E0>(&self, polyline: P0) -> ::windows::core::Result<super::super::super::Foundation::Rect>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1028,9 +1028,9 @@ impl IInkStrokeContainer {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadAsync<'a, P0, E0>(&self, inputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
+    pub fn LoadAsync<P0, E0>(&self, inputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1041,9 +1041,9 @@ impl IInkStrokeContainer {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SaveAsync<'a, P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SaveAsync<P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1054,9 +1054,9 @@ impl IInkStrokeContainer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateRecognitionResults<'a, P0, E0>(&self, recognitionresults: P0) -> ::windows::core::Result<()>
+    pub fn UpdateRecognitionResults<P0, E0>(&self, recognitionresults: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1925,9 +1925,9 @@ impl InkManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SelectWithPolyLine<'a, P0, E0>(&self, polyline: P0) -> ::windows::core::Result<super::super::super::Foundation::Rect>
+    pub fn SelectWithPolyLine<P0, E0>(&self, polyline: P0) -> ::windows::core::Result<super::super::super::Foundation::Rect>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
@@ -1967,9 +1967,9 @@ impl InkManager {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadAsync<'a, P0, E0>(&self, inputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
+    pub fn LoadAsync<P0, E0>(&self, inputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
@@ -1980,9 +1980,9 @@ impl InkManager {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SaveAsync<'a, P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SaveAsync<P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
@@ -1993,9 +1993,9 @@ impl InkManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateRecognitionResults<'a, P0, E0>(&self, recognitionresults: P0) -> ::windows::core::Result<()>
+    pub fn UpdateRecognitionResults<P0, E0>(&self, recognitionresults: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
@@ -2065,7 +2065,7 @@ impl ::core::convert::TryFrom<&InkManager> for IInkRecognizerContainer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkManager> for ::windows::core::InParam<'a, IInkRecognizerContainer> {
+impl ::core::convert::TryFrom<&InkManager> for ::windows::core::InParam<IInkRecognizerContainer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkManager) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2084,7 +2084,7 @@ impl ::core::convert::TryFrom<&InkManager> for IInkStrokeContainer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkManager> for ::windows::core::InParam<'a, IInkStrokeContainer> {
+impl ::core::convert::TryFrom<&InkManager> for ::windows::core::InParam<IInkStrokeContainer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkManager) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2632,7 +2632,7 @@ impl ::core::convert::TryFrom<&InkPresenterProtractor> for IInkPresenterStencil 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkPresenterProtractor> for ::windows::core::InParam<'a, IInkPresenterStencil> {
+impl ::core::convert::TryFrom<&InkPresenterProtractor> for ::windows::core::InParam<IInkPresenterStencil> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkPresenterProtractor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2801,7 +2801,7 @@ impl ::core::convert::TryFrom<&InkPresenterRuler> for IInkPresenterStencil {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkPresenterRuler> for ::windows::core::InParam<'a, IInkPresenterStencil> {
+impl ::core::convert::TryFrom<&InkPresenterRuler> for ::windows::core::InParam<IInkPresenterStencil> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkPresenterRuler) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3001,7 +3001,7 @@ impl ::core::convert::TryFrom<&InkRecognizerContainer> for IInkRecognizerContain
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkRecognizerContainer> for ::windows::core::InParam<'a, IInkRecognizerContainer> {
+impl ::core::convert::TryFrom<&InkRecognizerContainer> for ::windows::core::InParam<IInkRecognizerContainer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkRecognizerContainer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3108,9 +3108,9 @@ impl InkStroke {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetStrokeStartedTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStrokeStartedTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInkStroke3>(self)?;
@@ -3127,9 +3127,9 @@ impl InkStroke {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetStrokeDuration<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStrokeDuration<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInkStroke3>(self)?;
@@ -3209,9 +3209,9 @@ impl InkStrokeBuilder {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateStroke<'a, P0, E0>(&self, points: P0) -> ::windows::core::Result<InkStroke>
+    pub fn CreateStroke<P0, E0>(&self, points: P0) -> ::windows::core::Result<InkStroke>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3226,9 +3226,9 @@ impl InkStrokeBuilder {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics"))]
-    pub fn CreateStrokeFromInkPoints<'a, P0, E0>(&self, inkpoints: P0, transform: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<InkStroke>
+    pub fn CreateStrokeFromInkPoints<P0, E0>(&self, inkpoints: P0, transform: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<InkStroke>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<InkPoint>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<InkPoint>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInkStrokeBuilder2>(self)?;
@@ -3239,13 +3239,13 @@ impl InkStrokeBuilder {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics"))]
-    pub fn CreateStrokeFromInkPoints2<'a, P0, E0, P1, E1, P2, E2>(&self, inkpoints: P0, transform: super::super::super::Foundation::Numerics::Matrix3x2, strokestartedtime: P1, strokeduration: P2) -> ::windows::core::Result<InkStroke>
+    pub fn CreateStrokeFromInkPoints2<P0, E0, P1, E1, P2, E2>(&self, inkpoints: P0, transform: super::super::super::Foundation::Numerics::Matrix3x2, strokestartedtime: P1, strokeduration: P2) -> ::windows::core::Result<InkStroke>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<InkPoint>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<InkPoint>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInkStrokeBuilder3>(self)?;
@@ -3332,9 +3332,9 @@ impl InkStrokeContainer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SelectWithPolyLine<'a, P0, E0>(&self, polyline: P0) -> ::windows::core::Result<super::super::super::Foundation::Rect>
+    pub fn SelectWithPolyLine<P0, E0>(&self, polyline: P0) -> ::windows::core::Result<super::super::super::Foundation::Rect>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3374,9 +3374,9 @@ impl InkStrokeContainer {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadAsync<'a, P0, E0>(&self, inputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
+    pub fn LoadAsync<P0, E0>(&self, inputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3387,9 +3387,9 @@ impl InkStrokeContainer {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SaveAsync<'a, P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SaveAsync<P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3400,9 +3400,9 @@ impl InkStrokeContainer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateRecognitionResults<'a, P0, E0>(&self, recognitionresults: P0) -> ::windows::core::Result<()>
+    pub fn UpdateRecognitionResults<P0, E0>(&self, recognitionresults: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3428,9 +3428,9 @@ impl InkStrokeContainer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddStrokes<'a, P0, E0>(&self, strokes: P0) -> ::windows::core::Result<()>
+    pub fn AddStrokes<P0, E0>(&self, strokes: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<InkStroke>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<InkStroke>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInkStrokeContainer2>(self)?;
@@ -3442,9 +3442,9 @@ impl InkStrokeContainer {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SaveWithFormatAsync<'a, P0, E0>(&self, outputstream: P0, inkpersistenceformat: InkPersistenceFormat) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SaveWithFormatAsync<P0, E0>(&self, outputstream: P0, inkpersistenceformat: InkPersistenceFormat) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInkStrokeContainer3>(self)?;
@@ -3506,7 +3506,7 @@ impl ::core::convert::TryFrom<&InkStrokeContainer> for IInkStrokeContainer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkStrokeContainer> for ::windows::core::InParam<'a, IInkStrokeContainer> {
+impl ::core::convert::TryFrom<&InkStrokeContainer> for ::windows::core::InParam<IInkStrokeContainer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkStrokeContainer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

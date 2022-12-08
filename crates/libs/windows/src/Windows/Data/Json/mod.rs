@@ -389,9 +389,9 @@ impl JsonArray {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, P0, E0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
+    pub fn IndexOf<P0, E0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IJsonValue>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
@@ -402,9 +402,9 @@ impl JsonArray {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAt<'a, P0, E0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
+    pub fn SetAt<P0, E0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IJsonValue>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
@@ -412,9 +412,9 @@ impl JsonArray {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn InsertAt<'a, P0, E0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
+    pub fn InsertAt<P0, E0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IJsonValue>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
@@ -428,9 +428,9 @@ impl JsonArray {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Append<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn Append<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IJsonValue>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
@@ -533,7 +533,7 @@ impl ::core::convert::TryFrom<&JsonArray> for super::super::Foundation::Collecti
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&JsonArray> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IJsonValue>> {
+impl ::core::convert::TryFrom<&JsonArray> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<IJsonValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &JsonArray) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -552,7 +552,7 @@ impl ::core::convert::TryFrom<&JsonArray> for IJsonValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&JsonArray> for ::windows::core::InParam<'a, IJsonValue> {
+impl ::core::convert::TryFrom<&JsonArray> for ::windows::core::InParam<IJsonValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &JsonArray) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -574,7 +574,7 @@ impl ::core::convert::TryFrom<&JsonArray> for super::super::Foundation::IStringa
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&JsonArray> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&JsonArray> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &JsonArray) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -596,7 +596,7 @@ impl ::core::convert::TryFrom<&JsonArray> for super::super::Foundation::Collecti
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&JsonArray> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<IJsonValue>> {
+impl ::core::convert::TryFrom<&JsonArray> for ::windows::core::InParam<super::super::Foundation::Collections::IVector<IJsonValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &JsonArray) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -650,9 +650,9 @@ impl JsonObject {
             (::windows::core::Vtable::vtable(this).GetNamedValue)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetNamedValue<'a, P0, E0>(&self, name: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
+    pub fn SetNamedValue<P0, E0>(&self, name: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IJsonValue>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -834,9 +834,9 @@ impl JsonObject {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, P0, E0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
+    pub fn Insert<P0, E0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IJsonValue>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IJsonValue>>(self)?;
@@ -936,7 +936,7 @@ impl ::core::convert::TryFrom<&JsonObject> for super::super::Foundation::Collect
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&JsonObject> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IJsonValue>>> {
+impl ::core::convert::TryFrom<&JsonObject> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IJsonValue>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &JsonObject) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -955,7 +955,7 @@ impl ::core::convert::TryFrom<&JsonObject> for IJsonValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&JsonObject> for ::windows::core::InParam<'a, IJsonValue> {
+impl ::core::convert::TryFrom<&JsonObject> for ::windows::core::InParam<IJsonValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &JsonObject) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -977,7 +977,7 @@ impl ::core::convert::TryFrom<&JsonObject> for super::super::Foundation::Collect
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&JsonObject> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IJsonValue>> {
+impl ::core::convert::TryFrom<&JsonObject> for ::windows::core::InParam<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IJsonValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &JsonObject) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -999,7 +999,7 @@ impl ::core::convert::TryFrom<&JsonObject> for super::super::Foundation::IString
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&JsonObject> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&JsonObject> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &JsonObject) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1162,7 +1162,7 @@ impl ::core::convert::TryFrom<&JsonValue> for IJsonValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&JsonValue> for ::windows::core::InParam<'a, IJsonValue> {
+impl ::core::convert::TryFrom<&JsonValue> for ::windows::core::InParam<IJsonValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &JsonValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1184,7 +1184,7 @@ impl ::core::convert::TryFrom<&JsonValue> for super::super::Foundation::IStringa
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&JsonValue> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&JsonValue> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &JsonValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

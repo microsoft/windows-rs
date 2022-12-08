@@ -288,9 +288,9 @@ pub struct IMediaExtension(::windows::core::IUnknown);
 impl IMediaExtension {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<'a, P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
+    pub fn SetProperties<P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -418,9 +418,9 @@ impl IMediaFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRelativeTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetRelativeTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -437,9 +437,9 @@ impl IMediaFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSystemRelativeTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSystemRelativeTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -456,9 +456,9 @@ impl IMediaFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDuration<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDuration<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -516,7 +516,7 @@ impl ::core::convert::TryFrom<&IMediaFrame> for super::Foundation::IClosable {
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&IMediaFrame> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&IMediaFrame> for ::windows::core::InParam<super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IMediaFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1425,7 +1425,7 @@ impl ::core::convert::TryFrom<&AudioBuffer> for super::Foundation::IClosable {
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&AudioBuffer> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&AudioBuffer> for ::windows::core::InParam<super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AudioBuffer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1447,7 +1447,7 @@ impl ::core::convert::TryFrom<&AudioBuffer> for super::Foundation::IMemoryBuffer
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&AudioBuffer> for ::windows::core::InParam<'a, super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&AudioBuffer> for ::windows::core::InParam<super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AudioBuffer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1495,9 +1495,9 @@ impl AudioFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRelativeTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetRelativeTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
@@ -1514,9 +1514,9 @@ impl AudioFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSystemRelativeTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSystemRelativeTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
@@ -1533,9 +1533,9 @@ impl AudioFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDuration<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDuration<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
@@ -1624,7 +1624,7 @@ impl ::core::convert::TryFrom<&AudioFrame> for super::Foundation::IClosable {
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&AudioFrame> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&AudioFrame> for ::windows::core::InParam<super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AudioFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1643,7 +1643,7 @@ impl ::core::convert::TryFrom<&AudioFrame> for IMediaFrame {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AudioFrame> for ::windows::core::InParam<'a, IMediaFrame> {
+impl ::core::convert::TryFrom<&AudioFrame> for ::windows::core::InParam<IMediaFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AudioFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2010,9 +2010,9 @@ impl MediaExtensionManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterSchemeHandlerWithSettings<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, scheme: &::windows::core::HSTRING, configuration: P0) -> ::windows::core::Result<()>
+    pub fn RegisterSchemeHandlerWithSettings<P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, scheme: &::windows::core::HSTRING, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2024,9 +2024,9 @@ impl MediaExtensionManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterByteStreamHandlerWithSettings<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, fileextension: &::windows::core::HSTRING, mimetype: &::windows::core::HSTRING, configuration: P0) -> ::windows::core::Result<()>
+    pub fn RegisterByteStreamHandlerWithSettings<P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, fileextension: &::windows::core::HSTRING, mimetype: &::windows::core::HSTRING, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2038,9 +2038,9 @@ impl MediaExtensionManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterAudioDecoderWithSettings<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P0) -> ::windows::core::Result<()>
+    pub fn RegisterAudioDecoderWithSettings<P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2052,9 +2052,9 @@ impl MediaExtensionManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterAudioEncoderWithSettings<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P0) -> ::windows::core::Result<()>
+    pub fn RegisterAudioEncoderWithSettings<P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2066,9 +2066,9 @@ impl MediaExtensionManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterVideoDecoderWithSettings<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P0) -> ::windows::core::Result<()>
+    pub fn RegisterVideoDecoderWithSettings<P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2080,9 +2080,9 @@ impl MediaExtensionManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterVideoEncoderWithSettings<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P0) -> ::windows::core::Result<()>
+    pub fn RegisterVideoEncoderWithSettings<P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2090,9 +2090,9 @@ impl MediaExtensionManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
     #[cfg(feature = "ApplicationModel_AppService")]
-    pub fn RegisterMediaExtensionForAppService<'a, P0, E0>(&self, extension: P0, connection: &super::ApplicationModel::AppService::AppServiceConnection) -> ::windows::core::Result<()>
+    pub fn RegisterMediaExtensionForAppService<P0, E0>(&self, extension: P0, connection: &super::ApplicationModel::AppService::AppServiceConnection) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMediaExtension>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IMediaExtension>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaExtensionManager2>(self)?;
@@ -2298,9 +2298,9 @@ impl MediaTimelineController {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDuration<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDuration<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaTimelineController2>(self)?;
@@ -3458,9 +3458,9 @@ impl VideoFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRelativeTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetRelativeTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
@@ -3477,9 +3477,9 @@ impl VideoFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSystemRelativeTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSystemRelativeTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
@@ -3496,9 +3496,9 @@ impl VideoFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDuration<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDuration<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
@@ -3562,11 +3562,11 @@ impl VideoFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
-    pub fn CopyToWithBoundsAsync<'a, P0, E0, P1, E1>(&self, frame: &VideoFrame, sourcebounds: P0, destinationbounds: P1) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn CopyToWithBoundsAsync<P0, E0, P1, E1>(&self, frame: &VideoFrame, sourcebounds: P0, destinationbounds: P1) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IVideoFrame2>(self)?;
@@ -3601,9 +3601,9 @@ impl VideoFrame {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateAsDirect3D11SurfaceBackedWithDevice<'a, P0, E0>(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, device: P0) -> ::windows::core::Result<VideoFrame>
+    pub fn CreateAsDirect3D11SurfaceBackedWithDevice<P0, E0>(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, device: P0) -> ::windows::core::Result<VideoFrame>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IVideoFrameStatics(|this| unsafe {
@@ -3621,9 +3621,9 @@ impl VideoFrame {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateWithDirect3D11Surface<'a, P0, E0>(surface: P0) -> ::windows::core::Result<VideoFrame>
+    pub fn CreateWithDirect3D11Surface<P0, E0>(surface: P0) -> ::windows::core::Result<VideoFrame>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IVideoFrameStatics(|this| unsafe {
@@ -3690,7 +3690,7 @@ impl ::core::convert::TryFrom<&VideoFrame> for super::Foundation::IClosable {
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&VideoFrame> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&VideoFrame> for ::windows::core::InParam<super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VideoFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3709,7 +3709,7 @@ impl ::core::convert::TryFrom<&VideoFrame> for IMediaFrame {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VideoFrame> for ::windows::core::InParam<'a, IMediaFrame> {
+impl ::core::convert::TryFrom<&VideoFrame> for ::windows::core::InParam<IMediaFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VideoFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -99,9 +99,9 @@ impl ISdoCollection {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Remove<'a, P0>(&self, pitem: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Remove<P0>(&self, pitem: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), pitem.into().abi()).ok()
     }
@@ -417,9 +417,9 @@ impl ISdoMachine2 {
     pub unsafe fn SyncConfigAgainstTemplates(&self, bstrservicename: &::windows::core::BSTR, ppconfigroot: *mut ::core::option::Option<::windows::core::IUnknown>, pptemplatesroot: *mut ::core::option::Option<::windows::core::IUnknown>, bforcedsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SyncConfigAgainstTemplates)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrservicename), ::core::mem::transmute(ppconfigroot), ::core::mem::transmute(pptemplatesroot), bforcedsync).ok()
     }
-    pub unsafe fn ImportRemoteTemplates<'a, P0>(&self, plocaltemplatesroot: P0, bstrremotemachinename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn ImportRemoteTemplates<P0>(&self, plocaltemplatesroot: P0, bstrremotemachinename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).ImportRemoteTemplates)(::windows::core::Vtable::as_raw(self), plocaltemplatesroot.into().abi(), ::core::mem::transmute_copy(bstrremotemachinename)).ok()
     }
@@ -567,25 +567,25 @@ impl ITemplateSdo {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddToCollection<'a, P0>(&self, bstrname: &::windows::core::BSTR, pcollection: P0, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>
+    pub unsafe fn AddToCollection<P0>(&self, bstrname: &::windows::core::BSTR, pcollection: P0, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).AddToCollection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), pcollection.into().abi(), ::core::mem::transmute(ppitem)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddToSdo<'a, P0>(&self, bstrname: &::windows::core::BSTR, psdotarget: P0, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>
+    pub unsafe fn AddToSdo<P0>(&self, bstrname: &::windows::core::BSTR, psdotarget: P0, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).AddToSdo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), psdotarget.into().abi(), ::core::mem::transmute(ppitem)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddToSdoAsProperty<'a, P0>(&self, psdotarget: P0, id: i32) -> ::windows::core::Result<()>
+    pub unsafe fn AddToSdoAsProperty<P0>(&self, psdotarget: P0, id: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).AddToSdoAsProperty)(::windows::core::Vtable::as_raw(self), psdotarget.into().abi(), id).ok()
     }

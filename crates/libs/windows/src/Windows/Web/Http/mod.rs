@@ -230,9 +230,9 @@ impl IHttpContent {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteToStreamAsync<'a, P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn WriteToStreamAsync<P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -264,7 +264,7 @@ impl ::core::convert::TryFrom<&IHttpContent> for super::super::Foundation::IClos
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&IHttpContent> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&IHttpContent> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IHttpContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -809,9 +809,9 @@ impl HttpBufferContent {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, P0, E0>(content: P0) -> ::windows::core::Result<HttpBufferContent>
+    pub fn CreateFromBuffer<P0, E0>(content: P0) -> ::windows::core::Result<HttpBufferContent>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IHttpBufferContentFactory(|this| unsafe {
@@ -821,9 +821,9 @@ impl HttpBufferContent {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBufferWithOffset<'a, P0, E0>(content: P0, offset: u32, count: u32) -> ::windows::core::Result<HttpBufferContent>
+    pub fn CreateFromBufferWithOffset<P0, E0>(content: P0, offset: u32, count: u32) -> ::windows::core::Result<HttpBufferContent>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IHttpBufferContentFactory(|this| unsafe {
@@ -885,9 +885,9 @@ impl HttpBufferContent {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteToStreamAsync<'a, P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn WriteToStreamAsync<P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -959,7 +959,7 @@ impl ::core::convert::TryFrom<&HttpBufferContent> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpBufferContent> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HttpBufferContent> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpBufferContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -978,7 +978,7 @@ impl ::core::convert::TryFrom<&HttpBufferContent> for IHttpContent {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&HttpBufferContent> for ::windows::core::InParam<'a, IHttpContent> {
+impl ::core::convert::TryFrom<&HttpBufferContent> for ::windows::core::InParam<IHttpContent> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpBufferContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1000,7 +1000,7 @@ impl ::core::convert::TryFrom<&HttpBufferContent> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpBufferContent> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpBufferContent> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpBufferContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1082,9 +1082,9 @@ impl HttpClient {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PostAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, content: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
+    pub fn PostAsync<P0, E0>(&self, uri: &super::super::Foundation::Uri, content: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IHttpContent>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IHttpContent>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1095,9 +1095,9 @@ impl HttpClient {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PutAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, content: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
+    pub fn PutAsync<P0, E0>(&self, uri: &super::super::Foundation::Uri, content: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IHttpContent>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IHttpContent>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1189,9 +1189,9 @@ impl HttpClient {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryPostAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, content: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
+    pub fn TryPostAsync<P0, E0>(&self, uri: &super::super::Foundation::Uri, content: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IHttpContent>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IHttpContent>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IHttpClient2>(self)?;
@@ -1202,9 +1202,9 @@ impl HttpClient {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryPutAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, content: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
+    pub fn TryPutAsync<P0, E0>(&self, uri: &super::super::Foundation::Uri, content: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IHttpContent>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IHttpContent>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IHttpClient2>(self)?;
@@ -1244,9 +1244,9 @@ impl HttpClient {
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     #[cfg(feature = "Web_Http_Filters")]
-    pub fn Create<'a, P0, E0>(filter: P0) -> ::windows::core::Result<HttpClient>
+    pub fn Create<P0, E0>(filter: P0) -> ::windows::core::Result<HttpClient>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, Filters::IHttpFilter>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<Filters::IHttpFilter>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IHttpClientFactory(|this| unsafe {
@@ -1317,7 +1317,7 @@ impl ::core::convert::TryFrom<&HttpClient> for super::super::Foundation::IClosab
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpClient> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HttpClient> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpClient) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1339,7 +1339,7 @@ impl ::core::convert::TryFrom<&HttpClient> for super::super::Foundation::IString
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpClient> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpClient> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpClient) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1384,9 +1384,9 @@ impl HttpCookie {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpires<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetExpires<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1494,7 +1494,7 @@ impl ::core::convert::TryFrom<&HttpCookie> for super::super::Foundation::IString
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpCookie> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpCookie> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpCookie) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1628,7 +1628,7 @@ impl ::core::convert::TryFrom<&HttpCookieCollection> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpCookieCollection> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<HttpCookie>> {
+impl ::core::convert::TryFrom<&HttpCookieCollection> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<HttpCookie>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpCookieCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1650,7 +1650,7 @@ impl ::core::convert::TryFrom<&HttpCookieCollection> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpCookieCollection> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<HttpCookie>> {
+impl ::core::convert::TryFrom<&HttpCookieCollection> for ::windows::core::InParam<super::super::Foundation::Collections::IVectorView<HttpCookie>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpCookieCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1792,9 +1792,9 @@ impl HttpFormUrlEncodedContent {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteToStreamAsync<'a, P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn WriteToStreamAsync<P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1805,9 +1805,9 @@ impl HttpFormUrlEncodedContent {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, P0, E0>(content: P0) -> ::windows::core::Result<HttpFormUrlEncodedContent>
+    pub fn Create<P0, E0>(content: P0) -> ::windows::core::Result<HttpFormUrlEncodedContent>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IHttpFormUrlEncodedContentFactory(|this| unsafe {
@@ -1878,7 +1878,7 @@ impl ::core::convert::TryFrom<&HttpFormUrlEncodedContent> for super::super::Foun
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpFormUrlEncodedContent> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HttpFormUrlEncodedContent> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpFormUrlEncodedContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1897,7 +1897,7 @@ impl ::core::convert::TryFrom<&HttpFormUrlEncodedContent> for IHttpContent {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&HttpFormUrlEncodedContent> for ::windows::core::InParam<'a, IHttpContent> {
+impl ::core::convert::TryFrom<&HttpFormUrlEncodedContent> for ::windows::core::InParam<IHttpContent> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpFormUrlEncodedContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1919,7 +1919,7 @@ impl ::core::convert::TryFrom<&HttpFormUrlEncodedContent> for super::super::Foun
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpFormUrlEncodedContent> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpFormUrlEncodedContent> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpFormUrlEncodedContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2033,7 +2033,7 @@ impl ::core::convert::TryFrom<&HttpGetBufferResult> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpGetBufferResult> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HttpGetBufferResult> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpGetBufferResult) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2055,7 +2055,7 @@ impl ::core::convert::TryFrom<&HttpGetBufferResult> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpGetBufferResult> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpGetBufferResult> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpGetBufferResult) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2169,7 +2169,7 @@ impl ::core::convert::TryFrom<&HttpGetInputStreamResult> for super::super::Found
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpGetInputStreamResult> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HttpGetInputStreamResult> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpGetInputStreamResult) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2191,7 +2191,7 @@ impl ::core::convert::TryFrom<&HttpGetInputStreamResult> for super::super::Found
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpGetInputStreamResult> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpGetInputStreamResult> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpGetInputStreamResult) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2303,7 +2303,7 @@ impl ::core::convert::TryFrom<&HttpGetStringResult> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpGetStringResult> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HttpGetStringResult> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpGetStringResult) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2325,7 +2325,7 @@ impl ::core::convert::TryFrom<&HttpGetStringResult> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpGetStringResult> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpGetStringResult> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpGetStringResult) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2461,7 +2461,7 @@ impl ::core::convert::TryFrom<&HttpMethod> for super::super::Foundation::IString
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpMethod> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpMethod> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMethod) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2541,9 +2541,9 @@ impl HttpMultipartContent {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteToStreamAsync<'a, P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn WriteToStreamAsync<P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2552,9 +2552,9 @@ impl HttpMultipartContent {
             (::windows::core::Vtable::vtable(this).WriteToStreamAsync)(::windows::core::Vtable::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Add<'a, P0, E0>(&self, content: P0) -> ::windows::core::Result<()>
+    pub fn Add<P0, E0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IHttpContent>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IHttpContent>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IHttpMultipartContent>(self)?;
@@ -2660,7 +2660,7 @@ impl ::core::convert::TryFrom<&HttpMultipartContent> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpMultipartContent> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HttpMultipartContent> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMultipartContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2679,7 +2679,7 @@ impl ::core::convert::TryFrom<&HttpMultipartContent> for IHttpContent {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&HttpMultipartContent> for ::windows::core::InParam<'a, IHttpContent> {
+impl ::core::convert::TryFrom<&HttpMultipartContent> for ::windows::core::InParam<IHttpContent> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMultipartContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2701,7 +2701,7 @@ impl ::core::convert::TryFrom<&HttpMultipartContent> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpMultipartContent> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IHttpContent>> {
+impl ::core::convert::TryFrom<&HttpMultipartContent> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<IHttpContent>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMultipartContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2723,7 +2723,7 @@ impl ::core::convert::TryFrom<&HttpMultipartContent> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpMultipartContent> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpMultipartContent> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMultipartContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2803,9 +2803,9 @@ impl HttpMultipartFormDataContent {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteToStreamAsync<'a, P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn WriteToStreamAsync<P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2814,25 +2814,25 @@ impl HttpMultipartFormDataContent {
             (::windows::core::Vtable::vtable(this).WriteToStreamAsync)(::windows::core::Vtable::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Add<'a, P0, E0>(&self, content: P0) -> ::windows::core::Result<()>
+    pub fn Add<P0, E0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IHttpContent>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IHttpContent>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IHttpMultipartFormDataContent>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).Add)(::windows::core::Vtable::as_raw(this), content.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn AddWithName<'a, P0, E0>(&self, content: P0, name: &::windows::core::HSTRING) -> ::windows::core::Result<()>
+    pub fn AddWithName<P0, E0>(&self, content: P0, name: &::windows::core::HSTRING) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IHttpContent>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IHttpContent>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IHttpMultipartFormDataContent>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).AddWithName)(::windows::core::Vtable::as_raw(this), content.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(name)).ok() }
     }
-    pub fn AddWithNameAndFileName<'a, P0, E0>(&self, content: P0, name: &::windows::core::HSTRING, filename: &::windows::core::HSTRING) -> ::windows::core::Result<()>
+    pub fn AddWithNameAndFileName<P0, E0>(&self, content: P0, name: &::windows::core::HSTRING, filename: &::windows::core::HSTRING) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IHttpContent>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IHttpContent>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IHttpMultipartFormDataContent>(self)?;
@@ -2932,7 +2932,7 @@ impl ::core::convert::TryFrom<&HttpMultipartFormDataContent> for super::super::F
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpMultipartFormDataContent> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HttpMultipartFormDataContent> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMultipartFormDataContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2951,7 +2951,7 @@ impl ::core::convert::TryFrom<&HttpMultipartFormDataContent> for IHttpContent {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&HttpMultipartFormDataContent> for ::windows::core::InParam<'a, IHttpContent> {
+impl ::core::convert::TryFrom<&HttpMultipartFormDataContent> for ::windows::core::InParam<IHttpContent> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMultipartFormDataContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2973,7 +2973,7 @@ impl ::core::convert::TryFrom<&HttpMultipartFormDataContent> for super::super::F
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpMultipartFormDataContent> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IHttpContent>> {
+impl ::core::convert::TryFrom<&HttpMultipartFormDataContent> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<IHttpContent>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMultipartFormDataContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2995,7 +2995,7 @@ impl ::core::convert::TryFrom<&HttpMultipartFormDataContent> for super::super::F
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpMultipartFormDataContent> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpMultipartFormDataContent> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMultipartFormDataContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3028,9 +3028,9 @@ impl HttpRequestMessage {
             (::windows::core::Vtable::vtable(this).Content)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetContent<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetContent<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IHttpContent>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IHttpContent>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3169,7 +3169,7 @@ impl ::core::convert::TryFrom<&HttpRequestMessage> for super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpRequestMessage> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HttpRequestMessage> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpRequestMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3191,7 +3191,7 @@ impl ::core::convert::TryFrom<&HttpRequestMessage> for super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpRequestMessage> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpRequestMessage> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpRequestMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3296,7 +3296,7 @@ impl ::core::convert::TryFrom<&HttpRequestResult> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpRequestResult> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HttpRequestResult> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpRequestResult) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3318,7 +3318,7 @@ impl ::core::convert::TryFrom<&HttpRequestResult> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpRequestResult> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpRequestResult> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpRequestResult) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3351,9 +3351,9 @@ impl HttpResponseMessage {
             (::windows::core::Vtable::vtable(this).Content)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetContent<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetContent<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IHttpContent>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IHttpContent>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3506,7 +3506,7 @@ impl ::core::convert::TryFrom<&HttpResponseMessage> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpResponseMessage> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HttpResponseMessage> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpResponseMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3528,7 +3528,7 @@ impl ::core::convert::TryFrom<&HttpResponseMessage> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpResponseMessage> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpResponseMessage> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpResponseMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3601,9 +3601,9 @@ impl HttpStreamContent {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteToStreamAsync<'a, P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn WriteToStreamAsync<P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3614,9 +3614,9 @@ impl HttpStreamContent {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromInputStream<'a, P0, E0>(content: P0) -> ::windows::core::Result<HttpStreamContent>
+    pub fn CreateFromInputStream<P0, E0>(content: P0) -> ::windows::core::Result<HttpStreamContent>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IHttpStreamContentFactory(|this| unsafe {
@@ -3687,7 +3687,7 @@ impl ::core::convert::TryFrom<&HttpStreamContent> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpStreamContent> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HttpStreamContent> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpStreamContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3706,7 +3706,7 @@ impl ::core::convert::TryFrom<&HttpStreamContent> for IHttpContent {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&HttpStreamContent> for ::windows::core::InParam<'a, IHttpContent> {
+impl ::core::convert::TryFrom<&HttpStreamContent> for ::windows::core::InParam<IHttpContent> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpStreamContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3728,7 +3728,7 @@ impl ::core::convert::TryFrom<&HttpStreamContent> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpStreamContent> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpStreamContent> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpStreamContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3801,9 +3801,9 @@ impl HttpStringContent {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteToStreamAsync<'a, P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn WriteToStreamAsync<P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3897,7 +3897,7 @@ impl ::core::convert::TryFrom<&HttpStringContent> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpStringContent> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HttpStringContent> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpStringContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3916,7 +3916,7 @@ impl ::core::convert::TryFrom<&HttpStringContent> for IHttpContent {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&HttpStringContent> for ::windows::core::InParam<'a, IHttpContent> {
+impl ::core::convert::TryFrom<&HttpStringContent> for ::windows::core::InParam<IHttpContent> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpStringContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3938,7 +3938,7 @@ impl ::core::convert::TryFrom<&HttpStringContent> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpStringContent> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpStringContent> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpStringContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4045,7 +4045,7 @@ impl ::core::convert::TryFrom<&HttpTransportInformation> for super::super::Found
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpTransportInformation> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpTransportInformation> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpTransportInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

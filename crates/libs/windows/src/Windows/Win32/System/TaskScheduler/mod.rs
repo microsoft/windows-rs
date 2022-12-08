@@ -177,9 +177,9 @@ impl IBootTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRepetition<P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRepetitionPattern>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetRepetition)(::windows::core::Vtable::as_raw(self), prepeat.into().abi()).ok()
     }
@@ -347,9 +347,9 @@ impl IDailyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRepetition<P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRepetitionPattern>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetRepetition)(::windows::core::Vtable::as_raw(self), prepeat.into().abi()).ok()
     }
@@ -499,9 +499,9 @@ impl IEmailAction {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHeaderFields<'a, P0>(&self, pheaderfields: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHeaderFields<P0>(&self, pheaderfields: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITaskNamedValueCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITaskNamedValueCollection>>,
     {
         (::windows::core::Vtable::vtable(self).SetHeaderFields)(::windows::core::Vtable::as_raw(self), pheaderfields.into().abi()).ok()
     }
@@ -663,9 +663,9 @@ impl IEventTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRepetition<P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRepetitionPattern>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetRepetition)(::windows::core::Vtable::as_raw(self), prepeat.into().abi()).ok()
     }
@@ -717,9 +717,9 @@ impl IEventTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetValueQueries<'a, P0>(&self, pnamedxpaths: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetValueQueries<P0>(&self, pnamedxpaths: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITaskNamedValueCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITaskNamedValueCollection>>,
     {
         (::windows::core::Vtable::vtable(self).SetValueQueries)(::windows::core::Vtable::as_raw(self), pnamedxpaths.into().abi()).ok()
     }
@@ -1054,9 +1054,9 @@ impl IIdleTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRepetition<P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRepetitionPattern>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetRepetition)(::windows::core::Vtable::as_raw(self), prepeat.into().abi()).ok()
     }
@@ -1148,9 +1148,9 @@ impl ILogonTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRepetition<P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRepetitionPattern>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetRepetition)(::windows::core::Vtable::as_raw(self), prepeat.into().abi()).ok()
     }
@@ -1335,9 +1335,9 @@ impl IMonthlyDOWTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRepetition<P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRepetitionPattern>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetRepetition)(::windows::core::Vtable::as_raw(self), prepeat.into().abi()).ok()
     }
@@ -1479,9 +1479,9 @@ impl IMonthlyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRepetition<P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRepetitionPattern>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetRepetition)(::windows::core::Vtable::as_raw(self), prepeat.into().abi()).ok()
     }
@@ -1811,7 +1811,7 @@ pub struct IProvideTaskPage(::windows::core::IUnknown);
 impl IProvideTaskPage {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn GetPage<'a, P0>(&self, tptype: TASKPAGE, fpersistchanges: P0) -> ::windows::core::Result<super::super::UI::Controls::HPROPSHEETPAGE>
+    pub unsafe fn GetPage<P0>(&self, tptype: TASKPAGE, fpersistchanges: P0) -> ::windows::core::Result<super::super::UI::Controls::HPROPSHEETPAGE>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2226,9 +2226,9 @@ impl IRegistrationTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRepetition<P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRepetitionPattern>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetRepetition)(::windows::core::Vtable::as_raw(self), prepeat.into().abi()).ok()
     }
@@ -2572,7 +2572,7 @@ impl IScheduledWorkItem {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EditWorkItem<'a, P0>(&self, hparent: P0, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn EditWorkItem<P0>(&self, hparent: P0, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -2592,7 +2592,7 @@ impl IScheduledWorkItem {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetExitCode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetComment<'a, P0>(&self, pwszcomment: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetComment<P0>(&self, pwszcomment: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2602,7 +2602,7 @@ impl IScheduledWorkItem {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetComment)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetCreator<'a, P0>(&self, pwszcreator: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCreator<P0>(&self, pwszcreator: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2639,7 +2639,7 @@ impl IScheduledWorkItem {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetAccountInformation<'a, P0, P1>(&self, pwszaccountname: P0, pwszpassword: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetAccountInformation<P0, P1>(&self, pwszaccountname: P0, pwszpassword: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2743,9 +2743,9 @@ impl ISessionStateChangeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRepetition<P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRepetitionPattern>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetRepetition)(::windows::core::Vtable::as_raw(self), prepeat.into().abi()).ok()
     }
@@ -2952,7 +2952,7 @@ impl ITask {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EditWorkItem<'a, P0>(&self, hparent: P0, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn EditWorkItem<P0>(&self, hparent: P0, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -2972,7 +2972,7 @@ impl ITask {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetExitCode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetComment<'a, P0>(&self, pwszcomment: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetComment<P0>(&self, pwszcomment: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2982,7 +2982,7 @@ impl ITask {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetComment)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetCreator<'a, P0>(&self, pwszcreator: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCreator<P0>(&self, pwszcreator: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3019,7 +3019,7 @@ impl ITask {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetAccountInformation<'a, P0, P1>(&self, pwszaccountname: P0, pwszpassword: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetAccountInformation<P0, P1>(&self, pwszaccountname: P0, pwszpassword: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3030,7 +3030,7 @@ impl ITask {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetAccountInformation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetApplicationName<'a, P0>(&self, pwszapplicationname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetApplicationName<P0>(&self, pwszapplicationname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3040,7 +3040,7 @@ impl ITask {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetApplicationName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetParameters<'a, P0>(&self, pwszparameters: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetParameters<P0>(&self, pwszparameters: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3050,7 +3050,7 @@ impl ITask {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetParameters)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetWorkingDirectory<'a, P0>(&self, pwszworkingdirectory: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWorkingDirectory<P0>(&self, pwszworkingdirectory: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3136,9 +3136,9 @@ impl ITaskDefinition {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRegistrationInfo<'a, P0>(&self, pregistrationinfo: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRegistrationInfo<P0>(&self, pregistrationinfo: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRegistrationInfo>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRegistrationInfo>>,
     {
         (::windows::core::Vtable::vtable(self).SetRegistrationInfo)(::windows::core::Vtable::as_raw(self), pregistrationinfo.into().abi()).ok()
     }
@@ -3150,9 +3150,9 @@ impl ITaskDefinition {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetTriggers<'a, P0>(&self, ptriggers: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTriggers<P0>(&self, ptriggers: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITriggerCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITriggerCollection>>,
     {
         (::windows::core::Vtable::vtable(self).SetTriggers)(::windows::core::Vtable::as_raw(self), ptriggers.into().abi()).ok()
     }
@@ -3164,9 +3164,9 @@ impl ITaskDefinition {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSettings<'a, P0>(&self, psettings: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSettings<P0>(&self, psettings: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITaskSettings>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITaskSettings>>,
     {
         (::windows::core::Vtable::vtable(self).SetSettings)(::windows::core::Vtable::as_raw(self), psettings.into().abi()).ok()
     }
@@ -3184,9 +3184,9 @@ impl ITaskDefinition {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPrincipal<'a, P0>(&self, pprincipal: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrincipal<P0>(&self, pprincipal: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IPrincipal>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IPrincipal>>,
     {
         (::windows::core::Vtable::vtable(self).SetPrincipal)(::windows::core::Vtable::as_raw(self), pprincipal.into().abi()).ok()
     }
@@ -3198,9 +3198,9 @@ impl ITaskDefinition {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetActions<'a, P0>(&self, pactions: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetActions<P0>(&self, pactions: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IActionCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IActionCollection>>,
     {
         (::windows::core::Vtable::vtable(self).SetActions)(::windows::core::Vtable::as_raw(self), pactions.into().abi()).ok()
     }
@@ -3349,9 +3349,9 @@ impl ITaskFolder {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterTaskDefinition<'a, P0>(&self, path: &::windows::core::BSTR, pdefinition: P0, flags: i32, userid: super::Com::VARIANT, password: super::Com::VARIANT, logontype: TASK_LOGON_TYPE, sddl: super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask>
+    pub unsafe fn RegisterTaskDefinition<P0>(&self, path: &::windows::core::BSTR, pdefinition: P0, flags: i32, userid: super::Com::VARIANT, password: super::Com::VARIANT, logontype: TASK_LOGON_TYPE, sddl: super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITaskDefinition>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITaskDefinition>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).RegisterTaskDefinition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), pdefinition.into().abi(), flags, ::core::mem::transmute(userid), ::core::mem::transmute(password), logontype, ::core::mem::transmute(sddl), result__.as_mut_ptr()).from_abi(result__)
@@ -3501,9 +3501,9 @@ pub struct ITaskFolderCollection_Vtbl {
 #[repr(transparent)]
 pub struct ITaskHandler(::windows::core::IUnknown);
 impl ITaskHandler {
-    pub unsafe fn Start<'a, P0>(&self, phandlerservices: P0, data: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Start<P0>(&self, phandlerservices: P0, data: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).Start)(::windows::core::Vtable::as_raw(self), phandlerservices.into().abi(), ::core::mem::transmute_copy(data)).ok()
     }
@@ -3734,7 +3734,7 @@ pub struct ITaskNamedValuePair_Vtbl {
 #[repr(transparent)]
 pub struct ITaskScheduler(::windows::core::IUnknown);
 impl ITaskScheduler {
-    pub unsafe fn SetTargetComputer<'a, P0>(&self, pwszcomputer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTargetComputer<P0>(&self, pwszcomputer: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3748,34 +3748,34 @@ impl ITaskScheduler {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Enum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Activate<'a, P0>(&self, pwszname: P0, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>
+    pub unsafe fn Activate<P0>(&self, pwszname: P0, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), pwszname.into(), riid, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Delete<'a, P0>(&self, pwszname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Delete<P0>(&self, pwszname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), pwszname.into()).ok()
     }
-    pub unsafe fn NewWorkItem<'a, P0>(&self, pwsztaskname: P0, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>
+    pub unsafe fn NewWorkItem<P0>(&self, pwsztaskname: P0, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).NewWorkItem)(::windows::core::Vtable::as_raw(self), pwsztaskname.into(), rclsid, riid, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn AddWorkItem<'a, P0, P1>(&self, pwsztaskname: P0, pworkitem: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddWorkItem<P0, P1>(&self, pwsztaskname: P0, pworkitem: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IScheduledWorkItem>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IScheduledWorkItem>>,
     {
         (::windows::core::Vtable::vtable(self).AddWorkItem)(::windows::core::Vtable::as_raw(self), pwsztaskname.into(), pworkitem.into().abi()).ok()
     }
-    pub unsafe fn IsOfType<'a, P0>(&self, pwszname: P0, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
+    pub unsafe fn IsOfType<P0>(&self, pwszname: P0, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4072,9 +4072,9 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetIdleSettings<'a, P0>(&self, pidlesettings: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetIdleSettings<P0>(&self, pidlesettings: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IIdleSettings>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IIdleSettings>>,
     {
         (::windows::core::Vtable::vtable(self).SetIdleSettings)(::windows::core::Vtable::as_raw(self), pidlesettings.into().abi()).ok()
     }
@@ -4106,9 +4106,9 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetNetworkSettings<'a, P0>(&self, pnetworksettings: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNetworkSettings<P0>(&self, pnetworksettings: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, INetworkSettings>>,
+        P0: ::std::convert::Into<::windows::core::InParam<INetworkSettings>>,
     {
         (::windows::core::Vtable::vtable(self).SetNetworkSettings)(::windows::core::Vtable::as_raw(self), pnetworksettings.into().abi()).ok()
     }
@@ -4482,9 +4482,9 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetIdleSettings<'a, P0>(&self, pidlesettings: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetIdleSettings<P0>(&self, pidlesettings: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IIdleSettings>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IIdleSettings>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetIdleSettings)(::windows::core::Vtable::as_raw(self), pidlesettings.into().abi()).ok()
     }
@@ -4516,9 +4516,9 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetNetworkSettings<'a, P0>(&self, pnetworksettings: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNetworkSettings<P0>(&self, pnetworksettings: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, INetworkSettings>>,
+        P0: ::std::convert::Into<::windows::core::InParam<INetworkSettings>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetNetworkSettings)(::windows::core::Vtable::as_raw(self), pnetworksettings.into().abi()).ok()
     }
@@ -4550,9 +4550,9 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetMaintenanceSettings<'a, P0>(&self, pmaintenancesettings: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMaintenanceSettings<P0>(&self, pmaintenancesettings: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMaintenanceSettings>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMaintenanceSettings>>,
     {
         (::windows::core::Vtable::vtable(self).SetMaintenanceSettings)(::windows::core::Vtable::as_raw(self), pmaintenancesettings.into().abi()).ok()
     }
@@ -4762,9 +4762,9 @@ impl ITimeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRepetition<P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRepetitionPattern>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetRepetition)(::windows::core::Vtable::as_raw(self), prepeat.into().abi()).ok()
     }
@@ -4864,9 +4864,9 @@ impl ITrigger {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRepetition<P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRepetitionPattern>>,
     {
         (::windows::core::Vtable::vtable(self).SetRepetition)(::windows::core::Vtable::as_raw(self), prepeat.into().abi()).ok()
     }
@@ -5068,9 +5068,9 @@ impl IWeeklyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRepetition<P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRepetitionPattern>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetRepetition)(::windows::core::Vtable::as_raw(self), prepeat.into().abi()).ok()
     }

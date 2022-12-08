@@ -480,7 +480,7 @@ impl ::core::convert::TryFrom<&HdcpSession> for super::super::Foundation::IClosa
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HdcpSession> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HdcpSession> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HdcpSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -605,9 +605,9 @@ impl MediaProtectionPMPServer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreatePMPServer<'a, P0, E0>(pproperties: P0) -> ::windows::core::Result<MediaProtectionPMPServer>
+    pub fn CreatePMPServer<P0, E0>(pproperties: P0) -> ::windows::core::Result<MediaProtectionPMPServer>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaProtectionPMPServerFactory(|this| unsafe {

@@ -110,7 +110,7 @@ impl ::core::convert::TryFrom<&IActivatedEventArgsWithUser> for IActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IActivatedEventArgsWithUser> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IActivatedEventArgsWithUser> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IActivatedEventArgsWithUser) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -201,7 +201,7 @@ impl ::core::convert::TryFrom<&IApplicationViewActivatedEventArgs> for IActivate
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IApplicationViewActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IApplicationViewActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IApplicationViewActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -289,7 +289,7 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderActivatedEventArgs> for IAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IAppointmentsProviderActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAppointmentsProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -386,7 +386,7 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderAddAppointmentActivatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -405,7 +405,7 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderAddAppointmentActivatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -505,7 +505,7 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderRemoveAppointmentActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -524,7 +524,7 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderRemoveAppointmentActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -624,7 +624,7 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderReplaceAppointmentActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -643,7 +643,7 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderReplaceAppointmentActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -757,7 +757,7 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderShowAppointmentDetailsActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -776,7 +776,7 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderShowAppointmentDetailsActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -887,7 +887,7 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderShowTimeFrameActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -906,7 +906,7 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderShowTimeFrameActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1054,7 +1054,7 @@ impl ::core::convert::TryFrom<&IBarcodeScannerPreviewActivatedEventArgs> for IAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IBarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1144,7 +1144,7 @@ impl ::core::convert::TryFrom<&ICachedFileUpdaterActivatedEventArgs> for IActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ICachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ICachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ICachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1242,7 +1242,7 @@ impl ::core::convert::TryFrom<&ICameraSettingsActivatedEventArgs> for IActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ICameraSettingsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ICameraSettingsActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ICameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1331,7 +1331,7 @@ impl ::core::convert::TryFrom<&ICommandLineActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ICommandLineActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ICommandLineActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ICommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1441,7 +1441,7 @@ impl ::core::convert::TryFrom<&IContactActivatedEventArgs> for IActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IContactActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IContactActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IContactActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1552,7 +1552,7 @@ impl ::core::convert::TryFrom<&IContactCallActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IContactCallActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1571,7 +1571,7 @@ impl ::core::convert::TryFrom<&IContactCallActivatedEventArgs> for IContactActiv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IContactCallActivatedEventArgs> for ::windows::core::InParam<IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1682,7 +1682,7 @@ impl ::core::convert::TryFrom<&IContactMapActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IContactMapActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1701,7 +1701,7 @@ impl ::core::convert::TryFrom<&IContactMapActivatedEventArgs> for IContactActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IContactMapActivatedEventArgs> for ::windows::core::InParam<IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1819,7 +1819,7 @@ impl ::core::convert::TryFrom<&IContactMessageActivatedEventArgs> for IActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IContactMessageActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1838,7 +1838,7 @@ impl ::core::convert::TryFrom<&IContactMessageActivatedEventArgs> for IContactAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IContactMessageActivatedEventArgs> for ::windows::core::InParam<IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1999,7 +1999,7 @@ impl ::core::convert::TryFrom<&IContactPickerActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IContactPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IContactPickerActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2113,7 +2113,7 @@ impl ::core::convert::TryFrom<&IContactPostActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IContactPostActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2132,7 +2132,7 @@ impl ::core::convert::TryFrom<&IContactPostActivatedEventArgs> for IContactActiv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IContactPostActivatedEventArgs> for ::windows::core::InParam<IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2248,7 +2248,7 @@ impl ::core::convert::TryFrom<&IContactVideoCallActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IContactVideoCallActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2267,7 +2267,7 @@ impl ::core::convert::TryFrom<&IContactVideoCallActivatedEventArgs> for IContact
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IContactVideoCallActivatedEventArgs> for ::windows::core::InParam<IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2360,7 +2360,7 @@ impl ::core::convert::TryFrom<&IContactsProviderActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IContactsProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IContactsProviderActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IContactsProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2450,7 +2450,7 @@ impl ::core::convert::TryFrom<&IContinuationActivatedEventArgs> for IActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IContinuationActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IContinuationActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IContinuationActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2548,7 +2548,7 @@ impl ::core::convert::TryFrom<&IDeviceActivatedEventArgs> for IActivatedEventArg
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IDeviceActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IDeviceActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IDeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2639,7 +2639,7 @@ impl ::core::convert::TryFrom<&IDevicePairingActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IDevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IDevicePairingActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IDevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2744,7 +2744,7 @@ impl ::core::convert::TryFrom<&IDialReceiverActivatedEventArgs> for IActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IDialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IDialReceiverActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IDialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2763,7 +2763,7 @@ impl ::core::convert::TryFrom<&IDialReceiverActivatedEventArgs> for ILaunchActiv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IDialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IDialReceiverActivatedEventArgs> for ::windows::core::InParam<ILaunchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IDialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2860,7 +2860,7 @@ impl ::core::convert::TryFrom<&IFileActivatedEventArgs> for IActivatedEventArgs 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IFileActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IFileActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IFileActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2952,7 +2952,7 @@ impl ::core::convert::TryFrom<&IFileActivatedEventArgsWithCallerPackageFamilyNam
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IFileActivatedEventArgsWithCallerPackageFamilyName> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IFileActivatedEventArgsWithCallerPackageFamilyName> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IFileActivatedEventArgsWithCallerPackageFamilyName) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3058,7 +3058,7 @@ impl ::core::convert::TryFrom<&IFileActivatedEventArgsWithNeighboringFiles> for 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IFileActivatedEventArgsWithNeighboringFiles> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IFileActivatedEventArgsWithNeighboringFiles> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IFileActivatedEventArgsWithNeighboringFiles) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3077,7 +3077,7 @@ impl ::core::convert::TryFrom<&IFileActivatedEventArgsWithNeighboringFiles> for 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IFileActivatedEventArgsWithNeighboringFiles> for ::windows::core::InParam<'a, IFileActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IFileActivatedEventArgsWithNeighboringFiles> for ::windows::core::InParam<IFileActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IFileActivatedEventArgsWithNeighboringFiles) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3170,7 +3170,7 @@ impl ::core::convert::TryFrom<&IFileOpenPickerActivatedEventArgs> for IActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IFileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IFileOpenPickerActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IFileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3326,7 +3326,7 @@ impl ::core::convert::TryFrom<&IFileOpenPickerContinuationEventArgs> for IActiva
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&IFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IFileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3348,7 +3348,7 @@ impl ::core::convert::TryFrom<&IFileOpenPickerContinuationEventArgs> for IContin
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&IFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<IContinuationActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IFileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3449,7 +3449,7 @@ impl ::core::convert::TryFrom<&IFileSavePickerActivatedEventArgs> for IActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IFileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IFileSavePickerActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IFileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3613,7 +3613,7 @@ impl ::core::convert::TryFrom<&IFileSavePickerContinuationEventArgs> for IActiva
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&IFileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IFileSavePickerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IFileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3635,7 +3635,7 @@ impl ::core::convert::TryFrom<&IFileSavePickerContinuationEventArgs> for IContin
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&IFileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IFileSavePickerContinuationEventArgs> for ::windows::core::InParam<IContinuationActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IFileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3751,7 +3751,7 @@ impl ::core::convert::TryFrom<&IFolderPickerContinuationEventArgs> for IActivate
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&IFolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IFolderPickerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IFolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3773,7 +3773,7 @@ impl ::core::convert::TryFrom<&IFolderPickerContinuationEventArgs> for IContinua
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&IFolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IFolderPickerContinuationEventArgs> for ::windows::core::InParam<IContinuationActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IFolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3879,7 +3879,7 @@ impl ::core::convert::TryFrom<&ILaunchActivatedEventArgs> for IActivatedEventArg
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ILaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ILaunchActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ILaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3982,7 +3982,7 @@ impl ::core::convert::TryFrom<&ILaunchActivatedEventArgs2> for IActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ILaunchActivatedEventArgs2> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ILaunchActivatedEventArgs2> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ILaunchActivatedEventArgs2) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4001,7 +4001,7 @@ impl ::core::convert::TryFrom<&ILaunchActivatedEventArgs2> for ILaunchActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ILaunchActivatedEventArgs2> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ILaunchActivatedEventArgs2> for ::windows::core::InParam<ILaunchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ILaunchActivatedEventArgs2) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4089,7 +4089,7 @@ impl ::core::convert::TryFrom<&ILockScreenActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ILockScreenActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ILockScreenActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ILockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4193,7 +4193,7 @@ impl ::core::convert::TryFrom<&ILockScreenCallActivatedEventArgs> for IActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ILockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ILockScreenCallActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ILockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4212,7 +4212,7 @@ impl ::core::convert::TryFrom<&ILockScreenCallActivatedEventArgs> for ILaunchAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ILockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ILockScreenCallActivatedEventArgs> for ::windows::core::InParam<ILaunchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ILockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4303,7 +4303,7 @@ impl ::core::convert::TryFrom<&IPhoneCallActivatedEventArgs> for IActivatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPhoneCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IPhoneCallActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4391,7 +4391,7 @@ impl ::core::convert::TryFrom<&IPickerReturnedActivatedEventArgs> for IActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPickerReturnedActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IPickerReturnedActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPickerReturnedActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4479,7 +4479,7 @@ impl ::core::convert::TryFrom<&IPrelaunchActivatedEventArgs> for IActivatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPrelaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IPrelaunchActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPrelaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4569,7 +4569,7 @@ impl ::core::convert::TryFrom<&IPrint3DWorkflowActivatedEventArgs> for IActivate
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPrint3DWorkflowActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IPrint3DWorkflowActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPrint3DWorkflowActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4662,7 +4662,7 @@ impl ::core::convert::TryFrom<&IPrintTaskSettingsActivatedEventArgs> for IActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IPrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPrintTaskSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4755,7 +4755,7 @@ impl ::core::convert::TryFrom<&IProtocolActivatedEventArgs> for IActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IProtocolActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4855,7 +4855,7 @@ impl ::core::convert::TryFrom<&IProtocolActivatedEventArgsWithCallerPackageFamil
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4949,7 +4949,7 @@ impl ::core::convert::TryFrom<&IProtocolForResultsActivatedEventArgs> for IActiv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5040,7 +5040,7 @@ impl ::core::convert::TryFrom<&IRestrictedLaunchActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IRestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IRestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IRestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5135,7 +5135,7 @@ impl ::core::convert::TryFrom<&ISearchActivatedEventArgs> for IActivatedEventArg
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ISearchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ISearchActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ISearchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5279,7 +5279,7 @@ impl ::core::convert::TryFrom<&IShareTargetActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IShareTargetActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IShareTargetActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5396,7 +5396,7 @@ impl ::core::convert::TryFrom<&IStartupTaskActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IStartupTaskActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IStartupTaskActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IStartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5511,7 +5511,7 @@ impl ::core::convert::TryFrom<&IToastNotificationActivatedEventArgs> for IActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IToastNotificationActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IToastNotificationActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5605,7 +5605,7 @@ impl ::core::convert::TryFrom<&IUserDataAccountProviderActivatedEventArgs> for I
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IUserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IUserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IUserDataAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5698,7 +5698,7 @@ impl ::core::convert::TryFrom<&IViewSwitcherProvider> for IActivatedEventArgs {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IViewSwitcherProvider> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IViewSwitcherProvider> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IViewSwitcherProvider) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5791,7 +5791,7 @@ impl ::core::convert::TryFrom<&IVoiceCommandActivatedEventArgs> for IActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IVoiceCommandActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IVoiceCommandActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IVoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5908,7 +5908,7 @@ impl ::core::convert::TryFrom<&IWalletActionActivatedEventArgs> for IActivatedEv
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&IWalletActionActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IWalletActionActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6017,7 +6017,7 @@ impl ::core::convert::TryFrom<&IWebAccountProviderActivatedEventArgs> for IActiv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IWebAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IWebAccountProviderActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IWebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6119,7 +6119,7 @@ impl ::core::convert::TryFrom<&IWebAuthenticationBrokerContinuationEventArgs> fo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IWebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6138,7 +6138,7 @@ impl ::core::convert::TryFrom<&IWebAuthenticationBrokerContinuationEventArgs> fo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+impl ::core::convert::TryFrom<&IWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<IContinuationActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IWebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6279,7 +6279,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6298,7 +6298,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6317,7 +6317,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6336,7 +6336,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderAddAppointmentActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderAddAppointmentActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6441,7 +6441,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6460,7 +6460,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6479,7 +6479,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6498,7 +6498,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6603,7 +6603,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6622,7 +6622,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6641,7 +6641,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6660,7 +6660,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6779,7 +6779,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6798,7 +6798,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6817,7 +6817,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6836,7 +6836,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6950,7 +6950,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6969,7 +6969,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6988,7 +6988,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7007,7 +7007,7 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
+impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7075,7 +7075,7 @@ impl ::core::convert::TryFrom<&BackgroundActivatedEventArgs> for IBackgroundActi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BackgroundActivatedEventArgs> for ::windows::core::InParam<'a, IBackgroundActivatedEventArgs> {
+impl ::core::convert::TryFrom<&BackgroundActivatedEventArgs> for ::windows::core::InParam<IBackgroundActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BackgroundActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7171,7 +7171,7 @@ impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for IAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7190,7 +7190,7 @@ impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for IAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7209,7 +7209,7 @@ impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for IBar
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IBarcodeScannerPreviewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<IBarcodeScannerPreviewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7307,7 +7307,7 @@ impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7326,7 +7326,7 @@ impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7345,7 +7345,7 @@ impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ICachedF
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, ICachedFileUpdaterActivatedEventArgs> {
+impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<ICachedFileUpdaterActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7439,7 +7439,7 @@ impl ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7458,7 +7458,7 @@ impl ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for ICameraSett
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for ::windows::core::InParam<'a, ICameraSettingsActivatedEventArgs> {
+impl ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for ::windows::core::InParam<ICameraSettingsActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7554,7 +7554,7 @@ impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7573,7 +7573,7 @@ impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7592,7 +7592,7 @@ impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ICommandLineAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<'a, ICommandLineActivatedEventArgs> {
+impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<ICommandLineActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7776,7 +7776,7 @@ impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7795,7 +7795,7 @@ impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for IContactActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7814,7 +7814,7 @@ impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for IContactCallAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactCallActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<IContactCallActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7919,7 +7919,7 @@ impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for IActivatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7938,7 +7938,7 @@ impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for IContactActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7957,7 +7957,7 @@ impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for IContactMapActi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IContactMapActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<IContactMapActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8067,7 +8067,7 @@ impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8086,7 +8086,7 @@ impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for IContactAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8105,7 +8105,7 @@ impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for IContactMes
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IContactMessageActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<IContactMessageActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8212,7 +8212,7 @@ impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8231,7 +8231,7 @@ impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8250,7 +8250,7 @@ impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for IContactPanel
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, IContactPanelActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<IContactPanelActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8339,7 +8339,7 @@ impl ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for IActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8358,7 +8358,7 @@ impl ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for IContactPick
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for ::windows::core::InParam<'a, IContactPickerActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for ::windows::core::InParam<IContactPickerActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8468,7 +8468,7 @@ impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8487,7 +8487,7 @@ impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for IContactActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8506,7 +8506,7 @@ impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for IContactPostAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IContactPostActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<IContactPostActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8616,7 +8616,7 @@ impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for IActivate
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8635,7 +8635,7 @@ impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for IContactA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8654,7 +8654,7 @@ impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for IContactV
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactVideoCallActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<IContactVideoCallActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8773,7 +8773,7 @@ impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IActivatedEventArgs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8792,7 +8792,7 @@ impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IActivatedEventArgs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8811,7 +8811,7 @@ impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IApplicationViewAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8830,7 +8830,7 @@ impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IDeviceActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IDeviceActivatedEventArgs> {
+impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<IDeviceActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8849,7 +8849,7 @@ impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IViewSwitcherProvid
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<IViewSwitcherProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8947,7 +8947,7 @@ impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for IActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8966,7 +8966,7 @@ impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for IActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8985,7 +8985,7 @@ impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for IDevicePairi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IDevicePairingActivatedEventArgs> {
+impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<IDevicePairingActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9111,7 +9111,7 @@ impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9130,7 +9130,7 @@ impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9149,7 +9149,7 @@ impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IApplicationV
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9168,7 +9168,7 @@ impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IDialReceiver
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IDialReceiverActivatedEventArgs> {
+impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<IDialReceiverActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9187,7 +9187,7 @@ impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ILaunchActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<ILaunchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9206,7 +9206,7 @@ impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IViewSwitcher
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<IViewSwitcherProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9343,7 +9343,7 @@ impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IActivatedEventArgs {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9362,7 +9362,7 @@ impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IActivatedEventArgsWi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9381,7 +9381,7 @@ impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IApplicationViewActiv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9400,7 +9400,7 @@ impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IFileActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IFileActivatedEventArgs> {
+impl ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<IFileActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9419,7 +9419,7 @@ impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IFileActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IFileActivatedEventArgsWithCallerPackageFamilyName> {
+impl ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<IFileActivatedEventArgsWithCallerPackageFamilyName> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9438,7 +9438,7 @@ impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IFileActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IFileActivatedEventArgsWithNeighboringFiles> {
+impl ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<IFileActivatedEventArgsWithNeighboringFiles> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9457,7 +9457,7 @@ impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IViewSwitcherProvider
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+impl ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<IViewSwitcherProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9562,7 +9562,7 @@ impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9581,7 +9581,7 @@ impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9600,7 +9600,7 @@ impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IFileOpenPi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileOpenPickerActivatedEventArgs> {
+impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<IFileOpenPickerActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9619,7 +9619,7 @@ impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IFileOpenPi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileOpenPickerActivatedEventArgs2> {
+impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<IFileOpenPickerActivatedEventArgs2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9740,7 +9740,7 @@ impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IActivat
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9762,7 +9762,7 @@ impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IActivat
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9784,7 +9784,7 @@ impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IContinu
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<IContinuationActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9806,7 +9806,7 @@ impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IFileOpe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IFileOpenPickerContinuationEventArgs> {
+impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<IFileOpenPickerContinuationEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9920,7 +9920,7 @@ impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9939,7 +9939,7 @@ impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9958,7 +9958,7 @@ impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IFileSavePi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileSavePickerActivatedEventArgs> {
+impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<IFileSavePickerActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9977,7 +9977,7 @@ impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IFileSavePi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileSavePickerActivatedEventArgs2> {
+impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<IFileSavePickerActivatedEventArgs2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10098,7 +10098,7 @@ impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IActivat
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10120,7 +10120,7 @@ impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IActivat
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10142,7 +10142,7 @@ impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IContinu
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<IContinuationActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10164,7 +10164,7 @@ impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IFileSav
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IFileSavePickerContinuationEventArgs> {
+impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<IFileSavePickerContinuationEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10287,7 +10287,7 @@ impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IActivated
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10309,7 +10309,7 @@ impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IActivated
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10331,7 +10331,7 @@ impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IContinuat
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<IContinuationActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10353,7 +10353,7 @@ impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IFolderPic
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IFolderPickerContinuationEventArgs> {
+impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<IFolderPickerContinuationEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10488,7 +10488,7 @@ impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for IActivatedEventArgs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10507,7 +10507,7 @@ impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for IActivatedEventArgs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10526,7 +10526,7 @@ impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for IApplicationViewAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10545,7 +10545,7 @@ impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ILaunchActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<ILaunchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10564,7 +10564,7 @@ impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ILaunchActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs2> {
+impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<ILaunchActivatedEventArgs2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10583,7 +10583,7 @@ impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for IPrelaunchActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<'a, IPrelaunchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<IPrelaunchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10602,7 +10602,7 @@ impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for IViewSwitcherProvid
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<IViewSwitcherProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10698,7 +10698,7 @@ impl ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for IActivatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10717,7 +10717,7 @@ impl ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for IActivatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10736,7 +10736,7 @@ impl ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for ILockScreenActi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for ::windows::core::InParam<'a, ILockScreenActivatedEventArgs> {
+impl ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for ::windows::core::InParam<ILockScreenActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10855,7 +10855,7 @@ impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10874,7 +10874,7 @@ impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for IApplicatio
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10893,7 +10893,7 @@ impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ILaunchActi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<ILaunchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10912,7 +10912,7 @@ impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ILockScreen
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, ILockScreenCallActivatedEventArgs> {
+impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<ILockScreenCallActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10931,7 +10931,7 @@ impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for IViewSwitch
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<IViewSwitcherProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11011,7 +11011,7 @@ impl ::core::convert::TryFrom<&LockScreenComponentActivatedEventArgs> for IActiv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LockScreenComponentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&LockScreenComponentActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LockScreenComponentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11107,7 +11107,7 @@ impl ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for IActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11126,7 +11126,7 @@ impl ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for IActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11145,7 +11145,7 @@ impl ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for IPhoneCallActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for ::windows::core::InParam<'a, IPhoneCallActivatedEventArgs> {
+impl ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for ::windows::core::InParam<IPhoneCallActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11232,7 +11232,7 @@ impl ::core::convert::TryFrom<&PickerReturnedActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PickerReturnedActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&PickerReturnedActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PickerReturnedActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11251,7 +11251,7 @@ impl ::core::convert::TryFrom<&PickerReturnedActivatedEventArgs> for IPickerRetu
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PickerReturnedActivatedEventArgs> for ::windows::core::InParam<'a, IPickerReturnedActivatedEventArgs> {
+impl ::core::convert::TryFrom<&PickerReturnedActivatedEventArgs> for ::windows::core::InParam<IPickerReturnedActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PickerReturnedActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11340,7 +11340,7 @@ impl ::core::convert::TryFrom<&Print3DWorkflowActivatedEventArgs> for IActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&Print3DWorkflowActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&Print3DWorkflowActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Print3DWorkflowActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11359,7 +11359,7 @@ impl ::core::convert::TryFrom<&Print3DWorkflowActivatedEventArgs> for IPrint3DWo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&Print3DWorkflowActivatedEventArgs> for ::windows::core::InParam<'a, IPrint3DWorkflowActivatedEventArgs> {
+impl ::core::convert::TryFrom<&Print3DWorkflowActivatedEventArgs> for ::windows::core::InParam<IPrint3DWorkflowActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Print3DWorkflowActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11448,7 +11448,7 @@ impl ::core::convert::TryFrom<&PrintTaskSettingsActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&PrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintTaskSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11467,7 +11467,7 @@ impl ::core::convert::TryFrom<&PrintTaskSettingsActivatedEventArgs> for IPrintTa
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<'a, IPrintTaskSettingsActivatedEventArgs> {
+impl ::core::convert::TryFrom<&PrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<IPrintTaskSettingsActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintTaskSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11597,7 +11597,7 @@ impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for IActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11616,7 +11616,7 @@ impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for IActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11635,7 +11635,7 @@ impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for IApplicationViewA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11654,7 +11654,7 @@ impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for IProtocolActivate
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IProtocolActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<IProtocolActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11673,7 +11673,7 @@ impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for IProtocolActivate
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
+impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11692,7 +11692,7 @@ impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for IViewSwitcherProv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<IViewSwitcherProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11831,7 +11831,7 @@ impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for IActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11850,7 +11850,7 @@ impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for IActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11869,7 +11869,7 @@ impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for IApplic
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11888,7 +11888,7 @@ impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for IProtoc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IProtocolActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<IProtocolActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11907,7 +11907,7 @@ impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for IProtoc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
+impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11926,7 +11926,7 @@ impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for IProtoc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IProtocolForResultsActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<IProtocolForResultsActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11945,7 +11945,7 @@ impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for IViewSw
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<IViewSwitcherProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12041,7 +12041,7 @@ impl ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for IActivate
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12060,7 +12060,7 @@ impl ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for IActivate
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12079,7 +12079,7 @@ impl ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for IRestrict
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<'a, IRestrictedLaunchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<IRestrictedLaunchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12207,7 +12207,7 @@ impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for IActivatedEventArgs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SearchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12226,7 +12226,7 @@ impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for IActivatedEventArgs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SearchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12245,7 +12245,7 @@ impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for IApplicationViewAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SearchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12264,7 +12264,7 @@ impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for ISearchActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<'a, ISearchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<ISearchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SearchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12283,7 +12283,7 @@ impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for ISearchActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<'a, ISearchActivatedEventArgsWithLinguisticDetails> {
+impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<ISearchActivatedEventArgsWithLinguisticDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SearchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12302,7 +12302,7 @@ impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for IViewSwitcherProvid
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<IViewSwitcherProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SearchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12400,7 +12400,7 @@ impl ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12419,7 +12419,7 @@ impl ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12438,7 +12438,7 @@ impl ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for IShareTargetAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for ::windows::core::InParam<'a, IShareTargetActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for ::windows::core::InParam<IShareTargetActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12596,7 +12596,7 @@ impl ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12615,7 +12615,7 @@ impl ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12634,7 +12634,7 @@ impl ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for IStartupTaskAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for ::windows::core::InParam<'a, IStartupTaskActivatedEventArgs> {
+impl ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for ::windows::core::InParam<IStartupTaskActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12795,7 +12795,7 @@ impl ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12814,7 +12814,7 @@ impl ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12833,7 +12833,7 @@ impl ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for IApplica
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for ::windows::core::InParam<IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12852,7 +12852,7 @@ impl ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for IToastNo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for ::windows::core::InParam<'a, IToastNotificationActivatedEventArgs> {
+impl ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for ::windows::core::InParam<IToastNotificationActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12941,7 +12941,7 @@ impl ::core::convert::TryFrom<&UserDataAccountProviderActivatedEventArgs> for IA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&UserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&UserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UserDataAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -12960,7 +12960,7 @@ impl ::core::convert::TryFrom<&UserDataAccountProviderActivatedEventArgs> for IU
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&UserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IUserDataAccountProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&UserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<IUserDataAccountProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UserDataAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -13058,7 +13058,7 @@ impl ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -13077,7 +13077,7 @@ impl ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -13096,7 +13096,7 @@ impl ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for IVoiceCommand
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for ::windows::core::InParam<'a, IVoiceCommandActivatedEventArgs> {
+impl ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for ::windows::core::InParam<IVoiceCommandActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -13217,7 +13217,7 @@ impl ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for IActivatedEve
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -13239,7 +13239,7 @@ impl ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for IWalletAction
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for ::windows::core::InParam<'a, IWalletActionActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for ::windows::core::InParam<IWalletActionActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -13339,7 +13339,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for IActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -13358,7 +13358,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for IActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -13377,7 +13377,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for IWebAcc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IWebAccountProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for ::windows::core::InParam<IWebAccountProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -13475,7 +13475,7 @@ impl ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -13494,7 +13494,7 @@ impl ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<IContinuationActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -13513,7 +13513,7 @@ impl ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<'a, IWebAuthenticationBrokerContinuationEventArgs> {
+impl ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<IWebAuthenticationBrokerContinuationEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

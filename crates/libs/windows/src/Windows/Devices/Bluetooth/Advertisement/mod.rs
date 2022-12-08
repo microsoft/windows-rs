@@ -498,9 +498,9 @@ impl BluetoothLEAdvertisement {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetFlags<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetFlags<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -642,9 +642,9 @@ impl BluetoothLEAdvertisementBytePattern {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetData<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetData<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -652,9 +652,9 @@ impl BluetoothLEAdvertisementBytePattern {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<'a, P0, E0>(datatype: u8, offset: i16, data: P0) -> ::windows::core::Result<BluetoothLEAdvertisementBytePattern>
+    pub fn Create<P0, E0>(datatype: u8, offset: i16, data: P0) -> ::windows::core::Result<BluetoothLEAdvertisementBytePattern>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBluetoothLEAdvertisementBytePatternFactory(|this| unsafe {
@@ -736,9 +736,9 @@ impl BluetoothLEAdvertisementDataSection {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetData<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetData<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -746,9 +746,9 @@ impl BluetoothLEAdvertisementDataSection {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<'a, P0, E0>(datatype: u8, data: P0) -> ::windows::core::Result<BluetoothLEAdvertisementDataSection>
+    pub fn Create<P0, E0>(datatype: u8, data: P0) -> ::windows::core::Result<BluetoothLEAdvertisementDataSection>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBluetoothLEAdvertisementDataSectionFactory(|this| unsafe {
@@ -1067,9 +1067,9 @@ impl BluetoothLEAdvertisementPublisher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPreferredTransmitPowerLevelInDBm<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetPreferredTransmitPowerLevelInDBm<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<i16>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<i16>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
@@ -1609,9 +1609,9 @@ impl BluetoothLEManufacturerData {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetData<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetData<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1619,9 +1619,9 @@ impl BluetoothLEManufacturerData {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<'a, P0, E0>(companyid: u16, data: P0) -> ::windows::core::Result<BluetoothLEManufacturerData>
+    pub fn Create<P0, E0>(companyid: u16, data: P0) -> ::windows::core::Result<BluetoothLEManufacturerData>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBluetoothLEManufacturerDataFactory(|this| unsafe {

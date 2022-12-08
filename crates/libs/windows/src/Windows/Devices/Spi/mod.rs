@@ -391,9 +391,9 @@ impl SpiController {
     }
     #[doc = "*Required features: `\"Devices_Spi_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Spi_Provider", feature = "Foundation_Collections"))]
-    pub fn GetControllersAsync<'a, P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>>
+    pub fn GetControllersAsync<P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, Provider::ISpiProvider>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<Provider::ISpiProvider>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ISpiControllerStatics(|this| unsafe {
@@ -562,7 +562,7 @@ impl ::core::convert::TryFrom<&SpiDevice> for super::super::Foundation::IClosabl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SpiDevice> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SpiDevice> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpiDevice) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

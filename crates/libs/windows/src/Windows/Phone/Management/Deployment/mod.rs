@@ -406,9 +406,9 @@ impl InstallationManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Management_Deployment\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Management_Deployment"))]
-    pub fn RegisterPackageAsync<'a, P0, E0>(manifesturi: &super::super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: super::super::super::Management::Deployment::DeploymentOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>
+    pub fn RegisterPackageAsync<P0, E0>(manifesturi: &super::super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: super::super::super::Management::Deployment::DeploymentOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IInstallationManagerStatics2(|this| unsafe {

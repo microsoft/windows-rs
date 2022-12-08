@@ -461,7 +461,7 @@ impl ::core::convert::TryFrom<&InkAnalysisInkBullet> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkAnalysisInkBullet> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+impl ::core::convert::TryFrom<&InkAnalysisInkBullet> for ::windows::core::InParam<IInkAnalysisNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkAnalysisInkBullet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -602,7 +602,7 @@ impl ::core::convert::TryFrom<&InkAnalysisInkDrawing> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkAnalysisInkDrawing> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+impl ::core::convert::TryFrom<&InkAnalysisInkDrawing> for ::windows::core::InParam<IInkAnalysisNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkAnalysisInkDrawing) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -734,7 +734,7 @@ impl ::core::convert::TryFrom<&InkAnalysisInkWord> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkAnalysisInkWord> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+impl ::core::convert::TryFrom<&InkAnalysisInkWord> for ::windows::core::InParam<IInkAnalysisNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkAnalysisInkWord) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -864,7 +864,7 @@ impl ::core::convert::TryFrom<&InkAnalysisLine> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkAnalysisLine> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+impl ::core::convert::TryFrom<&InkAnalysisLine> for ::windows::core::InParam<IInkAnalysisNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkAnalysisLine) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -987,7 +987,7 @@ impl ::core::convert::TryFrom<&InkAnalysisListItem> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkAnalysisListItem> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+impl ::core::convert::TryFrom<&InkAnalysisListItem> for ::windows::core::InParam<IInkAnalysisNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkAnalysisListItem) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1103,7 +1103,7 @@ impl ::core::convert::TryFrom<&InkAnalysisNode> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkAnalysisNode> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+impl ::core::convert::TryFrom<&InkAnalysisNode> for ::windows::core::InParam<IInkAnalysisNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkAnalysisNode) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1226,7 +1226,7 @@ impl ::core::convert::TryFrom<&InkAnalysisParagraph> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkAnalysisParagraph> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+impl ::core::convert::TryFrom<&InkAnalysisParagraph> for ::windows::core::InParam<IInkAnalysisNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkAnalysisParagraph) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1405,7 +1405,7 @@ impl ::core::convert::TryFrom<&InkAnalysisRoot> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkAnalysisRoot> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+impl ::core::convert::TryFrom<&InkAnalysisRoot> for ::windows::core::InParam<IInkAnalysisNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkAnalysisRoot) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1528,7 +1528,7 @@ impl ::core::convert::TryFrom<&InkAnalysisWritingRegion> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InkAnalysisWritingRegion> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+impl ::core::convert::TryFrom<&InkAnalysisWritingRegion> for ::windows::core::InParam<IInkAnalysisNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InkAnalysisWritingRegion) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1568,9 +1568,9 @@ impl InkAnalyzer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddDataForStrokes<'a, P0, E0>(&self, strokes: P0) -> ::windows::core::Result<()>
+    pub fn AddDataForStrokes<P0, E0>(&self, strokes: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::InkStroke>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::super::Foundation::Collections::IIterable<super::InkStroke>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1586,9 +1586,9 @@ impl InkAnalyzer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RemoveDataForStrokes<'a, P0, E0>(&self, strokeids: P0) -> ::windows::core::Result<()>
+    pub fn RemoveDataForStrokes<P0, E0>(&self, strokeids: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::super::Foundation::Collections::IIterable<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

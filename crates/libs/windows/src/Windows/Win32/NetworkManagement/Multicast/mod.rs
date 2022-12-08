@@ -13,7 +13,7 @@ pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn McastEnumerateScopes<'a, P0>(addrfamily: u16, requery: P0, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32
+pub unsafe fn McastEnumerateScopes<P0>(addrfamily: u16, requery: P0, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {

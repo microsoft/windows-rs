@@ -3049,9 +3049,9 @@ impl AppUriHandlerRegistration {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAppAddedHostsAsync<'a, P0, E0>(&self, hosts: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn SetAppAddedHostsAsync<P0, E0>(&self, hosts: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<AppUriHandlerHost>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<AppUriHandlerHost>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3071,9 +3071,9 @@ impl AppUriHandlerRegistration {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateHosts<'a, P0, E0>(&self, hosts: P0) -> ::windows::core::Result<()>
+    pub fn UpdateHosts<P0, E0>(&self, hosts: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<AppUriHandlerHost>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<AppUriHandlerHost>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IAppUriHandlerRegistration2>(self)?;
@@ -3636,7 +3636,7 @@ impl ::core::convert::TryFrom<&FolderLauncherOptions> for ILauncherViewOptions {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FolderLauncherOptions> for ::windows::core::InParam<'a, ILauncherViewOptions> {
+impl ::core::convert::TryFrom<&FolderLauncherOptions> for ::windows::core::InParam<ILauncherViewOptions> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderLauncherOptions) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3783,9 +3783,9 @@ pub struct Launcher;
 impl Launcher {
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LaunchFileAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFileAsync<P0, E0>(file: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILauncherStatics(|this| unsafe {
@@ -3795,9 +3795,9 @@ impl Launcher {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LaunchFileWithOptionsAsync<'a, P0, E0>(file: P0, options: &LauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFileWithOptionsAsync<P0, E0>(file: P0, options: &LauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILauncherStatics(|this| unsafe {
@@ -3903,9 +3903,9 @@ impl Launcher {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LaunchFolderAsync<'a, P0, E0>(folder: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFolderAsync<P0, E0>(folder: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Storage::IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Storage::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILauncherStatics3(|this| unsafe {
@@ -3915,9 +3915,9 @@ impl Launcher {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LaunchFolderWithOptionsAsync<'a, P0, E0>(folder: P0, options: &FolderLauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFolderWithOptionsAsync<P0, E0>(folder: P0, options: &FolderLauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Storage::IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Storage::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILauncherStatics3(|this| unsafe {
@@ -4247,7 +4247,7 @@ impl ::core::convert::TryFrom<&LauncherOptions> for ILauncherViewOptions {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LauncherOptions> for ::windows::core::InParam<'a, ILauncherViewOptions> {
+impl ::core::convert::TryFrom<&LauncherOptions> for ::windows::core::InParam<ILauncherViewOptions> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LauncherOptions) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4271,9 +4271,9 @@ impl LauncherUIOptions {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetInvocationPoint<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetInvocationPoint<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::Point>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Foundation::Point>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4290,9 +4290,9 @@ impl LauncherUIOptions {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSelectionRect<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSelectionRect<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::Rect>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Foundation::Rect>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4507,9 +4507,9 @@ impl ProcessLauncherOptions {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetStandardInput<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStandardInput<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4526,9 +4526,9 @@ impl ProcessLauncherOptions {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetStandardOutput<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStandardOutput<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Storage::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Storage::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4545,9 +4545,9 @@ impl ProcessLauncherOptions {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetStandardError<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStandardError<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Storage::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Storage::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4977,9 +4977,9 @@ impl User {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPropertiesAsync<'a, P0, E0>(&self, values: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IPropertySet>>
+    pub fn GetPropertiesAsync<P0, E0>(&self, values: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IPropertySet>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

@@ -109,9 +109,9 @@ impl IUICommand {
             (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetId<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetId)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -424,9 +424,9 @@ impl UICommand {
             (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetId<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetId)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -443,9 +443,9 @@ impl UICommand {
             (::windows::core::Vtable::vtable(this).CreateWithHandler)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(action), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn CreateWithHandlerAndId<'a, P0>(label: &::windows::core::HSTRING, action: &UICommandInvokedHandler, commandid: P0) -> ::windows::core::Result<UICommand>
+    pub fn CreateWithHandlerAndId<P0>(label: &::windows::core::HSTRING, action: &UICommandInvokedHandler, commandid: P0) -> ::windows::core::Result<UICommand>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         Self::IUICommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -503,7 +503,7 @@ impl ::core::convert::TryFrom<&UICommand> for IUICommand {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&UICommand> for ::windows::core::InParam<'a, IUICommand> {
+impl ::core::convert::TryFrom<&UICommand> for ::windows::core::InParam<IUICommand> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UICommand) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -552,9 +552,9 @@ impl UICommandSeparator {
             (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetId<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetId)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -605,7 +605,7 @@ impl ::core::convert::TryFrom<&UICommandSeparator> for IUICommand {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&UICommandSeparator> for ::windows::core::InParam<'a, IUICommand> {
+impl ::core::convert::TryFrom<&UICommandSeparator> for ::windows::core::InParam<IUICommand> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UICommandSeparator) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -721,9 +721,9 @@ impl UICommandInvokedHandler {
         let com = UICommandInvokedHandlerBox::<F> { vtable: &UICommandInvokedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, E0>(&self, command: P0) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, E0>(&self, command: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IUICommand>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IUICommand>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

@@ -1555,7 +1555,7 @@ impl ::core::convert::TryFrom<&AdaptiveNotificationText> for IAdaptiveNotificati
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AdaptiveNotificationText> for ::windows::core::InParam<'a, IAdaptiveNotificationContent> {
+impl ::core::convert::TryFrom<&AdaptiveNotificationText> for ::windows::core::InParam<IAdaptiveNotificationContent> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AdaptiveNotificationText) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1579,9 +1579,9 @@ impl BadgeNotification {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetExpirationTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2044,9 +2044,9 @@ impl Notification {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetExpirationTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2212,9 +2212,9 @@ impl NotificationData {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateNotificationDataWithValuesAndSequenceNumber<'a, P0, E0>(initialvalues: P0, sequencenumber: u32) -> ::windows::core::Result<NotificationData>
+    pub fn CreateNotificationDataWithValuesAndSequenceNumber<P0, E0>(initialvalues: P0, sequencenumber: u32) -> ::windows::core::Result<NotificationData>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::INotificationDataFactory(|this| unsafe {
@@ -2224,9 +2224,9 @@ impl NotificationData {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateNotificationDataWithValues<'a, P0, E0>(initialvalues: P0) -> ::windows::core::Result<NotificationData>
+    pub fn CreateNotificationDataWithValues<P0, E0>(initialvalues: P0) -> ::windows::core::Result<NotificationData>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::INotificationDataFactory(|this| unsafe {
@@ -2366,9 +2366,9 @@ impl ScheduledTileNotification {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetExpirationTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2569,9 +2569,9 @@ impl ScheduledToastNotification {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetExpirationTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IScheduledToastNotification4>(self)?;
@@ -2763,9 +2763,9 @@ impl TileFlyoutNotification {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetExpirationTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2951,9 +2951,9 @@ impl TileNotification {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetExpirationTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3207,9 +3207,9 @@ impl TileUpdater {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartPeriodicUpdateBatch<'a, P0, E0>(&self, tilecontents: P0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
+    pub fn StartPeriodicUpdateBatch<P0, E0>(&self, tilecontents: P0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3217,9 +3217,9 @@ impl TileUpdater {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartPeriodicUpdateBatchAtTime<'a, P0, E0>(&self, tilecontents: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
+    pub fn StartPeriodicUpdateBatchAtTime<P0, E0>(&self, tilecontents: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3634,9 +3634,9 @@ impl ToastNotification {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetExpirationTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

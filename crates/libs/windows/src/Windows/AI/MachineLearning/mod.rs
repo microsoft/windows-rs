@@ -597,7 +597,7 @@ impl ::core::convert::TryFrom<&ITensor> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ITensor> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&ITensor> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ITensor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1607,7 +1607,7 @@ impl ::core::convert::TryFrom<&ImageFeatureDescriptor> for ILearningModelFeature
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ImageFeatureDescriptor> for ::windows::core::InParam<'a, ILearningModelFeatureDescriptor> {
+impl ::core::convert::TryFrom<&ImageFeatureDescriptor> for ::windows::core::InParam<ILearningModelFeatureDescriptor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageFeatureDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1695,7 +1695,7 @@ impl ::core::convert::TryFrom<&ImageFeatureValue> for ILearningModelFeatureValue
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ImageFeatureValue> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&ImageFeatureValue> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageFeatureValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1778,9 +1778,9 @@ impl LearningModel {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LoadFromStorageFileAsync<'a, P0, E0>(modelfile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStorageFileAsync<P0, E0>(modelfile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
@@ -1790,9 +1790,9 @@ impl LearningModel {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadFromStreamAsync<'a, P0, E0>(modelstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStreamAsync<P0, E0>(modelstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
@@ -1808,9 +1808,9 @@ impl LearningModel {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStream<'a, P0, E0>(modelstream: P0) -> ::windows::core::Result<LearningModel>
+    pub fn LoadFromStream<P0, E0>(modelstream: P0) -> ::windows::core::Result<LearningModel>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
@@ -1820,11 +1820,11 @@ impl LearningModel {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LoadFromStorageFileWithOperatorProviderAsync<'a, P0, E0, P1, E1>(modelfile: P0, operatorprovider: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStorageFileWithOperatorProviderAsync<P0, E0, P1, E1>(modelfile: P0, operatorprovider: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<ILearningModelOperatorProvider>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
@@ -1834,11 +1834,11 @@ impl LearningModel {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadFromStreamWithOperatorProviderAsync<'a, P0, E0, P1, E1>(modelstream: P0, operatorprovider: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStreamWithOperatorProviderAsync<P0, E0, P1, E1>(modelstream: P0, operatorprovider: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<ILearningModelOperatorProvider>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
@@ -1846,9 +1846,9 @@ impl LearningModel {
             (::windows::core::Vtable::vtable(this).LoadFromStreamWithOperatorProviderAsync)(::windows::core::Vtable::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn LoadFromFilePathWithOperatorProvider<'a, P0, E0>(filepath: &::windows::core::HSTRING, operatorprovider: P0) -> ::windows::core::Result<LearningModel>
+    pub fn LoadFromFilePathWithOperatorProvider<P0, E0>(filepath: &::windows::core::HSTRING, operatorprovider: P0) -> ::windows::core::Result<LearningModel>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILearningModelOperatorProvider>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
@@ -1858,11 +1858,11 @@ impl LearningModel {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStreamWithOperatorProvider<'a, P0, E0, P1, E1>(modelstream: P0, operatorprovider: P1) -> ::windows::core::Result<LearningModel>
+    pub fn LoadFromStreamWithOperatorProvider<P0, E0, P1, E1>(modelstream: P0, operatorprovider: P1) -> ::windows::core::Result<LearningModel>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<ILearningModelOperatorProvider>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
@@ -1924,7 +1924,7 @@ impl ::core::convert::TryFrom<&LearningModel> for super::super::Foundation::IClo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&LearningModel> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&LearningModel> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LearningModel) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1946,19 +1946,19 @@ impl LearningModelBinding {
             (::windows::core::Vtable::vtable(this).First)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Bind<'a, P0>(&self, name: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
+    pub fn Bind<P0>(&self, name: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Bind)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn BindWithProperties<'a, P0, P1, E1>(&self, name: &::windows::core::HSTRING, value: P0, props: P1) -> ::windows::core::Result<()>
+    pub fn BindWithProperties<P0, P1, E1>(&self, name: &::windows::core::HSTRING, value: P0, props: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2077,7 +2077,7 @@ impl ::core::convert::TryFrom<&LearningModelBinding> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&LearningModelBinding> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+impl ::core::convert::TryFrom<&LearningModelBinding> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LearningModelBinding) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2099,7 +2099,7 @@ impl ::core::convert::TryFrom<&LearningModelBinding> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&LearningModelBinding> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&LearningModelBinding> for ::windows::core::InParam<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LearningModelBinding) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2138,9 +2138,9 @@ impl LearningModelDevice {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateFromDirect3D11Device<'a, P0, E0>(device: P0) -> ::windows::core::Result<LearningModelDevice>
+    pub fn CreateFromDirect3D11Device<P0, E0>(device: P0) -> ::windows::core::Result<LearningModelDevice>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelDeviceStatics(|this| unsafe {
@@ -2308,9 +2308,9 @@ impl LearningModelSession {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn EvaluateFeaturesAsync<'a, P0, E0>(&self, features: P0, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
+    pub fn EvaluateFeaturesAsync<P0, E0>(&self, features: P0, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2328,9 +2328,9 @@ impl LearningModelSession {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn EvaluateFeatures<'a, P0, E0>(&self, features: P0, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<LearningModelEvaluationResult>
+    pub fn EvaluateFeatures<P0, E0>(&self, features: P0, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<LearningModelEvaluationResult>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2416,7 +2416,7 @@ impl ::core::convert::TryFrom<&LearningModelSession> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&LearningModelSession> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&LearningModelSession> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LearningModelSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2590,7 +2590,7 @@ impl ::core::convert::TryFrom<&MapFeatureDescriptor> for ILearningModelFeatureDe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MapFeatureDescriptor> for ::windows::core::InParam<'a, ILearningModelFeatureDescriptor> {
+impl ::core::convert::TryFrom<&MapFeatureDescriptor> for ::windows::core::InParam<ILearningModelFeatureDescriptor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MapFeatureDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2684,7 +2684,7 @@ impl ::core::convert::TryFrom<&SequenceFeatureDescriptor> for ILearningModelFeat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SequenceFeatureDescriptor> for ::windows::core::InParam<'a, ILearningModelFeatureDescriptor> {
+impl ::core::convert::TryFrom<&SequenceFeatureDescriptor> for ::windows::core::InParam<ILearningModelFeatureDescriptor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SequenceFeatureDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2752,9 +2752,9 @@ impl TensorBoolean {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorBoolean>
+    pub fn Create2<P0, E0>(shape: P0) -> ::windows::core::Result<TensorBoolean>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorBooleanStatics(|this| unsafe {
@@ -2764,9 +2764,9 @@ impl TensorBoolean {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[bool]) -> ::windows::core::Result<TensorBoolean>
+    pub fn CreateFromArray<P0, E0>(shape: P0, data: &[bool]) -> ::windows::core::Result<TensorBoolean>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorBooleanStatics(|this| unsafe {
@@ -2776,11 +2776,11 @@ impl TensorBoolean {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorBoolean>
+    pub fn CreateFromIterable<P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorBoolean>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<bool>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<bool>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorBooleanStatics(|this| unsafe {
@@ -2796,9 +2796,9 @@ impl TensorBoolean {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorBoolean>
+    pub fn CreateFromBuffer<P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorBoolean>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorBooleanStatics2(|this| unsafe {
@@ -2865,7 +2865,7 @@ impl ::core::convert::TryFrom<&TensorBoolean> for super::super::Foundation::IClo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorBoolean) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2884,7 +2884,7 @@ impl ::core::convert::TryFrom<&TensorBoolean> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorBoolean) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2906,7 +2906,7 @@ impl ::core::convert::TryFrom<&TensorBoolean> for super::super::Foundation::IMem
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<super::super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorBoolean) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2925,7 +2925,7 @@ impl ::core::convert::TryFrom<&TensorBoolean> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<'a, ITensor> {
+impl ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<ITensor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorBoolean) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2993,9 +2993,9 @@ impl TensorDouble {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorDouble>
+    pub fn Create2<P0, E0>(shape: P0) -> ::windows::core::Result<TensorDouble>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorDoubleStatics(|this| unsafe {
@@ -3005,9 +3005,9 @@ impl TensorDouble {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[f64]) -> ::windows::core::Result<TensorDouble>
+    pub fn CreateFromArray<P0, E0>(shape: P0, data: &[f64]) -> ::windows::core::Result<TensorDouble>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorDoubleStatics(|this| unsafe {
@@ -3017,11 +3017,11 @@ impl TensorDouble {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorDouble>
+    pub fn CreateFromIterable<P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorDouble>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<f64>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<f64>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorDoubleStatics(|this| unsafe {
@@ -3037,9 +3037,9 @@ impl TensorDouble {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorDouble>
+    pub fn CreateFromBuffer<P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorDouble>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorDoubleStatics2(|this| unsafe {
@@ -3106,7 +3106,7 @@ impl ::core::convert::TryFrom<&TensorDouble> for super::super::Foundation::IClos
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorDouble) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3125,7 +3125,7 @@ impl ::core::convert::TryFrom<&TensorDouble> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorDouble) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3147,7 +3147,7 @@ impl ::core::convert::TryFrom<&TensorDouble> for super::super::Foundation::IMemo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<super::super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorDouble) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3166,7 +3166,7 @@ impl ::core::convert::TryFrom<&TensorDouble> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<'a, ITensor> {
+impl ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<ITensor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorDouble) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3269,7 +3269,7 @@ impl ::core::convert::TryFrom<&TensorFeatureDescriptor> for ILearningModelFeatur
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorFeatureDescriptor> for ::windows::core::InParam<'a, ILearningModelFeatureDescriptor> {
+impl ::core::convert::TryFrom<&TensorFeatureDescriptor> for ::windows::core::InParam<ILearningModelFeatureDescriptor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFeatureDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3337,9 +3337,9 @@ impl TensorFloat {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorFloat>
+    pub fn Create2<P0, E0>(shape: P0) -> ::windows::core::Result<TensorFloat>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloatStatics(|this| unsafe {
@@ -3349,9 +3349,9 @@ impl TensorFloat {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[f32]) -> ::windows::core::Result<TensorFloat>
+    pub fn CreateFromArray<P0, E0>(shape: P0, data: &[f32]) -> ::windows::core::Result<TensorFloat>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloatStatics(|this| unsafe {
@@ -3361,11 +3361,11 @@ impl TensorFloat {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorFloat>
+    pub fn CreateFromIterable<P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorFloat>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<f32>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<f32>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloatStatics(|this| unsafe {
@@ -3381,9 +3381,9 @@ impl TensorFloat {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorFloat>
+    pub fn CreateFromBuffer<P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorFloat>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloatStatics2(|this| unsafe {
@@ -3450,7 +3450,7 @@ impl ::core::convert::TryFrom<&TensorFloat> for super::super::Foundation::IClosa
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3469,7 +3469,7 @@ impl ::core::convert::TryFrom<&TensorFloat> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3491,7 +3491,7 @@ impl ::core::convert::TryFrom<&TensorFloat> for super::super::Foundation::IMemor
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<super::super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3510,7 +3510,7 @@ impl ::core::convert::TryFrom<&TensorFloat> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<'a, ITensor> {
+impl ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<ITensor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3578,9 +3578,9 @@ impl TensorFloat16Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorFloat16Bit>
+    pub fn Create2<P0, E0>(shape: P0) -> ::windows::core::Result<TensorFloat16Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloat16BitStatics(|this| unsafe {
@@ -3590,9 +3590,9 @@ impl TensorFloat16Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[f32]) -> ::windows::core::Result<TensorFloat16Bit>
+    pub fn CreateFromArray<P0, E0>(shape: P0, data: &[f32]) -> ::windows::core::Result<TensorFloat16Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloat16BitStatics(|this| unsafe {
@@ -3602,11 +3602,11 @@ impl TensorFloat16Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorFloat16Bit>
+    pub fn CreateFromIterable<P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorFloat16Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<f32>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<f32>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloat16BitStatics(|this| unsafe {
@@ -3622,9 +3622,9 @@ impl TensorFloat16Bit {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorFloat16Bit>
+    pub fn CreateFromBuffer<P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorFloat16Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloat16BitStatics2(|this| unsafe {
@@ -3691,7 +3691,7 @@ impl ::core::convert::TryFrom<&TensorFloat16Bit> for super::super::Foundation::I
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3710,7 +3710,7 @@ impl ::core::convert::TryFrom<&TensorFloat16Bit> for ILearningModelFeatureValue 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3732,7 +3732,7 @@ impl ::core::convert::TryFrom<&TensorFloat16Bit> for super::super::Foundation::I
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<super::super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3751,7 +3751,7 @@ impl ::core::convert::TryFrom<&TensorFloat16Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<'a, ITensor> {
+impl ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<ITensor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3819,9 +3819,9 @@ impl TensorInt16Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorInt16Bit>
+    pub fn Create2<P0, E0>(shape: P0) -> ::windows::core::Result<TensorInt16Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt16BitStatics(|this| unsafe {
@@ -3831,9 +3831,9 @@ impl TensorInt16Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[i16]) -> ::windows::core::Result<TensorInt16Bit>
+    pub fn CreateFromArray<P0, E0>(shape: P0, data: &[i16]) -> ::windows::core::Result<TensorInt16Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt16BitStatics(|this| unsafe {
@@ -3843,11 +3843,11 @@ impl TensorInt16Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorInt16Bit>
+    pub fn CreateFromIterable<P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorInt16Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i16>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i16>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt16BitStatics(|this| unsafe {
@@ -3863,9 +3863,9 @@ impl TensorInt16Bit {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorInt16Bit>
+    pub fn CreateFromBuffer<P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorInt16Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt16BitStatics2(|this| unsafe {
@@ -3932,7 +3932,7 @@ impl ::core::convert::TryFrom<&TensorInt16Bit> for super::super::Foundation::ICl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3951,7 +3951,7 @@ impl ::core::convert::TryFrom<&TensorInt16Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3973,7 +3973,7 @@ impl ::core::convert::TryFrom<&TensorInt16Bit> for super::super::Foundation::IMe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<super::super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3992,7 +3992,7 @@ impl ::core::convert::TryFrom<&TensorInt16Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<'a, ITensor> {
+impl ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<ITensor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4060,9 +4060,9 @@ impl TensorInt32Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorInt32Bit>
+    pub fn Create2<P0, E0>(shape: P0) -> ::windows::core::Result<TensorInt32Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt32BitStatics(|this| unsafe {
@@ -4072,9 +4072,9 @@ impl TensorInt32Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[i32]) -> ::windows::core::Result<TensorInt32Bit>
+    pub fn CreateFromArray<P0, E0>(shape: P0, data: &[i32]) -> ::windows::core::Result<TensorInt32Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt32BitStatics(|this| unsafe {
@@ -4084,11 +4084,11 @@ impl TensorInt32Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorInt32Bit>
+    pub fn CreateFromIterable<P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorInt32Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i32>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i32>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt32BitStatics(|this| unsafe {
@@ -4104,9 +4104,9 @@ impl TensorInt32Bit {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorInt32Bit>
+    pub fn CreateFromBuffer<P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorInt32Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt32BitStatics2(|this| unsafe {
@@ -4173,7 +4173,7 @@ impl ::core::convert::TryFrom<&TensorInt32Bit> for super::super::Foundation::ICl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4192,7 +4192,7 @@ impl ::core::convert::TryFrom<&TensorInt32Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4214,7 +4214,7 @@ impl ::core::convert::TryFrom<&TensorInt32Bit> for super::super::Foundation::IMe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<super::super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4233,7 +4233,7 @@ impl ::core::convert::TryFrom<&TensorInt32Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<'a, ITensor> {
+impl ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<ITensor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4301,9 +4301,9 @@ impl TensorInt64Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorInt64Bit>
+    pub fn Create2<P0, E0>(shape: P0) -> ::windows::core::Result<TensorInt64Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt64BitStatics(|this| unsafe {
@@ -4313,9 +4313,9 @@ impl TensorInt64Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[i64]) -> ::windows::core::Result<TensorInt64Bit>
+    pub fn CreateFromArray<P0, E0>(shape: P0, data: &[i64]) -> ::windows::core::Result<TensorInt64Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt64BitStatics(|this| unsafe {
@@ -4325,11 +4325,11 @@ impl TensorInt64Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorInt64Bit>
+    pub fn CreateFromIterable<P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorInt64Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt64BitStatics(|this| unsafe {
@@ -4345,9 +4345,9 @@ impl TensorInt64Bit {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorInt64Bit>
+    pub fn CreateFromBuffer<P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorInt64Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt64BitStatics2(|this| unsafe {
@@ -4414,7 +4414,7 @@ impl ::core::convert::TryFrom<&TensorInt64Bit> for super::super::Foundation::ICl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4433,7 +4433,7 @@ impl ::core::convert::TryFrom<&TensorInt64Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4455,7 +4455,7 @@ impl ::core::convert::TryFrom<&TensorInt64Bit> for super::super::Foundation::IMe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<super::super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4474,7 +4474,7 @@ impl ::core::convert::TryFrom<&TensorInt64Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<'a, ITensor> {
+impl ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<ITensor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4542,9 +4542,9 @@ impl TensorInt8Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorInt8Bit>
+    pub fn Create2<P0, E0>(shape: P0) -> ::windows::core::Result<TensorInt8Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt8BitStatics(|this| unsafe {
@@ -4554,9 +4554,9 @@ impl TensorInt8Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[u8]) -> ::windows::core::Result<TensorInt8Bit>
+    pub fn CreateFromArray<P0, E0>(shape: P0, data: &[u8]) -> ::windows::core::Result<TensorInt8Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt8BitStatics(|this| unsafe {
@@ -4566,11 +4566,11 @@ impl TensorInt8Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorInt8Bit>
+    pub fn CreateFromIterable<P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorInt8Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u8>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<u8>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt8BitStatics(|this| unsafe {
@@ -4586,9 +4586,9 @@ impl TensorInt8Bit {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorInt8Bit>
+    pub fn CreateFromBuffer<P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorInt8Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt8BitStatics2(|this| unsafe {
@@ -4655,7 +4655,7 @@ impl ::core::convert::TryFrom<&TensorInt8Bit> for super::super::Foundation::IClo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4674,7 +4674,7 @@ impl ::core::convert::TryFrom<&TensorInt8Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4696,7 +4696,7 @@ impl ::core::convert::TryFrom<&TensorInt8Bit> for super::super::Foundation::IMem
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<super::super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4715,7 +4715,7 @@ impl ::core::convert::TryFrom<&TensorInt8Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<'a, ITensor> {
+impl ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<ITensor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4783,9 +4783,9 @@ impl TensorString {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorString>
+    pub fn Create2<P0, E0>(shape: P0) -> ::windows::core::Result<TensorString>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorStringStatics(|this| unsafe {
@@ -4795,9 +4795,9 @@ impl TensorString {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[::windows::core::HSTRING]) -> ::windows::core::Result<TensorString>
+    pub fn CreateFromArray<P0, E0>(shape: P0, data: &[::windows::core::HSTRING]) -> ::windows::core::Result<TensorString>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorStringStatics(|this| unsafe {
@@ -4807,11 +4807,11 @@ impl TensorString {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorString>
+    pub fn CreateFromIterable<P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorString>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorStringStatics(|this| unsafe {
@@ -4884,7 +4884,7 @@ impl ::core::convert::TryFrom<&TensorString> for super::super::Foundation::IClos
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorString) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4903,7 +4903,7 @@ impl ::core::convert::TryFrom<&TensorString> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorString) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4925,7 +4925,7 @@ impl ::core::convert::TryFrom<&TensorString> for super::super::Foundation::IMemo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<super::super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorString) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4944,7 +4944,7 @@ impl ::core::convert::TryFrom<&TensorString> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<'a, ITensor> {
+impl ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<ITensor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorString) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5012,9 +5012,9 @@ impl TensorUInt16Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorUInt16Bit>
+    pub fn Create2<P0, E0>(shape: P0) -> ::windows::core::Result<TensorUInt16Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt16BitStatics(|this| unsafe {
@@ -5024,9 +5024,9 @@ impl TensorUInt16Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[u16]) -> ::windows::core::Result<TensorUInt16Bit>
+    pub fn CreateFromArray<P0, E0>(shape: P0, data: &[u16]) -> ::windows::core::Result<TensorUInt16Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt16BitStatics(|this| unsafe {
@@ -5036,11 +5036,11 @@ impl TensorUInt16Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorUInt16Bit>
+    pub fn CreateFromIterable<P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorUInt16Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u16>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<u16>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt16BitStatics(|this| unsafe {
@@ -5056,9 +5056,9 @@ impl TensorUInt16Bit {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorUInt16Bit>
+    pub fn CreateFromBuffer<P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorUInt16Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt16BitStatics2(|this| unsafe {
@@ -5125,7 +5125,7 @@ impl ::core::convert::TryFrom<&TensorUInt16Bit> for super::super::Foundation::IC
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5144,7 +5144,7 @@ impl ::core::convert::TryFrom<&TensorUInt16Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5166,7 +5166,7 @@ impl ::core::convert::TryFrom<&TensorUInt16Bit> for super::super::Foundation::IM
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<super::super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5185,7 +5185,7 @@ impl ::core::convert::TryFrom<&TensorUInt16Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<'a, ITensor> {
+impl ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<ITensor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5253,9 +5253,9 @@ impl TensorUInt32Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorUInt32Bit>
+    pub fn Create2<P0, E0>(shape: P0) -> ::windows::core::Result<TensorUInt32Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt32BitStatics(|this| unsafe {
@@ -5265,9 +5265,9 @@ impl TensorUInt32Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[u32]) -> ::windows::core::Result<TensorUInt32Bit>
+    pub fn CreateFromArray<P0, E0>(shape: P0, data: &[u32]) -> ::windows::core::Result<TensorUInt32Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt32BitStatics(|this| unsafe {
@@ -5277,11 +5277,11 @@ impl TensorUInt32Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorUInt32Bit>
+    pub fn CreateFromIterable<P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorUInt32Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u32>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<u32>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt32BitStatics(|this| unsafe {
@@ -5297,9 +5297,9 @@ impl TensorUInt32Bit {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorUInt32Bit>
+    pub fn CreateFromBuffer<P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorUInt32Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt32BitStatics2(|this| unsafe {
@@ -5366,7 +5366,7 @@ impl ::core::convert::TryFrom<&TensorUInt32Bit> for super::super::Foundation::IC
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5385,7 +5385,7 @@ impl ::core::convert::TryFrom<&TensorUInt32Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5407,7 +5407,7 @@ impl ::core::convert::TryFrom<&TensorUInt32Bit> for super::super::Foundation::IM
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<super::super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5426,7 +5426,7 @@ impl ::core::convert::TryFrom<&TensorUInt32Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<'a, ITensor> {
+impl ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<ITensor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5494,9 +5494,9 @@ impl TensorUInt64Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorUInt64Bit>
+    pub fn Create2<P0, E0>(shape: P0) -> ::windows::core::Result<TensorUInt64Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt64BitStatics(|this| unsafe {
@@ -5506,9 +5506,9 @@ impl TensorUInt64Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[u64]) -> ::windows::core::Result<TensorUInt64Bit>
+    pub fn CreateFromArray<P0, E0>(shape: P0, data: &[u64]) -> ::windows::core::Result<TensorUInt64Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt64BitStatics(|this| unsafe {
@@ -5518,11 +5518,11 @@ impl TensorUInt64Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorUInt64Bit>
+    pub fn CreateFromIterable<P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorUInt64Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u64>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<u64>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt64BitStatics(|this| unsafe {
@@ -5538,9 +5538,9 @@ impl TensorUInt64Bit {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorUInt64Bit>
+    pub fn CreateFromBuffer<P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorUInt64Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt64BitStatics2(|this| unsafe {
@@ -5607,7 +5607,7 @@ impl ::core::convert::TryFrom<&TensorUInt64Bit> for super::super::Foundation::IC
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5626,7 +5626,7 @@ impl ::core::convert::TryFrom<&TensorUInt64Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5648,7 +5648,7 @@ impl ::core::convert::TryFrom<&TensorUInt64Bit> for super::super::Foundation::IM
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<super::super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5667,7 +5667,7 @@ impl ::core::convert::TryFrom<&TensorUInt64Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<'a, ITensor> {
+impl ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<ITensor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5735,9 +5735,9 @@ impl TensorUInt8Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorUInt8Bit>
+    pub fn Create2<P0, E0>(shape: P0) -> ::windows::core::Result<TensorUInt8Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt8BitStatics(|this| unsafe {
@@ -5747,9 +5747,9 @@ impl TensorUInt8Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[u8]) -> ::windows::core::Result<TensorUInt8Bit>
+    pub fn CreateFromArray<P0, E0>(shape: P0, data: &[u8]) -> ::windows::core::Result<TensorUInt8Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt8BitStatics(|this| unsafe {
@@ -5759,11 +5759,11 @@ impl TensorUInt8Bit {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorUInt8Bit>
+    pub fn CreateFromIterable<P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorUInt8Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u8>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<u8>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt8BitStatics(|this| unsafe {
@@ -5779,9 +5779,9 @@ impl TensorUInt8Bit {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorUInt8Bit>
+    pub fn CreateFromBuffer<P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorUInt8Bit>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt8BitStatics2(|this| unsafe {
@@ -5848,7 +5848,7 @@ impl ::core::convert::TryFrom<&TensorUInt8Bit> for super::super::Foundation::ICl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5867,7 +5867,7 @@ impl ::core::convert::TryFrom<&TensorUInt8Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+impl ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<ILearningModelFeatureValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5889,7 +5889,7 @@ impl ::core::convert::TryFrom<&TensorUInt8Bit> for super::super::Foundation::IMe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<super::super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5908,7 +5908,7 @@ impl ::core::convert::TryFrom<&TensorUInt8Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<'a, ITensor> {
+impl ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<ITensor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

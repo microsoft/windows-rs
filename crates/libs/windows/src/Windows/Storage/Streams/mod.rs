@@ -466,17 +466,17 @@ impl IDataWriter {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).WriteBytes)(::windows::core::Vtable::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
     }
-    pub fn WriteBuffer<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<()>
+    pub fn WriteBuffer<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).WriteBuffer)(::windows::core::Vtable::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn WriteBufferRange<'a, P0, E0>(&self, buffer: P0, start: u32, count: u32) -> ::windows::core::Result<()>
+    pub fn WriteBufferRange<P0, E0>(&self, buffer: P0, start: u32, count: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -722,9 +722,9 @@ pub struct IInputStream(::windows::core::IUnknown);
 impl IInputStream {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
+    pub fn ReadAsync<P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -756,7 +756,7 @@ impl ::core::convert::TryFrom<&IInputStream> for super::super::Foundation::IClos
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&IInputStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&IInputStream> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IInputStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -860,9 +860,9 @@ pub struct IOutputStream(::windows::core::IUnknown);
 impl IOutputStream {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -903,7 +903,7 @@ impl ::core::convert::TryFrom<&IOutputStream> for super::super::Foundation::IClo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&IOutputStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&IOutputStream> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IOutputStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -958,9 +958,9 @@ pub struct IPropertySetSerializer(::windows::core::IUnknown);
 impl IPropertySetSerializer {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Serialize<'a, P0, E0>(&self, propertyset: P0) -> ::windows::core::Result<IBuffer>
+    pub fn Serialize<P0, E0>(&self, propertyset: P0) -> ::windows::core::Result<IBuffer>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -971,11 +971,11 @@ impl IPropertySetSerializer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Deserialize<'a, P0, E0, P1, E1>(&self, propertyset: P0, buffer: P1) -> ::windows::core::Result<()>
+    pub fn Deserialize<P0, E0, P1, E1>(&self, propertyset: P0, buffer: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1094,9 +1094,9 @@ impl IRandomAccessStream {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
+    pub fn ReadAsync<P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInputStream>(self)?;
@@ -1107,9 +1107,9 @@ impl IRandomAccessStream {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
@@ -1144,7 +1144,7 @@ impl ::core::convert::TryFrom<&IRandomAccessStream> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&IRandomAccessStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&IRandomAccessStream> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IRandomAccessStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1163,7 +1163,7 @@ impl ::core::convert::TryFrom<&IRandomAccessStream> for IInputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IRandomAccessStream> for ::windows::core::InParam<'a, IInputStream> {
+impl ::core::convert::TryFrom<&IRandomAccessStream> for ::windows::core::InParam<IInputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IRandomAccessStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1182,7 +1182,7 @@ impl ::core::convert::TryFrom<&IRandomAccessStream> for IOutputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IRandomAccessStream> for ::windows::core::InParam<'a, IOutputStream> {
+impl ::core::convert::TryFrom<&IRandomAccessStream> for ::windows::core::InParam<IOutputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IRandomAccessStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1350,9 +1350,9 @@ impl IRandomAccessStreamWithContentType {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
+    pub fn ReadAsync<P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInputStream>(self)?;
@@ -1363,9 +1363,9 @@ impl IRandomAccessStreamWithContentType {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
@@ -1457,7 +1457,7 @@ impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for super::su
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1476,7 +1476,7 @@ impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for IContentT
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<'a, IContentTypeProvider> {
+impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<IContentTypeProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1495,7 +1495,7 @@ impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for IInputStr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<'a, IInputStream> {
+impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<IInputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1514,7 +1514,7 @@ impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for IOutputSt
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<'a, IOutputStream> {
+impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<IOutputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1533,7 +1533,7 @@ impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for IRandomAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<'a, IRandomAccessStream> {
+impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<IRandomAccessStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1604,9 +1604,9 @@ impl Buffer {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateCopyFromMemoryBuffer<'a, P0, E0>(input: P0) -> ::windows::core::Result<Buffer>
+    pub fn CreateCopyFromMemoryBuffer<P0, E0>(input: P0) -> ::windows::core::Result<Buffer>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IMemoryBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBufferStatics(|this| unsafe {
@@ -1616,9 +1616,9 @@ impl Buffer {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateMemoryBufferOverIBuffer<'a, P0, E0>(input: P0) -> ::windows::core::Result<super::super::Foundation::MemoryBuffer>
+    pub fn CreateMemoryBufferOverIBuffer<P0, E0>(input: P0) -> ::windows::core::Result<super::super::Foundation::MemoryBuffer>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBufferStatics(|this| unsafe {
@@ -1682,7 +1682,7 @@ impl ::core::convert::TryFrom<&Buffer> for IBuffer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&Buffer> for ::windows::core::InParam<'a, IBuffer> {
+impl ::core::convert::TryFrom<&Buffer> for ::windows::core::InParam<IBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Buffer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1877,9 +1877,9 @@ impl DataReader {
             (::windows::core::Vtable::vtable(this).DetachStream)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn CreateDataReader<'a, P0, E0>(inputstream: P0) -> ::windows::core::Result<DataReader>
+    pub fn CreateDataReader<P0, E0>(inputstream: P0) -> ::windows::core::Result<DataReader>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IDataReaderFactory(|this| unsafe {
@@ -1887,9 +1887,9 @@ impl DataReader {
             (::windows::core::Vtable::vtable(this).CreateDataReader)(::windows::core::Vtable::as_raw(this), inputstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn FromBuffer<'a, P0, E0>(buffer: P0) -> ::windows::core::Result<DataReader>
+    pub fn FromBuffer<P0, E0>(buffer: P0) -> ::windows::core::Result<DataReader>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IDataReaderStatics(|this| unsafe {
@@ -1956,7 +1956,7 @@ impl ::core::convert::TryFrom<&DataReader> for super::super::Foundation::IClosab
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&DataReader> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&DataReader> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataReader) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1975,7 +1975,7 @@ impl ::core::convert::TryFrom<&DataReader> for IDataReader {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DataReader> for ::windows::core::InParam<'a, IDataReader> {
+impl ::core::convert::TryFrom<&DataReader> for ::windows::core::InParam<IDataReader> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataReader) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2142,7 +2142,7 @@ impl ::core::convert::TryFrom<&DataReaderLoadOperation> for super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&DataReaderLoadOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+impl ::core::convert::TryFrom<&DataReaderLoadOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataReaderLoadOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2164,7 +2164,7 @@ impl ::core::convert::TryFrom<&DataReaderLoadOperation> for super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&DataReaderLoadOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncOperation<u32>> {
+impl ::core::convert::TryFrom<&DataReaderLoadOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncOperation<u32>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataReaderLoadOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2229,17 +2229,17 @@ impl DataWriter {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).WriteBytes)(::windows::core::Vtable::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
     }
-    pub fn WriteBuffer<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<()>
+    pub fn WriteBuffer<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).WriteBuffer)(::windows::core::Vtable::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn WriteBufferRange<'a, P0, E0>(&self, buffer: P0, start: u32, count: u32) -> ::windows::core::Result<()>
+    pub fn WriteBufferRange<P0, E0>(&self, buffer: P0, start: u32, count: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2343,9 +2343,9 @@ impl DataWriter {
             (::windows::core::Vtable::vtable(this).DetachStream)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn CreateDataWriter<'a, P0, E0>(outputstream: P0) -> ::windows::core::Result<DataWriter>
+    pub fn CreateDataWriter<P0, E0>(outputstream: P0) -> ::windows::core::Result<DataWriter>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IDataWriterFactory(|this| unsafe {
@@ -2407,7 +2407,7 @@ impl ::core::convert::TryFrom<&DataWriter> for super::super::Foundation::IClosab
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&DataWriter> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&DataWriter> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataWriter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2426,7 +2426,7 @@ impl ::core::convert::TryFrom<&DataWriter> for IDataWriter {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DataWriter> for ::windows::core::InParam<'a, IDataWriter> {
+impl ::core::convert::TryFrom<&DataWriter> for ::windows::core::InParam<IDataWriter> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataWriter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2593,7 +2593,7 @@ impl ::core::convert::TryFrom<&DataWriterStoreOperation> for super::super::Found
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&DataWriterStoreOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+impl ::core::convert::TryFrom<&DataWriterStoreOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataWriterStoreOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2615,7 +2615,7 @@ impl ::core::convert::TryFrom<&DataWriterStoreOperation> for super::super::Found
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&DataWriterStoreOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncOperation<u32>> {
+impl ::core::convert::TryFrom<&DataWriterStoreOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncOperation<u32>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataWriterStoreOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2638,9 +2638,9 @@ impl FileInputStream {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
+    pub fn ReadAsync<P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2698,7 +2698,7 @@ impl ::core::convert::TryFrom<&FileInputStream> for super::super::Foundation::IC
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&FileInputStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&FileInputStream> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileInputStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2717,7 +2717,7 @@ impl ::core::convert::TryFrom<&FileInputStream> for IInputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileInputStream> for ::windows::core::InParam<'a, IInputStream> {
+impl ::core::convert::TryFrom<&FileInputStream> for ::windows::core::InParam<IInputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileInputStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2738,9 +2738,9 @@ impl FileOutputStream {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2807,7 +2807,7 @@ impl ::core::convert::TryFrom<&FileOutputStream> for super::super::Foundation::I
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&FileOutputStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&FileOutputStream> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileOutputStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2826,7 +2826,7 @@ impl ::core::convert::TryFrom<&FileOutputStream> for IOutputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileOutputStream> for ::windows::core::InParam<'a, IOutputStream> {
+impl ::core::convert::TryFrom<&FileOutputStream> for ::windows::core::InParam<IOutputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileOutputStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2911,9 +2911,9 @@ impl FileRandomAccessStream {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
+    pub fn ReadAsync<P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInputStream>(self)?;
@@ -2924,9 +2924,9 @@ impl FileRandomAccessStream {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
@@ -3055,7 +3055,7 @@ impl ::core::convert::TryFrom<&FileRandomAccessStream> for super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&FileRandomAccessStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&FileRandomAccessStream> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileRandomAccessStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3074,7 +3074,7 @@ impl ::core::convert::TryFrom<&FileRandomAccessStream> for IInputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileRandomAccessStream> for ::windows::core::InParam<'a, IInputStream> {
+impl ::core::convert::TryFrom<&FileRandomAccessStream> for ::windows::core::InParam<IInputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileRandomAccessStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3093,7 +3093,7 @@ impl ::core::convert::TryFrom<&FileRandomAccessStream> for IOutputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileRandomAccessStream> for ::windows::core::InParam<'a, IOutputStream> {
+impl ::core::convert::TryFrom<&FileRandomAccessStream> for ::windows::core::InParam<IOutputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileRandomAccessStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3112,7 +3112,7 @@ impl ::core::convert::TryFrom<&FileRandomAccessStream> for IRandomAccessStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileRandomAccessStream> for ::windows::core::InParam<'a, IRandomAccessStream> {
+impl ::core::convert::TryFrom<&FileRandomAccessStream> for ::windows::core::InParam<IRandomAccessStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileRandomAccessStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3140,9 +3140,9 @@ impl InMemoryRandomAccessStream {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
+    pub fn ReadAsync<P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInputStream>(self)?;
@@ -3153,9 +3153,9 @@ impl InMemoryRandomAccessStream {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
@@ -3279,7 +3279,7 @@ impl ::core::convert::TryFrom<&InMemoryRandomAccessStream> for super::super::Fou
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&InMemoryRandomAccessStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&InMemoryRandomAccessStream> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InMemoryRandomAccessStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3298,7 +3298,7 @@ impl ::core::convert::TryFrom<&InMemoryRandomAccessStream> for IInputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InMemoryRandomAccessStream> for ::windows::core::InParam<'a, IInputStream> {
+impl ::core::convert::TryFrom<&InMemoryRandomAccessStream> for ::windows::core::InParam<IInputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InMemoryRandomAccessStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3317,7 +3317,7 @@ impl ::core::convert::TryFrom<&InMemoryRandomAccessStream> for IOutputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InMemoryRandomAccessStream> for ::windows::core::InParam<'a, IOutputStream> {
+impl ::core::convert::TryFrom<&InMemoryRandomAccessStream> for ::windows::core::InParam<IOutputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InMemoryRandomAccessStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3336,7 +3336,7 @@ impl ::core::convert::TryFrom<&InMemoryRandomAccessStream> for IRandomAccessStre
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InMemoryRandomAccessStream> for ::windows::core::InParam<'a, IRandomAccessStream> {
+impl ::core::convert::TryFrom<&InMemoryRandomAccessStream> for ::windows::core::InParam<IRandomAccessStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InMemoryRandomAccessStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3357,9 +3357,9 @@ impl InputStreamOverStream {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
+    pub fn ReadAsync<P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3417,7 +3417,7 @@ impl ::core::convert::TryFrom<&InputStreamOverStream> for super::super::Foundati
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&InputStreamOverStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&InputStreamOverStream> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InputStreamOverStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3436,7 +3436,7 @@ impl ::core::convert::TryFrom<&InputStreamOverStream> for IInputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InputStreamOverStream> for ::windows::core::InParam<'a, IInputStream> {
+impl ::core::convert::TryFrom<&InputStreamOverStream> for ::windows::core::InParam<IInputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InputStreamOverStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3457,9 +3457,9 @@ impl OutputStreamOverStream {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3526,7 +3526,7 @@ impl ::core::convert::TryFrom<&OutputStreamOverStream> for super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&OutputStreamOverStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&OutputStreamOverStream> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &OutputStreamOverStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3545,7 +3545,7 @@ impl ::core::convert::TryFrom<&OutputStreamOverStream> for IOutputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&OutputStreamOverStream> for ::windows::core::InParam<'a, IOutputStream> {
+impl ::core::convert::TryFrom<&OutputStreamOverStream> for ::windows::core::InParam<IOutputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &OutputStreamOverStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3559,11 +3559,11 @@ pub struct RandomAccessStream;
 impl RandomAccessStream {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyAsync<'a, P0, E0, P1, E1>(source: P0, destination: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn CopyAsync<P0, E0, P1, E1>(source: P0, destination: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, IOutputStream>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<IOutputStream>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IRandomAccessStreamStatics(|this| unsafe {
@@ -3573,11 +3573,11 @@ impl RandomAccessStream {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopySizeAsync<'a, P0, E0, P1, E1>(source: P0, destination: P1, bytestocopy: u64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn CopySizeAsync<P0, E0, P1, E1>(source: P0, destination: P1, bytestocopy: u64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, IOutputStream>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<IOutputStream>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IRandomAccessStreamStatics(|this| unsafe {
@@ -3587,11 +3587,11 @@ impl RandomAccessStream {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyAndCloseAsync<'a, P0, E0, P1, E1>(source: P0, destination: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn CopyAndCloseAsync<P0, E0, P1, E1>(source: P0, destination: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, IOutputStream>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<IOutputStream>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IRandomAccessStreamStatics(|this| unsafe {
@@ -3620,9 +3620,9 @@ impl RandomAccessStreamOverStream {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
+    pub fn ReadAsync<P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInputStream>(self)?;
@@ -3633,9 +3633,9 @@ impl RandomAccessStreamOverStream {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
@@ -3759,7 +3759,7 @@ impl ::core::convert::TryFrom<&RandomAccessStreamOverStream> for super::super::F
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&RandomAccessStreamOverStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&RandomAccessStreamOverStream> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RandomAccessStreamOverStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3778,7 +3778,7 @@ impl ::core::convert::TryFrom<&RandomAccessStreamOverStream> for IInputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RandomAccessStreamOverStream> for ::windows::core::InParam<'a, IInputStream> {
+impl ::core::convert::TryFrom<&RandomAccessStreamOverStream> for ::windows::core::InParam<IInputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RandomAccessStreamOverStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3797,7 +3797,7 @@ impl ::core::convert::TryFrom<&RandomAccessStreamOverStream> for IOutputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RandomAccessStreamOverStream> for ::windows::core::InParam<'a, IOutputStream> {
+impl ::core::convert::TryFrom<&RandomAccessStreamOverStream> for ::windows::core::InParam<IOutputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RandomAccessStreamOverStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3816,7 +3816,7 @@ impl ::core::convert::TryFrom<&RandomAccessStreamOverStream> for IRandomAccessSt
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RandomAccessStreamOverStream> for ::windows::core::InParam<'a, IRandomAccessStream> {
+impl ::core::convert::TryFrom<&RandomAccessStreamOverStream> for ::windows::core::InParam<IRandomAccessStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RandomAccessStreamOverStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3838,9 +3838,9 @@ impl RandomAccessStreamReference {
             (::windows::core::Vtable::vtable(this).OpenReadAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn CreateFromFile<'a, P0, E0>(file: P0) -> ::windows::core::Result<RandomAccessStreamReference>
+    pub fn CreateFromFile<P0, E0>(file: P0) -> ::windows::core::Result<RandomAccessStreamReference>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IRandomAccessStreamReferenceStatics(|this| unsafe {
@@ -3856,9 +3856,9 @@ impl RandomAccessStreamReference {
             (::windows::core::Vtable::vtable(this).CreateFromUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn CreateFromStream<'a, P0, E0>(stream: P0) -> ::windows::core::Result<RandomAccessStreamReference>
+    pub fn CreateFromStream<P0, E0>(stream: P0) -> ::windows::core::Result<RandomAccessStreamReference>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IRandomAccessStreamReferenceStatics(|this| unsafe {
@@ -3917,7 +3917,7 @@ impl ::core::convert::TryFrom<&RandomAccessStreamReference> for IRandomAccessStr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RandomAccessStreamReference> for ::windows::core::InParam<'a, IRandomAccessStreamReference> {
+impl ::core::convert::TryFrom<&RandomAccessStreamReference> for ::windows::core::InParam<IRandomAccessStreamReference> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RandomAccessStreamReference) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

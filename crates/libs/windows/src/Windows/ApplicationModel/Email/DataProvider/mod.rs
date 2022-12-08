@@ -2418,9 +2418,9 @@ impl EmailMailboxResolveRecipientsRequest {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReportCompletedAsync<'a, P0, E0>(&self, resolutionresults: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ReportCompletedAsync<P0, E0>(&self, resolutionresults: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::EmailRecipientResolutionResult>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::EmailRecipientResolutionResult>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3115,9 +3115,9 @@ impl EmailMailboxValidateCertificatesRequest {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReportCompletedAsync<'a, P0, E0>(&self, validationstatuses: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ReportCompletedAsync<P0, E0>(&self, validationstatuses: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::EmailCertificateValidationStatus>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::EmailCertificateValidationStatus>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

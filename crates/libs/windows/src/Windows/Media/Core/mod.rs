@@ -1188,7 +1188,7 @@ impl ::core::convert::TryFrom<&IMediaStreamDescriptor2> for IMediaStreamDescript
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IMediaStreamDescriptor2> for ::windows::core::InParam<'a, IMediaStreamDescriptor> {
+impl ::core::convert::TryFrom<&IMediaStreamDescriptor2> for ::windows::core::InParam<IMediaStreamDescriptor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IMediaStreamDescriptor2) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2960,9 +2960,9 @@ impl AudioStreamDescriptor {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetLeadingEncoderPadding<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetLeadingEncoderPadding<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IAudioStreamDescriptor2>(self)?;
@@ -2979,9 +2979,9 @@ impl AudioStreamDescriptor {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetTrailingEncoderPadding<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetTrailingEncoderPadding<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IAudioStreamDescriptor2>(self)?;
@@ -3102,7 +3102,7 @@ impl ::core::convert::TryFrom<&AudioStreamDescriptor> for IMediaStreamDescriptor
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AudioStreamDescriptor> for ::windows::core::InParam<'a, IMediaStreamDescriptor> {
+impl ::core::convert::TryFrom<&AudioStreamDescriptor> for ::windows::core::InParam<IMediaStreamDescriptor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AudioStreamDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3121,7 +3121,7 @@ impl ::core::convert::TryFrom<&AudioStreamDescriptor> for IMediaStreamDescriptor
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AudioStreamDescriptor> for ::windows::core::InParam<'a, IMediaStreamDescriptor2> {
+impl ::core::convert::TryFrom<&AudioStreamDescriptor> for ::windows::core::InParam<IMediaStreamDescriptor2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AudioStreamDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3259,7 +3259,7 @@ impl ::core::convert::TryFrom<&AudioTrack> for IMediaTrack {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AudioTrack> for ::windows::core::InParam<'a, IMediaTrack> {
+impl ::core::convert::TryFrom<&AudioTrack> for ::windows::core::InParam<IMediaTrack> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AudioTrack) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3492,7 +3492,7 @@ impl ::core::convert::TryFrom<&ChapterCue> for IMediaCue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ChapterCue> for ::windows::core::InParam<'a, IMediaCue> {
+impl ::core::convert::TryFrom<&ChapterCue> for ::windows::core::InParam<IMediaCue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ChapterCue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3965,9 +3965,9 @@ impl DataCue {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetData<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetData<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4078,7 +4078,7 @@ impl ::core::convert::TryFrom<&DataCue> for IMediaCue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DataCue> for ::windows::core::InParam<'a, IMediaCue> {
+impl ::core::convert::TryFrom<&DataCue> for ::windows::core::InParam<IMediaCue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataCue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4181,9 +4181,9 @@ impl FaceDetectionEffect {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<'a, P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
+    pub fn SetProperties<P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
@@ -4235,7 +4235,7 @@ impl ::core::convert::TryFrom<&FaceDetectionEffect> for super::IMediaExtension {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FaceDetectionEffect> for ::windows::core::InParam<'a, super::IMediaExtension> {
+impl ::core::convert::TryFrom<&FaceDetectionEffect> for ::windows::core::InParam<super::IMediaExtension> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FaceDetectionEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4355,7 +4355,7 @@ impl ::core::convert::TryFrom<&FaceDetectionEffectDefinition> for super::Effects
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl<'a> ::core::convert::TryFrom<&FaceDetectionEffectDefinition> for ::windows::core::InParam<'a, super::Effects::IVideoEffectDefinition> {
+impl ::core::convert::TryFrom<&FaceDetectionEffectDefinition> for ::windows::core::InParam<super::Effects::IVideoEffectDefinition> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FaceDetectionEffectDefinition) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4401,9 +4401,9 @@ impl FaceDetectionEffectFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRelativeTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetRelativeTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IMediaFrame>(self)?;
@@ -4420,9 +4420,9 @@ impl FaceDetectionEffectFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSystemRelativeTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSystemRelativeTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IMediaFrame>(self)?;
@@ -4439,9 +4439,9 @@ impl FaceDetectionEffectFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDuration<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDuration<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IMediaFrame>(self)?;
@@ -4525,7 +4525,7 @@ impl ::core::convert::TryFrom<&FaceDetectionEffectFrame> for super::super::Found
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&FaceDetectionEffectFrame> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&FaceDetectionEffectFrame> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FaceDetectionEffectFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4544,7 +4544,7 @@ impl ::core::convert::TryFrom<&FaceDetectionEffectFrame> for super::IMediaFrame 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FaceDetectionEffectFrame> for ::windows::core::InParam<'a, super::IMediaFrame> {
+impl ::core::convert::TryFrom<&FaceDetectionEffectFrame> for ::windows::core::InParam<super::IMediaFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FaceDetectionEffectFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4795,7 +4795,7 @@ impl ::core::convert::TryFrom<&ImageCue> for IMediaCue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ImageCue> for ::windows::core::InParam<'a, IMediaCue> {
+impl ::core::convert::TryFrom<&ImageCue> for ::windows::core::InParam<IMediaCue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageCue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4888,9 +4888,9 @@ impl LowLightFusion {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub fn FuseAsync<'a, P0, E0>(frameset: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<LowLightFusionResult, f64>>
+    pub fn FuseAsync<P0, E0>(frameset: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<LowLightFusionResult, f64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Graphics::Imaging::SoftwareBitmap>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Graphics::Imaging::SoftwareBitmap>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILowLightFusionStatics(|this| unsafe {
@@ -4975,7 +4975,7 @@ impl ::core::convert::TryFrom<&LowLightFusionResult> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&LowLightFusionResult> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&LowLightFusionResult> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LowLightFusionResult) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5107,9 +5107,9 @@ impl MediaBindingEventArgs {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetStream<'a, P0, E0>(&self, stream: P0, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<()>
+    pub fn SetStream<P0, E0>(&self, stream: P0, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5117,9 +5117,9 @@ impl MediaBindingEventArgs {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetStreamReference<'a, P0, E0>(&self, stream: P0, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<()>
+    pub fn SetStreamReference<P0, E0>(&self, stream: P0, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5133,9 +5133,9 @@ impl MediaBindingEventArgs {
     }
     #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn SetStorageFile<'a, P0, E0>(&self, file: P0) -> ::windows::core::Result<()>
+    pub fn SetStorageFile<P0, E0>(&self, file: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaBindingEventArgs2>(self)?;
@@ -5394,9 +5394,9 @@ impl MediaSource {
             (::windows::core::Vtable::vtable(this).CreateFromMseStreamSource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mediasource), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn CreateFromIMediaSource<'a, P0, E0>(mediasource: P0) -> ::windows::core::Result<MediaSource>
+    pub fn CreateFromIMediaSource<P0, E0>(mediasource: P0) -> ::windows::core::Result<MediaSource>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMediaSource>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IMediaSource>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaSourceStatics(|this| unsafe {
@@ -5406,9 +5406,9 @@ impl MediaSource {
     }
     #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn CreateFromStorageFile<'a, P0, E0>(file: P0) -> ::windows::core::Result<MediaSource>
+    pub fn CreateFromStorageFile<P0, E0>(file: P0) -> ::windows::core::Result<MediaSource>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaSourceStatics(|this| unsafe {
@@ -5418,9 +5418,9 @@ impl MediaSource {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStream<'a, P0, E0>(stream: P0, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<MediaSource>
+    pub fn CreateFromStream<P0, E0>(stream: P0, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<MediaSource>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaSourceStatics(|this| unsafe {
@@ -5430,9 +5430,9 @@ impl MediaSource {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStreamReference<'a, P0, E0>(stream: P0, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<MediaSource>
+    pub fn CreateFromStreamReference<P0, E0>(stream: P0, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<MediaSource>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaSourceStatics(|this| unsafe {
@@ -5539,7 +5539,7 @@ impl ::core::convert::TryFrom<&MediaSource> for super::super::Foundation::IClosa
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&MediaSource> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&MediaSource> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5561,7 +5561,7 @@ impl ::core::convert::TryFrom<&MediaSource> for super::Playback::IMediaPlaybackS
     }
 }
 #[cfg(feature = "Media_Playback")]
-impl<'a> ::core::convert::TryFrom<&MediaSource> for ::windows::core::InParam<'a, super::Playback::IMediaPlaybackSource> {
+impl ::core::convert::TryFrom<&MediaSource> for ::windows::core::InParam<super::Playback::IMediaPlaybackSource> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5904,9 +5904,9 @@ impl MediaStreamSample {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateFromBuffer<'a, P0, E0>(buffer: P0, timestamp: super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaStreamSample>
+    pub fn CreateFromBuffer<P0, E0>(buffer: P0, timestamp: super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaStreamSample>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaStreamSampleStatics(|this| unsafe {
@@ -5916,9 +5916,9 @@ impl MediaStreamSample {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateFromStreamAsync<'a, P0, E0>(stream: P0, count: u32, timestamp: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaStreamSample>>
+    pub fn CreateFromStreamAsync<P0, E0>(stream: P0, count: u32, timestamp: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaStreamSample>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaStreamSampleStatics(|this| unsafe {
@@ -5928,9 +5928,9 @@ impl MediaStreamSample {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn CreateFromDirect3D11Surface<'a, P0, E0>(surface: P0, timestamp: super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaStreamSample>
+    pub fn CreateFromDirect3D11Surface<P0, E0>(surface: P0, timestamp: super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaStreamSample>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaStreamSampleStatics2(|this| unsafe {
@@ -6037,9 +6037,9 @@ impl MediaStreamSamplePropertySet {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, P0>(&self, key: ::windows::core::GUID, value: P0) -> ::windows::core::Result<bool>
+    pub fn Insert<P0>(&self, key: ::windows::core::GUID, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -6133,7 +6133,7 @@ impl ::core::convert::TryFrom<&MediaStreamSamplePropertySet> for super::super::F
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&MediaStreamSamplePropertySet> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>> {
+impl ::core::convert::TryFrom<&MediaStreamSamplePropertySet> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaStreamSamplePropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6155,7 +6155,7 @@ impl ::core::convert::TryFrom<&MediaStreamSamplePropertySet> for super::super::F
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&MediaStreamSamplePropertySet> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&MediaStreamSamplePropertySet> for ::windows::core::InParam<super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaStreamSamplePropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6313,9 +6313,9 @@ impl MediaStreamSource {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).NotifyError)(::windows::core::Vtable::as_raw(this), errorstatus).ok() }
     }
-    pub fn AddStreamDescriptor<'a, P0, E0>(&self, descriptor: P0) -> ::windows::core::Result<()>
+    pub fn AddStreamDescriptor<P0, E0>(&self, descriptor: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMediaStreamDescriptor>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IMediaStreamDescriptor>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -6403,9 +6403,9 @@ impl MediaStreamSource {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetThumbnail<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetThumbnail<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -6420,9 +6420,9 @@ impl MediaStreamSource {
             (::windows::core::Vtable::vtable(this).Thumbnail)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn AddProtectionKey<'a, P0, E0>(&self, streamdescriptor: P0, keyidentifier: &[u8], licensedata: &[u8]) -> ::windows::core::Result<()>
+    pub fn AddProtectionKey<P0, E0>(&self, streamdescriptor: P0, keyidentifier: &[u8], licensedata: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMediaStreamDescriptor>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IMediaStreamDescriptor>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -6445,9 +6445,9 @@ impl MediaStreamSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetMaxSupportedPlaybackRate<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetMaxSupportedPlaybackRate<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<f64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<f64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaStreamSource3>(self)?;
@@ -6473,9 +6473,9 @@ impl MediaStreamSource {
             (::windows::core::Vtable::vtable(this).IsLive)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn CreateFromDescriptor<'a, P0, E0>(descriptor: P0) -> ::windows::core::Result<MediaStreamSource>
+    pub fn CreateFromDescriptor<P0, E0>(descriptor: P0) -> ::windows::core::Result<MediaStreamSource>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMediaStreamDescriptor>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IMediaStreamDescriptor>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaStreamSourceFactory(|this| unsafe {
@@ -6483,11 +6483,11 @@ impl MediaStreamSource {
             (::windows::core::Vtable::vtable(this).CreateFromDescriptor)(::windows::core::Vtable::as_raw(this), descriptor.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn CreateFromDescriptors<'a, P0, E0, P1, E1>(descriptor: P0, descriptor2: P1) -> ::windows::core::Result<MediaStreamSource>
+    pub fn CreateFromDescriptors<P0, E0, P1, E1>(descriptor: P0, descriptor2: P1) -> ::windows::core::Result<MediaStreamSource>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMediaStreamDescriptor>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IMediaStreamDescriptor>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, IMediaStreamDescriptor>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<IMediaStreamDescriptor>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaStreamSourceFactory(|this| unsafe {
@@ -6546,7 +6546,7 @@ impl ::core::convert::TryFrom<&MediaStreamSource> for IMediaSource {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MediaStreamSource> for ::windows::core::InParam<'a, IMediaSource> {
+impl ::core::convert::TryFrom<&MediaStreamSource> for ::windows::core::InParam<IMediaSource> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaStreamSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7310,9 +7310,9 @@ impl MseSourceBuffer {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetAppendWindowEnd<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetAppendWindowEnd<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -7320,9 +7320,9 @@ impl MseSourceBuffer {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn AppendBuffer<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<()>
+    pub fn AppendBuffer<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -7330,9 +7330,9 @@ impl MseSourceBuffer {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn AppendStream<'a, P0, E0>(&self, stream: P0) -> ::windows::core::Result<()>
+    pub fn AppendStream<P0, E0>(&self, stream: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -7340,9 +7340,9 @@ impl MseSourceBuffer {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn AppendStreamMaxSize<'a, P0, E0>(&self, stream: P0, maxsize: u64) -> ::windows::core::Result<()>
+    pub fn AppendStreamMaxSize<P0, E0>(&self, stream: P0, maxsize: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -7354,9 +7354,9 @@ impl MseSourceBuffer {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Remove<'a, P0, E0>(&self, start: super::super::Foundation::TimeSpan, end: P0) -> ::windows::core::Result<()>
+    pub fn Remove<P0, E0>(&self, start: super::super::Foundation::TimeSpan, end: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -7565,9 +7565,9 @@ impl MseStreamSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDuration<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDuration<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -7599,9 +7599,9 @@ impl MseStreamSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetLiveSeekableRange<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetLiveSeekableRange<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<MseTimeRange>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<MseTimeRange>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMseStreamSource2>(self)?;
@@ -7664,7 +7664,7 @@ impl ::core::convert::TryFrom<&MseStreamSource> for IMediaSource {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MseStreamSource> for ::windows::core::InParam<'a, IMediaSource> {
+impl ::core::convert::TryFrom<&MseStreamSource> for ::windows::core::InParam<IMediaSource> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MseStreamSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7679,9 +7679,9 @@ pub struct SceneAnalysisEffect(::windows::core::IUnknown);
 impl SceneAnalysisEffect {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<'a, P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
+    pub fn SetProperties<P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
@@ -7770,7 +7770,7 @@ impl ::core::convert::TryFrom<&SceneAnalysisEffect> for super::IMediaExtension {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneAnalysisEffect> for ::windows::core::InParam<'a, super::IMediaExtension> {
+impl ::core::convert::TryFrom<&SceneAnalysisEffect> for ::windows::core::InParam<super::IMediaExtension> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneAnalysisEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7868,7 +7868,7 @@ impl ::core::convert::TryFrom<&SceneAnalysisEffectDefinition> for super::Effects
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl<'a> ::core::convert::TryFrom<&SceneAnalysisEffectDefinition> for ::windows::core::InParam<'a, super::Effects::IVideoEffectDefinition> {
+impl ::core::convert::TryFrom<&SceneAnalysisEffectDefinition> for ::windows::core::InParam<super::Effects::IVideoEffectDefinition> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneAnalysisEffectDefinition) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7905,9 +7905,9 @@ impl SceneAnalysisEffectFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRelativeTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetRelativeTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IMediaFrame>(self)?;
@@ -7924,9 +7924,9 @@ impl SceneAnalysisEffectFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSystemRelativeTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSystemRelativeTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IMediaFrame>(self)?;
@@ -7943,9 +7943,9 @@ impl SceneAnalysisEffectFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDuration<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDuration<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IMediaFrame>(self)?;
@@ -8052,7 +8052,7 @@ impl ::core::convert::TryFrom<&SceneAnalysisEffectFrame> for super::super::Found
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneAnalysisEffectFrame> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneAnalysisEffectFrame> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneAnalysisEffectFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8071,7 +8071,7 @@ impl ::core::convert::TryFrom<&SceneAnalysisEffectFrame> for super::IMediaFrame 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneAnalysisEffectFrame> for ::windows::core::InParam<'a, super::IMediaFrame> {
+impl ::core::convert::TryFrom<&SceneAnalysisEffectFrame> for ::windows::core::InParam<super::IMediaFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneAnalysisEffectFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8201,9 +8201,9 @@ impl SpeechCue {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetStartPositionInInput<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStartPositionInInput<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<i32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<i32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -8220,9 +8220,9 @@ impl SpeechCue {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetEndPositionInInput<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetEndPositionInInput<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<i32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<i32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -8274,7 +8274,7 @@ impl ::core::convert::TryFrom<&SpeechCue> for IMediaCue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SpeechCue> for ::windows::core::InParam<'a, IMediaCue> {
+impl ::core::convert::TryFrom<&SpeechCue> for ::windows::core::InParam<IMediaCue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpeechCue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8402,7 +8402,7 @@ impl ::core::convert::TryFrom<&TimedMetadataStreamDescriptor> for IMediaStreamDe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TimedMetadataStreamDescriptor> for ::windows::core::InParam<'a, IMediaStreamDescriptor> {
+impl ::core::convert::TryFrom<&TimedMetadataStreamDescriptor> for ::windows::core::InParam<IMediaStreamDescriptor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TimedMetadataStreamDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8421,7 +8421,7 @@ impl ::core::convert::TryFrom<&TimedMetadataStreamDescriptor> for IMediaStreamDe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TimedMetadataStreamDescriptor> for ::windows::core::InParam<'a, IMediaStreamDescriptor2> {
+impl ::core::convert::TryFrom<&TimedMetadataStreamDescriptor> for ::windows::core::InParam<IMediaStreamDescriptor2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TimedMetadataStreamDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8543,17 +8543,17 @@ impl TimedMetadataTrack {
             (::windows::core::Vtable::vtable(this).DispatchType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn AddCue<'a, P0, E0>(&self, cue: P0) -> ::windows::core::Result<()>
+    pub fn AddCue<P0, E0>(&self, cue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMediaCue>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IMediaCue>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).AddCue)(::windows::core::Vtable::as_raw(this), cue.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn RemoveCue<'a, P0, E0>(&self, cue: P0) -> ::windows::core::Result<()>
+    pub fn RemoveCue<P0, E0>(&self, cue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMediaCue>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IMediaCue>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -8632,7 +8632,7 @@ impl ::core::convert::TryFrom<&TimedMetadataTrack> for IMediaTrack {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TimedMetadataTrack> for ::windows::core::InParam<'a, IMediaTrack> {
+impl ::core::convert::TryFrom<&TimedMetadataTrack> for ::windows::core::InParam<IMediaTrack> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TimedMetadataTrack) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8948,7 +8948,7 @@ impl ::core::convert::TryFrom<&TimedTextCue> for IMediaCue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TimedTextCue> for ::windows::core::InParam<'a, IMediaCue> {
+impl ::core::convert::TryFrom<&TimedTextCue> for ::windows::core::InParam<IMediaCue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TimedTextCue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9312,9 +9312,9 @@ impl TimedTextSource {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStream<'a, P0, E0>(stream: P0) -> ::windows::core::Result<TimedTextSource>
+    pub fn CreateFromStream<P0, E0>(stream: P0) -> ::windows::core::Result<TimedTextSource>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITimedTextSourceStatics(|this| unsafe {
@@ -9332,9 +9332,9 @@ impl TimedTextSource {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStreamWithLanguage<'a, P0, E0>(stream: P0, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource>
+    pub fn CreateFromStreamWithLanguage<P0, E0>(stream: P0, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITimedTextSourceStatics(|this| unsafe {
@@ -9352,11 +9352,11 @@ impl TimedTextSource {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStreamWithIndex<'a, P0, E0, P1, E1>(stream: P0, indexstream: P1) -> ::windows::core::Result<TimedTextSource>
+    pub fn CreateFromStreamWithIndex<P0, E0, P1, E1>(stream: P0, indexstream: P1) -> ::windows::core::Result<TimedTextSource>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITimedTextSourceStatics2(|this| unsafe {
@@ -9374,11 +9374,11 @@ impl TimedTextSource {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStreamWithIndexAndLanguage<'a, P0, E0, P1, E1>(stream: P0, indexstream: P1, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource>
+    pub fn CreateFromStreamWithIndexAndLanguage<P0, E0, P1, E1>(stream: P0, indexstream: P1, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITimedTextSourceStatics2(|this| unsafe {
@@ -9853,9 +9853,9 @@ pub struct VideoStabilizationEffect(::windows::core::IUnknown);
 impl VideoStabilizationEffect {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<'a, P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
+    pub fn SetProperties<P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
@@ -9942,7 +9942,7 @@ impl ::core::convert::TryFrom<&VideoStabilizationEffect> for super::IMediaExtens
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VideoStabilizationEffect> for ::windows::core::InParam<'a, super::IMediaExtension> {
+impl ::core::convert::TryFrom<&VideoStabilizationEffect> for ::windows::core::InParam<super::IMediaExtension> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VideoStabilizationEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10040,7 +10040,7 @@ impl ::core::convert::TryFrom<&VideoStabilizationEffectDefinition> for super::Ef
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl<'a> ::core::convert::TryFrom<&VideoStabilizationEffectDefinition> for ::windows::core::InParam<'a, super::Effects::IVideoEffectDefinition> {
+impl ::core::convert::TryFrom<&VideoStabilizationEffectDefinition> for ::windows::core::InParam<super::Effects::IVideoEffectDefinition> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VideoStabilizationEffectDefinition) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10217,7 +10217,7 @@ impl ::core::convert::TryFrom<&VideoStreamDescriptor> for IMediaStreamDescriptor
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VideoStreamDescriptor> for ::windows::core::InParam<'a, IMediaStreamDescriptor> {
+impl ::core::convert::TryFrom<&VideoStreamDescriptor> for ::windows::core::InParam<IMediaStreamDescriptor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VideoStreamDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10236,7 +10236,7 @@ impl ::core::convert::TryFrom<&VideoStreamDescriptor> for IMediaStreamDescriptor
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VideoStreamDescriptor> for ::windows::core::InParam<'a, IMediaStreamDescriptor2> {
+impl ::core::convert::TryFrom<&VideoStreamDescriptor> for ::windows::core::InParam<IMediaStreamDescriptor2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VideoStreamDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10374,7 +10374,7 @@ impl ::core::convert::TryFrom<&VideoTrack> for IMediaTrack {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VideoTrack> for ::windows::core::InParam<'a, IMediaTrack> {
+impl ::core::convert::TryFrom<&VideoTrack> for ::windows::core::InParam<IMediaTrack> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VideoTrack) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

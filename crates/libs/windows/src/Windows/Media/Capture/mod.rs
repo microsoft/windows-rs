@@ -3082,9 +3082,9 @@ impl AdvancedPhotoCapture {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CaptureWithContextAsync<'a, P0>(&self, context: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>
+    pub fn CaptureWithContextAsync<P0>(&self, context: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -6281,7 +6281,7 @@ impl ::core::convert::TryFrom<&AppCaptureMetadataWriter> for super::super::Found
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&AppCaptureMetadataWriter> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&AppCaptureMetadataWriter> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppCaptureMetadataWriter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7388,9 +7388,9 @@ impl CapturedFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
+    pub fn ReadAsync<P0, E0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
@@ -7401,9 +7401,9 @@ impl CapturedFrame {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
@@ -7545,7 +7545,7 @@ impl ::core::convert::TryFrom<&CapturedFrame> for super::super::Foundation::IClo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&CapturedFrame> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&CapturedFrame> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CapturedFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7567,7 +7567,7 @@ impl ::core::convert::TryFrom<&CapturedFrame> for super::super::Storage::Streams
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&CapturedFrame> for ::windows::core::InParam<'a, super::super::Storage::Streams::IContentTypeProvider> {
+impl ::core::convert::TryFrom<&CapturedFrame> for ::windows::core::InParam<super::super::Storage::Streams::IContentTypeProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CapturedFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7589,7 +7589,7 @@ impl ::core::convert::TryFrom<&CapturedFrame> for super::super::Storage::Streams
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&CapturedFrame> for ::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream> {
+impl ::core::convert::TryFrom<&CapturedFrame> for ::windows::core::InParam<super::super::Storage::Streams::IInputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CapturedFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7611,7 +7611,7 @@ impl ::core::convert::TryFrom<&CapturedFrame> for super::super::Storage::Streams
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&CapturedFrame> for ::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream> {
+impl ::core::convert::TryFrom<&CapturedFrame> for ::windows::core::InParam<super::super::Storage::Streams::IOutputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CapturedFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7633,7 +7633,7 @@ impl ::core::convert::TryFrom<&CapturedFrame> for super::super::Storage::Streams
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&CapturedFrame> for ::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream> {
+impl ::core::convert::TryFrom<&CapturedFrame> for ::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CapturedFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7655,7 +7655,7 @@ impl ::core::convert::TryFrom<&CapturedFrame> for super::super::Storage::Streams
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&CapturedFrame> for ::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
+impl ::core::convert::TryFrom<&CapturedFrame> for ::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CapturedFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8491,9 +8491,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
-    pub fn StartRecordToStorageFileAsync<'a, P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartRecordToStorageFileAsync<P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -8504,9 +8504,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn StartRecordToStreamAsync<'a, P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartRecordToStreamAsync<P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -8517,9 +8517,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
-    pub fn StartRecordToCustomSinkAsync<'a, P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, custommediasink: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartRecordToCustomSinkAsync<P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, custommediasink: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IMediaExtension>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IMediaExtension>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -8530,9 +8530,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub fn StartRecordToCustomSinkIdAsync<'a, P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartRecordToCustomSinkIdAsync<P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -8552,9 +8552,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
-    pub fn CapturePhotoToStorageFileAsync<'a, P0, E0>(&self, r#type: &super::MediaProperties::ImageEncodingProperties, file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn CapturePhotoToStorageFileAsync<P0, E0>(&self, r#type: &super::MediaProperties::ImageEncodingProperties, file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -8565,9 +8565,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn CapturePhotoToStreamAsync<'a, P0, E0>(&self, r#type: &super::MediaProperties::ImageEncodingProperties, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn CapturePhotoToStreamAsync<P0, E0>(&self, r#type: &super::MediaProperties::ImageEncodingProperties, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -8578,9 +8578,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn AddEffectAsync<'a, P0, E0>(&self, mediastreamtype: MediaStreamType, effectactivationid: &::windows::core::HSTRING, effectsettings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn AddEffectAsync<P0, E0>(&self, mediastreamtype: MediaStreamType, effectactivationid: &::windows::core::HSTRING, effectsettings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -8598,9 +8598,9 @@ impl MediaCapture {
             (::windows::core::Vtable::vtable(this).ClearEffectsAsync)(::windows::core::Vtable::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetEncoderProperty<'a, P0>(&self, mediastreamtype: MediaStreamType, propertyid: ::windows::core::GUID, propertyvalue: P0) -> ::windows::core::Result<()>
+    pub fn SetEncoderProperty<P0>(&self, mediastreamtype: MediaStreamType, propertyid: ::windows::core::GUID, propertyvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetEncoderProperty)(::windows::core::Vtable::as_raw(this), mediastreamtype, propertyid, propertyvalue.into().abi()).ok() }
@@ -8702,9 +8702,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
-    pub fn PrepareLowLagRecordToStorageFileAsync<'a, P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
+    pub fn PrepareLowLagRecordToStorageFileAsync<P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCapture2>(self)?;
@@ -8715,9 +8715,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn PrepareLowLagRecordToStreamAsync<'a, P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
+    pub fn PrepareLowLagRecordToStreamAsync<P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCapture2>(self)?;
@@ -8728,9 +8728,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
-    pub fn PrepareLowLagRecordToCustomSinkAsync<'a, P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, custommediasink: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
+    pub fn PrepareLowLagRecordToCustomSinkAsync<P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, custommediasink: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IMediaExtension>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IMediaExtension>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCapture2>(self)?;
@@ -8741,9 +8741,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub fn PrepareLowLagRecordToCustomSinkIdAsync<'a, P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
+    pub fn PrepareLowLagRecordToCustomSinkIdAsync<P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCapture2>(self)?;
@@ -8772,9 +8772,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub fn SetEncodingPropertiesAsync<'a, P0, E0>(&self, mediastreamtype: MediaStreamType, mediaencodingproperties: P0, encoderproperties: &super::MediaProperties::MediaPropertySet) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetEncodingPropertiesAsync<P0, E0>(&self, mediastreamtype: MediaStreamType, mediaencodingproperties: P0, encoderproperties: &super::MediaProperties::MediaPropertySet) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCapture2>(self)?;
@@ -8824,9 +8824,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_Effects\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Effects"))]
-    pub fn AddAudioEffectAsync<'a, P0, E0>(&self, definition: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>
+    pub fn AddAudioEffectAsync<P0, E0>(&self, definition: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Effects::IAudioEffectDefinition>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Effects::IAudioEffectDefinition>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
@@ -8837,9 +8837,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_Effects\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Effects"))]
-    pub fn AddVideoEffectAsync<'a, P0, E0>(&self, definition: P0, mediastreamtype: MediaStreamType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>
+    pub fn AddVideoEffectAsync<P0, E0>(&self, definition: P0, mediastreamtype: MediaStreamType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Effects::IVideoEffectDefinition>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Effects::IVideoEffectDefinition>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
@@ -8941,9 +8941,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveEffectAsync<'a, P0, E0>(&self, effect: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RemoveEffectAsync<P0, E0>(&self, effect: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IMediaExtension>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IMediaExtension>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCapture5>(self)?;
@@ -9023,9 +9023,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_Capture_Frames\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames"))]
-    pub fn CreateMultiSourceFrameReaderAsync<'a, P0, E0>(&self, inputsources: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MultiSourceMediaFrameReader>>
+    pub fn CreateMultiSourceFrameReaderAsync<P0, E0>(&self, inputsources: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MultiSourceMediaFrameReader>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<Frames::MediaFrameSource>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<Frames::MediaFrameSource>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCapture6>(self)?;
@@ -9084,9 +9084,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties"))]
-    pub fn StartPreviewToCustomSinkAsync<'a, P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, custommediasink: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartPreviewToCustomSinkAsync<P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, custommediasink: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IMediaExtension>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IMediaExtension>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCaptureVideoPreview>(self)?;
@@ -9097,9 +9097,9 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub fn StartPreviewToCustomSinkIdAsync<'a, P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartPreviewToCustomSinkIdAsync<P0, E0>(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCaptureVideoPreview>(self)?;
@@ -9171,7 +9171,7 @@ impl ::core::convert::TryFrom<&MediaCapture> for super::super::Foundation::IClos
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&MediaCapture> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&MediaCapture> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaCapture) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9412,9 +9412,9 @@ impl MediaCaptureInitializationSettings {
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
     #[cfg(feature = "Media_Core")]
-    pub fn SetAudioSource<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetAudioSource<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Core::IMediaSource>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Core::IMediaSource>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings3>(self)?;
@@ -9431,9 +9431,9 @@ impl MediaCaptureInitializationSettings {
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
     #[cfg(feature = "Media_Core")]
-    pub fn SetVideoSource<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetVideoSource<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Core::IMediaSource>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Core::IMediaSource>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings3>(self)?;
@@ -9681,7 +9681,7 @@ impl ::core::convert::TryFrom<&MediaCapturePauseResult> for super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&MediaCapturePauseResult> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&MediaCapturePauseResult> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaCapturePauseResult) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9779,7 +9779,7 @@ impl ::core::convert::TryFrom<&MediaCaptureRelativePanelWatcher> for super::supe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&MediaCaptureRelativePanelWatcher> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&MediaCaptureRelativePanelWatcher> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaCaptureRelativePanelWatcher) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10007,7 +10007,7 @@ impl ::core::convert::TryFrom<&MediaCaptureStopResult> for super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&MediaCaptureStopResult> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&MediaCaptureStopResult> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaCaptureStopResult) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

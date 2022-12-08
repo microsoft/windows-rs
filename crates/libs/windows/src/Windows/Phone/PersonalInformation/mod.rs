@@ -112,9 +112,9 @@ impl IContactInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SetDisplayPictureAsync<'a, P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetDisplayPictureAsync<P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -784,9 +784,9 @@ impl ContactInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SetDisplayPictureAsync<'a, P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetDisplayPictureAsync<P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -833,9 +833,9 @@ impl ContactInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ParseVcardAsync<'a, P0, E0>(vcard: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactInformation>>
+    pub fn ParseVcardAsync<P0, E0>(vcard: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactInformation>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IContactInformationStatics(|this| unsafe {
@@ -894,7 +894,7 @@ impl ::core::convert::TryFrom<&ContactInformation> for IContactInformation {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactInformation> for ::windows::core::InParam<'a, IContactInformation> {
+impl ::core::convert::TryFrom<&ContactInformation> for ::windows::core::InParam<IContactInformation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1125,9 +1125,9 @@ impl ContactStore {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SaveExtendedPropertiesAsync<'a, P0, E0>(&self, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SaveExtendedPropertiesAsync<P0, E0>(&self, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1494,9 +1494,9 @@ impl StoredContact {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SetDisplayPictureAsync<'a, P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetDisplayPictureAsync<P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IContactInformation>(self)?;
@@ -1671,7 +1671,7 @@ impl ::core::convert::TryFrom<&StoredContact> for IContactInformation {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StoredContact> for ::windows::core::InParam<'a, IContactInformation> {
+impl ::core::convert::TryFrom<&StoredContact> for ::windows::core::InParam<IContactInformation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StoredContact) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1690,7 +1690,7 @@ impl ::core::convert::TryFrom<&StoredContact> for IContactInformation2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StoredContact> for ::windows::core::InParam<'a, IContactInformation2> {
+impl ::core::convert::TryFrom<&StoredContact> for ::windows::core::InParam<IContactInformation2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StoredContact) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

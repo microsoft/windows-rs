@@ -1,8 +1,8 @@
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 #[inline]
-pub unsafe fn CreatePresentationFactory<'a, P0>(d3ddevice: P0, riid: *const ::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn CreatePresentationFactory<P0>(d3ddevice: P0, riid: *const ::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "dcomp.dll""system" fn CreatePresentationFactory ( d3ddevice : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , presentationfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CreatePresentationFactory(d3ddevice.into().abi(), riid, presentationfactory).ok()
@@ -356,16 +356,16 @@ pub struct IPresentationFactory_Vtbl {
 #[repr(transparent)]
 pub struct IPresentationManager(::windows::core::IUnknown);
 impl IPresentationManager {
-    pub unsafe fn AddBufferFromResource<'a, P0>(&self, resource: P0) -> ::windows::core::Result<IPresentationBuffer>
+    pub unsafe fn AddBufferFromResource<P0>(&self, resource: P0) -> ::windows::core::Result<IPresentationBuffer>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AddBufferFromResource)(::windows::core::Vtable::as_raw(self), resource.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreatePresentationSurface<'a, P0>(&self, compositionsurfacehandle: P0) -> ::windows::core::Result<IPresentationSurface>
+    pub unsafe fn CreatePresentationSurface<P0>(&self, compositionsurfacehandle: P0) -> ::windows::core::Result<IPresentationSurface>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -471,9 +471,9 @@ impl IPresentationSurface {
     pub unsafe fn SetTag(&self, tag: usize) {
         (::windows::core::Vtable::vtable(self).base__.SetTag)(::windows::core::Vtable::as_raw(self), tag)
     }
-    pub unsafe fn SetBuffer<'a, P0>(&self, presentationbuffer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBuffer<P0>(&self, presentationbuffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IPresentationBuffer>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IPresentationBuffer>>,
     {
         (::windows::core::Vtable::vtable(self).SetBuffer)(::windows::core::Vtable::as_raw(self), presentationbuffer.into().abi()).ok()
     }
@@ -495,9 +495,9 @@ impl IPresentationSurface {
     pub unsafe fn SetTransform(&self, transform: *const PresentationTransform) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetTransform)(::windows::core::Vtable::as_raw(self), transform).ok()
     }
-    pub unsafe fn RestrictToOutput<'a, P0>(&self, output: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RestrictToOutput<P0>(&self, output: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).RestrictToOutput)(::windows::core::Vtable::as_raw(self), output.into().abi()).ok()
     }

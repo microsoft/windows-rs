@@ -237,7 +237,7 @@ impl ::core::convert::TryFrom<&CharacterGroupings> for super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&CharacterGroupings> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<CharacterGrouping>> {
+impl ::core::convert::TryFrom<&CharacterGroupings> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<CharacterGrouping>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CharacterGroupings) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -259,7 +259,7 @@ impl ::core::convert::TryFrom<&CharacterGroupings> for super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&CharacterGroupings> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<CharacterGrouping>> {
+impl ::core::convert::TryFrom<&CharacterGroupings> for ::windows::core::InParam<super::super::Foundation::Collections::IVectorView<CharacterGrouping>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CharacterGroupings) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

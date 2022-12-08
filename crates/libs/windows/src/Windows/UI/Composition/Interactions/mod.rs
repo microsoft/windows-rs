@@ -984,9 +984,9 @@ impl CompositionConditionalValue {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -1017,17 +1017,17 @@ impl CompositionConditionalValue {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -1049,9 +1049,9 @@ impl CompositionConditionalValue {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -1107,7 +1107,7 @@ impl ::core::convert::TryFrom<&CompositionConditionalValue> for super::IAnimatio
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CompositionConditionalValue> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&CompositionConditionalValue> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionConditionalValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1129,7 +1129,7 @@ impl ::core::convert::TryFrom<&CompositionConditionalValue> for super::super::su
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&CompositionConditionalValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&CompositionConditionalValue> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionConditionalValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1146,7 +1146,7 @@ impl ::core::convert::From<&CompositionConditionalValue> for super::CompositionO
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&CompositionConditionalValue> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&CompositionConditionalValue> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &CompositionConditionalValue) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -1174,17 +1174,17 @@ impl CompositionInteractionSourceCollection {
             (::windows::core::Vtable::vtable(this).Count)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Add<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn Add<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICompositionInteractionSource>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ICompositionInteractionSource>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Add)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn Remove<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn Remove<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICompositionInteractionSource>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ICompositionInteractionSource>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1217,9 +1217,9 @@ impl CompositionInteractionSourceCollection {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -1250,17 +1250,17 @@ impl CompositionInteractionSourceCollection {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -1282,9 +1282,9 @@ impl CompositionInteractionSourceCollection {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -1360,7 +1360,7 @@ impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for super
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1382,7 +1382,7 @@ impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1404,7 +1404,7 @@ impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>> {
+impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1421,7 +1421,7 @@ impl ::core::convert::From<&CompositionInteractionSourceCollection> for super::C
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&CompositionInteractionSourceCollection> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &CompositionInteractionSourceCollection) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -1465,9 +1465,9 @@ impl InteractionSourceConfiguration {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -1498,17 +1498,17 @@ impl InteractionSourceConfiguration {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -1530,9 +1530,9 @@ impl InteractionSourceConfiguration {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -1616,7 +1616,7 @@ impl ::core::convert::TryFrom<&InteractionSourceConfiguration> for super::IAnima
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InteractionSourceConfiguration> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&InteractionSourceConfiguration> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionSourceConfiguration) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1638,7 +1638,7 @@ impl ::core::convert::TryFrom<&InteractionSourceConfiguration> for super::super:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&InteractionSourceConfiguration> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&InteractionSourceConfiguration> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionSourceConfiguration) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1655,7 +1655,7 @@ impl ::core::convert::From<&InteractionSourceConfiguration> for super::Compositi
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&InteractionSourceConfiguration> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&InteractionSourceConfiguration> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionSourceConfiguration) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -1699,9 +1699,9 @@ impl InteractionTracker {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -1732,17 +1732,17 @@ impl InteractionTracker {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -1764,9 +1764,9 @@ impl InteractionTracker {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -1880,9 +1880,9 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetPositionInertiaDecayRate<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetPositionInertiaDecayRate<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1915,9 +1915,9 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetScaleInertiaDecayRate<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetScaleInertiaDecayRate<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<f32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<f32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1940,9 +1940,9 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigurePositionXInertiaModifiers<'a, P0, E0>(&self, modifiers: P0) -> ::windows::core::Result<()>
+    pub fn ConfigurePositionXInertiaModifiers<P0, E0>(&self, modifiers: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1950,9 +1950,9 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigurePositionYInertiaModifiers<'a, P0, E0>(&self, modifiers: P0) -> ::windows::core::Result<()>
+    pub fn ConfigurePositionYInertiaModifiers<P0, E0>(&self, modifiers: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1960,9 +1960,9 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureScaleInertiaModifiers<'a, P0, E0>(&self, modifiers: P0) -> ::windows::core::Result<()>
+    pub fn ConfigureScaleInertiaModifiers<P0, E0>(&self, modifiers: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1986,9 +1986,9 @@ impl InteractionTracker {
             (::windows::core::Vtable::vtable(this).TryUpdatePositionBy)(::windows::core::Vtable::as_raw(this), amount, result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TryUpdatePositionWithAnimation<'a, P0>(&self, animation: P0) -> ::windows::core::Result<i32>
+    pub fn TryUpdatePositionWithAnimation<P0>(&self, animation: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = self;
         unsafe {
@@ -2016,9 +2016,9 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdateScaleWithAnimation<'a, P0>(&self, animation: P0, centerpoint: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>
+    pub fn TryUpdateScaleWithAnimation<P0>(&self, animation: P0, centerpoint: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = self;
         unsafe {
@@ -2037,9 +2037,9 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureCenterPointXInertiaModifiers<'a, P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
+    pub fn ConfigureCenterPointXInertiaModifiers<P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInteractionTracker2>(self)?;
@@ -2047,9 +2047,9 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureCenterPointYInertiaModifiers<'a, P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
+    pub fn ConfigureCenterPointYInertiaModifiers<P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInteractionTracker2>(self)?;
@@ -2057,9 +2057,9 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureVector2PositionInertiaModifiers<'a, P0, E0>(&self, modifiers: P0) -> ::windows::core::Result<()>
+    pub fn ConfigureVector2PositionInertiaModifiers<P0, E0>(&self, modifiers: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<InteractionTrackerVector2InertiaModifier>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<InteractionTrackerVector2InertiaModifier>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IInteractionTracker3>(self)?;
@@ -2105,9 +2105,9 @@ impl InteractionTracker {
             (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn CreateWithOwner<'a, P0, E0>(compositor: &super::Compositor, owner: P0) -> ::windows::core::Result<InteractionTracker>
+    pub fn CreateWithOwner<P0, E0>(compositor: &super::Compositor, owner: P0) -> ::windows::core::Result<InteractionTracker>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IInteractionTrackerOwner>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IInteractionTrackerOwner>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IInteractionTrackerStatics(|this| unsafe {
@@ -2180,7 +2180,7 @@ impl ::core::convert::TryFrom<&InteractionTracker> for super::IAnimationObject {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InteractionTracker> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&InteractionTracker> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTracker) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2202,7 +2202,7 @@ impl ::core::convert::TryFrom<&InteractionTracker> for super::super::super::Foun
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&InteractionTracker> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&InteractionTracker> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTracker) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2219,7 +2219,7 @@ impl ::core::convert::From<&InteractionTracker> for super::CompositionObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&InteractionTracker> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&InteractionTracker> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionTracker) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -2371,9 +2371,9 @@ impl InteractionTrackerInertiaModifier {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -2404,17 +2404,17 @@ impl InteractionTrackerInertiaModifier {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -2436,9 +2436,9 @@ impl InteractionTrackerInertiaModifier {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -2489,7 +2489,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaModifier> for super::IAn
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaModifier> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&InteractionTrackerInertiaModifier> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaModifier) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2511,7 +2511,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaModifier> for super::sup
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaModifier> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&InteractionTrackerInertiaModifier> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaModifier) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2528,7 +2528,7 @@ impl ::core::convert::From<&InteractionTrackerInertiaModifier> for super::Compos
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&InteractionTrackerInertiaModifier> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&InteractionTrackerInertiaModifier> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionTrackerInertiaModifier) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -2572,9 +2572,9 @@ impl InteractionTrackerInertiaMotion {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -2605,17 +2605,17 @@ impl InteractionTrackerInertiaMotion {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -2637,9 +2637,9 @@ impl InteractionTrackerInertiaMotion {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -2723,7 +2723,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaMotion> for super::IAnim
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaMotion> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&InteractionTrackerInertiaMotion> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaMotion) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2745,7 +2745,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaMotion> for super::super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaMotion> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&InteractionTrackerInertiaMotion> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaMotion) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2762,7 +2762,7 @@ impl ::core::convert::From<&InteractionTrackerInertiaMotion> for InteractionTrac
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&InteractionTrackerInertiaMotion> for ::windows::core::InParam<'a, InteractionTrackerInertiaModifier> {
+impl ::core::convert::From<&InteractionTrackerInertiaMotion> for ::windows::core::InParam<InteractionTrackerInertiaModifier> {
     fn from(value: &InteractionTrackerInertiaMotion) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -2777,7 +2777,7 @@ impl ::core::convert::From<&InteractionTrackerInertiaMotion> for super::Composit
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&InteractionTrackerInertiaMotion> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&InteractionTrackerInertiaMotion> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionTrackerInertiaMotion) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -2821,9 +2821,9 @@ impl InteractionTrackerInertiaNaturalMotion {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -2854,17 +2854,17 @@ impl InteractionTrackerInertiaNaturalMotion {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -2886,9 +2886,9 @@ impl InteractionTrackerInertiaNaturalMotion {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -2911,9 +2911,9 @@ impl InteractionTrackerInertiaNaturalMotion {
             (::windows::core::Vtable::vtable(this).NaturalMotion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetNaturalMotion<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetNaturalMotion<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ScalarNaturalMotionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::ScalarNaturalMotionAnimation>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetNaturalMotion)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -2975,7 +2975,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaNaturalMotion> for super
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaNaturalMotion) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2997,7 +2997,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaNaturalMotion> for super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaNaturalMotion) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3014,7 +3014,7 @@ impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for Interact
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::InParam<'a, InteractionTrackerInertiaModifier> {
+impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::InParam<InteractionTrackerInertiaModifier> {
     fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -3029,7 +3029,7 @@ impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for super::C
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -3073,9 +3073,9 @@ impl InteractionTrackerInertiaRestingValue {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -3106,17 +3106,17 @@ impl InteractionTrackerInertiaRestingValue {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -3138,9 +3138,9 @@ impl InteractionTrackerInertiaRestingValue {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -3224,7 +3224,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaRestingValue> for super:
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaRestingValue> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&InteractionTrackerInertiaRestingValue> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaRestingValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3246,7 +3246,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaRestingValue> for super:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaRestingValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&InteractionTrackerInertiaRestingValue> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaRestingValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3263,7 +3263,7 @@ impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for Interacti
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&InteractionTrackerInertiaRestingValue> for ::windows::core::InParam<'a, InteractionTrackerInertiaModifier> {
+impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for ::windows::core::InParam<InteractionTrackerInertiaModifier> {
     fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -3278,7 +3278,7 @@ impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for super::Co
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&InteractionTrackerInertiaRestingValue> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -3597,9 +3597,9 @@ impl InteractionTrackerVector2InertiaModifier {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -3630,17 +3630,17 @@ impl InteractionTrackerVector2InertiaModifier {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -3662,9 +3662,9 @@ impl InteractionTrackerVector2InertiaModifier {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -3715,7 +3715,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaModifier> for sup
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InteractionTrackerVector2InertiaModifier> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaModifier> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerVector2InertiaModifier) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3737,7 +3737,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaModifier> for sup
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&InteractionTrackerVector2InertiaModifier> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaModifier> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerVector2InertiaModifier) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3754,7 +3754,7 @@ impl ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for super:
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionTrackerVector2InertiaModifier) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -3798,9 +3798,9 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -3831,17 +3831,17 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -3863,9 +3863,9 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -3888,9 +3888,9 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
             (::windows::core::Vtable::vtable(this).NaturalMotion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetNaturalMotion<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetNaturalMotion<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Vector2NaturalMotionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Vector2NaturalMotionAnimation>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetNaturalMotion)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -3952,7 +3952,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaNaturalMotion> fo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3974,7 +3974,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaNaturalMotion> fo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3991,7 +3991,7 @@ impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for I
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::InParam<'a, InteractionTrackerVector2InertiaModifier> {
+impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::InParam<InteractionTrackerVector2InertiaModifier> {
     fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -4006,7 +4006,7 @@ impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for s
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -4050,9 +4050,9 @@ impl VisualInteractionSource {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -4083,17 +4083,17 @@ impl VisualInteractionSource {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -4115,9 +4115,9 @@ impl VisualInteractionSource {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -4284,9 +4284,9 @@ impl VisualInteractionSource {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureCenterPointXModifiers<'a, P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
+    pub fn ConfigureCenterPointXModifiers<P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
@@ -4294,9 +4294,9 @@ impl VisualInteractionSource {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureCenterPointYModifiers<'a, P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
+    pub fn ConfigureCenterPointYModifiers<P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
@@ -4304,9 +4304,9 @@ impl VisualInteractionSource {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureDeltaPositionXModifiers<'a, P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
+    pub fn ConfigureDeltaPositionXModifiers<P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
@@ -4314,9 +4314,9 @@ impl VisualInteractionSource {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureDeltaPositionYModifiers<'a, P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
+    pub fn ConfigureDeltaPositionYModifiers<P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
@@ -4324,9 +4324,9 @@ impl VisualInteractionSource {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureDeltaScaleModifiers<'a, P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
+    pub fn ConfigureDeltaScaleModifiers<P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
@@ -4339,18 +4339,18 @@ impl VisualInteractionSource {
             (::windows::core::Vtable::vtable(this).PointerWheelConfig)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Create<'a, P0>(source: P0) -> ::windows::core::Result<VisualInteractionSource>
+    pub fn Create<P0>(source: P0) -> ::windows::core::Result<VisualInteractionSource>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Visual>>,
     {
         Self::IVisualInteractionSourceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), source.into().abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn CreateFromIVisualElement<'a, P0, E0>(source: P0) -> ::windows::core::Result<VisualInteractionSource>
+    pub fn CreateFromIVisualElement<P0, E0>(source: P0) -> ::windows::core::Result<VisualInteractionSource>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IVisualElement>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IVisualElement>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IVisualInteractionSourceStatics2(|this| unsafe {
@@ -4414,7 +4414,7 @@ impl ::core::convert::TryFrom<&VisualInteractionSource> for super::IAnimationObj
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VisualInteractionSource> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&VisualInteractionSource> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VisualInteractionSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4436,7 +4436,7 @@ impl ::core::convert::TryFrom<&VisualInteractionSource> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&VisualInteractionSource> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&VisualInteractionSource> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VisualInteractionSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4455,7 +4455,7 @@ impl ::core::convert::TryFrom<&VisualInteractionSource> for ICompositionInteract
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VisualInteractionSource> for ::windows::core::InParam<'a, ICompositionInteractionSource> {
+impl ::core::convert::TryFrom<&VisualInteractionSource> for ::windows::core::InParam<ICompositionInteractionSource> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VisualInteractionSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4472,7 +4472,7 @@ impl ::core::convert::From<&VisualInteractionSource> for super::CompositionObjec
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&VisualInteractionSource> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&VisualInteractionSource> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &VisualInteractionSource) -> Self {
         ::windows::core::InParam::owned(value.into())
     }

@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn XInputEnable<'a, P0>(enable: P0)
+pub unsafe fn XInputEnable<P0>(enable: P0)
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {

@@ -2,7 +2,7 @@
 #[repr(transparent)]
 pub struct INotificationActivationCallback(::windows::core::IUnknown);
 impl INotificationActivationCallback {
-    pub unsafe fn Activate<'a, P0, P1>(&self, appusermodelid: P0, invokedargs: P1, data: &[NOTIFICATION_USER_INPUT_DATA]) -> ::windows::core::Result<()>
+    pub unsafe fn Activate<P0, P1>(&self, appusermodelid: P0, invokedargs: P1, data: &[NOTIFICATION_USER_INPUT_DATA]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,

@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsAttachLayerStorageFilter<'a, P0, P1>(layerpath: P0, layerdata: P1) -> ::windows::core::Result<()>
+pub unsafe fn HcsAttachLayerStorageFilter<P0, P1>(layerpath: P0, layerdata: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -10,7 +10,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsCancelOperation<'a, P0>(operation: P0) -> ::windows::core::Result<()>
+pub unsafe fn HcsCancelOperation<P0>(operation: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -19,7 +19,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsCloseComputeSystem<'a, P0>(computesystem: P0)
+pub unsafe fn HcsCloseComputeSystem<P0>(computesystem: P0)
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
 {
@@ -28,7 +28,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsCloseOperation<'a, P0>(operation: P0)
+pub unsafe fn HcsCloseOperation<P0>(operation: P0)
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -37,7 +37,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsCloseProcess<'a, P0>(process: P0)
+pub unsafe fn HcsCloseProcess<P0>(process: P0)
 where
     P0: ::std::convert::Into<HCS_PROCESS>,
 {
@@ -46,7 +46,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsCrashComputeSystem<'a, P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsCrashComputeSystem<P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -58,7 +58,7 @@ where
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn HcsCreateComputeSystem<'a, P0, P1, P2>(id: P0, configuration: P1, operation: P2, securitydescriptor: ::core::option::Option<*const super::super::Security::SECURITY_DESCRIPTOR>) -> ::windows::core::Result<HCS_SYSTEM>
+pub unsafe fn HcsCreateComputeSystem<P0, P1, P2>(id: P0, configuration: P1, operation: P2, securitydescriptor: ::core::option::Option<*const super::super::Security::SECURITY_DESCRIPTOR>) -> ::windows::core::Result<HCS_SYSTEM>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -70,7 +70,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsCreateComputeSystemInNamespace<'a, P0, P1, P2, P3>(idnamespace: P0, id: P1, configuration: P2, operation: P3, options: ::core::option::Option<*const HCS_CREATE_OPTIONS>) -> ::windows::core::Result<HCS_SYSTEM>
+pub unsafe fn HcsCreateComputeSystemInNamespace<P0, P1, P2, P3>(idnamespace: P0, id: P1, configuration: P2, operation: P3, options: ::core::option::Option<*const HCS_CREATE_OPTIONS>) -> ::windows::core::Result<HCS_SYSTEM>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -83,7 +83,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsCreateEmptyGuestStateFile<'a, P0>(gueststatefilepath: P0) -> ::windows::core::Result<()>
+pub unsafe fn HcsCreateEmptyGuestStateFile<P0>(gueststatefilepath: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -92,7 +92,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsCreateEmptyRuntimeStateFile<'a, P0>(runtimestatefilepath: P0) -> ::windows::core::Result<()>
+pub unsafe fn HcsCreateEmptyRuntimeStateFile<P0>(runtimestatefilepath: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -108,7 +108,7 @@ pub unsafe fn HcsCreateOperation(context: ::core::option::Option<*const ::core::
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn HcsCreateProcess<'a, P0, P1, P2>(computesystem: P0, processparameters: P1, operation: P2, securitydescriptor: ::core::option::Option<*const super::super::Security::SECURITY_DESCRIPTOR>) -> ::windows::core::Result<HCS_PROCESS>
+pub unsafe fn HcsCreateProcess<P0, P1, P2>(computesystem: P0, processparameters: P1, operation: P2, securitydescriptor: ::core::option::Option<*const super::super::Security::SECURITY_DESCRIPTOR>) -> ::windows::core::Result<HCS_PROCESS>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -120,7 +120,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsDestroyLayer<'a, P0>(layerpath: P0) -> ::windows::core::Result<()>
+pub unsafe fn HcsDestroyLayer<P0>(layerpath: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -129,7 +129,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsDetachLayerStorageFilter<'a, P0>(layerpath: P0) -> ::windows::core::Result<()>
+pub unsafe fn HcsDetachLayerStorageFilter<P0>(layerpath: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -138,7 +138,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsEnumerateComputeSystems<'a, P0, P1>(query: P0, operation: P1) -> ::windows::core::Result<()>
+pub unsafe fn HcsEnumerateComputeSystems<P0, P1>(query: P0, operation: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -148,7 +148,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsEnumerateComputeSystemsInNamespace<'a, P0, P1, P2>(idnamespace: P0, query: P1, operation: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsEnumerateComputeSystemsInNamespace<P0, P1, P2>(idnamespace: P0, query: P1, operation: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -159,7 +159,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsExportLayer<'a, P0, P1, P2, P3>(layerpath: P0, exportfolderpath: P1, layerdata: P2, options: P3) -> ::windows::core::Result<()>
+pub unsafe fn HcsExportLayer<P0, P1, P2, P3>(layerpath: P0, exportfolderpath: P1, layerdata: P2, options: P3) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -171,7 +171,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsExportLegacyWritableLayer<'a, P0, P1, P2, P3>(writablelayermountpath: P0, writablelayerfolderpath: P1, exportfolderpath: P2, layerdata: P3) -> ::windows::core::Result<()>
+pub unsafe fn HcsExportLegacyWritableLayer<P0, P1, P2, P3>(writablelayermountpath: P0, writablelayerfolderpath: P1, exportfolderpath: P2, layerdata: P3) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -184,7 +184,7 @@ where
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcsFormatWritableLayerVhd<'a, P0>(vhdhandle: P0) -> ::windows::core::Result<()>
+pub unsafe fn HcsFormatWritableLayerVhd<P0>(vhdhandle: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -193,7 +193,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetComputeSystemFromOperation<'a, P0>(operation: P0) -> HCS_SYSTEM
+pub unsafe fn HcsGetComputeSystemFromOperation<P0>(operation: P0) -> HCS_SYSTEM
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -202,7 +202,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetComputeSystemProperties<'a, P0, P1, P2>(computesystem: P0, operation: P1, propertyquery: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsGetComputeSystemProperties<P0, P1, P2>(computesystem: P0, operation: P1, propertyquery: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -214,7 +214,7 @@ where
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcsGetLayerVhdMountPath<'a, P0>(vhdhandle: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcsGetLayerVhdMountPath<P0>(vhdhandle: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -224,7 +224,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetOperationContext<'a, P0>(operation: P0) -> *mut ::core::ffi::c_void
+pub unsafe fn HcsGetOperationContext<P0>(operation: P0) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -233,7 +233,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetOperationId<'a, P0>(operation: P0) -> u64
+pub unsafe fn HcsGetOperationId<P0>(operation: P0) -> u64
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -242,7 +242,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetOperationResult<'a, P0>(operation: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcsGetOperationResult<P0>(operation: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -253,7 +253,7 @@ where
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcsGetOperationResultAndProcessInfo<'a, P0>(operation: P0, processinformation: ::core::option::Option<*mut HCS_PROCESS_INFORMATION>, resultdocument: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
+pub unsafe fn HcsGetOperationResultAndProcessInfo<P0>(operation: P0, processinformation: ::core::option::Option<*mut HCS_PROCESS_INFORMATION>, resultdocument: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -262,7 +262,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetOperationType<'a, P0>(operation: P0) -> HCS_OPERATION_TYPE
+pub unsafe fn HcsGetOperationType<P0>(operation: P0) -> HCS_OPERATION_TYPE
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -271,7 +271,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetProcessFromOperation<'a, P0>(operation: P0) -> HCS_PROCESS
+pub unsafe fn HcsGetProcessFromOperation<P0>(operation: P0) -> HCS_PROCESS
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -280,7 +280,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetProcessInfo<'a, P0, P1>(process: P0, operation: P1) -> ::windows::core::Result<()>
+pub unsafe fn HcsGetProcessInfo<P0, P1>(process: P0, operation: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_PROCESS>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -290,7 +290,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetProcessProperties<'a, P0, P1, P2>(process: P0, operation: P1, propertyquery: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsGetProcessProperties<P0, P1, P2>(process: P0, operation: P1, propertyquery: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_PROCESS>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -301,7 +301,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetProcessorCompatibilityFromSavedState<'a, P0>(runtimefilename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcsGetProcessorCompatibilityFromSavedState<P0>(runtimefilename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -311,7 +311,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetServiceProperties<'a, P0>(propertyquery: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcsGetServiceProperties<P0>(propertyquery: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -321,7 +321,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGrantVmAccess<'a, P0, P1>(vmid: P0, filepath: P1) -> ::windows::core::Result<()>
+pub unsafe fn HcsGrantVmAccess<P0, P1>(vmid: P0, filepath: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -331,7 +331,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGrantVmGroupAccess<'a, P0>(filepath: P0) -> ::windows::core::Result<()>
+pub unsafe fn HcsGrantVmGroupAccess<P0>(filepath: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -340,7 +340,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsImportLayer<'a, P0, P1, P2>(layerpath: P0, sourcefolderpath: P1, layerdata: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsImportLayer<P0, P1, P2>(layerpath: P0, sourcefolderpath: P1, layerdata: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -351,7 +351,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsInitializeLegacyWritableLayer<'a, P0, P1, P2, P3>(writablelayermountpath: P0, writablelayerfolderpath: P1, layerdata: P2, options: P3) -> ::windows::core::Result<()>
+pub unsafe fn HcsInitializeLegacyWritableLayer<P0, P1, P2, P3>(writablelayermountpath: P0, writablelayerfolderpath: P1, layerdata: P2, options: P3) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -363,7 +363,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsInitializeWritableLayer<'a, P0, P1, P2>(writablelayerpath: P0, layerdata: P1, options: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsInitializeWritableLayer<P0, P1, P2>(writablelayerpath: P0, layerdata: P1, options: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -375,7 +375,7 @@ where
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcsModifyComputeSystem<'a, P0, P1, P2, P3>(computesystem: P0, operation: P1, configuration: P2, identity: P3) -> ::windows::core::Result<()>
+pub unsafe fn HcsModifyComputeSystem<P0, P1, P2, P3>(computesystem: P0, operation: P1, configuration: P2, identity: P3) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -387,7 +387,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsModifyProcess<'a, P0, P1, P2>(process: P0, operation: P1, settings: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsModifyProcess<P0, P1, P2>(process: P0, operation: P1, settings: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_PROCESS>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -398,7 +398,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsModifyServiceSettings<'a, P0>(settings: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcsModifyServiceSettings<P0>(settings: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -408,7 +408,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsOpenComputeSystem<'a, P0>(id: P0, requestedaccess: u32) -> ::windows::core::Result<HCS_SYSTEM>
+pub unsafe fn HcsOpenComputeSystem<P0>(id: P0, requestedaccess: u32) -> ::windows::core::Result<HCS_SYSTEM>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -418,7 +418,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsOpenComputeSystemInNamespace<'a, P0, P1>(idnamespace: P0, id: P1, requestedaccess: u32) -> ::windows::core::Result<HCS_SYSTEM>
+pub unsafe fn HcsOpenComputeSystemInNamespace<P0, P1>(idnamespace: P0, id: P1, requestedaccess: u32) -> ::windows::core::Result<HCS_SYSTEM>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -429,7 +429,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsOpenProcess<'a, P0>(computesystem: P0, processid: u32, requestedaccess: u32) -> ::windows::core::Result<HCS_PROCESS>
+pub unsafe fn HcsOpenProcess<P0>(computesystem: P0, processid: u32, requestedaccess: u32) -> ::windows::core::Result<HCS_PROCESS>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
 {
@@ -439,7 +439,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsPauseComputeSystem<'a, P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsPauseComputeSystem<P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -450,7 +450,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsResumeComputeSystem<'a, P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsResumeComputeSystem<P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -461,7 +461,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsRevokeVmAccess<'a, P0, P1>(vmid: P0, filepath: P1) -> ::windows::core::Result<()>
+pub unsafe fn HcsRevokeVmAccess<P0, P1>(vmid: P0, filepath: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -471,7 +471,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsRevokeVmGroupAccess<'a, P0>(filepath: P0) -> ::windows::core::Result<()>
+pub unsafe fn HcsRevokeVmGroupAccess<P0>(filepath: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -480,7 +480,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSaveComputeSystem<'a, P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsSaveComputeSystem<P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -491,7 +491,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSetComputeSystemCallback<'a, P0>(computesystem: P0, callbackoptions: HCS_EVENT_OPTIONS, context: ::core::option::Option<*const ::core::ffi::c_void>, callback: HCS_EVENT_CALLBACK) -> ::windows::core::Result<()>
+pub unsafe fn HcsSetComputeSystemCallback<P0>(computesystem: P0, callbackoptions: HCS_EVENT_OPTIONS, context: ::core::option::Option<*const ::core::ffi::c_void>, callback: HCS_EVENT_CALLBACK) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
 {
@@ -500,7 +500,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSetOperationCallback<'a, P0>(operation: P0, context: ::core::option::Option<*const ::core::ffi::c_void>, callback: HCS_OPERATION_COMPLETION) -> ::windows::core::Result<()>
+pub unsafe fn HcsSetOperationCallback<P0>(operation: P0, context: ::core::option::Option<*const ::core::ffi::c_void>, callback: HCS_OPERATION_COMPLETION) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -509,7 +509,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSetOperationContext<'a, P0>(operation: P0, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
+pub unsafe fn HcsSetOperationContext<P0>(operation: P0, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -518,7 +518,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSetProcessCallback<'a, P0>(process: P0, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> ::windows::core::Result<()>
+pub unsafe fn HcsSetProcessCallback<P0>(process: P0, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_PROCESS>,
 {
@@ -528,7 +528,7 @@ where
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcsSetupBaseOSLayer<'a, P0, P1, P2>(layerpath: P0, vhdhandle: P1, options: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsSetupBaseOSLayer<P0, P1, P2>(layerpath: P0, vhdhandle: P1, options: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -539,7 +539,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSetupBaseOSVolume<'a, P0, P1, P2>(layerpath: P0, volumepath: P1, options: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsSetupBaseOSVolume<P0, P1, P2>(layerpath: P0, volumepath: P1, options: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -550,7 +550,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsShutDownComputeSystem<'a, P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsShutDownComputeSystem<P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -561,7 +561,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSignalProcess<'a, P0, P1, P2>(process: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsSignalProcess<P0, P1, P2>(process: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_PROCESS>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -572,7 +572,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsStartComputeSystem<'a, P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsStartComputeSystem<P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -583,7 +583,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSubmitWerReport<'a, P0>(settings: P0) -> ::windows::core::Result<()>
+pub unsafe fn HcsSubmitWerReport<P0>(settings: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -592,7 +592,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsTerminateComputeSystem<'a, P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsTerminateComputeSystem<P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -603,7 +603,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsTerminateProcess<'a, P0, P1, P2>(process: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
+pub unsafe fn HcsTerminateProcess<P0, P1, P2>(process: P0, operation: P1, options: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_PROCESS>,
     P1: ::std::convert::Into<HCS_OPERATION>,
@@ -614,7 +614,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsWaitForComputeSystemExit<'a, P0>(computesystem: P0, timeoutms: u32) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcsWaitForComputeSystemExit<P0>(computesystem: P0, timeoutms: u32) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
 {
@@ -624,7 +624,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsWaitForOperationResult<'a, P0>(operation: P0, timeoutms: u32) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcsWaitForOperationResult<P0>(operation: P0, timeoutms: u32) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -635,7 +635,7 @@ where
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcsWaitForOperationResultAndProcessInfo<'a, P0>(operation: P0, timeoutms: u32, processinformation: ::core::option::Option<*mut HCS_PROCESS_INFORMATION>, resultdocument: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
+pub unsafe fn HcsWaitForOperationResultAndProcessInfo<P0>(operation: P0, timeoutms: u32, processinformation: ::core::option::Option<*mut HCS_PROCESS_INFORMATION>, resultdocument: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -644,7 +644,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsWaitForProcessExit<'a, P0>(computesystem: P0, timeoutms: u32) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcsWaitForProcessExit<P0>(computesystem: P0, timeoutms: u32) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<HCS_PROCESS>,
 {

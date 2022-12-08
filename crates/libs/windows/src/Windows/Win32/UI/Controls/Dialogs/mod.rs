@@ -48,7 +48,7 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[inline]
-pub unsafe fn GetFileTitleA<'a, P0>(param0: P0, buf: &mut [u8]) -> i16
+pub unsafe fn GetFileTitleA<P0>(param0: P0, buf: &mut [u8]) -> i16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -57,7 +57,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[inline]
-pub unsafe fn GetFileTitleW<'a, P0>(param0: P0, buf: &mut [u16]) -> i16
+pub unsafe fn GetFileTitleW<P0>(param0: P0, buf: &mut [u16]) -> i16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -160,7 +160,7 @@ impl IPrintDialogCallback {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn HandleMessage<'a, P0, P1, P2>(&self, hdlg: P0, umsg: u32, wparam: P1, lparam: P2, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
+    pub unsafe fn HandleMessage<P0, P1, P2>(&self, hdlg: P0, umsg: u32, wparam: P1, lparam: P2, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,

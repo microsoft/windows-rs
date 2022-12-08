@@ -50,30 +50,30 @@ pub struct ICompositionDebugSettingsStatics_Vtbl {
 #[repr(transparent)]
 pub struct CompositionDebugHeatMaps(::windows::core::IUnknown);
 impl CompositionDebugHeatMaps {
-    pub fn Hide<'a, P0>(&self, subtree: P0) -> ::windows::core::Result<()>
+    pub fn Hide<P0>(&self, subtree: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Visual>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Hide)(::windows::core::Vtable::as_raw(this), subtree.into().abi()).ok() }
     }
-    pub fn ShowMemoryUsage<'a, P0>(&self, subtree: P0) -> ::windows::core::Result<()>
+    pub fn ShowMemoryUsage<P0>(&self, subtree: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Visual>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).ShowMemoryUsage)(::windows::core::Vtable::as_raw(this), subtree.into().abi()).ok() }
     }
-    pub fn ShowOverdraw<'a, P0>(&self, subtree: P0, contentkinds: CompositionDebugOverdrawContentKinds) -> ::windows::core::Result<()>
+    pub fn ShowOverdraw<P0>(&self, subtree: P0, contentkinds: CompositionDebugOverdrawContentKinds) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Visual>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).ShowOverdraw)(::windows::core::Vtable::as_raw(this), subtree.into().abi(), contentkinds).ok() }
     }
-    pub fn ShowRedraw<'a, P0>(&self, subtree: P0) -> ::windows::core::Result<()>
+    pub fn ShowRedraw<P0>(&self, subtree: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Visual>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).ShowRedraw)(::windows::core::Vtable::as_raw(this), subtree.into().abi()).ok() }

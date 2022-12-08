@@ -1326,9 +1326,9 @@ impl Printing3D3MFPackage {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetPrintTicket<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetPrintTicket<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1345,9 +1345,9 @@ impl Printing3D3MFPackage {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetModelPart<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetModelPart<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1375,9 +1375,9 @@ impl Printing3D3MFPackage {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadModelFromPackageAsync<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Printing3DModel>>
+    pub fn LoadModelFromPackageAsync<P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Printing3DModel>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1408,9 +1408,9 @@ impl Printing3D3MFPackage {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadAsync<'a, P0, E0>(value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Printing3D3MFPackage>>
+    pub fn LoadAsync<P0, E0>(value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Printing3D3MFPackage>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPrinting3D3MFPackageStatics(|this| unsafe {
@@ -3106,9 +3106,9 @@ impl Printing3DTextureResource {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetTextureData<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetTextureData<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamWithContentType>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

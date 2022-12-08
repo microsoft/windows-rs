@@ -115,25 +115,25 @@ impl IFileLoggingSession {
             (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn AddLoggingChannel<'a, P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
+    pub fn AddLoggingChannel<P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILoggingChannel>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).AddLoggingChannel)(::windows::core::Vtable::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn AddLoggingChannelWithLevel<'a, P0, E0>(&self, loggingchannel: P0, maxlevel: LoggingLevel) -> ::windows::core::Result<()>
+    pub fn AddLoggingChannelWithLevel<P0, E0>(&self, loggingchannel: P0, maxlevel: LoggingLevel) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILoggingChannel>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).AddLoggingChannelWithLevel)(::windows::core::Vtable::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi(), maxlevel).ok() }
     }
-    pub fn RemoveLoggingChannel<'a, P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
+    pub fn RemoveLoggingChannel<P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILoggingChannel>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -177,7 +177,7 @@ impl ::core::convert::TryFrom<&IFileLoggingSession> for super::IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IFileLoggingSession> for ::windows::core::InParam<'a, super::IClosable> {
+impl ::core::convert::TryFrom<&IFileLoggingSession> for ::windows::core::InParam<super::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IFileLoggingSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -381,7 +381,7 @@ impl ::core::convert::TryFrom<&ILoggingChannel> for super::IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ILoggingChannel> for ::windows::core::InParam<'a, super::IClosable> {
+impl ::core::convert::TryFrom<&ILoggingChannel> for ::windows::core::InParam<super::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ILoggingChannel) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -694,9 +694,9 @@ impl ILoggingSession {
     }
     #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn SaveToFileAsync<'a, P0, E0>(&self, folder: P0, filename: &::windows::core::HSTRING) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>
+    pub fn SaveToFileAsync<P0, E0>(&self, folder: P0, filename: &::windows::core::HSTRING) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -705,25 +705,25 @@ impl ILoggingSession {
             (::windows::core::Vtable::vtable(this).SaveToFileAsync)(::windows::core::Vtable::as_raw(this), folder.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(filename), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn AddLoggingChannel<'a, P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
+    pub fn AddLoggingChannel<P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILoggingChannel>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).AddLoggingChannel)(::windows::core::Vtable::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn AddLoggingChannelWithLevel<'a, P0, E0>(&self, loggingchannel: P0, maxlevel: LoggingLevel) -> ::windows::core::Result<()>
+    pub fn AddLoggingChannelWithLevel<P0, E0>(&self, loggingchannel: P0, maxlevel: LoggingLevel) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILoggingChannel>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).AddLoggingChannelWithLevel)(::windows::core::Vtable::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi(), maxlevel).ok() }
     }
-    pub fn RemoveLoggingChannel<'a, P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
+    pub fn RemoveLoggingChannel<P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILoggingChannel>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -747,7 +747,7 @@ impl ::core::convert::TryFrom<&ILoggingSession> for super::IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ILoggingSession> for ::windows::core::InParam<'a, super::IClosable> {
+impl ::core::convert::TryFrom<&ILoggingSession> for ::windows::core::InParam<super::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ILoggingSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1066,25 +1066,25 @@ impl FileLoggingSession {
             (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn AddLoggingChannel<'a, P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
+    pub fn AddLoggingChannel<P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILoggingChannel>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).AddLoggingChannel)(::windows::core::Vtable::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn AddLoggingChannelWithLevel<'a, P0, E0>(&self, loggingchannel: P0, maxlevel: LoggingLevel) -> ::windows::core::Result<()>
+    pub fn AddLoggingChannelWithLevel<P0, E0>(&self, loggingchannel: P0, maxlevel: LoggingLevel) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILoggingChannel>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).AddLoggingChannelWithLevel)(::windows::core::Vtable::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi(), maxlevel).ok() }
     }
-    pub fn RemoveLoggingChannel<'a, P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
+    pub fn RemoveLoggingChannel<P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILoggingChannel>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1167,7 +1167,7 @@ impl ::core::convert::TryFrom<&FileLoggingSession> for super::IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileLoggingSession> for ::windows::core::InParam<'a, super::IClosable> {
+impl ::core::convert::TryFrom<&FileLoggingSession> for ::windows::core::InParam<super::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileLoggingSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1186,7 +1186,7 @@ impl ::core::convert::TryFrom<&FileLoggingSession> for IFileLoggingSession {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileLoggingSession> for ::windows::core::InParam<'a, IFileLoggingSession> {
+impl ::core::convert::TryFrom<&FileLoggingSession> for ::windows::core::InParam<IFileLoggingSession> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileLoggingSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1285,9 +1285,9 @@ impl LoggingActivity {
         let this = &::windows::core::Interface::cast::<ILoggingActivity2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StopActivityWithFieldsAndOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(stopeventname), ::core::mem::transmute_copy(fields), ::core::mem::transmute_copy(options)).ok() }
     }
-    pub fn CreateLoggingActivity<'a, P0, E0>(activityname: &::windows::core::HSTRING, loggingchannel: P0) -> ::windows::core::Result<LoggingActivity>
+    pub fn CreateLoggingActivity<P0, E0>(activityname: &::windows::core::HSTRING, loggingchannel: P0) -> ::windows::core::Result<LoggingActivity>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILoggingChannel>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILoggingActivityFactory(|this| unsafe {
@@ -1295,9 +1295,9 @@ impl LoggingActivity {
             (::windows::core::Vtable::vtable(this).CreateLoggingActivity)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activityname), loggingchannel.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn CreateLoggingActivityWithLevel<'a, P0, E0>(activityname: &::windows::core::HSTRING, loggingchannel: P0, level: LoggingLevel) -> ::windows::core::Result<LoggingActivity>
+    pub fn CreateLoggingActivityWithLevel<P0, E0>(activityname: &::windows::core::HSTRING, loggingchannel: P0, level: LoggingLevel) -> ::windows::core::Result<LoggingActivity>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILoggingChannel>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILoggingActivityFactory(|this| unsafe {
@@ -1421,7 +1421,7 @@ impl ::core::convert::TryFrom<&LoggingActivity> for super::IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LoggingActivity> for ::windows::core::InParam<'a, super::IClosable> {
+impl ::core::convert::TryFrom<&LoggingActivity> for ::windows::core::InParam<super::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LoggingActivity) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1440,7 +1440,7 @@ impl ::core::convert::TryFrom<&LoggingActivity> for ILoggingTarget {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LoggingActivity> for ::windows::core::InParam<'a, ILoggingTarget> {
+impl ::core::convert::TryFrom<&LoggingActivity> for ::windows::core::InParam<ILoggingTarget> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LoggingActivity) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1653,7 +1653,7 @@ impl ::core::convert::TryFrom<&LoggingChannel> for super::IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LoggingChannel> for ::windows::core::InParam<'a, super::IClosable> {
+impl ::core::convert::TryFrom<&LoggingChannel> for ::windows::core::InParam<super::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LoggingChannel) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1672,7 +1672,7 @@ impl ::core::convert::TryFrom<&LoggingChannel> for ILoggingChannel {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LoggingChannel> for ::windows::core::InParam<'a, ILoggingChannel> {
+impl ::core::convert::TryFrom<&LoggingChannel> for ::windows::core::InParam<ILoggingChannel> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LoggingChannel) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1691,7 +1691,7 @@ impl ::core::convert::TryFrom<&LoggingChannel> for ILoggingTarget {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LoggingChannel> for ::windows::core::InParam<'a, ILoggingTarget> {
+impl ::core::convert::TryFrom<&LoggingChannel> for ::windows::core::InParam<ILoggingTarget> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LoggingChannel) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2417,9 +2417,9 @@ impl LoggingSession {
     }
     #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn SaveToFileAsync<'a, P0, E0>(&self, folder: P0, filename: &::windows::core::HSTRING) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>
+    pub fn SaveToFileAsync<P0, E0>(&self, folder: P0, filename: &::windows::core::HSTRING) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2428,25 +2428,25 @@ impl LoggingSession {
             (::windows::core::Vtable::vtable(this).SaveToFileAsync)(::windows::core::Vtable::as_raw(this), folder.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(filename), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn AddLoggingChannel<'a, P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
+    pub fn AddLoggingChannel<P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILoggingChannel>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).AddLoggingChannel)(::windows::core::Vtable::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn AddLoggingChannelWithLevel<'a, P0, E0>(&self, loggingchannel: P0, maxlevel: LoggingLevel) -> ::windows::core::Result<()>
+    pub fn AddLoggingChannelWithLevel<P0, E0>(&self, loggingchannel: P0, maxlevel: LoggingLevel) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILoggingChannel>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).AddLoggingChannelWithLevel)(::windows::core::Vtable::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi(), maxlevel).ok() }
     }
-    pub fn RemoveLoggingChannel<'a, P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
+    pub fn RemoveLoggingChannel<P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILoggingChannel>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2509,7 +2509,7 @@ impl ::core::convert::TryFrom<&LoggingSession> for super::IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LoggingSession> for ::windows::core::InParam<'a, super::IClosable> {
+impl ::core::convert::TryFrom<&LoggingSession> for ::windows::core::InParam<super::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LoggingSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2528,7 +2528,7 @@ impl ::core::convert::TryFrom<&LoggingSession> for ILoggingSession {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LoggingSession> for ::windows::core::InParam<'a, ILoggingSession> {
+impl ::core::convert::TryFrom<&LoggingSession> for ::windows::core::InParam<ILoggingSession> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LoggingSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2605,7 +2605,7 @@ impl ::core::convert::TryFrom<&RuntimeBrokerErrorSettings> for IErrorReportingSe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RuntimeBrokerErrorSettings> for ::windows::core::InParam<'a, IErrorReportingSettings> {
+impl ::core::convert::TryFrom<&RuntimeBrokerErrorSettings> for ::windows::core::InParam<IErrorReportingSettings> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RuntimeBrokerErrorSettings) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

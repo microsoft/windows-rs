@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateAppContainerProfile<'a, P0, P1, P2>(pszappcontainername: P0, pszdisplayname: P1, pszdescription: P2, pcapabilities: ::core::option::Option<&[super::SID_AND_ATTRIBUTES]>) -> ::windows::core::Result<super::super::Foundation::PSID>
+pub unsafe fn CreateAppContainerProfile<P0, P1, P2>(pszappcontainername: P0, pszdisplayname: P1, pszdescription: P2, pcapabilities: ::core::option::Option<&[super::SID_AND_ATTRIBUTES]>) -> ::windows::core::Result<super::super::Foundation::PSID>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -13,7 +13,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
 #[inline]
-pub unsafe fn DeleteAppContainerProfile<'a, P0>(pszappcontainername: P0) -> ::windows::core::Result<()>
+pub unsafe fn DeleteAppContainerProfile<P0>(pszappcontainername: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -23,7 +23,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeriveAppContainerSidFromAppContainerName<'a, P0>(pszappcontainername: P0) -> ::windows::core::Result<super::super::Foundation::PSID>
+pub unsafe fn DeriveAppContainerSidFromAppContainerName<P0>(pszappcontainername: P0) -> ::windows::core::Result<super::super::Foundation::PSID>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -34,7 +34,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName<'a, P0, P1>(psidappcontainersid: P0, pszrestrictedappcontainername: P1) -> ::windows::core::Result<super::super::Foundation::PSID>
+pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName<P0, P1>(psidappcontainersid: P0, pszrestrictedappcontainername: P1) -> ::windows::core::Result<super::super::Foundation::PSID>
 where
     P0: ::std::convert::Into<super::super::Foundation::PSID>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -45,7 +45,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
 #[inline]
-pub unsafe fn GetAppContainerFolderPath<'a, P0>(pszappcontainersid: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn GetAppContainerFolderPath<P0>(pszappcontainersid: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -56,7 +56,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetAppContainerNamedObjectPath<'a, P0, P1>(token: P0, appcontainersid: P1, objectpath: ::core::option::Option<&mut [u16]>, returnlength: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetAppContainerNamedObjectPath<P0, P1>(token: P0, appcontainersid: P1, objectpath: ::core::option::Option<&mut [u16]>, returnlength: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::PSID>,
@@ -102,7 +102,7 @@ pub struct IIsolatedAppLauncher(::windows::core::IUnknown);
 impl IIsolatedAppLauncher {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Launch<'a, P0, P1>(&self, appusermodelid: P0, arguments: P1, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::Result<()>
+    pub unsafe fn Launch<P0, P1>(&self, appusermodelid: P0, arguments: P1, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,

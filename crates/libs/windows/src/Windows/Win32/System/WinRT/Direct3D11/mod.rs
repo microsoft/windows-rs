@@ -1,9 +1,9 @@
 #[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
-pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<'a, P0>(dxgidevice: P0) -> ::windows::core::Result<::windows::core::IInspectable>
+pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<P0>(dxgidevice: P0) -> ::windows::core::Result<::windows::core::IInspectable>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Dxgi::IDXGIDevice>>,
 {
     ::windows::core::link ! ( "d3d11.dll""system" fn CreateDirect3D11DeviceFromDXGIDevice ( dxgidevice : * mut::core::ffi::c_void , graphicsdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12,9 +12,9 @@ where
 #[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
-pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<'a, P0>(dgxisurface: P0) -> ::windows::core::Result<::windows::core::IInspectable>
+pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<P0>(dgxisurface: P0) -> ::windows::core::Result<::windows::core::IInspectable>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Dxgi::IDXGISurface>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Dxgi::IDXGISurface>>,
 {
     ::windows::core::link ! ( "d3d11.dll""system" fn CreateDirect3D11SurfaceFromDXGISurface ( dgxisurface : * mut::core::ffi::c_void , graphicssurface : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();

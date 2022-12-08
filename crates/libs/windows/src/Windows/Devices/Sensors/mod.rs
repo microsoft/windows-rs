@@ -5388,9 +5388,9 @@ impl HumanPresenceSettings {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetWakeOnApproachDistanceInMillimeters<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetWakeOnApproachDistanceInMillimeters<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5418,9 +5418,9 @@ impl HumanPresenceSettings {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetLockOnLeaveDistanceInMillimeters<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetLockOnLeaveDistanceInMillimeters<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -7190,7 +7190,7 @@ impl ::core::convert::TryFrom<&PedometerDataThreshold> for ISensorDataThreshold 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PedometerDataThreshold> for ::windows::core::InParam<'a, ISensorDataThreshold> {
+impl ::core::convert::TryFrom<&PedometerDataThreshold> for ::windows::core::InParam<ISensorDataThreshold> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PedometerDataThreshold) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7505,7 +7505,7 @@ impl ::core::convert::TryFrom<&ProximitySensorDataThreshold> for ISensorDataThre
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ProximitySensorDataThreshold> for ::windows::core::InParam<'a, ISensorDataThreshold> {
+impl ::core::convert::TryFrom<&ProximitySensorDataThreshold> for ::windows::core::InParam<ISensorDataThreshold> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProximitySensorDataThreshold) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7584,7 +7584,7 @@ impl ::core::convert::TryFrom<&ProximitySensorDisplayOnOffController> for super:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&ProximitySensorDisplayOnOffController> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&ProximitySensorDisplayOnOffController> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ProximitySensorDisplayOnOffController) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

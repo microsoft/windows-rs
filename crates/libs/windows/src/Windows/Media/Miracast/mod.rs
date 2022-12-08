@@ -792,7 +792,7 @@ impl ::core::convert::TryFrom<&MiracastReceiverConnection> for super::super::Fou
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&MiracastReceiverConnection> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&MiracastReceiverConnection> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MiracastReceiverConnection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1520,7 +1520,7 @@ impl ::core::convert::TryFrom<&MiracastReceiverSession> for super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&MiracastReceiverSession> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&MiracastReceiverSession> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MiracastReceiverSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -36,7 +36,7 @@ pub unsafe fn DevCreateObjectQueryEx(objecttype: DEV_OBJECT_TYPE, queryflags: u3
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn DevCreateObjectQueryFromId<'a, P0>(objecttype: DEV_OBJECT_TYPE, pszobjectid: P0, queryflags: u32, prequestedproperties: ::core::option::Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: ::core::option::Option<&[DEVPROP_FILTER_EXPRESSION]>, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<*mut HDEVQUERY__>
+pub unsafe fn DevCreateObjectQueryFromId<P0>(objecttype: DEV_OBJECT_TYPE, pszobjectid: P0, queryflags: u32, prequestedproperties: ::core::option::Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: ::core::option::Option<&[DEVPROP_FILTER_EXPRESSION]>, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<*mut HDEVQUERY__>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -47,7 +47,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn DevCreateObjectQueryFromIdEx<'a, P0>(objecttype: DEV_OBJECT_TYPE, pszobjectid: P0, queryflags: u32, prequestedproperties: ::core::option::Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: ::core::option::Option<&[DEVPROP_FILTER_EXPRESSION]>, pextendedparameters: ::core::option::Option<&[DEV_QUERY_PARAMETER]>, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<*mut HDEVQUERY__>
+pub unsafe fn DevCreateObjectQueryFromIdEx<P0>(objecttype: DEV_OBJECT_TYPE, pszobjectid: P0, queryflags: u32, prequestedproperties: ::core::option::Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: ::core::option::Option<&[DEVPROP_FILTER_EXPRESSION]>, pextendedparameters: ::core::option::Option<&[DEV_QUERY_PARAMETER]>, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<*mut HDEVQUERY__>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -72,7 +72,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn DevCreateObjectQueryFromIds<'a, P0>(objecttype: DEV_OBJECT_TYPE, pszzobjectids: P0, queryflags: u32, prequestedproperties: ::core::option::Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: ::core::option::Option<&[DEVPROP_FILTER_EXPRESSION]>, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<*mut HDEVQUERY__>
+pub unsafe fn DevCreateObjectQueryFromIds<P0>(objecttype: DEV_OBJECT_TYPE, pszzobjectids: P0, queryflags: u32, prequestedproperties: ::core::option::Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: ::core::option::Option<&[DEVPROP_FILTER_EXPRESSION]>, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<*mut HDEVQUERY__>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -83,7 +83,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn DevCreateObjectQueryFromIdsEx<'a, P0>(objecttype: DEV_OBJECT_TYPE, pszzobjectids: P0, queryflags: u32, prequestedproperties: ::core::option::Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: ::core::option::Option<&[DEVPROP_FILTER_EXPRESSION]>, pextendedparameters: ::core::option::Option<&[DEV_QUERY_PARAMETER]>, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<*mut HDEVQUERY__>
+pub unsafe fn DevCreateObjectQueryFromIdsEx<P0>(objecttype: DEV_OBJECT_TYPE, pszzobjectids: P0, queryflags: u32, prequestedproperties: ::core::option::Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: ::core::option::Option<&[DEVPROP_FILTER_EXPRESSION]>, pextendedparameters: ::core::option::Option<&[DEV_QUERY_PARAMETER]>, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<*mut HDEVQUERY__>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -108,7 +108,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn DevFindProperty<'a, P0>(pkey: *const super::Properties::DEVPROPKEY, store: super::Properties::DEVPROPSTORE, pszlocalename: P0, pproperties: ::core::option::Option<&[super::Properties::DEVPROPERTY]>) -> *mut super::Properties::DEVPROPERTY
+pub unsafe fn DevFindProperty<P0>(pkey: *const super::Properties::DEVPROPKEY, store: super::Properties::DEVPROPSTORE, pszlocalename: P0, pproperties: ::core::option::Option<&[super::Properties::DEVPROPERTY]>) -> *mut super::Properties::DEVPROPERTY
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -132,7 +132,7 @@ pub unsafe fn DevFreeObjects(pobjects: &[DEV_OBJECT]) {
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn DevGetObjectProperties<'a, P0>(objecttype: DEV_OBJECT_TYPE, pszobjectid: P0, queryflags: u32, prequestedproperties: &[super::Properties::DEVPROPCOMPKEY], pcpropertycount: *mut u32, ppproperties: *mut *mut super::Properties::DEVPROPERTY) -> ::windows::core::Result<()>
+pub unsafe fn DevGetObjectProperties<P0>(objecttype: DEV_OBJECT_TYPE, pszobjectid: P0, queryflags: u32, prequestedproperties: &[super::Properties::DEVPROPCOMPKEY], pcpropertycount: *mut u32, ppproperties: *mut *mut super::Properties::DEVPROPERTY) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -142,7 +142,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn DevGetObjectPropertiesEx<'a, P0>(objecttype: DEV_OBJECT_TYPE, pszobjectid: P0, queryflags: u32, prequestedproperties: &[super::Properties::DEVPROPCOMPKEY], pextendedparameters: ::core::option::Option<&[DEV_QUERY_PARAMETER]>, pcpropertycount: *mut u32, ppproperties: *mut *mut super::Properties::DEVPROPERTY) -> ::windows::core::Result<()>
+pub unsafe fn DevGetObjectPropertiesEx<P0>(objecttype: DEV_OBJECT_TYPE, pszobjectid: P0, queryflags: u32, prequestedproperties: &[super::Properties::DEVPROPCOMPKEY], pextendedparameters: ::core::option::Option<&[DEV_QUERY_PARAMETER]>, pcpropertycount: *mut u32, ppproperties: *mut *mut super::Properties::DEVPROPERTY) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {

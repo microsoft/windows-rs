@@ -83,9 +83,9 @@ pub struct LicenseManager;
 impl LicenseManager {
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn AddLicenseAsync<'a, P0, E0>(license: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn AddLicenseAsync<P0, E0>(license: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILicenseManagerStatics(|this| unsafe {
@@ -95,11 +95,11 @@ impl LicenseManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSatisfactionInfosAsync<'a, P0, E0, P1, E1>(contentids: P0, keyids: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>
+    pub fn GetSatisfactionInfosAsync<P0, E0, P1, E1>(contentids: P0, keyids: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILicenseManagerStatics(|this| unsafe {

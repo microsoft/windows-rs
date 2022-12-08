@@ -227,15 +227,15 @@ pub struct IAudioEndpointOffloadStreamVolume_Vtbl {
 #[repr(transparent)]
 pub struct IAudioEndpointVolume(::windows::core::IUnknown);
 impl IAudioEndpointVolume {
-    pub unsafe fn RegisterControlChangeNotify<'a, P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterControlChangeNotify<P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IAudioEndpointVolumeCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IAudioEndpointVolumeCallback>>,
     {
         (::windows::core::Vtable::vtable(self).RegisterControlChangeNotify)(::windows::core::Vtable::as_raw(self), pnotify.into().abi()).ok()
     }
-    pub unsafe fn UnregisterControlChangeNotify<'a, P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
+    pub unsafe fn UnregisterControlChangeNotify<P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IAudioEndpointVolumeCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IAudioEndpointVolumeCallback>>,
     {
         (::windows::core::Vtable::vtable(self).UnregisterControlChangeNotify)(::windows::core::Vtable::as_raw(self), pnotify.into().abi()).ok()
     }
@@ -273,7 +273,7 @@ impl IAudioEndpointVolume {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMute<'a, P0>(&self, bmute: P0, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>
+    pub unsafe fn SetMute<P0>(&self, bmute: P0, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -400,15 +400,15 @@ pub struct IAudioEndpointVolumeCallback_Vtbl {
 #[repr(transparent)]
 pub struct IAudioEndpointVolumeEx(::windows::core::IUnknown);
 impl IAudioEndpointVolumeEx {
-    pub unsafe fn RegisterControlChangeNotify<'a, P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterControlChangeNotify<P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IAudioEndpointVolumeCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IAudioEndpointVolumeCallback>>,
     {
         (::windows::core::Vtable::vtable(self).base__.RegisterControlChangeNotify)(::windows::core::Vtable::as_raw(self), pnotify.into().abi()).ok()
     }
-    pub unsafe fn UnregisterControlChangeNotify<'a, P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
+    pub unsafe fn UnregisterControlChangeNotify<P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IAudioEndpointVolumeCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IAudioEndpointVolumeCallback>>,
     {
         (::windows::core::Vtable::vtable(self).base__.UnregisterControlChangeNotify)(::windows::core::Vtable::as_raw(self), pnotify.into().abi()).ok()
     }
@@ -446,7 +446,7 @@ impl IAudioEndpointVolumeEx {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMute<'a, P0>(&self, bmute: P0, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>
+    pub unsafe fn SetMute<P0>(&self, bmute: P0, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -513,7 +513,7 @@ pub struct IAudioLfxControl(::windows::core::IUnknown);
 impl IAudioLfxControl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalEffectsState<'a, P0>(&self, benabled: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLocalEffectsState<P0>(&self, benabled: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -618,7 +618,7 @@ pub struct IAudioMeterInformation_Vtbl {
 #[repr(transparent)]
 pub struct IHardwareAudioEngineBase(::windows::core::IUnknown);
 impl IHardwareAudioEngineBase {
-    pub unsafe fn GetAvailableOffloadConnectorCount<'a, P0>(&self, _pwstrdeviceid: P0, _uconnectorid: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn GetAvailableOffloadConnectorCount<P0>(&self, _pwstrdeviceid: P0, _uconnectorid: u32) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -627,33 +627,33 @@ impl IHardwareAudioEngineBase {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEngineFormat<'a, P0, P1>(&self, pdevice: P0, _brequestdeviceformat: P1, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::Result<()>
+    pub unsafe fn GetEngineFormat<P0, P1>(&self, pdevice: P0, _brequestdeviceformat: P1, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMMDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IMMDevice>>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).GetEngineFormat)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), _brequestdeviceformat.into(), _ppwfxformat).ok()
     }
-    pub unsafe fn SetEngineDeviceFormat<'a, P0>(&self, pdevice: P0, _pwfxformat: *mut super::WAVEFORMATEX) -> ::windows::core::Result<()>
+    pub unsafe fn SetEngineDeviceFormat<P0>(&self, pdevice: P0, _pwfxformat: *mut super::WAVEFORMATEX) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMMDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IMMDevice>>,
     {
         (::windows::core::Vtable::vtable(self).SetEngineDeviceFormat)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), _pwfxformat).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGfxState<'a, P0, P1>(&self, pdevice: P0, _benable: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetGfxState<P0, P1>(&self, pdevice: P0, _benable: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMMDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IMMDevice>>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).SetGfxState)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), _benable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetGfxState<'a, P0>(&self, pdevice: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
+    pub unsafe fn GetGfxState<P0>(&self, pdevice: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMMDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IMMDevice>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetGfxState)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)

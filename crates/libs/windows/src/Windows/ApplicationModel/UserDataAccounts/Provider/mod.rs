@@ -253,7 +253,7 @@ impl ::core::convert::TryFrom<&UserDataAccountProviderAddAccountOperation> for I
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&UserDataAccountProviderAddAccountOperation> for ::windows::core::InParam<'a, IUserDataAccountProviderOperation> {
+impl ::core::convert::TryFrom<&UserDataAccountProviderAddAccountOperation> for ::windows::core::InParam<IUserDataAccountProviderOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UserDataAccountProviderAddAccountOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -330,7 +330,7 @@ impl ::core::convert::TryFrom<&UserDataAccountProviderResolveErrorsOperation> fo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&UserDataAccountProviderResolveErrorsOperation> for ::windows::core::InParam<'a, IUserDataAccountProviderOperation> {
+impl ::core::convert::TryFrom<&UserDataAccountProviderResolveErrorsOperation> for ::windows::core::InParam<IUserDataAccountProviderOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UserDataAccountProviderResolveErrorsOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -407,7 +407,7 @@ impl ::core::convert::TryFrom<&UserDataAccountProviderSettingsOperation> for IUs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&UserDataAccountProviderSettingsOperation> for ::windows::core::InParam<'a, IUserDataAccountProviderOperation> {
+impl ::core::convert::TryFrom<&UserDataAccountProviderSettingsOperation> for ::windows::core::InParam<IUserDataAccountProviderOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UserDataAccountProviderSettingsOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

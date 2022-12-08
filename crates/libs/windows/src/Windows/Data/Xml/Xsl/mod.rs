@@ -58,9 +58,9 @@ pub struct XsltProcessor(::windows::core::IUnknown);
 impl XsltProcessor {
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn TransformToString<'a, P0, E0>(&self, inputnode: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn TransformToString<P0, E0>(&self, inputnode: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Dom::IXmlNode>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Dom::IXmlNode>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -71,9 +71,9 @@ impl XsltProcessor {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn TransformToDocument<'a, P0, E0>(&self, inputnode: P0) -> ::windows::core::Result<super::Dom::XmlDocument>
+    pub fn TransformToDocument<P0, E0>(&self, inputnode: P0) -> ::windows::core::Result<super::Dom::XmlDocument>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Dom::IXmlNode>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Dom::IXmlNode>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IXsltProcessor2>(self)?;

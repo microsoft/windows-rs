@@ -313,9 +313,9 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static;
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IMap<K, V> {
-    pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<V>
+    pub fn Lookup<P0>(&self, key: P0) -> ::windows::core::Result<V>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
+        P0: ::std::convert::Into<::windows::core::InParam<K>>,
     {
         let this = self;
         unsafe {
@@ -330,9 +330,9 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
+    pub fn HasKey<P0>(&self, key: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
+        P0: ::std::convert::Into<::windows::core::InParam<K>>,
     {
         let this = self;
         unsafe {
@@ -347,10 +347,10 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Vtable::vtable(this).GetView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
+    pub fn Insert<P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, V>>,
+        P0: ::std::convert::Into<::windows::core::InParam<K>>,
+        P1: ::std::convert::Into<::windows::core::InParam<V>>,
     {
         let this = self;
         unsafe {
@@ -358,9 +358,9 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Vtable::vtable(this).Insert)(::windows::core::Vtable::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
+    pub fn Remove<P0>(&self, key: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
+        P0: ::std::convert::Into<::windows::core::InParam<K>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Remove)(::windows::core::Vtable::as_raw(this), key.into().abi()).ok() }
@@ -419,7 +419,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IMap<K, V>> for ::windows::core::InParam<'a, IIterable<IKeyValuePair<K, V>>> {
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IMap<K, V>> for ::windows::core::InParam<IIterable<IKeyValuePair<K, V>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IMap<K, V>) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -585,9 +585,9 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static;
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IMapView<K, V> {
-    pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<V>
+    pub fn Lookup<P0>(&self, key: P0) -> ::windows::core::Result<V>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
+        P0: ::std::convert::Into<::windows::core::InParam<K>>,
     {
         let this = self;
         unsafe {
@@ -602,9 +602,9 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
+    pub fn HasKey<P0>(&self, key: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
+        P0: ::std::convert::Into<::windows::core::InParam<K>>,
     {
         let this = self;
         unsafe {
@@ -666,7 +666,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IMapView<K, V>> for ::windows::core::InParam<'a, IIterable<IKeyValuePair<K, V>>> {
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IMapView<K, V>> for ::windows::core::InParam<IIterable<IKeyValuePair<K, V>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IMapView<K, V>) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -756,9 +756,9 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Vtable::vtable(this).First)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<V>
+    pub fn Lookup<P0>(&self, key: P0) -> ::windows::core::Result<V>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
+        P0: ::std::convert::Into<::windows::core::InParam<K>>,
     {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
@@ -773,9 +773,9 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
+    pub fn HasKey<P0>(&self, key: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
+        P0: ::std::convert::Into<::windows::core::InParam<K>>,
     {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
@@ -790,10 +790,10 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Vtable::vtable(this).GetView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
+    pub fn Insert<P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, V>>,
+        P0: ::std::convert::Into<::windows::core::InParam<K>>,
+        P1: ::std::convert::Into<::windows::core::InParam<V>>,
     {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
@@ -801,9 +801,9 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Vtable::vtable(this).Insert)(::windows::core::Vtable::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
+    pub fn Remove<P0>(&self, key: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
+        P0: ::std::convert::Into<::windows::core::InParam<K>>,
     {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).Remove)(::windows::core::Vtable::as_raw(this), key.into().abi()).ok() }
@@ -855,7 +855,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObservableMap<K, V>> for ::windows::core::InParam<'a, IIterable<IKeyValuePair<K, V>>> {
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObservableMap<K, V>> for ::windows::core::InParam<IIterable<IKeyValuePair<K, V>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IObservableMap<K, V>) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -874,7 +874,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObservableMap<K, V>> for ::windows::core::InParam<'a, IMap<K, V>> {
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObservableMap<K, V>> for ::windows::core::InParam<IMap<K, V>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IObservableMap<K, V>) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -982,9 +982,9 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
             (::windows::core::Vtable::vtable(this).GetView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
+        P0: ::std::convert::Into<::windows::core::InParam<T>>,
     {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
@@ -992,16 +992,16 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
             (::windows::core::Vtable::vtable(this).IndexOf)(::windows::core::Vtable::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
+    pub fn SetAt<P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
+        P0: ::std::convert::Into<::windows::core::InParam<T>>,
     {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetAt)(::windows::core::Vtable::as_raw(this), index, value.into().abi()).ok() }
     }
-    pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
+    pub fn InsertAt<P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
+        P0: ::std::convert::Into<::windows::core::InParam<T>>,
     {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).InsertAt)(::windows::core::Vtable::as_raw(this), index, value.into().abi()).ok() }
@@ -1010,9 +1010,9 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).RemoveAt)(::windows::core::Vtable::as_raw(this), index).ok() }
     }
-    pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn Append<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
+        P0: ::std::convert::Into<::windows::core::InParam<T>>,
     {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).Append)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -1079,7 +1079,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObser
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObservableVector<T>> for ::windows::core::InParam<'a, IIterable<T>> {
+impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObservableVector<T>> for ::windows::core::InParam<IIterable<T>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IObservableVector<T>) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1098,7 +1098,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObser
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObservableVector<T>> for ::windows::core::InParam<'a, IVector<T>> {
+impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObservableVector<T>> for ::windows::core::InParam<IVector<T>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IObservableVector<T>) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1198,9 +1198,9 @@ impl IPropertySet {
             (::windows::core::Vtable::vtable(this).GetView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Insert<'a, P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
+    pub fn Insert<P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -1241,7 +1241,7 @@ impl ::core::convert::TryFrom<&IPropertySet> for IIterable<IKeyValuePair<::windo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPropertySet> for ::windows::core::InParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+impl ::core::convert::TryFrom<&IPropertySet> for ::windows::core::InParam<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1260,7 +1260,7 @@ impl ::core::convert::TryFrom<&IPropertySet> for IMap<::windows::core::HSTRING, 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPropertySet> for ::windows::core::InParam<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&IPropertySet> for ::windows::core::InParam<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1279,7 +1279,7 @@ impl ::core::convert::TryFrom<&IPropertySet> for IObservableMap<::windows::core:
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPropertySet> for ::windows::core::InParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&IPropertySet> for ::windows::core::InParam<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1361,9 +1361,9 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
             (::windows::core::Vtable::vtable(this).GetView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
+        P0: ::std::convert::Into<::windows::core::InParam<T>>,
     {
         let this = self;
         unsafe {
@@ -1371,16 +1371,16 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
             (::windows::core::Vtable::vtable(this).IndexOf)(::windows::core::Vtable::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
+    pub fn SetAt<P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
+        P0: ::std::convert::Into<::windows::core::InParam<T>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetAt)(::windows::core::Vtable::as_raw(this), index, value.into().abi()).ok() }
     }
-    pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
+    pub fn InsertAt<P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
+        P0: ::std::convert::Into<::windows::core::InParam<T>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).InsertAt)(::windows::core::Vtable::as_raw(this), index, value.into().abi()).ok() }
@@ -1389,9 +1389,9 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).RemoveAt)(::windows::core::Vtable::as_raw(this), index).ok() }
     }
-    pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn Append<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
+        P0: ::std::convert::Into<::windows::core::InParam<T>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Append)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -1465,7 +1465,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IVecto
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IVector<T>> for ::windows::core::InParam<'a, IIterable<T>> {
+impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IVector<T>> for ::windows::core::InParam<IIterable<T>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IVector<T>) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1630,9 +1630,9 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView<T> {
             (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
+        P0: ::std::convert::Into<::windows::core::InParam<T>>,
     {
         let this = self;
         unsafe {
@@ -1697,7 +1697,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IVecto
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IVectorView<T>> for ::windows::core::InParam<'a, IIterable<T>> {
+impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IVectorView<T>> for ::windows::core::InParam<IIterable<T>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IVectorView<T>) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1824,9 +1824,9 @@ impl PropertySet {
             (::windows::core::Vtable::vtable(this).GetView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Insert<'a, P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
+    pub fn Insert<P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -1913,7 +1913,7 @@ impl ::core::convert::TryFrom<&PropertySet> for IIterable<IKeyValuePair<::window
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PropertySet> for ::windows::core::InParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+impl ::core::convert::TryFrom<&PropertySet> for ::windows::core::InParam<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1932,7 +1932,7 @@ impl ::core::convert::TryFrom<&PropertySet> for IMap<::windows::core::HSTRING, :
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PropertySet> for ::windows::core::InParam<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&PropertySet> for ::windows::core::InParam<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1951,7 +1951,7 @@ impl ::core::convert::TryFrom<&PropertySet> for IObservableMap<::windows::core::
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PropertySet> for ::windows::core::InParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&PropertySet> for ::windows::core::InParam<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1970,7 +1970,7 @@ impl ::core::convert::TryFrom<&PropertySet> for IPropertySet {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PropertySet> for ::windows::core::InParam<'a, IPropertySet> {
+impl ::core::convert::TryFrom<&PropertySet> for ::windows::core::InParam<IPropertySet> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2111,7 +2111,7 @@ impl ::core::convert::TryFrom<&StringMap> for IIterable<IKeyValuePair<::windows:
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StringMap> for ::windows::core::InParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
+impl ::core::convert::TryFrom<&StringMap> for ::windows::core::InParam<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StringMap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2130,7 +2130,7 @@ impl ::core::convert::TryFrom<&StringMap> for IMap<::windows::core::HSTRING, ::w
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StringMap> for ::windows::core::InParam<'a, IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
+impl ::core::convert::TryFrom<&StringMap> for ::windows::core::InParam<IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StringMap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2149,7 +2149,7 @@ impl ::core::convert::TryFrom<&StringMap> for IObservableMap<::windows::core::HS
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StringMap> for ::windows::core::InParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
+impl ::core::convert::TryFrom<&StringMap> for ::windows::core::InParam<IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StringMap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2204,9 +2204,9 @@ impl ValueSet {
             (::windows::core::Vtable::vtable(this).GetView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Insert<'a, P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
+    pub fn Insert<P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -2293,7 +2293,7 @@ impl ::core::convert::TryFrom<&ValueSet> for IIterable<IKeyValuePair<::windows::
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ValueSet> for ::windows::core::InParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+impl ::core::convert::TryFrom<&ValueSet> for ::windows::core::InParam<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ValueSet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2312,7 +2312,7 @@ impl ::core::convert::TryFrom<&ValueSet> for IMap<::windows::core::HSTRING, ::wi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ValueSet> for ::windows::core::InParam<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&ValueSet> for ::windows::core::InParam<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ValueSet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2331,7 +2331,7 @@ impl ::core::convert::TryFrom<&ValueSet> for IObservableMap<::windows::core::HST
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ValueSet> for ::windows::core::InParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&ValueSet> for ::windows::core::InParam<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ValueSet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2350,7 +2350,7 @@ impl ::core::convert::TryFrom<&ValueSet> for IPropertySet {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ValueSet> for ::windows::core::InParam<'a, IPropertySet> {
+impl ::core::convert::TryFrom<&ValueSet> for ::windows::core::InParam<IPropertySet> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ValueSet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2406,11 +2406,11 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         let com = MapChangedEventHandlerBox::<K, V, F> { vtable: &MapChangedEventHandlerBox::<K, V, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, E0, P1, E1>(&self, sender: P0, event: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, E0, P1, E1>(&self, sender: P0, event: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IObservableMap<K, V>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IObservableMap<K, V>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, IMapChangedEventArgs<K>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<IMapChangedEventArgs<K>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2512,11 +2512,11 @@ impl<T: ::windows::core::RuntimeType + 'static> VectorChangedEventHandler<T> {
         let com = VectorChangedEventHandlerBox::<T, F> { vtable: &VectorChangedEventHandlerBox::<T, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, E0, P1, E1>(&self, sender: P0, event: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, E0, P1, E1>(&self, sender: P0, event: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IObservableVector<T>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IObservableVector<T>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, IVectorChangedEventArgs>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<IVectorChangedEventArgs>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

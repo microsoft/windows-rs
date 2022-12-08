@@ -2053,7 +2053,7 @@ impl ::core::convert::TryFrom<&EnteredBackgroundEventArgs> for IEnteredBackgroun
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&EnteredBackgroundEventArgs> for ::windows::core::InParam<'a, IEnteredBackgroundEventArgs> {
+impl ::core::convert::TryFrom<&EnteredBackgroundEventArgs> for ::windows::core::InParam<IEnteredBackgroundEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &EnteredBackgroundEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2346,7 +2346,7 @@ impl ::core::convert::TryFrom<&LeavingBackgroundEventArgs> for ILeavingBackgroun
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LeavingBackgroundEventArgs> for ::windows::core::InParam<'a, ILeavingBackgroundEventArgs> {
+impl ::core::convert::TryFrom<&LeavingBackgroundEventArgs> for ::windows::core::InParam<ILeavingBackgroundEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LeavingBackgroundEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2591,9 +2591,9 @@ impl Package {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StageContentGroupsAsync<'a, P0, E0>(&self, names: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>
+    pub fn StageContentGroupsAsync<P0, E0>(&self, names: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackage5>(self)?;
@@ -2604,9 +2604,9 @@ impl Package {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StageContentGroupsWithPriorityAsync<'a, P0, E0>(&self, names: P0, movetoheadofqueue: bool) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>
+    pub fn StageContentGroupsWithPriorityAsync<P0, E0>(&self, names: P0, movetoheadofqueue: bool) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackage5>(self)?;
@@ -2942,9 +2942,9 @@ impl PackageCatalog {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RemoveOptionalPackagesAsync<'a, P0, E0>(&self, optionalpackagefamilynames: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>>
+    pub fn RemoveOptionalPackagesAsync<P0, E0>(&self, optionalpackagefamilynames: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageCatalog3>(self)?;
@@ -2964,9 +2964,9 @@ impl PackageCatalog {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RemoveResourcePackagesAsync<'a, P0, E0>(&self, resourcepackages: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>>
+    pub fn RemoveResourcePackagesAsync<P0, E0>(&self, resourcepackages: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<Package>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<Package>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageCatalog4>(self)?;
@@ -4221,7 +4221,7 @@ impl ::core::convert::TryFrom<&SuspendingDeferral> for ISuspendingDeferral {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SuspendingDeferral> for ::windows::core::InParam<'a, ISuspendingDeferral> {
+impl ::core::convert::TryFrom<&SuspendingDeferral> for ::windows::core::InParam<ISuspendingDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SuspendingDeferral) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4287,7 +4287,7 @@ impl ::core::convert::TryFrom<&SuspendingEventArgs> for ISuspendingEventArgs {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SuspendingEventArgs> for ::windows::core::InParam<'a, ISuspendingEventArgs> {
+impl ::core::convert::TryFrom<&SuspendingEventArgs> for ::windows::core::InParam<ISuspendingEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SuspendingEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4362,7 +4362,7 @@ impl ::core::convert::TryFrom<&SuspendingOperation> for ISuspendingOperation {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SuspendingOperation> for ::windows::core::InParam<'a, ISuspendingOperation> {
+impl ::core::convert::TryFrom<&SuspendingOperation> for ::windows::core::InParam<ISuspendingOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SuspendingOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

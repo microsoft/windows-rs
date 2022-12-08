@@ -290,9 +290,9 @@ impl WebViewControl {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NavigateToLocalStreamUri<'a, P0, E0>(&self, source: &super::super::super::Foundation::Uri, streamresolver: P0) -> ::windows::core::Result<()>
+    pub fn NavigateToLocalStreamUri<P0, E0>(&self, source: &super::super::super::Foundation::Uri, streamresolver: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::IUriToStreamResolver>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::IUriToStreamResolver>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -306,9 +306,9 @@ impl WebViewControl {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn InvokeScriptAsync<'a, P0, E0>(&self, scriptname: &::windows::core::HSTRING, arguments: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    pub fn InvokeScriptAsync<P0, E0>(&self, scriptname: &::windows::core::HSTRING, arguments: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -319,9 +319,9 @@ impl WebViewControl {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CapturePreviewToStreamAsync<'a, P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn CapturePreviewToStreamAsync<P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -769,7 +769,7 @@ impl ::core::convert::TryFrom<&WebViewControl> for super::IWebViewControl {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebViewControl> for ::windows::core::InParam<'a, super::IWebViewControl> {
+impl ::core::convert::TryFrom<&WebViewControl> for ::windows::core::InParam<super::IWebViewControl> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebViewControl) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -788,7 +788,7 @@ impl ::core::convert::TryFrom<&WebViewControl> for super::IWebViewControl2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebViewControl> for ::windows::core::InParam<'a, super::IWebViewControl2> {
+impl ::core::convert::TryFrom<&WebViewControl> for ::windows::core::InParam<super::IWebViewControl2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebViewControl) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

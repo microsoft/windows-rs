@@ -71,7 +71,7 @@ pub unsafe fn WinUsb_GetDescriptor(interfacehandle: *const ::core::ffi::c_void, 
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_GetOverlappedResult<'a, P0>(interfacehandle: *const ::core::ffi::c_void, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: P0) -> super::super::Foundation::BOOL
+pub unsafe fn WinUsb_GetOverlappedResult<P0>(interfacehandle: *const ::core::ffi::c_void, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
@@ -95,7 +95,7 @@ pub unsafe fn WinUsb_GetPowerPolicy(interfacehandle: *const ::core::ffi::c_void,
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_Initialize<'a, P0>(devicehandle: P0, interfacehandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn WinUsb_Initialize<P0>(devicehandle: P0, interfacehandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -152,7 +152,7 @@ pub unsafe fn WinUsb_ReadIsochPipe(bufferhandle: *const ::core::ffi::c_void, off
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_ReadIsochPipeAsap<'a, P0>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: P0, isopacketdescriptors: &mut [USBD_ISO_PACKET_DESCRIPTOR], overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
+pub unsafe fn WinUsb_ReadIsochPipeAsap<P0>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: P0, isopacketdescriptors: &mut [USBD_ISO_PACKET_DESCRIPTOR], overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
@@ -232,7 +232,7 @@ pub unsafe fn WinUsb_WriteIsochPipe(bufferhandle: *const ::core::ffi::c_void, of
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_WriteIsochPipeAsap<'a, P0>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: P0, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
+pub unsafe fn WinUsb_WriteIsochPipeAsap<P0>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: P0, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {

@@ -1910,9 +1910,9 @@ impl PhoneCallBlocking {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetCallBlockingListAsync<'a, P0, E0>(phonenumberlist: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn SetCallBlockingListAsync<P0, E0>(phonenumberlist: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPhoneCallBlockingStatics(|this| unsafe {
@@ -1969,9 +1969,9 @@ impl PhoneCallHistoryEntry {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDuration<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDuration<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2534,9 +2534,9 @@ impl PhoneCallHistoryStore {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn DeleteEntriesAsync<'a, P0, E0>(&self, callhistoryentries: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn DeleteEntriesAsync<P0, E0>(&self, callhistoryentries: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2556,9 +2556,9 @@ impl PhoneCallHistoryStore {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn MarkEntriesAsSeenAsync<'a, P0, E0>(&self, callhistoryentries: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn MarkEntriesAsSeenAsync<P0, E0>(&self, callhistoryentries: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2587,9 +2587,9 @@ impl PhoneCallHistoryStore {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSourcesUnseenCountAsync<'a, P0, E0>(&self, sourceids: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>
+    pub fn GetSourcesUnseenCountAsync<P0, E0>(&self, sourceids: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2600,9 +2600,9 @@ impl PhoneCallHistoryStore {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn MarkSourcesAsSeenAsync<'a, P0, E0>(&self, sourceids: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn MarkSourcesAsSeenAsync<P0, E0>(&self, sourceids: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

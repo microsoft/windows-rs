@@ -68,9 +68,9 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) 
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
-pub unsafe fn JsCreateContext<'a, P0>(runtime: *const ::core::ffi::c_void, debugapplication: P0, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsCreateContext<P0>(runtime: *const ::core::ffi::c_void, debugapplication: P0, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::Diagnostics::Debug::IDebugApplication64>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::Diagnostics::Debug::IDebugApplication64>>,
 {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateContext ( runtime : *const ::core::ffi::c_void , debugapplication : * mut::core::ffi::c_void , newcontext : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
     JsCreateContext(runtime, debugapplication.into().abi(), newcontext)
@@ -79,9 +79,9 @@ where
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
-pub unsafe fn JsCreateContext<'a, P0>(runtime: *const ::core::ffi::c_void, debugapplication: P0, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsCreateContext<P0>(runtime: *const ::core::ffi::c_void, debugapplication: P0, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::Diagnostics::Debug::IDebugApplication32>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::Diagnostics::Debug::IDebugApplication32>>,
 {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateContext ( runtime : *const ::core::ffi::c_void , debugapplication : * mut::core::ffi::c_void , newcontext : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
     JsCreateContext(runtime, debugapplication.into().abi(), newcontext)
@@ -269,7 +269,7 @@ pub unsafe fn JsGetProperty(object: *const ::core::ffi::c_void, propertyid: *con
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsGetPropertyIdFromName<'a, P0>(name: P0, propertyid: *mut *mut ::core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsGetPropertyIdFromName<P0>(name: P0, propertyid: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -386,7 +386,7 @@ pub unsafe fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: *
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsParseScript<'a, P0, P1>(script: P0, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsParseScript<P0, P1>(script: P0, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -396,7 +396,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsParseSerializedScript<'a, P0, P1>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsParseSerializedScript<P0, P1>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -424,7 +424,7 @@ pub unsafe fn JsRelease(r#ref: *const ::core::ffi::c_void, count: ::core::option
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsRunScript<'a, P0, P1>(script: P0, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsRunScript<P0, P1>(script: P0, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -434,7 +434,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsRunSerializedScript<'a, P0, P1>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsRunSerializedScript<P0, P1>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -444,7 +444,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsSerializeScript<'a, P0>(script: P0, buffer: ::core::option::Option<*mut u8>, buffersize: *mut u32) -> JsErrorCode
+pub unsafe fn JsSerializeScript<P0>(script: P0, buffer: ::core::option::Option<*mut u8>, buffersize: *mut u32) -> JsErrorCode
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -509,9 +509,9 @@ pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memor
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
-pub unsafe fn JsStartDebugging<'a, P0>(debugapplication: P0) -> JsErrorCode
+pub unsafe fn JsStartDebugging<P0>(debugapplication: P0) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::Diagnostics::Debug::IDebugApplication64>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::Diagnostics::Debug::IDebugApplication64>>,
 {
     ::windows::core::link ! ( "chakra.dll""system" fn JsStartDebugging ( debugapplication : * mut::core::ffi::c_void ) -> JsErrorCode );
     JsStartDebugging(debugapplication.into().abi())
@@ -520,9 +520,9 @@ where
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
-pub unsafe fn JsStartDebugging<'a, P0>(debugapplication: P0) -> JsErrorCode
+pub unsafe fn JsStartDebugging<P0>(debugapplication: P0) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::Diagnostics::Debug::IDebugApplication32>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::Diagnostics::Debug::IDebugApplication32>>,
 {
     ::windows::core::link ! ( "chakra.dll""system" fn JsStartDebugging ( debugapplication : * mut::core::ffi::c_void ) -> JsErrorCode );
     JsStartDebugging(debugapplication.into().abi())
@@ -530,9 +530,9 @@ where
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
-pub unsafe fn JsStartProfiling<'a, P0>(callback: P0, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode
+pub unsafe fn JsStartProfiling<P0>(callback: P0, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::Diagnostics::Debug::IActiveScriptProfilerCallback>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::Diagnostics::Debug::IActiveScriptProfilerCallback>>,
 {
     ::windows::core::link ! ( "chakra.dll""system" fn JsStartProfiling ( callback : * mut::core::ffi::c_void , eventmask : super::Diagnostics::Debug:: PROFILER_EVENT_MASK , context : u32 ) -> JsErrorCode );
     JsStartProfiling(callback.into().abi(), eventmask, context)

@@ -608,9 +608,9 @@ unsafe impl ::core::marker::Sync for CoreDragUIOverride {}
 #[repr(transparent)]
 pub struct CoreDropOperationTargetRequestedEventArgs(::windows::core::IUnknown);
 impl CoreDropOperationTargetRequestedEventArgs {
-    pub fn SetTarget<'a, P0, E0>(&self, target: P0) -> ::windows::core::Result<()>
+    pub fn SetTarget<P0, E0>(&self, target: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICoreDropOperationTarget>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ICoreDropOperationTarget>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

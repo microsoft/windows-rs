@@ -76,7 +76,7 @@ impl IReferenceClock {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AdviseTime<'a, P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> ::windows::core::Result<usize>
+    pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> ::windows::core::Result<usize>
     where
         P0: ::std::convert::Into<super::Foundation::HANDLE>,
     {
@@ -85,7 +85,7 @@ impl IReferenceClock {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AdvisePeriodic<'a, P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> ::windows::core::Result<usize>
+    pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> ::windows::core::Result<usize>
     where
         P0: ::std::convert::Into<super::Foundation::HANDLE>,
     {
@@ -144,7 +144,7 @@ impl IReferenceClock2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AdviseTime<'a, P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> ::windows::core::Result<usize>
+    pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> ::windows::core::Result<usize>
     where
         P0: ::std::convert::Into<super::Foundation::HANDLE>,
     {
@@ -153,7 +153,7 @@ impl IReferenceClock2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AdvisePeriodic<'a, P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> ::windows::core::Result<usize>
+    pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> ::windows::core::Result<usize>
     where
         P0: ::std::convert::Into<super::Foundation::HANDLE>,
     {

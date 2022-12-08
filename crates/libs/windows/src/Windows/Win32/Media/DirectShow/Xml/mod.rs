@@ -4,22 +4,22 @@ pub struct IXMLGraphBuilder(::windows::core::IUnknown);
 impl IXMLGraphBuilder {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-    pub unsafe fn BuildFromXML<'a, P0, P1>(&self, pgraph: P0, pxml: P1) -> ::windows::core::Result<()>
+    pub unsafe fn BuildFromXML<P0, P1>(&self, pgraph: P0, pxml: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IGraphBuilder>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Data::Xml::MsXml::IXMLElement>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IGraphBuilder>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::Data::Xml::MsXml::IXMLElement>>,
     {
         (::windows::core::Vtable::vtable(self).BuildFromXML)(::windows::core::Vtable::as_raw(self), pgraph.into().abi(), pxml.into().abi()).ok()
     }
-    pub unsafe fn SaveToXML<'a, P0>(&self, pgraph: P0, pbstrxml: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn SaveToXML<P0>(&self, pgraph: P0, pbstrxml: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IGraphBuilder>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IGraphBuilder>>,
     {
         (::windows::core::Vtable::vtable(self).SaveToXML)(::windows::core::Vtable::as_raw(self), pgraph.into().abi(), ::core::mem::transmute(pbstrxml)).ok()
     }
-    pub unsafe fn BuildFromXMLFile<'a, P0, P1, P2>(&self, pgraph: P0, wszfilename: P1, wszbaseurl: P2) -> ::windows::core::Result<()>
+    pub unsafe fn BuildFromXMLFile<P0, P1, P2>(&self, pgraph: P0, wszfilename: P1, wszbaseurl: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IGraphBuilder>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IGraphBuilder>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {

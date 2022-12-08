@@ -299,9 +299,9 @@ impl IMediaEnginePlaybackSource {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetPlaybackSource<'a, P0, E0>(&self, source: P0) -> ::windows::core::Result<()>
+    pub fn SetPlaybackSource<P0, E0>(&self, source: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMediaPlaybackSource>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IMediaPlaybackSource>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2884,7 +2884,7 @@ impl ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for super::super::Fo
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::AudioTrack>> {
+impl ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::Core::AudioTrack>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaPlaybackAudioTrackList) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2906,7 +2906,7 @@ impl ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for super::Core::ISi
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for ::windows::core::InParam<'a, super::Core::ISingleSelectMediaTrackList> {
+impl ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for ::windows::core::InParam<super::Core::ISingleSelectMediaTrackList> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaPlaybackAudioTrackList) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2928,7 +2928,7 @@ impl ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for super::super::Fo
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack>> {
+impl ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for ::windows::core::InParam<super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaPlaybackAudioTrackList) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4181,7 +4181,7 @@ impl ::core::convert::TryFrom<&MediaPlaybackItem> for IMediaPlaybackSource {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MediaPlaybackItem> for ::windows::core::InParam<'a, IMediaPlaybackSource> {
+impl ::core::convert::TryFrom<&MediaPlaybackItem> for ::windows::core::InParam<IMediaPlaybackSource> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaPlaybackItem) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4478,9 +4478,9 @@ impl MediaPlaybackList {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetMaxPrefetchTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetMaxPrefetchTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackList2>(self)?;
@@ -4508,9 +4508,9 @@ impl MediaPlaybackList {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetShuffledItems<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetShuffledItems<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<MediaPlaybackItem>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<MediaPlaybackItem>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackList2>(self)?;
@@ -4527,9 +4527,9 @@ impl MediaPlaybackList {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetMaxPlayedItemsToKeepOpen<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetMaxPlayedItemsToKeepOpen<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackList3>(self)?;
@@ -4581,7 +4581,7 @@ impl ::core::convert::TryFrom<&MediaPlaybackList> for IMediaPlaybackSource {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MediaPlaybackList> for ::windows::core::InParam<'a, IMediaPlaybackSource> {
+impl ::core::convert::TryFrom<&MediaPlaybackList> for ::windows::core::InParam<IMediaPlaybackSource> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaPlaybackList) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5390,7 +5390,7 @@ impl ::core::convert::TryFrom<&MediaPlaybackTimedMetadataTrackList> for super::s
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::core::convert::TryFrom<&MediaPlaybackTimedMetadataTrackList> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack>> {
+impl ::core::convert::TryFrom<&MediaPlaybackTimedMetadataTrackList> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaPlaybackTimedMetadataTrackList) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5412,7 +5412,7 @@ impl ::core::convert::TryFrom<&MediaPlaybackTimedMetadataTrackList> for super::s
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::core::convert::TryFrom<&MediaPlaybackTimedMetadataTrackList> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>> {
+impl ::core::convert::TryFrom<&MediaPlaybackTimedMetadataTrackList> for ::windows::core::InParam<super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaPlaybackTimedMetadataTrackList) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5578,7 +5578,7 @@ impl ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for super::super::Fo
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::VideoTrack>> {
+impl ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::Core::VideoTrack>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaPlaybackVideoTrackList) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5600,7 +5600,7 @@ impl ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for super::Core::ISi
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for ::windows::core::InParam<'a, super::Core::ISingleSelectMediaTrackList> {
+impl ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for ::windows::core::InParam<super::Core::ISingleSelectMediaTrackList> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaPlaybackVideoTrackList) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5622,7 +5622,7 @@ impl ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for super::super::Fo
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack>> {
+impl ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for ::windows::core::InParam<super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaPlaybackVideoTrackList) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6165,9 +6165,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CopyFrameToVideoSurface<'a, P0, E0>(&self, destination: P0) -> ::windows::core::Result<()>
+    pub fn CopyFrameToVideoSurface<P0, E0>(&self, destination: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayer5>(self)?;
@@ -6175,9 +6175,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn CopyFrameToVideoSurfaceWithTargetRectangle<'a, P0, E0>(&self, destination: P0, targetrectangle: super::super::Foundation::Rect) -> ::windows::core::Result<()>
+    pub fn CopyFrameToVideoSurfaceWithTargetRectangle<P0, E0>(&self, destination: P0, targetrectangle: super::super::Foundation::Rect) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayer5>(self)?;
@@ -6185,11 +6185,11 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CopyFrameToStereoscopicVideoSurfaces<'a, P0, E0, P1, E1>(&self, destinationlefteye: P0, destinationrighteye: P1) -> ::windows::core::Result<()>
+    pub fn CopyFrameToStereoscopicVideoSurfaces<P0, E0, P1, E1>(&self, destinationlefteye: P0, destinationrighteye: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayer5>(self)?;
@@ -6212,9 +6212,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn RenderSubtitlesToSurface<'a, P0, E0>(&self, destination: P0) -> ::windows::core::Result<bool>
+    pub fn RenderSubtitlesToSurface<P0, E0>(&self, destination: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayer6>(self)?;
@@ -6225,9 +6225,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn RenderSubtitlesToSurfaceWithTargetRectangle<'a, P0, E0>(&self, destination: P0, targetrectangle: super::super::Foundation::Rect) -> ::windows::core::Result<bool>
+    pub fn RenderSubtitlesToSurfaceWithTargetRectangle<P0, E0>(&self, destination: P0, targetrectangle: super::super::Foundation::Rect) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayer6>(self)?;
@@ -6247,9 +6247,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddAudioEffect<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, effectoptional: bool, configuration: P0) -> ::windows::core::Result<()>
+    pub fn AddAudioEffect<P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, effectoptional: bool, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayerEffects>(self)?;
@@ -6261,9 +6261,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddVideoEffect<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, effectoptional: bool, effectconfiguration: P0) -> ::windows::core::Result<()>
+    pub fn AddVideoEffect<P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, effectoptional: bool, effectconfiguration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayerEffects2>(self)?;
@@ -6286,9 +6286,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Storage", feature = "deprecated"))]
-    pub fn SetFileSource<'a, P0, E0>(&self, file: P0) -> ::windows::core::Result<()>
+    pub fn SetFileSource<P0, E0>(&self, file: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayerSource>(self)?;
@@ -6296,9 +6296,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetStreamSource<'a, P0, E0>(&self, stream: P0) -> ::windows::core::Result<()>
+    pub fn SetStreamSource<P0, E0>(&self, stream: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayerSource>(self)?;
@@ -6306,9 +6306,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn SetMediaSource<'a, P0, E0>(&self, source: P0) -> ::windows::core::Result<()>
+    pub fn SetMediaSource<P0, E0>(&self, source: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Core::IMediaSource>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Core::IMediaSource>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayerSource>(self)?;
@@ -6321,9 +6321,9 @@ impl MediaPlayer {
             (::windows::core::Vtable::vtable(this).Source)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetSource<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSource<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMediaPlaybackSource>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IMediaPlaybackSource>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayerSource2>(self)?;
@@ -6378,7 +6378,7 @@ impl ::core::convert::TryFrom<&MediaPlayer> for super::super::Foundation::IClosa
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&MediaPlayer> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&MediaPlayer> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaPlayer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6628,7 +6628,7 @@ impl ::core::convert::TryFrom<&MediaPlayerSurface> for super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&MediaPlayerSurface> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&MediaPlayerSurface> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaPlayerSurface) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6861,7 +6861,7 @@ impl ::core::convert::TryFrom<&PlaybackMediaMarkerSequence> for super::super::Fo
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&PlaybackMediaMarkerSequence> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>> {
+impl ::core::convert::TryFrom<&PlaybackMediaMarkerSequence> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlaybackMediaMarkerSequence) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

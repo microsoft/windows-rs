@@ -684,9 +684,9 @@ impl WebAuthenticationCoreManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
-    pub fn CreateWebAccountMonitor<'a, P0, E0>(webaccounts: P0) -> ::windows::core::Result<WebAccountMonitor>
+    pub fn CreateWebAccountMonitor<P0, E0>(webaccounts: P0) -> ::windows::core::Result<WebAccountMonitor>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::super::super::Credentials::WebAccount>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::super::Foundation::Collections::IIterable<super::super::super::Credentials::WebAccount>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IWebAuthenticationCoreManagerStatics3(|this| unsafe {

@@ -796,9 +796,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateIntegerArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateIntegerArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -814,9 +814,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateBooleanArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateBooleanArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<bool>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<bool>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -832,9 +832,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateEnumArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateEnumArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<i32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -844,9 +844,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateOctetString<'a, P0, E0>(value: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateOctetString<P0, E0>(value: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -856,9 +856,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn CreateOctetStringArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateOctetStringArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::Streams::IBuffer>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Storage::Streams::IBuffer>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -876,9 +876,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateDateTimeArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateDateTimeArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -894,9 +894,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateResolutionArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateResolutionArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IppResolution>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<IppResolution>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -912,9 +912,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateRangeOfIntegerArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateRangeOfIntegerArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IppIntegerRange>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<IppIntegerRange>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -924,9 +924,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCollection<'a, P0, E0>(memberattributes: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateCollection<P0, E0>(memberattributes: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -936,9 +936,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCollectionArray<'a, P0, E0>(memberattributesarray: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateCollectionArray<P0, E0>(memberattributesarray: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -954,9 +954,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateTextWithLanguageArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateTextWithLanguageArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IppTextWithLanguage>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<IppTextWithLanguage>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -972,9 +972,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateNameWithLanguageArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateNameWithLanguageArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IppTextWithLanguage>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<IppTextWithLanguage>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -990,9 +990,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateTextWithoutLanguageArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateTextWithoutLanguageArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -1008,9 +1008,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateNameWithoutLanguageArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateNameWithoutLanguageArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -1026,9 +1026,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateKeywordArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateKeywordArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -1046,9 +1046,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateUriArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateUriArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -1064,9 +1064,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateUriSchemaArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateUriSchemaArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -1082,9 +1082,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCharsetArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateCharsetArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -1100,9 +1100,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateNaturalLanguageArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateNaturalLanguageArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -1118,9 +1118,9 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateMimeMediaArray<'a, P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
+    pub fn CreateMimeMediaArray<P0, E0>(values: P0) -> ::windows::core::Result<IppAttributeValue>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
@@ -1256,9 +1256,9 @@ impl IppPrintDevice {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn GetPrinterAttributesAsBuffer<'a, P0, E0>(&self, attributenames: P0) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>
+    pub fn GetPrinterAttributesAsBuffer<P0, E0>(&self, attributenames: P0) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1269,9 +1269,9 @@ impl IppPrintDevice {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPrinterAttributes<'a, P0, E0>(&self, attributenames: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IppAttributeValue>>
+    pub fn GetPrinterAttributes<P0, E0>(&self, attributenames: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IppAttributeValue>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1282,9 +1282,9 @@ impl IppPrintDevice {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetPrinterAttributesFromBuffer<'a, P0, E0>(&self, printerattributesbuffer: P0) -> ::windows::core::Result<IppSetAttributesResult>
+    pub fn SetPrinterAttributesFromBuffer<P0, E0>(&self, printerattributesbuffer: P0) -> ::windows::core::Result<IppSetAttributesResult>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1295,9 +1295,9 @@ impl IppPrintDevice {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetPrinterAttributes<'a, P0, E0>(&self, printerattributes: P0) -> ::windows::core::Result<IppSetAttributesResult>
+    pub fn SetPrinterAttributes<P0, E0>(&self, printerattributes: P0) -> ::windows::core::Result<IppSetAttributesResult>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1685,9 +1685,9 @@ impl PdlPassthroughProvider {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn StartPrintJobWithPrintTicket<'a, P0, E0>(&self, jobname: &::windows::core::HSTRING, pdlcontenttype: &::windows::core::HSTRING, printticket: P0, pageconfigurationsettings: &PageConfigurationSettings) -> ::windows::core::Result<PdlPassthroughTarget>
+    pub fn StartPrintJobWithPrintTicket<P0, E0>(&self, jobname: &::windows::core::HSTRING, pdlcontenttype: &::windows::core::HSTRING, printticket: P0, pageconfigurationsettings: &PageConfigurationSettings) -> ::windows::core::Result<PdlPassthroughTarget>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1811,7 +1811,7 @@ impl ::core::convert::TryFrom<&PdlPassthroughTarget> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&PdlPassthroughTarget> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&PdlPassthroughTarget> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PdlPassthroughTarget) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1901,9 +1901,9 @@ impl PrintSchema {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn GetCapabilitiesAsync<'a, P0, E0>(&self, constrainticket: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>
+    pub fn GetCapabilitiesAsync<P0, E0>(&self, constrainticket: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamWithContentType>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1914,9 +1914,9 @@ impl PrintSchema {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn MergeAndValidateWithDefaultPrintTicketAsync<'a, P0, E0>(&self, deltaticket: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>
+    pub fn MergeAndValidateWithDefaultPrintTicketAsync<P0, E0>(&self, deltaticket: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamWithContentType>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

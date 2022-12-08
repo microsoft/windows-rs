@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn AddAtomA<'a, P0>(lpstring: P0) -> u16
+pub unsafe fn AddAtomA<P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -9,7 +9,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn AddAtomW<'a, P0>(lpstring: P0) -> u16
+pub unsafe fn AddAtomW<P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -19,7 +19,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddClipboardFormatListener<'a, P0>(hwnd: P0) -> super::super::Foundation::BOOL
+pub unsafe fn AddClipboardFormatListener<P0>(hwnd: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
@@ -29,7 +29,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ChangeClipboardChain<'a, P0, P1>(hwndremove: P0, hwndnewnext: P1) -> super::super::Foundation::BOOL
+pub unsafe fn ChangeClipboardChain<P0, P1>(hwndremove: P0, hwndnewnext: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -53,7 +53,7 @@ pub unsafe fn CountClipboardFormats() -> i32 {
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeAbandonTransaction<'a, P0>(idinst: u32, hconv: P0, idtransaction: u32) -> super::super::Foundation::BOOL
+pub unsafe fn DdeAbandonTransaction<P0>(idinst: u32, hconv: P0, idtransaction: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HCONV>,
 {
@@ -62,7 +62,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeAccessData<'a, P0>(hdata: P0, pcbdatasize: ::core::option::Option<*mut u32>) -> *mut u8
+pub unsafe fn DdeAccessData<P0>(hdata: P0, pcbdatasize: ::core::option::Option<*mut u32>) -> *mut u8
 where
     P0: ::std::convert::Into<HDDEDATA>,
 {
@@ -71,7 +71,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeAddData<'a, P0>(hdata: P0, psrc: &[u8], cboff: u32) -> HDDEDATA
+pub unsafe fn DdeAddData<P0>(hdata: P0, psrc: &[u8], cboff: u32) -> HDDEDATA
 where
     P0: ::std::convert::Into<HDDEDATA>,
 {
@@ -80,7 +80,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeClientTransaction<'a, P0, P1>(pdata: ::core::option::Option<*const u8>, cbdata: u32, hconv: P0, hszitem: P1, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: ::core::option::Option<*mut u32>) -> HDDEDATA
+pub unsafe fn DdeClientTransaction<P0, P1>(pdata: ::core::option::Option<*const u8>, cbdata: u32, hconv: P0, hszitem: P1, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: ::core::option::Option<*mut u32>) -> HDDEDATA
 where
     P0: ::std::convert::Into<HCONV>,
     P1: ::std::convert::Into<HSZ>,
@@ -90,7 +90,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeCmpStringHandles<'a, P0, P1>(hsz1: P0, hsz2: P1) -> i32
+pub unsafe fn DdeCmpStringHandles<P0, P1>(hsz1: P0, hsz2: P1) -> i32
 where
     P0: ::std::convert::Into<HSZ>,
     P1: ::std::convert::Into<HSZ>,
@@ -101,7 +101,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DdeConnect<'a, P0, P1>(idinst: u32, hszservice: P0, hsztopic: P1, pcc: ::core::option::Option<*const CONVCONTEXT>) -> HCONV
+pub unsafe fn DdeConnect<P0, P1>(idinst: u32, hszservice: P0, hsztopic: P1, pcc: ::core::option::Option<*const CONVCONTEXT>) -> HCONV
 where
     P0: ::std::convert::Into<HSZ>,
     P1: ::std::convert::Into<HSZ>,
@@ -112,7 +112,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DdeConnectList<'a, P0, P1, P2>(idinst: u32, hszservice: P0, hsztopic: P1, hconvlist: P2, pcc: ::core::option::Option<*const CONVCONTEXT>) -> HCONVLIST
+pub unsafe fn DdeConnectList<P0, P1, P2>(idinst: u32, hszservice: P0, hsztopic: P1, hconvlist: P2, pcc: ::core::option::Option<*const CONVCONTEXT>) -> HCONVLIST
 where
     P0: ::std::convert::Into<HSZ>,
     P1: ::std::convert::Into<HSZ>,
@@ -123,7 +123,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeCreateDataHandle<'a, P0>(idinst: u32, psrc: ::core::option::Option<&[u8]>, cboff: u32, hszitem: P0, wfmt: u32, afcmd: u32) -> HDDEDATA
+pub unsafe fn DdeCreateDataHandle<P0>(idinst: u32, psrc: ::core::option::Option<&[u8]>, cboff: u32, hszitem: P0, wfmt: u32, afcmd: u32) -> HDDEDATA
 where
     P0: ::std::convert::Into<HSZ>,
 {
@@ -132,7 +132,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeCreateStringHandleA<'a, P0>(idinst: u32, psz: P0, icodepage: i32) -> HSZ
+pub unsafe fn DdeCreateStringHandleA<P0>(idinst: u32, psz: P0, icodepage: i32) -> HSZ
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -141,7 +141,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeCreateStringHandleW<'a, P0>(idinst: u32, psz: P0, icodepage: i32) -> HSZ
+pub unsafe fn DdeCreateStringHandleW<P0>(idinst: u32, psz: P0, icodepage: i32) -> HSZ
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -151,7 +151,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeDisconnect<'a, P0>(hconv: P0) -> super::super::Foundation::BOOL
+pub unsafe fn DdeDisconnect<P0>(hconv: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HCONV>,
 {
@@ -161,7 +161,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeDisconnectList<'a, P0>(hconvlist: P0) -> super::super::Foundation::BOOL
+pub unsafe fn DdeDisconnectList<P0>(hconvlist: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HCONVLIST>,
 {
@@ -171,7 +171,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeEnableCallback<'a, P0>(idinst: u32, hconv: P0, wcmd: DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation::BOOL
+pub unsafe fn DdeEnableCallback<P0>(idinst: u32, hconv: P0, wcmd: DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HCONV>,
 {
@@ -181,7 +181,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeFreeDataHandle<'a, P0>(hdata: P0) -> super::super::Foundation::BOOL
+pub unsafe fn DdeFreeDataHandle<P0>(hdata: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDDEDATA>,
 {
@@ -191,7 +191,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeFreeStringHandle<'a, P0>(idinst: u32, hsz: P0) -> super::super::Foundation::BOOL
+pub unsafe fn DdeFreeStringHandle<P0>(idinst: u32, hsz: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HSZ>,
 {
@@ -200,7 +200,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeGetData<'a, P0>(hdata: P0, pdst: ::core::option::Option<&mut [u8]>, cboff: u32) -> u32
+pub unsafe fn DdeGetData<P0>(hdata: P0, pdst: ::core::option::Option<&mut [u8]>, cboff: u32) -> u32
 where
     P0: ::std::convert::Into<HDDEDATA>,
 {
@@ -216,7 +216,7 @@ pub unsafe fn DdeGetLastError(idinst: u32) -> u32 {
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeImpersonateClient<'a, P0>(hconv: P0) -> super::super::Foundation::BOOL
+pub unsafe fn DdeImpersonateClient<P0>(hconv: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HCONV>,
 {
@@ -238,7 +238,7 @@ pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd:
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeKeepStringHandle<'a, P0>(idinst: u32, hsz: P0) -> super::super::Foundation::BOOL
+pub unsafe fn DdeKeepStringHandle<P0>(idinst: u32, hsz: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HSZ>,
 {
@@ -247,7 +247,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeNameService<'a, P0, P1>(idinst: u32, hsz1: P0, hsz2: P1, afcmd: DDE_NAME_SERVICE_CMD) -> HDDEDATA
+pub unsafe fn DdeNameService<P0, P1>(idinst: u32, hsz1: P0, hsz2: P1, afcmd: DDE_NAME_SERVICE_CMD) -> HDDEDATA
 where
     P0: ::std::convert::Into<HSZ>,
     P1: ::std::convert::Into<HSZ>,
@@ -258,7 +258,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdePostAdvise<'a, P0, P1>(idinst: u32, hsztopic: P0, hszitem: P1) -> super::super::Foundation::BOOL
+pub unsafe fn DdePostAdvise<P0, P1>(idinst: u32, hsztopic: P0, hszitem: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HSZ>,
     P1: ::std::convert::Into<HSZ>,
@@ -269,7 +269,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DdeQueryConvInfo<'a, P0>(hconv: P0, idtransaction: u32, pconvinfo: *mut CONVINFO) -> u32
+pub unsafe fn DdeQueryConvInfo<P0>(hconv: P0, idtransaction: u32, pconvinfo: *mut CONVINFO) -> u32
 where
     P0: ::std::convert::Into<HCONV>,
 {
@@ -278,7 +278,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeQueryNextServer<'a, P0, P1>(hconvlist: P0, hconvprev: P1) -> HCONV
+pub unsafe fn DdeQueryNextServer<P0, P1>(hconvlist: P0, hconvprev: P1) -> HCONV
 where
     P0: ::std::convert::Into<HCONVLIST>,
     P1: ::std::convert::Into<HCONV>,
@@ -288,7 +288,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeQueryStringA<'a, P0>(idinst: u32, hsz: P0, psz: ::core::option::Option<&mut [u8]>, icodepage: i32) -> u32
+pub unsafe fn DdeQueryStringA<P0>(idinst: u32, hsz: P0, psz: ::core::option::Option<&mut [u8]>, icodepage: i32) -> u32
 where
     P0: ::std::convert::Into<HSZ>,
 {
@@ -297,7 +297,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeQueryStringW<'a, P0>(idinst: u32, hsz: P0, psz: ::core::option::Option<&mut [u16]>, icodepage: i32) -> u32
+pub unsafe fn DdeQueryStringW<P0>(idinst: u32, hsz: P0, psz: ::core::option::Option<&mut [u16]>, icodepage: i32) -> u32
 where
     P0: ::std::convert::Into<HSZ>,
 {
@@ -306,7 +306,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeReconnect<'a, P0>(hconv: P0) -> HCONV
+pub unsafe fn DdeReconnect<P0>(hconv: P0) -> HCONV
 where
     P0: ::std::convert::Into<HCONV>,
 {
@@ -316,7 +316,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DdeSetQualityOfService<'a, P0>(hwndclient: P0, pqosnew: *const super::super::Security::SECURITY_QUALITY_OF_SERVICE, pqosprev: *mut super::super::Security::SECURITY_QUALITY_OF_SERVICE) -> super::super::Foundation::BOOL
+pub unsafe fn DdeSetQualityOfService<P0>(hwndclient: P0, pqosnew: *const super::super::Security::SECURITY_QUALITY_OF_SERVICE, pqosprev: *mut super::super::Security::SECURITY_QUALITY_OF_SERVICE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
@@ -326,7 +326,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeSetUserHandle<'a, P0>(hconv: P0, id: u32, huser: usize) -> super::super::Foundation::BOOL
+pub unsafe fn DdeSetUserHandle<P0>(hconv: P0, id: u32, huser: usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HCONV>,
 {
@@ -336,7 +336,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeUnaccessData<'a, P0>(hdata: P0) -> super::super::Foundation::BOOL
+pub unsafe fn DdeUnaccessData<P0>(hdata: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDDEDATA>,
 {
@@ -371,7 +371,7 @@ pub unsafe fn EnumClipboardFormats(format: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn FindAtomA<'a, P0>(lpstring: P0) -> u16
+pub unsafe fn FindAtomA<P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -380,7 +380,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn FindAtomW<'a, P0>(lpstring: P0) -> u16
+pub unsafe fn FindAtomW<P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -390,7 +390,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FreeDDElParam<'a, P0>(msg: u32, lparam: P0) -> super::super::Foundation::BOOL
+pub unsafe fn FreeDDElParam<P0>(msg: u32, lparam: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
@@ -471,7 +471,7 @@ pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: &mut [u32], pcformatsout: 
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn GlobalAddAtomA<'a, P0>(lpstring: P0) -> u16
+pub unsafe fn GlobalAddAtomA<P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -480,7 +480,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn GlobalAddAtomExA<'a, P0>(lpstring: P0, flags: u32) -> u16
+pub unsafe fn GlobalAddAtomExA<P0>(lpstring: P0, flags: u32) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -489,7 +489,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn GlobalAddAtomExW<'a, P0>(lpstring: P0, flags: u32) -> u16
+pub unsafe fn GlobalAddAtomExW<P0>(lpstring: P0, flags: u32) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -498,7 +498,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn GlobalAddAtomW<'a, P0>(lpstring: P0) -> u16
+pub unsafe fn GlobalAddAtomW<P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -513,7 +513,7 @@ pub unsafe fn GlobalDeleteAtom(natom: u16) -> u16 {
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn GlobalFindAtomA<'a, P0>(lpstring: P0) -> u16
+pub unsafe fn GlobalFindAtomA<P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -522,7 +522,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn GlobalFindAtomW<'a, P0>(lpstring: P0) -> u16
+pub unsafe fn GlobalFindAtomW<P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -544,7 +544,7 @@ pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ImpersonateDdeClientWindow<'a, P0, P1>(hwndclient: P0, hwndserver: P1) -> super::super::Foundation::BOOL
+pub unsafe fn ImpersonateDdeClientWindow<P0, P1>(hwndclient: P0, hwndserver: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -569,7 +569,7 @@ pub unsafe fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundatio
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenClipboard<'a, P0>(hwndnewowner: P0) -> super::super::Foundation::BOOL
+pub unsafe fn OpenClipboard<P0>(hwndnewowner: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
@@ -585,7 +585,7 @@ pub unsafe fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super:
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn RegisterClipboardFormatA<'a, P0>(lpszformat: P0) -> u32
+pub unsafe fn RegisterClipboardFormatA<P0>(lpszformat: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -594,7 +594,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn RegisterClipboardFormatW<'a, P0>(lpszformat: P0) -> u32
+pub unsafe fn RegisterClipboardFormatW<P0>(lpszformat: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -604,7 +604,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveClipboardFormatListener<'a, P0>(hwnd: P0) -> super::super::Foundation::BOOL
+pub unsafe fn RemoveClipboardFormatListener<P0>(hwnd: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
@@ -614,7 +614,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReuseDDElParam<'a, P0>(lparam: P0, msgin: u32, msgout: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM
+pub unsafe fn ReuseDDElParam<P0>(lparam: P0, msgin: u32, msgout: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM
 where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
@@ -624,7 +624,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetClipboardData<'a, P0>(uformat: u32, hmem: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn SetClipboardData<P0>(uformat: u32, hmem: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -635,7 +635,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetClipboardViewer<'a, P0>(hwndnewviewer: P0) -> super::super::Foundation::HWND
+pub unsafe fn SetClipboardViewer<P0>(hwndnewviewer: P0) -> super::super::Foundation::HWND
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
@@ -645,7 +645,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetWinMetaFileBits<'a, P0>(lpmeta16data: &[u8], hdcref: P0, lpmfp: ::core::option::Option<*const METAFILEPICT>) -> super::super::Graphics::Gdi::HENHMETAFILE
+pub unsafe fn SetWinMetaFileBits<P0>(lpmeta16data: &[u8], hdcref: P0, lpmfp: ::core::option::Option<*const METAFILEPICT>) -> super::super::Graphics::Gdi::HENHMETAFILE
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
@@ -655,7 +655,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnpackDDElParam<'a, P0>(msg: u32, lparam: P0, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL
+pub unsafe fn UnpackDDElParam<P0>(msg: u32, lparam: P0, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {

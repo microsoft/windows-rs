@@ -166,9 +166,9 @@ pub struct ICivicAddressReportFactory_Vtbl {
 #[repr(transparent)]
 pub struct IDefaultLocation(::windows::core::IUnknown);
 impl IDefaultLocation {
-    pub unsafe fn SetReport<'a, P0>(&self, reporttype: *const ::windows::core::GUID, plocationreport: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetReport<P0>(&self, reporttype: *const ::windows::core::GUID, plocationreport: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ILocationReport>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ILocationReport>>,
     {
         (::windows::core::Vtable::vtable(self).SetReport)(::windows::core::Vtable::as_raw(self), reporttype, plocationreport.into().abi()).ok()
     }
@@ -521,9 +521,9 @@ pub struct ILatLongReportFactory_Vtbl {
 #[repr(transparent)]
 pub struct ILocation(::windows::core::IUnknown);
 impl ILocation {
-    pub unsafe fn RegisterForReport<'a, P0>(&self, pevents: P0, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterForReport<P0>(&self, pevents: P0, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ILocationEvents>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ILocationEvents>>,
     {
         (::windows::core::Vtable::vtable(self).RegisterForReport)(::windows::core::Vtable::as_raw(self), pevents.into().abi(), reporttype, dwrequestedreportinterval).ok()
     }
@@ -558,7 +558,7 @@ impl ILocation {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestPermissions<'a, P0, P1>(&self, hparent: P0, preporttypes: &[::windows::core::GUID], fmodal: P1) -> ::windows::core::Result<()>
+    pub unsafe fn RequestPermissions<P0, P1>(&self, hparent: P0, preporttypes: &[::windows::core::GUID], fmodal: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -616,9 +616,9 @@ pub struct ILocation_Vtbl {
 #[repr(transparent)]
 pub struct ILocationEvents(::windows::core::IUnknown);
 impl ILocationEvents {
-    pub unsafe fn OnLocationChanged<'a, P0>(&self, reporttype: *const ::windows::core::GUID, plocationreport: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnLocationChanged<P0>(&self, reporttype: *const ::windows::core::GUID, plocationreport: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ILocationReport>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ILocationReport>>,
     {
         (::windows::core::Vtable::vtable(self).OnLocationChanged)(::windows::core::Vtable::as_raw(self), reporttype, plocationreport.into().abi()).ok()
     }

@@ -11,9 +11,9 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DxcCreateInstance2<'a, P0, T>(pmalloc: P0, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
+pub unsafe fn DxcCreateInstance2<P0, T>(pmalloc: P0, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IMalloc>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IMalloc>>,
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "dxcompiler.dll""system" fn DxcCreateInstance2 ( pmalloc : * mut::core::ffi::c_void , rclsid : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
@@ -24,9 +24,9 @@ where
 #[repr(transparent)]
 pub struct IDxcAssembler(::windows::core::IUnknown);
 impl IDxcAssembler {
-    pub unsafe fn AssembleToContainer<'a, P0>(&self, pshader: P0) -> ::windows::core::Result<IDxcOperationResult>
+    pub unsafe fn AssembleToContainer<P0>(&self, pshader: P0) -> ::windows::core::Result<IDxcOperationResult>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AssembleToContainer)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -258,29 +258,29 @@ pub struct IDxcBlobUtf8_Vtbl {
 #[repr(transparent)]
 pub struct IDxcCompiler(::windows::core::IUnknown);
 impl IDxcCompiler {
-    pub unsafe fn Compile<'a, P0, P1, P2, P3, P4>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P4) -> ::windows::core::Result<IDxcOperationResult>
+    pub unsafe fn Compile<P0, P1, P2, P3, P4>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P4) -> ::windows::core::Result<IDxcOperationResult>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
         P3: ::std::convert::Into<::windows::core::PCWSTR>,
-        P4: ::std::convert::Into<::windows::core::InParam<'a, IDxcIncludeHandler>>,
+        P4: ::std::convert::Into<::windows::core::InParam<IDxcIncludeHandler>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Compile)(::windows::core::Vtable::as_raw(self), psource.into().abi(), psourcename.into(), pentrypoint.into(), ptargetprofile.into(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Preprocess<'a, P0, P1, P2>(&self, psource: P0, psourcename: P1, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P2) -> ::windows::core::Result<IDxcOperationResult>
+    pub unsafe fn Preprocess<P0, P1, P2>(&self, psource: P0, psourcename: P1, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P2) -> ::windows::core::Result<IDxcOperationResult>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDxcIncludeHandler>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDxcIncludeHandler>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Preprocess)(::windows::core::Vtable::as_raw(self), psource.into().abi(), psourcename.into(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Disassemble<'a, P0>(&self, psource: P0) -> ::windows::core::Result<IDxcBlobEncoding>
+    pub unsafe fn Disassemble<P0>(&self, psource: P0) -> ::windows::core::Result<IDxcBlobEncoding>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Disassemble)(::windows::core::Vtable::as_raw(self), psource.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -321,40 +321,40 @@ pub struct IDxcCompiler_Vtbl {
 #[repr(transparent)]
 pub struct IDxcCompiler2(::windows::core::IUnknown);
 impl IDxcCompiler2 {
-    pub unsafe fn Compile<'a, P0, P1, P2, P3, P4>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P4) -> ::windows::core::Result<IDxcOperationResult>
+    pub unsafe fn Compile<P0, P1, P2, P3, P4>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P4) -> ::windows::core::Result<IDxcOperationResult>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
         P3: ::std::convert::Into<::windows::core::PCWSTR>,
-        P4: ::std::convert::Into<::windows::core::InParam<'a, IDxcIncludeHandler>>,
+        P4: ::std::convert::Into<::windows::core::InParam<IDxcIncludeHandler>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Compile)(::windows::core::Vtable::as_raw(self), psource.into().abi(), psourcename.into(), pentrypoint.into(), ptargetprofile.into(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Preprocess<'a, P0, P1, P2>(&self, psource: P0, psourcename: P1, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P2) -> ::windows::core::Result<IDxcOperationResult>
+    pub unsafe fn Preprocess<P0, P1, P2>(&self, psource: P0, psourcename: P1, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P2) -> ::windows::core::Result<IDxcOperationResult>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDxcIncludeHandler>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDxcIncludeHandler>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Preprocess)(::windows::core::Vtable::as_raw(self), psource.into().abi(), psourcename.into(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Disassemble<'a, P0>(&self, psource: P0) -> ::windows::core::Result<IDxcBlobEncoding>
+    pub unsafe fn Disassemble<P0>(&self, psource: P0) -> ::windows::core::Result<IDxcBlobEncoding>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Disassemble)(::windows::core::Vtable::as_raw(self), psource.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CompileWithDebug<'a, P0, P1, P2, P3, P4>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P4, ppresult: *mut ::core::option::Option<IDxcOperationResult>, ppdebugblobname: ::core::option::Option<*mut ::windows::core::PWSTR>, ppdebugblob: ::core::option::Option<*mut ::core::option::Option<IDxcBlob>>) -> ::windows::core::Result<()>
+    pub unsafe fn CompileWithDebug<P0, P1, P2, P3, P4>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P4, ppresult: *mut ::core::option::Option<IDxcOperationResult>, ppdebugblobname: ::core::option::Option<*mut ::windows::core::PWSTR>, ppdebugblob: ::core::option::Option<*mut ::core::option::Option<IDxcBlob>>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
         P3: ::std::convert::Into<::windows::core::PCWSTR>,
-        P4: ::std::convert::Into<::windows::core::InParam<'a, IDxcIncludeHandler>>,
+        P4: ::std::convert::Into<::windows::core::InParam<IDxcIncludeHandler>>,
     {
         (::windows::core::Vtable::vtable(self).CompileWithDebug)(
             ::windows::core::Vtable::as_raw(self),
@@ -407,9 +407,9 @@ pub struct IDxcCompiler2_Vtbl {
 #[repr(transparent)]
 pub struct IDxcCompiler3(::windows::core::IUnknown);
 impl IDxcCompiler3 {
-    pub unsafe fn Compile<'a, P0>(&self, psource: *const DxcBuffer, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pincludehandler: P0, riid: *const ::windows::core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn Compile<P0>(&self, psource: *const DxcBuffer, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pincludehandler: P0, riid: *const ::windows::core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcIncludeHandler>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcIncludeHandler>>,
     {
         (::windows::core::Vtable::vtable(self).Compile)(::windows::core::Vtable::as_raw(self), psource, ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), pincludehandler.into().abi(), riid, ppresult).ok()
     }
@@ -504,15 +504,15 @@ pub struct IDxcCompilerArgs_Vtbl {
 #[repr(transparent)]
 pub struct IDxcContainerBuilder(::windows::core::IUnknown);
 impl IDxcContainerBuilder {
-    pub unsafe fn Load<'a, P0>(&self, pdxilcontainerheader: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Load<P0>(&self, pdxilcontainerheader: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), pdxilcontainerheader.into().abi()).ok()
     }
-    pub unsafe fn AddPart<'a, P0>(&self, fourcc: u32, psource: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddPart<P0>(&self, fourcc: u32, psource: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         (::windows::core::Vtable::vtable(self).AddPart)(::windows::core::Vtable::as_raw(self), fourcc, psource.into().abi()).ok()
     }
@@ -560,9 +560,9 @@ pub struct IDxcContainerBuilder_Vtbl {
 #[repr(transparent)]
 pub struct IDxcContainerReflection(::windows::core::IUnknown);
 impl IDxcContainerReflection {
-    pub unsafe fn Load<'a, P0>(&self, pcontainer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Load<P0>(&self, pcontainer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), pcontainer.into().abi()).ok()
     }
@@ -668,7 +668,7 @@ pub struct IDxcExtraOutputs_Vtbl {
 #[repr(transparent)]
 pub struct IDxcIncludeHandler(::windows::core::IUnknown);
 impl IDxcIncludeHandler {
-    pub unsafe fn LoadSource<'a, P0>(&self, pfilename: P0) -> ::windows::core::Result<IDxcBlob>
+    pub unsafe fn LoadSource<P0>(&self, pfilename: P0) -> ::windows::core::Result<IDxcBlob>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -711,20 +711,20 @@ pub struct IDxcLibrary(::windows::core::IUnknown);
 impl IDxcLibrary {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetMalloc<'a, P0>(&self, pmalloc: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMalloc<P0>(&self, pmalloc: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IMalloc>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IMalloc>>,
     {
         (::windows::core::Vtable::vtable(self).SetMalloc)(::windows::core::Vtable::as_raw(self), pmalloc.into().abi()).ok()
     }
-    pub unsafe fn CreateBlobFromBlob<'a, P0>(&self, pblob: P0, offset: u32, length: u32) -> ::windows::core::Result<IDxcBlob>
+    pub unsafe fn CreateBlobFromBlob<P0>(&self, pblob: P0, offset: u32, length: u32) -> ::windows::core::Result<IDxcBlob>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateBlobFromBlob)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), offset, length, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateBlobFromFile<'a, P0>(&self, pfilename: P0, codepage: ::core::option::Option<*const DXC_CP>) -> ::windows::core::Result<IDxcBlobEncoding>
+    pub unsafe fn CreateBlobFromFile<P0>(&self, pfilename: P0, codepage: ::core::option::Option<*const DXC_CP>) -> ::windows::core::Result<IDxcBlobEncoding>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -741,9 +741,9 @@ impl IDxcLibrary {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateBlobWithEncodingOnMalloc<'a, P0>(&self, ptext: *const ::core::ffi::c_void, pimalloc: P0, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>
+    pub unsafe fn CreateBlobWithEncodingOnMalloc<P0>(&self, ptext: *const ::core::ffi::c_void, pimalloc: P0, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IMalloc>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IMalloc>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateBlobWithEncodingOnMalloc)(::windows::core::Vtable::as_raw(self), ptext, pimalloc.into().abi(), size, codepage, result__.as_mut_ptr()).from_abi(result__)
@@ -754,23 +754,23 @@ impl IDxcLibrary {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateStreamFromBlobReadOnly<'a, P0>(&self, pblob: P0) -> ::windows::core::Result<super::super::super::System::Com::IStream>
+    pub unsafe fn CreateStreamFromBlobReadOnly<P0>(&self, pblob: P0) -> ::windows::core::Result<super::super::super::System::Com::IStream>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateStreamFromBlobReadOnly)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetBlobAsUtf8<'a, P0>(&self, pblob: P0) -> ::windows::core::Result<IDxcBlobEncoding>
+    pub unsafe fn GetBlobAsUtf8<P0>(&self, pblob: P0) -> ::windows::core::Result<IDxcBlobEncoding>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetBlobAsUtf8)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetBlobAsUtf16<'a, P0>(&self, pblob: P0) -> ::windows::core::Result<IDxcBlobEncoding>
+    pub unsafe fn GetBlobAsUtf16<P0>(&self, pblob: P0) -> ::windows::core::Result<IDxcBlobEncoding>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetBlobAsUtf16)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -827,14 +827,14 @@ pub struct IDxcLibrary_Vtbl {
 #[repr(transparent)]
 pub struct IDxcLinker(::windows::core::IUnknown);
 impl IDxcLinker {
-    pub unsafe fn RegisterLibrary<'a, P0, P1>(&self, plibname: P0, plib: P1) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterLibrary<P0, P1>(&self, plibname: P0, plib: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         (::windows::core::Vtable::vtable(self).RegisterLibrary)(::windows::core::Vtable::as_raw(self), plibname.into(), plib.into().abi()).ok()
     }
-    pub unsafe fn Link<'a, P0, P1>(&self, pentryname: P0, ptargetprofile: P1, plibnames: &[::windows::core::PCWSTR], parguments: ::core::option::Option<&[::windows::core::PCWSTR]>) -> ::windows::core::Result<IDxcOperationResult>
+    pub unsafe fn Link<P0, P1>(&self, pentryname: P0, ptargetprofile: P1, plibnames: &[::windows::core::PCWSTR], parguments: ::core::option::Option<&[::windows::core::PCWSTR]>) -> ::windows::core::Result<IDxcOperationResult>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -933,9 +933,9 @@ impl IDxcOptimizer {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetAvailablePass)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn RunOptimizer<'a, P0>(&self, pblob: P0, ppoptions: &[::windows::core::PCWSTR], poutputmodule: *mut ::core::option::Option<IDxcBlob>, ppoutputtext: ::core::option::Option<*mut ::core::option::Option<IDxcBlobEncoding>>) -> ::windows::core::Result<()>
+    pub unsafe fn RunOptimizer<P0>(&self, pblob: P0, ppoptions: &[::windows::core::PCWSTR], poutputmodule: *mut ::core::option::Option<IDxcBlob>, ppoutputtext: ::core::option::Option<*mut ::core::option::Option<IDxcBlobEncoding>>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         (::windows::core::Vtable::vtable(self).RunOptimizer)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), ::core::mem::transmute(ppoptions.as_ptr()), ppoptions.len() as _, ::core::mem::transmute(poutputmodule), ::core::mem::transmute(ppoutputtext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -1033,9 +1033,9 @@ pub struct IDxcOptimizerPass_Vtbl {
 #[repr(transparent)]
 pub struct IDxcPdbUtils(::windows::core::IUnknown);
 impl IDxcPdbUtils {
-    pub unsafe fn Load<'a, P0>(&self, ppdbordxil: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Load<P0>(&self, ppdbordxil: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), ppdbordxil.into().abi()).ok()
     }
@@ -1115,9 +1115,9 @@ impl IDxcPdbUtils {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetVersionInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetCompiler<'a, P0>(&self, pcompiler: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCompiler<P0>(&self, pcompiler: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcCompiler3>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcCompiler3>>,
     {
         (::windows::core::Vtable::vtable(self).SetCompiler)(::windows::core::Vtable::as_raw(self), pcompiler.into().abi()).ok()
     }
@@ -1128,7 +1128,7 @@ impl IDxcPdbUtils {
     pub unsafe fn OverrideArgs(&self, pargpairs: *const DxcArgPair, unumargpairs: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OverrideArgs)(::windows::core::Vtable::as_raw(self), pargpairs, unumargpairs).ok()
     }
-    pub unsafe fn OverrideRootSignature<'a, P0>(&self, prootsignature: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OverrideRootSignature<P0>(&self, prootsignature: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1267,9 +1267,9 @@ pub struct IDxcResult_Vtbl {
 #[repr(transparent)]
 pub struct IDxcUtils(::windows::core::IUnknown);
 impl IDxcUtils {
-    pub unsafe fn CreateBlobFromBlob<'a, P0>(&self, pblob: P0, offset: u32, length: u32) -> ::windows::core::Result<IDxcBlob>
+    pub unsafe fn CreateBlobFromBlob<P0>(&self, pblob: P0, offset: u32, length: u32) -> ::windows::core::Result<IDxcBlob>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateBlobFromBlob)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), offset, length, result__.as_mut_ptr()).from_abi(result__)
@@ -1280,9 +1280,9 @@ impl IDxcUtils {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MoveToBlob<'a, P0>(&self, pdata: *const ::core::ffi::c_void, pimalloc: P0, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>
+    pub unsafe fn MoveToBlob<P0>(&self, pdata: *const ::core::ffi::c_void, pimalloc: P0, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IMalloc>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IMalloc>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).MoveToBlob)(::windows::core::Vtable::as_raw(self), pdata, pimalloc.into().abi(), size, codepage, result__.as_mut_ptr()).from_abi(result__)
@@ -1291,7 +1291,7 @@ impl IDxcUtils {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateBlob)(::windows::core::Vtable::as_raw(self), pdata, size, codepage, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn LoadFile<'a, P0>(&self, pfilename: P0, pcodepage: ::core::option::Option<*const DXC_CP>) -> ::windows::core::Result<IDxcBlobEncoding>
+    pub unsafe fn LoadFile<P0>(&self, pfilename: P0, pcodepage: ::core::option::Option<*const DXC_CP>) -> ::windows::core::Result<IDxcBlobEncoding>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1300,9 +1300,9 @@ impl IDxcUtils {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateReadOnlyStreamFromBlob<'a, P0>(&self, pblob: P0) -> ::windows::core::Result<super::super::super::System::Com::IStream>
+    pub unsafe fn CreateReadOnlyStreamFromBlob<P0>(&self, pblob: P0) -> ::windows::core::Result<super::super::super::System::Com::IStream>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateReadOnlyStreamFromBlob)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1311,16 +1311,16 @@ impl IDxcUtils {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateDefaultIncludeHandler)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetBlobAsUtf8<'a, P0>(&self, pblob: P0) -> ::windows::core::Result<IDxcBlobUtf8>
+    pub unsafe fn GetBlobAsUtf8<P0>(&self, pblob: P0) -> ::windows::core::Result<IDxcBlobUtf8>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetBlobAsUtf8)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetBlobAsUtf16<'a, P0>(&self, pblob: P0) -> ::windows::core::Result<IDxcBlobUtf16>
+    pub unsafe fn GetBlobAsUtf16<P0>(&self, pblob: P0) -> ::windows::core::Result<IDxcBlobUtf16>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetBlobAsUtf16)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1331,7 +1331,7 @@ impl IDxcUtils {
     pub unsafe fn CreateReflection(&self, pdata: *const DxcBuffer, iid: *const ::windows::core::GUID, ppvreflection: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CreateReflection)(::windows::core::Vtable::as_raw(self), pdata, iid, ppvreflection).ok()
     }
-    pub unsafe fn BuildArguments<'a, P0, P1, P2>(&self, psourcename: P0, pentrypoint: P1, ptargetprofile: P2, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine]) -> ::windows::core::Result<IDxcCompilerArgs>
+    pub unsafe fn BuildArguments<P0, P1, P2>(&self, psourcename: P0, pentrypoint: P1, ptargetprofile: P2, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine]) -> ::windows::core::Result<IDxcCompilerArgs>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1340,9 +1340,9 @@ impl IDxcUtils {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).BuildArguments)(::windows::core::Vtable::as_raw(self), psourcename.into(), pentrypoint.into(), ptargetprofile.into(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetPDBContents<'a, P0>(&self, ppdbblob: P0, pphash: *mut ::core::option::Option<IDxcBlob>, ppcontainer: *mut ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>
+    pub unsafe fn GetPDBContents<P0>(&self, ppdbblob: P0, pphash: *mut ::core::option::Option<IDxcBlob>, ppcontainer: *mut ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         (::windows::core::Vtable::vtable(self).GetPDBContents)(::windows::core::Vtable::as_raw(self), ppdbblob.into().abi(), ::core::mem::transmute(pphash), ::core::mem::transmute(ppcontainer)).ok()
     }
@@ -1398,9 +1398,9 @@ pub struct IDxcUtils_Vtbl {
 #[repr(transparent)]
 pub struct IDxcValidator(::windows::core::IUnknown);
 impl IDxcValidator {
-    pub unsafe fn Validate<'a, P0>(&self, pshader: P0, flags: u32) -> ::windows::core::Result<IDxcOperationResult>
+    pub unsafe fn Validate<P0>(&self, pshader: P0, flags: u32) -> ::windows::core::Result<IDxcOperationResult>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Validate)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
@@ -1439,16 +1439,16 @@ pub struct IDxcValidator_Vtbl {
 #[repr(transparent)]
 pub struct IDxcValidator2(::windows::core::IUnknown);
 impl IDxcValidator2 {
-    pub unsafe fn Validate<'a, P0>(&self, pshader: P0, flags: u32) -> ::windows::core::Result<IDxcOperationResult>
+    pub unsafe fn Validate<P0>(&self, pshader: P0, flags: u32) -> ::windows::core::Result<IDxcOperationResult>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Validate)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn ValidateWithDebug<'a, P0>(&self, pshader: P0, flags: u32, poptdebugbitcode: ::core::option::Option<*const DxcBuffer>) -> ::windows::core::Result<IDxcOperationResult>
+    pub unsafe fn ValidateWithDebug<P0>(&self, pshader: P0, flags: u32, poptdebugbitcode: ::core::option::Option<*const DxcBuffer>) -> ::windows::core::Result<IDxcOperationResult>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDxcBlob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ValidateWithDebug)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), flags, ::core::mem::transmute(poptdebugbitcode.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)

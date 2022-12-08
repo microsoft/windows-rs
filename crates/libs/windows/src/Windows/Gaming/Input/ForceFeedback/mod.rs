@@ -327,7 +327,7 @@ impl ::core::convert::TryFrom<&ConditionForceEffect> for IForceFeedbackEffect {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ConditionForceEffect> for ::windows::core::InParam<'a, IForceFeedbackEffect> {
+impl ::core::convert::TryFrom<&ConditionForceEffect> for ::windows::core::InParam<IForceFeedbackEffect> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ConditionForceEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -431,7 +431,7 @@ impl ::core::convert::TryFrom<&ConstantForceEffect> for IForceFeedbackEffect {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ConstantForceEffect> for ::windows::core::InParam<'a, IForceFeedbackEffect> {
+impl ::core::convert::TryFrom<&ConstantForceEffect> for ::windows::core::InParam<IForceFeedbackEffect> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ConstantForceEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -478,9 +478,9 @@ impl ForceFeedbackMotor {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LoadEffectAsync<'a, P0, E0>(&self, effect: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>
+    pub fn LoadEffectAsync<P0, E0>(&self, effect: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IForceFeedbackEffect>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IForceFeedbackEffect>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -530,9 +530,9 @@ impl ForceFeedbackMotor {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryUnloadEffectAsync<'a, P0, E0>(&self, effect: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryUnloadEffectAsync<P0, E0>(&self, effect: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IForceFeedbackEffect>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IForceFeedbackEffect>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -683,7 +683,7 @@ impl ::core::convert::TryFrom<&PeriodicForceEffect> for IForceFeedbackEffect {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PeriodicForceEffect> for ::windows::core::InParam<'a, IForceFeedbackEffect> {
+impl ::core::convert::TryFrom<&PeriodicForceEffect> for ::windows::core::InParam<IForceFeedbackEffect> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PeriodicForceEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -787,7 +787,7 @@ impl ::core::convert::TryFrom<&RampForceEffect> for IForceFeedbackEffect {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RampForceEffect> for ::windows::core::InParam<'a, IForceFeedbackEffect> {
+impl ::core::convert::TryFrom<&RampForceEffect> for ::windows::core::InParam<IForceFeedbackEffect> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RampForceEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

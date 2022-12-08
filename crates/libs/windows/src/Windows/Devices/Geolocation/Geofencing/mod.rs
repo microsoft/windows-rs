@@ -184,9 +184,9 @@ impl Geofence {
             (::windows::core::Vtable::vtable(this).SingleUse)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Create<'a, P0, E0>(id: &::windows::core::HSTRING, geoshape: P0) -> ::windows::core::Result<Geofence>
+    pub fn Create<P0, E0>(id: &::windows::core::HSTRING, geoshape: P0) -> ::windows::core::Result<Geofence>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IGeoshape>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGeofenceFactory(|this| unsafe {
@@ -194,9 +194,9 @@ impl Geofence {
             (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), geoshape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn CreateWithMonitorStates<'a, P0, E0>(id: &::windows::core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool) -> ::windows::core::Result<Geofence>
+    pub fn CreateWithMonitorStates<P0, E0>(id: &::windows::core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool) -> ::windows::core::Result<Geofence>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IGeoshape>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGeofenceFactory(|this| unsafe {
@@ -206,9 +206,9 @@ impl Geofence {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithMonitorStatesAndDwellTime<'a, P0, E0>(id: &::windows::core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>
+    pub fn CreateWithMonitorStatesAndDwellTime<P0, E0>(id: &::windows::core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IGeoshape>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGeofenceFactory(|this| unsafe {
@@ -218,9 +218,9 @@ impl Geofence {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration<'a, P0, E0>(id: &::windows::core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan, starttime: super::super::super::Foundation::DateTime, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>
+    pub fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration<P0, E0>(id: &::windows::core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan, starttime: super::super::super::Foundation::DateTime, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IGeoshape>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGeofenceFactory(|this| unsafe {

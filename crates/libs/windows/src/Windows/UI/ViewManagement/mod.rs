@@ -1604,9 +1604,9 @@ impl ApplicationView {
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
-    pub fn GetApplicationViewIdForWindow<'a, P0, E0>(window: P0) -> ::windows::core::Result<i32>
+    pub fn GetApplicationViewIdForWindow<P0, E0>(window: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Core::ICoreWindow>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Core::ICoreWindow>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IApplicationViewInteropStatics(|this| unsafe {
@@ -1963,9 +1963,9 @@ pub struct ApplicationViewTitleBar(::windows::core::IUnknown);
 impl ApplicationViewTitleBar {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetForegroundColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1982,9 +1982,9 @@ impl ApplicationViewTitleBar {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetBackgroundColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2001,9 +2001,9 @@ impl ApplicationViewTitleBar {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetButtonForegroundColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2020,9 +2020,9 @@ impl ApplicationViewTitleBar {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetButtonBackgroundColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2039,9 +2039,9 @@ impl ApplicationViewTitleBar {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonHoverForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetButtonHoverForegroundColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2058,9 +2058,9 @@ impl ApplicationViewTitleBar {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonHoverBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetButtonHoverBackgroundColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2077,9 +2077,9 @@ impl ApplicationViewTitleBar {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonPressedForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetButtonPressedForegroundColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2096,9 +2096,9 @@ impl ApplicationViewTitleBar {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonPressedBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetButtonPressedBackgroundColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2115,9 +2115,9 @@ impl ApplicationViewTitleBar {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetInactiveForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetInactiveForegroundColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2134,9 +2134,9 @@ impl ApplicationViewTitleBar {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetInactiveBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetInactiveBackgroundColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2153,9 +2153,9 @@ impl ApplicationViewTitleBar {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonInactiveForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetButtonInactiveForegroundColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2172,9 +2172,9 @@ impl ApplicationViewTitleBar {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonInactiveBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetButtonInactiveBackgroundColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2608,9 +2608,9 @@ impl StatusBar {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetForegroundColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2627,9 +2627,9 @@ impl StatusBar {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetBackgroundColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2772,9 +2772,9 @@ impl StatusBarProgressIndicator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetProgressValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetProgressValue<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<f64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<f64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

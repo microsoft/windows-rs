@@ -219,9 +219,9 @@ pub struct UserDataProtectionManager(::windows::core::IUnknown);
 impl UserDataProtectionManager {
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn ProtectStorageItemAsync<'a, P0, E0>(&self, storageitem: P0, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>
+    pub fn ProtectStorageItemAsync<P0, E0>(&self, storageitem: P0, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -232,9 +232,9 @@ impl UserDataProtectionManager {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn GetStorageItemProtectionInfoAsync<'a, P0, E0>(&self, storageitem: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>
+    pub fn GetStorageItemProtectionInfoAsync<P0, E0>(&self, storageitem: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -245,9 +245,9 @@ impl UserDataProtectionManager {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ProtectBufferAsync<'a, P0, E0>(&self, unprotectedbuffer: P0, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    pub fn ProtectBufferAsync<P0, E0>(&self, unprotectedbuffer: P0, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -258,9 +258,9 @@ impl UserDataProtectionManager {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn UnprotectBufferAsync<'a, P0, E0>(&self, protectedbuffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>
+    pub fn UnprotectBufferAsync<P0, E0>(&self, protectedbuffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

@@ -8,7 +8,7 @@ pub unsafe fn EcClose(object: isize) -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EcDeleteSubscription<'a, P0>(subscriptionname: P0, flags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn EcDeleteSubscription<P0>(subscriptionname: P0, flags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -46,7 +46,7 @@ pub unsafe fn EcGetSubscriptionProperty(subscription: isize, propertyid: EC_SUBS
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EcGetSubscriptionRunTimeStatus<'a, P0, P1>(subscriptionname: P0, statusinfoid: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename: P1, flags: u32, statusvaluebuffersize: u32, statusvaluebuffer: *mut EC_VARIANT, statusvaluebufferused: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn EcGetSubscriptionRunTimeStatus<P0, P1>(subscriptionname: P0, statusinfoid: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename: P1, flags: u32, statusvaluebuffersize: u32, statusvaluebuffer: *mut EC_VARIANT, statusvaluebufferused: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -63,7 +63,7 @@ pub unsafe fn EcInsertObjectArrayElement(objectarray: isize, arrayindex: u32) ->
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 #[inline]
-pub unsafe fn EcOpenSubscription<'a, P0>(subscriptionname: P0, accessmask: u32, flags: u32) -> isize
+pub unsafe fn EcOpenSubscription<P0>(subscriptionname: P0, accessmask: u32, flags: u32) -> isize
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -86,7 +86,7 @@ pub unsafe fn EcRemoveObjectArrayElement(objectarray: isize, arrayindex: u32) ->
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EcRetrySubscription<'a, P0, P1>(subscriptionname: P0, eventsourcename: P1, flags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn EcRetrySubscription<P0, P1>(subscriptionname: P0, eventsourcename: P1, flags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,

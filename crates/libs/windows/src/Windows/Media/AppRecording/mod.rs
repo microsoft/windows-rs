@@ -188,9 +188,9 @@ impl AppRecordingManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn SaveScreenshotToFilesAsync<'a, P0, E0>(&self, folder: &super::super::Storage::StorageFolder, filenameprefix: &::windows::core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>
+    pub fn SaveScreenshotToFilesAsync<P0, E0>(&self, folder: &super::super::Storage::StorageFolder, filenameprefix: &::windows::core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

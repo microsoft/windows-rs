@@ -1561,9 +1561,9 @@ impl GattCharacteristic {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteValueAsync<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
+    pub fn WriteValueAsync<P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1574,9 +1574,9 @@ impl GattCharacteristic {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteValueWithOptionAsync<'a, P0, E0>(&self, value: P0, writeoption: GattWriteOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
+    pub fn WriteValueWithOptionAsync<P0, E0>(&self, value: P0, writeoption: GattWriteOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1672,9 +1672,9 @@ impl GattCharacteristic {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteValueWithResultAsync<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
+    pub fn WriteValueWithResultAsync<P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
@@ -1685,9 +1685,9 @@ impl GattCharacteristic {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteValueWithResultAndOptionAsync<'a, P0, E0>(&self, value: P0, writeoption: GattWriteOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
+    pub fn WriteValueWithResultAndOptionAsync<P0, E0>(&self, value: P0, writeoption: GattWriteOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
@@ -2441,9 +2441,9 @@ impl GattDescriptor {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteValueAsync<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
+    pub fn WriteValueAsync<P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2454,9 +2454,9 @@ impl GattDescriptor {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteValueWithResultAsync<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
+    pub fn WriteValueWithResultAsync<P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IGattDescriptor2>(self)?;
@@ -2946,7 +2946,7 @@ impl ::core::convert::TryFrom<&GattDeviceService> for super::super::super::Found
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&GattDeviceService> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&GattDeviceService> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GattDeviceService) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3151,9 +3151,9 @@ impl GattLocalCharacteristic {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn NotifyValueAsync<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>>
+    pub fn NotifyValueAsync<P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3164,9 +3164,9 @@ impl GattLocalCharacteristic {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn NotifyValueForSubscribedClientAsync<'a, P0, E0>(&self, value: P0, subscribedclient: &GattSubscribedClient) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>>
+    pub fn NotifyValueForSubscribedClientAsync<P0, E0>(&self, value: P0, subscribedclient: &GattSubscribedClient) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3224,9 +3224,9 @@ impl GattLocalCharacteristicParameters {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetStaticValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStaticValue<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3497,9 +3497,9 @@ impl GattLocalDescriptorParameters {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetStaticValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStaticValue<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4181,9 +4181,9 @@ impl GattReadRequest {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn RespondWithValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn RespondWithValue<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4372,9 +4372,9 @@ impl GattReliableWriteTransaction {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValue<'a, P0, E0>(&self, characteristic: &GattCharacteristic, value: P0) -> ::windows::core::Result<()>
+    pub fn WriteValue<P0, E0>(&self, characteristic: &GattCharacteristic, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4671,9 +4671,9 @@ impl GattServiceProviderAdvertisingParameters {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetServiceData<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetServiceData<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IGattServiceProviderAdvertisingParameters2>(self)?;
@@ -5068,7 +5068,7 @@ impl ::core::convert::TryFrom<&GattSession> for super::super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&GattSession> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&GattSession> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GattSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

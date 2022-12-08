@@ -251,7 +251,7 @@ impl IEventClass2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllowInprocActivation<'a, P0>(&self, fallowinprocactivation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -265,7 +265,7 @@ impl IEventClass2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFireInParallel<'a, P0>(&self, ffireinparallel: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFireInParallel<P0>(&self, ffireinparallel: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -324,9 +324,9 @@ pub struct IEventClass2_Vtbl {
 #[repr(transparent)]
 pub struct IEventControl(::windows::core::IUnknown);
 impl IEventControl {
-    pub unsafe fn SetPublisherFilter<'a, P0>(&self, methodname: &::windows::core::BSTR, ppublisherfilter: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPublisherFilter<P0>(&self, methodname: &::windows::core::BSTR, ppublisherfilter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IPublisherFilter>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IPublisherFilter>>,
     {
         (::windows::core::Vtable::vtable(self).SetPublisherFilter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(methodname), ppublisherfilter.into().abi()).ok()
     }
@@ -338,7 +338,7 @@ impl IEventControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllowInprocActivation<'a, P0>(&self, fallowinprocactivation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -766,9 +766,9 @@ impl IEventSubscription {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SubscriberInterface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetSubscriberInterface<'a, P0>(&self, psubscriberinterface: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSubscriberInterface<P0>(&self, psubscriberinterface: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetSubscriberInterface)(::windows::core::Vtable::as_raw(self), psubscriberinterface.into().abi()).ok()
     }
@@ -780,7 +780,7 @@ impl IEventSubscription {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPerUser<'a, P0>(&self, fperuser: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPerUser<P0>(&self, fperuser: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -801,7 +801,7 @@ impl IEventSubscription {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled<'a, P0>(&self, fenabled: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEnabled<P0>(&self, fenabled: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -958,9 +958,9 @@ impl IEventSystem {
     pub unsafe fn Query(&self, progid: &::windows::core::BSTR, querycriteria: &::windows::core::BSTR, errorindex: *mut i32, ppinterface: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(progid), ::core::mem::transmute_copy(querycriteria), errorindex, ::core::mem::transmute(ppinterface)).ok()
     }
-    pub unsafe fn Store<'a, P0>(&self, progid: &::windows::core::BSTR, pinterface: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Store<P0>(&self, progid: &::windows::core::BSTR, pinterface: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).Store)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(progid), pinterface.into().abi()).ok()
     }
@@ -1018,9 +1018,9 @@ pub struct IEventSystem_Vtbl {
 #[repr(transparent)]
 pub struct IFiringControl(::windows::core::IUnknown);
 impl IFiringControl {
-    pub unsafe fn FireSubscription<'a, P0>(&self, subscription: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FireSubscription<P0>(&self, subscription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IEventSubscription>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IEventSubscription>>,
     {
         (::windows::core::Vtable::vtable(self).FireSubscription)(::windows::core::Vtable::as_raw(self), subscription.into().abi()).ok()
     }
@@ -1058,9 +1058,9 @@ pub struct IFiringControl_Vtbl {
 #[repr(transparent)]
 pub struct IMultiInterfaceEventControl(::windows::core::IUnknown);
 impl IMultiInterfaceEventControl {
-    pub unsafe fn SetMultiInterfacePublisherFilter<'a, P0>(&self, classfilter: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMultiInterfacePublisherFilter<P0>(&self, classfilter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMultiInterfacePublisherFilter>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMultiInterfacePublisherFilter>>,
     {
         (::windows::core::Vtable::vtable(self).SetMultiInterfacePublisherFilter)(::windows::core::Vtable::as_raw(self), classfilter.into().abi()).ok()
     }
@@ -1080,7 +1080,7 @@ impl IMultiInterfaceEventControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllowInprocActivation<'a, P0>(&self, fallowinprocactivation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1094,7 +1094,7 @@ impl IMultiInterfaceEventControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFireInParallel<'a, P0>(&self, ffireinparallel: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFireInParallel<P0>(&self, ffireinparallel: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1152,15 +1152,15 @@ pub struct IMultiInterfaceEventControl_Vtbl {
 #[repr(transparent)]
 pub struct IMultiInterfacePublisherFilter(::windows::core::IUnknown);
 impl IMultiInterfacePublisherFilter {
-    pub unsafe fn Initialize<'a, P0>(&self, peic: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, peic: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMultiInterfaceEventControl>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMultiInterfaceEventControl>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), peic.into().abi()).ok()
     }
-    pub unsafe fn PrepareToFire<'a, P0>(&self, iid: *const ::windows::core::GUID, methodname: &::windows::core::BSTR, firingcontrol: P0) -> ::windows::core::Result<()>
+    pub unsafe fn PrepareToFire<P0>(&self, iid: *const ::windows::core::GUID, methodname: &::windows::core::BSTR, firingcontrol: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFiringControl>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFiringControl>>,
     {
         (::windows::core::Vtable::vtable(self).PrepareToFire)(::windows::core::Vtable::as_raw(self), iid, ::core::mem::transmute_copy(methodname), firingcontrol.into().abi()).ok()
     }
@@ -1199,15 +1199,15 @@ pub struct IMultiInterfacePublisherFilter_Vtbl {
 #[repr(transparent)]
 pub struct IPublisherFilter(::windows::core::IUnknown);
 impl IPublisherFilter {
-    pub unsafe fn Initialize<'a, P0>(&self, methodname: &::windows::core::BSTR, dispuserdefined: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, methodname: &::windows::core::BSTR, dispuserdefined: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(methodname), dispuserdefined.into().abi()).ok()
     }
-    pub unsafe fn PrepareToFire<'a, P0>(&self, methodname: &::windows::core::BSTR, firingcontrol: P0) -> ::windows::core::Result<()>
+    pub unsafe fn PrepareToFire<P0>(&self, methodname: &::windows::core::BSTR, firingcontrol: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFiringControl>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFiringControl>>,
     {
         (::windows::core::Vtable::vtable(self).PrepareToFire)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(methodname), firingcontrol.into().abi()).ok()
     }

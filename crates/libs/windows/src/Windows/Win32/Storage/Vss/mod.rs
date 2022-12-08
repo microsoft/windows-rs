@@ -183,7 +183,7 @@ impl IVssComponent {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetAlternateLocationMapping)(::windows::core::Vtable::as_raw(self), imapping, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetBackupMetadata<'a, P0>(&self, wszdata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBackupMetadata<P0>(&self, wszdata: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -192,7 +192,7 @@ impl IVssComponent {
     pub unsafe fn GetBackupMetadata(&self, pbstrdata: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetBackupMetadata)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrdata)).ok()
     }
-    pub unsafe fn AddPartialFile<'a, P0, P1, P2, P3>(&self, wszpath: P0, wszfilename: P1, wszranges: P2, wszmetadata: P3) -> ::windows::core::Result<()>
+    pub unsafe fn AddPartialFile<P0, P1, P2, P3>(&self, wszpath: P0, wszfilename: P1, wszranges: P2, wszmetadata: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -220,7 +220,7 @@ impl IVssComponent {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetNewTarget)(::windows::core::Vtable::as_raw(self), inewtarget, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn AddDirectedTarget<'a, P0, P1, P2, P3, P4, P5>(&self, wszsourcepath: P0, wszsourcefilename: P1, wszsourcerangelist: P2, wszdestinationpath: P3, wszdestinationfilename: P4, wszdestinationrangelist: P5) -> ::windows::core::Result<()>
+    pub unsafe fn AddDirectedTarget<P0, P1, P2, P3, P4, P5>(&self, wszsourcepath: P0, wszsourcefilename: P1, wszsourcerangelist: P2, wszdestinationpath: P3, wszdestinationfilename: P4, wszdestinationrangelist: P5) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -237,7 +237,7 @@ impl IVssComponent {
     pub unsafe fn GetDirectedTarget(&self, idirectedtarget: u32, pbstrsourcepath: *mut ::windows::core::BSTR, pbstrsourcefilename: *mut ::windows::core::BSTR, pbstrsourcerangelist: *mut ::windows::core::BSTR, pbstrdestinationpath: *mut ::windows::core::BSTR, pbstrdestinationfilename: *mut ::windows::core::BSTR, pbstrdestinationrangelist: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetDirectedTarget)(::windows::core::Vtable::as_raw(self), idirectedtarget, ::core::mem::transmute(pbstrsourcepath), ::core::mem::transmute(pbstrsourcefilename), ::core::mem::transmute(pbstrsourcerangelist), ::core::mem::transmute(pbstrdestinationpath), ::core::mem::transmute(pbstrdestinationfilename), ::core::mem::transmute(pbstrdestinationrangelist)).ok()
     }
-    pub unsafe fn SetRestoreMetadata<'a, P0>(&self, wszrestoremetadata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRestoreMetadata<P0>(&self, wszrestoremetadata: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -252,7 +252,7 @@ impl IVssComponent {
     pub unsafe fn GetRestoreTarget(&self, ptarget: *mut VSS_RESTORE_TARGET) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetRestoreTarget)(::windows::core::Vtable::as_raw(self), ptarget).ok()
     }
-    pub unsafe fn SetPreRestoreFailureMsg<'a, P0>(&self, wszprerestorefailuremsg: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPreRestoreFailureMsg<P0>(&self, wszprerestorefailuremsg: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -261,7 +261,7 @@ impl IVssComponent {
     pub unsafe fn GetPreRestoreFailureMsg(&self, pbstrprerestorefailuremsg: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPreRestoreFailureMsg)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrprerestorefailuremsg)).ok()
     }
-    pub unsafe fn SetPostRestoreFailureMsg<'a, P0>(&self, wszpostrestorefailuremsg: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPostRestoreFailureMsg<P0>(&self, wszpostrestorefailuremsg: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -270,7 +270,7 @@ impl IVssComponent {
     pub unsafe fn GetPostRestoreFailureMsg(&self, pbstrpostrestorefailuremsg: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPostRestoreFailureMsg)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrpostrestorefailuremsg)).ok()
     }
-    pub unsafe fn SetBackupStamp<'a, P0>(&self, wszbackupstamp: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBackupStamp<P0>(&self, wszbackupstamp: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -299,7 +299,7 @@ impl IVssComponent {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDifferencedFilesByLastModifyTime<'a, P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, ftlastmodifytime: super::super::Foundation::FILETIME) -> ::windows::core::Result<()>
+    pub unsafe fn AddDifferencedFilesByLastModifyTime<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, ftlastmodifytime: super::super::Foundation::FILETIME) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -309,7 +309,7 @@ impl IVssComponent {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDifferencedFilesByLastModifyLSN<'a, P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -424,7 +424,7 @@ impl IVssComponentEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetAlternateLocationMapping)(::windows::core::Vtable::as_raw(self), imapping, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetBackupMetadata<'a, P0>(&self, wszdata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBackupMetadata<P0>(&self, wszdata: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -433,7 +433,7 @@ impl IVssComponentEx {
     pub unsafe fn GetBackupMetadata(&self, pbstrdata: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetBackupMetadata)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrdata)).ok()
     }
-    pub unsafe fn AddPartialFile<'a, P0, P1, P2, P3>(&self, wszpath: P0, wszfilename: P1, wszranges: P2, wszmetadata: P3) -> ::windows::core::Result<()>
+    pub unsafe fn AddPartialFile<P0, P1, P2, P3>(&self, wszpath: P0, wszfilename: P1, wszranges: P2, wszmetadata: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -461,7 +461,7 @@ impl IVssComponentEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetNewTarget)(::windows::core::Vtable::as_raw(self), inewtarget, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn AddDirectedTarget<'a, P0, P1, P2, P3, P4, P5>(&self, wszsourcepath: P0, wszsourcefilename: P1, wszsourcerangelist: P2, wszdestinationpath: P3, wszdestinationfilename: P4, wszdestinationrangelist: P5) -> ::windows::core::Result<()>
+    pub unsafe fn AddDirectedTarget<P0, P1, P2, P3, P4, P5>(&self, wszsourcepath: P0, wszsourcefilename: P1, wszsourcerangelist: P2, wszdestinationpath: P3, wszdestinationfilename: P4, wszdestinationrangelist: P5) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -478,7 +478,7 @@ impl IVssComponentEx {
     pub unsafe fn GetDirectedTarget(&self, idirectedtarget: u32, pbstrsourcepath: *mut ::windows::core::BSTR, pbstrsourcefilename: *mut ::windows::core::BSTR, pbstrsourcerangelist: *mut ::windows::core::BSTR, pbstrdestinationpath: *mut ::windows::core::BSTR, pbstrdestinationfilename: *mut ::windows::core::BSTR, pbstrdestinationrangelist: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetDirectedTarget)(::windows::core::Vtable::as_raw(self), idirectedtarget, ::core::mem::transmute(pbstrsourcepath), ::core::mem::transmute(pbstrsourcefilename), ::core::mem::transmute(pbstrsourcerangelist), ::core::mem::transmute(pbstrdestinationpath), ::core::mem::transmute(pbstrdestinationfilename), ::core::mem::transmute(pbstrdestinationrangelist)).ok()
     }
-    pub unsafe fn SetRestoreMetadata<'a, P0>(&self, wszrestoremetadata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRestoreMetadata<P0>(&self, wszrestoremetadata: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -493,7 +493,7 @@ impl IVssComponentEx {
     pub unsafe fn GetRestoreTarget(&self, ptarget: *mut VSS_RESTORE_TARGET) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetRestoreTarget)(::windows::core::Vtable::as_raw(self), ptarget).ok()
     }
-    pub unsafe fn SetPreRestoreFailureMsg<'a, P0>(&self, wszprerestorefailuremsg: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPreRestoreFailureMsg<P0>(&self, wszprerestorefailuremsg: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -502,7 +502,7 @@ impl IVssComponentEx {
     pub unsafe fn GetPreRestoreFailureMsg(&self, pbstrprerestorefailuremsg: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPreRestoreFailureMsg)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrprerestorefailuremsg)).ok()
     }
-    pub unsafe fn SetPostRestoreFailureMsg<'a, P0>(&self, wszpostrestorefailuremsg: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPostRestoreFailureMsg<P0>(&self, wszpostrestorefailuremsg: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -511,7 +511,7 @@ impl IVssComponentEx {
     pub unsafe fn GetPostRestoreFailureMsg(&self, pbstrpostrestorefailuremsg: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPostRestoreFailureMsg)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrpostrestorefailuremsg)).ok()
     }
-    pub unsafe fn SetBackupStamp<'a, P0>(&self, wszbackupstamp: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBackupStamp<P0>(&self, wszbackupstamp: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -540,7 +540,7 @@ impl IVssComponentEx {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDifferencedFilesByLastModifyTime<'a, P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, ftlastmodifytime: super::super::Foundation::FILETIME) -> ::windows::core::Result<()>
+    pub unsafe fn AddDifferencedFilesByLastModifyTime<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, ftlastmodifytime: super::super::Foundation::FILETIME) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -550,7 +550,7 @@ impl IVssComponentEx {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDifferencedFilesByLastModifyLSN<'a, P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -566,13 +566,13 @@ impl IVssComponentEx {
     pub unsafe fn GetDifferencedFile(&self, idifferencedfile: u32, pbstrpath: *mut ::windows::core::BSTR, pbstrfilespec: *mut ::windows::core::BSTR, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut ::windows::core::BSTR, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetDifferencedFile)(::windows::core::Vtable::as_raw(self), idifferencedfile, ::core::mem::transmute(pbstrpath), ::core::mem::transmute(pbstrfilespec), pbrecursive, ::core::mem::transmute(pbstrlsnstring), pftlastmodifytime).ok()
     }
-    pub unsafe fn SetPrepareForBackupFailureMsg<'a, P0>(&self, wszfailuremsg: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrepareForBackupFailureMsg<P0>(&self, wszfailuremsg: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).SetPrepareForBackupFailureMsg)(::windows::core::Vtable::as_raw(self), wszfailuremsg.into()).ok()
     }
-    pub unsafe fn SetPostSnapshotFailureMsg<'a, P0>(&self, wszfailuremsg: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPostSnapshotFailureMsg<P0>(&self, wszfailuremsg: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -656,7 +656,7 @@ impl IVssComponentEx2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetAlternateLocationMapping)(::windows::core::Vtable::as_raw(self), imapping, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetBackupMetadata<'a, P0>(&self, wszdata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBackupMetadata<P0>(&self, wszdata: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -665,7 +665,7 @@ impl IVssComponentEx2 {
     pub unsafe fn GetBackupMetadata(&self, pbstrdata: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetBackupMetadata)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrdata)).ok()
     }
-    pub unsafe fn AddPartialFile<'a, P0, P1, P2, P3>(&self, wszpath: P0, wszfilename: P1, wszranges: P2, wszmetadata: P3) -> ::windows::core::Result<()>
+    pub unsafe fn AddPartialFile<P0, P1, P2, P3>(&self, wszpath: P0, wszfilename: P1, wszranges: P2, wszmetadata: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -693,7 +693,7 @@ impl IVssComponentEx2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetNewTarget)(::windows::core::Vtable::as_raw(self), inewtarget, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn AddDirectedTarget<'a, P0, P1, P2, P3, P4, P5>(&self, wszsourcepath: P0, wszsourcefilename: P1, wszsourcerangelist: P2, wszdestinationpath: P3, wszdestinationfilename: P4, wszdestinationrangelist: P5) -> ::windows::core::Result<()>
+    pub unsafe fn AddDirectedTarget<P0, P1, P2, P3, P4, P5>(&self, wszsourcepath: P0, wszsourcefilename: P1, wszsourcerangelist: P2, wszdestinationpath: P3, wszdestinationfilename: P4, wszdestinationrangelist: P5) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -710,7 +710,7 @@ impl IVssComponentEx2 {
     pub unsafe fn GetDirectedTarget(&self, idirectedtarget: u32, pbstrsourcepath: *mut ::windows::core::BSTR, pbstrsourcefilename: *mut ::windows::core::BSTR, pbstrsourcerangelist: *mut ::windows::core::BSTR, pbstrdestinationpath: *mut ::windows::core::BSTR, pbstrdestinationfilename: *mut ::windows::core::BSTR, pbstrdestinationrangelist: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDirectedTarget)(::windows::core::Vtable::as_raw(self), idirectedtarget, ::core::mem::transmute(pbstrsourcepath), ::core::mem::transmute(pbstrsourcefilename), ::core::mem::transmute(pbstrsourcerangelist), ::core::mem::transmute(pbstrdestinationpath), ::core::mem::transmute(pbstrdestinationfilename), ::core::mem::transmute(pbstrdestinationrangelist)).ok()
     }
-    pub unsafe fn SetRestoreMetadata<'a, P0>(&self, wszrestoremetadata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRestoreMetadata<P0>(&self, wszrestoremetadata: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -725,7 +725,7 @@ impl IVssComponentEx2 {
     pub unsafe fn GetRestoreTarget(&self, ptarget: *mut VSS_RESTORE_TARGET) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetRestoreTarget)(::windows::core::Vtable::as_raw(self), ptarget).ok()
     }
-    pub unsafe fn SetPreRestoreFailureMsg<'a, P0>(&self, wszprerestorefailuremsg: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPreRestoreFailureMsg<P0>(&self, wszprerestorefailuremsg: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -734,7 +734,7 @@ impl IVssComponentEx2 {
     pub unsafe fn GetPreRestoreFailureMsg(&self, pbstrprerestorefailuremsg: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPreRestoreFailureMsg)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrprerestorefailuremsg)).ok()
     }
-    pub unsafe fn SetPostRestoreFailureMsg<'a, P0>(&self, wszpostrestorefailuremsg: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPostRestoreFailureMsg<P0>(&self, wszpostrestorefailuremsg: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -743,7 +743,7 @@ impl IVssComponentEx2 {
     pub unsafe fn GetPostRestoreFailureMsg(&self, pbstrpostrestorefailuremsg: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPostRestoreFailureMsg)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrpostrestorefailuremsg)).ok()
     }
-    pub unsafe fn SetBackupStamp<'a, P0>(&self, wszbackupstamp: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBackupStamp<P0>(&self, wszbackupstamp: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -772,7 +772,7 @@ impl IVssComponentEx2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDifferencedFilesByLastModifyTime<'a, P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, ftlastmodifytime: super::super::Foundation::FILETIME) -> ::windows::core::Result<()>
+    pub unsafe fn AddDifferencedFilesByLastModifyTime<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, ftlastmodifytime: super::super::Foundation::FILETIME) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -782,7 +782,7 @@ impl IVssComponentEx2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDifferencedFilesByLastModifyLSN<'a, P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -798,13 +798,13 @@ impl IVssComponentEx2 {
     pub unsafe fn GetDifferencedFile(&self, idifferencedfile: u32, pbstrpath: *mut ::windows::core::BSTR, pbstrfilespec: *mut ::windows::core::BSTR, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut ::windows::core::BSTR, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDifferencedFile)(::windows::core::Vtable::as_raw(self), idifferencedfile, ::core::mem::transmute(pbstrpath), ::core::mem::transmute(pbstrfilespec), pbrecursive, ::core::mem::transmute(pbstrlsnstring), pftlastmodifytime).ok()
     }
-    pub unsafe fn SetPrepareForBackupFailureMsg<'a, P0>(&self, wszfailuremsg: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrepareForBackupFailureMsg<P0>(&self, wszfailuremsg: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetPrepareForBackupFailureMsg)(::windows::core::Vtable::as_raw(self), wszfailuremsg.into()).ok()
     }
-    pub unsafe fn SetPostSnapshotFailureMsg<'a, P0>(&self, wszfailuremsg: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPostSnapshotFailureMsg<P0>(&self, wszfailuremsg: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -829,7 +829,7 @@ impl IVssComponentEx2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetRestoreName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetFailure<'a, P0>(&self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: P0, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetFailure<P0>(&self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: P0, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -873,14 +873,14 @@ pub struct IVssComponentEx2_Vtbl {
 #[repr(transparent)]
 pub struct IVssCreateExpressWriterMetadata(::windows::core::IUnknown);
 impl IVssCreateExpressWriterMetadata {
-    pub unsafe fn AddExcludeFiles<'a, P0, P1>(&self, wszpath: P0, wszfilespec: P1, brecursive: u8) -> ::windows::core::Result<()>
+    pub unsafe fn AddExcludeFiles<P0, P1>(&self, wszpath: P0, wszfilespec: P1, brecursive: u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).AddExcludeFiles)(::windows::core::Vtable::as_raw(self), wszpath.into(), wszfilespec.into(), brecursive).ok()
     }
-    pub unsafe fn AddComponent<'a, P0, P1, P2>(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: P0, wszcomponentname: P1, wszcaption: P2, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn AddComponent<P0, P1, P2>(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: P0, wszcomponentname: P1, wszcaption: P2, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -888,7 +888,7 @@ impl IVssCreateExpressWriterMetadata {
     {
         (::windows::core::Vtable::vtable(self).AddComponent)(::windows::core::Vtable::as_raw(self), ct, wszlogicalpath.into(), wszcomponentname.into(), wszcaption.into(), pbicon, cbicon, brestoremetadata, bnotifyonbackupcomplete, bselectable, bselectableforrestore, dwcomponentflags).ok()
     }
-    pub unsafe fn AddFilesToFileGroup<'a, P0, P1, P2, P3, P4>(&self, wszlogicalpath: P0, wszgroupname: P1, wszpath: P2, wszfilespec: P3, brecursive: u8, wszalternatelocation: P4, dwbackuptypemask: u32) -> ::windows::core::Result<()>
+    pub unsafe fn AddFilesToFileGroup<P0, P1, P2, P3, P4>(&self, wszlogicalpath: P0, wszgroupname: P1, wszpath: P2, wszfilespec: P3, brecursive: u8, wszalternatelocation: P4, dwbackuptypemask: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -898,14 +898,14 @@ impl IVssCreateExpressWriterMetadata {
     {
         (::windows::core::Vtable::vtable(self).AddFilesToFileGroup)(::windows::core::Vtable::as_raw(self), wszlogicalpath.into(), wszgroupname.into(), wszpath.into(), wszfilespec.into(), brecursive, wszalternatelocation.into(), dwbackuptypemask).ok()
     }
-    pub unsafe fn SetRestoreMethod<'a, P0, P1>(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: P0, wszuserprocedure: P1, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::Result<()>
+    pub unsafe fn SetRestoreMethod<P0, P1>(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: P0, wszuserprocedure: P1, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).SetRestoreMethod)(::windows::core::Vtable::as_raw(self), method, wszservice.into(), wszuserprocedure.into(), writerrestore, brebootrequired).ok()
     }
-    pub unsafe fn AddComponentDependency<'a, P0, P1, P2, P3>(&self, wszforlogicalpath: P0, wszforcomponentname: P1, onwriterid: ::windows::core::GUID, wszonlogicalpath: P2, wszoncomponentname: P3) -> ::windows::core::Result<()>
+    pub unsafe fn AddComponentDependency<P0, P1, P2, P3>(&self, wszforlogicalpath: P0, wszforcomponentname: P1, onwriterid: ::windows::core::GUID, wszonlogicalpath: P2, wszoncomponentname: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -961,7 +961,7 @@ pub struct IVssCreateExpressWriterMetadata_Vtbl {
 #[repr(transparent)]
 pub struct IVssCreateWriterMetadata(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IVssCreateWriterMetadata {
-    pub unsafe fn AddIncludeFiles<'a, P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: u8, wszalternatelocation: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddIncludeFiles<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: u8, wszalternatelocation: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -969,14 +969,14 @@ impl IVssCreateWriterMetadata {
     {
         (::windows::core::Vtable::vtable(self).AddIncludeFiles)(::windows::core::Vtable::as_raw(self), wszpath.into(), wszfilespec.into(), brecursive, wszalternatelocation.into()).ok()
     }
-    pub unsafe fn AddExcludeFiles<'a, P0, P1>(&self, wszpath: P0, wszfilespec: P1, brecursive: u8) -> ::windows::core::Result<()>
+    pub unsafe fn AddExcludeFiles<P0, P1>(&self, wszpath: P0, wszfilespec: P1, brecursive: u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).AddExcludeFiles)(::windows::core::Vtable::as_raw(self), wszpath.into(), wszfilespec.into(), brecursive).ok()
     }
-    pub unsafe fn AddComponent<'a, P0, P1, P2>(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: P0, wszcomponentname: P1, wszcaption: P2, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn AddComponent<P0, P1, P2>(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: P0, wszcomponentname: P1, wszcaption: P2, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -984,7 +984,7 @@ impl IVssCreateWriterMetadata {
     {
         (::windows::core::Vtable::vtable(self).AddComponent)(::windows::core::Vtable::as_raw(self), ct, wszlogicalpath.into(), wszcomponentname.into(), wszcaption.into(), pbicon, cbicon, brestoremetadata, bnotifyonbackupcomplete, bselectable, bselectableforrestore, dwcomponentflags).ok()
     }
-    pub unsafe fn AddDatabaseFiles<'a, P0, P1, P2, P3>(&self, wszlogicalpath: P0, wszdatabasename: P1, wszpath: P2, wszfilespec: P3, dwbackuptypemask: u32) -> ::windows::core::Result<()>
+    pub unsafe fn AddDatabaseFiles<P0, P1, P2, P3>(&self, wszlogicalpath: P0, wszdatabasename: P1, wszpath: P2, wszfilespec: P3, dwbackuptypemask: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -993,7 +993,7 @@ impl IVssCreateWriterMetadata {
     {
         (::windows::core::Vtable::vtable(self).AddDatabaseFiles)(::windows::core::Vtable::as_raw(self), wszlogicalpath.into(), wszdatabasename.into(), wszpath.into(), wszfilespec.into(), dwbackuptypemask).ok()
     }
-    pub unsafe fn AddDatabaseLogFiles<'a, P0, P1, P2, P3>(&self, wszlogicalpath: P0, wszdatabasename: P1, wszpath: P2, wszfilespec: P3, dwbackuptypemask: u32) -> ::windows::core::Result<()>
+    pub unsafe fn AddDatabaseLogFiles<P0, P1, P2, P3>(&self, wszlogicalpath: P0, wszdatabasename: P1, wszpath: P2, wszfilespec: P3, dwbackuptypemask: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1002,7 +1002,7 @@ impl IVssCreateWriterMetadata {
     {
         (::windows::core::Vtable::vtable(self).AddDatabaseLogFiles)(::windows::core::Vtable::as_raw(self), wszlogicalpath.into(), wszdatabasename.into(), wszpath.into(), wszfilespec.into(), dwbackuptypemask).ok()
     }
-    pub unsafe fn AddFilesToFileGroup<'a, P0, P1, P2, P3, P4>(&self, wszlogicalpath: P0, wszgroupname: P1, wszpath: P2, wszfilespec: P3, brecursive: u8, wszalternatelocation: P4, dwbackuptypemask: u32) -> ::windows::core::Result<()>
+    pub unsafe fn AddFilesToFileGroup<P0, P1, P2, P3, P4>(&self, wszlogicalpath: P0, wszgroupname: P1, wszpath: P2, wszfilespec: P3, brecursive: u8, wszalternatelocation: P4, dwbackuptypemask: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1012,14 +1012,14 @@ impl IVssCreateWriterMetadata {
     {
         (::windows::core::Vtable::vtable(self).AddFilesToFileGroup)(::windows::core::Vtable::as_raw(self), wszlogicalpath.into(), wszgroupname.into(), wszpath.into(), wszfilespec.into(), brecursive, wszalternatelocation.into(), dwbackuptypemask).ok()
     }
-    pub unsafe fn SetRestoreMethod<'a, P0, P1>(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: P0, wszuserprocedure: P1, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::Result<()>
+    pub unsafe fn SetRestoreMethod<P0, P1>(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: P0, wszuserprocedure: P1, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).SetRestoreMethod)(::windows::core::Vtable::as_raw(self), method, wszservice.into(), wszuserprocedure.into(), writerrestore, brebootrequired).ok()
     }
-    pub unsafe fn AddAlternateLocationMapping<'a, P0, P1, P2>(&self, wszsourcepath: P0, wszsourcefilespec: P1, brecursive: u8, wszdestination: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddAlternateLocationMapping<P0, P1, P2>(&self, wszsourcepath: P0, wszsourcefilespec: P1, brecursive: u8, wszdestination: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1027,7 +1027,7 @@ impl IVssCreateWriterMetadata {
     {
         (::windows::core::Vtable::vtable(self).AddAlternateLocationMapping)(::windows::core::Vtable::as_raw(self), wszsourcepath.into(), wszsourcefilespec.into(), brecursive, wszdestination.into()).ok()
     }
-    pub unsafe fn AddComponentDependency<'a, P0, P1, P2, P3>(&self, wszforlogicalpath: P0, wszforcomponentname: P1, onwriterid: ::windows::core::GUID, wszonlogicalpath: P2, wszoncomponentname: P3) -> ::windows::core::Result<()>
+    pub unsafe fn AddComponentDependency<P0, P1, P2, P3>(&self, wszforlogicalpath: P0, wszforcomponentname: P1, onwriterid: ::windows::core::GUID, wszonlogicalpath: P2, wszoncomponentname: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1176,7 +1176,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ChangeDiffAreaMaximumSizeEx<'a, P0>(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ChangeDiffAreaMaximumSizeEx<P0>(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1256,7 +1256,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ChangeDiffAreaMaximumSizeEx<'a, P0>(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ChangeDiffAreaMaximumSizeEx<P0>(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1429,14 +1429,14 @@ pub struct IVssEnumObject_Vtbl {
 #[repr(transparent)]
 pub struct IVssExpressWriter(::windows::core::IUnknown);
 impl IVssExpressWriter {
-    pub unsafe fn CreateMetadata<'a, P0>(&self, writerid: ::windows::core::GUID, writername: P0, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32) -> ::windows::core::Result<IVssCreateExpressWriterMetadata>
+    pub unsafe fn CreateMetadata<P0>(&self, writerid: ::windows::core::GUID, writername: P0, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32) -> ::windows::core::Result<IVssCreateExpressWriterMetadata>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateMetadata)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(writerid), writername.into(), usagetype, versionmajor, versionminor, reserved, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn LoadMetadata<'a, P0>(&self, metadata: P0, reserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn LoadMetadata<P0>(&self, metadata: P0, reserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1498,7 +1498,7 @@ impl IVssFileShareSnapshotProvider {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteSnapshots<'a, P0>(&self, sourceobjectid: ::windows::core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: P0, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteSnapshots<P0>(&self, sourceobjectid: ::windows::core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: P0, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1820,15 +1820,15 @@ pub struct IVssProviderCreateSnapshotSet_Vtbl {
 #[repr(transparent)]
 pub struct IVssProviderNotifications(::windows::core::IUnknown);
 impl IVssProviderNotifications {
-    pub unsafe fn OnLoad<'a, P0>(&self, pcallback: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnLoad<P0>(&self, pcallback: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).OnLoad)(::windows::core::Vtable::as_raw(self), pcallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnUnload<'a, P0>(&self, bforceunload: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnUnload<P0>(&self, bforceunload: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1971,7 +1971,7 @@ impl IVssSoftwareSnapshotProvider {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteSnapshots<'a, P0>(&self, sourceobjectid: ::windows::core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: P0, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteSnapshots<P0>(&self, sourceobjectid: ::windows::core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: P0, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2202,7 +2202,7 @@ pub struct IVssWriterComponents_Vtbl {
 #[repr(transparent)]
 pub struct IVssWriterImpl(::windows::core::IUnknown);
 impl IVssWriterImpl {
-    pub unsafe fn Initialize<'a, P0, P1>(&self, writerid: ::windows::core::GUID, wszwritername: P0, wszwriterinstancename: P1, dwmajorversion: u32, dwminorversion: u32, ut: VSS_USAGE_TYPE, st: VSS_SOURCE_TYPE, nlevel: VSS_APPLICATION_LEVEL, dwtimeout: u32, aws: VSS_ALTERNATE_WRITER_STATE, biothrottlingonly: u8) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0, P1>(&self, writerid: ::windows::core::GUID, wszwritername: P0, wszwriterinstancename: P1, dwmajorversion: u32, dwminorversion: u32, ut: VSS_USAGE_TYPE, st: VSS_SOURCE_TYPE, nlevel: VSS_APPLICATION_LEVEL, dwtimeout: u32, aws: VSS_ALTERNATE_WRITER_STATE, biothrottlingonly: u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2224,7 +2224,7 @@ impl IVssWriterImpl {
     pub unsafe fn GetCurrentVolumeCount(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).GetCurrentVolumeCount)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn GetSnapshotDeviceName<'a, P0>(&self, wszoriginalvolume: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetSnapshotDeviceName<P0>(&self, wszoriginalvolume: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2242,7 +2242,7 @@ impl IVssWriterImpl {
     pub unsafe fn GetCurrentLevel(&self) -> VSS_APPLICATION_LEVEL {
         (::windows::core::Vtable::vtable(self).GetCurrentLevel)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn IsPathAffected<'a, P0>(&self, wszpath: P0) -> bool
+    pub unsafe fn IsPathAffected<P0>(&self, wszpath: P0) -> bool
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2272,7 +2272,7 @@ impl IVssWriterImpl {
     pub unsafe fn GetIdentityInformation(&self) -> *mut IVssExamineWriterMetadata {
         (::windows::core::Vtable::vtable(self).GetIdentityInformation)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn SetWriterFailureEx<'a, P0>(&self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWriterFailureEx<P0>(&self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {

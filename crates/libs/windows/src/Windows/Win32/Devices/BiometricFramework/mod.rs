@@ -31,7 +31,7 @@ pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetyp
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinBioAsyncOpenFramework<'a, P0, P1>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: P0, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: ::core::option::Option<*const ::core::ffi::c_void>, asynchronousopen: P1) -> ::windows::core::Result<u32>
+pub unsafe fn WinBioAsyncOpenFramework<P0, P1>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: P0, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: ::core::option::Option<*const ::core::ffi::c_void>, asynchronousopen: P1) -> ::windows::core::Result<u32>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -43,7 +43,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinBioAsyncOpenSession<'a, P0, P1>(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: ::core::option::Option<&[u32]>, databaseid: ::core::option::Option<*const ::windows::core::GUID>, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: P0, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: ::core::option::Option<*const ::core::ffi::c_void>, asynchronousopen: P1) -> ::windows::core::Result<u32>
+pub unsafe fn WinBioAsyncOpenSession<P0, P1>(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: ::core::option::Option<&[u32]>, databaseid: ::core::option::Option<*const ::windows::core::GUID>, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: P0, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: ::core::option::Option<*const ::core::ffi::c_void>, asynchronousopen: P1) -> ::windows::core::Result<u32>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,

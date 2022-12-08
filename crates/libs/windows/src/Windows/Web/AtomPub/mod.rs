@@ -190,9 +190,9 @@ impl AtomPubClient {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
-    pub fn CreateMediaResourceAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, mediatype: &::windows::core::HSTRING, description: &::windows::core::HSTRING, mediastream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
+    pub fn CreateMediaResourceAsync<P0, E0>(&self, uri: &super::super::Foundation::Uri, mediatype: &::windows::core::HSTRING, description: &::windows::core::HSTRING, mediastream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -203,9 +203,9 @@ impl AtomPubClient {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
-    pub fn UpdateMediaResourceAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, mediatype: &::windows::core::HSTRING, mediastream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    pub fn UpdateMediaResourceAsync<P0, E0>(&self, uri: &super::super::Foundation::Uri, mediatype: &::windows::core::HSTRING, mediastream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -406,7 +406,7 @@ impl ::core::convert::TryFrom<&AtomPubClient> for super::Syndication::ISyndicati
     }
 }
 #[cfg(feature = "Web_Syndication")]
-impl<'a> ::core::convert::TryFrom<&AtomPubClient> for ::windows::core::InParam<'a, super::Syndication::ISyndicationClient> {
+impl ::core::convert::TryFrom<&AtomPubClient> for ::windows::core::InParam<super::Syndication::ISyndicationClient> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AtomPubClient) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -606,7 +606,7 @@ impl ::core::convert::TryFrom<&ResourceCollection> for super::Syndication::ISynd
     }
 }
 #[cfg(feature = "Web_Syndication")]
-impl<'a> ::core::convert::TryFrom<&ResourceCollection> for ::windows::core::InParam<'a, super::Syndication::ISyndicationNode> {
+impl ::core::convert::TryFrom<&ResourceCollection> for ::windows::core::InParam<super::Syndication::ISyndicationNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -779,7 +779,7 @@ impl ::core::convert::TryFrom<&ServiceDocument> for super::Syndication::ISyndica
     }
 }
 #[cfg(feature = "Web_Syndication")]
-impl<'a> ::core::convert::TryFrom<&ServiceDocument> for ::windows::core::InParam<'a, super::Syndication::ISyndicationNode> {
+impl ::core::convert::TryFrom<&ServiceDocument> for ::windows::core::InParam<super::Syndication::ISyndicationNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ServiceDocument) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -961,7 +961,7 @@ impl ::core::convert::TryFrom<&Workspace> for super::Syndication::ISyndicationNo
     }
 }
 #[cfg(feature = "Web_Syndication")]
-impl<'a> ::core::convert::TryFrom<&Workspace> for ::windows::core::InParam<'a, super::Syndication::ISyndicationNode> {
+impl ::core::convert::TryFrom<&Workspace> for ::windows::core::InParam<super::Syndication::ISyndicationNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Workspace) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -756,18 +756,18 @@ impl CoreApplication {
             (::windows::core::Vtable::vtable(this).GetCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn Run<'a, P0, E0>(viewsource: P0) -> ::windows::core::Result<()>
+    pub fn Run<P0, E0>(viewsource: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IFrameworkViewSource>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IFrameworkViewSource>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICoreApplication(|this| unsafe { (::windows::core::Vtable::vtable(this).Run)(::windows::core::Vtable::as_raw(this), viewsource.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RunWithActivationFactories<'a, P0, E0>(activationfactorycallback: P0) -> ::windows::core::Result<()>
+    pub fn RunWithActivationFactories<P0, E0>(activationfactorycallback: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IGetActivationFactory>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IGetActivationFactory>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICoreApplication(|this| unsafe { (::windows::core::Vtable::vtable(this).RunWithActivationFactories)(::windows::core::Vtable::as_raw(this), activationfactorycallback.try_into().map_err(|e| e.into())?.abi()).ok() })
@@ -891,9 +891,9 @@ impl CoreApplication {
             (::windows::core::Vtable::vtable(this).CreateNewViewFromMainView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn CreateNewViewWithViewSource<'a, P0, E0>(viewsource: P0) -> ::windows::core::Result<CoreApplicationView>
+    pub fn CreateNewViewWithViewSource<P0, E0>(viewsource: P0) -> ::windows::core::Result<CoreApplicationView>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IFrameworkViewSource>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IFrameworkViewSource>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICoreImmersiveApplication3(|this| unsafe {

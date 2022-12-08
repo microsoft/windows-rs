@@ -260,9 +260,9 @@ impl I2cController {
     }
     #[doc = "*Required features: `\"Devices_I2c_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_I2c_Provider", feature = "Foundation_Collections"))]
-    pub fn GetControllersAsync<'a, P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<I2cController>>>
+    pub fn GetControllersAsync<P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<I2cController>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, Provider::II2cProvider>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<Provider::II2cProvider>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::II2cControllerStatics(|this| unsafe {
@@ -450,7 +450,7 @@ impl ::core::convert::TryFrom<&I2cDevice> for super::super::Foundation::IClosabl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&I2cDevice> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&I2cDevice> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &I2cDevice) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

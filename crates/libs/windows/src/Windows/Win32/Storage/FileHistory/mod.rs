@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn FhServiceBlockBackup<'a, P0>(pipe: P0) -> ::windows::core::Result<()>
+pub unsafe fn FhServiceBlockBackup<P0>(pipe: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
 {
@@ -11,7 +11,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn FhServiceClosePipe<'a, P0>(pipe: P0) -> ::windows::core::Result<()>
+pub unsafe fn FhServiceClosePipe<P0>(pipe: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
 {
@@ -21,7 +21,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn FhServiceOpenPipe<'a, P0>(startserviceifstopped: P0) -> ::windows::core::Result<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>
+pub unsafe fn FhServiceOpenPipe<P0>(startserviceifstopped: P0) -> ::windows::core::Result<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
@@ -32,7 +32,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn FhServiceReloadConfiguration<'a, P0>(pipe: P0) -> ::windows::core::Result<()>
+pub unsafe fn FhServiceReloadConfiguration<P0>(pipe: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
 {
@@ -42,7 +42,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn FhServiceStartBackup<'a, P0, P1>(pipe: P0, lowpriorityio: P1) -> ::windows::core::Result<()>
+pub unsafe fn FhServiceStartBackup<P0, P1>(pipe: P0, lowpriorityio: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -53,7 +53,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn FhServiceStopBackup<'a, P0, P1>(pipe: P0, stoptracking: P1) -> ::windows::core::Result<()>
+pub unsafe fn FhServiceStopBackup<P0, P1>(pipe: P0, stoptracking: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -64,7 +64,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn FhServiceUnblockBackup<'a, P0>(pipe: P0) -> ::windows::core::Result<()>
+pub unsafe fn FhServiceUnblockBackup<P0>(pipe: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
 {
@@ -80,7 +80,7 @@ impl IFhConfigMgr {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateDefaultConfiguration<'a, P0>(&self, overwriteifexists: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreateDefaultConfiguration<P0>(&self, overwriteifexists: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -91,7 +91,7 @@ impl IFhConfigMgr {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddRemoveExcludeRule<'a, P0>(&self, add: P0, category: FH_PROTECTED_ITEM_CATEGORY, item: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn AddRemoveExcludeRule<P0>(&self, add: P0, category: FH_PROTECTED_ITEM_CATEGORY, item: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -99,7 +99,7 @@ impl IFhConfigMgr {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIncludeExcludeRules<'a, P0>(&self, include: P0, category: FH_PROTECTED_ITEM_CATEGORY) -> ::windows::core::Result<IFhScopeIterator>
+    pub unsafe fn GetIncludeExcludeRules<P0>(&self, include: P0, category: FH_PROTECTED_ITEM_CATEGORY) -> ::windows::core::Result<IFhScopeIterator>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -133,7 +133,7 @@ impl IFhConfigMgr {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ChangeDefaultTargetRecommendation<'a, P0>(&self, recommend: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ChangeDefaultTargetRecommendation<P0>(&self, recommend: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -218,7 +218,7 @@ impl IFhReassociation {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PerformReassociation<'a, P0>(&self, overwriteifexists: P0) -> ::windows::core::Result<()>
+    pub unsafe fn PerformReassociation<P0>(&self, overwriteifexists: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {

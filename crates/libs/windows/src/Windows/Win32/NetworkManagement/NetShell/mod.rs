@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MatchEnumTag<'a, P0, P1>(hmodule: P0, pwcarg: P1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32
+pub unsafe fn MatchEnumTag<P0, P1>(hmodule: P0, pwcarg: P1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -12,7 +12,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MatchToken<'a, P0, P1>(pwszusertoken: P0, pwszcmdtoken: P1) -> super::super::Foundation::BOOL
+pub unsafe fn MatchToken<P0, P1>(pwszusertoken: P0, pwszcmdtoken: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -23,7 +23,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PreprocessCommand<'a, P0>(hmodule: P0, ppwcarguments: &mut [::windows::core::PWSTR], dwcurrentindex: u32, ptttags: ::core::option::Option<&mut [TAG_TYPE]>, dwminargs: u32, dwmaxargs: u32, pdwtagtype: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn PreprocessCommand<P0>(hmodule: P0, ppwcarguments: &mut [::windows::core::PWSTR], dwcurrentindex: u32, ptttags: ::core::option::Option<&mut [TAG_TYPE]>, dwminargs: u32, dwmaxargs: u32, pdwtagtype: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -33,7 +33,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrintError<'a, P0>(hmodule: P0, dwerrid: u32) -> u32
+pub unsafe fn PrintError<P0>(hmodule: P0, dwerrid: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -42,7 +42,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[inline]
-pub unsafe fn PrintMessage<'a, P0>(pwszformat: P0) -> u32
+pub unsafe fn PrintMessage<P0>(pwszformat: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -52,7 +52,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrintMessageFromModule<'a, P0>(hmodule: P0, dwmsgid: u32) -> u32
+pub unsafe fn PrintMessageFromModule<P0>(hmodule: P0, dwmsgid: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {

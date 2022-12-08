@@ -828,9 +828,9 @@ pub struct IStorageProviderUriSource_Vtbl {
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 pub struct CachedFileUpdater;
 impl CachedFileUpdater {
-    pub fn SetUpdateInformation<'a, P0, E0>(file: P0, contentid: &::windows::core::HSTRING, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::Result<()>
+    pub fn SetUpdateInformation<P0, E0>(file: P0, contentid: &::windows::core::HSTRING, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICachedFileUpdaterStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).SetUpdateInformation)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(contentid), readmode, writemode, options).ok() })
@@ -987,9 +987,9 @@ impl FileUpdateRequest {
             (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn UpdateLocalFile<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn UpdateLocalFile<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1346,11 +1346,11 @@ pub struct StorageProviderItemProperties;
 impl StorageProviderItemProperties {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAsync<'a, P0, E0, P1, E1>(item: P0, itemproperties: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetAsync<P0, E0, P1, E1>(item: P0, itemproperties: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IStorageProviderItemPropertiesStatics(|this| unsafe {
@@ -1545,9 +1545,9 @@ impl StorageProviderMoreInfoUI {
             (::windows::core::Vtable::vtable(this).Command)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetCommand<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetCommand<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageProviderUICommand>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageProviderUICommand>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1644,9 +1644,9 @@ impl StorageProviderQuotaUI {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI"))]
-    pub fn SetQuotaUsedColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetQuotaUsedColor<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::UI::Color>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::UI::Color>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1743,9 +1743,9 @@ impl StorageProviderStatusUI {
             (::windows::core::Vtable::vtable(this).SyncStatusCommand)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetSyncStatusCommand<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSyncStatusCommand<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageProviderUICommand>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageProviderUICommand>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1780,9 +1780,9 @@ impl StorageProviderStatusUI {
             (::windows::core::Vtable::vtable(this).ProviderPrimaryCommand)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetProviderPrimaryCommand<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetProviderPrimaryCommand<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageProviderUICommand>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageProviderUICommand>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1799,9 +1799,9 @@ impl StorageProviderStatusUI {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProviderSecondaryCommands<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetProviderSecondaryCommands<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<IStorageProviderUICommand>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<IStorageProviderUICommand>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1876,9 +1876,9 @@ impl StorageProviderSyncRootInfo {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetContext<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetContext<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1891,9 +1891,9 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Vtable::vtable(this).Path)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetPath<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetPath<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2109,9 +2109,9 @@ impl StorageProviderSyncRootManager {
     pub fn Unregister(id: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).Unregister)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id)).ok() })
     }
-    pub fn GetSyncRootInformationForFolder<'a, P0, E0>(folder: P0) -> ::windows::core::Result<StorageProviderSyncRootInfo>
+    pub fn GetSyncRootInformationForFolder<P0, E0>(folder: P0) -> ::windows::core::Result<StorageProviderSyncRootInfo>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {

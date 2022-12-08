@@ -2,28 +2,28 @@
 #[repr(transparent)]
 pub struct AsyncIBackgroundCopyCallback(::windows::core::IUnknown);
 impl AsyncIBackgroundCopyCallback {
-    pub unsafe fn Begin_JobTransferred<'a, P0>(&self, pjob: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Begin_JobTransferred<P0>(&self, pjob: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
     {
         (::windows::core::Vtable::vtable(self).Begin_JobTransferred)(::windows::core::Vtable::as_raw(self), pjob.into().abi()).ok()
     }
     pub unsafe fn Finish_JobTransferred(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Finish_JobTransferred)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn Begin_JobError<'a, P0, P1>(&self, pjob: P0, perror: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Begin_JobError<P0, P1>(&self, pjob: P0, perror: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyError>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyError>>,
     {
         (::windows::core::Vtable::vtable(self).Begin_JobError)(::windows::core::Vtable::as_raw(self), pjob.into().abi(), perror.into().abi()).ok()
     }
     pub unsafe fn Finish_JobError(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Finish_JobError)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn Begin_JobModification<'a, P0>(&self, pjob: P0, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Begin_JobModification<P0>(&self, pjob: P0, dwreserved: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
     {
         (::windows::core::Vtable::vtable(self).Begin_JobModification)(::windows::core::Vtable::as_raw(self), pjob.into().abi(), dwreserved).ok()
     }
@@ -183,22 +183,22 @@ pub struct IBITSExtensionSetupFactory_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundCopyCallback(::windows::core::IUnknown);
 impl IBackgroundCopyCallback {
-    pub unsafe fn JobTransferred<'a, P0>(&self, pjob: P0) -> ::windows::core::Result<()>
+    pub unsafe fn JobTransferred<P0>(&self, pjob: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
     {
         (::windows::core::Vtable::vtable(self).JobTransferred)(::windows::core::Vtable::as_raw(self), pjob.into().abi()).ok()
     }
-    pub unsafe fn JobError<'a, P0, P1>(&self, pjob: P0, perror: P1) -> ::windows::core::Result<()>
+    pub unsafe fn JobError<P0, P1>(&self, pjob: P0, perror: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyError>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyError>>,
     {
         (::windows::core::Vtable::vtable(self).JobError)(::windows::core::Vtable::as_raw(self), pjob.into().abi(), perror.into().abi()).ok()
     }
-    pub unsafe fn JobModification<'a, P0>(&self, pjob: P0, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn JobModification<P0>(&self, pjob: P0, dwreserved: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
     {
         (::windows::core::Vtable::vtable(self).JobModification)(::windows::core::Vtable::as_raw(self), pjob.into().abi(), dwreserved).ok()
     }
@@ -238,24 +238,24 @@ pub struct IBackgroundCopyCallback_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundCopyCallback1(::windows::core::IUnknown);
 impl IBackgroundCopyCallback1 {
-    pub unsafe fn OnStatus<'a, P0, P1>(&self, pgroup: P0, pjob: P1, dwfileindex: u32, dwstatus: u32, dwnumofretries: u32, dwwin32result: u32, dwtransportresult: u32) -> ::windows::core::Result<()>
+    pub unsafe fn OnStatus<P0, P1>(&self, pgroup: P0, pjob: P1, dwfileindex: u32, dwstatus: u32, dwnumofretries: u32, dwwin32result: u32, dwtransportresult: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyGroup>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob1>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyGroup>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob1>>,
     {
         (::windows::core::Vtable::vtable(self).OnStatus)(::windows::core::Vtable::as_raw(self), pgroup.into().abi(), pjob.into().abi(), dwfileindex, dwstatus, dwnumofretries, dwwin32result, dwtransportresult).ok()
     }
-    pub unsafe fn OnProgress<'a, P0, P1>(&self, progresstype: u32, pgroup: P0, pjob: P1, dwfileindex: u32, dwprogressvalue: u32) -> ::windows::core::Result<()>
+    pub unsafe fn OnProgress<P0, P1>(&self, progresstype: u32, pgroup: P0, pjob: P1, dwfileindex: u32, dwprogressvalue: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyGroup>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob1>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyGroup>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob1>>,
     {
         (::windows::core::Vtable::vtable(self).OnProgress)(::windows::core::Vtable::as_raw(self), progresstype, pgroup.into().abi(), pjob.into().abi(), dwfileindex, dwprogressvalue).ok()
     }
-    pub unsafe fn OnProgressEx<'a, P0, P1>(&self, progresstype: u32, pgroup: P0, pjob: P1, dwfileindex: u32, dwprogressvalue: u32, pbyte: &[u8]) -> ::windows::core::Result<()>
+    pub unsafe fn OnProgressEx<P0, P1>(&self, progresstype: u32, pgroup: P0, pjob: P1, dwfileindex: u32, dwprogressvalue: u32, pbyte: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyGroup>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob1>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyGroup>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob1>>,
     {
         (::windows::core::Vtable::vtable(self).OnProgressEx)(::windows::core::Vtable::as_raw(self), progresstype, pgroup.into().abi(), pjob.into().abi(), dwfileindex, dwprogressvalue, pbyte.len() as _, ::core::mem::transmute(pbyte.as_ptr())).ok()
     }
@@ -295,29 +295,29 @@ pub struct IBackgroundCopyCallback1_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundCopyCallback2(::windows::core::IUnknown);
 impl IBackgroundCopyCallback2 {
-    pub unsafe fn JobTransferred<'a, P0>(&self, pjob: P0) -> ::windows::core::Result<()>
+    pub unsafe fn JobTransferred<P0>(&self, pjob: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
     {
         (::windows::core::Vtable::vtable(self).base__.JobTransferred)(::windows::core::Vtable::as_raw(self), pjob.into().abi()).ok()
     }
-    pub unsafe fn JobError<'a, P0, P1>(&self, pjob: P0, perror: P1) -> ::windows::core::Result<()>
+    pub unsafe fn JobError<P0, P1>(&self, pjob: P0, perror: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyError>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyError>>,
     {
         (::windows::core::Vtable::vtable(self).base__.JobError)(::windows::core::Vtable::as_raw(self), pjob.into().abi(), perror.into().abi()).ok()
     }
-    pub unsafe fn JobModification<'a, P0>(&self, pjob: P0, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn JobModification<P0>(&self, pjob: P0, dwreserved: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
     {
         (::windows::core::Vtable::vtable(self).base__.JobModification)(::windows::core::Vtable::as_raw(self), pjob.into().abi(), dwreserved).ok()
     }
-    pub unsafe fn FileTransferred<'a, P0, P1>(&self, pjob: P0, pfile: P1) -> ::windows::core::Result<()>
+    pub unsafe fn FileTransferred<P0, P1>(&self, pjob: P0, pfile: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyFile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyFile>>,
     {
         (::windows::core::Vtable::vtable(self).FileTransferred)(::windows::core::Vtable::as_raw(self), pjob.into().abi(), pfile.into().abi()).ok()
     }
@@ -355,36 +355,36 @@ pub struct IBackgroundCopyCallback2_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundCopyCallback3(::windows::core::IUnknown);
 impl IBackgroundCopyCallback3 {
-    pub unsafe fn JobTransferred<'a, P0>(&self, pjob: P0) -> ::windows::core::Result<()>
+    pub unsafe fn JobTransferred<P0>(&self, pjob: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.JobTransferred)(::windows::core::Vtable::as_raw(self), pjob.into().abi()).ok()
     }
-    pub unsafe fn JobError<'a, P0, P1>(&self, pjob: P0, perror: P1) -> ::windows::core::Result<()>
+    pub unsafe fn JobError<P0, P1>(&self, pjob: P0, perror: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyError>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyError>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.JobError)(::windows::core::Vtable::as_raw(self), pjob.into().abi(), perror.into().abi()).ok()
     }
-    pub unsafe fn JobModification<'a, P0>(&self, pjob: P0, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn JobModification<P0>(&self, pjob: P0, dwreserved: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.JobModification)(::windows::core::Vtable::as_raw(self), pjob.into().abi(), dwreserved).ok()
     }
-    pub unsafe fn FileTransferred<'a, P0, P1>(&self, pjob: P0, pfile: P1) -> ::windows::core::Result<()>
+    pub unsafe fn FileTransferred<P0, P1>(&self, pjob: P0, pfile: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyFile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyFile>>,
     {
         (::windows::core::Vtable::vtable(self).base__.FileTransferred)(::windows::core::Vtable::as_raw(self), pjob.into().abi(), pfile.into().abi()).ok()
     }
-    pub unsafe fn FileRangesTransferred<'a, P0, P1>(&self, job: P0, file: P1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()>
+    pub unsafe fn FileRangesTransferred<P0, P1>(&self, job: P0, file: P1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyFile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyFile>>,
     {
         (::windows::core::Vtable::vtable(self).FileRangesTransferred)(::windows::core::Vtable::as_raw(self), job.into().abi(), file.into().abi(), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
@@ -549,7 +549,7 @@ impl IBackgroundCopyFile2 {
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
     }
-    pub unsafe fn SetRemoteName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRemoteName<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -607,7 +607,7 @@ impl IBackgroundCopyFile3 {
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
     }
-    pub unsafe fn SetRemoteName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRemoteName<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -619,7 +619,7 @@ impl IBackgroundCopyFile3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValidationState<'a, P0>(&self, state: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetValidationState<P0>(&self, state: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -700,7 +700,7 @@ impl IBackgroundCopyFile4 {
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
     }
-    pub unsafe fn SetRemoteName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRemoteName<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -712,7 +712,7 @@ impl IBackgroundCopyFile4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValidationState<'a, P0>(&self, state: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetValidationState<P0>(&self, state: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -784,7 +784,7 @@ impl IBackgroundCopyFile5 {
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
     }
-    pub unsafe fn SetRemoteName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRemoteName<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -796,7 +796,7 @@ impl IBackgroundCopyFile5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValidationState<'a, P0>(&self, state: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetValidationState<P0>(&self, state: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -876,7 +876,7 @@ impl IBackgroundCopyFile6 {
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
     }
-    pub unsafe fn SetRemoteName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRemoteName<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -888,7 +888,7 @@ impl IBackgroundCopyFile6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValidationState<'a, P0>(&self, state: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetValidationState<P0>(&self, state: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1015,9 +1015,9 @@ impl IBackgroundCopyGroup {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).QueryNewJobInterface)(::windows::core::Vtable::as_raw(self), iid, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetNotificationPointer<'a, P0>(&self, iid: *const ::windows::core::GUID, punk: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotificationPointer<P0>(&self, iid: *const ::windows::core::GUID, punk: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetNotificationPointer)(::windows::core::Vtable::as_raw(self), iid, punk.into().abi()).ok()
     }
@@ -1078,7 +1078,7 @@ impl IBackgroundCopyJob {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddFileSet)(::windows::core::Vtable::as_raw(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
     }
-    pub unsafe fn AddFile<'a, P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1131,7 +1131,7 @@ impl IBackgroundCopyJob {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetOwner)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDisplayName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDisplayName<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1141,7 +1141,7 @@ impl IBackgroundCopyJob {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDescription<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDescription<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1165,9 +1165,9 @@ impl IBackgroundCopyJob {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetNotifyFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetNotifyInterface<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyInterface<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetNotifyInterface)(::windows::core::Vtable::as_raw(self), val.into().abi()).ok()
     }
@@ -1193,7 +1193,7 @@ impl IBackgroundCopyJob {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetErrorCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetProxySettings<'a, P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetProxySettings<P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1346,7 +1346,7 @@ impl IBackgroundCopyJob2 {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.AddFileSet)(::windows::core::Vtable::as_raw(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
     }
-    pub unsafe fn AddFile<'a, P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1399,7 +1399,7 @@ impl IBackgroundCopyJob2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetOwner)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDisplayName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDisplayName<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1409,7 +1409,7 @@ impl IBackgroundCopyJob2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDescription<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDescription<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1433,9 +1433,9 @@ impl IBackgroundCopyJob2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetNotifyFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetNotifyInterface<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyInterface<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetNotifyInterface)(::windows::core::Vtable::as_raw(self), val.into().abi()).ok()
     }
@@ -1461,7 +1461,7 @@ impl IBackgroundCopyJob2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetErrorCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetProxySettings<'a, P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetProxySettings<P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1474,7 +1474,7 @@ impl IBackgroundCopyJob2 {
     pub unsafe fn TakeOwnership(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.TakeOwnership)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn SetNotifyCmdLine<'a, P0, P1>(&self, program: P0, parameters: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCmdLine<P0, P1>(&self, program: P0, parameters: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1490,7 +1490,7 @@ impl IBackgroundCopyJob2 {
     pub unsafe fn GetReplyData(&self, ppbuffer: *mut *mut u8, plength: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetReplyData)(::windows::core::Vtable::as_raw(self), ppbuffer, plength).ok()
     }
-    pub unsafe fn SetReplyFileName<'a, P0>(&self, replyfilename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetReplyFileName<P0>(&self, replyfilename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1550,7 +1550,7 @@ impl IBackgroundCopyJob3 {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.AddFileSet)(::windows::core::Vtable::as_raw(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
     }
-    pub unsafe fn AddFile<'a, P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1603,7 +1603,7 @@ impl IBackgroundCopyJob3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetOwner)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDisplayName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDisplayName<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1613,7 +1613,7 @@ impl IBackgroundCopyJob3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDescription<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDescription<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1637,9 +1637,9 @@ impl IBackgroundCopyJob3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetNotifyFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetNotifyInterface<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyInterface<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetNotifyInterface)(::windows::core::Vtable::as_raw(self), val.into().abi()).ok()
     }
@@ -1665,7 +1665,7 @@ impl IBackgroundCopyJob3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetErrorCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetProxySettings<'a, P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetProxySettings<P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1678,7 +1678,7 @@ impl IBackgroundCopyJob3 {
     pub unsafe fn TakeOwnership(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.TakeOwnership)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn SetNotifyCmdLine<'a, P0, P1>(&self, program: P0, parameters: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCmdLine<P0, P1>(&self, program: P0, parameters: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1694,7 +1694,7 @@ impl IBackgroundCopyJob3 {
     pub unsafe fn GetReplyData(&self, ppbuffer: *mut *mut u8, plength: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetReplyData)(::windows::core::Vtable::as_raw(self), ppbuffer, plength).ok()
     }
-    pub unsafe fn SetReplyFileName<'a, P0>(&self, replyfilename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetReplyFileName<P0>(&self, replyfilename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1710,14 +1710,14 @@ impl IBackgroundCopyJob3 {
     pub unsafe fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.RemoveCredentials)(::windows::core::Vtable::as_raw(self), target, scheme).ok()
     }
-    pub unsafe fn ReplaceRemotePrefix<'a, P0, P1>(&self, oldprefix: P0, newprefix: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ReplaceRemotePrefix<P0, P1>(&self, oldprefix: P0, newprefix: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).ReplaceRemotePrefix)(::windows::core::Vtable::as_raw(self), oldprefix.into(), newprefix.into()).ok()
     }
-    pub unsafe fn AddFileWithRanges<'a, P0, P1>(&self, remoteurl: P0, localname: P1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()>
+    pub unsafe fn AddFileWithRanges<P0, P1>(&self, remoteurl: P0, localname: P1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1771,7 +1771,7 @@ impl IBackgroundCopyJob4 {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.AddFileSet)(::windows::core::Vtable::as_raw(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
     }
-    pub unsafe fn AddFile<'a, P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1824,7 +1824,7 @@ impl IBackgroundCopyJob4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetOwner)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDisplayName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDisplayName<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1834,7 +1834,7 @@ impl IBackgroundCopyJob4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDescription<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDescription<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1858,9 +1858,9 @@ impl IBackgroundCopyJob4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetNotifyFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetNotifyInterface<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyInterface<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetNotifyInterface)(::windows::core::Vtable::as_raw(self), val.into().abi()).ok()
     }
@@ -1886,7 +1886,7 @@ impl IBackgroundCopyJob4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetErrorCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetProxySettings<'a, P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetProxySettings<P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1899,7 +1899,7 @@ impl IBackgroundCopyJob4 {
     pub unsafe fn TakeOwnership(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.TakeOwnership)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn SetNotifyCmdLine<'a, P0, P1>(&self, program: P0, parameters: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCmdLine<P0, P1>(&self, program: P0, parameters: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1915,7 +1915,7 @@ impl IBackgroundCopyJob4 {
     pub unsafe fn GetReplyData(&self, ppbuffer: *mut *mut u8, plength: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetReplyData)(::windows::core::Vtable::as_raw(self), ppbuffer, plength).ok()
     }
-    pub unsafe fn SetReplyFileName<'a, P0>(&self, replyfilename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetReplyFileName<P0>(&self, replyfilename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1931,14 +1931,14 @@ impl IBackgroundCopyJob4 {
     pub unsafe fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.RemoveCredentials)(::windows::core::Vtable::as_raw(self), target, scheme).ok()
     }
-    pub unsafe fn ReplaceRemotePrefix<'a, P0, P1>(&self, oldprefix: P0, newprefix: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ReplaceRemotePrefix<P0, P1>(&self, oldprefix: P0, newprefix: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.ReplaceRemotePrefix)(::windows::core::Vtable::as_raw(self), oldprefix.into(), newprefix.into()).ok()
     }
-    pub unsafe fn AddFileWithRanges<'a, P0, P1>(&self, remoteurl: P0, localname: P1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()>
+    pub unsafe fn AddFileWithRanges<P0, P1>(&self, remoteurl: P0, localname: P1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2021,7 +2021,7 @@ impl IBackgroundCopyJob5 {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.AddFileSet)(::windows::core::Vtable::as_raw(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
     }
-    pub unsafe fn AddFile<'a, P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2074,7 +2074,7 @@ impl IBackgroundCopyJob5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetOwner)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDisplayName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDisplayName<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2084,7 +2084,7 @@ impl IBackgroundCopyJob5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDescription<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDescription<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2108,9 +2108,9 @@ impl IBackgroundCopyJob5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetNotifyFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetNotifyInterface<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyInterface<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetNotifyInterface)(::windows::core::Vtable::as_raw(self), val.into().abi()).ok()
     }
@@ -2136,7 +2136,7 @@ impl IBackgroundCopyJob5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetErrorCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetProxySettings<'a, P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetProxySettings<P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2149,7 +2149,7 @@ impl IBackgroundCopyJob5 {
     pub unsafe fn TakeOwnership(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.TakeOwnership)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn SetNotifyCmdLine<'a, P0, P1>(&self, program: P0, parameters: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCmdLine<P0, P1>(&self, program: P0, parameters: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2165,7 +2165,7 @@ impl IBackgroundCopyJob5 {
     pub unsafe fn GetReplyData(&self, ppbuffer: *mut *mut u8, plength: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetReplyData)(::windows::core::Vtable::as_raw(self), ppbuffer, plength).ok()
     }
-    pub unsafe fn SetReplyFileName<'a, P0>(&self, replyfilename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetReplyFileName<P0>(&self, replyfilename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2181,14 +2181,14 @@ impl IBackgroundCopyJob5 {
     pub unsafe fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.RemoveCredentials)(::windows::core::Vtable::as_raw(self), target, scheme).ok()
     }
-    pub unsafe fn ReplaceRemotePrefix<'a, P0, P1>(&self, oldprefix: P0, newprefix: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ReplaceRemotePrefix<P0, P1>(&self, oldprefix: P0, newprefix: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.ReplaceRemotePrefix)(::windows::core::Vtable::as_raw(self), oldprefix.into(), newprefix.into()).ok()
     }
-    pub unsafe fn AddFileWithRanges<'a, P0, P1>(&self, remoteurl: P0, localname: P1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()>
+    pub unsafe fn AddFileWithRanges<P0, P1>(&self, remoteurl: P0, localname: P1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2278,13 +2278,13 @@ pub struct IBackgroundCopyJob5_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundCopyJobHttpOptions(::windows::core::IUnknown);
 impl IBackgroundCopyJobHttpOptions {
-    pub unsafe fn SetClientCertificateByID<'a, P0>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()>
+    pub unsafe fn SetClientCertificateByID<P0>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).SetClientCertificateByID)(::windows::core::Vtable::as_raw(self), storelocation, storename.into(), ::core::mem::transmute(pcerthashblob.as_ptr())).ok()
     }
-    pub unsafe fn SetClientCertificateByName<'a, P0, P1>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, subjectname: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetClientCertificateByName<P0, P1>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, subjectname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2297,7 +2297,7 @@ impl IBackgroundCopyJobHttpOptions {
     pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetClientCertificate)(::windows::core::Vtable::as_raw(self), pstorelocation, pstorename, ppcerthashblob, psubjectname).ok()
     }
-    pub unsafe fn SetCustomHeaders<'a, P0>(&self, requestheaders: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCustomHeaders<P0>(&self, requestheaders: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2355,13 +2355,13 @@ pub struct IBackgroundCopyJobHttpOptions_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundCopyJobHttpOptions2(::windows::core::IUnknown);
 impl IBackgroundCopyJobHttpOptions2 {
-    pub unsafe fn SetClientCertificateByID<'a, P0>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()>
+    pub unsafe fn SetClientCertificateByID<P0>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetClientCertificateByID)(::windows::core::Vtable::as_raw(self), storelocation, storename.into(), ::core::mem::transmute(pcerthashblob.as_ptr())).ok()
     }
-    pub unsafe fn SetClientCertificateByName<'a, P0, P1>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, subjectname: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetClientCertificateByName<P0, P1>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, subjectname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2374,7 +2374,7 @@ impl IBackgroundCopyJobHttpOptions2 {
     pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetClientCertificate)(::windows::core::Vtable::as_raw(self), pstorelocation, pstorename, ppcerthashblob, psubjectname).ok()
     }
-    pub unsafe fn SetCustomHeaders<'a, P0>(&self, requestheaders: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCustomHeaders<P0>(&self, requestheaders: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2391,7 +2391,7 @@ impl IBackgroundCopyJobHttpOptions2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetSecurityFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetHttpMethod<'a, P0>(&self, method: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHttpMethod<P0>(&self, method: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2436,13 +2436,13 @@ pub struct IBackgroundCopyJobHttpOptions2_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundCopyJobHttpOptions3(::windows::core::IUnknown);
 impl IBackgroundCopyJobHttpOptions3 {
-    pub unsafe fn SetClientCertificateByID<'a, P0>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()>
+    pub unsafe fn SetClientCertificateByID<P0>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetClientCertificateByID)(::windows::core::Vtable::as_raw(self), storelocation, storename.into(), ::core::mem::transmute(pcerthashblob.as_ptr())).ok()
     }
-    pub unsafe fn SetClientCertificateByName<'a, P0, P1>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, subjectname: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetClientCertificateByName<P0, P1>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, subjectname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2455,7 +2455,7 @@ impl IBackgroundCopyJobHttpOptions3 {
     pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetClientCertificate)(::windows::core::Vtable::as_raw(self), pstorelocation, pstorename, ppcerthashblob, psubjectname).ok()
     }
-    pub unsafe fn SetCustomHeaders<'a, P0>(&self, requestheaders: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCustomHeaders<P0>(&self, requestheaders: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2472,7 +2472,7 @@ impl IBackgroundCopyJobHttpOptions3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetSecurityFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetHttpMethod<'a, P0>(&self, method: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHttpMethod<P0>(&self, method: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2482,9 +2482,9 @@ impl IBackgroundCopyJobHttpOptions3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetHttpMethod)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetServerCertificateValidationInterface<'a, P0>(&self, certvalidationcallback: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetServerCertificateValidationInterface<P0>(&self, certvalidationcallback: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetServerCertificateValidationInterface)(::windows::core::Vtable::as_raw(self), certvalidationcallback.into().abi()).ok()
     }
@@ -2526,7 +2526,7 @@ pub struct IBackgroundCopyJobHttpOptions3_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundCopyManager(::windows::core::IUnknown);
 impl IBackgroundCopyManager {
-    pub unsafe fn CreateJob<'a, P0>(&self, displayname: P0, r#type: BG_JOB_TYPE, pjobid: *mut ::windows::core::GUID, ppjob: *mut ::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()>
+    pub unsafe fn CreateJob<P0>(&self, displayname: P0, r#type: BG_JOB_TYPE, pjobid: *mut ::windows::core::GUID, ppjob: *mut ::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2629,10 +2629,10 @@ pub struct IBackgroundCopyQMgr_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundCopyServerCertificateValidationCallback(::windows::core::IUnknown);
 impl IBackgroundCopyServerCertificateValidationCallback {
-    pub unsafe fn ValidateServerCertificate<'a, P0, P1>(&self, job: P0, file: P1, certdata: &[u8], certencodingtype: u32, certstoredata: &[u8]) -> ::windows::core::Result<()>
+    pub unsafe fn ValidateServerCertificate<P0, P1>(&self, job: P0, file: P1, certdata: &[u8], certencodingtype: u32, certstoredata: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyFile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyJob>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IBackgroundCopyFile>>,
     {
         (::windows::core::Vtable::vtable(self).ValidateServerCertificate)(::windows::core::Vtable::as_raw(self), job.into().abi(), file.into().abi(), certdata.len() as _, ::core::mem::transmute(certdata.as_ptr()), certencodingtype, certstoredata.len() as _, ::core::mem::transmute(certstoredata.as_ptr())).ok()
     }
@@ -2763,7 +2763,7 @@ impl IBitsPeerCacheAdministration {
     pub unsafe fn DeleteRecord(&self, id: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteRecord)(::windows::core::Vtable::as_raw(self), id).ok()
     }
-    pub unsafe fn DeleteUrl<'a, P0>(&self, url: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteUrl<P0>(&self, url: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {

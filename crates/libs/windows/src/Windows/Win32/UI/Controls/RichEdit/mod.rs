@@ -24,7 +24,7 @@ impl IRichEditOle {
     pub unsafe fn InsertObject(&self, lpreobject: *mut REOBJECT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).InsertObject)(::windows::core::Vtable::as_raw(self), lpreobject).ok()
     }
-    pub unsafe fn ConvertObject<'a, P0>(&self, iob: i32, rclsidnew: *const ::windows::core::GUID, lpstrusertypenew: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ConvertObject<P0>(&self, iob: i32, rclsidnew: *const ::windows::core::GUID, lpstrusertypenew: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
@@ -33,7 +33,7 @@ impl IRichEditOle {
     pub unsafe fn ActivateAs(&self, rclsid: *const ::windows::core::GUID, rclsidas: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ActivateAs)(::windows::core::Vtable::as_raw(self), rclsid, rclsidas).ok()
     }
-    pub unsafe fn SetHostNames<'a, P0, P1>(&self, lpstrcontainerapp: P0, lpstrcontainerobj: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetHostNames<P0, P1>(&self, lpstrcontainerapp: P0, lpstrcontainerobj: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
         P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -42,7 +42,7 @@ impl IRichEditOle {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLinkAvailable<'a, P0>(&self, iob: i32, favailable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLinkAvailable<P0>(&self, iob: i32, favailable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -56,9 +56,9 @@ impl IRichEditOle {
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn SaveCompleted<'a, P0>(&self, iob: i32, lpstg: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SaveCompleted<P0>(&self, iob: i32, lpstg: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::StructuredStorage::IStorage>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::StructuredStorage::IStorage>>,
     {
         (::windows::core::Vtable::vtable(self).SaveCompleted)(::windows::core::Vtable::as_raw(self), iob, lpstg.into().abi()).ok()
     }
@@ -67,7 +67,7 @@ impl IRichEditOle {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ContextSensitiveHelp<'a, P0>(&self, fentermode: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -80,9 +80,9 @@ impl IRichEditOle {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ImportDataObject<'a, P0>(&self, lpdataobj: P0, cf: u16, hmetapict: isize) -> ::windows::core::Result<()>
+    pub unsafe fn ImportDataObject<P0>(&self, lpdataobj: P0, cf: u16, hmetapict: isize) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).ImportDataObject)(::windows::core::Vtable::as_raw(self), lpdataobj.into().abi(), cf, hmetapict).ok()
     }
@@ -172,7 +172,7 @@ impl IRichEditOleCallback {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowContainerUI<'a, P0>(&self, fshow: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ShowContainerUI<P0>(&self, fshow: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -180,32 +180,32 @@ impl IRichEditOleCallback {
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn QueryInsertObject<'a, P0>(&self, lpclsid: *mut ::windows::core::GUID, lpstg: P0, cp: i32) -> ::windows::core::Result<()>
+    pub unsafe fn QueryInsertObject<P0>(&self, lpclsid: *mut ::windows::core::GUID, lpstg: P0, cp: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::StructuredStorage::IStorage>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::StructuredStorage::IStorage>>,
     {
         (::windows::core::Vtable::vtable(self).QueryInsertObject)(::windows::core::Vtable::as_raw(self), lpclsid, lpstg.into().abi(), cp).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn DeleteObject<'a, P0>(&self, lpoleobj: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteObject<P0>(&self, lpoleobj: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Ole::IOleObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Ole::IOleObject>>,
     {
         (::windows::core::Vtable::vtable(self).DeleteObject)(::windows::core::Vtable::as_raw(self), lpoleobj.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_SystemServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
-    pub unsafe fn QueryAcceptData<'a, P0, P1>(&self, lpdataobj: P0, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: P1, hmetapict: isize) -> ::windows::core::Result<()>
+    pub unsafe fn QueryAcceptData<P0, P1>(&self, lpdataobj: P0, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: P1, hmetapict: isize) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IDataObject>>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).QueryAcceptData)(::windows::core::Vtable::as_raw(self), lpdataobj.into().abi(), lpcfformat, reco, freally.into(), hmetapict).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ContextSensitiveHelp<'a, P0>(&self, fentermode: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -218,7 +218,7 @@ impl IRichEditOleCallback {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_SystemServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices"))]
-    pub unsafe fn GetDragDropEffect<'a, P0>(&self, fdrag: P0, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> ::windows::core::Result<()>
+    pub unsafe fn GetDragDropEffect<P0>(&self, fdrag: P0, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -226,9 +226,9 @@ impl IRichEditOleCallback {
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn GetContextMenu<'a, P0>(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: P0, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()>
+    pub unsafe fn GetContextMenu<P0>(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: P0, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Ole::IOleObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Ole::IOleObject>>,
     {
         (::windows::core::Vtable::vtable(self).GetContextMenu)(::windows::core::Vtable::as_raw(self), seltype, lpoleobj.into().abi(), lpchrg, lphmenu).ok()
     }
@@ -654,9 +654,9 @@ impl ITextDocument2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDocumentFont<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDocumentFont<P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextFont2>>,
     {
         (::windows::core::Vtable::vtable(self).SetDocumentFont)(::windows::core::Vtable::as_raw(self), pfont.into().abi()).ok()
     }
@@ -668,9 +668,9 @@ impl ITextDocument2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDocumentPara<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDocumentPara<P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextPara2>>,
     {
         (::windows::core::Vtable::vtable(self).SetDocumentPara)(::windows::core::Vtable::as_raw(self), ppara.into().abi()).ok()
     }
@@ -716,9 +716,9 @@ impl ITextDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetWindow)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn AttachMsgFilter<'a, P0>(&self, pfilter: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AttachMsgFilter<P0>(&self, pfilter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).AttachMsgFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi()).ok()
     }
@@ -768,9 +768,9 @@ impl ITextDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).RangeFromPoint2)(::windows::core::Vtable::as_raw(self), x, y, r#type, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn ReleaseCallManager<'a, P0>(&self, pvoid: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ReleaseCallManager<P0>(&self, pvoid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).ReleaseCallManager)(::windows::core::Vtable::as_raw(self), pvoid.into().abi()).ok()
     }
@@ -806,9 +806,9 @@ impl ITextDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetActiveStory)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetActiveStory<'a, P0>(&self, pstory: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetActiveStory<P0>(&self, pstory: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextStory>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextStory>>,
     {
         (::windows::core::Vtable::vtable(self).SetActiveStory)(::windows::core::Vtable::as_raw(self), pstory.into().abi()).ok()
     }
@@ -1022,15 +1022,15 @@ impl ITextDocument2Old {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.RangeFromPoint)(::windows::core::Vtable::as_raw(self), x, y, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn AttachMsgFilter<'a, P0>(&self, pfilter: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AttachMsgFilter<P0>(&self, pfilter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).AttachMsgFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEffectColor<'a, P0>(&self, index: i32, cr: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEffectColor<P0>(&self, index: i32, cr: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::COLORREF>,
     {
@@ -1117,9 +1117,9 @@ impl ITextDocument2Old {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCallManager)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn ReleaseCallManager<'a, P0>(&self, pvoid: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ReleaseCallManager<P0>(&self, pvoid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).ReleaseCallManager)(::windows::core::Vtable::as_raw(self), pvoid.into().abi()).ok()
     }
@@ -1213,9 +1213,9 @@ impl ITextFont {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDuplicate<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDuplicate<P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextFont>>,
     {
         (::windows::core::Vtable::vtable(self).SetDuplicate)(::windows::core::Vtable::as_raw(self), pfont.into().abi()).ok()
     }
@@ -1225,9 +1225,9 @@ impl ITextFont {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn IsEqual<P0>(&self, pfont: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextFont>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsEqual)(::windows::core::Vtable::as_raw(self), pfont.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1525,9 +1525,9 @@ impl ITextFont2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDuplicate<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDuplicate<P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextFont>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetDuplicate)(::windows::core::Vtable::as_raw(self), pfont.into().abi()).ok()
     }
@@ -1537,9 +1537,9 @@ impl ITextFont2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn IsEqual<P0>(&self, pfont: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextFont>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.IsEqual)(::windows::core::Vtable::as_raw(self), pfont.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1790,9 +1790,9 @@ impl ITextFont2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDuplicate2<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDuplicate2<P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextFont2>>,
     {
         (::windows::core::Vtable::vtable(self).SetDuplicate2)(::windows::core::Vtable::as_raw(self), pfont.into().abi()).ok()
     }
@@ -1878,9 +1878,9 @@ impl ITextFont2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual2<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn IsEqual2<P0>(&self, pfont: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextFont2>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsEqual2)(::windows::core::Vtable::as_raw(self), pfont.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1997,7 +1997,7 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn TxReleaseDC<'a, P0>(&self, hdc: P0) -> i32
+    pub unsafe fn TxReleaseDC<P0>(&self, hdc: P0) -> i32
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
@@ -2005,7 +2005,7 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxShowScrollBar<'a, P0>(&self, fnbar: i32, fshow: P0) -> super::super::super::Foundation::BOOL
+    pub unsafe fn TxShowScrollBar<P0>(&self, fnbar: i32, fshow: P0) -> super::super::super::Foundation::BOOL
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2018,7 +2018,7 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSetScrollRange<'a, P0>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: P0) -> super::super::super::Foundation::BOOL
+    pub unsafe fn TxSetScrollRange<P0>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: P0) -> super::super::super::Foundation::BOOL
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2026,7 +2026,7 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSetScrollPos<'a, P0>(&self, fnbar: i32, npos: i32, fredraw: P0) -> super::super::super::Foundation::BOOL
+    pub unsafe fn TxSetScrollPos<P0>(&self, fnbar: i32, npos: i32, fredraw: P0) -> super::super::super::Foundation::BOOL
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2034,7 +2034,7 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxInvalidateRect<'a, P0>(&self, prc: *mut super::super::super::Foundation::RECT, fmode: P0)
+    pub unsafe fn TxInvalidateRect<P0>(&self, prc: *mut super::super::super::Foundation::RECT, fmode: P0)
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2042,7 +2042,7 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxViewChange<'a, P0>(&self, fupdate: P0)
+    pub unsafe fn TxViewChange<P0>(&self, fupdate: P0)
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2050,7 +2050,7 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn TxCreateCaret<'a, P0>(&self, hbmp: P0, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL
+    pub unsafe fn TxCreateCaret<P0>(&self, hbmp: P0, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HBITMAP>,
     {
@@ -2058,7 +2058,7 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxShowCaret<'a, P0>(&self, fshow: P0) -> super::super::super::Foundation::BOOL
+    pub unsafe fn TxShowCaret<P0>(&self, fshow: P0) -> super::super::super::Foundation::BOOL
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2079,7 +2079,7 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxScrollWindowEx<'a, P0>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: P0, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD)
+    pub unsafe fn TxScrollWindowEx<P0>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: P0, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD)
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HRGN>,
     {
@@ -2087,7 +2087,7 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSetCapture<'a, P0>(&self, fcapture: P0)
+    pub unsafe fn TxSetCapture<P0>(&self, fcapture: P0)
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2098,7 +2098,7 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxSetCursor<'a, P0, P1>(&self, hcur: P0, ftext: P1)
+    pub unsafe fn TxSetCursor<P0, P1>(&self, hcur: P0, ftext: P1)
     where
         P0: ::std::convert::Into<super::super::WindowsAndMessaging::HCURSOR>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
@@ -2186,7 +2186,7 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn TxImmReleaseContext<'a, P0>(&self, himc: P0)
+    pub unsafe fn TxImmReleaseContext<P0>(&self, himc: P0)
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
@@ -2349,7 +2349,7 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn TxReleaseDC<'a, P0>(&self, hdc: P0) -> i32
+    pub unsafe fn TxReleaseDC<P0>(&self, hdc: P0) -> i32
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
@@ -2357,7 +2357,7 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxShowScrollBar<'a, P0>(&self, fnbar: i32, fshow: P0) -> super::super::super::Foundation::BOOL
+    pub unsafe fn TxShowScrollBar<P0>(&self, fnbar: i32, fshow: P0) -> super::super::super::Foundation::BOOL
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2370,7 +2370,7 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSetScrollRange<'a, P0>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: P0) -> super::super::super::Foundation::BOOL
+    pub unsafe fn TxSetScrollRange<P0>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: P0) -> super::super::super::Foundation::BOOL
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2378,7 +2378,7 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSetScrollPos<'a, P0>(&self, fnbar: i32, npos: i32, fredraw: P0) -> super::super::super::Foundation::BOOL
+    pub unsafe fn TxSetScrollPos<P0>(&self, fnbar: i32, npos: i32, fredraw: P0) -> super::super::super::Foundation::BOOL
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2386,7 +2386,7 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxInvalidateRect<'a, P0>(&self, prc: *mut super::super::super::Foundation::RECT, fmode: P0)
+    pub unsafe fn TxInvalidateRect<P0>(&self, prc: *mut super::super::super::Foundation::RECT, fmode: P0)
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2394,7 +2394,7 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxViewChange<'a, P0>(&self, fupdate: P0)
+    pub unsafe fn TxViewChange<P0>(&self, fupdate: P0)
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2402,7 +2402,7 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn TxCreateCaret<'a, P0>(&self, hbmp: P0, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL
+    pub unsafe fn TxCreateCaret<P0>(&self, hbmp: P0, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HBITMAP>,
     {
@@ -2410,7 +2410,7 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxShowCaret<'a, P0>(&self, fshow: P0) -> super::super::super::Foundation::BOOL
+    pub unsafe fn TxShowCaret<P0>(&self, fshow: P0) -> super::super::super::Foundation::BOOL
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2431,7 +2431,7 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxScrollWindowEx<'a, P0>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: P0, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD)
+    pub unsafe fn TxScrollWindowEx<P0>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: P0, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD)
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HRGN>,
     {
@@ -2439,7 +2439,7 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSetCapture<'a, P0>(&self, fcapture: P0)
+    pub unsafe fn TxSetCapture<P0>(&self, fcapture: P0)
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2450,7 +2450,7 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxSetCursor<'a, P0, P1>(&self, hcur: P0, ftext: P1)
+    pub unsafe fn TxSetCursor<P0, P1>(&self, hcur: P0, ftext: P1)
     where
         P0: ::std::convert::Into<super::super::WindowsAndMessaging::HCURSOR>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
@@ -2538,7 +2538,7 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn TxImmReleaseContext<'a, P0>(&self, himc: P0)
+    pub unsafe fn TxImmReleaseContext<P0>(&self, himc: P0)
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
@@ -2570,7 +2570,7 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxSetCursor2<'a, P0, P1>(&self, hcur: P0, btext: P1) -> super::super::WindowsAndMessaging::HCURSOR
+    pub unsafe fn TxSetCursor2<P0, P1>(&self, hcur: P0, btext: P1) -> super::super::WindowsAndMessaging::HCURSOR
     where
         P0: ::std::convert::Into<super::super::WindowsAndMessaging::HCURSOR>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
@@ -2588,7 +2588,7 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn TxShowDropCaret<'a, P0, P1>(&self, fshow: P0, hdc: P1, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()>
+    pub unsafe fn TxShowDropCaret<P0, P1>(&self, fshow: P0, hdc: P1, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
@@ -2671,9 +2671,9 @@ impl ITextPara {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDuplicate<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDuplicate<P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextPara>>,
     {
         (::windows::core::Vtable::vtable(self).SetDuplicate)(::windows::core::Vtable::as_raw(self), ppara.into().abi()).ok()
     }
@@ -2683,9 +2683,9 @@ impl ITextPara {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn IsEqual<P0>(&self, ppara: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextPara>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsEqual)(::windows::core::Vtable::as_raw(self), ppara.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -2951,9 +2951,9 @@ impl ITextPara2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDuplicate<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDuplicate<P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextPara>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetDuplicate)(::windows::core::Vtable::as_raw(self), ppara.into().abi()).ok()
     }
@@ -2963,9 +2963,9 @@ impl ITextPara2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn IsEqual<P0>(&self, ppara: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextPara>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.IsEqual)(::windows::core::Vtable::as_raw(self), ppara.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -3135,9 +3135,9 @@ impl ITextPara2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDuplicate2<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDuplicate2<P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextPara2>>,
     {
         (::windows::core::Vtable::vtable(self).SetDuplicate2)(::windows::core::Vtable::as_raw(self), ppara.into().abi()).ok()
     }
@@ -3178,9 +3178,9 @@ impl ITextPara2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual2<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn IsEqual2<P0>(&self, ppara: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextPara2>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsEqual2)(::windows::core::Vtable::as_raw(self), ppara.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -3287,9 +3287,9 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFormattedText<'a, P0>(&self, prange: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFormattedText<P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         (::windows::core::Vtable::vtable(self).SetFormattedText)(::windows::core::Vtable::as_raw(self), prange.into().abi()).ok()
     }
@@ -3315,9 +3315,9 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFont<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFont<P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextFont>>,
     {
         (::windows::core::Vtable::vtable(self).SetFont)(::windows::core::Vtable::as_raw(self), pfont.into().abi()).ok()
     }
@@ -3329,9 +3329,9 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPara<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPara<P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextPara>>,
     {
         (::windows::core::Vtable::vtable(self).SetPara)(::windows::core::Vtable::as_raw(self), ppara.into().abi()).ok()
     }
@@ -3362,27 +3362,27 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InRange<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn InRange<P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).InRange)(::windows::core::Vtable::as_raw(self), prange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InStory<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn InStory<P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).InStory)(::windows::core::Vtable::as_raw(self), prange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn IsEqual<P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsEqual)(::windows::core::Vtable::as_raw(self), prange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -3687,9 +3687,9 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFormattedText<'a, P0>(&self, prange: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFormattedText<P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetFormattedText)(::windows::core::Vtable::as_raw(self), prange.into().abi()).ok()
     }
@@ -3715,9 +3715,9 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFont<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFont<P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextFont>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetFont)(::windows::core::Vtable::as_raw(self), pfont.into().abi()).ok()
     }
@@ -3729,9 +3729,9 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPara<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPara<P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextPara>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPara)(::windows::core::Vtable::as_raw(self), ppara.into().abi()).ok()
     }
@@ -3762,27 +3762,27 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InRange<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn InRange<P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.InRange)(::windows::core::Vtable::as_raw(self), prange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InStory<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn InStory<P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.InStory)(::windows::core::Vtable::as_raw(self), prange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn IsEqual<P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.IsEqual)(::windows::core::Vtable::as_raw(self), prange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -3973,9 +3973,9 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFont2<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFont2<P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextFont2>>,
     {
         (::windows::core::Vtable::vtable(self).SetFont2)(::windows::core::Vtable::as_raw(self), pfont.into().abi()).ok()
     }
@@ -3987,9 +3987,9 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFormattedText2<'a, P0>(&self, prange: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFormattedText2<P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange2>>,
     {
         (::windows::core::Vtable::vtable(self).SetFormattedText2)(::windows::core::Vtable::as_raw(self), prange.into().abi()).ok()
     }
@@ -4008,9 +4008,9 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPara2<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPara2<P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextPara2>>,
     {
         (::windows::core::Vtable::vtable(self).SetPara2)(::windows::core::Vtable::as_raw(self), ppara.into().abi()).ok()
     }
@@ -4046,9 +4046,9 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Find<'a, P0>(&self, prange: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
+    pub unsafe fn Find<P0>(&self, prange: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange2>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Find)(::windows::core::Vtable::as_raw(self), prange.into().abi(), count, flags, result__.as_mut_ptr()).from_abi(result__)
@@ -4109,9 +4109,9 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn InsertImage<'a, P0>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: &::windows::core::BSTR, pstream: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InsertImage<P0>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: &::windows::core::BSTR, pstream: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).InsertImage)(::windows::core::Vtable::as_raw(self), width, height, ascent, r#type, ::core::mem::transmute_copy(bstralttext), pstream.into().abi()).ok()
     }
@@ -4379,9 +4379,9 @@ impl ITextRow {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, P0>(&self, prow: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn IsEqual<P0>(&self, prow: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRow>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRow>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsEqual)(::windows::core::Vtable::as_raw(self), prow.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -4512,9 +4512,9 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFormattedText<'a, P0>(&self, prange: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFormattedText<P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetFormattedText)(::windows::core::Vtable::as_raw(self), prange.into().abi()).ok()
     }
@@ -4540,9 +4540,9 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFont<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFont<P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextFont>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetFont)(::windows::core::Vtable::as_raw(self), pfont.into().abi()).ok()
     }
@@ -4554,9 +4554,9 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPara<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPara<P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextPara>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetPara)(::windows::core::Vtable::as_raw(self), ppara.into().abi()).ok()
     }
@@ -4587,27 +4587,27 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InRange<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn InRange<P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.InRange)(::windows::core::Vtable::as_raw(self), prange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InStory<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn InStory<P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.InStory)(::windows::core::Vtable::as_raw(self), prange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn IsEqual<P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.IsEqual)(::windows::core::Vtable::as_raw(self), prange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -4849,9 +4849,9 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFormattedText<'a, P0>(&self, prange: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFormattedText<P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetFormattedText)(::windows::core::Vtable::as_raw(self), prange.into().abi()).ok()
     }
@@ -4877,9 +4877,9 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFont<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFont<P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextFont>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetFont)(::windows::core::Vtable::as_raw(self), pfont.into().abi()).ok()
     }
@@ -4891,9 +4891,9 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPara<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPara<P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextPara>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPara)(::windows::core::Vtable::as_raw(self), ppara.into().abi()).ok()
     }
@@ -4924,27 +4924,27 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InRange<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn InRange<P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.InRange)(::windows::core::Vtable::as_raw(self), prange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InStory<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn InStory<P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.InStory)(::windows::core::Vtable::as_raw(self), prange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn IsEqual<P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.IsEqual)(::windows::core::Vtable::as_raw(self), prange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -5135,9 +5135,9 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFont2<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFont2<P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextFont2>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetFont2)(::windows::core::Vtable::as_raw(self), pfont.into().abi()).ok()
     }
@@ -5149,9 +5149,9 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFormattedText2<'a, P0>(&self, prange: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFormattedText2<P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange2>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetFormattedText2)(::windows::core::Vtable::as_raw(self), prange.into().abi()).ok()
     }
@@ -5170,9 +5170,9 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPara2<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPara2<P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextPara2>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetPara2)(::windows::core::Vtable::as_raw(self), ppara.into().abi()).ok()
     }
@@ -5208,9 +5208,9 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Find<'a, P0>(&self, prange: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
+    pub unsafe fn Find<P0>(&self, prange: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange2>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Find)(::windows::core::Vtable::as_raw(self), prange.into().abi(), count, flags, result__.as_mut_ptr()).from_abi(result__)
@@ -5271,9 +5271,9 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn InsertImage<'a, P0>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: &::windows::core::BSTR, pstream: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InsertImage<P0>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: &::windows::core::BSTR, pstream: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).base__.InsertImage)(::windows::core::Vtable::as_raw(self), width, height, ascent, r#type, ::core::mem::transmute_copy(bstralttext), pstream.into().abi()).ok()
     }
@@ -5320,7 +5320,7 @@ pub struct ITextServices(::windows::core::IUnknown);
 impl ITextServices {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSendMessage<'a, P0, P1>(&self, msg: u32, wparam: P0, lparam: P1, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
+    pub unsafe fn TxSendMessage<P0, P1>(&self, msg: u32, wparam: P0, lparam: P1, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
@@ -5329,7 +5329,7 @@ impl ITextServices {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxDraw<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()>
+    pub unsafe fn TxDraw<P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
@@ -5348,7 +5348,7 @@ impl ITextServices {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn OnTxSetCursor<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()>
+    pub unsafe fn OnTxSetCursor<P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
@@ -5357,7 +5357,7 @@ impl ITextServices {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxQueryHitPoint<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn TxQueryHitPoint<P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
@@ -5381,7 +5381,7 @@ impl ITextServices {
     pub unsafe fn TxGetText(&self, pbstrtext: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).TxGetText)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrtext)).ok()
     }
-    pub unsafe fn TxSetText<'a, P0>(&self, psztext: P0) -> ::windows::core::Result<()>
+    pub unsafe fn TxSetText<P0>(&self, psztext: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -5395,7 +5395,7 @@ impl ITextServices {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxGetNaturalSize<'a, P0, P1>(&self, dwaspect: u32, hdcdraw: P0, hictargetdev: P1, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn TxGetNaturalSize<P0, P1>(&self, dwaspect: u32, hdcdraw: P0, hictargetdev: P1, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
@@ -5494,7 +5494,7 @@ pub struct ITextServices2(::windows::core::IUnknown);
 impl ITextServices2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSendMessage<'a, P0, P1>(&self, msg: u32, wparam: P0, lparam: P1, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
+    pub unsafe fn TxSendMessage<P0, P1>(&self, msg: u32, wparam: P0, lparam: P1, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
@@ -5503,7 +5503,7 @@ impl ITextServices2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxDraw<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()>
+    pub unsafe fn TxDraw<P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
@@ -5522,7 +5522,7 @@ impl ITextServices2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn OnTxSetCursor<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()>
+    pub unsafe fn OnTxSetCursor<P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
@@ -5531,7 +5531,7 @@ impl ITextServices2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxQueryHitPoint<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn TxQueryHitPoint<P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
@@ -5555,7 +5555,7 @@ impl ITextServices2 {
     pub unsafe fn TxGetText(&self, pbstrtext: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.TxGetText)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrtext)).ok()
     }
-    pub unsafe fn TxSetText<'a, P0>(&self, psztext: P0) -> ::windows::core::Result<()>
+    pub unsafe fn TxSetText<P0>(&self, psztext: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -5569,7 +5569,7 @@ impl ITextServices2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxGetNaturalSize<'a, P0, P1>(&self, dwaspect: u32, hdcdraw: P0, hictargetdev: P1, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn TxGetNaturalSize<P0, P1>(&self, dwaspect: u32, hdcdraw: P0, hictargetdev: P1, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
@@ -5590,7 +5590,7 @@ impl ITextServices2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxGetNaturalSize2<'a, P0, P1>(&self, dwaspect: u32, hdcdraw: P0, hictargetdev: P1, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn TxGetNaturalSize2<P0, P1>(&self, dwaspect: u32, hdcdraw: P0, hictargetdev: P1, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
@@ -5599,9 +5599,9 @@ impl ITextServices2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D"))]
-    pub unsafe fn TxDrawD2D<'a, P0>(&self, prendertarget: P0, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, lviewid: i32) -> ::windows::core::Result<()>
+    pub unsafe fn TxDrawD2D<P0>(&self, prendertarget: P0, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, lviewid: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct2D::ID2D1RenderTarget>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Direct2D::ID2D1RenderTarget>>,
     {
         (::windows::core::Vtable::vtable(self).TxDrawD2D)(::windows::core::Vtable::as_raw(self), prendertarget.into().abi(), lprcbounds, lprcupdate, lviewid).ok()
     }
@@ -5682,9 +5682,9 @@ impl ITextStory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetText)(::windows::core::Vtable::as_raw(self), flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetFormattedText<'a, P0>(&self, punk: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFormattedText<P0>(&self, punk: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetFormattedText)(::windows::core::Vtable::as_raw(self), punk.into().abi()).ok()
     }
@@ -5889,9 +5889,9 @@ impl ITextStrings {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Append<'a, P0>(&self, prange: P0, istring: i32) -> ::windows::core::Result<()>
+    pub unsafe fn Append<P0>(&self, prange: P0, istring: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange2>>,
     {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), prange.into().abi(), istring).ok()
     }
@@ -5903,17 +5903,17 @@ impl ITextStrings {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeleteRange<'a, P0>(&self, prange: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteRange<P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange2>>,
     {
         (::windows::core::Vtable::vtable(self).DeleteRange)(::windows::core::Vtable::as_raw(self), prange.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EncodeFunction<'a, P0>(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32, prange: P0) -> ::windows::core::Result<()>
+    pub unsafe fn EncodeFunction<P0>(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32, prange: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange2>>,
     {
         (::windows::core::Vtable::vtable(self).EncodeFunction)(::windows::core::Vtable::as_raw(self), r#type, align, char, char1, char2, count, texstyle, ccol, prange.into().abi()).ok()
     }
@@ -5935,10 +5935,10 @@ impl ITextStrings {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFormattedText<'a, P0, P1>(&self, pranged: P0, pranges: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetFormattedText<P0, P1>(&self, pranged: P0, pranges: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange2>>,
+        P1: ::std::convert::Into<::windows::core::InParam<ITextRange2>>,
     {
         (::windows::core::Vtable::vtable(self).SetFormattedText)(::windows::core::Vtable::as_raw(self), pranged.into().abi(), pranges.into().abi()).ok()
     }
@@ -5947,9 +5947,9 @@ impl ITextStrings {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SuffixTop<'a, P0>(&self, bstr: &::windows::core::BSTR, prange: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SuffixTop<P0>(&self, bstr: &::windows::core::BSTR, prange: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITextRange2>>,
     {
         (::windows::core::Vtable::vtable(self).SuffixTop)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstr), prange.into().abi()).ok()
     }

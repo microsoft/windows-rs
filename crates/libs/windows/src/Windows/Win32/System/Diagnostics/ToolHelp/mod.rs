@@ -16,7 +16,7 @@ pub unsafe fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Heap32ListFirst<'a, P0>(hsnapshot: P0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL
+pub unsafe fn Heap32ListFirst<P0>(hsnapshot: P0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -26,7 +26,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Heap32ListNext<'a, P0>(hsnapshot: P0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL
+pub unsafe fn Heap32ListNext<P0>(hsnapshot: P0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -43,7 +43,7 @@ pub unsafe fn Heap32Next(lphe: *mut HEAPENTRY32) -> super::super::super::Foundat
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Module32First<'a, P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL
+pub unsafe fn Module32First<P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -53,7 +53,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Module32FirstW<'a, P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL
+pub unsafe fn Module32FirstW<P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -63,7 +63,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Module32Next<'a, P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL
+pub unsafe fn Module32Next<P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -73,7 +73,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Module32NextW<'a, P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL
+pub unsafe fn Module32NextW<P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -83,7 +83,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Process32First<'a, P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL
+pub unsafe fn Process32First<P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -93,7 +93,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Process32FirstW<'a, P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL
+pub unsafe fn Process32FirstW<P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -103,7 +103,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Process32Next<'a, P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL
+pub unsafe fn Process32Next<P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -113,7 +113,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Process32NextW<'a, P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL
+pub unsafe fn Process32NextW<P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -123,7 +123,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Thread32First<'a, P0>(hsnapshot: P0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL
+pub unsafe fn Thread32First<P0>(hsnapshot: P0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -133,7 +133,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Thread32Next<'a, P0>(hsnapshot: P0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL
+pub unsafe fn Thread32Next<P0>(hsnapshot: P0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {

@@ -444,7 +444,7 @@ impl ::core::convert::TryFrom<&IWebAccountProviderSilentReportOperation> for IWe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IWebAccountProviderSilentReportOperation> for ::windows::core::InParam<'a, IWebAccountProviderBaseReportOperation> {
+impl ::core::convert::TryFrom<&IWebAccountProviderSilentReportOperation> for ::windows::core::InParam<IWebAccountProviderBaseReportOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IWebAccountProviderSilentReportOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -572,7 +572,7 @@ impl ::core::convert::TryFrom<&IWebAccountProviderTokenObjects2> for IWebAccount
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IWebAccountProviderTokenObjects2> for ::windows::core::InParam<'a, IWebAccountProviderTokenObjects> {
+impl ::core::convert::TryFrom<&IWebAccountProviderTokenObjects2> for ::windows::core::InParam<IWebAccountProviderTokenObjects> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IWebAccountProviderTokenObjects2) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -673,7 +673,7 @@ impl ::core::convert::TryFrom<&IWebAccountProviderTokenOperation> for IWebAccoun
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IWebAccountProviderTokenOperation> for ::windows::core::InParam<'a, IWebAccountProviderOperation> {
+impl ::core::convert::TryFrom<&IWebAccountProviderTokenOperation> for ::windows::core::InParam<IWebAccountProviderOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IWebAccountProviderTokenOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -759,7 +759,7 @@ impl ::core::convert::TryFrom<&IWebAccountProviderUIReportOperation> for IWebAcc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IWebAccountProviderUIReportOperation> for ::windows::core::InParam<'a, IWebAccountProviderBaseReportOperation> {
+impl ::core::convert::TryFrom<&IWebAccountProviderUIReportOperation> for ::windows::core::InParam<IWebAccountProviderBaseReportOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IWebAccountProviderUIReportOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1021,9 +1021,9 @@ pub struct WebAccountManager;
 impl WebAccountManager {
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
-    pub fn UpdateWebAccountPropertiesAsync<'a, P0, E0>(webaccount: &super::super::super::Credentials::WebAccount, webaccountusername: &::windows::core::HSTRING, additionalproperties: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>
+    pub fn UpdateWebAccountPropertiesAsync<P0, E0>(webaccount: &super::super::super::Credentials::WebAccount, webaccountusername: &::windows::core::HSTRING, additionalproperties: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IWebAccountManagerStatics(|this| unsafe {
@@ -1033,9 +1033,9 @@ impl WebAccountManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
-    pub fn AddWebAccountAsync<'a, P0, E0>(webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    pub fn AddWebAccountAsync<P0, E0>(webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IWebAccountManagerStatics(|this| unsafe {
@@ -1061,9 +1061,9 @@ impl WebAccountManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Web_Http\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http"))]
-    pub fn PushCookiesAsync<'a, P0, E0>(uri: &super::super::super::super::Foundation::Uri, cookies: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>
+    pub fn PushCookiesAsync<P0, E0>(uri: &super::super::super::super::Foundation::Uri, cookies: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Web::Http::HttpCookie>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Web::Http::HttpCookie>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IWebAccountManagerStatics(|this| unsafe {
@@ -1097,9 +1097,9 @@ impl WebAccountManager {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "Storage_Streams"))]
-    pub fn SetWebAccountPictureAsync<'a, P0, E0>(webaccount: &super::super::super::Credentials::WebAccount, webaccountpicture: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>
+    pub fn SetWebAccountPictureAsync<P0, E0>(webaccount: &super::super::super::Credentials::WebAccount, webaccountpicture: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IWebAccountManagerStatics(|this| unsafe {
@@ -1133,9 +1133,9 @@ impl WebAccountManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System"))]
-    pub fn AddWebAccountForUserAsync<'a, P0, E0>(user: &super::super::super::super::System::User, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    pub fn AddWebAccountForUserAsync<P0, E0>(user: &super::super::super::super::System::User, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IWebAccountManagerStatics3(|this| unsafe {
@@ -1145,9 +1145,9 @@ impl WebAccountManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System"))]
-    pub fn AddWebAccountWithScopeForUserAsync<'a, P0, E0>(user: &super::super::super::super::System::User, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: P0, scope: WebAccountScope) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    pub fn AddWebAccountWithScopeForUserAsync<P0, E0>(user: &super::super::super::super::System::User, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: P0, scope: WebAccountScope) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IWebAccountManagerStatics3(|this| unsafe {
@@ -1157,9 +1157,9 @@ impl WebAccountManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System"))]
-    pub fn AddWebAccountWithScopeAndMapForUserAsync<'a, P0, E0>(user: &super::super::super::super::System::User, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: P0, scope: WebAccountScope, peruserwebaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    pub fn AddWebAccountWithScopeAndMapForUserAsync<P0, E0>(user: &super::super::super::super::System::User, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: P0, scope: WebAccountScope, peruserwebaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IWebAccountManagerStatics3(|this| unsafe {
@@ -1185,9 +1185,9 @@ impl WebAccountManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
-    pub fn AddWebAccountWithScopeAndMapAsync<'a, P0, E0>(webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: P0, scope: WebAccountScope, peruserwebaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    pub fn AddWebAccountWithScopeAndMapAsync<P0, E0>(webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: P0, scope: WebAccountScope, peruserwebaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IWebAccountMapManagerStatics(|this| unsafe {
@@ -1221,9 +1221,9 @@ impl WebAccountManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
-    pub fn AddWebAccountWithScopeAsync<'a, P0, E0>(webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: P0, scope: WebAccountScope) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    pub fn AddWebAccountWithScopeAsync<P0, E0>(webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: P0, scope: WebAccountScope) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IWebAccountScopeManagerStatics(|this| unsafe {
@@ -1342,7 +1342,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderAddAccountOperation> for IWebAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderAddAccountOperation> for ::windows::core::InParam<'a, IWebAccountProviderOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderAddAccountOperation> for ::windows::core::InParam<IWebAccountProviderOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderAddAccountOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1427,7 +1427,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderDeleteAccountOperation> for IWe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderDeleteAccountOperation> for ::windows::core::InParam<'a, IWebAccountProviderBaseReportOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderDeleteAccountOperation> for ::windows::core::InParam<IWebAccountProviderBaseReportOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderDeleteAccountOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1446,7 +1446,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderDeleteAccountOperation> for IWe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderDeleteAccountOperation> for ::windows::core::InParam<'a, IWebAccountProviderOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderDeleteAccountOperation> for ::windows::core::InParam<IWebAccountProviderOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderDeleteAccountOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1563,7 +1563,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderGetTokenSilentOperation> for IW
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderGetTokenSilentOperation> for ::windows::core::InParam<'a, IWebAccountProviderBaseReportOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderGetTokenSilentOperation> for ::windows::core::InParam<IWebAccountProviderBaseReportOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderGetTokenSilentOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1582,7 +1582,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderGetTokenSilentOperation> for IW
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderGetTokenSilentOperation> for ::windows::core::InParam<'a, IWebAccountProviderOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderGetTokenSilentOperation> for ::windows::core::InParam<IWebAccountProviderOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderGetTokenSilentOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1601,7 +1601,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderGetTokenSilentOperation> for IW
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderGetTokenSilentOperation> for ::windows::core::InParam<'a, IWebAccountProviderSilentReportOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderGetTokenSilentOperation> for ::windows::core::InParam<IWebAccountProviderSilentReportOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderGetTokenSilentOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1620,7 +1620,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderGetTokenSilentOperation> for IW
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderGetTokenSilentOperation> for ::windows::core::InParam<'a, IWebAccountProviderTokenOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderGetTokenSilentOperation> for ::windows::core::InParam<IWebAccountProviderTokenOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderGetTokenSilentOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1699,7 +1699,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderManageAccountOperation> for IWe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderManageAccountOperation> for ::windows::core::InParam<'a, IWebAccountProviderOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderManageAccountOperation> for ::windows::core::InParam<IWebAccountProviderOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderManageAccountOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1810,7 +1810,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderRequestTokenOperation> for IWeb
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderRequestTokenOperation> for ::windows::core::InParam<'a, IWebAccountProviderBaseReportOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderRequestTokenOperation> for ::windows::core::InParam<IWebAccountProviderBaseReportOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderRequestTokenOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1829,7 +1829,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderRequestTokenOperation> for IWeb
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderRequestTokenOperation> for ::windows::core::InParam<'a, IWebAccountProviderOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderRequestTokenOperation> for ::windows::core::InParam<IWebAccountProviderOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderRequestTokenOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1848,7 +1848,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderRequestTokenOperation> for IWeb
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderRequestTokenOperation> for ::windows::core::InParam<'a, IWebAccountProviderTokenOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderRequestTokenOperation> for ::windows::core::InParam<IWebAccountProviderTokenOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderRequestTokenOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1867,7 +1867,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderRequestTokenOperation> for IWeb
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderRequestTokenOperation> for ::windows::core::InParam<'a, IWebAccountProviderUIReportOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderRequestTokenOperation> for ::windows::core::InParam<IWebAccountProviderUIReportOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderRequestTokenOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1985,7 +1985,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderRetrieveCookiesOperation> for I
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderRetrieveCookiesOperation> for ::windows::core::InParam<'a, IWebAccountProviderBaseReportOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderRetrieveCookiesOperation> for ::windows::core::InParam<IWebAccountProviderBaseReportOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderRetrieveCookiesOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2004,7 +2004,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderRetrieveCookiesOperation> for I
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderRetrieveCookiesOperation> for ::windows::core::InParam<'a, IWebAccountProviderOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderRetrieveCookiesOperation> for ::windows::core::InParam<IWebAccountProviderOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderRetrieveCookiesOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2105,7 +2105,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderSignOutAccountOperation> for IW
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderSignOutAccountOperation> for ::windows::core::InParam<'a, IWebAccountProviderBaseReportOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderSignOutAccountOperation> for ::windows::core::InParam<IWebAccountProviderBaseReportOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderSignOutAccountOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2124,7 +2124,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderSignOutAccountOperation> for IW
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderSignOutAccountOperation> for ::windows::core::InParam<'a, IWebAccountProviderOperation> {
+impl ::core::convert::TryFrom<&WebAccountProviderSignOutAccountOperation> for ::windows::core::InParam<IWebAccountProviderOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderSignOutAccountOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2199,7 +2199,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderTriggerDetails> for IWebAccount
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderTriggerDetails> for ::windows::core::InParam<'a, IWebAccountProviderTokenObjects> {
+impl ::core::convert::TryFrom<&WebAccountProviderTriggerDetails> for ::windows::core::InParam<IWebAccountProviderTokenObjects> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderTriggerDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2218,7 +2218,7 @@ impl ::core::convert::TryFrom<&WebAccountProviderTriggerDetails> for IWebAccount
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccountProviderTriggerDetails> for ::windows::core::InParam<'a, IWebAccountProviderTokenObjects2> {
+impl ::core::convert::TryFrom<&WebAccountProviderTriggerDetails> for ::windows::core::InParam<IWebAccountProviderTokenObjects2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccountProviderTriggerDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

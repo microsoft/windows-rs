@@ -127,7 +127,7 @@ impl ::core::convert::TryFrom<&CompositorController> for super::super::super::Fo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&CompositorController> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&CompositorController> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositorController) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

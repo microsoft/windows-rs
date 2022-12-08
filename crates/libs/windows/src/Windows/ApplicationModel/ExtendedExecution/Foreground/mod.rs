@@ -202,7 +202,7 @@ impl ::core::convert::TryFrom<&ExtendedExecutionForegroundSession> for super::su
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&ExtendedExecutionForegroundSession> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&ExtendedExecutionForegroundSession> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ExtendedExecutionForegroundSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

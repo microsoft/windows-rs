@@ -36,7 +36,7 @@ pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, 
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
-pub unsafe fn CertSrvBackupOpenFileW<'a, P0>(hbc: *mut ::core::ffi::c_void, pwszattachmentname: P0, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::Result<()>
+pub unsafe fn CertSrvBackupOpenFileW<P0>(hbc: *mut ::core::ffi::c_void, pwszattachmentname: P0, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -45,7 +45,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
-pub unsafe fn CertSrvBackupPrepareW<'a, P0>(pwszservername: P0, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn CertSrvBackupPrepareW<P0>(pwszservername: P0, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -67,7 +67,7 @@ pub unsafe fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::wind
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CertSrvIsServerOnlineW<'a, P0>(pwszservername: P0, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+pub unsafe fn CertSrvIsServerOnlineW<P0>(pwszservername: P0, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -88,7 +88,7 @@ pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_voi
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
-pub unsafe fn CertSrvRestorePrepareW<'a, P0>(pwszservername: P0, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn CertSrvRestorePrepareW<P0>(pwszservername: P0, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -103,7 +103,7 @@ pub unsafe fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrre
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
-pub unsafe fn CertSrvRestoreRegisterThroughFile<'a, P0, P1, P2>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: P0, pwszlogpath: P1, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: P2, genlow: u32, genhigh: u32) -> ::windows::core::Result<()>
+pub unsafe fn CertSrvRestoreRegisterThroughFile<P0, P1, P2>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: P0, pwszlogpath: P1, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: P2, genlow: u32, genhigh: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -114,7 +114,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
-pub unsafe fn CertSrvRestoreRegisterW<'a, P0, P1, P2>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: P0, pwszlogpath: P1, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: P2, genlow: u32, genhigh: u32) -> ::windows::core::Result<()>
+pub unsafe fn CertSrvRestoreRegisterW<P0, P1, P2>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: P0, pwszlogpath: P1, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: P2, genlow: u32, genhigh: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -125,7 +125,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
-pub unsafe fn CertSrvServerControlW<'a, P0>(pwszservername: P0, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::Result<()>
+pub unsafe fn CertSrvServerControlW<P0>(pwszservername: P0, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -149,7 +149,7 @@ pub unsafe fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrusted
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PstGetCertificates<'a, P0>(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: ::core::option::Option<&[super::CERT_SELECT_CRITERIA]>, bisclient: P0, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> ::windows::core::Result<()>
+pub unsafe fn PstGetCertificates<P0>(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: ::core::option::Option<&[super::CERT_SELECT_CRITERIA]>, bisclient: P0, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
@@ -187,7 +187,7 @@ pub unsafe fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninforma
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PstValidate<'a, P0>(ptargetname: ::core::option::Option<*const super::super::super::Foundation::UNICODE_STRING>, bisclient: P0, prequestedissuancepolicy: ::core::option::Option<*const super::CERT_USAGE_MATCH>, phadditionalcertstore: ::core::option::Option<*const super::HCERTSTORE>, pcert: *const super::CERT_CONTEXT, pprovguid: ::core::option::Option<*mut ::windows::core::GUID>) -> ::windows::core::Result<()>
+pub unsafe fn PstValidate<P0>(ptargetname: ::core::option::Option<*const super::super::super::Foundation::UNICODE_STRING>, bisclient: P0, prequestedissuancepolicy: ::core::option::Option<*const super::CERT_USAGE_MATCH>, phadditionalcertstore: ::core::option::Option<*const super::HCERTSTORE>, pcert: *const super::CERT_CONTEXT, pprovguid: ::core::option::Option<*mut ::windows::core::GUID>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
@@ -208,9 +208,9 @@ impl IAlternativeName {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn InitializeFromOtherName<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strrawdata: &::windows::core::BSTR, tobewrapped: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromOtherName<P0>(&self, pobjectid: P0, encoding: EncodingType, strrawdata: &::windows::core::BSTR, tobewrapped: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromOtherName)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strrawdata), tobewrapped).ok()
     }
@@ -304,9 +304,9 @@ impl IAlternativeNames {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IAlternativeName>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IAlternativeName>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -673,7 +673,7 @@ impl ICEnroll {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseExistingKeySet<'a, P0>(&self, fuseexistingkeys: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetUseExistingKeySet<P0>(&self, fuseexistingkeys: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -694,7 +694,7 @@ impl ICEnroll {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDeleteRequestCert<'a, P0>(&self, fdelete: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDeleteRequestCert<P0>(&self, fdelete: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -708,7 +708,7 @@ impl ICEnroll {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteCertToCSP<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWriteCertToCSP<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1007,7 +1007,7 @@ impl ICEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseExistingKeySet<'a, P0>(&self, fuseexistingkeys: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetUseExistingKeySet<P0>(&self, fuseexistingkeys: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1028,7 +1028,7 @@ impl ICEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDeleteRequestCert<'a, P0>(&self, fdelete: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDeleteRequestCert<P0>(&self, fdelete: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1042,7 +1042,7 @@ impl ICEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteCertToCSP<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWriteCertToCSP<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1083,7 +1083,7 @@ impl ICEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteCertToUserDS<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWriteCertToUserDS<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1097,7 +1097,7 @@ impl ICEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableT61DNEncoding<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEnableT61DNEncoding<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1319,7 +1319,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseExistingKeySet<'a, P0>(&self, fuseexistingkeys: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetUseExistingKeySet<P0>(&self, fuseexistingkeys: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1340,7 +1340,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDeleteRequestCert<'a, P0>(&self, fdelete: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDeleteRequestCert<P0>(&self, fdelete: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1354,7 +1354,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteCertToCSP<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWriteCertToCSP<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1395,7 +1395,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteCertToUserDS<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWriteCertToUserDS<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1409,7 +1409,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableT61DNEncoding<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEnableT61DNEncoding<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1427,7 +1427,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetKeyLen<'a, P0, P1>(&self, fmin: P0, fexchange: P1) -> ::windows::core::Result<i32>
+    pub unsafe fn GetKeyLen<P0, P1>(&self, fmin: P0, fexchange: P1) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
@@ -1445,7 +1445,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew<'a, P0>(&self, freusehardwarekeyifunabletogennew: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew<P0>(&self, freusehardwarekeyifunabletogennew: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1466,7 +1466,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLimitExchangeKeyToEncipherment<'a, P0>(&self, flimitexchangekeytoencipherment: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLimitExchangeKeyToEncipherment<P0>(&self, flimitexchangekeytoencipherment: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1480,7 +1480,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableSMIMECapabilities<'a, P0>(&self, fenablesmimecapabilities: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEnableSMIMECapabilities<P0>(&self, fenablesmimecapabilities: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1725,7 +1725,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseExistingKeySet<'a, P0>(&self, fuseexistingkeys: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetUseExistingKeySet<P0>(&self, fuseexistingkeys: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1746,7 +1746,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDeleteRequestCert<'a, P0>(&self, fdelete: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDeleteRequestCert<P0>(&self, fdelete: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1760,7 +1760,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteCertToCSP<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWriteCertToCSP<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1801,7 +1801,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteCertToUserDS<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWriteCertToUserDS<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1815,7 +1815,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableT61DNEncoding<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEnableT61DNEncoding<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1833,7 +1833,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetKeyLen<'a, P0, P1>(&self, fmin: P0, fexchange: P1) -> ::windows::core::Result<i32>
+    pub unsafe fn GetKeyLen<P0, P1>(&self, fmin: P0, fexchange: P1) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
@@ -1851,7 +1851,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew<'a, P0>(&self, freusehardwarekeyifunabletogennew: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew<P0>(&self, freusehardwarekeyifunabletogennew: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1872,7 +1872,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLimitExchangeKeyToEncipherment<'a, P0>(&self, flimitexchangekeytoencipherment: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLimitExchangeKeyToEncipherment<P0>(&self, flimitexchangekeytoencipherment: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1886,7 +1886,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableSMIMECapabilities<'a, P0>(&self, fenablesmimecapabilities: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEnableSMIMECapabilities<P0>(&self, fenablesmimecapabilities: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -1985,7 +1985,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn addCertTypeToRequestEx<'a, P0>(&self, ltype: ADDED_CERT_TYPE, bstroidorname: &::windows::core::BSTR, lmajorversion: i32, fminorversion: P0, lminorversion: i32) -> ::windows::core::Result<()>
+    pub unsafe fn addCertTypeToRequestEx<P0>(&self, ltype: ADDED_CERT_TYPE, bstroidorname: &::windows::core::BSTR, lmajorversion: i32, fminorversion: P0, lminorversion: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2013,7 +2013,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIncludeSubjectKeyID<'a, P0>(&self, finclude: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetIncludeSubjectKeyID<P0>(&self, finclude: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -3763,9 +3763,9 @@ impl ICertProperties {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICertProperty>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICertProperty>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -4690,9 +4690,9 @@ impl ICertPropertyKeyProvInfo {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PrivateKey>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -5319,21 +5319,21 @@ pub struct ICertRequest3_Vtbl {
 #[repr(transparent)]
 pub struct ICertRequestD(::windows::core::IUnknown);
 impl ICertRequestD {
-    pub unsafe fn Request<'a, P0, P1>(&self, dwflags: u32, pwszauthority: P0, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: P1, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
+    pub unsafe fn Request<P0, P1>(&self, dwflags: u32, pwszauthority: P0, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: P1, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).Request)(::windows::core::Vtable::as_raw(self), dwflags, pwszauthority.into(), pdwrequestid, pdwdisposition, pwszattributes.into(), pctbrequest, pctbcertchain, pctbencodedcert, pctbdispositionmessage).ok()
     }
-    pub unsafe fn GetCACert<'a, P0>(&self, fchain: u32, pwszauthority: P0) -> ::windows::core::Result<CERTTRANSBLOB>
+    pub unsafe fn GetCACert<P0>(&self, fchain: u32, pwszauthority: P0) -> ::windows::core::Result<CERTTRANSBLOB>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCACert)(::windows::core::Vtable::as_raw(self), fchain, pwszauthority.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Ping<'a, P0>(&self, pwszauthority: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Ping<P0>(&self, pwszauthority: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -5375,27 +5375,27 @@ pub struct ICertRequestD_Vtbl {
 #[repr(transparent)]
 pub struct ICertRequestD2(::windows::core::IUnknown);
 impl ICertRequestD2 {
-    pub unsafe fn Request<'a, P0, P1>(&self, dwflags: u32, pwszauthority: P0, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: P1, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
+    pub unsafe fn Request<P0, P1>(&self, dwflags: u32, pwszauthority: P0, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: P1, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.Request)(::windows::core::Vtable::as_raw(self), dwflags, pwszauthority.into(), pdwrequestid, pdwdisposition, pwszattributes.into(), pctbrequest, pctbcertchain, pctbencodedcert, pctbdispositionmessage).ok()
     }
-    pub unsafe fn GetCACert<'a, P0>(&self, fchain: u32, pwszauthority: P0) -> ::windows::core::Result<CERTTRANSBLOB>
+    pub unsafe fn GetCACert<P0>(&self, fchain: u32, pwszauthority: P0) -> ::windows::core::Result<CERTTRANSBLOB>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetCACert)(::windows::core::Vtable::as_raw(self), fchain, pwszauthority.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Ping<'a, P0>(&self, pwszauthority: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Ping<P0>(&self, pwszauthority: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.Ping)(::windows::core::Vtable::as_raw(self), pwszauthority.into()).ok()
     }
-    pub unsafe fn Request2<'a, P0, P1, P2>(&self, pwszauthority: P0, dwflags: u32, pwszserialnumber: P1, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: P2, pctbrequest: *const CERTTRANSBLOB, pctbfullresponse: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
+    pub unsafe fn Request2<P0, P1, P2>(&self, pwszauthority: P0, dwflags: u32, pwszserialnumber: P1, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: P2, pctbrequest: *const CERTTRANSBLOB, pctbfullresponse: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -5403,20 +5403,20 @@ impl ICertRequestD2 {
     {
         (::windows::core::Vtable::vtable(self).Request2)(::windows::core::Vtable::as_raw(self), pwszauthority.into(), dwflags, pwszserialnumber.into(), pdwrequestid, pdwdisposition, pwszattributes.into(), pctbrequest, pctbfullresponse, pctbencodedcert, pctbdispositionmessage).ok()
     }
-    pub unsafe fn GetCAProperty<'a, P0>(&self, pwszauthority: P0, propid: i32, propindex: i32, proptype: i32) -> ::windows::core::Result<CERTTRANSBLOB>
+    pub unsafe fn GetCAProperty<P0>(&self, pwszauthority: P0, propid: i32, propindex: i32, proptype: i32) -> ::windows::core::Result<CERTTRANSBLOB>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCAProperty)(::windows::core::Vtable::as_raw(self), pwszauthority.into(), propid, propindex, proptype, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetCAPropertyInfo<'a, P0>(&self, pwszauthority: P0, pcproperty: *mut i32, pctbpropinfo: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
+    pub unsafe fn GetCAPropertyInfo<P0>(&self, pwszauthority: P0, pcproperty: *mut i32, pctbpropinfo: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).GetCAPropertyInfo)(::windows::core::Vtable::as_raw(self), pwszauthority.into(), pcproperty, pctbpropinfo).ok()
     }
-    pub unsafe fn Ping2<'a, P0>(&self, pwszauthority: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Ping2<P0>(&self, pwszauthority: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -6011,9 +6011,9 @@ impl ICertificatePolicies {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICertificatePolicy>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICertificatePolicy>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -6080,9 +6080,9 @@ pub struct ICertificatePolicy(::windows::core::IUnknown);
 impl ICertificatePolicy {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -6169,9 +6169,9 @@ impl ICertificationAuthorities {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICertificationAuthority>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICertificationAuthority>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -6305,17 +6305,17 @@ pub struct ICryptAttribute(::windows::core::IUnknown);
 impl ICryptAttribute {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromObjectId<'a, P0>(&self, pobjectid: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromObjectId<P0>(&self, pobjectid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromObjectId)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromValues<'a, P0>(&self, pattributes: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromValues<P0>(&self, pattributes: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509Attributes>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509Attributes>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromValues)(::windows::core::Vtable::as_raw(self), pattributes.into().abi()).ok()
     }
@@ -6406,9 +6406,9 @@ impl ICryptAttributes {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICryptAttribute>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICryptAttribute>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -6420,18 +6420,18 @@ impl ICryptAttributes {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_IndexByObjectId<'a, P0>(&self, pobjectid: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn get_IndexByObjectId<P0>(&self, pobjectid: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_IndexByObjectId)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddRange<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddRange<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICryptAttributes>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICryptAttributes>>,
     {
         (::windows::core::Vtable::vtable(self).AddRange)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -6617,9 +6617,9 @@ impl ICspAlgorithms {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspAlgorithm>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspAlgorithm>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -6637,9 +6637,9 @@ impl ICspAlgorithms {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_IndexByObjectId<'a, P0>(&self, pobjectid: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn get_IndexByObjectId<P0>(&self, pobjectid: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_IndexByObjectId)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -6712,9 +6712,9 @@ impl ICspInformation {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn InitializeFromType<'a, P0>(&self, r#type: X509ProviderType, palgorithm: P0, machinecontext: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromType<P0>(&self, r#type: X509ProviderType, palgorithm: P0, machinecontext: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromType)(::windows::core::Vtable::as_raw(self), r#type, palgorithm.into().abi(), machinecontext).ok()
     }
@@ -6794,9 +6794,9 @@ impl ICspInformation {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetCspStatusFromOperations<'a, P0>(&self, palgorithm: P0, operations: AlgorithmOperationFlags) -> ::windows::core::Result<ICspStatus>
+    pub unsafe fn GetCspStatusFromOperations<P0>(&self, palgorithm: P0, operations: AlgorithmOperationFlags) -> ::windows::core::Result<ICspStatus>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCspStatusFromOperations)(::windows::core::Vtable::as_raw(self), palgorithm.into().abi(), operations, result__.as_mut_ptr()).from_abi(result__)
@@ -6910,9 +6910,9 @@ impl ICspInformations {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformation>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -6939,27 +6939,27 @@ impl ICspInformations {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetCspStatusesFromOperations<'a, P0>(&self, operations: AlgorithmOperationFlags, pcspinformation: P0) -> ::windows::core::Result<ICspStatuses>
+    pub unsafe fn GetCspStatusesFromOperations<P0>(&self, operations: AlgorithmOperationFlags, pcspinformation: P0) -> ::windows::core::Result<ICspStatuses>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformation>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCspStatusesFromOperations)(::windows::core::Vtable::as_raw(self), operations, pcspinformation.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetEncryptionCspAlgorithms<'a, P0>(&self, pcspinformation: P0) -> ::windows::core::Result<ICspAlgorithms>
+    pub unsafe fn GetEncryptionCspAlgorithms<P0>(&self, pcspinformation: P0) -> ::windows::core::Result<ICspAlgorithms>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformation>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetEncryptionCspAlgorithms)(::windows::core::Vtable::as_raw(self), pcspinformation.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetHashAlgorithms<'a, P0>(&self, pcspinformation: P0) -> ::windows::core::Result<IObjectIds>
+    pub unsafe fn GetHashAlgorithms<P0>(&self, pcspinformation: P0) -> ::windows::core::Result<IObjectIds>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformation>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetHashAlgorithms)(::windows::core::Vtable::as_raw(self), pcspinformation.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -7042,10 +7042,10 @@ pub struct ICspStatus(::windows::core::IUnknown);
 impl ICspStatus {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0, P1>(&self, pcsp: P0, palgorithm: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0, P1>(&self, pcsp: P0, palgorithm: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformation>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ICspAlgorithm>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformation>>,
+        P1: ::std::convert::Into<::windows::core::InParam<ICspAlgorithm>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pcsp.into().abi(), palgorithm.into().abi()).ok()
     }
@@ -7156,9 +7156,9 @@ impl ICspStatuses {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspStatus>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspStatus>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -7188,9 +7188,9 @@ impl ICspStatuses {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_ItemByProvider<'a, P0>(&self, pcspstatus: P0) -> ::windows::core::Result<ICspStatus>
+    pub unsafe fn get_ItemByProvider<P0>(&self, pcspstatus: P0) -> ::windows::core::Result<ICspStatus>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspStatus>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspStatus>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_ItemByProvider)(::windows::core::Vtable::as_raw(self), pcspstatus.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -7264,7 +7264,7 @@ pub struct ICspStatuses_Vtbl {
 #[repr(transparent)]
 pub struct IEnroll(::windows::core::IUnknown);
 impl IEnroll {
-    pub unsafe fn createFilePKCS10WStr<'a, P0, P1, P2>(&self, dnname: P0, usage: P1, wszpkcs10filename: P2) -> ::windows::core::Result<()>
+    pub unsafe fn createFilePKCS10WStr<P0, P1, P2>(&self, dnname: P0, usage: P1, wszpkcs10filename: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -7272,13 +7272,13 @@ impl IEnroll {
     {
         (::windows::core::Vtable::vtable(self).createFilePKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into(), usage.into(), wszpkcs10filename.into()).ok()
     }
-    pub unsafe fn acceptFilePKCS7WStr<'a, P0>(&self, wszpkcs7filename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn acceptFilePKCS7WStr<P0>(&self, wszpkcs7filename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).acceptFilePKCS7WStr)(::windows::core::Vtable::as_raw(self), wszpkcs7filename.into()).ok()
     }
-    pub unsafe fn createPKCS10WStr<'a, P0, P1>(&self, dnname: P0, usage: P1, ppkcs10blob: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
+    pub unsafe fn createPKCS10WStr<P0, P1>(&self, dnname: P0, usage: P1, ppkcs10blob: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -7314,7 +7314,7 @@ impl IEnroll {
     pub unsafe fn MyStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).MyStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname).ok()
     }
-    pub unsafe fn SetMyStoreNameWStr<'a, P0>(&self, szwname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMyStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7323,7 +7323,7 @@ impl IEnroll {
     pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).MyStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
-    pub unsafe fn SetMyStoreTypeWStr<'a, P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMyStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7338,7 +7338,7 @@ impl IEnroll {
     pub unsafe fn CAStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CAStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname).ok()
     }
-    pub unsafe fn SetCAStoreNameWStr<'a, P0>(&self, szwname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCAStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7347,7 +7347,7 @@ impl IEnroll {
     pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CAStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
-    pub unsafe fn SetCAStoreTypeWStr<'a, P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCAStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7362,7 +7362,7 @@ impl IEnroll {
     pub unsafe fn RootStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RootStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname).ok()
     }
-    pub unsafe fn SetRootStoreNameWStr<'a, P0>(&self, szwname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRootStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7371,7 +7371,7 @@ impl IEnroll {
     pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RootStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
-    pub unsafe fn SetRootStoreTypeWStr<'a, P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRootStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7386,7 +7386,7 @@ impl IEnroll {
     pub unsafe fn RequestStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RequestStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname).ok()
     }
-    pub unsafe fn SetRequestStoreNameWStr<'a, P0>(&self, szwname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRequestStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7395,7 +7395,7 @@ impl IEnroll {
     pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RequestStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
-    pub unsafe fn SetRequestStoreTypeWStr<'a, P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRequestStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7410,7 +7410,7 @@ impl IEnroll {
     pub unsafe fn ContainerNameWStr(&self, szwcontainer: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ContainerNameWStr)(::windows::core::Vtable::as_raw(self), szwcontainer).ok()
     }
-    pub unsafe fn SetContainerNameWStr<'a, P0>(&self, szwcontainer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetContainerNameWStr<P0>(&self, szwcontainer: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7419,7 +7419,7 @@ impl IEnroll {
     pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ProviderNameWStr)(::windows::core::Vtable::as_raw(self), szwprovider).ok()
     }
-    pub unsafe fn SetProviderNameWStr<'a, P0>(&self, szwprovider: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetProviderNameWStr<P0>(&self, szwprovider: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7450,7 +7450,7 @@ impl IEnroll {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseExistingKeySet<'a, P0>(&self, fuseexistingkeys: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetUseExistingKeySet<P0>(&self, fuseexistingkeys: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -7469,7 +7469,7 @@ impl IEnroll {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDeleteRequestCert<'a, P0>(&self, fdelete: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDeleteRequestCert<P0>(&self, fdelete: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -7482,7 +7482,7 @@ impl IEnroll {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteCertToUserDS<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWriteCertToUserDS<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -7495,7 +7495,7 @@ impl IEnroll {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableT61DNEncoding<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEnableT61DNEncoding<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -7508,7 +7508,7 @@ impl IEnroll {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteCertToCSP<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWriteCertToCSP<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -7517,7 +7517,7 @@ impl IEnroll {
     pub unsafe fn SPCFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SPCFileNameWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
-    pub unsafe fn SetSPCFileNameWStr<'a, P0>(&self, szw: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSPCFileNameWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7526,7 +7526,7 @@ impl IEnroll {
     pub unsafe fn PVKFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).PVKFileNameWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
-    pub unsafe fn SetPVKFileNameWStr<'a, P0>(&self, szw: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPVKFileNameWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7535,7 +7535,7 @@ impl IEnroll {
     pub unsafe fn HashAlgorithmWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).HashAlgorithmWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
-    pub unsafe fn SetHashAlgorithmWStr<'a, P0>(&self, szw: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithmWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7551,13 +7551,13 @@ impl IEnroll {
     pub unsafe fn SetRenewalCertificate(&self, pcertcontext: *const super::CERT_CONTEXT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetRenewalCertificate)(::windows::core::Vtable::as_raw(self), pcertcontext).ok()
     }
-    pub unsafe fn AddCertTypeToRequestWStr<'a, P0>(&self, szw: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddCertTypeToRequestWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).AddCertTypeToRequestWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
     }
-    pub unsafe fn AddNameValuePairToSignatureWStr<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddNameValuePairToSignatureWStr<P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -7725,7 +7725,7 @@ pub struct IEnroll_Vtbl {
 #[repr(transparent)]
 pub struct IEnroll2(::windows::core::IUnknown);
 impl IEnroll2 {
-    pub unsafe fn createFilePKCS10WStr<'a, P0, P1, P2>(&self, dnname: P0, usage: P1, wszpkcs10filename: P2) -> ::windows::core::Result<()>
+    pub unsafe fn createFilePKCS10WStr<P0, P1, P2>(&self, dnname: P0, usage: P1, wszpkcs10filename: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -7733,13 +7733,13 @@ impl IEnroll2 {
     {
         (::windows::core::Vtable::vtable(self).base__.createFilePKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into(), usage.into(), wszpkcs10filename.into()).ok()
     }
-    pub unsafe fn acceptFilePKCS7WStr<'a, P0>(&self, wszpkcs7filename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn acceptFilePKCS7WStr<P0>(&self, wszpkcs7filename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.acceptFilePKCS7WStr)(::windows::core::Vtable::as_raw(self), wszpkcs7filename.into()).ok()
     }
-    pub unsafe fn createPKCS10WStr<'a, P0, P1>(&self, dnname: P0, usage: P1, ppkcs10blob: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
+    pub unsafe fn createPKCS10WStr<P0, P1>(&self, dnname: P0, usage: P1, ppkcs10blob: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -7775,7 +7775,7 @@ impl IEnroll2 {
     pub unsafe fn MyStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.MyStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname).ok()
     }
-    pub unsafe fn SetMyStoreNameWStr<'a, P0>(&self, szwname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMyStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7784,7 +7784,7 @@ impl IEnroll2 {
     pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.MyStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
-    pub unsafe fn SetMyStoreTypeWStr<'a, P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMyStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7799,7 +7799,7 @@ impl IEnroll2 {
     pub unsafe fn CAStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CAStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname).ok()
     }
-    pub unsafe fn SetCAStoreNameWStr<'a, P0>(&self, szwname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCAStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7808,7 +7808,7 @@ impl IEnroll2 {
     pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CAStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
-    pub unsafe fn SetCAStoreTypeWStr<'a, P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCAStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7823,7 +7823,7 @@ impl IEnroll2 {
     pub unsafe fn RootStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.RootStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname).ok()
     }
-    pub unsafe fn SetRootStoreNameWStr<'a, P0>(&self, szwname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRootStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7832,7 +7832,7 @@ impl IEnroll2 {
     pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.RootStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
-    pub unsafe fn SetRootStoreTypeWStr<'a, P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRootStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7847,7 +7847,7 @@ impl IEnroll2 {
     pub unsafe fn RequestStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.RequestStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname).ok()
     }
-    pub unsafe fn SetRequestStoreNameWStr<'a, P0>(&self, szwname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRequestStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7856,7 +7856,7 @@ impl IEnroll2 {
     pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.RequestStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
-    pub unsafe fn SetRequestStoreTypeWStr<'a, P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRequestStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7871,7 +7871,7 @@ impl IEnroll2 {
     pub unsafe fn ContainerNameWStr(&self, szwcontainer: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.ContainerNameWStr)(::windows::core::Vtable::as_raw(self), szwcontainer).ok()
     }
-    pub unsafe fn SetContainerNameWStr<'a, P0>(&self, szwcontainer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetContainerNameWStr<P0>(&self, szwcontainer: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7880,7 +7880,7 @@ impl IEnroll2 {
     pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.ProviderNameWStr)(::windows::core::Vtable::as_raw(self), szwprovider).ok()
     }
-    pub unsafe fn SetProviderNameWStr<'a, P0>(&self, szwprovider: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetProviderNameWStr<P0>(&self, szwprovider: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7911,7 +7911,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseExistingKeySet<'a, P0>(&self, fuseexistingkeys: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetUseExistingKeySet<P0>(&self, fuseexistingkeys: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -7930,7 +7930,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDeleteRequestCert<'a, P0>(&self, fdelete: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDeleteRequestCert<P0>(&self, fdelete: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -7943,7 +7943,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteCertToUserDS<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWriteCertToUserDS<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -7956,7 +7956,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableT61DNEncoding<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEnableT61DNEncoding<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -7969,7 +7969,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteCertToCSP<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWriteCertToCSP<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -7978,7 +7978,7 @@ impl IEnroll2 {
     pub unsafe fn SPCFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SPCFileNameWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
-    pub unsafe fn SetSPCFileNameWStr<'a, P0>(&self, szw: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSPCFileNameWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7987,7 +7987,7 @@ impl IEnroll2 {
     pub unsafe fn PVKFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.PVKFileNameWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
-    pub unsafe fn SetPVKFileNameWStr<'a, P0>(&self, szw: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPVKFileNameWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7996,7 +7996,7 @@ impl IEnroll2 {
     pub unsafe fn HashAlgorithmWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.HashAlgorithmWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
-    pub unsafe fn SetHashAlgorithmWStr<'a, P0>(&self, szw: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithmWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8012,13 +8012,13 @@ impl IEnroll2 {
     pub unsafe fn SetRenewalCertificate(&self, pcertcontext: *const super::CERT_CONTEXT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetRenewalCertificate)(::windows::core::Vtable::as_raw(self), pcertcontext).ok()
     }
-    pub unsafe fn AddCertTypeToRequestWStr<'a, P0>(&self, szw: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddCertTypeToRequestWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.AddCertTypeToRequestWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
     }
-    pub unsafe fn AddNameValuePairToSignatureWStr<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddNameValuePairToSignatureWStr<P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8049,7 +8049,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetKeyLen<'a, P0, P1>(&self, fmin: P0, fexchange: P1, pdwkeysize: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn GetKeyLen<P0, P1>(&self, fmin: P0, fexchange: P1, pdwkeysize: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
@@ -8064,7 +8064,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew<'a, P0>(&self, freusehardwarekeyifunabletogennew: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew<P0>(&self, freusehardwarekeyifunabletogennew: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -8081,25 +8081,25 @@ impl IEnroll2 {
     pub unsafe fn HashAlgID(&self, hashalgid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).HashAlgID)(::windows::core::Vtable::as_raw(self), hashalgid).ok()
     }
-    pub unsafe fn SetHStoreMy<'a, P0>(&self, hstore: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHStoreMy<P0>(&self, hstore: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::HCERTSTORE>,
     {
         (::windows::core::Vtable::vtable(self).SetHStoreMy)(::windows::core::Vtable::as_raw(self), hstore.into()).ok()
     }
-    pub unsafe fn SetHStoreCA<'a, P0>(&self, hstore: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHStoreCA<P0>(&self, hstore: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::HCERTSTORE>,
     {
         (::windows::core::Vtable::vtable(self).SetHStoreCA)(::windows::core::Vtable::as_raw(self), hstore.into()).ok()
     }
-    pub unsafe fn SetHStoreROOT<'a, P0>(&self, hstore: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHStoreROOT<P0>(&self, hstore: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::HCERTSTORE>,
     {
         (::windows::core::Vtable::vtable(self).SetHStoreROOT)(::windows::core::Vtable::as_raw(self), hstore.into()).ok()
     }
-    pub unsafe fn SetHStoreRequest<'a, P0>(&self, hstore: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHStoreRequest<P0>(&self, hstore: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::HCERTSTORE>,
     {
@@ -8107,7 +8107,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLimitExchangeKeyToEncipherment<'a, P0>(&self, flimitexchangekeytoencipherment: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLimitExchangeKeyToEncipherment<P0>(&self, flimitexchangekeytoencipherment: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -8120,7 +8120,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableSMIMECapabilities<'a, P0>(&self, fenablesmimecapabilities: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEnableSMIMECapabilities<P0>(&self, fenablesmimecapabilities: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -8203,7 +8203,7 @@ pub struct IEnroll2_Vtbl {
 #[repr(transparent)]
 pub struct IEnroll4(::windows::core::IUnknown);
 impl IEnroll4 {
-    pub unsafe fn createFilePKCS10WStr<'a, P0, P1, P2>(&self, dnname: P0, usage: P1, wszpkcs10filename: P2) -> ::windows::core::Result<()>
+    pub unsafe fn createFilePKCS10WStr<P0, P1, P2>(&self, dnname: P0, usage: P1, wszpkcs10filename: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8211,13 +8211,13 @@ impl IEnroll4 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.createFilePKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into(), usage.into(), wszpkcs10filename.into()).ok()
     }
-    pub unsafe fn acceptFilePKCS7WStr<'a, P0>(&self, wszpkcs7filename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn acceptFilePKCS7WStr<P0>(&self, wszpkcs7filename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.acceptFilePKCS7WStr)(::windows::core::Vtable::as_raw(self), wszpkcs7filename.into()).ok()
     }
-    pub unsafe fn createPKCS10WStr<'a, P0, P1>(&self, dnname: P0, usage: P1, ppkcs10blob: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
+    pub unsafe fn createPKCS10WStr<P0, P1>(&self, dnname: P0, usage: P1, ppkcs10blob: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8253,7 +8253,7 @@ impl IEnroll4 {
     pub unsafe fn MyStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.MyStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname).ok()
     }
-    pub unsafe fn SetMyStoreNameWStr<'a, P0>(&self, szwname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMyStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8262,7 +8262,7 @@ impl IEnroll4 {
     pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.MyStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
-    pub unsafe fn SetMyStoreTypeWStr<'a, P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMyStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8277,7 +8277,7 @@ impl IEnroll4 {
     pub unsafe fn CAStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.CAStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname).ok()
     }
-    pub unsafe fn SetCAStoreNameWStr<'a, P0>(&self, szwname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCAStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8286,7 +8286,7 @@ impl IEnroll4 {
     pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.CAStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
-    pub unsafe fn SetCAStoreTypeWStr<'a, P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCAStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8301,7 +8301,7 @@ impl IEnroll4 {
     pub unsafe fn RootStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.RootStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname).ok()
     }
-    pub unsafe fn SetRootStoreNameWStr<'a, P0>(&self, szwname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRootStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8310,7 +8310,7 @@ impl IEnroll4 {
     pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.RootStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
-    pub unsafe fn SetRootStoreTypeWStr<'a, P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRootStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8325,7 +8325,7 @@ impl IEnroll4 {
     pub unsafe fn RequestStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.RequestStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname).ok()
     }
-    pub unsafe fn SetRequestStoreNameWStr<'a, P0>(&self, szwname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRequestStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8334,7 +8334,7 @@ impl IEnroll4 {
     pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.RequestStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
-    pub unsafe fn SetRequestStoreTypeWStr<'a, P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRequestStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8349,7 +8349,7 @@ impl IEnroll4 {
     pub unsafe fn ContainerNameWStr(&self, szwcontainer: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.ContainerNameWStr)(::windows::core::Vtable::as_raw(self), szwcontainer).ok()
     }
-    pub unsafe fn SetContainerNameWStr<'a, P0>(&self, szwcontainer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetContainerNameWStr<P0>(&self, szwcontainer: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8358,7 +8358,7 @@ impl IEnroll4 {
     pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.ProviderNameWStr)(::windows::core::Vtable::as_raw(self), szwprovider).ok()
     }
-    pub unsafe fn SetProviderNameWStr<'a, P0>(&self, szwprovider: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetProviderNameWStr<P0>(&self, szwprovider: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8389,7 +8389,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseExistingKeySet<'a, P0>(&self, fuseexistingkeys: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetUseExistingKeySet<P0>(&self, fuseexistingkeys: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -8408,7 +8408,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDeleteRequestCert<'a, P0>(&self, fdelete: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDeleteRequestCert<P0>(&self, fdelete: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -8421,7 +8421,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteCertToUserDS<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWriteCertToUserDS<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -8434,7 +8434,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableT61DNEncoding<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEnableT61DNEncoding<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -8447,7 +8447,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteCertToCSP<'a, P0>(&self, fbool: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWriteCertToCSP<P0>(&self, fbool: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -8456,7 +8456,7 @@ impl IEnroll4 {
     pub unsafe fn SPCFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SPCFileNameWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
-    pub unsafe fn SetSPCFileNameWStr<'a, P0>(&self, szw: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSPCFileNameWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8465,7 +8465,7 @@ impl IEnroll4 {
     pub unsafe fn PVKFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.PVKFileNameWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
-    pub unsafe fn SetPVKFileNameWStr<'a, P0>(&self, szw: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPVKFileNameWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8474,7 +8474,7 @@ impl IEnroll4 {
     pub unsafe fn HashAlgorithmWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.HashAlgorithmWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
-    pub unsafe fn SetHashAlgorithmWStr<'a, P0>(&self, szw: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithmWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8490,13 +8490,13 @@ impl IEnroll4 {
     pub unsafe fn SetRenewalCertificate(&self, pcertcontext: *const super::CERT_CONTEXT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetRenewalCertificate)(::windows::core::Vtable::as_raw(self), pcertcontext).ok()
     }
-    pub unsafe fn AddCertTypeToRequestWStr<'a, P0>(&self, szw: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddCertTypeToRequestWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.AddCertTypeToRequestWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
     }
-    pub unsafe fn AddNameValuePairToSignatureWStr<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddNameValuePairToSignatureWStr<P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8527,7 +8527,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetKeyLen<'a, P0, P1>(&self, fmin: P0, fexchange: P1, pdwkeysize: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn GetKeyLen<P0, P1>(&self, fmin: P0, fexchange: P1, pdwkeysize: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
@@ -8542,7 +8542,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew<'a, P0>(&self, freusehardwarekeyifunabletogennew: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew<P0>(&self, freusehardwarekeyifunabletogennew: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -8559,25 +8559,25 @@ impl IEnroll4 {
     pub unsafe fn HashAlgID(&self, hashalgid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.HashAlgID)(::windows::core::Vtable::as_raw(self), hashalgid).ok()
     }
-    pub unsafe fn SetHStoreMy<'a, P0>(&self, hstore: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHStoreMy<P0>(&self, hstore: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::HCERTSTORE>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetHStoreMy)(::windows::core::Vtable::as_raw(self), hstore.into()).ok()
     }
-    pub unsafe fn SetHStoreCA<'a, P0>(&self, hstore: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHStoreCA<P0>(&self, hstore: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::HCERTSTORE>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetHStoreCA)(::windows::core::Vtable::as_raw(self), hstore.into()).ok()
     }
-    pub unsafe fn SetHStoreROOT<'a, P0>(&self, hstore: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHStoreROOT<P0>(&self, hstore: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::HCERTSTORE>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetHStoreROOT)(::windows::core::Vtable::as_raw(self), hstore.into()).ok()
     }
-    pub unsafe fn SetHStoreRequest<'a, P0>(&self, hstore: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHStoreRequest<P0>(&self, hstore: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::HCERTSTORE>,
     {
@@ -8585,7 +8585,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLimitExchangeKeyToEncipherment<'a, P0>(&self, flimitexchangekeytoencipherment: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLimitExchangeKeyToEncipherment<P0>(&self, flimitexchangekeytoencipherment: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -8598,7 +8598,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableSMIMECapabilities<'a, P0>(&self, fenablesmimecapabilities: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEnableSMIMECapabilities<P0>(&self, fenablesmimecapabilities: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -8628,25 +8628,25 @@ impl IEnroll4 {
     pub unsafe fn binaryBlobToString(&self, flags: i32, pblobbinary: *mut super::CRYPT_INTEGER_BLOB, ppwszstring: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).binaryBlobToString)(::windows::core::Vtable::as_raw(self), flags, pblobbinary, ppwszstring).ok()
     }
-    pub unsafe fn stringToBinaryBlob<'a, P0>(&self, flags: i32, pwszstring: P0, pblobbinary: *mut super::CRYPT_INTEGER_BLOB, pdwskip: *mut i32, pdwflags: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn stringToBinaryBlob<P0>(&self, flags: i32, pwszstring: P0, pblobbinary: *mut super::CRYPT_INTEGER_BLOB, pdwskip: *mut i32, pdwflags: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).stringToBinaryBlob)(::windows::core::Vtable::as_raw(self), flags, pwszstring.into(), pblobbinary, pdwskip, pdwflags).ok()
     }
-    pub unsafe fn addExtensionToRequestWStr<'a, P0>(&self, flags: i32, pwszname: P0, pblobvalue: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
+    pub unsafe fn addExtensionToRequestWStr<P0>(&self, flags: i32, pwszname: P0, pblobvalue: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).addExtensionToRequestWStr)(::windows::core::Vtable::as_raw(self), flags, pwszname.into(), pblobvalue).ok()
     }
-    pub unsafe fn addAttributeToRequestWStr<'a, P0>(&self, flags: i32, pwszname: P0, pblobvalue: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
+    pub unsafe fn addAttributeToRequestWStr<P0>(&self, flags: i32, pwszname: P0, pblobvalue: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).addAttributeToRequestWStr)(::windows::core::Vtable::as_raw(self), flags, pwszname.into(), pblobvalue).ok()
     }
-    pub unsafe fn addNameValuePairToRequestWStr<'a, P0, P1>(&self, flags: i32, pwszname: P0, pwszvalue: P1) -> ::windows::core::Result<()>
+    pub unsafe fn addNameValuePairToRequestWStr<P0, P1>(&self, flags: i32, pwszname: P0, pwszvalue: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8659,14 +8659,14 @@ impl IEnroll4 {
     pub unsafe fn resetAttributes(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).resetAttributes)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn createRequestWStr<'a, P0, P1>(&self, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: P0, pwszusage: P1, pblobrequest: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
+    pub unsafe fn createRequestWStr<P0, P1>(&self, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: P0, pwszusage: P1, pblobrequest: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).createRequestWStr)(::windows::core::Vtable::as_raw(self), flags, pwszdnname.into(), pwszusage.into(), pblobrequest).ok()
     }
-    pub unsafe fn createFileRequestWStr<'a, P0, P1, P2>(&self, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: P0, pwszusage: P1, pwszrequestfilename: P2) -> ::windows::core::Result<()>
+    pub unsafe fn createFileRequestWStr<P0, P1, P2>(&self, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: P0, pwszusage: P1, pwszrequestfilename: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8677,7 +8677,7 @@ impl IEnroll4 {
     pub unsafe fn acceptResponseBlob(&self, pblobresponse: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).acceptResponseBlob)(::windows::core::Vtable::as_raw(self), pblobresponse).ok()
     }
-    pub unsafe fn acceptFileResponseWStr<'a, P0>(&self, pwszresponsefilename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn acceptFileResponseWStr<P0>(&self, pwszresponsefilename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8690,26 +8690,26 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getCertContextFromFileResponseWStr<'a, P0>(&self, pwszresponsefilename: P0, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows::core::Result<()>
+    pub unsafe fn getCertContextFromFileResponseWStr<P0>(&self, pwszresponsefilename: P0, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).getCertContextFromFileResponseWStr)(::windows::core::Vtable::as_raw(self), pwszresponsefilename.into(), ppcertcontext).ok()
     }
-    pub unsafe fn createPFXWStr<'a, P0>(&self, pwszpassword: P0, pblobpfx: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
+    pub unsafe fn createPFXWStr<P0>(&self, pwszpassword: P0, pblobpfx: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).createPFXWStr)(::windows::core::Vtable::as_raw(self), pwszpassword.into(), pblobpfx).ok()
     }
-    pub unsafe fn createFilePFXWStr<'a, P0, P1>(&self, pwszpassword: P0, pwszpfxfilename: P1) -> ::windows::core::Result<()>
+    pub unsafe fn createFilePFXWStr<P0, P1>(&self, pwszpassword: P0, pwszpfxfilename: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).createFilePFXWStr)(::windows::core::Vtable::as_raw(self), pwszpassword.into(), pwszpfxfilename.into()).ok()
     }
-    pub unsafe fn setPendingRequestInfoWStr<'a, P0, P1, P2>(&self, lrequestid: i32, pwszcadns: P0, pwszcaname: P1, pwszfriendlyname: P2) -> ::windows::core::Result<()>
+    pub unsafe fn setPendingRequestInfoWStr<P0, P1, P2>(&self, lrequestid: i32, pwszcadns: P0, pwszcaname: P1, pwszfriendlyname: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8731,14 +8731,14 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddCertTypeToRequestWStrEx<'a, P0, P1>(&self, ltype: ADDED_CERT_TYPE, pwszoidorname: P0, lmajorversion: i32, fminorversion: P1, lminorversion: i32) -> ::windows::core::Result<()>
+    pub unsafe fn AddCertTypeToRequestWStrEx<P0, P1>(&self, ltype: ADDED_CERT_TYPE, pwszoidorname: P0, lmajorversion: i32, fminorversion: P1, lminorversion: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).AddCertTypeToRequestWStrEx)(::windows::core::Vtable::as_raw(self), ltype, pwszoidorname.into(), lmajorversion, fminorversion.into(), lminorversion).ok()
     }
-    pub unsafe fn getProviderTypeWStr<'a, P0>(&self, pwszprovname: P0, plprovtype: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn getProviderTypeWStr<P0>(&self, pwszprovname: P0, plprovtype: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8760,7 +8760,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIncludeSubjectKeyID<'a, P0>(&self, finclude: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetIncludeSubjectKeyID<P0>(&self, finclude: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -9214,7 +9214,7 @@ impl INDESPolicy {
     pub unsafe fn Uninitialize(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Uninitialize)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn GenerateChallenge<'a, P0, P1>(&self, pwsztemplate: P0, pwszparams: P1) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GenerateChallenge<P0, P1>(&self, pwsztemplate: P0, pwszparams: P1) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -9224,14 +9224,14 @@ impl INDESPolicy {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VerifyRequest<'a, P0, P1>(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: P0, pwsztransactionid: P1, pfverified: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn VerifyRequest<P0, P1>(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: P0, pwsztransactionid: P1, pfverified: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).VerifyRequest)(::windows::core::Vtable::as_raw(self), pctbrequest, pctbsigningcertencoded, pwsztemplate.into(), pwsztransactionid.into(), pfverified).ok()
     }
-    pub unsafe fn Notify<'a, P0, P1>(&self, pwszchallenge: P0, pwsztransactionid: P1, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
+    pub unsafe fn Notify<P0, P1>(&self, pwszchallenge: P0, pwsztransactionid: P1, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -9959,9 +9959,9 @@ impl IObjectIds {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -9973,9 +9973,9 @@ impl IObjectIds {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddRange<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddRange<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectIds>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectIds>>,
     {
         (::windows::core::Vtable::vtable(self).AddRange)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -10126,9 +10126,9 @@ impl IPolicyQualifiers {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IPolicyQualifier>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IPolicyQualifier>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -10327,9 +10327,9 @@ impl ISignerCertificates {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISignerCertificate>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -10341,9 +10341,9 @@ impl ISignerCertificates {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Find<'a, P0>(&self, psignercert: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn Find<P0>(&self, psignercert: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISignerCertificate>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Find)(::windows::core::Vtable::as_raw(self), psignercert.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -10423,9 +10423,9 @@ impl ISmimeCapabilities {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISmimeCapability>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISmimeCapability>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -10437,9 +10437,9 @@ impl ISmimeCapabilities {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddFromCsp<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddFromCsp<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformation>>,
     {
         (::windows::core::Vtable::vtable(self).AddFromCsp)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -10513,9 +10513,9 @@ pub struct ISmimeCapability(::windows::core::IUnknown);
 impl ISmimeCapability {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, bitcount: i32) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, bitcount: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), bitcount).ok()
     }
@@ -10644,9 +10644,9 @@ pub struct IX509Attribute(::windows::core::IUnknown);
 impl IX509Attribute {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -10714,9 +10714,9 @@ pub struct IX509AttributeArchiveKey(::windows::core::IUnknown);
 impl IX509AttributeArchiveKey {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -10732,10 +10732,10 @@ impl IX509AttributeArchiveKey {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeEncode<'a, P0, P1>(&self, pkey: P0, encoding: EncodingType, strcaxcert: &::windows::core::BSTR, palgorithm: P1, encryptionstrength: i32) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeEncode<P0, P1>(&self, pkey: P0, encoding: EncodingType, strcaxcert: &::windows::core::BSTR, palgorithm: P1, encryptionstrength: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PrivateKey>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeEncode)(::windows::core::Vtable::as_raw(self), pkey.into().abi(), encoding, ::core::mem::transmute_copy(strcaxcert), palgorithm.into().abi(), encryptionstrength).ok()
     }
@@ -10812,9 +10812,9 @@ pub struct IX509AttributeArchiveKeyHash(::windows::core::IUnknown);
 impl IX509AttributeArchiveKeyHash {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -10886,9 +10886,9 @@ pub struct IX509AttributeClientId(::windows::core::IUnknown);
 impl IX509AttributeClientId {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -10975,9 +10975,9 @@ pub struct IX509AttributeCspProvider(::windows::core::IUnknown);
 impl IX509AttributeCspProvider {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -11059,9 +11059,9 @@ pub struct IX509AttributeExtensions(::windows::core::IUnknown);
 impl IX509AttributeExtensions {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -11077,9 +11077,9 @@ impl IX509AttributeExtensions {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeEncode<'a, P0>(&self, pextensions: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeEncode<P0>(&self, pextensions: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509Extensions>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509Extensions>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeEncode)(::windows::core::Vtable::as_raw(self), pextensions.into().abi()).ok()
     }
@@ -11146,9 +11146,9 @@ pub struct IX509AttributeOSVersion(::windows::core::IUnknown);
 impl IX509AttributeOSVersion {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -11220,9 +11220,9 @@ pub struct IX509AttributeRenewalCertificate(::windows::core::IUnknown);
 impl IX509AttributeRenewalCertificate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -11308,9 +11308,9 @@ impl IX509Attributes {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509Attribute>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509Attribute>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -11456,9 +11456,9 @@ impl IX509CertificateRequest {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspInformations<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformations>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformations>>,
     {
         (::windows::core::Vtable::vtable(self).SetCspInformations)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -11470,9 +11470,9 @@ impl IX509CertificateRequest {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHashAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).SetHashAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -11673,9 +11673,9 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspInformations<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformations>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformations>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetCspInformations)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -11687,9 +11687,9 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHashAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetHashAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -11713,17 +11713,17 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPrivateKey<'a, P0>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPrivateKey<P0>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PrivateKey>>,
     {
         (::windows::core::Vtable::vtable(self).base__.InitializeFromPrivateKey)(::windows::core::Vtable::as_raw(self), context, pprivatekey.into().abi(), ::core::mem::transmute_copy(strtemplatename)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPublicKey<'a, P0>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPublicKey<P0>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PublicKey>>,
     {
         (::windows::core::Vtable::vtable(self).base__.InitializeFromPublicKey)(::windows::core::Vtable::as_raw(self), context, ppublickey.into().abi(), ::core::mem::transmute_copy(strtemplatename)).ok()
     }
@@ -11784,9 +11784,9 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSubject<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSubject<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX500DistinguishedName>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX500DistinguishedName>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetSubject)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -11860,9 +11860,9 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CheckPublicKeySignature<'a, P0>(&self, ppublickey: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CheckPublicKeySignature<P0>(&self, ppublickey: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PublicKey>>,
     {
         (::windows::core::Vtable::vtable(self).CheckPublicKeySignature)(::windows::core::Vtable::as_raw(self), ppublickey.into().abi()).ok()
     }
@@ -11874,9 +11874,9 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetIssuer<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetIssuer<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX500DistinguishedName>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX500DistinguishedName>>,
     {
         (::windows::core::Vtable::vtable(self).SetIssuer)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -11909,9 +11909,9 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSignerCertificate<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISignerCertificate>>,
     {
         (::windows::core::Vtable::vtable(self).SetSignerCertificate)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -12065,9 +12065,9 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspInformations<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformations>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformations>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetCspInformations)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -12079,9 +12079,9 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHashAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetHashAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -12105,17 +12105,17 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPrivateKey<'a, P0>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPrivateKey<P0>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PrivateKey>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.InitializeFromPrivateKey)(::windows::core::Vtable::as_raw(self), context, pprivatekey.into().abi(), ::core::mem::transmute_copy(strtemplatename)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPublicKey<'a, P0>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPublicKey<P0>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PublicKey>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.InitializeFromPublicKey)(::windows::core::Vtable::as_raw(self), context, ppublickey.into().abi(), ::core::mem::transmute_copy(strtemplatename)).ok()
     }
@@ -12176,9 +12176,9 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSubject<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSubject<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX500DistinguishedName>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX500DistinguishedName>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetSubject)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -12252,9 +12252,9 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CheckPublicKeySignature<'a, P0>(&self, ppublickey: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CheckPublicKeySignature<P0>(&self, ppublickey: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PublicKey>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CheckPublicKeySignature)(::windows::core::Vtable::as_raw(self), ppublickey.into().abi()).ok()
     }
@@ -12266,9 +12266,9 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetIssuer<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetIssuer<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX500DistinguishedName>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX500DistinguishedName>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetIssuer)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -12301,28 +12301,28 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSignerCertificate<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISignerCertificate>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetSignerCertificate)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromTemplate<'a, P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromTemplate<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromTemplate)(::windows::core::Vtable::as_raw(self), context, ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPrivateKeyTemplate<'a, P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPrivateKeyTemplate<P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PrivateKey>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromPrivateKeyTemplate)(::windows::core::Vtable::as_raw(self), context, pprivatekey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
@@ -12478,9 +12478,9 @@ impl IX509CertificateRequestCmc {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspInformations<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformations>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformations>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetCspInformations)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -12492,9 +12492,9 @@ impl IX509CertificateRequestCmc {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHashAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetHashAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -12523,9 +12523,9 @@ impl IX509CertificateRequestCmc {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromInnerRequest<'a, P0>(&self, pinnerrequest: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromInnerRequest<P0>(&self, pinnerrequest: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateRequest>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateRequest>>,
     {
         (::windows::core::Vtable::vtable(self).base__.InitializeFromInnerRequest)(::windows::core::Vtable::as_raw(self), pinnerrequest.into().abi()).ok()
     }
@@ -12547,17 +12547,17 @@ impl IX509CertificateRequestCmc {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSignerCertificate<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISignerCertificate>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetSignerCertificate)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromInnerRequestTemplateName<'a, P0>(&self, pinnerrequest: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromInnerRequestTemplateName<P0>(&self, pinnerrequest: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateRequest>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateRequest>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromInnerRequestTemplateName)(::windows::core::Vtable::as_raw(self), pinnerrequest.into().abi(), ::core::mem::transmute_copy(strtemplatename)).ok()
     }
@@ -12649,9 +12649,9 @@ impl IX509CertificateRequestCmc {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetEncryptionAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEncryptionAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).SetEncryptionAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -12861,9 +12861,9 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspInformations<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformations>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformations>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetCspInformations)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -12875,9 +12875,9 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHashAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetHashAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -12906,9 +12906,9 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromInnerRequest<'a, P0>(&self, pinnerrequest: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromInnerRequest<P0>(&self, pinnerrequest: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateRequest>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateRequest>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.InitializeFromInnerRequest)(::windows::core::Vtable::as_raw(self), pinnerrequest.into().abi()).ok()
     }
@@ -12930,17 +12930,17 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSignerCertificate<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISignerCertificate>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetSignerCertificate)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromInnerRequestTemplateName<'a, P0>(&self, pinnerrequest: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromInnerRequestTemplateName<P0>(&self, pinnerrequest: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateRequest>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateRequest>>,
     {
         (::windows::core::Vtable::vtable(self).base__.InitializeFromInnerRequestTemplateName)(::windows::core::Vtable::as_raw(self), pinnerrequest.into().abi(), ::core::mem::transmute_copy(strtemplatename)).ok()
     }
@@ -13032,9 +13032,9 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetEncryptionAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEncryptionAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetEncryptionAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -13057,20 +13057,20 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromTemplate<'a, P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromTemplate<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromTemplate)(::windows::core::Vtable::as_raw(self), context, ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromInnerRequestTemplate<'a, P0, P1, P2>(&self, pinnerrequest: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromInnerRequestTemplate<P0, P1, P2>(&self, pinnerrequest: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateRequest>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateRequest>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromInnerRequestTemplate)(::windows::core::Vtable::as_raw(self), pinnerrequest.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
@@ -13091,9 +13091,9 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CheckCertificateSignature<'a, P0>(&self, psignercertificate: P0, validatecertificatechain: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn CheckCertificateSignature<P0>(&self, psignercertificate: P0, validatecertificatechain: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISignerCertificate>>,
     {
         (::windows::core::Vtable::vtable(self).CheckCertificateSignature)(::windows::core::Vtable::as_raw(self), psignercertificate.into().abi(), validatecertificatechain).ok()
     }
@@ -13242,9 +13242,9 @@ impl IX509CertificateRequestPkcs10 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspInformations<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformations>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformations>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetCspInformations)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -13256,9 +13256,9 @@ impl IX509CertificateRequestPkcs10 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHashAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetHashAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -13282,17 +13282,17 @@ impl IX509CertificateRequestPkcs10 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPrivateKey<'a, P0>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPrivateKey<P0>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PrivateKey>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromPrivateKey)(::windows::core::Vtable::as_raw(self), context, pprivatekey.into().abi(), ::core::mem::transmute_copy(strtemplatename)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPublicKey<'a, P0>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPublicKey<P0>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PublicKey>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromPublicKey)(::windows::core::Vtable::as_raw(self), context, ppublickey.into().abi(), ::core::mem::transmute_copy(strtemplatename)).ok()
     }
@@ -13353,9 +13353,9 @@ impl IX509CertificateRequestPkcs10 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSubject<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSubject<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX500DistinguishedName>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX500DistinguishedName>>,
     {
         (::windows::core::Vtable::vtable(self).SetSubject)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -13636,9 +13636,9 @@ impl IX509CertificateRequestPkcs10V2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspInformations<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformations>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformations>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetCspInformations)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -13650,9 +13650,9 @@ impl IX509CertificateRequestPkcs10V2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHashAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetHashAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -13676,17 +13676,17 @@ impl IX509CertificateRequestPkcs10V2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPrivateKey<'a, P0>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPrivateKey<P0>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PrivateKey>>,
     {
         (::windows::core::Vtable::vtable(self).base__.InitializeFromPrivateKey)(::windows::core::Vtable::as_raw(self), context, pprivatekey.into().abi(), ::core::mem::transmute_copy(strtemplatename)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPublicKey<'a, P0>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPublicKey<P0>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PublicKey>>,
     {
         (::windows::core::Vtable::vtable(self).base__.InitializeFromPublicKey)(::windows::core::Vtable::as_raw(self), context, ppublickey.into().abi(), ::core::mem::transmute_copy(strtemplatename)).ok()
     }
@@ -13747,9 +13747,9 @@ impl IX509CertificateRequestPkcs10V2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSubject<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSubject<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX500DistinguishedName>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX500DistinguishedName>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetSubject)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -13823,30 +13823,30 @@ impl IX509CertificateRequestPkcs10V2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromTemplate<'a, P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromTemplate<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromTemplate)(::windows::core::Vtable::as_raw(self), context, ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPrivateKeyTemplate<'a, P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPrivateKeyTemplate<P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PrivateKey>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromPrivateKeyTemplate)(::windows::core::Vtable::as_raw(self), context, pprivatekey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPublicKeyTemplate<'a, P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPublicKeyTemplate<P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PublicKey>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromPublicKeyTemplate)(::windows::core::Vtable::as_raw(self), context, ppublickey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
@@ -14006,9 +14006,9 @@ impl IX509CertificateRequestPkcs10V3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspInformations<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformations>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformations>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetCspInformations)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -14020,9 +14020,9 @@ impl IX509CertificateRequestPkcs10V3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHashAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetHashAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -14046,17 +14046,17 @@ impl IX509CertificateRequestPkcs10V3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPrivateKey<'a, P0>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPrivateKey<P0>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PrivateKey>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.InitializeFromPrivateKey)(::windows::core::Vtable::as_raw(self), context, pprivatekey.into().abi(), ::core::mem::transmute_copy(strtemplatename)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPublicKey<'a, P0>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPublicKey<P0>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PublicKey>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.InitializeFromPublicKey)(::windows::core::Vtable::as_raw(self), context, ppublickey.into().abi(), ::core::mem::transmute_copy(strtemplatename)).ok()
     }
@@ -14117,9 +14117,9 @@ impl IX509CertificateRequestPkcs10V3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSubject<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSubject<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX500DistinguishedName>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX500DistinguishedName>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetSubject)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -14193,30 +14193,30 @@ impl IX509CertificateRequestPkcs10V3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromTemplate<'a, P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromTemplate<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).base__.InitializeFromTemplate)(::windows::core::Vtable::as_raw(self), context, ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPrivateKeyTemplate<'a, P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPrivateKeyTemplate<P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PrivateKey>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).base__.InitializeFromPrivateKeyTemplate)(::windows::core::Vtable::as_raw(self), context, pprivatekey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPublicKeyTemplate<'a, P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPublicKeyTemplate<P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PublicKey>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).base__.InitializeFromPublicKeyTemplate)(::windows::core::Vtable::as_raw(self), context, ppublickey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
@@ -14258,9 +14258,9 @@ impl IX509CertificateRequestPkcs10V3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetEncryptionAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEncryptionAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).SetEncryptionAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -14434,9 +14434,9 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspInformations<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformations>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformations>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetCspInformations)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -14448,9 +14448,9 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHashAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetHashAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -14474,17 +14474,17 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPrivateKey<'a, P0>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPrivateKey<P0>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PrivateKey>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.InitializeFromPrivateKey)(::windows::core::Vtable::as_raw(self), context, pprivatekey.into().abi(), ::core::mem::transmute_copy(strtemplatename)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPublicKey<'a, P0>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPublicKey<P0>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PublicKey>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.InitializeFromPublicKey)(::windows::core::Vtable::as_raw(self), context, ppublickey.into().abi(), ::core::mem::transmute_copy(strtemplatename)).ok()
     }
@@ -14545,9 +14545,9 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSubject<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSubject<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX500DistinguishedName>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX500DistinguishedName>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetSubject)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -14621,30 +14621,30 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromTemplate<'a, P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromTemplate<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.InitializeFromTemplate)(::windows::core::Vtable::as_raw(self), context, ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPrivateKeyTemplate<'a, P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPrivateKeyTemplate<P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PrivateKey>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.InitializeFromPrivateKeyTemplate)(::windows::core::Vtable::as_raw(self), context, pprivatekey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromPublicKeyTemplate<'a, P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromPublicKeyTemplate<P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PublicKey>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.InitializeFromPublicKeyTemplate)(::windows::core::Vtable::as_raw(self), context, ppublickey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
@@ -14686,9 +14686,9 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetEncryptionAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEncryptionAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetEncryptionAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -14864,9 +14864,9 @@ impl IX509CertificateRequestPkcs7 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspInformations<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformations>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformations>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetCspInformations)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -14878,9 +14878,9 @@ impl IX509CertificateRequestPkcs7 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHashAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetHashAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -14909,9 +14909,9 @@ impl IX509CertificateRequestPkcs7 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromInnerRequest<'a, P0>(&self, pinnerrequest: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromInnerRequest<P0>(&self, pinnerrequest: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateRequest>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateRequest>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromInnerRequest)(::windows::core::Vtable::as_raw(self), pinnerrequest.into().abi()).ok()
     }
@@ -14933,9 +14933,9 @@ impl IX509CertificateRequestPkcs7 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSignerCertificate<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISignerCertificate>>,
     {
         (::windows::core::Vtable::vtable(self).SetSignerCertificate)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -15083,9 +15083,9 @@ impl IX509CertificateRequestPkcs7V2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspInformations<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformations>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformations>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetCspInformations)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -15097,9 +15097,9 @@ impl IX509CertificateRequestPkcs7V2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHashAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetHashAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -15128,9 +15128,9 @@ impl IX509CertificateRequestPkcs7V2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromInnerRequest<'a, P0>(&self, pinnerrequest: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromInnerRequest<P0>(&self, pinnerrequest: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateRequest>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateRequest>>,
     {
         (::windows::core::Vtable::vtable(self).base__.InitializeFromInnerRequest)(::windows::core::Vtable::as_raw(self), pinnerrequest.into().abi()).ok()
     }
@@ -15152,18 +15152,18 @@ impl IX509CertificateRequestPkcs7V2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSignerCertificate<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISignerCertificate>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetSignerCertificate)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromTemplate<'a, P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromTemplate<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromTemplate)(::windows::core::Vtable::as_raw(self), context, ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
@@ -15257,9 +15257,9 @@ impl IX509CertificateRevocationList {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CheckPublicKeySignature<'a, P0>(&self, ppublickey: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CheckPublicKeySignature<P0>(&self, ppublickey: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PublicKey>>,
     {
         (::windows::core::Vtable::vtable(self).CheckPublicKeySignature)(::windows::core::Vtable::as_raw(self), ppublickey.into().abi()).ok()
     }
@@ -15274,9 +15274,9 @@ impl IX509CertificateRevocationList {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetIssuer<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetIssuer<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX500DistinguishedName>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX500DistinguishedName>>,
     {
         (::windows::core::Vtable::vtable(self).SetIssuer)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -15320,9 +15320,9 @@ impl IX509CertificateRevocationList {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSignerCertificate<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISignerCertificate>>,
     {
         (::windows::core::Vtable::vtable(self).SetSignerCertificate)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -15360,9 +15360,9 @@ impl IX509CertificateRevocationList {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHashAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).SetHashAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -15530,9 +15530,9 @@ impl IX509CertificateRevocationListEntries {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateRevocationListEntry>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateRevocationListEntry>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -15548,9 +15548,9 @@ impl IX509CertificateRevocationListEntries {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddRange<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddRange<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateRevocationListEntries>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateRevocationListEntries>>,
     {
         (::windows::core::Vtable::vtable(self).AddRange)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -15755,9 +15755,9 @@ pub struct IX509CertificateTemplateWritable(::windows::core::IUnknown);
 impl IX509CertificateTemplateWritable {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -15857,9 +15857,9 @@ impl IX509CertificateTemplates {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -15877,9 +15877,9 @@ impl IX509CertificateTemplates {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_ItemByOid<'a, P0>(&self, poid: P0) -> ::windows::core::Result<IX509CertificateTemplate>
+    pub unsafe fn get_ItemByOid<P0>(&self, poid: P0) -> ::windows::core::Result<IX509CertificateTemplate>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_ItemByOid)(::windows::core::Vtable::as_raw(self), poid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -16068,9 +16068,9 @@ impl IX509Enrollment {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromRequest<'a, P0>(&self, prequest: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromRequest<P0>(&self, prequest: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateRequest>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateRequest>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromRequest)(::windows::core::Vtable::as_raw(self), prequest.into().abi()).ok()
     }
@@ -16250,9 +16250,9 @@ impl IX509Enrollment2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromRequest<'a, P0>(&self, prequest: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromRequest<P0>(&self, prequest: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateRequest>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateRequest>>,
     {
         (::windows::core::Vtable::vtable(self).base__.InitializeFromRequest)(::windows::core::Vtable::as_raw(self), prequest.into().abi()).ok()
     }
@@ -16342,10 +16342,10 @@ impl IX509Enrollment2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromTemplate<'a, P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeFromTemplate<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509EnrollmentPolicyServer>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeFromTemplate)(::windows::core::Vtable::as_raw(self), context, ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
@@ -16501,9 +16501,9 @@ impl IX509EnrollmentPolicyServer {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetCAsForTemplate<'a, P0>(&self, ptemplate: P0) -> ::windows::core::Result<ICertificationAuthorities>
+    pub unsafe fn GetCAsForTemplate<P0>(&self, ptemplate: P0) -> ::windows::core::Result<ICertificationAuthorities>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateTemplate>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCAsForTemplate)(::windows::core::Vtable::as_raw(self), ptemplate.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -16847,9 +16847,9 @@ pub struct IX509Extension(::windows::core::IUnknown);
 impl IX509Extension {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -16936,9 +16936,9 @@ pub struct IX509ExtensionAlternativeNames(::windows::core::IUnknown);
 impl IX509ExtensionAlternativeNames {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -16965,9 +16965,9 @@ impl IX509ExtensionAlternativeNames {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeEncode<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IAlternativeNames>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IAlternativeNames>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeEncode)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -17034,9 +17034,9 @@ pub struct IX509ExtensionAuthorityKeyIdentifier(::windows::core::IUnknown);
 impl IX509ExtensionAuthorityKeyIdentifier {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -17119,9 +17119,9 @@ pub struct IX509ExtensionBasicConstraints(::windows::core::IUnknown);
 impl IX509ExtensionBasicConstraints {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -17219,9 +17219,9 @@ pub struct IX509ExtensionCertificatePolicies(::windows::core::IUnknown);
 impl IX509ExtensionCertificatePolicies {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -17248,9 +17248,9 @@ impl IX509ExtensionCertificatePolicies {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeEncode<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICertificatePolicies>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICertificatePolicies>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeEncode)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -17317,9 +17317,9 @@ pub struct IX509ExtensionEnhancedKeyUsage(::windows::core::IUnknown);
 impl IX509ExtensionEnhancedKeyUsage {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -17346,9 +17346,9 @@ impl IX509ExtensionEnhancedKeyUsage {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeEncode<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectIds>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectIds>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeEncode)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -17415,9 +17415,9 @@ pub struct IX509ExtensionKeyUsage(::windows::core::IUnknown);
 impl IX509ExtensionKeyUsage {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -17500,9 +17500,9 @@ pub struct IX509ExtensionMSApplicationPolicies(::windows::core::IUnknown);
 impl IX509ExtensionMSApplicationPolicies {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -17529,9 +17529,9 @@ impl IX509ExtensionMSApplicationPolicies {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeEncode<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICertificatePolicies>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICertificatePolicies>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeEncode)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -17598,9 +17598,9 @@ pub struct IX509ExtensionSmimeCapabilities(::windows::core::IUnknown);
 impl IX509ExtensionSmimeCapabilities {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -17627,9 +17627,9 @@ impl IX509ExtensionSmimeCapabilities {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeEncode<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISmimeCapabilities>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISmimeCapabilities>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeEncode)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -17696,9 +17696,9 @@ pub struct IX509ExtensionSubjectKeyIdentifier(::windows::core::IUnknown);
 impl IX509ExtensionSubjectKeyIdentifier {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -17781,9 +17781,9 @@ pub struct IX509ExtensionTemplate(::windows::core::IUnknown);
 impl IX509ExtensionTemplate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -17810,9 +17810,9 @@ impl IX509ExtensionTemplate {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeEncode<'a, P0>(&self, ptemplateoid: P0, majorversion: i32, minorversion: i32) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeEncode<P0>(&self, ptemplateoid: P0, majorversion: i32, minorversion: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).InitializeEncode)(::windows::core::Vtable::as_raw(self), ptemplateoid.into().abi(), majorversion, minorversion).ok()
     }
@@ -17889,9 +17889,9 @@ pub struct IX509ExtensionTemplateName(::windows::core::IUnknown);
 impl IX509ExtensionTemplateName {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), encoding, ::core::mem::transmute_copy(strencodeddata)).ok()
     }
@@ -17988,9 +17988,9 @@ impl IX509Extensions {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509Extension>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509Extension>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -18002,18 +18002,18 @@ impl IX509Extensions {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_IndexByObjectId<'a, P0>(&self, pobjectid: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn get_IndexByObjectId<P0>(&self, pobjectid: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_IndexByObjectId)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddRange<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddRange<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509Extensions>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509Extensions>>,
     {
         (::windows::core::Vtable::vtable(self).AddRange)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -18206,9 +18206,9 @@ impl IX509NameValuePairs {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509NameValuePair>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509NameValuePair>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -18289,9 +18289,9 @@ impl IX509PolicyServerListManager {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, pval: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PolicyServerUrl>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509PolicyServerUrl>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
@@ -18536,9 +18536,9 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspInformations<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformations>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformations>>,
     {
         (::windows::core::Vtable::vtable(self).SetCspInformations)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -18550,9 +18550,9 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspStatus<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspStatus<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspStatus>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspStatus>>,
     {
         (::windows::core::Vtable::vtable(self).SetCspStatus)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -18589,9 +18589,9 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).SetAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -18933,9 +18933,9 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspInformations<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformations>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspInformations>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetCspInformations)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -18947,9 +18947,9 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCspStatus<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCspStatus<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICspStatus>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICspStatus>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetCspStatus)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -18986,9 +18986,9 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -19211,9 +19211,9 @@ pub struct IX509PublicKey(::windows::core::IUnknown);
 impl IX509PublicKey {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pobjectid: P0, strencodedkey: &::windows::core::BSTR, strencodedparameters: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pobjectid: P0, strencodedkey: &::windows::core::BSTR, strencodedparameters: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute_copy(strencodedkey), ::core::mem::transmute_copy(strencodedparameters), encoding).ok()
     }
@@ -19300,9 +19300,9 @@ pub struct IX509SCEPEnrollment(::windows::core::IUnknown);
 impl IX509SCEPEnrollment {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, prequest: P0, strthumbprint: &::windows::core::BSTR, thumprintencoding: EncodingType, strservercertificates: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, prequest: P0, strthumbprint: &::windows::core::BSTR, thumprintencoding: EncodingType, strservercertificates: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateRequestPkcs10>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateRequestPkcs10>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), prequest.into().abi(), ::core::mem::transmute_copy(strthumbprint), thumprintencoding, ::core::mem::transmute_copy(strservercertificates), encoding).ok()
     }
@@ -19340,9 +19340,9 @@ impl IX509SCEPEnrollment {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSignerCertificate<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISignerCertificate>>,
     {
         (::windows::core::Vtable::vtable(self).SetSignerCertificate)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -19354,9 +19354,9 @@ impl IX509SCEPEnrollment {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetOldCertificate<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOldCertificate<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISignerCertificate>>,
     {
         (::windows::core::Vtable::vtable(self).SetOldCertificate)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -19498,9 +19498,9 @@ pub struct IX509SCEPEnrollment2(::windows::core::IUnknown);
 impl IX509SCEPEnrollment2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, prequest: P0, strthumbprint: &::windows::core::BSTR, thumprintencoding: EncodingType, strservercertificates: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, prequest: P0, strthumbprint: &::windows::core::BSTR, thumprintencoding: EncodingType, strservercertificates: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateRequestPkcs10>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateRequestPkcs10>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), prequest.into().abi(), ::core::mem::transmute_copy(strthumbprint), thumprintencoding, ::core::mem::transmute_copy(strservercertificates), encoding).ok()
     }
@@ -19538,9 +19538,9 @@ impl IX509SCEPEnrollment2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSignerCertificate<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISignerCertificate>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetSignerCertificate)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -19552,9 +19552,9 @@ impl IX509SCEPEnrollment2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetOldCertificate<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOldCertificate<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISignerCertificate>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetOldCertificate)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -19676,9 +19676,9 @@ pub struct IX509SCEPEnrollmentHelper(::windows::core::IUnknown);
 impl IX509SCEPEnrollmentHelper {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, strserverurl: &::windows::core::BSTR, strrequestheaders: &::windows::core::BSTR, prequest: P0, strcacertificatethumbprint: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, strserverurl: &::windows::core::BSTR, strrequestheaders: &::windows::core::BSTR, prequest: P0, strcacertificatethumbprint: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateRequestPkcs10>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IX509CertificateRequestPkcs10>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strserverurl), ::core::mem::transmute_copy(strrequestheaders), prequest.into().abi(), ::core::mem::transmute_copy(strcacertificatethumbprint)).ok()
     }
@@ -19766,9 +19766,9 @@ impl IX509SignatureInformation {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHashAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).SetHashAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }
@@ -19780,9 +19780,9 @@ impl IX509SignatureInformation {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPublicKeyAlgorithm<'a, P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPublicKeyAlgorithm<P0>(&self, pvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectId>>,
     {
         (::windows::core::Vtable::vtable(self).SetPublicKeyAlgorithm)(::windows::core::Vtable::as_raw(self), pvalue.into().abi()).ok()
     }

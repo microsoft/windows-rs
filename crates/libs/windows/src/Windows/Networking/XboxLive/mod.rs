@@ -414,9 +414,9 @@ impl XboxLiveDeviceAddress {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromSnapshotBuffer<'a, P0, E0>(buffer: P0) -> ::windows::core::Result<XboxLiveDeviceAddress>
+    pub fn CreateFromSnapshotBuffer<P0, E0>(buffer: P0) -> ::windows::core::Result<XboxLiveDeviceAddress>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IXboxLiveDeviceAddressStatics(|this| unsafe {
@@ -1122,9 +1122,9 @@ impl XboxLiveQualityOfServiceMeasurement {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetPublishedPrivatePayload<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
+    pub fn SetPublishedPrivatePayload<P0, E0>(value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).SetPublishedPrivatePayload)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })

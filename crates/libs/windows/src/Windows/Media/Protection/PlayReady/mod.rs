@@ -456,9 +456,9 @@ impl INDDownloadEngineNotifier {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn OnContentIDReceived<'a, P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<()>
+    pub fn OnContentIDReceived<P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INDLicenseFetchDescriptor>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -650,9 +650,9 @@ impl INDLicenseFetchDescriptor {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetLicenseFetchChallengeCustomData<'a, P0, E0>(&self, licensefetchchallengecustomdata: P0) -> ::windows::core::Result<()>
+    pub fn SetLicenseFetchChallengeCustomData<P0, E0>(&self, licensefetchchallengecustomdata: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INDCustomData>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1208,9 +1208,9 @@ pub struct INDStorageFileHelper(::windows::core::IUnknown);
 impl INDStorageFileHelper {
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
-    pub fn GetFileURLs<'a, P0, E0>(&self, file: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>
+    pub fn GetFileURLs<P0, E0>(&self, file: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1282,9 +1282,9 @@ impl INDStreamParser {
     }
     #[doc = "*Required features: `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn GetStreamInformation<'a, P0, E0>(&self, descriptor: P0, streamtype: &mut NDMediaStreamType) -> ::windows::core::Result<u32>
+    pub fn GetStreamInformation<P0, E0>(&self, descriptor: P0, streamtype: &mut NDMediaStreamType) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Core::IMediaStreamDescriptor>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Core::IMediaStreamDescriptor>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1387,9 +1387,9 @@ pub struct INDStreamParserNotifier(::windows::core::IUnknown);
 impl INDStreamParserNotifier {
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn OnContentIDReceived<'a, P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<()>
+    pub fn OnContentIDReceived<P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INDLicenseFetchDescriptor>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1397,11 +1397,11 @@ impl INDStreamParserNotifier {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnMediaStreamDescriptorCreated<'a, P0, E0, P1, E1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> ::windows::core::Result<()>
+    pub fn OnMediaStreamDescriptorCreated<P0, E0, P1, E1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1415,9 +1415,9 @@ impl INDStreamParserNotifier {
     }
     #[doc = "*Required features: `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnBeginSetupDecryptor<'a, P0, E0>(&self, descriptor: P0, keyid: ::windows::core::GUID, probytes: &[u8]) -> ::windows::core::Result<()>
+    pub fn OnBeginSetupDecryptor<P0, E0>(&self, descriptor: P0, keyid: ::windows::core::GUID, probytes: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Core::IMediaStreamDescriptor>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Core::IMediaStreamDescriptor>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2211,7 +2211,7 @@ impl ::core::convert::TryFrom<&IPlayReadyLicenseAcquisitionServiceRequest> for s
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+impl ::core::convert::TryFrom<&IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<super::IMediaProtectionServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPlayReadyLicenseAcquisitionServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2230,7 +2230,7 @@ impl ::core::convert::TryFrom<&IPlayReadyLicenseAcquisitionServiceRequest> for I
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+impl ::core::convert::TryFrom<&IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<IPlayReadyServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPlayReadyLicenseAcquisitionServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2435,7 +2435,7 @@ impl ::core::convert::TryFrom<&IPlayReadyLicenseSession2> for IPlayReadyLicenseS
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPlayReadyLicenseSession2> for ::windows::core::InParam<'a, IPlayReadyLicenseSession> {
+impl ::core::convert::TryFrom<&IPlayReadyLicenseSession2> for ::windows::core::InParam<IPlayReadyLicenseSession> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPlayReadyLicenseSession2) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2680,7 +2680,7 @@ impl ::core::convert::TryFrom<&IPlayReadySecureStopServiceRequest> for super::IM
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPlayReadySecureStopServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+impl ::core::convert::TryFrom<&IPlayReadySecureStopServiceRequest> for ::windows::core::InParam<super::IMediaProtectionServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPlayReadySecureStopServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2699,7 +2699,7 @@ impl ::core::convert::TryFrom<&IPlayReadySecureStopServiceRequest> for IPlayRead
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPlayReadySecureStopServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+impl ::core::convert::TryFrom<&IPlayReadySecureStopServiceRequest> for ::windows::core::InParam<IPlayReadyServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPlayReadySecureStopServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2862,7 +2862,7 @@ impl ::core::convert::TryFrom<&IPlayReadyServiceRequest> for super::IMediaProtec
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPlayReadyServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+impl ::core::convert::TryFrom<&IPlayReadyServiceRequest> for ::windows::core::InParam<super::IMediaProtectionServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPlayReadyServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3119,11 +3119,11 @@ impl NDClient {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn StartAsync<'a, P0, E0, P1, E1>(&self, contenturl: &super::super::super::Foundation::Uri, startasyncoptions: u32, registrationcustomdata: P0, licensefetchdescriptor: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDStartResult>>
+    pub fn StartAsync<P0, E0, P1, E1>(&self, contenturl: &super::super::super::Foundation::Uri, startasyncoptions: u32, registrationcustomdata: P0, licensefetchdescriptor: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDStartResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INDCustomData>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<INDLicenseFetchDescriptor>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3134,9 +3134,9 @@ impl NDClient {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn LicenseFetchAsync<'a, P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>>
+    pub fn LicenseFetchAsync<P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INDLicenseFetchDescriptor>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3147,9 +3147,9 @@ impl NDClient {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn ReRegistrationAsync<'a, P0, E0>(&self, registrationcustomdata: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ReRegistrationAsync<P0, E0>(&self, registrationcustomdata: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INDCustomData>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3166,13 +3166,13 @@ impl NDClient {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CreateInstance<'a, P0, E0, P1, E1, P2, E2>(downloadengine: P0, streamparser: P1, pmessenger: P2) -> ::windows::core::Result<NDClient>
+    pub fn CreateInstance<P0, E0, P1, E1, P2, E2>(downloadengine: P0, streamparser: P1, pmessenger: P2) -> ::windows::core::Result<NDClient>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDDownloadEngine>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INDDownloadEngine>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, INDStreamParser>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<INDStreamParser>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, INDMessenger>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<INDMessenger>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
     {
         Self::INDClientFactory(|this| unsafe {
@@ -3325,7 +3325,7 @@ impl ::core::convert::TryFrom<&NDCustomData> for INDCustomData {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&NDCustomData> for ::windows::core::InParam<'a, INDCustomData> {
+impl ::core::convert::TryFrom<&NDCustomData> for ::windows::core::InParam<INDCustomData> {
     type Error = ::windows::core::Error;
     fn try_from(value: &NDCustomData) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3359,9 +3359,9 @@ impl NDDownloadEngineNotifier {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn OnContentIDReceived<'a, P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<()>
+    pub fn OnContentIDReceived<P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INDLicenseFetchDescriptor>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3443,7 +3443,7 @@ impl ::core::convert::TryFrom<&NDDownloadEngineNotifier> for INDDownloadEngineNo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&NDDownloadEngineNotifier> for ::windows::core::InParam<'a, INDDownloadEngineNotifier> {
+impl ::core::convert::TryFrom<&NDDownloadEngineNotifier> for ::windows::core::InParam<INDDownloadEngineNotifier> {
     type Error = ::windows::core::Error;
     fn try_from(value: &NDDownloadEngineNotifier) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3485,9 +3485,9 @@ impl NDLicenseFetchDescriptor {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetLicenseFetchChallengeCustomData<'a, P0, E0>(&self, licensefetchchallengecustomdata: P0) -> ::windows::core::Result<()>
+    pub fn SetLicenseFetchChallengeCustomData<P0, E0>(&self, licensefetchchallengecustomdata: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INDCustomData>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3495,9 +3495,9 @@ impl NDLicenseFetchDescriptor {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CreateInstance<'a, P0, E0>(contentidtype: NDContentIDType, contentidbytes: &[u8], licensefetchchallengecustomdata: P0) -> ::windows::core::Result<NDLicenseFetchDescriptor>
+    pub fn CreateInstance<P0, E0>(contentidtype: NDContentIDType, contentidbytes: &[u8], licensefetchchallengecustomdata: P0) -> ::windows::core::Result<NDLicenseFetchDescriptor>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INDCustomData>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::INDLicenseFetchDescriptorFactory(|this| unsafe {
@@ -3569,7 +3569,7 @@ impl ::core::convert::TryFrom<&NDLicenseFetchDescriptor> for INDLicenseFetchDesc
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&NDLicenseFetchDescriptor> for ::windows::core::InParam<'a, INDLicenseFetchDescriptor> {
+impl ::core::convert::TryFrom<&NDLicenseFetchDescriptor> for ::windows::core::InParam<INDLicenseFetchDescriptor> {
     type Error = ::windows::core::Error;
     fn try_from(value: &NDLicenseFetchDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3591,9 +3591,9 @@ impl NDStorageFileHelper {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
-    pub fn GetFileURLs<'a, P0, E0>(&self, file: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>
+    pub fn GetFileURLs<P0, E0>(&self, file: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3660,7 +3660,7 @@ impl ::core::convert::TryFrom<&NDStorageFileHelper> for INDStorageFileHelper {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&NDStorageFileHelper> for ::windows::core::InParam<'a, INDStorageFileHelper> {
+impl ::core::convert::TryFrom<&NDStorageFileHelper> for ::windows::core::InParam<INDStorageFileHelper> {
     type Error = ::windows::core::Error;
     fn try_from(value: &NDStorageFileHelper) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3682,9 +3682,9 @@ impl NDStreamParserNotifier {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn OnContentIDReceived<'a, P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<()>
+    pub fn OnContentIDReceived<P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INDLicenseFetchDescriptor>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3692,11 +3692,11 @@ impl NDStreamParserNotifier {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnMediaStreamDescriptorCreated<'a, P0, E0, P1, E1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> ::windows::core::Result<()>
+    pub fn OnMediaStreamDescriptorCreated<P0, E0, P1, E1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3710,9 +3710,9 @@ impl NDStreamParserNotifier {
     }
     #[doc = "*Required features: `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnBeginSetupDecryptor<'a, P0, E0>(&self, descriptor: P0, keyid: ::windows::core::GUID, probytes: &[u8]) -> ::windows::core::Result<()>
+    pub fn OnBeginSetupDecryptor<P0, E0>(&self, descriptor: P0, keyid: ::windows::core::GUID, probytes: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Core::IMediaStreamDescriptor>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Core::IMediaStreamDescriptor>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3776,7 +3776,7 @@ impl ::core::convert::TryFrom<&NDStreamParserNotifier> for INDStreamParserNotifi
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&NDStreamParserNotifier> for ::windows::core::InParam<'a, INDStreamParserNotifier> {
+impl ::core::convert::TryFrom<&NDStreamParserNotifier> for ::windows::core::InParam<INDStreamParserNotifier> {
     type Error = ::windows::core::Error;
     fn try_from(value: &NDStreamParserNotifier) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3897,7 +3897,7 @@ impl ::core::convert::TryFrom<&NDTCPMessenger> for INDMessenger {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&NDTCPMessenger> for ::windows::core::InParam<'a, INDMessenger> {
+impl ::core::convert::TryFrom<&NDTCPMessenger> for ::windows::core::InParam<INDMessenger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &NDTCPMessenger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4175,7 +4175,7 @@ impl ::core::convert::TryFrom<&PlayReadyDomain> for IPlayReadyDomain {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyDomain> for ::windows::core::InParam<'a, IPlayReadyDomain> {
+impl ::core::convert::TryFrom<&PlayReadyDomain> for ::windows::core::InParam<IPlayReadyDomain> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyDomain) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4284,7 +4284,7 @@ impl ::core::convert::TryFrom<&PlayReadyDomainIterable> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&PlayReadyDomainIterable> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> {
+impl ::core::convert::TryFrom<&PlayReadyDomainIterable> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyDomainIterable) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4391,7 +4391,7 @@ impl ::core::convert::TryFrom<&PlayReadyDomainIterator> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&PlayReadyDomainIterator> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> {
+impl ::core::convert::TryFrom<&PlayReadyDomainIterator> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyDomainIterator) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4565,7 +4565,7 @@ impl ::core::convert::TryFrom<&PlayReadyDomainJoinServiceRequest> for super::IMe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyDomainJoinServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadyDomainJoinServiceRequest> for ::windows::core::InParam<super::IMediaProtectionServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyDomainJoinServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4584,7 +4584,7 @@ impl ::core::convert::TryFrom<&PlayReadyDomainJoinServiceRequest> for IPlayReady
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyDomainJoinServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadyDomainJoinServiceRequest> for ::windows::core::InParam<IPlayReadyServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyDomainJoinServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4747,7 +4747,7 @@ impl ::core::convert::TryFrom<&PlayReadyDomainLeaveServiceRequest> for super::IM
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyDomainLeaveServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadyDomainLeaveServiceRequest> for ::windows::core::InParam<super::IMediaProtectionServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyDomainLeaveServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4766,7 +4766,7 @@ impl ::core::convert::TryFrom<&PlayReadyDomainLeaveServiceRequest> for IPlayRead
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyDomainLeaveServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadyDomainLeaveServiceRequest> for ::windows::core::InParam<IPlayReadyServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyDomainLeaveServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4786,9 +4786,9 @@ impl PlayReadyITADataGenerator {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GenerateData<'a, P0, E0>(&self, guidcpsystemid: ::windows::core::GUID, countofstreams: u32, configuration: P0, format: PlayReadyITADataFormat) -> ::windows::core::Result<::windows::core::Array<u8>>
+    pub fn GenerateData<P0, E0>(&self, guidcpsystemid: ::windows::core::GUID, countofstreams: u32, configuration: P0, format: PlayReadyITADataFormat) -> ::windows::core::Result<::windows::core::Array<u8>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4965,7 +4965,7 @@ impl ::core::convert::TryFrom<&PlayReadyIndividualizationServiceRequest> for sup
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyIndividualizationServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadyIndividualizationServiceRequest> for ::windows::core::InParam<super::IMediaProtectionServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyIndividualizationServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4984,7 +4984,7 @@ impl ::core::convert::TryFrom<&PlayReadyIndividualizationServiceRequest> for IPl
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyIndividualizationServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadyIndividualizationServiceRequest> for ::windows::core::InParam<IPlayReadyServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyIndividualizationServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5120,7 +5120,7 @@ impl ::core::convert::TryFrom<&PlayReadyLicense> for IPlayReadyLicense {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyLicense> for ::windows::core::InParam<'a, IPlayReadyLicense> {
+impl ::core::convert::TryFrom<&PlayReadyLicense> for ::windows::core::InParam<IPlayReadyLicense> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyLicense) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5299,7 +5299,7 @@ impl ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for su
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<super::IMediaProtectionServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5318,7 +5318,7 @@ impl ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for IP
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<'a, IPlayReadyLicenseAcquisitionServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<IPlayReadyLicenseAcquisitionServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5337,7 +5337,7 @@ impl ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for IP
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<IPlayReadyServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5453,7 +5453,7 @@ impl ::core::convert::TryFrom<&PlayReadyLicenseIterable> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&PlayReadyLicenseIterable> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> {
+impl ::core::convert::TryFrom<&PlayReadyLicenseIterable> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyLicenseIterable) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5560,7 +5560,7 @@ impl ::core::convert::TryFrom<&PlayReadyLicenseIterator> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&PlayReadyLicenseIterator> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> {
+impl ::core::convert::TryFrom<&PlayReadyLicenseIterator> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyLicenseIterator) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5613,9 +5613,9 @@ impl PlayReadyLicenseSession {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateInstance<'a, P0, E0>(configuration: P0) -> ::windows::core::Result<PlayReadyLicenseSession>
+    pub fn CreateInstance<P0, E0>(configuration: P0) -> ::windows::core::Result<PlayReadyLicenseSession>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPlayReadyLicenseSessionFactory(|this| unsafe {
@@ -5674,7 +5674,7 @@ impl ::core::convert::TryFrom<&PlayReadyLicenseSession> for IPlayReadyLicenseSes
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyLicenseSession> for ::windows::core::InParam<'a, IPlayReadyLicenseSession> {
+impl ::core::convert::TryFrom<&PlayReadyLicenseSession> for ::windows::core::InParam<IPlayReadyLicenseSession> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyLicenseSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5693,7 +5693,7 @@ impl ::core::convert::TryFrom<&PlayReadyLicenseSession> for IPlayReadyLicenseSes
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyLicenseSession> for ::windows::core::InParam<'a, IPlayReadyLicenseSession2> {
+impl ::core::convert::TryFrom<&PlayReadyLicenseSession> for ::windows::core::InParam<IPlayReadyLicenseSession2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyLicenseSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5845,7 +5845,7 @@ impl ::core::convert::TryFrom<&PlayReadyMeteringReportServiceRequest> for super:
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyMeteringReportServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadyMeteringReportServiceRequest> for ::windows::core::InParam<super::IMediaProtectionServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyMeteringReportServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5864,7 +5864,7 @@ impl ::core::convert::TryFrom<&PlayReadyMeteringReportServiceRequest> for IPlayR
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyMeteringReportServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadyMeteringReportServiceRequest> for ::windows::core::InParam<IPlayReadyServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyMeteringReportServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6005,7 +6005,7 @@ impl ::core::convert::TryFrom<&PlayReadyRevocationServiceRequest> for super::IMe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyRevocationServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadyRevocationServiceRequest> for ::windows::core::InParam<super::IMediaProtectionServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyRevocationServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6024,7 +6024,7 @@ impl ::core::convert::TryFrom<&PlayReadyRevocationServiceRequest> for IPlayReady
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadyRevocationServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadyRevocationServiceRequest> for ::windows::core::InParam<IPlayReadyServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadyRevocationServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6133,7 +6133,7 @@ impl ::core::convert::TryFrom<&PlayReadySecureStopIterable> for super::super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&PlayReadySecureStopIterable> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> {
+impl ::core::convert::TryFrom<&PlayReadySecureStopIterable> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadySecureStopIterable) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6240,7 +6240,7 @@ impl ::core::convert::TryFrom<&PlayReadySecureStopIterator> for super::super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&PlayReadySecureStopIterator> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> {
+impl ::core::convert::TryFrom<&PlayReadySecureStopIterator> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadySecureStopIterator) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6430,7 +6430,7 @@ impl ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for super::IMe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for ::windows::core::InParam<super::IMediaProtectionServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadySecureStopServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6449,7 +6449,7 @@ impl ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for IPlayReady
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for ::windows::core::InParam<'a, IPlayReadySecureStopServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for ::windows::core::InParam<IPlayReadySecureStopServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadySecureStopServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6468,7 +6468,7 @@ impl ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for IPlayReady
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+impl ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for ::windows::core::InParam<IPlayReadyServiceRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PlayReadySecureStopServiceRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

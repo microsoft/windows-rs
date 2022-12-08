@@ -603,9 +603,9 @@ impl SpatialSurfaceObserver {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetBoundingVolumes<'a, P0, E0>(&self, bounds: P0) -> ::windows::core::Result<()>
+    pub fn SetBoundingVolumes<P0, E0>(&self, bounds: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

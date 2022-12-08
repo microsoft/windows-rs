@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ChoosePixelFormat<'a, P0>(hdc: P0, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32
+pub unsafe fn ChoosePixelFormat<P0>(hdc: P0, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -11,7 +11,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DescribePixelFormat<'a, P0>(hdc: P0, ipixelformat: i32, nbytes: u32, ppfd: ::core::option::Option<*mut PIXELFORMATDESCRIPTOR>) -> i32
+pub unsafe fn DescribePixelFormat<P0>(hdc: P0, ipixelformat: i32, nbytes: u32, ppfd: ::core::option::Option<*mut PIXELFORMATDESCRIPTOR>) -> i32
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -21,7 +21,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetEnhMetaFilePixelFormat<'a, P0>(hemf: P0, cbbuffer: u32, ppfd: ::core::option::Option<*mut PIXELFORMATDESCRIPTOR>) -> u32
+pub unsafe fn GetEnhMetaFilePixelFormat<P0>(hemf: P0, cbbuffer: u32, ppfd: ::core::option::Option<*mut PIXELFORMATDESCRIPTOR>) -> u32
 where
     P0: ::std::convert::Into<super::Gdi::HENHMETAFILE>,
 {
@@ -31,7 +31,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetPixelFormat<'a, P0>(hdc: P0) -> i32
+pub unsafe fn GetPixelFormat<P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -41,7 +41,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn SetPixelFormat<'a, P0>(hdc: P0, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation::BOOL
+pub unsafe fn SetPixelFormat<P0>(hdc: P0, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -51,7 +51,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn SwapBuffers<'a, P0>(param0: P0) -> super::super::Foundation::BOOL
+pub unsafe fn SwapBuffers<P0>(param0: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -2389,7 +2389,7 @@ pub unsafe fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const 
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglCopyContext<'a, P0, P1>(param0: P0, param1: P1, param2: u32) -> super::super::Foundation::BOOL
+pub unsafe fn wglCopyContext<P0, P1>(param0: P0, param1: P1, param2: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HGLRC>,
     P1: ::std::convert::Into<HGLRC>,
@@ -2400,7 +2400,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglCreateContext<'a, P0>(param0: P0) -> ::windows::core::Result<HGLRC>
+pub unsafe fn wglCreateContext<P0>(param0: P0) -> ::windows::core::Result<HGLRC>
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -2411,7 +2411,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglCreateLayerContext<'a, P0>(param0: P0, param1: i32) -> ::windows::core::Result<HGLRC>
+pub unsafe fn wglCreateLayerContext<P0>(param0: P0, param1: i32) -> ::windows::core::Result<HGLRC>
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -2422,7 +2422,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglDeleteContext<'a, P0>(param0: P0) -> super::super::Foundation::BOOL
+pub unsafe fn wglDeleteContext<P0>(param0: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HGLRC>,
 {
@@ -2432,7 +2432,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglDescribeLayerPlane<'a, P0>(param0: P0, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL
+pub unsafe fn wglDescribeLayerPlane<P0>(param0: P0, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -2455,7 +2455,7 @@ pub unsafe fn wglGetCurrentDC() -> super::Gdi::HDC {
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglGetLayerPaletteEntries<'a, P0>(param0: P0, param1: i32, param2: i32, param3: i32, param4: *mut super::super::Foundation::COLORREF) -> i32
+pub unsafe fn wglGetLayerPaletteEntries<P0>(param0: P0, param1: i32, param2: i32, param3: i32, param4: *mut super::super::Foundation::COLORREF) -> i32
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -2465,7 +2465,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglGetProcAddress<'a, P0>(param0: P0) -> super::super::Foundation::PROC
+pub unsafe fn wglGetProcAddress<P0>(param0: P0) -> super::super::Foundation::PROC
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2475,7 +2475,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglMakeCurrent<'a, P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::BOOL
+pub unsafe fn wglMakeCurrent<P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
     P1: ::std::convert::Into<HGLRC>,
@@ -2486,7 +2486,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglRealizeLayerPalette<'a, P0, P1>(param0: P0, param1: i32, param2: P1) -> super::super::Foundation::BOOL
+pub unsafe fn wglRealizeLayerPalette<P0, P1>(param0: P0, param1: i32, param2: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -2497,7 +2497,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglSetLayerPaletteEntries<'a, P0>(param0: P0, param1: i32, param2: i32, param3: i32, param4: *const super::super::Foundation::COLORREF) -> i32
+pub unsafe fn wglSetLayerPaletteEntries<P0>(param0: P0, param1: i32, param2: i32, param3: i32, param4: *const super::super::Foundation::COLORREF) -> i32
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -2507,7 +2507,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglShareLists<'a, P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::BOOL
+pub unsafe fn wglShareLists<P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HGLRC>,
     P1: ::std::convert::Into<HGLRC>,
@@ -2518,7 +2518,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglSwapLayerBuffers<'a, P0>(param0: P0, param1: u32) -> super::super::Foundation::BOOL
+pub unsafe fn wglSwapLayerBuffers<P0>(param0: P0, param1: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -2528,7 +2528,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglUseFontBitmapsA<'a, P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL
+pub unsafe fn wglUseFontBitmapsA<P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -2538,7 +2538,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglUseFontBitmapsW<'a, P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL
+pub unsafe fn wglUseFontBitmapsW<P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -2548,7 +2548,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglUseFontOutlinesA<'a, P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL
+pub unsafe fn wglUseFontOutlinesA<P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -2558,7 +2558,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglUseFontOutlinesW<'a, P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL
+pub unsafe fn wglUseFontOutlinesW<P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {

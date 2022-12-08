@@ -375,9 +375,9 @@ impl WiFiDirectService {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetSessionInfo<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSessionInfo<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -440,9 +440,9 @@ impl WiFiDirectService {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetSelectorWithFilter<'a, P0, E0>(servicename: &::windows::core::HSTRING, serviceinfofilter: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn GetSelectorWithFilter<P0, E0>(servicename: &::windows::core::HSTRING, serviceinfofilter: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IWiFiDirectServiceStatics(|this| unsafe {
@@ -530,9 +530,9 @@ impl WiFiDirectServiceAdvertiser {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetServiceInfo<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetServiceInfo<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -602,9 +602,9 @@ impl WiFiDirectServiceAdvertiser {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetDeferredSessionInfo<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDeferredSessionInfo<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1073,7 +1073,7 @@ impl ::core::convert::TryFrom<&WiFiDirectServiceSession> for super::super::super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&WiFiDirectServiceSession> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&WiFiDirectServiceSession> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WiFiDirectServiceSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1215,7 +1215,7 @@ impl ::core::convert::TryFrom<&WiFiDirectServiceSessionRequest> for super::super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&WiFiDirectServiceSessionRequest> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&WiFiDirectServiceSessionRequest> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WiFiDirectServiceSessionRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

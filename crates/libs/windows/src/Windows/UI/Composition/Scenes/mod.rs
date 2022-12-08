@@ -583,9 +583,9 @@ impl SceneBoundingBox {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -616,17 +616,17 @@ impl SceneBoundingBox {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -648,9 +648,9 @@ impl SceneBoundingBox {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -746,7 +746,7 @@ impl ::core::convert::TryFrom<&SceneBoundingBox> for super::IAnimationObject {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneBoundingBox> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneBoundingBox> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneBoundingBox) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -768,7 +768,7 @@ impl ::core::convert::TryFrom<&SceneBoundingBox> for super::super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneBoundingBox> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneBoundingBox> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneBoundingBox) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -785,7 +785,7 @@ impl ::core::convert::From<&SceneBoundingBox> for SceneObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneBoundingBox> for ::windows::core::InParam<'a, SceneObject> {
+impl ::core::convert::From<&SceneBoundingBox> for ::windows::core::InParam<SceneObject> {
     fn from(value: &SceneBoundingBox) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -800,7 +800,7 @@ impl ::core::convert::From<&SceneBoundingBox> for super::CompositionObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneBoundingBox> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneBoundingBox> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneBoundingBox) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -844,9 +844,9 @@ impl SceneComponent {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -877,17 +877,17 @@ impl SceneComponent {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -909,9 +909,9 @@ impl SceneComponent {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -969,7 +969,7 @@ impl ::core::convert::TryFrom<&SceneComponent> for super::IAnimationObject {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneComponent> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneComponent> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneComponent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -991,7 +991,7 @@ impl ::core::convert::TryFrom<&SceneComponent> for super::super::super::Foundati
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneComponent> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneComponent> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneComponent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1008,7 +1008,7 @@ impl ::core::convert::From<&SceneComponent> for SceneObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneComponent> for ::windows::core::InParam<'a, SceneObject> {
+impl ::core::convert::From<&SceneComponent> for ::windows::core::InParam<SceneObject> {
     fn from(value: &SceneComponent) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -1023,7 +1023,7 @@ impl ::core::convert::From<&SceneComponent> for super::CompositionObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneComponent> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneComponent> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneComponent) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -1069,9 +1069,9 @@ impl SceneComponentCollection {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -1102,17 +1102,17 @@ impl SceneComponentCollection {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -1134,9 +1134,9 @@ impl SceneComponentCollection {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -1179,9 +1179,9 @@ impl SceneComponentCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneComponent>>,
+        P0: ::std::convert::Into<::windows::core::InParam<SceneComponent>>,
     {
         let this = self;
         unsafe {
@@ -1191,18 +1191,18 @@ impl SceneComponentCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
+    pub fn SetAt<P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneComponent>>,
+        P0: ::std::convert::Into<::windows::core::InParam<SceneComponent>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetAt)(::windows::core::Vtable::as_raw(this), index, value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
+    pub fn InsertAt<P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneComponent>>,
+        P0: ::std::convert::Into<::windows::core::InParam<SceneComponent>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).InsertAt)(::windows::core::Vtable::as_raw(this), index, value.into().abi()).ok() }
@@ -1215,9 +1215,9 @@ impl SceneComponentCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn Append<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneComponent>>,
+        P0: ::std::convert::Into<::windows::core::InParam<SceneComponent>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Append)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -1323,7 +1323,7 @@ impl ::core::convert::TryFrom<&SceneComponentCollection> for super::IAnimationOb
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&SceneComponentCollection> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneComponentCollection> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneComponentCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1345,7 +1345,7 @@ impl ::core::convert::TryFrom<&SceneComponentCollection> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&SceneComponentCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneComponentCollection> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneComponentCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1367,7 +1367,7 @@ impl ::core::convert::TryFrom<&SceneComponentCollection> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&SceneComponentCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<SceneComponent>> {
+impl ::core::convert::TryFrom<&SceneComponentCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<SceneComponent>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneComponentCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1389,7 +1389,7 @@ impl ::core::convert::TryFrom<&SceneComponentCollection> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&SceneComponentCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<SceneComponent>> {
+impl ::core::convert::TryFrom<&SceneComponentCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<SceneComponent>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneComponentCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1409,7 +1409,7 @@ impl ::core::convert::From<&SceneComponentCollection> for SceneObject {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::From<&SceneComponentCollection> for ::windows::core::InParam<'a, SceneObject> {
+impl ::core::convert::From<&SceneComponentCollection> for ::windows::core::InParam<SceneObject> {
     fn from(value: &SceneComponentCollection) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -1427,7 +1427,7 @@ impl ::core::convert::From<&SceneComponentCollection> for super::CompositionObje
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::From<&SceneComponentCollection> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneComponentCollection> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneComponentCollection) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -1473,9 +1473,9 @@ impl SceneMaterial {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -1506,17 +1506,17 @@ impl SceneMaterial {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -1538,9 +1538,9 @@ impl SceneMaterial {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -1591,7 +1591,7 @@ impl ::core::convert::TryFrom<&SceneMaterial> for super::IAnimationObject {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneMaterial> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneMaterial> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneMaterial) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1613,7 +1613,7 @@ impl ::core::convert::TryFrom<&SceneMaterial> for super::super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneMaterial> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneMaterial> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneMaterial) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1630,7 +1630,7 @@ impl ::core::convert::From<&SceneMaterial> for SceneObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMaterial> for ::windows::core::InParam<'a, SceneObject> {
+impl ::core::convert::From<&SceneMaterial> for ::windows::core::InParam<SceneObject> {
     fn from(value: &SceneMaterial) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -1645,7 +1645,7 @@ impl ::core::convert::From<&SceneMaterial> for super::CompositionObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMaterial> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneMaterial> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneMaterial) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -1689,9 +1689,9 @@ impl SceneMaterialInput {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -1722,17 +1722,17 @@ impl SceneMaterialInput {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -1754,9 +1754,9 @@ impl SceneMaterialInput {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -1807,7 +1807,7 @@ impl ::core::convert::TryFrom<&SceneMaterialInput> for super::IAnimationObject {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneMaterialInput> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneMaterialInput> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneMaterialInput) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1829,7 +1829,7 @@ impl ::core::convert::TryFrom<&SceneMaterialInput> for super::super::super::Foun
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneMaterialInput> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneMaterialInput> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneMaterialInput) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1846,7 +1846,7 @@ impl ::core::convert::From<&SceneMaterialInput> for SceneObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMaterialInput> for ::windows::core::InParam<'a, SceneObject> {
+impl ::core::convert::From<&SceneMaterialInput> for ::windows::core::InParam<SceneObject> {
     fn from(value: &SceneMaterialInput) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -1861,7 +1861,7 @@ impl ::core::convert::From<&SceneMaterialInput> for super::CompositionObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMaterialInput> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneMaterialInput> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneMaterialInput) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -1905,9 +1905,9 @@ impl SceneMesh {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -1938,17 +1938,17 @@ impl SceneMesh {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -1970,9 +1970,9 @@ impl SceneMesh {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -2062,7 +2062,7 @@ impl ::core::convert::TryFrom<&SceneMesh> for super::IAnimationObject {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneMesh> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneMesh> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneMesh) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2084,7 +2084,7 @@ impl ::core::convert::TryFrom<&SceneMesh> for super::super::super::Foundation::I
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneMesh> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneMesh> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneMesh) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2101,7 +2101,7 @@ impl ::core::convert::From<&SceneMesh> for SceneObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMesh> for ::windows::core::InParam<'a, SceneObject> {
+impl ::core::convert::From<&SceneMesh> for ::windows::core::InParam<SceneObject> {
     fn from(value: &SceneMesh) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -2116,7 +2116,7 @@ impl ::core::convert::From<&SceneMesh> for super::CompositionObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMesh> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneMesh> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneMesh) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -2160,9 +2160,9 @@ impl SceneMeshMaterialAttributeMap {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -2193,17 +2193,17 @@ impl SceneMeshMaterialAttributeMap {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -2225,9 +2225,9 @@ impl SceneMeshMaterialAttributeMap {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -2360,7 +2360,7 @@ impl ::core::convert::TryFrom<&SceneMeshMaterialAttributeMap> for super::IAnimat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneMeshMaterialAttributeMap> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneMeshMaterialAttributeMap> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneMeshMaterialAttributeMap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2382,7 +2382,7 @@ impl ::core::convert::TryFrom<&SceneMeshMaterialAttributeMap> for super::super::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneMeshMaterialAttributeMap> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneMeshMaterialAttributeMap> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneMeshMaterialAttributeMap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2404,7 +2404,7 @@ impl ::core::convert::TryFrom<&SceneMeshMaterialAttributeMap> for super::super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&SceneMeshMaterialAttributeMap> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, SceneAttributeSemantic>>> {
+impl ::core::convert::TryFrom<&SceneMeshMaterialAttributeMap> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, SceneAttributeSemantic>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneMeshMaterialAttributeMap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2426,7 +2426,7 @@ impl ::core::convert::TryFrom<&SceneMeshMaterialAttributeMap> for super::super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&SceneMeshMaterialAttributeMap> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, SceneAttributeSemantic>> {
+impl ::core::convert::TryFrom<&SceneMeshMaterialAttributeMap> for ::windows::core::InParam<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, SceneAttributeSemantic>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneMeshMaterialAttributeMap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2443,7 +2443,7 @@ impl ::core::convert::From<&SceneMeshMaterialAttributeMap> for SceneObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMeshMaterialAttributeMap> for ::windows::core::InParam<'a, SceneObject> {
+impl ::core::convert::From<&SceneMeshMaterialAttributeMap> for ::windows::core::InParam<SceneObject> {
     fn from(value: &SceneMeshMaterialAttributeMap) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -2458,7 +2458,7 @@ impl ::core::convert::From<&SceneMeshMaterialAttributeMap> for super::Compositio
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMeshMaterialAttributeMap> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneMeshMaterialAttributeMap> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneMeshMaterialAttributeMap) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -2502,9 +2502,9 @@ impl SceneMeshRendererComponent {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -2535,17 +2535,17 @@ impl SceneMeshRendererComponent {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -2567,9 +2567,9 @@ impl SceneMeshRendererComponent {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -2588,9 +2588,9 @@ impl SceneMeshRendererComponent {
             (::windows::core::Vtable::vtable(this).Material)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetMaterial<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetMaterial<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneMaterial>>,
+        P0: ::std::convert::Into<::windows::core::InParam<SceneMaterial>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetMaterial)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -2670,7 +2670,7 @@ impl ::core::convert::TryFrom<&SceneMeshRendererComponent> for super::IAnimation
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneMeshRendererComponent> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneMeshRendererComponent> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneMeshRendererComponent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2692,7 +2692,7 @@ impl ::core::convert::TryFrom<&SceneMeshRendererComponent> for super::super::sup
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneMeshRendererComponent> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneMeshRendererComponent> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneMeshRendererComponent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2709,7 +2709,7 @@ impl ::core::convert::From<&SceneMeshRendererComponent> for SceneRendererCompone
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMeshRendererComponent> for ::windows::core::InParam<'a, SceneRendererComponent> {
+impl ::core::convert::From<&SceneMeshRendererComponent> for ::windows::core::InParam<SceneRendererComponent> {
     fn from(value: &SceneMeshRendererComponent) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -2724,7 +2724,7 @@ impl ::core::convert::From<&SceneMeshRendererComponent> for SceneComponent {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMeshRendererComponent> for ::windows::core::InParam<'a, SceneComponent> {
+impl ::core::convert::From<&SceneMeshRendererComponent> for ::windows::core::InParam<SceneComponent> {
     fn from(value: &SceneMeshRendererComponent) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -2739,7 +2739,7 @@ impl ::core::convert::From<&SceneMeshRendererComponent> for SceneObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMeshRendererComponent> for ::windows::core::InParam<'a, SceneObject> {
+impl ::core::convert::From<&SceneMeshRendererComponent> for ::windows::core::InParam<SceneObject> {
     fn from(value: &SceneMeshRendererComponent) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -2754,7 +2754,7 @@ impl ::core::convert::From<&SceneMeshRendererComponent> for super::CompositionOb
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMeshRendererComponent> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneMeshRendererComponent> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneMeshRendererComponent) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -2798,9 +2798,9 @@ impl SceneMetallicRoughnessMaterial {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -2831,17 +2831,17 @@ impl SceneMetallicRoughnessMaterial {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -2863,9 +2863,9 @@ impl SceneMetallicRoughnessMaterial {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -2877,9 +2877,9 @@ impl SceneMetallicRoughnessMaterial {
             (::windows::core::Vtable::vtable(this).BaseColorInput)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetBaseColorInput<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetBaseColorInput<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneMaterialInput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<SceneMaterialInput>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetBaseColorInput)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -2917,9 +2917,9 @@ impl SceneMetallicRoughnessMaterial {
             (::windows::core::Vtable::vtable(this).MetallicRoughnessInput)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetMetallicRoughnessInput<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetMetallicRoughnessInput<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneMaterialInput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<SceneMaterialInput>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetMetallicRoughnessInput)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -2970,9 +2970,9 @@ impl SceneMetallicRoughnessMaterial {
             (::windows::core::Vtable::vtable(this).EmissiveInput)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetEmissiveInput<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetEmissiveInput<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneMaterialInput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<SceneMaterialInput>>,
     {
         let this = &::windows::core::Interface::cast::<IScenePbrMaterial>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetEmissiveInput)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -3010,9 +3010,9 @@ impl SceneMetallicRoughnessMaterial {
             (::windows::core::Vtable::vtable(this).NormalInput)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetNormalInput<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetNormalInput<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneMaterialInput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<SceneMaterialInput>>,
     {
         let this = &::windows::core::Interface::cast::<IScenePbrMaterial>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetNormalInput)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -3035,9 +3035,9 @@ impl SceneMetallicRoughnessMaterial {
             (::windows::core::Vtable::vtable(this).OcclusionInput)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetOcclusionInput<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetOcclusionInput<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneMaterialInput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<SceneMaterialInput>>,
     {
         let this = &::windows::core::Interface::cast::<IScenePbrMaterial>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetOcclusionInput)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -3104,7 +3104,7 @@ impl ::core::convert::TryFrom<&SceneMetallicRoughnessMaterial> for super::IAnima
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneMetallicRoughnessMaterial> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneMetallicRoughnessMaterial> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneMetallicRoughnessMaterial) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3126,7 +3126,7 @@ impl ::core::convert::TryFrom<&SceneMetallicRoughnessMaterial> for super::super:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneMetallicRoughnessMaterial> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneMetallicRoughnessMaterial> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneMetallicRoughnessMaterial) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3143,7 +3143,7 @@ impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for ScenePbrMaterial
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMetallicRoughnessMaterial> for ::windows::core::InParam<'a, ScenePbrMaterial> {
+impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for ::windows::core::InParam<ScenePbrMaterial> {
     fn from(value: &SceneMetallicRoughnessMaterial) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -3158,7 +3158,7 @@ impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for SceneMaterial {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMetallicRoughnessMaterial> for ::windows::core::InParam<'a, SceneMaterial> {
+impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for ::windows::core::InParam<SceneMaterial> {
     fn from(value: &SceneMetallicRoughnessMaterial) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -3173,7 +3173,7 @@ impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for SceneObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMetallicRoughnessMaterial> for ::windows::core::InParam<'a, SceneObject> {
+impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for ::windows::core::InParam<SceneObject> {
     fn from(value: &SceneMetallicRoughnessMaterial) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -3188,7 +3188,7 @@ impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for super::Compositi
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneMetallicRoughnessMaterial> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneMetallicRoughnessMaterial) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -3232,9 +3232,9 @@ impl SceneModelTransform {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -3265,17 +3265,17 @@ impl SceneModelTransform {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -3297,9 +3297,9 @@ impl SceneModelTransform {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -3432,7 +3432,7 @@ impl ::core::convert::TryFrom<&SceneModelTransform> for super::IAnimationObject 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneModelTransform> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneModelTransform> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneModelTransform) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3454,7 +3454,7 @@ impl ::core::convert::TryFrom<&SceneModelTransform> for super::super::super::Fou
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneModelTransform> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneModelTransform> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneModelTransform) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3471,7 +3471,7 @@ impl ::core::convert::From<&SceneModelTransform> for super::CompositionTransform
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneModelTransform> for ::windows::core::InParam<'a, super::CompositionTransform> {
+impl ::core::convert::From<&SceneModelTransform> for ::windows::core::InParam<super::CompositionTransform> {
     fn from(value: &SceneModelTransform) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -3486,7 +3486,7 @@ impl ::core::convert::From<&SceneModelTransform> for super::CompositionObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneModelTransform> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneModelTransform> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneModelTransform) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -3530,9 +3530,9 @@ impl SceneNode {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -3563,17 +3563,17 @@ impl SceneNode {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -3595,9 +3595,9 @@ impl SceneNode {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -3698,7 +3698,7 @@ impl ::core::convert::TryFrom<&SceneNode> for super::IAnimationObject {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneNode> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneNode> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneNode) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3720,7 +3720,7 @@ impl ::core::convert::TryFrom<&SceneNode> for super::super::super::Foundation::I
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneNode> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneNode> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneNode) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3737,7 +3737,7 @@ impl ::core::convert::From<&SceneNode> for SceneObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneNode> for ::windows::core::InParam<'a, SceneObject> {
+impl ::core::convert::From<&SceneNode> for ::windows::core::InParam<SceneObject> {
     fn from(value: &SceneNode) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -3752,7 +3752,7 @@ impl ::core::convert::From<&SceneNode> for super::CompositionObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneNode> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneNode> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneNode) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -3798,9 +3798,9 @@ impl SceneNodeCollection {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -3831,17 +3831,17 @@ impl SceneNodeCollection {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -3863,9 +3863,9 @@ impl SceneNodeCollection {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -4040,7 +4040,7 @@ impl ::core::convert::TryFrom<&SceneNodeCollection> for super::IAnimationObject 
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&SceneNodeCollection> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneNodeCollection> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneNodeCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4062,7 +4062,7 @@ impl ::core::convert::TryFrom<&SceneNodeCollection> for super::super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&SceneNodeCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneNodeCollection> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneNodeCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4084,7 +4084,7 @@ impl ::core::convert::TryFrom<&SceneNodeCollection> for super::super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&SceneNodeCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<SceneNode>> {
+impl ::core::convert::TryFrom<&SceneNodeCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<SceneNode>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneNodeCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4106,7 +4106,7 @@ impl ::core::convert::TryFrom<&SceneNodeCollection> for super::super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&SceneNodeCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<SceneNode>> {
+impl ::core::convert::TryFrom<&SceneNodeCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<SceneNode>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneNodeCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4126,7 +4126,7 @@ impl ::core::convert::From<&SceneNodeCollection> for SceneObject {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::From<&SceneNodeCollection> for ::windows::core::InParam<'a, SceneObject> {
+impl ::core::convert::From<&SceneNodeCollection> for ::windows::core::InParam<SceneObject> {
     fn from(value: &SceneNodeCollection) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -4144,7 +4144,7 @@ impl ::core::convert::From<&SceneNodeCollection> for super::CompositionObject {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::From<&SceneNodeCollection> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneNodeCollection> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneNodeCollection) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -4190,9 +4190,9 @@ impl SceneObject {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -4223,17 +4223,17 @@ impl SceneObject {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -4255,9 +4255,9 @@ impl SceneObject {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -4308,7 +4308,7 @@ impl ::core::convert::TryFrom<&SceneObject> for super::IAnimationObject {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneObject> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneObject> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneObject) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4330,7 +4330,7 @@ impl ::core::convert::TryFrom<&SceneObject> for super::super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneObject> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneObject> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneObject) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4347,7 +4347,7 @@ impl ::core::convert::From<&SceneObject> for super::CompositionObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneObject> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneObject> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneObject) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -4391,9 +4391,9 @@ impl ScenePbrMaterial {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -4424,17 +4424,17 @@ impl ScenePbrMaterial {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -4456,9 +4456,9 @@ impl ScenePbrMaterial {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -4492,9 +4492,9 @@ impl ScenePbrMaterial {
             (::windows::core::Vtable::vtable(this).EmissiveInput)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetEmissiveInput<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetEmissiveInput<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneMaterialInput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<SceneMaterialInput>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetEmissiveInput)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -4532,9 +4532,9 @@ impl ScenePbrMaterial {
             (::windows::core::Vtable::vtable(this).NormalInput)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetNormalInput<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetNormalInput<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneMaterialInput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<SceneMaterialInput>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetNormalInput)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -4557,9 +4557,9 @@ impl ScenePbrMaterial {
             (::windows::core::Vtable::vtable(this).OcclusionInput)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetOcclusionInput<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetOcclusionInput<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneMaterialInput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<SceneMaterialInput>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetOcclusionInput)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -4621,7 +4621,7 @@ impl ::core::convert::TryFrom<&ScenePbrMaterial> for super::IAnimationObject {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ScenePbrMaterial> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&ScenePbrMaterial> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ScenePbrMaterial) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4643,7 +4643,7 @@ impl ::core::convert::TryFrom<&ScenePbrMaterial> for super::super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&ScenePbrMaterial> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&ScenePbrMaterial> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ScenePbrMaterial) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4660,7 +4660,7 @@ impl ::core::convert::From<&ScenePbrMaterial> for SceneMaterial {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&ScenePbrMaterial> for ::windows::core::InParam<'a, SceneMaterial> {
+impl ::core::convert::From<&ScenePbrMaterial> for ::windows::core::InParam<SceneMaterial> {
     fn from(value: &ScenePbrMaterial) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -4675,7 +4675,7 @@ impl ::core::convert::From<&ScenePbrMaterial> for SceneObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&ScenePbrMaterial> for ::windows::core::InParam<'a, SceneObject> {
+impl ::core::convert::From<&ScenePbrMaterial> for ::windows::core::InParam<SceneObject> {
     fn from(value: &ScenePbrMaterial) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -4690,7 +4690,7 @@ impl ::core::convert::From<&ScenePbrMaterial> for super::CompositionObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&ScenePbrMaterial> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&ScenePbrMaterial> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &ScenePbrMaterial) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -4734,9 +4734,9 @@ impl SceneRendererComponent {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -4767,17 +4767,17 @@ impl SceneRendererComponent {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -4799,9 +4799,9 @@ impl SceneRendererComponent {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -4859,7 +4859,7 @@ impl ::core::convert::TryFrom<&SceneRendererComponent> for super::IAnimationObje
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneRendererComponent> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneRendererComponent> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneRendererComponent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4881,7 +4881,7 @@ impl ::core::convert::TryFrom<&SceneRendererComponent> for super::super::super::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneRendererComponent> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneRendererComponent> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneRendererComponent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4898,7 +4898,7 @@ impl ::core::convert::From<&SceneRendererComponent> for SceneComponent {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneRendererComponent> for ::windows::core::InParam<'a, SceneComponent> {
+impl ::core::convert::From<&SceneRendererComponent> for ::windows::core::InParam<SceneComponent> {
     fn from(value: &SceneRendererComponent) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -4913,7 +4913,7 @@ impl ::core::convert::From<&SceneRendererComponent> for SceneObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneRendererComponent> for ::windows::core::InParam<'a, SceneObject> {
+impl ::core::convert::From<&SceneRendererComponent> for ::windows::core::InParam<SceneObject> {
     fn from(value: &SceneRendererComponent) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -4928,7 +4928,7 @@ impl ::core::convert::From<&SceneRendererComponent> for super::CompositionObject
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneRendererComponent> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneRendererComponent> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneRendererComponent) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -4972,9 +4972,9 @@ impl SceneSurfaceMaterialInput {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -5005,17 +5005,17 @@ impl SceneSurfaceMaterialInput {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -5037,9 +5037,9 @@ impl SceneSurfaceMaterialInput {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -5062,9 +5062,9 @@ impl SceneSurfaceMaterialInput {
             (::windows::core::Vtable::vtable(this).Surface)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetSurface<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSurface<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionSurface>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionSurface>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5149,7 +5149,7 @@ impl ::core::convert::TryFrom<&SceneSurfaceMaterialInput> for super::IAnimationO
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneSurfaceMaterialInput> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneSurfaceMaterialInput> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneSurfaceMaterialInput) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5171,7 +5171,7 @@ impl ::core::convert::TryFrom<&SceneSurfaceMaterialInput> for super::super::supe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneSurfaceMaterialInput> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneSurfaceMaterialInput> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneSurfaceMaterialInput) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5188,7 +5188,7 @@ impl ::core::convert::From<&SceneSurfaceMaterialInput> for SceneMaterialInput {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneSurfaceMaterialInput> for ::windows::core::InParam<'a, SceneMaterialInput> {
+impl ::core::convert::From<&SceneSurfaceMaterialInput> for ::windows::core::InParam<SceneMaterialInput> {
     fn from(value: &SceneSurfaceMaterialInput) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -5203,7 +5203,7 @@ impl ::core::convert::From<&SceneSurfaceMaterialInput> for SceneObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneSurfaceMaterialInput> for ::windows::core::InParam<'a, SceneObject> {
+impl ::core::convert::From<&SceneSurfaceMaterialInput> for ::windows::core::InParam<SceneObject> {
     fn from(value: &SceneSurfaceMaterialInput) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -5218,7 +5218,7 @@ impl ::core::convert::From<&SceneSurfaceMaterialInput> for super::CompositionObj
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneSurfaceMaterialInput> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneSurfaceMaterialInput> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneSurfaceMaterialInput) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -5262,9 +5262,9 @@ impl SceneVisual {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -5295,17 +5295,17 @@ impl SceneVisual {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -5327,9 +5327,9 @@ impl SceneVisual {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -5417,9 +5417,9 @@ impl SceneVisual {
             (::windows::core::Vtable::vtable(this).Clip)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetClip<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetClip<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionClip>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionClip>>,
     {
         let this = &::windows::core::Interface::cast::<super::IVisual>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetClip)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -5583,9 +5583,9 @@ impl SceneVisual {
             (::windows::core::Vtable::vtable(this).ParentForTransform)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetParentForTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetParentForTransform<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Visual>>,
     {
         let this = &::windows::core::Interface::cast::<super::IVisual2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetParentForTransform)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -5693,7 +5693,7 @@ impl ::core::convert::TryFrom<&SceneVisual> for super::IAnimationObject {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SceneVisual> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&SceneVisual> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneVisual) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5715,7 +5715,7 @@ impl ::core::convert::TryFrom<&SceneVisual> for super::super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SceneVisual> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SceneVisual> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneVisual) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5732,7 +5732,7 @@ impl ::core::convert::From<&SceneVisual> for super::ContainerVisual {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneVisual> for ::windows::core::InParam<'a, super::ContainerVisual> {
+impl ::core::convert::From<&SceneVisual> for ::windows::core::InParam<super::ContainerVisual> {
     fn from(value: &SceneVisual) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -5747,7 +5747,7 @@ impl ::core::convert::From<&SceneVisual> for super::Visual {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneVisual> for ::windows::core::InParam<'a, super::Visual> {
+impl ::core::convert::From<&SceneVisual> for ::windows::core::InParam<super::Visual> {
     fn from(value: &SceneVisual) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -5762,7 +5762,7 @@ impl ::core::convert::From<&SceneVisual> for super::CompositionObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SceneVisual> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&SceneVisual> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &SceneVisual) -> Self {
         ::windows::core::InParam::owned(value.into())
     }

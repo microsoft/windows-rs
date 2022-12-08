@@ -5,9 +5,9 @@ impl ISceSvcAttachmentData {
     pub unsafe fn GetData(&self, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), scesvchandle, scetype, ppvdata, psceenumhandle).ok()
     }
-    pub unsafe fn Initialize<'a, P0>(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: P0, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: P0, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISceSvcAttachmentPersistInfo>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISceSvcAttachmentPersistInfo>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), lpservicename, lptemplatename, lpscesvcpersistinfo.into().abi(), pscesvchandle).ok()
     }

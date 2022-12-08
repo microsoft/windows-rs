@@ -181,13 +181,13 @@ impl CustomDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendIOControlAsync<'a, P0, E0, P1, E1, P2, E2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>
+    pub fn SendIOControlAsync<P0, E0, P1, E1, P2, E2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IIOControlCode>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IIOControlCode>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -198,13 +198,13 @@ impl CustomDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn TrySendIOControlAsync<'a, P0, E0, P1, E1, P2, E2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TrySendIOControlAsync<P0, E0, P1, E1, P2, E2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IIOControlCode>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IIOControlCode>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -364,7 +364,7 @@ impl ::core::convert::TryFrom<&IOControlCode> for IIOControlCode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IOControlCode> for ::windows::core::InParam<'a, IIOControlCode> {
+impl ::core::convert::TryFrom<&IOControlCode> for ::windows::core::InParam<IIOControlCode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IOControlCode) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -680,9 +680,9 @@ impl PaymentAddress {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAddressLines<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetAddressLines<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1013,9 +1013,9 @@ impl PaymentDetails {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetDisplayItems<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDisplayItems<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<PaymentItem>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<PaymentItem>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1032,9 +1032,9 @@ impl PaymentDetails {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetShippingOptions<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetShippingOptions<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<PaymentShippingOption>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<PaymentShippingOption>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1051,9 +1051,9 @@ impl PaymentDetails {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetModifiers<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetModifiers<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1067,9 +1067,9 @@ impl PaymentDetails {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithDisplayItems<'a, P0, E0>(total: &PaymentItem, displayitems: P0) -> ::windows::core::Result<PaymentDetails>
+    pub fn CreateWithDisplayItems<P0, E0>(total: &PaymentItem, displayitems: P0) -> ::windows::core::Result<PaymentDetails>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentItem>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<PaymentItem>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentDetailsFactory(|this| unsafe {
@@ -1156,9 +1156,9 @@ impl PaymentDetailsModifier {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, P0, E0>(supportedmethodids: P0, total: &PaymentItem) -> ::windows::core::Result<PaymentDetailsModifier>
+    pub fn Create<P0, E0>(supportedmethodids: P0, total: &PaymentItem) -> ::windows::core::Result<PaymentDetailsModifier>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
@@ -1168,11 +1168,11 @@ impl PaymentDetailsModifier {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithAdditionalDisplayItems<'a, P0, E0, P1, E1>(supportedmethodids: P0, total: &PaymentItem, additionaldisplayitems: P1) -> ::windows::core::Result<PaymentDetailsModifier>
+    pub fn CreateWithAdditionalDisplayItems<P0, E0, P1, E1>(supportedmethodids: P0, total: &PaymentItem, additionaldisplayitems: P1) -> ::windows::core::Result<PaymentDetailsModifier>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentItem>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<PaymentItem>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
@@ -1182,11 +1182,11 @@ impl PaymentDetailsModifier {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithAdditionalDisplayItemsAndJsonData<'a, P0, E0, P1, E1>(supportedmethodids: P0, total: &PaymentItem, additionaldisplayitems: P1, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentDetailsModifier>
+    pub fn CreateWithAdditionalDisplayItemsAndJsonData<P0, E0, P1, E1>(supportedmethodids: P0, total: &PaymentItem, additionaldisplayitems: P1, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentDetailsModifier>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentItem>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<PaymentItem>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
@@ -1500,9 +1500,9 @@ impl PaymentMethodData {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, P0, E0>(supportedmethodids: P0) -> ::windows::core::Result<PaymentMethodData>
+    pub fn Create<P0, E0>(supportedmethodids: P0) -> ::windows::core::Result<PaymentMethodData>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentMethodDataFactory(|this| unsafe {
@@ -1512,9 +1512,9 @@ impl PaymentMethodData {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithJsonData<'a, P0, E0>(supportedmethodids: P0, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentMethodData>
+    pub fn CreateWithJsonData<P0, E0>(supportedmethodids: P0, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentMethodData>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentMethodDataFactory(|this| unsafe {
@@ -1708,9 +1708,9 @@ impl PaymentRequest {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, P0, E0>(details: &PaymentDetails, methoddata: P0) -> ::windows::core::Result<PaymentRequest>
+    pub fn Create<P0, E0>(details: &PaymentDetails, methoddata: P0) -> ::windows::core::Result<PaymentRequest>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentRequestFactory(|this| unsafe {
@@ -1720,9 +1720,9 @@ impl PaymentRequest {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithMerchantInfo<'a, P0, E0>(details: &PaymentDetails, methoddata: P0, merchantinfo: &PaymentMerchantInfo) -> ::windows::core::Result<PaymentRequest>
+    pub fn CreateWithMerchantInfo<P0, E0>(details: &PaymentDetails, methoddata: P0, merchantinfo: &PaymentMerchantInfo) -> ::windows::core::Result<PaymentRequest>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentRequestFactory(|this| unsafe {
@@ -1732,9 +1732,9 @@ impl PaymentRequest {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithMerchantInfoAndOptions<'a, P0, E0>(details: &PaymentDetails, methoddata: P0, merchantinfo: &PaymentMerchantInfo, options: &PaymentOptions) -> ::windows::core::Result<PaymentRequest>
+    pub fn CreateWithMerchantInfoAndOptions<P0, E0>(details: &PaymentDetails, methoddata: P0, merchantinfo: &PaymentMerchantInfo, options: &PaymentOptions) -> ::windows::core::Result<PaymentRequest>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentRequestFactory(|this| unsafe {
@@ -1744,9 +1744,9 @@ impl PaymentRequest {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithMerchantInfoOptionsAndId<'a, P0, E0>(details: &PaymentDetails, methoddata: P0, merchantinfo: &PaymentMerchantInfo, options: &PaymentOptions, id: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentRequest>
+    pub fn CreateWithMerchantInfoOptionsAndId<P0, E0>(details: &PaymentDetails, methoddata: P0, merchantinfo: &PaymentMerchantInfo, options: &PaymentOptions, id: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentRequest>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentRequestFactory2(|this| unsafe {

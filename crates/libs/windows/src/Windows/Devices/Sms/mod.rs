@@ -111,7 +111,7 @@ impl ::core::convert::TryFrom<&ISmsBinaryMessage> for ISmsMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&ISmsBinaryMessage> for ::windows::core::InParam<'a, ISmsMessage> {
+impl ::core::convert::TryFrom<&ISmsBinaryMessage> for ::windows::core::InParam<ISmsMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ISmsBinaryMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -211,9 +211,9 @@ pub struct ISmsDevice(::windows::core::IUnknown);
 impl ISmsDevice {
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SendMessageAsync<'a, P0, E0>(&self, message: P0) -> ::windows::core::Result<SendSmsMessageOperation>
+    pub fn SendMessageAsync<P0, E0>(&self, message: P0) -> ::windows::core::Result<SendSmsMessageOperation>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ISmsMessage>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ISmsMessage>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1108,7 +1108,7 @@ impl ::core::convert::TryFrom<&ISmsTextMessage> for ISmsMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&ISmsTextMessage> for ::windows::core::InParam<'a, ISmsMessage> {
+impl ::core::convert::TryFrom<&ISmsTextMessage> for ::windows::core::InParam<ISmsMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ISmsTextMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1477,7 +1477,7 @@ impl ::core::convert::TryFrom<&DeleteSmsMessageOperation> for super::super::Foun
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&DeleteSmsMessageOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncAction> {
+impl ::core::convert::TryFrom<&DeleteSmsMessageOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncAction> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeleteSmsMessageOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1499,7 +1499,7 @@ impl ::core::convert::TryFrom<&DeleteSmsMessageOperation> for super::super::Foun
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&DeleteSmsMessageOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+impl ::core::convert::TryFrom<&DeleteSmsMessageOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeleteSmsMessageOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1661,7 +1661,7 @@ impl ::core::convert::TryFrom<&DeleteSmsMessagesOperation> for super::super::Fou
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&DeleteSmsMessagesOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncAction> {
+impl ::core::convert::TryFrom<&DeleteSmsMessagesOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncAction> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeleteSmsMessagesOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1683,7 +1683,7 @@ impl ::core::convert::TryFrom<&DeleteSmsMessagesOperation> for super::super::Fou
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&DeleteSmsMessagesOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+impl ::core::convert::TryFrom<&DeleteSmsMessagesOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeleteSmsMessagesOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1848,7 +1848,7 @@ impl ::core::convert::TryFrom<&GetSmsDeviceOperation> for super::super::Foundati
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&GetSmsDeviceOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+impl ::core::convert::TryFrom<&GetSmsDeviceOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GetSmsDeviceOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1870,7 +1870,7 @@ impl ::core::convert::TryFrom<&GetSmsDeviceOperation> for super::super::Foundati
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&GetSmsDeviceOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncOperation<SmsDevice>> {
+impl ::core::convert::TryFrom<&GetSmsDeviceOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncOperation<SmsDevice>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GetSmsDeviceOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2035,7 +2035,7 @@ impl ::core::convert::TryFrom<&GetSmsMessageOperation> for super::super::Foundat
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&GetSmsMessageOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+impl ::core::convert::TryFrom<&GetSmsMessageOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GetSmsMessageOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2057,7 +2057,7 @@ impl ::core::convert::TryFrom<&GetSmsMessageOperation> for super::super::Foundat
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&GetSmsMessageOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncOperation<ISmsMessage>> {
+impl ::core::convert::TryFrom<&GetSmsMessageOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncOperation<ISmsMessage>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GetSmsMessageOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2237,7 +2237,7 @@ impl ::core::convert::TryFrom<&GetSmsMessagesOperation> for super::super::Founda
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&GetSmsMessagesOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+impl ::core::convert::TryFrom<&GetSmsMessagesOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GetSmsMessagesOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2259,7 +2259,7 @@ impl ::core::convert::TryFrom<&GetSmsMessagesOperation> for super::super::Founda
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&GetSmsMessagesOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
+impl ::core::convert::TryFrom<&GetSmsMessagesOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GetSmsMessagesOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2421,7 +2421,7 @@ impl ::core::convert::TryFrom<&SendSmsMessageOperation> for super::super::Founda
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&SendSmsMessageOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncAction> {
+impl ::core::convert::TryFrom<&SendSmsMessageOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncAction> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SendSmsMessageOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2443,7 +2443,7 @@ impl ::core::convert::TryFrom<&SendSmsMessageOperation> for super::super::Founda
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&SendSmsMessageOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+impl ::core::convert::TryFrom<&SendSmsMessageOperation> for ::windows::core::InParam<super::super::Foundation::IAsyncInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SendSmsMessageOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2587,9 +2587,9 @@ impl SmsAppMessage {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetBinaryBody<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetBinaryBody<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2676,7 +2676,7 @@ impl ::core::convert::TryFrom<&SmsAppMessage> for ISmsMessageBase {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SmsAppMessage> for ::windows::core::InParam<'a, ISmsMessageBase> {
+impl ::core::convert::TryFrom<&SmsAppMessage> for ::windows::core::InParam<ISmsMessageBase> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SmsAppMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2800,7 +2800,7 @@ impl ::core::convert::TryFrom<&SmsBinaryMessage> for ISmsBinaryMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&SmsBinaryMessage> for ::windows::core::InParam<'a, ISmsBinaryMessage> {
+impl ::core::convert::TryFrom<&SmsBinaryMessage> for ::windows::core::InParam<ISmsBinaryMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SmsBinaryMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2822,7 +2822,7 @@ impl ::core::convert::TryFrom<&SmsBinaryMessage> for ISmsMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&SmsBinaryMessage> for ::windows::core::InParam<'a, ISmsMessage> {
+impl ::core::convert::TryFrom<&SmsBinaryMessage> for ::windows::core::InParam<ISmsMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SmsBinaryMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2990,7 +2990,7 @@ impl ::core::convert::TryFrom<&SmsBroadcastMessage> for ISmsMessageBase {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SmsBroadcastMessage> for ::windows::core::InParam<'a, ISmsMessageBase> {
+impl ::core::convert::TryFrom<&SmsBroadcastMessage> for ::windows::core::InParam<ISmsMessageBase> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SmsBroadcastMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3007,9 +3007,9 @@ pub struct SmsDevice(::windows::core::IUnknown);
 impl SmsDevice {
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SendMessageAsync<'a, P0, E0>(&self, message: P0) -> ::windows::core::Result<SendSmsMessageOperation>
+    pub fn SendMessageAsync<P0, E0>(&self, message: P0) -> ::windows::core::Result<SendSmsMessageOperation>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ISmsMessage>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ISmsMessage>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3195,7 +3195,7 @@ impl ::core::convert::TryFrom<&SmsDevice> for ISmsDevice {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&SmsDevice> for ::windows::core::InParam<'a, ISmsDevice> {
+impl ::core::convert::TryFrom<&SmsDevice> for ::windows::core::InParam<ISmsDevice> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SmsDevice) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3252,9 +3252,9 @@ impl SmsDevice2 {
             (::windows::core::Vtable::vtable(this).DeviceStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn CalculateLength<'a, P0, E0>(&self, message: P0) -> ::windows::core::Result<SmsEncodedLength>
+    pub fn CalculateLength<P0, E0>(&self, message: P0) -> ::windows::core::Result<SmsEncodedLength>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ISmsMessageBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ISmsMessageBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3265,9 +3265,9 @@ impl SmsDevice2 {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendMessageAndGetResultAsync<'a, P0, E0>(&self, message: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsSendMessageResult>>
+    pub fn SendMessageAndGetResultAsync<P0, E0>(&self, message: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsSendMessageResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ISmsMessageBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ISmsMessageBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4248,7 +4248,7 @@ impl ::core::convert::TryFrom<&SmsStatusMessage> for ISmsMessageBase {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SmsStatusMessage> for ::windows::core::InParam<'a, ISmsMessageBase> {
+impl ::core::convert::TryFrom<&SmsStatusMessage> for ::windows::core::InParam<ISmsMessageBase> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SmsStatusMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4469,7 +4469,7 @@ impl ::core::convert::TryFrom<&SmsTextMessage> for ISmsMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&SmsTextMessage> for ::windows::core::InParam<'a, ISmsMessage> {
+impl ::core::convert::TryFrom<&SmsTextMessage> for ::windows::core::InParam<ISmsMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SmsTextMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4491,7 +4491,7 @@ impl ::core::convert::TryFrom<&SmsTextMessage> for ISmsTextMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&SmsTextMessage> for ::windows::core::InParam<'a, ISmsTextMessage> {
+impl ::core::convert::TryFrom<&SmsTextMessage> for ::windows::core::InParam<ISmsTextMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SmsTextMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4690,7 +4690,7 @@ impl ::core::convert::TryFrom<&SmsTextMessage2> for ISmsMessageBase {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SmsTextMessage2> for ::windows::core::InParam<'a, ISmsMessageBase> {
+impl ::core::convert::TryFrom<&SmsTextMessage2> for ::windows::core::InParam<ISmsMessageBase> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SmsTextMessage2) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4816,7 +4816,7 @@ impl ::core::convert::TryFrom<&SmsVoicemailMessage> for ISmsMessageBase {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SmsVoicemailMessage> for ::windows::core::InParam<'a, ISmsMessageBase> {
+impl ::core::convert::TryFrom<&SmsVoicemailMessage> for ::windows::core::InParam<ISmsMessageBase> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SmsVoicemailMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4965,7 +4965,7 @@ impl ::core::convert::TryFrom<&SmsWapMessage> for ISmsMessageBase {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SmsWapMessage> for ::windows::core::InParam<'a, ISmsMessageBase> {
+impl ::core::convert::TryFrom<&SmsWapMessage> for ::windows::core::InParam<ISmsMessageBase> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SmsWapMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

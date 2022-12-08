@@ -29,7 +29,7 @@ impl ::core::convert::TryFrom<&IDirect3DDevice> for super::super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&IDirect3DDevice> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&IDirect3DDevice> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IDirect3DDevice) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -105,7 +105,7 @@ impl ::core::convert::TryFrom<&IDirect3DSurface> for super::super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&IDirect3DSurface> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&IDirect3DSurface> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IDirect3DSurface) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

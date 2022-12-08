@@ -483,7 +483,7 @@ impl ::core::convert::TryFrom<&GameUIProviderActivatedEventArgs> for super::supe
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&GameUIProviderActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&GameUIProviderActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GameUIProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

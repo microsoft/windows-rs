@@ -968,7 +968,7 @@ impl ::core::convert::TryFrom<&AudioEncodingProperties> for IMediaEncodingProper
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AudioEncodingProperties> for ::windows::core::InParam<'a, IMediaEncodingProperties> {
+impl ::core::convert::TryFrom<&AudioEncodingProperties> for ::windows::core::InParam<IMediaEncodingProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AudioEncodingProperties) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1068,7 +1068,7 @@ impl ::core::convert::TryFrom<&ContainerEncodingProperties> for IMediaEncodingPr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContainerEncodingProperties> for ::windows::core::InParam<'a, IMediaEncodingProperties> {
+impl ::core::convert::TryFrom<&ContainerEncodingProperties> for ::windows::core::InParam<IMediaEncodingProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContainerEncodingProperties) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1313,7 +1313,7 @@ impl ::core::convert::TryFrom<&ImageEncodingProperties> for IMediaEncodingProper
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ImageEncodingProperties> for ::windows::core::InParam<'a, IMediaEncodingProperties> {
+impl ::core::convert::TryFrom<&ImageEncodingProperties> for ::windows::core::InParam<IMediaEncodingProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageEncodingProperties) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1368,9 +1368,9 @@ impl MediaEncodingProfile {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-    pub fn SetAudioTracks<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetAudioTracks<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::AudioStreamDescriptor>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::Core::AudioStreamDescriptor>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProfile2>(self)?;
@@ -1387,9 +1387,9 @@ impl MediaEncodingProfile {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-    pub fn SetVideoTracks<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetVideoTracks<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::VideoStreamDescriptor>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::Core::VideoStreamDescriptor>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProfile2>(self)?;
@@ -1406,9 +1406,9 @@ impl MediaEncodingProfile {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-    pub fn SetTimedMetadataTracks<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetTimedMetadataTracks<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataStreamDescriptor>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataStreamDescriptor>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProfile3>(self)?;
@@ -1455,9 +1455,9 @@ impl MediaEncodingProfile {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateFromFileAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>
+    pub fn CreateFromFileAsync<P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
@@ -1467,9 +1467,9 @@ impl MediaEncodingProfile {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateFromStreamAsync<'a, P0, E0>(stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>
+    pub fn CreateFromStreamAsync<P0, E0>(stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
@@ -1967,9 +1967,9 @@ impl MediaPropertySet {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, P0>(&self, key: ::windows::core::GUID, value: P0) -> ::windows::core::Result<bool>
+    pub fn Insert<P0>(&self, key: ::windows::core::GUID, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -2063,7 +2063,7 @@ impl ::core::convert::TryFrom<&MediaPropertySet> for super::super::Foundation::C
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&MediaPropertySet> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>> {
+impl ::core::convert::TryFrom<&MediaPropertySet> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaPropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2085,7 +2085,7 @@ impl ::core::convert::TryFrom<&MediaPropertySet> for super::super::Foundation::C
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&MediaPropertySet> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&MediaPropertySet> for ::windows::core::InParam<super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaPropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2328,7 +2328,7 @@ impl ::core::convert::TryFrom<&TimedMetadataEncodingProperties> for IMediaEncodi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TimedMetadataEncodingProperties> for ::windows::core::InParam<'a, IMediaEncodingProperties> {
+impl ::core::convert::TryFrom<&TimedMetadataEncodingProperties> for ::windows::core::InParam<IMediaEncodingProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TimedMetadataEncodingProperties) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2542,7 +2542,7 @@ impl ::core::convert::TryFrom<&VideoEncodingProperties> for IMediaEncodingProper
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VideoEncodingProperties> for ::windows::core::InParam<'a, IMediaEncodingProperties> {
+impl ::core::convert::TryFrom<&VideoEncodingProperties> for ::windows::core::InParam<IMediaEncodingProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VideoEncodingProperties) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

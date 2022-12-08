@@ -629,7 +629,7 @@ impl ::core::convert::TryFrom<&ResourceCandidateVectorView> for super::super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceCandidateVectorView> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<ResourceCandidate>> {
+impl ::core::convert::TryFrom<&ResourceCandidateVectorView> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<ResourceCandidate>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceCandidateVectorView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -651,7 +651,7 @@ impl ::core::convert::TryFrom<&ResourceCandidateVectorView> for super::super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceCandidateVectorView> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>> {
+impl ::core::convert::TryFrom<&ResourceCandidateVectorView> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceCandidateVectorView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -688,9 +688,9 @@ impl ResourceContext {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetQualifierValues<'a, P0, E0>(&self, qualifiernames: P0) -> ::windows::core::Result<()>
+    pub fn ResetQualifierValues<P0, E0>(&self, qualifiernames: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -698,9 +698,9 @@ impl ResourceContext {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn OverrideToMatch<'a, P0, E0>(&self, result: P0) -> ::windows::core::Result<()>
+    pub fn OverrideToMatch<P0, E0>(&self, result: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -724,9 +724,9 @@ impl ResourceContext {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetLanguages<'a, P0, E0>(&self, languages: P0) -> ::windows::core::Result<()>
+    pub fn SetLanguages<P0, E0>(&self, languages: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -734,9 +734,9 @@ impl ResourceContext {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateMatchingContext<'a, P0, E0>(result: P0) -> ::windows::core::Result<ResourceContext>
+    pub fn CreateMatchingContext<P0, E0>(result: P0) -> ::windows::core::Result<ResourceContext>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IResourceContextStatics(|this| unsafe {
@@ -758,9 +758,9 @@ impl ResourceContext {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetGlobalQualifierValuesForSpecifiedQualifiers<'a, P0, E0>(qualifiernames: P0) -> ::windows::core::Result<()>
+    pub fn ResetGlobalQualifierValuesForSpecifiedQualifiers<P0, E0>(qualifiernames: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IResourceContextStatics2(|this| unsafe { (::windows::core::Vtable::vtable(this).ResetGlobalQualifierValuesForSpecifiedQualifiers)(::windows::core::Vtable::as_raw(this), qualifiernames.try_into().map_err(|e| e.into())?.abi()).ok() })
@@ -963,7 +963,7 @@ impl ::core::convert::TryFrom<&ResourceContextLanguagesVectorView> for super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceContextLanguagesVectorView> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> {
+impl ::core::convert::TryFrom<&ResourceContextLanguagesVectorView> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceContextLanguagesVectorView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -985,7 +985,7 @@ impl ::core::convert::TryFrom<&ResourceContextLanguagesVectorView> for super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceContextLanguagesVectorView> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
+impl ::core::convert::TryFrom<&ResourceContextLanguagesVectorView> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceContextLanguagesVectorView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1025,9 +1025,9 @@ impl ResourceManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn LoadPriFiles<'a, P0, E0>(&self, files: P0) -> ::windows::core::Result<()>
+    pub fn LoadPriFiles<P0, E0>(&self, files: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1035,9 +1035,9 @@ impl ResourceManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn UnloadPriFiles<'a, P0, E0>(&self, files: P0) -> ::windows::core::Result<()>
+    pub fn UnloadPriFiles<P0, E0>(&self, files: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1255,7 +1255,7 @@ impl ::core::convert::TryFrom<&ResourceMap> for super::super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceMap> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>>> {
+impl ::core::convert::TryFrom<&ResourceMap> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceMap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1277,7 +1277,7 @@ impl ::core::convert::TryFrom<&ResourceMap> for super::super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceMap> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, NamedResource>> {
+impl ::core::convert::TryFrom<&ResourceMap> for ::windows::core::InParam<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, NamedResource>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceMap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1386,7 +1386,7 @@ impl ::core::convert::TryFrom<&ResourceMapIterator> for super::super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceMapIterator> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>>> {
+impl ::core::convert::TryFrom<&ResourceMapIterator> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceMapIterator) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1519,7 +1519,7 @@ impl ::core::convert::TryFrom<&ResourceMapMapView> for super::super::super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceMapMapView> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ResourceMap>>> {
+impl ::core::convert::TryFrom<&ResourceMapMapView> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ResourceMap>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceMapMapView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1541,7 +1541,7 @@ impl ::core::convert::TryFrom<&ResourceMapMapView> for super::super::super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceMapMapView> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ResourceMap>> {
+impl ::core::convert::TryFrom<&ResourceMapMapView> for ::windows::core::InParam<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ResourceMap>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceMapMapView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1652,7 +1652,7 @@ impl ::core::convert::TryFrom<&ResourceMapMapViewIterator> for super::super::sup
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceMapMapViewIterator> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ResourceMap>>> {
+impl ::core::convert::TryFrom<&ResourceMapMapViewIterator> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ResourceMap>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceMapMapViewIterator) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1860,7 +1860,7 @@ impl ::core::convert::TryFrom<&ResourceQualifierMapView> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceQualifierMapView> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
+impl ::core::convert::TryFrom<&ResourceQualifierMapView> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceQualifierMapView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1882,7 +1882,7 @@ impl ::core::convert::TryFrom<&ResourceQualifierMapView> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceQualifierMapView> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
+impl ::core::convert::TryFrom<&ResourceQualifierMapView> for ::windows::core::InParam<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceQualifierMapView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2054,7 +2054,7 @@ impl ::core::convert::TryFrom<&ResourceQualifierObservableMap> for super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceQualifierObservableMap> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
+impl ::core::convert::TryFrom<&ResourceQualifierObservableMap> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceQualifierObservableMap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2076,7 +2076,7 @@ impl ::core::convert::TryFrom<&ResourceQualifierObservableMap> for super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceQualifierObservableMap> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
+impl ::core::convert::TryFrom<&ResourceQualifierObservableMap> for ::windows::core::InParam<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceQualifierObservableMap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2098,7 +2098,7 @@ impl ::core::convert::TryFrom<&ResourceQualifierObservableMap> for super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceQualifierObservableMap> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
+impl ::core::convert::TryFrom<&ResourceQualifierObservableMap> for ::windows::core::InParam<super::super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceQualifierObservableMap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2234,7 +2234,7 @@ impl ::core::convert::TryFrom<&ResourceQualifierVectorView> for super::super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceQualifierVectorView> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<ResourceQualifier>> {
+impl ::core::convert::TryFrom<&ResourceQualifierVectorView> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<ResourceQualifier>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceQualifierVectorView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2256,7 +2256,7 @@ impl ::core::convert::TryFrom<&ResourceQualifierVectorView> for super::super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ResourceQualifierVectorView> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>> {
+impl ::core::convert::TryFrom<&ResourceQualifierVectorView> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ResourceQualifierVectorView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

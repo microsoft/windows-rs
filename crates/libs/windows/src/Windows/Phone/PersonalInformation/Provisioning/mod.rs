@@ -73,9 +73,9 @@ impl ContactPartnerProvisioningManager {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ImportVcardToSystemAsync<'a, P0, E0>(stream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ImportVcardToSystemAsync<P0, E0>(stream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
@@ -110,9 +110,9 @@ pub struct MessagePartnerProvisioningManager;
 impl MessagePartnerProvisioningManager {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ImportSmsToSystemAsync<'a, P0, E0>(incoming: bool, read: bool, body: &::windows::core::HSTRING, sender: &::windows::core::HSTRING, recipients: P0, deliverytime: super::super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ImportSmsToSystemAsync<P0, E0>(incoming: bool, read: bool, body: &::windows::core::HSTRING, sender: &::windows::core::HSTRING, recipients: P0, deliverytime: super::super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
@@ -122,11 +122,11 @@ impl MessagePartnerProvisioningManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ImportMmsToSystemAsync<'a, P0, E0, P1, E1>(incoming: bool, read: bool, subject: &::windows::core::HSTRING, sender: &::windows::core::HSTRING, recipients: P0, deliverytime: super::super::super::Foundation::DateTime, attachments: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ImportMmsToSystemAsync<P0, E0, P1, E1>(incoming: bool, read: bool, subject: &::windows::core::HSTRING, sender: &::windows::core::HSTRING, recipients: P0, deliverytime: super::super::super::Foundation::DateTime, attachments: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {

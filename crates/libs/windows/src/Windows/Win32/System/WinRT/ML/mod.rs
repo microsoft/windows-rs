@@ -4,9 +4,9 @@ pub struct ILearningModelDeviceFactoryNative(::windows::core::IUnknown);
 impl ILearningModelDeviceFactoryNative {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateFromD3D12CommandQueue<'a, P0>(&self, value: P0) -> ::windows::core::Result<::windows::core::IUnknown>
+    pub unsafe fn CreateFromD3D12CommandQueue<P0>(&self, value: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateFromD3D12CommandQueue)(::windows::core::Vtable::as_raw(self), value.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -177,9 +177,9 @@ pub struct ITensorStaticsNative(::windows::core::IUnknown);
 impl ITensorStaticsNative {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateFromD3D12Resource<'a, P0>(&self, value: P0, shape: *mut i64, shapecount: i32, result: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>
+    pub unsafe fn CreateFromD3D12Resource<P0>(&self, value: P0, shape: *mut i64, shapecount: i32, result: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
     {
         (::windows::core::Vtable::vtable(self).CreateFromD3D12Resource)(::windows::core::Vtable::as_raw(self), value.into().abi(), shape, shapecount, ::core::mem::transmute(result)).ok()
     }

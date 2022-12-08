@@ -1127,7 +1127,7 @@ impl ::core::convert::TryFrom<&BarcodeScannerFrameReader> for super::super::supe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&BarcodeScannerFrameReader> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&BarcodeScannerFrameReader> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BarcodeScannerFrameReader) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1758,7 +1758,7 @@ impl ::core::convert::TryFrom<&BarcodeScannerProviderConnection> for super::supe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&BarcodeScannerProviderConnection> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&BarcodeScannerProviderConnection> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BarcodeScannerProviderConnection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2456,7 +2456,7 @@ impl ::core::convert::TryFrom<&BarcodeScannerVideoFrame> for super::super::super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&BarcodeScannerVideoFrame> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&BarcodeScannerVideoFrame> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BarcodeScannerVideoFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

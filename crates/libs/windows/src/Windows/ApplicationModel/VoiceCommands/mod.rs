@@ -508,9 +508,9 @@ impl VoiceCommandContentTile {
     }
     #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn SetImage<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetImage<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -523,9 +523,9 @@ impl VoiceCommandContentTile {
             (::windows::core::Vtable::vtable(this).AppContext)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetAppContext<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetAppContext<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetAppContext)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -608,9 +608,9 @@ impl VoiceCommandDefinition {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetPhraseListAsync<'a, P0, E0>(&self, phraselistname: &::windows::core::HSTRING, phraselist: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetPhraseListAsync<P0, E0>(&self, phraselistname: &::windows::core::HSTRING, phraselist: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -790,9 +790,9 @@ impl VoiceCommandResponse {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateResponseWithTiles<'a, P0, E0>(message: &VoiceCommandUserMessage, contenttiles: P0) -> ::windows::core::Result<VoiceCommandResponse>
+    pub fn CreateResponseWithTiles<P0, E0>(message: &VoiceCommandUserMessage, contenttiles: P0) -> ::windows::core::Result<VoiceCommandResponse>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
@@ -808,9 +808,9 @@ impl VoiceCommandResponse {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateResponseForPromptWithTiles<'a, P0, E0>(message: &VoiceCommandUserMessage, repeatmessage: &VoiceCommandUserMessage, contenttiles: P0) -> ::windows::core::Result<VoiceCommandResponse>
+    pub fn CreateResponseForPromptWithTiles<P0, E0>(message: &VoiceCommandUserMessage, repeatmessage: &VoiceCommandUserMessage, contenttiles: P0) -> ::windows::core::Result<VoiceCommandResponse>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IVoiceCommandResponseStatics(|this| unsafe {

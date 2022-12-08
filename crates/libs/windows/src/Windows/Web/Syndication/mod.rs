@@ -946,7 +946,7 @@ impl ::core::convert::TryFrom<&ISyndicationText> for ISyndicationNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ISyndicationText> for ::windows::core::InParam<'a, ISyndicationNode> {
+impl ::core::convert::TryFrom<&ISyndicationText> for ::windows::core::InParam<ISyndicationNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ISyndicationText) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1299,7 +1299,7 @@ impl ::core::convert::TryFrom<&SyndicationCategory> for ISyndicationNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SyndicationCategory> for ::windows::core::InParam<'a, ISyndicationNode> {
+impl ::core::convert::TryFrom<&SyndicationCategory> for ::windows::core::InParam<ISyndicationNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SyndicationCategory) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1454,7 +1454,7 @@ impl ::core::convert::TryFrom<&SyndicationClient> for ISyndicationClient {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SyndicationClient> for ::windows::core::InParam<'a, ISyndicationClient> {
+impl ::core::convert::TryFrom<&SyndicationClient> for ::windows::core::InParam<ISyndicationClient> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SyndicationClient) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1677,7 +1677,7 @@ impl ::core::convert::TryFrom<&SyndicationContent> for ISyndicationNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SyndicationContent> for ::windows::core::InParam<'a, ISyndicationNode> {
+impl ::core::convert::TryFrom<&SyndicationContent> for ::windows::core::InParam<ISyndicationNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SyndicationContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1696,7 +1696,7 @@ impl ::core::convert::TryFrom<&SyndicationContent> for ISyndicationText {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SyndicationContent> for ::windows::core::InParam<'a, ISyndicationText> {
+impl ::core::convert::TryFrom<&SyndicationContent> for ::windows::core::InParam<ISyndicationText> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SyndicationContent) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1853,9 +1853,9 @@ impl SyndicationFeed {
             (::windows::core::Vtable::vtable(this).Rights)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetRights<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetRights<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ISyndicationText>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ISyndicationText>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1868,9 +1868,9 @@ impl SyndicationFeed {
             (::windows::core::Vtable::vtable(this).Subtitle)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetSubtitle<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSubtitle<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ISyndicationText>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ISyndicationText>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1883,9 +1883,9 @@ impl SyndicationFeed {
             (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetTitle<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetTitle<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ISyndicationText>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ISyndicationText>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2089,7 +2089,7 @@ impl ::core::convert::TryFrom<&SyndicationFeed> for ISyndicationNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SyndicationFeed> for ::windows::core::InParam<'a, ISyndicationNode> {
+impl ::core::convert::TryFrom<&SyndicationFeed> for ::windows::core::InParam<ISyndicationNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SyndicationFeed) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2289,7 +2289,7 @@ impl ::core::convert::TryFrom<&SyndicationGenerator> for ISyndicationNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SyndicationGenerator> for ::windows::core::InParam<'a, ISyndicationNode> {
+impl ::core::convert::TryFrom<&SyndicationGenerator> for ::windows::core::InParam<ISyndicationNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SyndicationGenerator) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2404,9 +2404,9 @@ impl SyndicationItem {
             (::windows::core::Vtable::vtable(this).Rights)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetRights<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetRights<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ISyndicationText>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ISyndicationText>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2430,9 +2430,9 @@ impl SyndicationItem {
             (::windows::core::Vtable::vtable(this).Summary)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetSummary<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSummary<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ISyndicationText>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ISyndicationText>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2445,9 +2445,9 @@ impl SyndicationItem {
             (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetTitle<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetTitle<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ISyndicationText>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ISyndicationText>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2657,7 +2657,7 @@ impl ::core::convert::TryFrom<&SyndicationItem> for ISyndicationNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SyndicationItem> for ::windows::core::InParam<'a, ISyndicationNode> {
+impl ::core::convert::TryFrom<&SyndicationItem> for ::windows::core::InParam<ISyndicationNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SyndicationItem) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2900,7 +2900,7 @@ impl ::core::convert::TryFrom<&SyndicationLink> for ISyndicationNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SyndicationLink> for ::windows::core::InParam<'a, ISyndicationNode> {
+impl ::core::convert::TryFrom<&SyndicationLink> for ::windows::core::InParam<ISyndicationNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SyndicationLink) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3063,7 +3063,7 @@ impl ::core::convert::TryFrom<&SyndicationNode> for ISyndicationNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SyndicationNode> for ::windows::core::InParam<'a, ISyndicationNode> {
+impl ::core::convert::TryFrom<&SyndicationNode> for ::windows::core::InParam<ISyndicationNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SyndicationNode) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3271,7 +3271,7 @@ impl ::core::convert::TryFrom<&SyndicationPerson> for ISyndicationNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SyndicationPerson> for ::windows::core::InParam<'a, ISyndicationNode> {
+impl ::core::convert::TryFrom<&SyndicationPerson> for ::windows::core::InParam<ISyndicationNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SyndicationPerson) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3477,7 +3477,7 @@ impl ::core::convert::TryFrom<&SyndicationText> for ISyndicationNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SyndicationText> for ::windows::core::InParam<'a, ISyndicationNode> {
+impl ::core::convert::TryFrom<&SyndicationText> for ::windows::core::InParam<ISyndicationNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SyndicationText) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3496,7 +3496,7 @@ impl ::core::convert::TryFrom<&SyndicationText> for ISyndicationText {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SyndicationText> for ::windows::core::InParam<'a, ISyndicationText> {
+impl ::core::convert::TryFrom<&SyndicationText> for ::windows::core::InParam<ISyndicationText> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SyndicationText) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -415,7 +415,7 @@ impl ::core::convert::TryFrom<&IImageScannerSourceConfiguration> for IImageScann
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IImageScannerSourceConfiguration> for ::windows::core::InParam<'a, IImageScannerFormatConfiguration> {
+impl ::core::convert::TryFrom<&IImageScannerSourceConfiguration> for ::windows::core::InParam<IImageScannerFormatConfiguration> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IImageScannerSourceConfiguration) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -571,9 +571,9 @@ impl ImageScanner {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ScanPreviewToStreamAsync<'a, P0, E0>(&self, scansource: ImageScannerScanSource, targetstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>>
+    pub fn ScanPreviewToStreamAsync<P0, E0>(&self, scansource: ImageScannerScanSource, targetstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -721,7 +721,7 @@ impl ::core::convert::TryFrom<&ImageScannerAutoConfiguration> for IImageScannerF
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ImageScannerAutoConfiguration> for ::windows::core::InParam<'a, IImageScannerFormatConfiguration> {
+impl ::core::convert::TryFrom<&ImageScannerAutoConfiguration> for ::windows::core::InParam<IImageScannerFormatConfiguration> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageScannerAutoConfiguration) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1111,7 +1111,7 @@ impl ::core::convert::TryFrom<&ImageScannerFeederConfiguration> for IImageScanne
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ImageScannerFeederConfiguration> for ::windows::core::InParam<'a, IImageScannerFormatConfiguration> {
+impl ::core::convert::TryFrom<&ImageScannerFeederConfiguration> for ::windows::core::InParam<IImageScannerFormatConfiguration> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageScannerFeederConfiguration) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1130,7 +1130,7 @@ impl ::core::convert::TryFrom<&ImageScannerFeederConfiguration> for IImageScanne
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ImageScannerFeederConfiguration> for ::windows::core::InParam<'a, IImageScannerSourceConfiguration> {
+impl ::core::convert::TryFrom<&ImageScannerFeederConfiguration> for ::windows::core::InParam<IImageScannerSourceConfiguration> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageScannerFeederConfiguration) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1407,7 +1407,7 @@ impl ::core::convert::TryFrom<&ImageScannerFlatbedConfiguration> for IImageScann
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ImageScannerFlatbedConfiguration> for ::windows::core::InParam<'a, IImageScannerFormatConfiguration> {
+impl ::core::convert::TryFrom<&ImageScannerFlatbedConfiguration> for ::windows::core::InParam<IImageScannerFormatConfiguration> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageScannerFlatbedConfiguration) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1426,7 +1426,7 @@ impl ::core::convert::TryFrom<&ImageScannerFlatbedConfiguration> for IImageScann
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ImageScannerFlatbedConfiguration> for ::windows::core::InParam<'a, IImageScannerSourceConfiguration> {
+impl ::core::convert::TryFrom<&ImageScannerFlatbedConfiguration> for ::windows::core::InParam<IImageScannerSourceConfiguration> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageScannerFlatbedConfiguration) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

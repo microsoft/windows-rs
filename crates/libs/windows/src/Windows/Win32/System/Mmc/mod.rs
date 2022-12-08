@@ -72,7 +72,7 @@ impl Column {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHidden<'a, P0>(&self, hidden: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHidden<P0>(&self, hidden: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -282,7 +282,7 @@ impl Document {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Close<'a, P0>(&self, savechanges: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Close<P0>(&self, savechanges: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -464,7 +464,7 @@ impl Extension {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableAllExtensions<'a, P0>(&self, enable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn EnableAllExtensions<P0>(&self, enable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -472,7 +472,7 @@ impl Extension {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Enable<'a, P0>(&self, enable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Enable<P0>(&self, enable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -740,17 +740,17 @@ pub struct IColumnData_Vtbl {
 #[repr(transparent)]
 pub struct IComponent(::windows::core::IUnknown);
 impl IComponent {
-    pub unsafe fn Initialize<'a, P0>(&self, lpconsole: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, lpconsole: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IConsole>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IConsole>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), lpconsole.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Notify<'a, P0, P1, P2>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: P1, param3: P2) -> ::windows::core::Result<()>
+    pub unsafe fn Notify<P0, P1, P2>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: P1, param3: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
         P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -775,10 +775,10 @@ impl IComponent {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CompareObjects<'a, P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> ::windows::core::Result<()>
+    pub unsafe fn CompareObjects<P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).CompareObjects)(::windows::core::Vtable::as_raw(self), lpdataobjecta.into().abi(), lpdataobjectb.into().abi()).ok()
     }
@@ -834,17 +834,17 @@ pub struct IComponent_Vtbl {
 #[repr(transparent)]
 pub struct IComponent2(::windows::core::IUnknown);
 impl IComponent2 {
-    pub unsafe fn Initialize<'a, P0>(&self, lpconsole: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, lpconsole: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IConsole>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IConsole>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), lpconsole.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Notify<'a, P0, P1, P2>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: P1, param3: P2) -> ::windows::core::Result<()>
+    pub unsafe fn Notify<P0, P1, P2>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: P1, param3: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
         P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -869,10 +869,10 @@ impl IComponent2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CompareObjects<'a, P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> ::windows::core::Result<()>
+    pub unsafe fn CompareObjects<P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CompareObjects)(::windows::core::Vtable::as_raw(self), lpdataobjecta.into().abi(), lpdataobjectb.into().abi()).ok()
     }
@@ -927,9 +927,9 @@ pub struct IComponent2_Vtbl {
 #[repr(transparent)]
 pub struct IComponentData(::windows::core::IUnknown);
 impl IComponentData {
-    pub unsafe fn Initialize<'a, P0>(&self, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), punknown.into().abi()).ok()
     }
@@ -939,9 +939,9 @@ impl IComponentData {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Notify<'a, P0, P1, P2>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: P1, param3: P2) -> ::windows::core::Result<()>
+    pub unsafe fn Notify<P0, P1, P2>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: P1, param3: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
         P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -963,10 +963,10 @@ impl IComponentData {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CompareObjects<'a, P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> ::windows::core::Result<()>
+    pub unsafe fn CompareObjects<P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).CompareObjects)(::windows::core::Vtable::as_raw(self), lpdataobjecta.into().abi(), lpdataobjectb.into().abi()).ok()
     }
@@ -1022,9 +1022,9 @@ pub struct IComponentData_Vtbl {
 #[repr(transparent)]
 pub struct IComponentData2(::windows::core::IUnknown);
 impl IComponentData2 {
-    pub unsafe fn Initialize<'a, P0>(&self, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), punknown.into().abi()).ok()
     }
@@ -1034,9 +1034,9 @@ impl IComponentData2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Notify<'a, P0, P1, P2>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: P1, param3: P2) -> ::windows::core::Result<()>
+    pub unsafe fn Notify<P0, P1, P2>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: P1, param3: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
         P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -1058,10 +1058,10 @@ impl IComponentData2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CompareObjects<'a, P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> ::windows::core::Result<()>
+    pub unsafe fn CompareObjects<P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CompareObjects)(::windows::core::Vtable::as_raw(self), lpdataobjecta.into().abi(), lpdataobjectb.into().abi()).ok()
     }
@@ -1108,15 +1108,15 @@ pub struct IComponentData2_Vtbl {
 #[repr(transparent)]
 pub struct IConsole(::windows::core::IUnknown);
 impl IConsole {
-    pub unsafe fn SetHeader<'a, P0>(&self, pheader: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHeader<P0>(&self, pheader: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IHeaderCtrl>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IHeaderCtrl>>,
     {
         (::windows::core::Vtable::vtable(self).SetHeader)(::windows::core::Vtable::as_raw(self), pheader.into().abi()).ok()
     }
-    pub unsafe fn SetToolbar<'a, P0>(&self, ptoolbar: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetToolbar<P0>(&self, ptoolbar: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IToolbar>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IToolbar>>,
     {
         (::windows::core::Vtable::vtable(self).SetToolbar)(::windows::core::Vtable::as_raw(self), ptoolbar.into().abi()).ok()
     }
@@ -1134,14 +1134,14 @@ impl IConsole {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn UpdateAllViews<'a, P0, P1>(&self, lpdataobject: P0, data: P1, hint: isize) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateAllViews<P0, P1>(&self, lpdataobject: P0, data: P1, hint: isize) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
         (::windows::core::Vtable::vtable(self).UpdateAllViews)(::windows::core::Vtable::as_raw(self), lpdataobject.into().abi(), data.into(), hint).ok()
     }
-    pub unsafe fn MessageBox<'a, P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> ::windows::core::Result<i32>
+    pub unsafe fn MessageBox<P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1215,15 +1215,15 @@ pub struct IConsole_Vtbl {
 #[repr(transparent)]
 pub struct IConsole2(::windows::core::IUnknown);
 impl IConsole2 {
-    pub unsafe fn SetHeader<'a, P0>(&self, pheader: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHeader<P0>(&self, pheader: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IHeaderCtrl>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IHeaderCtrl>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetHeader)(::windows::core::Vtable::as_raw(self), pheader.into().abi()).ok()
     }
-    pub unsafe fn SetToolbar<'a, P0>(&self, ptoolbar: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetToolbar<P0>(&self, ptoolbar: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IToolbar>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IToolbar>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetToolbar)(::windows::core::Vtable::as_raw(self), ptoolbar.into().abi()).ok()
     }
@@ -1241,14 +1241,14 @@ impl IConsole2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn UpdateAllViews<'a, P0, P1>(&self, lpdataobject: P0, data: P1, hint: isize) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateAllViews<P0, P1>(&self, lpdataobject: P0, data: P1, hint: isize) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
         (::windows::core::Vtable::vtable(self).base__.UpdateAllViews)(::windows::core::Vtable::as_raw(self), lpdataobject.into().abi(), data.into(), hint).ok()
     }
-    pub unsafe fn MessageBox<'a, P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> ::windows::core::Result<i32>
+    pub unsafe fn MessageBox<P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1274,7 +1274,7 @@ impl IConsole2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Expand<'a, P0>(&self, hitem: isize, bexpand: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Expand<P0>(&self, hitem: isize, bexpand: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1283,7 +1283,7 @@ impl IConsole2 {
     pub unsafe fn IsTaskpadViewPreferred(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).IsTaskpadViewPreferred)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn SetStatusText<'a, P0>(&self, pszstatustext: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetStatusText<P0>(&self, pszstatustext: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1328,15 +1328,15 @@ pub struct IConsole2_Vtbl {
 #[repr(transparent)]
 pub struct IConsole3(::windows::core::IUnknown);
 impl IConsole3 {
-    pub unsafe fn SetHeader<'a, P0>(&self, pheader: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHeader<P0>(&self, pheader: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IHeaderCtrl>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IHeaderCtrl>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetHeader)(::windows::core::Vtable::as_raw(self), pheader.into().abi()).ok()
     }
-    pub unsafe fn SetToolbar<'a, P0>(&self, ptoolbar: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetToolbar<P0>(&self, ptoolbar: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IToolbar>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IToolbar>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetToolbar)(::windows::core::Vtable::as_raw(self), ptoolbar.into().abi()).ok()
     }
@@ -1354,14 +1354,14 @@ impl IConsole3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn UpdateAllViews<'a, P0, P1>(&self, lpdataobject: P0, data: P1, hint: isize) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateAllViews<P0, P1>(&self, lpdataobject: P0, data: P1, hint: isize) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.UpdateAllViews)(::windows::core::Vtable::as_raw(self), lpdataobject.into().abi(), data.into(), hint).ok()
     }
-    pub unsafe fn MessageBox<'a, P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> ::windows::core::Result<i32>
+    pub unsafe fn MessageBox<P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1387,7 +1387,7 @@ impl IConsole3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Expand<'a, P0>(&self, hitem: isize, bexpand: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Expand<P0>(&self, hitem: isize, bexpand: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1396,7 +1396,7 @@ impl IConsole3 {
     pub unsafe fn IsTaskpadViewPreferred(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.IsTaskpadViewPreferred)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn SetStatusText<'a, P0>(&self, pszstatustext: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetStatusText<P0>(&self, pszstatustext: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1626,7 +1626,7 @@ pub struct IConsolePowerSink(::windows::core::IUnknown);
 impl IConsolePowerSink {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnPowerBroadcast<'a, P0>(&self, nevent: u32, lparam: P0) -> ::windows::core::Result<super::super::Foundation::LRESULT>
+    pub unsafe fn OnPowerBroadcast<P0>(&self, nevent: u32, lparam: P0) -> ::windows::core::Result<super::super::Foundation::LRESULT>
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -1678,7 +1678,7 @@ impl IConsoleVerb {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVerbState<'a, P0>(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE, bstate: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetVerbState<P0>(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE, bstate: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1816,24 +1816,24 @@ impl IContextMenuProvider {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPrimaryExtensionItems<'a, P0, P1>(&self, piextension: P0, pidataobject: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddPrimaryExtensionItems<P0, P1>(&self, piextension: P0, pidataobject: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).AddPrimaryExtensionItems)(::windows::core::Vtable::as_raw(self), piextension.into().abi(), pidataobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddThirdPartyExtensionItems<'a, P0>(&self, pidataobject: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddThirdPartyExtensionItems<P0>(&self, pidataobject: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).AddThirdPartyExtensionItems)(::windows::core::Vtable::as_raw(self), pidataobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowContextMenu<'a, P0>(&self, hwndparent: P0, xpos: i32, ypos: i32) -> ::windows::core::Result<i32>
+    pub unsafe fn ShowContextMenu<P0>(&self, hwndparent: P0, xpos: i32, ypos: i32) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -1886,22 +1886,22 @@ pub struct IContextMenuProvider_Vtbl {
 #[repr(transparent)]
 pub struct IControlbar(::windows::core::IUnknown);
 impl IControlbar {
-    pub unsafe fn Create<'a, P0>(&self, ntype: MMC_CONTROL_TYPE, pextendcontrolbar: P0) -> ::windows::core::Result<::windows::core::IUnknown>
+    pub unsafe fn Create<P0>(&self, ntype: MMC_CONTROL_TYPE, pextendcontrolbar: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IExtendControlbar>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IExtendControlbar>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), ntype, pextendcontrolbar.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Attach<'a, P0>(&self, ntype: MMC_CONTROL_TYPE, lpunknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Attach<P0>(&self, ntype: MMC_CONTROL_TYPE, lpunknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).Attach)(::windows::core::Vtable::as_raw(self), ntype, lpunknown.into().abi()).ok()
     }
-    pub unsafe fn Detach<'a, P0>(&self, lpunknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Detach<P0>(&self, lpunknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).Detach)(::windows::core::Vtable::as_raw(self), lpunknown.into().abi()).ok()
     }
@@ -1941,7 +1941,7 @@ pub struct IControlbar_Vtbl {
 #[repr(transparent)]
 pub struct IDisplayHelp(::windows::core::IUnknown);
 impl IDisplayHelp {
-    pub unsafe fn ShowTopic<'a, P0>(&self, pszhelptopic: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ShowTopic<P0>(&self, pszhelptopic: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2033,18 +2033,18 @@ pub struct IExtendContextMenu(::windows::core::IUnknown);
 impl IExtendContextMenu {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddMenuItems<'a, P0, P1>(&self, pidataobject: P0, picallback: P1, pinsertionallowed: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn AddMenuItems<P0, P1>(&self, pidataobject: P0, picallback: P1, pinsertionallowed: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IContextMenuCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IContextMenuCallback>>,
     {
         (::windows::core::Vtable::vtable(self).AddMenuItems)(::windows::core::Vtable::as_raw(self), pidataobject.into().abi(), picallback.into().abi(), pinsertionallowed).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Command<'a, P0>(&self, lcommandid: i32, pidataobject: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Command<P0>(&self, lcommandid: i32, pidataobject: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).Command)(::windows::core::Vtable::as_raw(self), lcommandid, pidataobject.into().abi()).ok()
     }
@@ -2089,15 +2089,15 @@ pub struct IExtendContextMenu_Vtbl {
 #[repr(transparent)]
 pub struct IExtendControlbar(::windows::core::IUnknown);
 impl IExtendControlbar {
-    pub unsafe fn SetControlbar<'a, P0>(&self, pcontrolbar: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetControlbar<P0>(&self, pcontrolbar: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IControlbar>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IControlbar>>,
     {
         (::windows::core::Vtable::vtable(self).SetControlbar)(::windows::core::Vtable::as_raw(self), pcontrolbar.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ControlbarNotify<'a, P0, P1>(&self, event: MMC_NOTIFY_TYPE, arg: P0, param2: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ControlbarNotify<P0, P1>(&self, event: MMC_NOTIFY_TYPE, arg: P0, param2: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -2144,18 +2144,18 @@ pub struct IExtendPropertySheet(::windows::core::IUnknown);
 impl IExtendPropertySheet {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreatePropertyPages<'a, P0, P1>(&self, lpprovider: P0, handle: isize, lpidataobject: P1) -> ::windows::core::Result<()>
+    pub unsafe fn CreatePropertyPages<P0, P1>(&self, lpprovider: P0, handle: isize, lpidataobject: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IPropertySheetCallback>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IPropertySheetCallback>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).CreatePropertyPages)(::windows::core::Vtable::as_raw(self), lpprovider.into().abi(), handle, lpidataobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryPagesFor<'a, P0>(&self, lpdataobject: P0) -> ::windows::core::Result<()>
+    pub unsafe fn QueryPagesFor<P0>(&self, lpdataobject: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).QueryPagesFor)(::windows::core::Vtable::as_raw(self), lpdataobject.into().abi()).ok()
     }
@@ -2202,26 +2202,26 @@ pub struct IExtendPropertySheet2(::windows::core::IUnknown);
 impl IExtendPropertySheet2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreatePropertyPages<'a, P0, P1>(&self, lpprovider: P0, handle: isize, lpidataobject: P1) -> ::windows::core::Result<()>
+    pub unsafe fn CreatePropertyPages<P0, P1>(&self, lpprovider: P0, handle: isize, lpidataobject: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IPropertySheetCallback>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IPropertySheetCallback>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CreatePropertyPages)(::windows::core::Vtable::as_raw(self), lpprovider.into().abi(), handle, lpidataobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryPagesFor<'a, P0>(&self, lpdataobject: P0) -> ::windows::core::Result<()>
+    pub unsafe fn QueryPagesFor<P0>(&self, lpdataobject: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).base__.QueryPagesFor)(::windows::core::Vtable::as_raw(self), lpdataobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn GetWatermarks<'a, P0>(&self, lpidataobject: P0, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn GetWatermarks<P0>(&self, lpidataobject: P0, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).GetWatermarks)(::windows::core::Vtable::as_raw(self), lpidataobject.into().abi(), lphwatermark, lphheader, lphpalette, bstretch).ok()
     }
@@ -2264,44 +2264,44 @@ pub struct IExtendTaskPad(::windows::core::IUnknown);
 impl IExtendTaskPad {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn TaskNotify<'a, P0>(&self, pdo: P0, arg: *const super::Com::VARIANT, param2: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn TaskNotify<P0>(&self, pdo: P0, arg: *const super::Com::VARIANT, param2: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).TaskNotify)(::windows::core::Vtable::as_raw(self), pdo.into().abi(), arg, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumTasks<'a, P0, P1>(&self, pdo: P0, sztaskgroup: P1) -> ::windows::core::Result<IEnumTASK>
+    pub unsafe fn EnumTasks<P0, P1>(&self, pdo: P0, sztaskgroup: P1) -> ::windows::core::Result<IEnumTASK>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).EnumTasks)(::windows::core::Vtable::as_raw(self), pdo.into().abi(), sztaskgroup.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetTitle<'a, P0>(&self, pszgroup: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetTitle<P0>(&self, pszgroup: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetTitle)(::windows::core::Vtable::as_raw(self), pszgroup.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetDescriptiveText<'a, P0>(&self, pszgroup: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetDescriptiveText<P0>(&self, pszgroup: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetDescriptiveText)(::windows::core::Vtable::as_raw(self), pszgroup.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetBackground<'a, P0>(&self, pszgroup: P0) -> ::windows::core::Result<MMC_TASK_DISPLAY_OBJECT>
+    pub unsafe fn GetBackground<P0>(&self, pszgroup: P0) -> ::windows::core::Result<MMC_TASK_DISPLAY_OBJECT>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetBackground)(::windows::core::Vtable::as_raw(self), pszgroup.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetListPadInfo<'a, P0>(&self, pszgroup: P0) -> ::windows::core::Result<MMC_LISTPAD_INFO>
+    pub unsafe fn GetListPadInfo<P0>(&self, pszgroup: P0) -> ::windows::core::Result<MMC_LISTPAD_INFO>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2355,10 +2355,10 @@ pub struct IExtendView(::windows::core::IUnknown);
 impl IExtendView {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetViews<'a, P0, P1>(&self, pdataobject: P0, pviewextensioncallback: P1) -> ::windows::core::Result<()>
+    pub unsafe fn GetViews<P0, P1>(&self, pdataobject: P0, pviewextensioncallback: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IViewExtensionCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IViewExtensionCallback>>,
     {
         (::windows::core::Vtable::vtable(self).GetViews)(::windows::core::Vtable::as_raw(self), pdataobject.into().abi(), pviewextensioncallback.into().abi()).ok()
     }
@@ -2399,7 +2399,7 @@ pub struct IExtendView_Vtbl {
 #[repr(transparent)]
 pub struct IHeaderCtrl(::windows::core::IUnknown);
 impl IHeaderCtrl {
-    pub unsafe fn InsertColumn<'a, P0>(&self, ncol: i32, title: P0, nformat: i32, nwidth: i32) -> ::windows::core::Result<()>
+    pub unsafe fn InsertColumn<P0>(&self, ncol: i32, title: P0, nformat: i32, nwidth: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2408,7 +2408,7 @@ impl IHeaderCtrl {
     pub unsafe fn DeleteColumn(&self, ncol: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteColumn)(::windows::core::Vtable::as_raw(self), ncol).ok()
     }
-    pub unsafe fn SetColumnText<'a, P0>(&self, ncol: i32, title: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetColumnText<P0>(&self, ncol: i32, title: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2464,7 +2464,7 @@ pub struct IHeaderCtrl_Vtbl {
 #[repr(transparent)]
 pub struct IHeaderCtrl2(::windows::core::IUnknown);
 impl IHeaderCtrl2 {
-    pub unsafe fn InsertColumn<'a, P0>(&self, ncol: i32, title: P0, nformat: i32, nwidth: i32) -> ::windows::core::Result<()>
+    pub unsafe fn InsertColumn<P0>(&self, ncol: i32, title: P0, nformat: i32, nwidth: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2473,7 +2473,7 @@ impl IHeaderCtrl2 {
     pub unsafe fn DeleteColumn(&self, ncol: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteColumn)(::windows::core::Vtable::as_raw(self), ncol).ok()
     }
-    pub unsafe fn SetColumnText<'a, P0>(&self, ncol: i32, title: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetColumnText<P0>(&self, ncol: i32, title: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2540,7 +2540,7 @@ impl IImageList {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ImageListSetStrip<'a, P0>(&self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ImageListSetStrip<P0>(&self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
     {
@@ -2621,14 +2621,14 @@ pub struct IMMCVersionInfo_Vtbl {
 #[repr(transparent)]
 pub struct IMenuButton(::windows::core::IUnknown);
 impl IMenuButton {
-    pub unsafe fn AddButton<'a, P0, P1>(&self, idcommand: i32, lpbuttontext: P0, lptooltiptext: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddButton<P0, P1>(&self, idcommand: i32, lpbuttontext: P0, lptooltiptext: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).AddButton)(::windows::core::Vtable::as_raw(self), idcommand, lpbuttontext.into(), lptooltiptext.into()).ok()
     }
-    pub unsafe fn SetButton<'a, P0, P1>(&self, idcommand: i32, lpbuttontext: P0, lptooltiptext: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetButton<P0, P1>(&self, idcommand: i32, lpbuttontext: P0, lptooltiptext: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2637,7 +2637,7 @@ impl IMenuButton {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetButtonState<'a, P0>(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetButtonState<P0>(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2682,13 +2682,13 @@ pub struct IMenuButton_Vtbl {
 #[repr(transparent)]
 pub struct IMessageView(::windows::core::IUnknown);
 impl IMessageView {
-    pub unsafe fn SetTitleText<'a, P0>(&self, psztitletext: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTitleText<P0>(&self, psztitletext: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).SetTitleText)(::windows::core::Vtable::as_raw(self), psztitletext.into()).ok()
     }
-    pub unsafe fn SetBodyText<'a, P0>(&self, pszbodytext: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBodyText<P0>(&self, pszbodytext: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2739,9 +2739,9 @@ pub struct INodeProperties(::windows::core::IUnknown);
 impl INodeProperties {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetProperty<'a, P0>(&self, pdataobject: P0, szpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<*mut u16>
+    pub unsafe fn GetProperty<P0>(&self, pdataobject: P0, szpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<*mut u16>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), pdataobject.into().abi(), ::core::mem::transmute_copy(szpropertyname), result__.as_mut_ptr()).from_abi(result__)
@@ -2785,7 +2785,7 @@ pub struct IPropertySheetCallback(::windows::core::IUnknown);
 impl IPropertySheetCallback {
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn AddPage<'a, P0>(&self, hpage: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddPage<P0>(&self, hpage: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::UI::Controls::HPROPSHEETPAGE>,
     {
@@ -2793,7 +2793,7 @@ impl IPropertySheetCallback {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn RemovePage<'a, P0>(&self, hpage: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemovePage<P0>(&self, hpage: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::UI::Controls::HPROPSHEETPAGE>,
     {
@@ -2842,27 +2842,27 @@ pub struct IPropertySheetProvider(::windows::core::IUnknown);
 impl IPropertySheetProvider {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreatePropertySheet<'a, P0, P1>(&self, title: P0, r#type: u8, cookie: isize, pidataobjectm: P1, dwoptions: u32) -> ::windows::core::Result<()>
+    pub unsafe fn CreatePropertySheet<P0, P1>(&self, title: P0, r#type: u8, cookie: isize, pidataobjectm: P1, dwoptions: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).CreatePropertySheet)(::windows::core::Vtable::as_raw(self), title.into(), r#type, cookie, pidataobjectm.into().abi(), dwoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn FindPropertySheet<'a, P0, P1>(&self, hitem: isize, lpcomponent: P0, lpdataobject: P1) -> ::windows::core::Result<()>
+    pub unsafe fn FindPropertySheet<P0, P1>(&self, hitem: isize, lpcomponent: P0, lpdataobject: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IComponent>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IComponent>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
         (::windows::core::Vtable::vtable(self).FindPropertySheet)(::windows::core::Vtable::as_raw(self), hitem, lpcomponent.into().abi(), lpdataobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddPrimaryPages<'a, P0, P1, P2, P3>(&self, lpunknown: P0, bcreatehandle: P1, hnotifywindow: P2, bscopepane: P3) -> ::windows::core::Result<()>
+    pub unsafe fn AddPrimaryPages<P0, P1, P2, P3>(&self, lpunknown: P0, bcreatehandle: P1, hnotifywindow: P2, bscopepane: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::HWND>,
         P3: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -2979,7 +2979,7 @@ impl IResultData {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindItemByLParam<'a, P0>(&self, lparam: P0) -> ::windows::core::Result<isize>
+    pub unsafe fn FindItemByLParam<P0>(&self, lparam: P0) -> ::windows::core::Result<isize>
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -3022,13 +3022,13 @@ impl IResultData {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Sort<'a, P0>(&self, ncolumn: i32, dwsortoptions: u32, luserparam: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Sort<P0>(&self, ncolumn: i32, dwsortoptions: u32, luserparam: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
         (::windows::core::Vtable::vtable(self).Sort)(::windows::core::Vtable::as_raw(self), ncolumn, dwsortoptions, luserparam.into()).ok()
     }
-    pub unsafe fn SetDescBarText<'a, P0>(&self, desctext: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDescBarText<P0>(&self, desctext: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3113,7 +3113,7 @@ impl IResultData2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindItemByLParam<'a, P0>(&self, lparam: P0) -> ::windows::core::Result<isize>
+    pub unsafe fn FindItemByLParam<P0>(&self, lparam: P0) -> ::windows::core::Result<isize>
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -3156,13 +3156,13 @@ impl IResultData2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Sort<'a, P0>(&self, ncolumn: i32, dwsortoptions: u32, luserparam: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Sort<P0>(&self, ncolumn: i32, dwsortoptions: u32, luserparam: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
         (::windows::core::Vtable::vtable(self).base__.Sort)(::windows::core::Vtable::as_raw(self), ncolumn, dwsortoptions, luserparam.into()).ok()
     }
-    pub unsafe fn SetDescBarText<'a, P0>(&self, desctext: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDescBarText<P0>(&self, desctext: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3210,7 +3210,7 @@ pub struct IResultDataCompare(::windows::core::IUnknown);
 impl IResultDataCompare {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Compare<'a, P0>(&self, luserparam: P0, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn Compare<P0>(&self, luserparam: P0, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -3305,7 +3305,7 @@ impl IResultOwnerData {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SortItems<'a, P0>(&self, ncolumn: i32, dwsortoptions: u32, luserparam: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SortItems<P0>(&self, ncolumn: i32, dwsortoptions: u32, luserparam: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -3499,15 +3499,15 @@ pub struct ISnapinProperties(::windows::core::IUnknown);
 impl ISnapinProperties {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, P0>(&self, pproperties: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pproperties: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Properties>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Properties>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pproperties.into().abi()).ok()
     }
-    pub unsafe fn QueryPropertyNames<'a, P0>(&self, pcallback: P0) -> ::windows::core::Result<()>
+    pub unsafe fn QueryPropertyNames<P0>(&self, pcallback: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISnapinPropertiesCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISnapinPropertiesCallback>>,
     {
         (::windows::core::Vtable::vtable(self).QueryPropertyNames)(::windows::core::Vtable::as_raw(self), pcallback.into().abi()).ok()
     }
@@ -3558,7 +3558,7 @@ pub struct ISnapinProperties_Vtbl {
 #[repr(transparent)]
 pub struct ISnapinPropertiesCallback(::windows::core::IUnknown);
 impl ISnapinPropertiesCallback {
-    pub unsafe fn AddPropertyName<'a, P0>(&self, pszpropname: P0, dwflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn AddPropertyName<P0>(&self, pszpropname: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3598,7 +3598,7 @@ pub struct ISnapinPropertiesCallback_Vtbl {
 #[repr(transparent)]
 pub struct IStringTable(::windows::core::IUnknown);
 impl IStringTable {
-    pub unsafe fn AddString<'a, P0>(&self, pszadd: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn AddString<P0>(&self, pszadd: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3618,7 +3618,7 @@ impl IStringTable {
     pub unsafe fn DeleteAllStrings(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteAllStrings)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn FindString<'a, P0>(&self, pszfind: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn FindString<P0>(&self, pszfind: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3676,7 +3676,7 @@ pub struct IToolbar(::windows::core::IUnknown);
 impl IToolbar {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn AddBitmap<'a, P0, P1>(&self, nimages: i32, hbmp: P0, cxsize: i32, cysize: i32, crmask: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddBitmap<P0, P1>(&self, nimages: i32, hbmp: P0, cxsize: i32, cysize: i32, crmask: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
         P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
@@ -3700,7 +3700,7 @@ impl IToolbar {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetButtonState<'a, P0>(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetButtonState<P0>(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -4147,27 +4147,27 @@ pub struct ScopeNamespace(::windows::core::IUnknown);
 impl ScopeNamespace {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetParent<'a, P0>(&self, node: P0) -> ::windows::core::Result<Node>
+    pub unsafe fn GetParent<P0>(&self, node: P0) -> ::windows::core::Result<Node>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Node>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Node>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetParent)(::windows::core::Vtable::as_raw(self), node.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetChild<'a, P0>(&self, node: P0) -> ::windows::core::Result<Node>
+    pub unsafe fn GetChild<P0>(&self, node: P0) -> ::windows::core::Result<Node>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Node>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Node>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetChild)(::windows::core::Vtable::as_raw(self), node.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetNext<'a, P0>(&self, node: P0) -> ::windows::core::Result<Node>
+    pub unsafe fn GetNext<P0>(&self, node: P0) -> ::windows::core::Result<Node>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Node>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Node>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetNext)(::windows::core::Vtable::as_raw(self), node.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -4180,9 +4180,9 @@ impl ScopeNamespace {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Expand<'a, P0>(&self, node: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Expand<P0>(&self, node: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Node>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Node>>,
     {
         (::windows::core::Vtable::vtable(self).Expand)(::windows::core::Vtable::as_raw(self), node.into().abi()).ok()
     }
@@ -4279,7 +4279,7 @@ impl SnapIn {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableAllExtensions<'a, P0>(&self, enable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn EnableAllExtensions<P0>(&self, enable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -4366,9 +4366,9 @@ impl SnapIns {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Remove<'a, P0>(&self, snapin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Remove<P0>(&self, snapin: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SnapIn>>,
+        P0: ::std::convert::Into<::windows::core::InParam<SnapIn>>,
     {
         (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), snapin.into().abi()).ok()
     }
@@ -4437,9 +4437,9 @@ impl View {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetActiveScopeNode<'a, P0>(&self, node: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetActiveScopeNode<P0>(&self, node: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Node>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Node>>,
     {
         (::windows::core::Vtable::vtable(self).SetActiveScopeNode)(::windows::core::Vtable::as_raw(self), node.into().abi()).ok()
     }
@@ -4469,9 +4469,9 @@ impl View {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Is<'a, P0>(&self, view: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    pub unsafe fn Is<P0>(&self, view: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, View>>,
+        P0: ::std::convert::Into<::windows::core::InParam<View>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Is)(::windows::core::Vtable::as_raw(self), view.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -4487,25 +4487,25 @@ impl View {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Select<'a, P0>(&self, node: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Select<P0>(&self, node: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Node>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Node>>,
     {
         (::windows::core::Vtable::vtable(self).Select)(::windows::core::Vtable::as_raw(self), node.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Deselect<'a, P0>(&self, node: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Deselect<P0>(&self, node: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Node>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Node>>,
     {
         (::windows::core::Vtable::vtable(self).Deselect)(::windows::core::Vtable::as_raw(self), node.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn IsSelected<'a, P0>(&self, node: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn IsSelected<P0>(&self, node: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Node>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Node>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsSelected)(::windows::core::Vtable::as_raw(self), node.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -4590,7 +4590,7 @@ impl View {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetScopeTreeVisible<'a, P0>(&self, visible: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetScopeTreeVisible<P0>(&self, visible: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -4620,9 +4620,9 @@ impl View {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_CellContents<'a, P0>(&self, node: P0, column: i32) -> ::windows::core::Result<*mut u16>
+    pub unsafe fn get_CellContents<P0>(&self, node: P0, column: i32) -> ::windows::core::Result<*mut u16>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Node>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Node>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_CellContents)(::windows::core::Vtable::as_raw(self), node.into().abi(), column, result__.as_mut_ptr()).from_abi(result__)
@@ -4815,9 +4815,9 @@ impl Views {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, node: P0, viewoptions: _ViewOptions) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, node: P0, viewoptions: _ViewOptions) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Node>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Node>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), node.into().abi(), viewoptions).ok()
     }
@@ -4880,86 +4880,86 @@ pub struct _AppEvents(::windows::core::IUnknown);
 impl _AppEvents {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnQuit<'a, P0>(&self, application: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnQuit<P0>(&self, application: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, _Application>>,
+        P0: ::std::convert::Into<::windows::core::InParam<_Application>>,
     {
         (::windows::core::Vtable::vtable(self).OnQuit)(::windows::core::Vtable::as_raw(self), application.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn OnDocumentOpen<'a, P0, P1>(&self, document: P0, new: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnDocumentOpen<P0, P1>(&self, document: P0, new: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Document>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Document>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).OnDocumentOpen)(::windows::core::Vtable::as_raw(self), document.into().abi(), new.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnDocumentClose<'a, P0>(&self, document: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnDocumentClose<P0>(&self, document: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Document>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Document>>,
     {
         (::windows::core::Vtable::vtable(self).OnDocumentClose)(::windows::core::Vtable::as_raw(self), document.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnSnapInAdded<'a, P0, P1>(&self, document: P0, snapin: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnSnapInAdded<P0, P1>(&self, document: P0, snapin: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Document>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SnapIn>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Document>>,
+        P1: ::std::convert::Into<::windows::core::InParam<SnapIn>>,
     {
         (::windows::core::Vtable::vtable(self).OnSnapInAdded)(::windows::core::Vtable::as_raw(self), document.into().abi(), snapin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnSnapInRemoved<'a, P0, P1>(&self, document: P0, snapin: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnSnapInRemoved<P0, P1>(&self, document: P0, snapin: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Document>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SnapIn>>,
+        P0: ::std::convert::Into<::windows::core::InParam<Document>>,
+        P1: ::std::convert::Into<::windows::core::InParam<SnapIn>>,
     {
         (::windows::core::Vtable::vtable(self).OnSnapInRemoved)(::windows::core::Vtable::as_raw(self), document.into().abi(), snapin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnNewView<'a, P0>(&self, view: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnNewView<P0>(&self, view: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, View>>,
+        P0: ::std::convert::Into<::windows::core::InParam<View>>,
     {
         (::windows::core::Vtable::vtable(self).OnNewView)(::windows::core::Vtable::as_raw(self), view.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnViewClose<'a, P0>(&self, view: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnViewClose<P0>(&self, view: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, View>>,
+        P0: ::std::convert::Into<::windows::core::InParam<View>>,
     {
         (::windows::core::Vtable::vtable(self).OnViewClose)(::windows::core::Vtable::as_raw(self), view.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnViewChange<'a, P0, P1>(&self, view: P0, newownernode: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnViewChange<P0, P1>(&self, view: P0, newownernode: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, View>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, Node>>,
+        P0: ::std::convert::Into<::windows::core::InParam<View>>,
+        P1: ::std::convert::Into<::windows::core::InParam<Node>>,
     {
         (::windows::core::Vtable::vtable(self).OnViewChange)(::windows::core::Vtable::as_raw(self), view.into().abi(), newownernode.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnSelectionChange<'a, P0, P1>(&self, view: P0, newnodes: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnSelectionChange<P0, P1>(&self, view: P0, newnodes: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, View>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, Nodes>>,
+        P0: ::std::convert::Into<::windows::core::InParam<View>>,
+        P1: ::std::convert::Into<::windows::core::InParam<Nodes>>,
     {
         (::windows::core::Vtable::vtable(self).OnSelectionChange)(::windows::core::Vtable::as_raw(self), view.into().abi(), newnodes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnContextMenuExecuted<'a, P0>(&self, menuitem: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnContextMenuExecuted<P0>(&self, menuitem: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, MenuItem>>,
+        P0: ::std::convert::Into<::windows::core::InParam<MenuItem>>,
     {
         (::windows::core::Vtable::vtable(self).OnContextMenuExecuted)(::windows::core::Vtable::as_raw(self), menuitem.into().abi()).ok()
     }
@@ -4968,9 +4968,9 @@ impl _AppEvents {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnListUpdated<'a, P0>(&self, view: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnListUpdated<P0>(&self, view: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, View>>,
+        P0: ::std::convert::Into<::windows::core::InParam<View>>,
     {
         (::windows::core::Vtable::vtable(self).OnListUpdated)(::windows::core::Vtable::as_raw(self), view.into().abi()).ok()
     }
@@ -5103,7 +5103,7 @@ impl _Application {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUserControl<'a, P0>(&self, usercontrol: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetUserControl<P0>(&self, usercontrol: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -5189,9 +5189,9 @@ pub struct _EventConnector(::windows::core::IUnknown);
 impl _EventConnector {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ConnectTo<'a, P0>(&self, application: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ConnectTo<P0>(&self, application: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, _Application>>,
+        P0: ::std::convert::Into<::windows::core::InParam<_Application>>,
     {
         (::windows::core::Vtable::vtable(self).ConnectTo)(::windows::core::Vtable::as_raw(self), application.into().abi()).ok()
     }

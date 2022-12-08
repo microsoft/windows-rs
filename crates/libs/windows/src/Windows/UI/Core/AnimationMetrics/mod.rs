@@ -389,7 +389,7 @@ impl ::core::convert::TryFrom<&OpacityAnimation> for IPropertyAnimation {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&OpacityAnimation> for ::windows::core::InParam<'a, IPropertyAnimation> {
+impl ::core::convert::TryFrom<&OpacityAnimation> for ::windows::core::InParam<IPropertyAnimation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &OpacityAnimation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -491,7 +491,7 @@ impl ::core::convert::TryFrom<&PropertyAnimation> for IPropertyAnimation {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PropertyAnimation> for ::windows::core::InParam<'a, IPropertyAnimation> {
+impl ::core::convert::TryFrom<&PropertyAnimation> for ::windows::core::InParam<IPropertyAnimation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PropertyAnimation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -634,7 +634,7 @@ impl ::core::convert::TryFrom<&ScaleAnimation> for IPropertyAnimation {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ScaleAnimation> for ::windows::core::InParam<'a, IPropertyAnimation> {
+impl ::core::convert::TryFrom<&ScaleAnimation> for ::windows::core::InParam<IPropertyAnimation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ScaleAnimation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -736,7 +736,7 @@ impl ::core::convert::TryFrom<&TranslationAnimation> for IPropertyAnimation {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TranslationAnimation> for ::windows::core::InParam<'a, IPropertyAnimation> {
+impl ::core::convert::TryFrom<&TranslationAnimation> for ::windows::core::InParam<IPropertyAnimation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TranslationAnimation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

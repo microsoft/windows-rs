@@ -33,7 +33,7 @@ pub unsafe fn WscRegisterForUserNotifications() -> ::windows::core::Result<()> {
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WscUnRegisterChanges<'a, P0>(hregistrationhandle: P0) -> ::windows::core::Result<()>
+pub unsafe fn WscUnRegisterChanges<P0>(hregistrationhandle: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {

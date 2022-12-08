@@ -505,7 +505,7 @@ impl ::core::convert::TryFrom<&IBitmapFrameWithSoftwareBitmap> for IBitmapFrame 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IBitmapFrameWithSoftwareBitmap> for ::windows::core::InParam<'a, IBitmapFrame> {
+impl ::core::convert::TryFrom<&IBitmapFrameWithSoftwareBitmap> for ::windows::core::InParam<IBitmapFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IBitmapFrameWithSoftwareBitmap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -582,9 +582,9 @@ pub struct IBitmapPropertiesView(::windows::core::IUnknown);
 impl IBitmapPropertiesView {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
+    pub fn GetPropertiesAsync<P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -876,7 +876,7 @@ impl ::core::convert::TryFrom<&BitmapBuffer> for super::super::Foundation::IClos
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&BitmapBuffer> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&BitmapBuffer> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BitmapBuffer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -898,7 +898,7 @@ impl ::core::convert::TryFrom<&BitmapBuffer> for super::super::Foundation::IMemo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&BitmapBuffer> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+impl ::core::convert::TryFrom<&BitmapBuffer> for ::windows::core::InParam<super::super::Foundation::IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BitmapBuffer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1074,9 +1074,9 @@ impl BitmapDecoder {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateAsync<'a, P0, E0>(stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>
+    pub fn CreateAsync<P0, E0>(stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBitmapDecoderStatics(|this| unsafe {
@@ -1086,9 +1086,9 @@ impl BitmapDecoder {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateWithIdAsync<'a, P0, E0>(decoderid: ::windows::core::GUID, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>
+    pub fn CreateWithIdAsync<P0, E0>(decoderid: ::windows::core::GUID, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBitmapDecoderStatics(|this| unsafe {
@@ -1281,7 +1281,7 @@ impl ::core::convert::TryFrom<&BitmapDecoder> for IBitmapFrame {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BitmapDecoder> for ::windows::core::InParam<'a, IBitmapFrame> {
+impl ::core::convert::TryFrom<&BitmapDecoder> for ::windows::core::InParam<IBitmapFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BitmapDecoder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1300,7 +1300,7 @@ impl ::core::convert::TryFrom<&BitmapDecoder> for IBitmapFrameWithSoftwareBitmap
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BitmapDecoder> for ::windows::core::InParam<'a, IBitmapFrameWithSoftwareBitmap> {
+impl ::core::convert::TryFrom<&BitmapDecoder> for ::windows::core::InParam<IBitmapFrameWithSoftwareBitmap> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BitmapDecoder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1389,9 +1389,9 @@ impl BitmapEncoder {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GoToNextFrameWithEncodingOptionsAsync<'a, P0, E0>(&self, encodingoptions: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn GoToNextFrameWithEncodingOptionsAsync<P0, E0>(&self, encodingoptions: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1455,9 +1455,9 @@ impl BitmapEncoder {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateAsync<'a, P0, E0>(encoderid: ::windows::core::GUID, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
+    pub fn CreateAsync<P0, E0>(encoderid: ::windows::core::GUID, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBitmapEncoderStatics(|this| unsafe {
@@ -1467,11 +1467,11 @@ impl BitmapEncoder {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn CreateWithEncodingOptionsAsync<'a, P0, E0, P1, E1>(encoderid: ::windows::core::GUID, stream: P0, encodingoptions: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
+    pub fn CreateWithEncodingOptionsAsync<P0, E0, P1, E1>(encoderid: ::windows::core::GUID, stream: P0, encodingoptions: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBitmapEncoderStatics(|this| unsafe {
@@ -1481,9 +1481,9 @@ impl BitmapEncoder {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateForTranscodingAsync<'a, P0, E0>(stream: P0, bitmapdecoder: &BitmapDecoder) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
+    pub fn CreateForTranscodingAsync<P0, E0>(stream: P0, bitmapdecoder: &BitmapDecoder) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBitmapEncoderStatics(|this| unsafe {
@@ -1722,7 +1722,7 @@ impl ::core::convert::TryFrom<&BitmapFrame> for IBitmapFrame {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BitmapFrame> for ::windows::core::InParam<'a, IBitmapFrame> {
+impl ::core::convert::TryFrom<&BitmapFrame> for ::windows::core::InParam<IBitmapFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BitmapFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1741,7 +1741,7 @@ impl ::core::convert::TryFrom<&BitmapFrame> for IBitmapFrameWithSoftwareBitmap {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BitmapFrame> for ::windows::core::InParam<'a, IBitmapFrameWithSoftwareBitmap> {
+impl ::core::convert::TryFrom<&BitmapFrame> for ::windows::core::InParam<IBitmapFrameWithSoftwareBitmap> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BitmapFrame) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1756,9 +1756,9 @@ pub struct BitmapProperties(::windows::core::IUnknown);
 impl BitmapProperties {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetPropertiesAsync<'a, P0, E0>(&self, propertiestoset: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetPropertiesAsync<P0, E0>(&self, propertiestoset: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1769,9 +1769,9 @@ impl BitmapProperties {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
+    pub fn GetPropertiesAsync<P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IBitmapPropertiesView>(self)?;
@@ -1826,7 +1826,7 @@ impl ::core::convert::TryFrom<&BitmapProperties> for IBitmapPropertiesView {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BitmapProperties> for ::windows::core::InParam<'a, IBitmapPropertiesView> {
+impl ::core::convert::TryFrom<&BitmapProperties> for ::windows::core::InParam<IBitmapPropertiesView> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BitmapProperties) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1841,9 +1841,9 @@ pub struct BitmapPropertiesView(::windows::core::IUnknown);
 impl BitmapPropertiesView {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
+    pub fn GetPropertiesAsync<P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1898,7 +1898,7 @@ impl ::core::convert::TryFrom<&BitmapPropertiesView> for IBitmapPropertiesView {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BitmapPropertiesView> for ::windows::core::InParam<'a, IBitmapPropertiesView> {
+impl ::core::convert::TryFrom<&BitmapPropertiesView> for ::windows::core::InParam<IBitmapPropertiesView> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BitmapPropertiesView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2060,7 +2060,7 @@ impl ::core::convert::TryFrom<&BitmapPropertySet> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&BitmapPropertySet> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>> {
+impl ::core::convert::TryFrom<&BitmapPropertySet> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BitmapPropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2082,7 +2082,7 @@ impl ::core::convert::TryFrom<&BitmapPropertySet> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&BitmapPropertySet> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, BitmapTypedValue>> {
+impl ::core::convert::TryFrom<&BitmapPropertySet> for ::windows::core::InParam<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, BitmapTypedValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BitmapPropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2228,9 +2228,9 @@ impl BitmapTypedValue {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Create<'a, P0>(value: P0, r#type: super::super::Foundation::PropertyType) -> ::windows::core::Result<BitmapTypedValue>
+    pub fn Create<P0>(value: P0, r#type: super::super::Foundation::PropertyType) -> ::windows::core::Result<BitmapTypedValue>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         Self::IBitmapTypedValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2301,9 +2301,9 @@ impl ImageStream {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
+    pub fn ReadAsync<P0, E0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
@@ -2314,9 +2314,9 @@ impl ImageStream {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
@@ -2467,7 +2467,7 @@ impl ::core::convert::TryFrom<&ImageStream> for super::super::Foundation::IClosa
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-impl<'a> ::core::convert::TryFrom<&ImageStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&ImageStream> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2489,7 +2489,7 @@ impl ::core::convert::TryFrom<&ImageStream> for super::super::Storage::Streams::
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&ImageStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IContentTypeProvider> {
+impl ::core::convert::TryFrom<&ImageStream> for ::windows::core::InParam<super::super::Storage::Streams::IContentTypeProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2511,7 +2511,7 @@ impl ::core::convert::TryFrom<&ImageStream> for super::super::Storage::Streams::
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&ImageStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream> {
+impl ::core::convert::TryFrom<&ImageStream> for ::windows::core::InParam<super::super::Storage::Streams::IInputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2533,7 +2533,7 @@ impl ::core::convert::TryFrom<&ImageStream> for super::super::Storage::Streams::
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&ImageStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream> {
+impl ::core::convert::TryFrom<&ImageStream> for ::windows::core::InParam<super::super::Storage::Streams::IOutputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2555,7 +2555,7 @@ impl ::core::convert::TryFrom<&ImageStream> for super::super::Storage::Streams::
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&ImageStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream> {
+impl ::core::convert::TryFrom<&ImageStream> for ::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2577,7 +2577,7 @@ impl ::core::convert::TryFrom<&ImageStream> for super::super::Storage::Streams::
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&ImageStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
+impl ::core::convert::TryFrom<&ImageStream> for ::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2715,9 +2715,9 @@ impl SoftwareBitmap {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CopyFromBuffer<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<()>
+    pub fn CopyFromBuffer<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2725,9 +2725,9 @@ impl SoftwareBitmap {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CopyToBuffer<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<()>
+    pub fn CopyToBuffer<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2772,9 +2772,9 @@ impl SoftwareBitmap {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCopyFromBuffer<'a, P0, E0>(source: P0, format: BitmapPixelFormat, width: i32, height: i32) -> ::windows::core::Result<SoftwareBitmap>
+    pub fn CreateCopyFromBuffer<P0, E0>(source: P0, format: BitmapPixelFormat, width: i32, height: i32) -> ::windows::core::Result<SoftwareBitmap>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
@@ -2784,9 +2784,9 @@ impl SoftwareBitmap {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCopyWithAlphaFromBuffer<'a, P0, E0>(source: P0, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> ::windows::core::Result<SoftwareBitmap>
+    pub fn CreateCopyWithAlphaFromBuffer<P0, E0>(source: P0, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> ::windows::core::Result<SoftwareBitmap>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
@@ -2796,9 +2796,9 @@ impl SoftwareBitmap {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn CreateCopyFromSurfaceAsync<'a, P0, E0>(surface: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
+    pub fn CreateCopyFromSurfaceAsync<P0, E0>(surface: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
@@ -2808,9 +2808,9 @@ impl SoftwareBitmap {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn CreateCopyWithAlphaFromSurfaceAsync<'a, P0, E0>(surface: P0, alpha: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
+    pub fn CreateCopyWithAlphaFromSurfaceAsync<P0, E0>(surface: P0, alpha: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
@@ -2877,7 +2877,7 @@ impl ::core::convert::TryFrom<&SoftwareBitmap> for super::super::Foundation::ICl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SoftwareBitmap> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SoftwareBitmap> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SoftwareBitmap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

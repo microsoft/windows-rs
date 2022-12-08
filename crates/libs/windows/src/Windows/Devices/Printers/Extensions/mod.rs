@@ -295,9 +295,9 @@ impl Print3DWorkflowPrintRequestedEventArgs {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetExtendedStatus)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
-    pub fn SetSource<'a, P0>(&self, source: P0) -> ::windows::core::Result<()>
+    pub fn SetSource<P0>(&self, source: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetSource)(::windows::core::Vtable::as_raw(this), source.into().abi()).ok() }
@@ -533,9 +533,9 @@ impl PrintTaskConfigurationSaveRequest {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Cancel)(::windows::core::Vtable::as_raw(this)).ok() }
     }
-    pub fn Save<'a, P0>(&self, printerextensioncontext: P0) -> ::windows::core::Result<()>
+    pub fn Save<P0>(&self, printerextensioncontext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Save)(::windows::core::Vtable::as_raw(this), printerextensioncontext.into().abi()).ok() }

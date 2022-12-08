@@ -534,9 +534,9 @@ impl BackgroundAudioTrack {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateFromFileAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>
+    pub fn CreateFromFileAsync<P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBackgroundAudioTrackStatics(|this| unsafe {
@@ -788,9 +788,9 @@ impl MediaClip {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateFromFileAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>
+    pub fn CreateFromFileAsync<P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaClipStatics(|this| unsafe {
@@ -800,9 +800,9 @@ impl MediaClip {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateFromImageFileAsync<'a, P0, E0>(file: P0, originalduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>
+    pub fn CreateFromImageFileAsync<P0, E0>(file: P0, originalduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaClipStatics(|this| unsafe {
@@ -812,9 +812,9 @@ impl MediaClip {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn CreateFromSurface<'a, P0, E0>(surface: P0, originalduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaClip>
+    pub fn CreateFromSurface<P0, E0>(surface: P0, originalduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaClip>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaClipStatics2(|this| unsafe {
@@ -924,9 +924,9 @@ impl MediaComposition {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn SaveAsync<'a, P0, E0>(&self, file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SaveAsync<P0, E0>(&self, file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -946,9 +946,9 @@ impl MediaComposition {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Storage_Streams"))]
-    pub fn GetThumbnailsAsync<'a, P0, E0>(&self, timesfromstart: P0, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>
+    pub fn GetThumbnailsAsync<P0, E0>(&self, timesfromstart: P0, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -959,9 +959,9 @@ impl MediaComposition {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_Transcoding\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Transcoding", feature = "Storage"))]
-    pub fn RenderToFileAsync<'a, P0, E0>(&self, destination: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
+    pub fn RenderToFileAsync<P0, E0>(&self, destination: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -972,9 +972,9 @@ impl MediaComposition {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_Transcoding\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Transcoding", feature = "Storage"))]
-    pub fn RenderToFileWithTrimmingPreferenceAsync<'a, P0, E0>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
+    pub fn RenderToFileWithTrimmingPreferenceAsync<P0, E0>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -985,9 +985,9 @@ impl MediaComposition {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Media_Transcoding\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage"))]
-    pub fn RenderToFileWithProfileAsync<'a, P0, E0>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference, encodingprofile: &super::MediaProperties::MediaEncodingProfile) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
+    pub fn RenderToFileWithProfileAsync<P0, E0>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference, encodingprofile: &super::MediaProperties::MediaEncodingProfile) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1253,9 +1253,9 @@ impl MediaOverlayLayer {
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
     #[cfg(feature = "Media_Effects")]
-    pub fn CreateWithCompositorDefinition<'a, P0, E0>(compositordefinition: P0) -> ::windows::core::Result<MediaOverlayLayer>
+    pub fn CreateWithCompositorDefinition<P0, E0>(compositordefinition: P0) -> ::windows::core::Result<MediaOverlayLayer>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Effects::IVideoCompositorDefinition>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Effects::IVideoCompositorDefinition>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMediaOverlayLayerFactory(|this| unsafe {

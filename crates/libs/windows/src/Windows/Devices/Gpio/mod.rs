@@ -319,7 +319,7 @@ impl ::core::convert::TryFrom<&GpioChangeCounter> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&GpioChangeCounter> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&GpioChangeCounter> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GpioChangeCounter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -498,7 +498,7 @@ impl ::core::convert::TryFrom<&GpioChangeReader> for super::super::Foundation::I
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&GpioChangeReader> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&GpioChangeReader> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GpioChangeReader) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -547,9 +547,9 @@ impl GpioController {
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Gpio_Provider", feature = "Foundation_Collections"))]
-    pub fn GetControllersAsync<'a, P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>>
+    pub fn GetControllersAsync<P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, Provider::IGpioProvider>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<Provider::IGpioProvider>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGpioControllerStatics2(|this| unsafe {
@@ -743,7 +743,7 @@ impl ::core::convert::TryFrom<&GpioPin> for super::super::Foundation::IClosable 
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&GpioPin> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&GpioPin> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GpioPin) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

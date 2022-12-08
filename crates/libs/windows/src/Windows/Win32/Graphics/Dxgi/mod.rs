@@ -53,9 +53,9 @@ impl IDXGIAdapter {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -125,9 +125,9 @@ impl IDXGIAdapter1 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -201,9 +201,9 @@ impl IDXGIAdapter2 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -283,9 +283,9 @@ impl IDXGIAdapter3 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -327,7 +327,7 @@ impl IDXGIAdapter3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterHardwareContentProtectionTeardownStatusEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterHardwareContentProtectionTeardownStatusEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -346,7 +346,7 @@ impl IDXGIAdapter3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterVideoMemoryBudgetChangeNotificationEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterVideoMemoryBudgetChangeNotificationEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -404,9 +404,9 @@ impl IDXGIAdapter4 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -448,7 +448,7 @@ impl IDXGIAdapter4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterHardwareContentProtectionTeardownStatusEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterHardwareContentProtectionTeardownStatusEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -467,7 +467,7 @@ impl IDXGIAdapter4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterVideoMemoryBudgetChangeNotificationEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterVideoMemoryBudgetChangeNotificationEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -704,9 +704,9 @@ impl IDXGIDevice {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -783,9 +783,9 @@ impl IDXGIDevice1 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -863,9 +863,9 @@ impl IDXGIDevice2 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -915,7 +915,7 @@ impl IDXGIDevice2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnqueueSetEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<()>
+    pub unsafe fn EnqueueSetEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -966,9 +966,9 @@ impl IDXGIDevice3 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -1018,7 +1018,7 @@ impl IDXGIDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnqueueSetEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<()>
+    pub unsafe fn EnqueueSetEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -1064,9 +1064,9 @@ impl IDXGIDevice4 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -1116,7 +1116,7 @@ impl IDXGIDevice4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnqueueSetEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<()>
+    pub unsafe fn EnqueueSetEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -1169,9 +1169,9 @@ impl IDXGIDeviceSubObject {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -1233,7 +1233,7 @@ impl IDXGIDisplayControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStereoEnabled<'a, P0>(&self, enabled: P0)
+    pub unsafe fn SetStereoEnabled<P0>(&self, enabled: P0)
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1283,9 +1283,9 @@ impl IDXGIFactory {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -1305,7 +1305,7 @@ impl IDXGIFactory {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn MakeWindowAssociation<P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -1319,15 +1319,15 @@ impl IDXGIFactory {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
+    pub unsafe fn CreateSwapChain<P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).CreateSwapChain)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, ::core::mem::transmute(ppswapchain))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
+    pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
         P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     {
@@ -1387,9 +1387,9 @@ impl IDXGIFactory1 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -1409,7 +1409,7 @@ impl IDXGIFactory1 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn MakeWindowAssociation<P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -1423,15 +1423,15 @@ impl IDXGIFactory1 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
+    pub unsafe fn CreateSwapChain<P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CreateSwapChain)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, ::core::mem::transmute(ppswapchain))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
+    pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
         P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     {
@@ -1488,9 +1488,9 @@ impl IDXGIFactory2 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -1510,7 +1510,7 @@ impl IDXGIFactory2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn MakeWindowAssociation<P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -1524,15 +1524,15 @@ impl IDXGIFactory2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
+    pub unsafe fn CreateSwapChain<P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.CreateSwapChain)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, ::core::mem::transmute(ppswapchain))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
+    pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
         P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     {
@@ -1555,29 +1555,29 @@ impl IDXGIFactory2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForHwnd<'a, P0, P1, P2>(&self, pdevice: P0, hwnd: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: ::core::option::Option<*const DXGI_SWAP_CHAIN_FULLSCREEN_DESC>, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForHwnd<P0, P1, P2>(&self, pdevice: P0, hwnd: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: ::core::option::Option<*const DXGI_SWAP_CHAIN_FULLSCREEN_DESC>, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateSwapChainForHwnd)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), hwnd.into(), pdesc, ::core::mem::transmute(pfullscreendesc.unwrap_or(::std::ptr::null())), prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForCoreWindow<'a, P0, P1, P2>(&self, pdevice: P0, pwindow: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForCoreWindow<P0, P1, P2>(&self, pdevice: P0, pwindow: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateSwapChainForCoreWindow)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pwindow.into().abi(), pdesc, prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSharedResourceAdapterLuid<'a, P0>(&self, hresource: P0) -> ::windows::core::Result<super::super::Foundation::LUID>
+    pub unsafe fn GetSharedResourceAdapterLuid<P0>(&self, hresource: P0) -> ::windows::core::Result<super::super::Foundation::LUID>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -1586,7 +1586,7 @@ impl IDXGIFactory2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusWindow<'a, P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterStereoStatusWindow<P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -1595,7 +1595,7 @@ impl IDXGIFactory2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterStereoStatusEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -1607,7 +1607,7 @@ impl IDXGIFactory2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusWindow<'a, P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterOcclusionStatusWindow<P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -1616,7 +1616,7 @@ impl IDXGIFactory2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterOcclusionStatusEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -1628,10 +1628,10 @@ impl IDXGIFactory2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForComposition<'a, P0, P1>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P1) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForComposition<P0, P1>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P1) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateSwapChainForComposition)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1710,9 +1710,9 @@ impl IDXGIFactory3 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -1732,7 +1732,7 @@ impl IDXGIFactory3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn MakeWindowAssociation<P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -1746,15 +1746,15 @@ impl IDXGIFactory3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
+    pub unsafe fn CreateSwapChain<P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateSwapChain)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, ::core::mem::transmute(ppswapchain))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
+    pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
         P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     {
@@ -1777,29 +1777,29 @@ impl IDXGIFactory3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForHwnd<'a, P0, P1, P2>(&self, pdevice: P0, hwnd: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: ::core::option::Option<*const DXGI_SWAP_CHAIN_FULLSCREEN_DESC>, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForHwnd<P0, P1, P2>(&self, pdevice: P0, hwnd: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: ::core::option::Option<*const DXGI_SWAP_CHAIN_FULLSCREEN_DESC>, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateSwapChainForHwnd)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), hwnd.into(), pdesc, ::core::mem::transmute(pfullscreendesc.unwrap_or(::std::ptr::null())), prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForCoreWindow<'a, P0, P1, P2>(&self, pdevice: P0, pwindow: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForCoreWindow<P0, P1, P2>(&self, pdevice: P0, pwindow: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateSwapChainForCoreWindow)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pwindow.into().abi(), pdesc, prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSharedResourceAdapterLuid<'a, P0>(&self, hresource: P0) -> ::windows::core::Result<super::super::Foundation::LUID>
+    pub unsafe fn GetSharedResourceAdapterLuid<P0>(&self, hresource: P0) -> ::windows::core::Result<super::super::Foundation::LUID>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -1808,7 +1808,7 @@ impl IDXGIFactory3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusWindow<'a, P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterStereoStatusWindow<P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -1817,7 +1817,7 @@ impl IDXGIFactory3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterStereoStatusEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -1829,7 +1829,7 @@ impl IDXGIFactory3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusWindow<'a, P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterOcclusionStatusWindow<P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -1838,7 +1838,7 @@ impl IDXGIFactory3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterOcclusionStatusEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -1850,10 +1850,10 @@ impl IDXGIFactory3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForComposition<'a, P0, P1>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P1) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForComposition<P0, P1>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P1) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateSwapChainForComposition)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1898,9 +1898,9 @@ impl IDXGIFactory4 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -1920,7 +1920,7 @@ impl IDXGIFactory4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn MakeWindowAssociation<P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -1934,15 +1934,15 @@ impl IDXGIFactory4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
+    pub unsafe fn CreateSwapChain<P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateSwapChain)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, ::core::mem::transmute(ppswapchain))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
+    pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
         P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     {
@@ -1965,29 +1965,29 @@ impl IDXGIFactory4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForHwnd<'a, P0, P1, P2>(&self, pdevice: P0, hwnd: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: ::core::option::Option<*const DXGI_SWAP_CHAIN_FULLSCREEN_DESC>, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForHwnd<P0, P1, P2>(&self, pdevice: P0, hwnd: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: ::core::option::Option<*const DXGI_SWAP_CHAIN_FULLSCREEN_DESC>, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CreateSwapChainForHwnd)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), hwnd.into(), pdesc, ::core::mem::transmute(pfullscreendesc.unwrap_or(::std::ptr::null())), prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForCoreWindow<'a, P0, P1, P2>(&self, pdevice: P0, pwindow: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForCoreWindow<P0, P1, P2>(&self, pdevice: P0, pwindow: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CreateSwapChainForCoreWindow)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pwindow.into().abi(), pdesc, prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSharedResourceAdapterLuid<'a, P0>(&self, hresource: P0) -> ::windows::core::Result<super::super::Foundation::LUID>
+    pub unsafe fn GetSharedResourceAdapterLuid<P0>(&self, hresource: P0) -> ::windows::core::Result<super::super::Foundation::LUID>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -1996,7 +1996,7 @@ impl IDXGIFactory4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusWindow<'a, P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterStereoStatusWindow<P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -2005,7 +2005,7 @@ impl IDXGIFactory4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterStereoStatusEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -2017,7 +2017,7 @@ impl IDXGIFactory4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusWindow<'a, P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterOcclusionStatusWindow<P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -2026,7 +2026,7 @@ impl IDXGIFactory4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterOcclusionStatusEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -2038,10 +2038,10 @@ impl IDXGIFactory4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForComposition<'a, P0, P1>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P1) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForComposition<P0, P1>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P1) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CreateSwapChainForComposition)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -2106,9 +2106,9 @@ impl IDXGIFactory5 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -2128,7 +2128,7 @@ impl IDXGIFactory5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn MakeWindowAssociation<P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -2142,15 +2142,15 @@ impl IDXGIFactory5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
+    pub unsafe fn CreateSwapChain<P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateSwapChain)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, ::core::mem::transmute(ppswapchain))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
+    pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
         P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     {
@@ -2173,29 +2173,29 @@ impl IDXGIFactory5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForHwnd<'a, P0, P1, P2>(&self, pdevice: P0, hwnd: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: ::core::option::Option<*const DXGI_SWAP_CHAIN_FULLSCREEN_DESC>, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForHwnd<P0, P1, P2>(&self, pdevice: P0, hwnd: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: ::core::option::Option<*const DXGI_SWAP_CHAIN_FULLSCREEN_DESC>, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateSwapChainForHwnd)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), hwnd.into(), pdesc, ::core::mem::transmute(pfullscreendesc.unwrap_or(::std::ptr::null())), prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForCoreWindow<'a, P0, P1, P2>(&self, pdevice: P0, pwindow: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForCoreWindow<P0, P1, P2>(&self, pdevice: P0, pwindow: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateSwapChainForCoreWindow)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pwindow.into().abi(), pdesc, prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSharedResourceAdapterLuid<'a, P0>(&self, hresource: P0) -> ::windows::core::Result<super::super::Foundation::LUID>
+    pub unsafe fn GetSharedResourceAdapterLuid<P0>(&self, hresource: P0) -> ::windows::core::Result<super::super::Foundation::LUID>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -2204,7 +2204,7 @@ impl IDXGIFactory5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusWindow<'a, P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterStereoStatusWindow<P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -2213,7 +2213,7 @@ impl IDXGIFactory5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterStereoStatusEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -2225,7 +2225,7 @@ impl IDXGIFactory5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusWindow<'a, P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterOcclusionStatusWindow<P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -2234,7 +2234,7 @@ impl IDXGIFactory5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterOcclusionStatusEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -2246,10 +2246,10 @@ impl IDXGIFactory5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForComposition<'a, P0, P1>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P1) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForComposition<P0, P1>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P1) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateSwapChainForComposition)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -2313,9 +2313,9 @@ impl IDXGIFactory6 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -2335,7 +2335,7 @@ impl IDXGIFactory6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn MakeWindowAssociation<P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -2349,15 +2349,15 @@ impl IDXGIFactory6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
+    pub unsafe fn CreateSwapChain<P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CreateSwapChain)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, ::core::mem::transmute(ppswapchain))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
+    pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
         P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     {
@@ -2380,29 +2380,29 @@ impl IDXGIFactory6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForHwnd<'a, P0, P1, P2>(&self, pdevice: P0, hwnd: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: ::core::option::Option<*const DXGI_SWAP_CHAIN_FULLSCREEN_DESC>, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForHwnd<P0, P1, P2>(&self, pdevice: P0, hwnd: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: ::core::option::Option<*const DXGI_SWAP_CHAIN_FULLSCREEN_DESC>, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateSwapChainForHwnd)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), hwnd.into(), pdesc, ::core::mem::transmute(pfullscreendesc.unwrap_or(::std::ptr::null())), prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForCoreWindow<'a, P0, P1, P2>(&self, pdevice: P0, pwindow: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForCoreWindow<P0, P1, P2>(&self, pdevice: P0, pwindow: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateSwapChainForCoreWindow)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pwindow.into().abi(), pdesc, prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSharedResourceAdapterLuid<'a, P0>(&self, hresource: P0) -> ::windows::core::Result<super::super::Foundation::LUID>
+    pub unsafe fn GetSharedResourceAdapterLuid<P0>(&self, hresource: P0) -> ::windows::core::Result<super::super::Foundation::LUID>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -2411,7 +2411,7 @@ impl IDXGIFactory6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusWindow<'a, P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterStereoStatusWindow<P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -2420,7 +2420,7 @@ impl IDXGIFactory6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterStereoStatusEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -2432,7 +2432,7 @@ impl IDXGIFactory6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusWindow<'a, P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterOcclusionStatusWindow<P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -2441,7 +2441,7 @@ impl IDXGIFactory6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterOcclusionStatusEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -2453,10 +2453,10 @@ impl IDXGIFactory6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForComposition<'a, P0, P1>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P1) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForComposition<P0, P1>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P1) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateSwapChainForComposition)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -2527,9 +2527,9 @@ impl IDXGIFactory7 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -2549,7 +2549,7 @@ impl IDXGIFactory7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn MakeWindowAssociation<P0>(&self, windowhandle: P0, flags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -2563,15 +2563,15 @@ impl IDXGIFactory7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
+    pub unsafe fn CreateSwapChain<P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateSwapChain)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, ::core::mem::transmute(ppswapchain))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
+    pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
         P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     {
@@ -2594,29 +2594,29 @@ impl IDXGIFactory7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForHwnd<'a, P0, P1, P2>(&self, pdevice: P0, hwnd: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: ::core::option::Option<*const DXGI_SWAP_CHAIN_FULLSCREEN_DESC>, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForHwnd<P0, P1, P2>(&self, pdevice: P0, hwnd: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: ::core::option::Option<*const DXGI_SWAP_CHAIN_FULLSCREEN_DESC>, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateSwapChainForHwnd)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), hwnd.into(), pdesc, ::core::mem::transmute(pfullscreendesc.unwrap_or(::std::ptr::null())), prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForCoreWindow<'a, P0, P1, P2>(&self, pdevice: P0, pwindow: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForCoreWindow<P0, P1, P2>(&self, pdevice: P0, pwindow: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateSwapChainForCoreWindow)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pwindow.into().abi(), pdesc, prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSharedResourceAdapterLuid<'a, P0>(&self, hresource: P0) -> ::windows::core::Result<super::super::Foundation::LUID>
+    pub unsafe fn GetSharedResourceAdapterLuid<P0>(&self, hresource: P0) -> ::windows::core::Result<super::super::Foundation::LUID>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -2625,7 +2625,7 @@ impl IDXGIFactory7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusWindow<'a, P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterStereoStatusWindow<P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -2634,7 +2634,7 @@ impl IDXGIFactory7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterStereoStatusEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -2646,7 +2646,7 @@ impl IDXGIFactory7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusWindow<'a, P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterOcclusionStatusWindow<P0>(&self, windowhandle: P0, wmsg: u32) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -2655,7 +2655,7 @@ impl IDXGIFactory7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterOcclusionStatusEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -2667,10 +2667,10 @@ impl IDXGIFactory7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForComposition<'a, P0, P1>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P1) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForComposition<P0, P1>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P1) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateSwapChainForComposition)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -2706,7 +2706,7 @@ impl IDXGIFactory7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterAdaptersChangedEvent<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterAdaptersChangedEvent<P0>(&self, hevent: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -2756,23 +2756,23 @@ pub struct IDXGIFactoryMedia(::windows::core::IUnknown);
 impl IDXGIFactoryMedia {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForCompositionSurfaceHandle<'a, P0, P1, P2>(&self, pdevice: P0, hsurface: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForCompositionSurfaceHandle<P0, P1, P2>(&self, pdevice: P0, hsurface: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> ::windows::core::Result<IDXGISwapChain1>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateSwapChainForCompositionSurfaceHandle)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), hsurface.into(), pdesc, prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateDecodeSwapChainForCompositionSurfaceHandle<'a, P0, P1, P2, P3>(&self, pdevice: P0, hsurface: P1, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: P2, prestricttooutput: P3) -> ::windows::core::Result<IDXGIDecodeSwapChain>
+    pub unsafe fn CreateDecodeSwapChainForCompositionSurfaceHandle<P0, P1, P2, P3>(&self, pdevice: P0, hsurface: P1, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: P2, prestricttooutput: P3) -> ::windows::core::Result<IDXGIDecodeSwapChain>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDXGIResource>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDXGIResource>>,
+        P3: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateDecodeSwapChainForCompositionSurfaceHandle)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), hsurface.into(), pdesc, pyuvdecodebuffers.into().abi(), prestricttooutput.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -2899,13 +2899,13 @@ impl IDXGIInfoQueue {
     pub unsafe fn GetRetrievalFilterStackSize(&self, producer: ::windows::core::GUID) -> u32 {
         (::windows::core::Vtable::vtable(self).GetRetrievalFilterStackSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(producer))
     }
-    pub unsafe fn AddMessage<'a, P0>(&self, producer: ::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, id: i32, pdescription: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddMessage<P0>(&self, producer: ::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, id: i32, pdescription: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
         (::windows::core::Vtable::vtable(self).AddMessage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(producer), category, severity, id, pdescription.into()).ok()
     }
-    pub unsafe fn AddApplicationMessage<'a, P0>(&self, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, pdescription: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddApplicationMessage<P0>(&self, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, pdescription: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
@@ -2913,7 +2913,7 @@ impl IDXGIInfoQueue {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBreakOnCategory<'a, P0>(&self, producer: ::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBreakOnCategory<P0>(&self, producer: ::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2921,7 +2921,7 @@ impl IDXGIInfoQueue {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBreakOnSeverity<'a, P0>(&self, producer: ::windows::core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, benable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBreakOnSeverity<P0>(&self, producer: ::windows::core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, benable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2929,7 +2929,7 @@ impl IDXGIInfoQueue {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBreakOnID<'a, P0>(&self, producer: ::windows::core::GUID, id: i32, benable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBreakOnID<P0>(&self, producer: ::windows::core::GUID, id: i32, benable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2952,7 +2952,7 @@ impl IDXGIInfoQueue {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMuteDebugOutput<'a, P0>(&self, producer: ::windows::core::GUID, bmute: P0)
+    pub unsafe fn SetMuteDebugOutput<P0>(&self, producer: ::windows::core::GUID, bmute: P0)
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -3060,9 +3060,9 @@ impl IDXGIKeyedMutex {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -3127,9 +3127,9 @@ impl IDXGIObject {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -3183,9 +3183,9 @@ impl IDXGIOutput {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -3212,9 +3212,9 @@ impl IDXGIOutput {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn FindClosestMatchingMode<'a, P0>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindClosestMatchingMode<P0>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).FindClosestMatchingMode)(::windows::core::Vtable::as_raw(self), pmodetomatch, pclosestmatch, pconcerneddevice.into().abi()).ok()
     }
@@ -3223,9 +3223,9 @@ impl IDXGIOutput {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TakeOwnership<'a, P0, P1>(&self, pdevice: P0, exclusive: P1) -> ::windows::core::Result<()>
+    pub unsafe fn TakeOwnership<P0, P1>(&self, pdevice: P0, exclusive: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).TakeOwnership)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), exclusive.into()).ok()
@@ -3250,15 +3250,15 @@ impl IDXGIOutput {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetGammaControl)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDisplaySurface<'a, P0>(&self, pscanoutsurface: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDisplaySurface<P0>(&self, pscanoutsurface: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGISurface>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGISurface>>,
     {
         (::windows::core::Vtable::vtable(self).SetDisplaySurface)(::windows::core::Vtable::as_raw(self), pscanoutsurface.into().abi()).ok()
     }
-    pub unsafe fn GetDisplaySurfaceData<'a, P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetDisplaySurfaceData<P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGISurface>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGISurface>>,
     {
         (::windows::core::Vtable::vtable(self).GetDisplaySurfaceData)(::windows::core::Vtable::as_raw(self), pdestination.into().abi()).ok()
     }
@@ -3335,9 +3335,9 @@ impl IDXGIOutput1 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -3364,9 +3364,9 @@ impl IDXGIOutput1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn FindClosestMatchingMode<'a, P0>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindClosestMatchingMode<P0>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.FindClosestMatchingMode)(::windows::core::Vtable::as_raw(self), pmodetomatch, pclosestmatch, pconcerneddevice.into().abi()).ok()
     }
@@ -3375,9 +3375,9 @@ impl IDXGIOutput1 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TakeOwnership<'a, P0, P1>(&self, pdevice: P0, exclusive: P1) -> ::windows::core::Result<()>
+    pub unsafe fn TakeOwnership<P0, P1>(&self, pdevice: P0, exclusive: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).base__.TakeOwnership)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), exclusive.into()).ok()
@@ -3402,15 +3402,15 @@ impl IDXGIOutput1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetGammaControl)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDisplaySurface<'a, P0>(&self, pscanoutsurface: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDisplaySurface<P0>(&self, pscanoutsurface: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGISurface>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGISurface>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetDisplaySurface)(::windows::core::Vtable::as_raw(self), pscanoutsurface.into().abi()).ok()
     }
-    pub unsafe fn GetDisplaySurfaceData<'a, P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetDisplaySurfaceData<P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGISurface>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGISurface>>,
     {
         (::windows::core::Vtable::vtable(self).base__.GetDisplaySurfaceData)(::windows::core::Vtable::as_raw(self), pdestination.into().abi()).ok()
     }
@@ -3425,21 +3425,21 @@ impl IDXGIOutput1 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn FindClosestMatchingMode1<'a, P0>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindClosestMatchingMode1<P0>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).FindClosestMatchingMode1)(::windows::core::Vtable::as_raw(self), pmodetomatch, pclosestmatch, pconcerneddevice.into().abi()).ok()
     }
-    pub unsafe fn GetDisplaySurfaceData1<'a, P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetDisplaySurfaceData1<P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGIResource>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGIResource>>,
     {
         (::windows::core::Vtable::vtable(self).GetDisplaySurfaceData1)(::windows::core::Vtable::as_raw(self), pdestination.into().abi()).ok()
     }
-    pub unsafe fn DuplicateOutput<'a, P0>(&self, pdevice: P0) -> ::windows::core::Result<IDXGIOutputDuplication>
+    pub unsafe fn DuplicateOutput<P0>(&self, pdevice: P0) -> ::windows::core::Result<IDXGIOutputDuplication>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).DuplicateOutput)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -3490,9 +3490,9 @@ impl IDXGIOutput2 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -3519,9 +3519,9 @@ impl IDXGIOutput2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn FindClosestMatchingMode<'a, P0>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindClosestMatchingMode<P0>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.FindClosestMatchingMode)(::windows::core::Vtable::as_raw(self), pmodetomatch, pclosestmatch, pconcerneddevice.into().abi()).ok()
     }
@@ -3530,9 +3530,9 @@ impl IDXGIOutput2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TakeOwnership<'a, P0, P1>(&self, pdevice: P0, exclusive: P1) -> ::windows::core::Result<()>
+    pub unsafe fn TakeOwnership<P0, P1>(&self, pdevice: P0, exclusive: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.TakeOwnership)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), exclusive.into()).ok()
@@ -3557,15 +3557,15 @@ impl IDXGIOutput2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetGammaControl)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDisplaySurface<'a, P0>(&self, pscanoutsurface: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDisplaySurface<P0>(&self, pscanoutsurface: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGISurface>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGISurface>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetDisplaySurface)(::windows::core::Vtable::as_raw(self), pscanoutsurface.into().abi()).ok()
     }
-    pub unsafe fn GetDisplaySurfaceData<'a, P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetDisplaySurfaceData<P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGISurface>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGISurface>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDisplaySurfaceData)(::windows::core::Vtable::as_raw(self), pdestination.into().abi()).ok()
     }
@@ -3580,21 +3580,21 @@ impl IDXGIOutput2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn FindClosestMatchingMode1<'a, P0>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindClosestMatchingMode1<P0>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.FindClosestMatchingMode1)(::windows::core::Vtable::as_raw(self), pmodetomatch, pclosestmatch, pconcerneddevice.into().abi()).ok()
     }
-    pub unsafe fn GetDisplaySurfaceData1<'a, P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetDisplaySurfaceData1<P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGIResource>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGIResource>>,
     {
         (::windows::core::Vtable::vtable(self).base__.GetDisplaySurfaceData1)(::windows::core::Vtable::as_raw(self), pdestination.into().abi()).ok()
     }
-    pub unsafe fn DuplicateOutput<'a, P0>(&self, pdevice: P0) -> ::windows::core::Result<IDXGIOutputDuplication>
+    pub unsafe fn DuplicateOutput<P0>(&self, pdevice: P0) -> ::windows::core::Result<IDXGIOutputDuplication>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.DuplicateOutput)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -3644,9 +3644,9 @@ impl IDXGIOutput3 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -3673,9 +3673,9 @@ impl IDXGIOutput3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn FindClosestMatchingMode<'a, P0>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindClosestMatchingMode<P0>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.FindClosestMatchingMode)(::windows::core::Vtable::as_raw(self), pmodetomatch, pclosestmatch, pconcerneddevice.into().abi()).ok()
     }
@@ -3684,9 +3684,9 @@ impl IDXGIOutput3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TakeOwnership<'a, P0, P1>(&self, pdevice: P0, exclusive: P1) -> ::windows::core::Result<()>
+    pub unsafe fn TakeOwnership<P0, P1>(&self, pdevice: P0, exclusive: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.TakeOwnership)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), exclusive.into()).ok()
@@ -3711,15 +3711,15 @@ impl IDXGIOutput3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetGammaControl)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDisplaySurface<'a, P0>(&self, pscanoutsurface: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDisplaySurface<P0>(&self, pscanoutsurface: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGISurface>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGISurface>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetDisplaySurface)(::windows::core::Vtable::as_raw(self), pscanoutsurface.into().abi()).ok()
     }
-    pub unsafe fn GetDisplaySurfaceData<'a, P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetDisplaySurfaceData<P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGISurface>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGISurface>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDisplaySurfaceData)(::windows::core::Vtable::as_raw(self), pdestination.into().abi()).ok()
     }
@@ -3734,21 +3734,21 @@ impl IDXGIOutput3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn FindClosestMatchingMode1<'a, P0>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindClosestMatchingMode1<P0>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.FindClosestMatchingMode1)(::windows::core::Vtable::as_raw(self), pmodetomatch, pclosestmatch, pconcerneddevice.into().abi()).ok()
     }
-    pub unsafe fn GetDisplaySurfaceData1<'a, P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetDisplaySurfaceData1<P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGIResource>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGIResource>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDisplaySurfaceData1)(::windows::core::Vtable::as_raw(self), pdestination.into().abi()).ok()
     }
-    pub unsafe fn DuplicateOutput<'a, P0>(&self, pdevice: P0) -> ::windows::core::Result<IDXGIOutputDuplication>
+    pub unsafe fn DuplicateOutput<P0>(&self, pdevice: P0) -> ::windows::core::Result<IDXGIOutputDuplication>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.DuplicateOutput)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -3760,9 +3760,9 @@ impl IDXGIOutput3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlaySupport<'a, P0>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn CheckOverlaySupport<P0>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CheckOverlaySupport)(::windows::core::Vtable::as_raw(self), enumformat, pconcerneddevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -3807,9 +3807,9 @@ impl IDXGIOutput4 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -3836,9 +3836,9 @@ impl IDXGIOutput4 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn FindClosestMatchingMode<'a, P0>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindClosestMatchingMode<P0>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.FindClosestMatchingMode)(::windows::core::Vtable::as_raw(self), pmodetomatch, pclosestmatch, pconcerneddevice.into().abi()).ok()
     }
@@ -3847,9 +3847,9 @@ impl IDXGIOutput4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TakeOwnership<'a, P0, P1>(&self, pdevice: P0, exclusive: P1) -> ::windows::core::Result<()>
+    pub unsafe fn TakeOwnership<P0, P1>(&self, pdevice: P0, exclusive: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.TakeOwnership)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), exclusive.into()).ok()
@@ -3874,15 +3874,15 @@ impl IDXGIOutput4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetGammaControl)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDisplaySurface<'a, P0>(&self, pscanoutsurface: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDisplaySurface<P0>(&self, pscanoutsurface: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGISurface>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGISurface>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetDisplaySurface)(::windows::core::Vtable::as_raw(self), pscanoutsurface.into().abi()).ok()
     }
-    pub unsafe fn GetDisplaySurfaceData<'a, P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetDisplaySurfaceData<P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGISurface>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGISurface>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetDisplaySurfaceData)(::windows::core::Vtable::as_raw(self), pdestination.into().abi()).ok()
     }
@@ -3897,21 +3897,21 @@ impl IDXGIOutput4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn FindClosestMatchingMode1<'a, P0>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindClosestMatchingMode1<P0>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.FindClosestMatchingMode1)(::windows::core::Vtable::as_raw(self), pmodetomatch, pclosestmatch, pconcerneddevice.into().abi()).ok()
     }
-    pub unsafe fn GetDisplaySurfaceData1<'a, P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetDisplaySurfaceData1<P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGIResource>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGIResource>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDisplaySurfaceData1)(::windows::core::Vtable::as_raw(self), pdestination.into().abi()).ok()
     }
-    pub unsafe fn DuplicateOutput<'a, P0>(&self, pdevice: P0) -> ::windows::core::Result<IDXGIOutputDuplication>
+    pub unsafe fn DuplicateOutput<P0>(&self, pdevice: P0) -> ::windows::core::Result<IDXGIOutputDuplication>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.DuplicateOutput)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -3923,18 +3923,18 @@ impl IDXGIOutput4 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlaySupport<'a, P0>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn CheckOverlaySupport<P0>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CheckOverlaySupport)(::windows::core::Vtable::as_raw(self), enumformat, pconcerneddevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlayColorSpaceSupport<'a, P0>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn CheckOverlayColorSpaceSupport<P0>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CheckOverlayColorSpaceSupport)(::windows::core::Vtable::as_raw(self), format, colorspace, pconcerneddevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -3979,9 +3979,9 @@ impl IDXGIOutput5 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -4008,9 +4008,9 @@ impl IDXGIOutput5 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn FindClosestMatchingMode<'a, P0>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindClosestMatchingMode<P0>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.FindClosestMatchingMode)(::windows::core::Vtable::as_raw(self), pmodetomatch, pclosestmatch, pconcerneddevice.into().abi()).ok()
     }
@@ -4019,9 +4019,9 @@ impl IDXGIOutput5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TakeOwnership<'a, P0, P1>(&self, pdevice: P0, exclusive: P1) -> ::windows::core::Result<()>
+    pub unsafe fn TakeOwnership<P0, P1>(&self, pdevice: P0, exclusive: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.TakeOwnership)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), exclusive.into()).ok()
@@ -4046,15 +4046,15 @@ impl IDXGIOutput5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetGammaControl)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDisplaySurface<'a, P0>(&self, pscanoutsurface: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDisplaySurface<P0>(&self, pscanoutsurface: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGISurface>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGISurface>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetDisplaySurface)(::windows::core::Vtable::as_raw(self), pscanoutsurface.into().abi()).ok()
     }
-    pub unsafe fn GetDisplaySurfaceData<'a, P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetDisplaySurfaceData<P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGISurface>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGISurface>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetDisplaySurfaceData)(::windows::core::Vtable::as_raw(self), pdestination.into().abi()).ok()
     }
@@ -4069,21 +4069,21 @@ impl IDXGIOutput5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn FindClosestMatchingMode1<'a, P0>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindClosestMatchingMode1<P0>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.FindClosestMatchingMode1)(::windows::core::Vtable::as_raw(self), pmodetomatch, pclosestmatch, pconcerneddevice.into().abi()).ok()
     }
-    pub unsafe fn GetDisplaySurfaceData1<'a, P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetDisplaySurfaceData1<P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGIResource>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGIResource>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetDisplaySurfaceData1)(::windows::core::Vtable::as_raw(self), pdestination.into().abi()).ok()
     }
-    pub unsafe fn DuplicateOutput<'a, P0>(&self, pdevice: P0) -> ::windows::core::Result<IDXGIOutputDuplication>
+    pub unsafe fn DuplicateOutput<P0>(&self, pdevice: P0) -> ::windows::core::Result<IDXGIOutputDuplication>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.DuplicateOutput)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -4095,27 +4095,27 @@ impl IDXGIOutput5 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlaySupport<'a, P0>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn CheckOverlaySupport<P0>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CheckOverlaySupport)(::windows::core::Vtable::as_raw(self), enumformat, pconcerneddevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlayColorSpaceSupport<'a, P0>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn CheckOverlayColorSpaceSupport<P0>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CheckOverlayColorSpaceSupport)(::windows::core::Vtable::as_raw(self), format, colorspace, pconcerneddevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn DuplicateOutput1<'a, P0>(&self, pdevice: P0, flags: u32, psupportedformats: &[Common::DXGI_FORMAT]) -> ::windows::core::Result<IDXGIOutputDuplication>
+    pub unsafe fn DuplicateOutput1<P0>(&self, pdevice: P0, flags: u32, psupportedformats: &[Common::DXGI_FORMAT]) -> ::windows::core::Result<IDXGIOutputDuplication>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).DuplicateOutput1)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), flags, psupportedformats.len() as _, ::core::mem::transmute(psupportedformats.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
@@ -4160,9 +4160,9 @@ impl IDXGIOutput6 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -4189,9 +4189,9 @@ impl IDXGIOutput6 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn FindClosestMatchingMode<'a, P0>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindClosestMatchingMode<P0>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.FindClosestMatchingMode)(::windows::core::Vtable::as_raw(self), pmodetomatch, pclosestmatch, pconcerneddevice.into().abi()).ok()
     }
@@ -4200,9 +4200,9 @@ impl IDXGIOutput6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TakeOwnership<'a, P0, P1>(&self, pdevice: P0, exclusive: P1) -> ::windows::core::Result<()>
+    pub unsafe fn TakeOwnership<P0, P1>(&self, pdevice: P0, exclusive: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.TakeOwnership)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), exclusive.into()).ok()
@@ -4227,15 +4227,15 @@ impl IDXGIOutput6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetGammaControl)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDisplaySurface<'a, P0>(&self, pscanoutsurface: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDisplaySurface<P0>(&self, pscanoutsurface: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGISurface>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGISurface>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetDisplaySurface)(::windows::core::Vtable::as_raw(self), pscanoutsurface.into().abi()).ok()
     }
-    pub unsafe fn GetDisplaySurfaceData<'a, P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetDisplaySurfaceData<P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGISurface>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGISurface>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetDisplaySurfaceData)(::windows::core::Vtable::as_raw(self), pdestination.into().abi()).ok()
     }
@@ -4250,21 +4250,21 @@ impl IDXGIOutput6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn FindClosestMatchingMode1<'a, P0>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindClosestMatchingMode1<P0>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.FindClosestMatchingMode1)(::windows::core::Vtable::as_raw(self), pmodetomatch, pclosestmatch, pconcerneddevice.into().abi()).ok()
     }
-    pub unsafe fn GetDisplaySurfaceData1<'a, P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetDisplaySurfaceData1<P0>(&self, pdestination: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDXGIResource>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDXGIResource>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetDisplaySurfaceData1)(::windows::core::Vtable::as_raw(self), pdestination.into().abi()).ok()
     }
-    pub unsafe fn DuplicateOutput<'a, P0>(&self, pdevice: P0) -> ::windows::core::Result<IDXGIOutputDuplication>
+    pub unsafe fn DuplicateOutput<P0>(&self, pdevice: P0) -> ::windows::core::Result<IDXGIOutputDuplication>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.DuplicateOutput)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -4276,27 +4276,27 @@ impl IDXGIOutput6 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlaySupport<'a, P0>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn CheckOverlaySupport<P0>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CheckOverlaySupport)(::windows::core::Vtable::as_raw(self), enumformat, pconcerneddevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlayColorSpaceSupport<'a, P0>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn CheckOverlayColorSpaceSupport<P0>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CheckOverlayColorSpaceSupport)(::windows::core::Vtable::as_raw(self), format, colorspace, pconcerneddevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn DuplicateOutput1<'a, P0>(&self, pdevice: P0, flags: u32, psupportedformats: &[Common::DXGI_FORMAT]) -> ::windows::core::Result<IDXGIOutputDuplication>
+    pub unsafe fn DuplicateOutput1<P0>(&self, pdevice: P0, flags: u32, psupportedformats: &[Common::DXGI_FORMAT]) -> ::windows::core::Result<IDXGIOutputDuplication>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.DuplicateOutput1)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), flags, psupportedformats.len() as _, ::core::mem::transmute(psupportedformats.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
@@ -4352,9 +4352,9 @@ impl IDXGIOutputDuplication {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -4462,9 +4462,9 @@ impl IDXGIResource {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -4545,9 +4545,9 @@ impl IDXGIResource1 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -4591,7 +4591,7 @@ impl IDXGIResource1 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn CreateSharedHandle<'a, P0>(&self, pattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwaccess: u32, lpname: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+    pub unsafe fn CreateSharedHandle<P0>(&self, pattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwaccess: u32, lpname: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4639,9 +4639,9 @@ impl IDXGISurface {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -4716,9 +4716,9 @@ impl IDXGISurface1 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -4753,7 +4753,7 @@ impl IDXGISurface1 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetDC<'a, P0>(&self, discard: P0) -> ::windows::core::Result<super::Gdi::HDC>
+    pub unsafe fn GetDC<P0>(&self, discard: P0) -> ::windows::core::Result<super::Gdi::HDC>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -4809,9 +4809,9 @@ impl IDXGISurface2 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -4846,7 +4846,7 @@ impl IDXGISurface2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetDC<'a, P0>(&self, discard: P0) -> ::windows::core::Result<super::Gdi::HDC>
+    pub unsafe fn GetDC<P0>(&self, discard: P0) -> ::windows::core::Result<super::Gdi::HDC>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -4902,9 +4902,9 @@ impl IDXGISwapChain {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -4937,10 +4937,10 @@ impl IDXGISwapChain {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullscreenState<'a, P0, P1>(&self, fullscreen: P0, ptarget: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetFullscreenState<P0, P1>(&self, fullscreen: P0, ptarget: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         (::windows::core::Vtable::vtable(self).SetFullscreenState)(::windows::core::Vtable::as_raw(self), fullscreen.into(), ptarget.into().abi()).ok()
     }
@@ -5038,9 +5038,9 @@ impl IDXGISwapChain1 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -5073,10 +5073,10 @@ impl IDXGISwapChain1 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullscreenState<'a, P0, P1>(&self, fullscreen: P0, ptarget: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetFullscreenState<P0, P1>(&self, fullscreen: P0, ptarget: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetFullscreenState)(::windows::core::Vtable::as_raw(self), fullscreen.into(), ptarget.into().abi()).ok()
     }
@@ -5238,9 +5238,9 @@ impl IDXGISwapChain2 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -5273,10 +5273,10 @@ impl IDXGISwapChain2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullscreenState<'a, P0, P1>(&self, fullscreen: P0, ptarget: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetFullscreenState<P0, P1>(&self, fullscreen: P0, ptarget: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetFullscreenState)(::windows::core::Vtable::as_raw(self), fullscreen.into(), ptarget.into().abi()).ok()
     }
@@ -5441,9 +5441,9 @@ impl IDXGISwapChain3 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -5476,10 +5476,10 @@ impl IDXGISwapChain3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullscreenState<'a, P0, P1>(&self, fullscreen: P0, ptarget: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetFullscreenState<P0, P1>(&self, fullscreen: P0, ptarget: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetFullscreenState)(::windows::core::Vtable::as_raw(self), fullscreen.into(), ptarget.into().abi()).ok()
     }
@@ -5666,9 +5666,9 @@ impl IDXGISwapChain4 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), name, datasize, pdata).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), name, punknown.into().abi()).ok()
     }
@@ -5701,10 +5701,10 @@ impl IDXGISwapChain4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullscreenState<'a, P0, P1>(&self, fullscreen: P0, ptarget: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetFullscreenState<P0, P1>(&self, fullscreen: P0, ptarget: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDXGIOutput>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDXGIOutput>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetFullscreenState)(::windows::core::Vtable::as_raw(self), fullscreen.into(), ptarget.into().abi()).ok()
     }

@@ -2,9 +2,9 @@
 #[repr(transparent)]
 pub struct IUIApplication(::windows::core::IUnknown);
 impl IUIApplication {
-    pub unsafe fn OnViewChanged<'a, P0>(&self, viewid: u32, typeid: UI_VIEWTYPE, view: P0, verb: UI_VIEWVERB, ureasoncode: i32) -> ::windows::core::Result<()>
+    pub unsafe fn OnViewChanged<P0>(&self, viewid: u32, typeid: UI_VIEWTYPE, view: P0, verb: UI_VIEWVERB, ureasoncode: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).OnViewChanged)(::windows::core::Vtable::as_raw(self), viewid, typeid, view.into().abi(), verb, ureasoncode).ok()
     }
@@ -12,9 +12,9 @@ impl IUIApplication {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).OnCreateUICommand)(::windows::core::Vtable::as_raw(self), commandid, typeid, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn OnDestroyUICommand<'a, P0>(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnDestroyUICommand<P0>(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IUICommandHandler>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IUICommandHandler>>,
     {
         (::windows::core::Vtable::vtable(self).OnDestroyUICommand)(::windows::core::Vtable::as_raw(self), commandid, typeid, commandhandler.into().abi()).ok()
     }
@@ -62,24 +62,24 @@ impl IUICollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Add<'a, P0>(&self, item: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, item: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), item.into().abi()).ok()
     }
-    pub unsafe fn Insert<'a, P0>(&self, index: u32, item: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Insert<P0>(&self, index: u32, item: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).Insert)(::windows::core::Vtable::as_raw(self), index, item.into().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), index).ok()
     }
-    pub unsafe fn Replace<'a, P0>(&self, indexreplaced: u32, itemreplacewith: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Replace<P0>(&self, indexreplaced: u32, itemreplacewith: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).Replace)(::windows::core::Vtable::as_raw(self), indexreplaced, itemreplacewith.into().abi()).ok()
     }
@@ -126,10 +126,10 @@ pub struct IUICollection_Vtbl {
 #[repr(transparent)]
 pub struct IUICollectionChangedEvent(::windows::core::IUnknown);
 impl IUICollectionChangedEvent {
-    pub unsafe fn OnChanged<'a, P0, P1>(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: P0, newindex: u32, newitem: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnChanged<P0, P1>(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: P0, newindex: u32, newitem: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).OnChanged)(::windows::core::Vtable::as_raw(self), action, oldindex, olditem.into().abi(), newindex, newitem.into().abi()).ok()
     }
@@ -169,9 +169,9 @@ pub struct IUICommandHandler(::windows::core::IUnknown);
 impl IUICommandHandler {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn Execute<'a, P0>(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: ::core::option::Option<*const super::Shell::PropertiesSystem::PROPERTYKEY>, currentvalue: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>, commandexecutionproperties: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Execute<P0>(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: ::core::option::Option<*const super::Shell::PropertiesSystem::PROPERTYKEY>, currentvalue: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>, commandexecutionproperties: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IUISimplePropertySet>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IUISimplePropertySet>>,
     {
         (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), commandid, verb, ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), ::core::mem::transmute(currentvalue.unwrap_or(::std::ptr::null())), commandexecutionproperties.into().abi()).ok()
     }
@@ -296,9 +296,9 @@ pub struct IUIEventLogger_Vtbl {
 #[repr(transparent)]
 pub struct IUIEventingManager(::windows::core::IUnknown);
 impl IUIEventingManager {
-    pub unsafe fn SetEventLogger<'a, P0>(&self, eventlogger: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEventLogger<P0>(&self, eventlogger: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IUIEventLogger>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IUIEventLogger>>,
     {
         (::windows::core::Vtable::vtable(self).SetEventLogger)(::windows::core::Vtable::as_raw(self), eventlogger.into().abi()).ok()
     }
@@ -338,10 +338,10 @@ pub struct IUIFramework(::windows::core::IUnknown);
 impl IUIFramework {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, P0, P1>(&self, framewnd: P0, application: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0, P1>(&self, framewnd: P0, application: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IUIApplication>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IUIApplication>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), framewnd.into(), application.into().abi()).ok()
     }
@@ -350,7 +350,7 @@ impl IUIFramework {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LoadUI<'a, P0, P1>(&self, instance: P0, resourcename: P1) -> ::windows::core::Result<()>
+    pub unsafe fn LoadUI<P0, P1>(&self, instance: P0, resourcename: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -484,7 +484,7 @@ pub struct IUIImageFromBitmap(::windows::core::IUnknown);
 impl IUIImageFromBitmap {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreateImage<'a, P0>(&self, bitmap: P0, options: UI_OWNERSHIP) -> ::windows::core::Result<IUIImage>
+    pub unsafe fn CreateImage<P0>(&self, bitmap: P0, options: UI_OWNERSHIP) -> ::windows::core::Result<IUIImage>
     where
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
     {
@@ -534,17 +534,17 @@ impl IUIRibbon {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadSettingsFromStream<'a, P0>(&self, pstream: P0) -> ::windows::core::Result<()>
+    pub unsafe fn LoadSettingsFromStream<P0>(&self, pstream: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).LoadSettingsFromStream)(::windows::core::Vtable::as_raw(self), pstream.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SaveSettingsToStream<'a, P0>(&self, pstream: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SaveSettingsToStream<P0>(&self, pstream: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).SaveSettingsToStream)(::windows::core::Vtable::as_raw(self), pstream.into().abi()).ok()
     }

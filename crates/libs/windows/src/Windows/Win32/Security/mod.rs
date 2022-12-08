@@ -33,7 +33,7 @@ pub mod WinWlx;
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheck<'a, P0, P1>(psecuritydescriptor: P0, clienttoken: P1, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: ::core::option::Option<*mut PRIVILEGE_SET>, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn AccessCheck<P0, P1>(psecuritydescriptor: P0, clienttoken: P1, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: ::core::option::Option<*mut PRIVILEGE_SET>, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
     P1: ::std::convert::Into<super::Foundation::HANDLE>,
@@ -44,7 +44,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckAndAuditAlarmA<'a, P0, P1, P2, P3, P4>(subsystemname: P0, handleid: ::core::option::Option<*const ::core::ffi::c_void>, objecttypename: P1, objectname: P2, securitydescriptor: P3, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: P4, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn AccessCheckAndAuditAlarmA<P0, P1, P2, P3, P4>(subsystemname: P0, handleid: ::core::option::Option<*const ::core::ffi::c_void>, objecttypename: P1, objectname: P2, securitydescriptor: P3, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: P4, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -58,7 +58,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckAndAuditAlarmW<'a, P0, P1, P2, P3, P4>(subsystemname: P0, handleid: ::core::option::Option<*const ::core::ffi::c_void>, objecttypename: P1, objectname: P2, securitydescriptor: P3, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: P4, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn AccessCheckAndAuditAlarmW<P0, P1, P2, P3, P4>(subsystemname: P0, handleid: ::core::option::Option<*const ::core::ffi::c_void>, objecttypename: P1, objectname: P2, securitydescriptor: P3, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: P4, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -72,7 +72,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByType<'a, P0, P1, P2>(psecuritydescriptor: P0, principalselfsid: P1, clienttoken: P2, desiredaccess: u32, objecttypelist: ::core::option::Option<&mut [OBJECT_TYPE_LIST]>, genericmapping: *const GENERIC_MAPPING, privilegeset: ::core::option::Option<*mut PRIVILEGE_SET>, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn AccessCheckByType<P0, P1, P2>(psecuritydescriptor: P0, principalselfsid: P1, clienttoken: P2, desiredaccess: u32, objecttypelist: ::core::option::Option<&mut [OBJECT_TYPE_LIST]>, genericmapping: *const GENERIC_MAPPING, privilegeset: ::core::option::Option<*mut PRIVILEGE_SET>, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
     P1: ::std::convert::Into<super::Foundation::PSID>,
@@ -84,7 +84,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeAndAuditAlarmA<'a, P0, P1, P2, P3, P4, P5>(subsystemname: P0, handleid: *const ::core::ffi::c_void, objecttypename: P1, objectname: P2, securitydescriptor: P3, principalselfsid: P4, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: ::core::option::Option<&mut [OBJECT_TYPE_LIST]>, genericmapping: *const GENERIC_MAPPING, objectcreation: P5, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn AccessCheckByTypeAndAuditAlarmA<P0, P1, P2, P3, P4, P5>(subsystemname: P0, handleid: *const ::core::ffi::c_void, objecttypename: P1, objectname: P2, securitydescriptor: P3, principalselfsid: P4, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: ::core::option::Option<&mut [OBJECT_TYPE_LIST]>, genericmapping: *const GENERIC_MAPPING, objectcreation: P5, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -99,7 +99,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeAndAuditAlarmW<'a, P0, P1, P2, P3, P4, P5>(subsystemname: P0, handleid: *const ::core::ffi::c_void, objecttypename: P1, objectname: P2, securitydescriptor: P3, principalselfsid: P4, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: ::core::option::Option<&mut [OBJECT_TYPE_LIST]>, genericmapping: *const GENERIC_MAPPING, objectcreation: P5, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn AccessCheckByTypeAndAuditAlarmW<P0, P1, P2, P3, P4, P5>(subsystemname: P0, handleid: *const ::core::ffi::c_void, objecttypename: P1, objectname: P2, securitydescriptor: P3, principalselfsid: P4, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: ::core::option::Option<&mut [OBJECT_TYPE_LIST]>, genericmapping: *const GENERIC_MAPPING, objectcreation: P5, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -114,7 +114,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultList<'a, P0, P1, P2>(psecuritydescriptor: P0, principalselfsid: P1, clienttoken: P2, desiredaccess: u32, objecttypelist: ::core::option::Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: ::core::option::Option<*mut PRIVILEGE_SET>, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn AccessCheckByTypeResultList<P0, P1, P2>(psecuritydescriptor: P0, principalselfsid: P1, clienttoken: P2, desiredaccess: u32, objecttypelist: ::core::option::Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: ::core::option::Option<*mut PRIVILEGE_SET>, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
     P1: ::std::convert::Into<super::Foundation::PSID>,
@@ -126,7 +126,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, P0, P1, P2, P3, P4, P5>(subsystemname: P0, handleid: *const ::core::ffi::c_void, objecttypename: P1, objectname: P2, securitydescriptor: P3, principalselfsid: P4, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: ::core::option::Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: P5, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<P0, P1, P2, P3, P4, P5>(subsystemname: P0, handleid: *const ::core::ffi::c_void, objecttypename: P1, objectname: P2, securitydescriptor: P3, principalselfsid: P4, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: ::core::option::Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: P5, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -141,7 +141,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, P0, P1, P2, P3, P4, P5, P6>(subsystemname: P0, handleid: *const ::core::ffi::c_void, clienttoken: P1, objecttypename: P2, objectname: P3, securitydescriptor: P4, principalselfsid: P5, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: ::core::option::Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: P6, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<P0, P1, P2, P3, P4, P5, P6>(subsystemname: P0, handleid: *const ::core::ffi::c_void, clienttoken: P1, objecttypename: P2, objectname: P3, securitydescriptor: P4, principalselfsid: P5, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: ::core::option::Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: P6, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::Foundation::HANDLE>,
@@ -157,7 +157,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, P0, P1, P2, P3, P4, P5, P6>(subsystemname: P0, handleid: *const ::core::ffi::c_void, clienttoken: P1, objecttypename: P2, objectname: P3, securitydescriptor: P4, principalselfsid: P5, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: ::core::option::Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: P6, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<P0, P1, P2, P3, P4, P5, P6>(subsystemname: P0, handleid: *const ::core::ffi::c_void, clienttoken: P1, objecttypename: P2, objectname: P3, securitydescriptor: P4, principalselfsid: P5, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: ::core::option::Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: P6, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::Foundation::HANDLE>,
@@ -173,7 +173,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<'a, P0, P1, P2, P3, P4, P5>(subsystemname: P0, handleid: *const ::core::ffi::c_void, objecttypename: P1, objectname: P2, securitydescriptor: P3, principalselfsid: P4, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: ::core::option::Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: P5, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<P0, P1, P2, P3, P4, P5>(subsystemname: P0, handleid: *const ::core::ffi::c_void, objecttypename: P1, objectname: P2, securitydescriptor: P3, principalselfsid: P4, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: ::core::option::Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: P5, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -188,7 +188,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddAccessAllowedAce<'a, P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, accessmask: u32, psid: P0) -> super::Foundation::BOOL
+pub unsafe fn AddAccessAllowedAce<P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, accessmask: u32, psid: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -198,7 +198,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddAccessAllowedAceEx<'a, P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: u32, psid: P0) -> super::Foundation::BOOL
+pub unsafe fn AddAccessAllowedAceEx<P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: u32, psid: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -208,7 +208,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddAccessAllowedObjectAce<'a, P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: ::core::option::Option<*const ::windows::core::GUID>, inheritedobjecttypeguid: ::core::option::Option<*const ::windows::core::GUID>, psid: P0) -> super::Foundation::BOOL
+pub unsafe fn AddAccessAllowedObjectAce<P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: ::core::option::Option<*const ::windows::core::GUID>, inheritedobjecttypeguid: ::core::option::Option<*const ::windows::core::GUID>, psid: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -218,7 +218,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddAccessDeniedAce<'a, P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, accessmask: u32, psid: P0) -> super::Foundation::BOOL
+pub unsafe fn AddAccessDeniedAce<P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, accessmask: u32, psid: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -228,7 +228,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddAccessDeniedAceEx<'a, P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: u32, psid: P0) -> super::Foundation::BOOL
+pub unsafe fn AddAccessDeniedAceEx<P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: u32, psid: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -238,7 +238,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddAccessDeniedObjectAce<'a, P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: ::core::option::Option<*const ::windows::core::GUID>, inheritedobjecttypeguid: ::core::option::Option<*const ::windows::core::GUID>, psid: P0) -> super::Foundation::BOOL
+pub unsafe fn AddAccessDeniedObjectAce<P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: ::core::option::Option<*const ::windows::core::GUID>, inheritedobjecttypeguid: ::core::option::Option<*const ::windows::core::GUID>, psid: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -255,7 +255,7 @@ pub unsafe fn AddAce(pacl: *mut ACL, dwacerevision: ACE_REVISION, dwstartingacei
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddAuditAccessAce<'a, P0, P1, P2>(pacl: *mut ACL, dwacerevision: ACE_REVISION, dwaccessmask: u32, psid: P0, bauditsuccess: P1, bauditfailure: P2) -> super::Foundation::BOOL
+pub unsafe fn AddAuditAccessAce<P0, P1, P2>(pacl: *mut ACL, dwacerevision: ACE_REVISION, dwaccessmask: u32, psid: P0, bauditsuccess: P1, bauditfailure: P2) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -267,7 +267,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddAuditAccessAceEx<'a, P0, P1, P2>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, dwaccessmask: u32, psid: P0, bauditsuccess: P1, bauditfailure: P2) -> super::Foundation::BOOL
+pub unsafe fn AddAuditAccessAceEx<P0, P1, P2>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, dwaccessmask: u32, psid: P0, bauditsuccess: P1, bauditfailure: P2) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -279,7 +279,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddAuditAccessObjectAce<'a, P0, P1, P2>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: ::core::option::Option<*const ::windows::core::GUID>, inheritedobjecttypeguid: ::core::option::Option<*const ::windows::core::GUID>, psid: P0, bauditsuccess: P1, bauditfailure: P2) -> super::Foundation::BOOL
+pub unsafe fn AddAuditAccessObjectAce<P0, P1, P2>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: ::core::option::Option<*const ::windows::core::GUID>, inheritedobjecttypeguid: ::core::option::Option<*const ::windows::core::GUID>, psid: P0, bauditsuccess: P1, bauditfailure: P2) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -291,7 +291,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddConditionalAce<'a, P0, P1>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, acetype: u8, accessmask: u32, psid: P0, conditionstr: P1, returnlength: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn AddConditionalAce<P0, P1>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, acetype: u8, accessmask: u32, psid: P0, conditionstr: P1, returnlength: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -302,7 +302,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddMandatoryAce<'a, P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, mandatorypolicy: u32, plabelsid: P0) -> super::Foundation::BOOL
+pub unsafe fn AddMandatoryAce<P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, mandatorypolicy: u32, plabelsid: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -312,7 +312,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddResourceAttributeAce<'a, P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: u32, psid: P0, pattributeinfo: *const CLAIM_SECURITY_ATTRIBUTES_INFORMATION, preturnlength: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn AddResourceAttributeAce<P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: u32, psid: P0, pattributeinfo: *const CLAIM_SECURITY_ATTRIBUTES_INFORMATION, preturnlength: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -322,7 +322,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddScopedPolicyIDAce<'a, P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: u32, psid: P0) -> super::Foundation::BOOL
+pub unsafe fn AddScopedPolicyIDAce<P0>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: u32, psid: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -332,7 +332,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AdjustTokenGroups<'a, P0, P1>(tokenhandle: P0, resettodefault: P1, newstate: ::core::option::Option<*const TOKEN_GROUPS>, bufferlength: u32, previousstate: ::core::option::Option<*mut TOKEN_GROUPS>, returnlength: ::core::option::Option<*mut u32>) -> super::Foundation::BOOL
+pub unsafe fn AdjustTokenGroups<P0, P1>(tokenhandle: P0, resettodefault: P1, newstate: ::core::option::Option<*const TOKEN_GROUPS>, bufferlength: u32, previousstate: ::core::option::Option<*mut TOKEN_GROUPS>, returnlength: ::core::option::Option<*mut u32>) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -343,7 +343,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AdjustTokenPrivileges<'a, P0, P1>(tokenhandle: P0, disableallprivileges: P1, newstate: ::core::option::Option<*const TOKEN_PRIVILEGES>, bufferlength: u32, previousstate: ::core::option::Option<*mut TOKEN_PRIVILEGES>, returnlength: ::core::option::Option<*mut u32>) -> super::Foundation::BOOL
+pub unsafe fn AdjustTokenPrivileges<P0, P1>(tokenhandle: P0, disableallprivileges: P1, newstate: ::core::option::Option<*const TOKEN_PRIVILEGES>, bufferlength: u32, previousstate: ::core::option::Option<*mut TOKEN_PRIVILEGES>, returnlength: ::core::option::Option<*mut u32>) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -382,7 +382,7 @@ pub unsafe fn AreAnyAccessesGranted(grantedaccess: u32, desiredaccess: u32) -> s
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckTokenCapability<'a, P0, P1>(tokenhandle: P0, capabilitysidtocheck: P1, hascapability: *mut super::Foundation::BOOL) -> super::Foundation::BOOL
+pub unsafe fn CheckTokenCapability<P0, P1>(tokenhandle: P0, capabilitysidtocheck: P1, hascapability: *mut super::Foundation::BOOL) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::Foundation::PSID>,
@@ -393,7 +393,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckTokenMembership<'a, P0, P1>(tokenhandle: P0, sidtocheck: P1, ismember: *mut super::Foundation::BOOL) -> super::Foundation::BOOL
+pub unsafe fn CheckTokenMembership<P0, P1>(tokenhandle: P0, sidtocheck: P1, ismember: *mut super::Foundation::BOOL) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::Foundation::PSID>,
@@ -404,7 +404,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckTokenMembershipEx<'a, P0, P1>(tokenhandle: P0, sidtocheck: P1, flags: u32, ismember: *mut super::Foundation::BOOL) -> super::Foundation::BOOL
+pub unsafe fn CheckTokenMembershipEx<P0, P1>(tokenhandle: P0, sidtocheck: P1, flags: u32, ismember: *mut super::Foundation::BOOL) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::Foundation::PSID>,
@@ -415,7 +415,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertToAutoInheritPrivateObjectSecurity<'a, P0, P1, P2>(parentdescriptor: P0, currentsecuritydescriptor: P1, newsecuritydescriptor: *mut PSECURITY_DESCRIPTOR, objecttype: ::core::option::Option<*const ::windows::core::GUID>, isdirectoryobject: P2, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL
+pub unsafe fn ConvertToAutoInheritPrivateObjectSecurity<P0, P1, P2>(parentdescriptor: P0, currentsecuritydescriptor: P1, newsecuritydescriptor: *mut PSECURITY_DESCRIPTOR, objecttype: ::core::option::Option<*const ::windows::core::GUID>, isdirectoryobject: P2, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
     P1: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
@@ -427,7 +427,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopySid<'a, P0>(ndestinationsidlength: u32, pdestinationsid: super::Foundation::PSID, psourcesid: P0) -> super::Foundation::BOOL
+pub unsafe fn CopySid<P0>(ndestinationsidlength: u32, pdestinationsid: super::Foundation::PSID, psourcesid: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -437,7 +437,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePrivateObjectSecurity<'a, P0, P1, P2, P3>(parentdescriptor: P0, creatordescriptor: P1, newdescriptor: *mut PSECURITY_DESCRIPTOR, isdirectoryobject: P2, token: P3, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL
+pub unsafe fn CreatePrivateObjectSecurity<P0, P1, P2, P3>(parentdescriptor: P0, creatordescriptor: P1, newdescriptor: *mut PSECURITY_DESCRIPTOR, isdirectoryobject: P2, token: P3, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
     P1: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
@@ -450,7 +450,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePrivateObjectSecurityEx<'a, P0, P1, P2, P3>(parentdescriptor: P0, creatordescriptor: P1, newdescriptor: *mut PSECURITY_DESCRIPTOR, objecttype: ::core::option::Option<*const ::windows::core::GUID>, iscontainerobject: P2, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: P3, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL
+pub unsafe fn CreatePrivateObjectSecurityEx<P0, P1, P2, P3>(parentdescriptor: P0, creatordescriptor: P1, newdescriptor: *mut PSECURITY_DESCRIPTOR, objecttype: ::core::option::Option<*const ::windows::core::GUID>, iscontainerobject: P2, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: P3, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
     P1: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
@@ -463,7 +463,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance<'a, P0, P1, P2, P3>(parentdescriptor: P0, creatordescriptor: P1, newdescriptor: *mut PSECURITY_DESCRIPTOR, objecttypes: ::core::option::Option<&[*const ::windows::core::GUID]>, iscontainerobject: P2, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: P3, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL
+pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance<P0, P1, P2, P3>(parentdescriptor: P0, creatordescriptor: P1, newdescriptor: *mut PSECURITY_DESCRIPTOR, objecttypes: ::core::option::Option<&[*const ::windows::core::GUID]>, iscontainerobject: P2, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: P3, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
     P1: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
@@ -476,7 +476,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateRestrictedToken<'a, P0>(existingtokenhandle: P0, flags: CREATE_RESTRICTED_TOKEN_FLAGS, sidstodisable: ::core::option::Option<&[SID_AND_ATTRIBUTES]>, privilegestodelete: ::core::option::Option<&[LUID_AND_ATTRIBUTES]>, sidstorestrict: ::core::option::Option<&[SID_AND_ATTRIBUTES]>, newtokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL
+pub unsafe fn CreateRestrictedToken<P0>(existingtokenhandle: P0, flags: CREATE_RESTRICTED_TOKEN_FLAGS, sidstodisable: ::core::option::Option<&[SID_AND_ATTRIBUTES]>, privilegestodelete: ::core::option::Option<&[LUID_AND_ATTRIBUTES]>, sidstorestrict: ::core::option::Option<&[SID_AND_ATTRIBUTES]>, newtokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -496,7 +496,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateWellKnownSid<'a, P0>(wellknownsidtype: WELL_KNOWN_SID_TYPE, domainsid: P0, psid: super::Foundation::PSID, cbsid: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn CreateWellKnownSid<P0>(wellknownsidtype: WELL_KNOWN_SID_TYPE, domainsid: P0, psid: super::Foundation::PSID, cbsid: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -513,7 +513,7 @@ pub unsafe fn DeleteAce(pacl: *mut ACL, dwaceindex: u32) -> super::Foundation::B
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeriveCapabilitySidsFromName<'a, P0>(capname: P0, capabilitygroupsids: ::core::option::Option<*mut *mut super::Foundation::PSID>, capabilitygroupsidcount: *mut u32, capabilitysids: ::core::option::Option<*mut *mut super::Foundation::PSID>, capabilitysidcount: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn DeriveCapabilitySidsFromName<P0>(capname: P0, capabilitygroupsids: ::core::option::Option<*mut *mut super::Foundation::PSID>, capabilitygroupsidcount: *mut u32, capabilitysids: ::core::option::Option<*mut *mut super::Foundation::PSID>, capabilitysidcount: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -530,7 +530,7 @@ pub unsafe fn DestroyPrivateObjectSecurity(objectdescriptor: *const PSECURITY_DE
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DuplicateToken<'a, P0>(existingtokenhandle: P0, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, duplicatetokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL
+pub unsafe fn DuplicateToken<P0>(existingtokenhandle: P0, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, duplicatetokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -540,7 +540,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DuplicateTokenEx<'a, P0>(hexistingtoken: P0, dwdesiredaccess: TOKEN_ACCESS_MASK, lptokenattributes: ::core::option::Option<*const SECURITY_ATTRIBUTES>, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokentype: TOKEN_TYPE, phnewtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL
+pub unsafe fn DuplicateTokenEx<P0>(hexistingtoken: P0, dwdesiredaccess: TOKEN_ACCESS_MASK, lptokenattributes: ::core::option::Option<*const SECURITY_ATTRIBUTES>, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokentype: TOKEN_TYPE, phnewtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -550,7 +550,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EqualDomainSid<'a, P0, P1>(psid1: P0, psid2: P1, pfequal: *mut super::Foundation::BOOL) -> super::Foundation::BOOL
+pub unsafe fn EqualDomainSid<P0, P1>(psid1: P0, psid2: P1, pfequal: *mut super::Foundation::BOOL) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
     P1: ::std::convert::Into<super::Foundation::PSID>,
@@ -561,7 +561,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EqualPrefixSid<'a, P0, P1>(psid1: P0, psid2: P1) -> super::Foundation::BOOL
+pub unsafe fn EqualPrefixSid<P0, P1>(psid1: P0, psid2: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
     P1: ::std::convert::Into<super::Foundation::PSID>,
@@ -572,7 +572,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EqualSid<'a, P0, P1>(psid1: P0, psid2: P1) -> super::Foundation::BOOL
+pub unsafe fn EqualSid<P0, P1>(psid1: P0, psid2: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
     P1: ::std::convert::Into<super::Foundation::PSID>,
@@ -590,7 +590,7 @@ pub unsafe fn FindFirstFreeAce(pacl: *const ACL, pace: *mut *mut ::core::ffi::c_
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FreeSid<'a, P0>(psid: P0) -> *mut ::core::ffi::c_void
+pub unsafe fn FreeSid<P0>(psid: P0) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -621,7 +621,7 @@ pub unsafe fn GetAppContainerAce(acl: *const ACL, startingaceindex: u32, appcont
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCachedSigningLevel<'a, P0>(file: P0, flags: *mut u32, signinglevel: *mut u32, thumbprint: ::core::option::Option<*mut u8>, thumbprintsize: ::core::option::Option<*mut u32>, thumbprintalgorithm: ::core::option::Option<*mut u32>) -> super::Foundation::BOOL
+pub unsafe fn GetCachedSigningLevel<P0>(file: P0, flags: *mut u32, signinglevel: *mut u32, thumbprint: ::core::option::Option<*mut u8>, thumbprintsize: ::core::option::Option<*mut u32>, thumbprintalgorithm: ::core::option::Option<*mut u32>) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -631,7 +631,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileSecurityA<'a, P0>(lpfilename: P0, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetFileSecurityA<P0>(lpfilename: P0, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -641,7 +641,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileSecurityW<'a, P0>(lpfilename: P0, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetFileSecurityW<P0>(lpfilename: P0, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -651,7 +651,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetKernelObjectSecurity<'a, P0>(handle: P0, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetKernelObjectSecurity<P0>(handle: P0, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -668,7 +668,7 @@ pub unsafe fn GetLengthSid(psid: super::Foundation::PSID) -> u32 {
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrivateObjectSecurity<'a, P0>(objectdescriptor: P0, securityinformation: u32, resultantdescriptor: PSECURITY_DESCRIPTOR, descriptorlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetPrivateObjectSecurity<P0>(objectdescriptor: P0, securityinformation: u32, resultantdescriptor: PSECURITY_DESCRIPTOR, descriptorlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
@@ -678,7 +678,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSecurityDescriptorControl<'a, P0>(psecuritydescriptor: P0, pcontrol: *mut u16, lpdwrevision: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetSecurityDescriptorControl<P0>(psecuritydescriptor: P0, pcontrol: *mut u16, lpdwrevision: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
@@ -688,7 +688,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSecurityDescriptorDacl<'a, P0>(psecuritydescriptor: P0, lpbdaclpresent: *mut i32, pdacl: *mut *mut ACL, lpbdacldefaulted: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn GetSecurityDescriptorDacl<P0>(psecuritydescriptor: P0, lpbdaclpresent: *mut i32, pdacl: *mut *mut ACL, lpbdacldefaulted: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
@@ -698,7 +698,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSecurityDescriptorGroup<'a, P0>(psecuritydescriptor: P0, pgroup: *mut super::Foundation::PSID, lpbgroupdefaulted: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn GetSecurityDescriptorGroup<P0>(psecuritydescriptor: P0, pgroup: *mut super::Foundation::PSID, lpbgroupdefaulted: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
@@ -707,7 +707,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[inline]
-pub unsafe fn GetSecurityDescriptorLength<'a, P0>(psecuritydescriptor: P0) -> u32
+pub unsafe fn GetSecurityDescriptorLength<P0>(psecuritydescriptor: P0) -> u32
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
@@ -717,7 +717,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSecurityDescriptorOwner<'a, P0>(psecuritydescriptor: P0, powner: *mut super::Foundation::PSID, lpbownerdefaulted: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn GetSecurityDescriptorOwner<P0>(psecuritydescriptor: P0, powner: *mut super::Foundation::PSID, lpbownerdefaulted: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
@@ -726,7 +726,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[inline]
-pub unsafe fn GetSecurityDescriptorRMControl<'a, P0>(securitydescriptor: P0, rmcontrol: *mut u8) -> u32
+pub unsafe fn GetSecurityDescriptorRMControl<P0>(securitydescriptor: P0, rmcontrol: *mut u8) -> u32
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
@@ -736,7 +736,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSecurityDescriptorSacl<'a, P0>(psecuritydescriptor: P0, lpbsaclpresent: *mut i32, psacl: *mut *mut ACL, lpbsacldefaulted: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn GetSecurityDescriptorSacl<P0>(psecuritydescriptor: P0, lpbsaclpresent: *mut i32, psacl: *mut *mut ACL, lpbsacldefaulted: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
@@ -746,7 +746,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSidIdentifierAuthority<'a, P0>(psid: P0) -> *mut SID_IDENTIFIER_AUTHORITY
+pub unsafe fn GetSidIdentifierAuthority<P0>(psid: P0) -> *mut SID_IDENTIFIER_AUTHORITY
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -762,7 +762,7 @@ pub unsafe fn GetSidLengthRequired(nsubauthoritycount: u8) -> u32 {
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSidSubAuthority<'a, P0>(psid: P0, nsubauthority: u32) -> *mut u32
+pub unsafe fn GetSidSubAuthority<P0>(psid: P0, nsubauthority: u32) -> *mut u32
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -772,7 +772,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSidSubAuthorityCount<'a, P0>(psid: P0) -> *mut u8
+pub unsafe fn GetSidSubAuthorityCount<P0>(psid: P0) -> *mut u8
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -782,7 +782,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTokenInformation<'a, P0>(tokenhandle: P0, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: ::core::option::Option<*mut ::core::ffi::c_void>, tokeninformationlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetTokenInformation<P0>(tokenhandle: P0, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: ::core::option::Option<*mut ::core::ffi::c_void>, tokeninformationlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -792,7 +792,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUserObjectSecurity<'a, P0>(hobj: P0, psirequested: *const u32, psid: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetUserObjectSecurity<P0>(hobj: P0, psirequested: *const u32, psid: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -802,7 +802,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetWindowsAccountDomainSid<'a, P0>(psid: P0, pdomainsid: super::Foundation::PSID, cbdomainsid: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetWindowsAccountDomainSid<P0>(psid: P0, pdomainsid: super::Foundation::PSID, cbdomainsid: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -812,7 +812,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ImpersonateAnonymousToken<'a, P0>(threadhandle: P0) -> super::Foundation::BOOL
+pub unsafe fn ImpersonateAnonymousToken<P0>(threadhandle: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -822,7 +822,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ImpersonateLoggedOnUser<'a, P0>(htoken: P0) -> super::Foundation::BOOL
+pub unsafe fn ImpersonateLoggedOnUser<P0>(htoken: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -860,7 +860,7 @@ pub unsafe fn InitializeSid(sid: super::Foundation::PSID, pidentifierauthority: 
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsTokenRestricted<'a, P0>(tokenhandle: P0) -> super::Foundation::BOOL
+pub unsafe fn IsTokenRestricted<P0>(tokenhandle: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -877,7 +877,7 @@ pub unsafe fn IsValidAcl(pacl: *const ACL) -> super::Foundation::BOOL {
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsValidSecurityDescriptor<'a, P0>(psecuritydescriptor: P0) -> super::Foundation::BOOL
+pub unsafe fn IsValidSecurityDescriptor<P0>(psecuritydescriptor: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
@@ -887,7 +887,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsValidSid<'a, P0>(psid: P0) -> super::Foundation::BOOL
+pub unsafe fn IsValidSid<P0>(psid: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -897,7 +897,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsWellKnownSid<'a, P0>(psid: P0, wellknownsidtype: WELL_KNOWN_SID_TYPE) -> super::Foundation::BOOL
+pub unsafe fn IsWellKnownSid<P0>(psid: P0, wellknownsidtype: WELL_KNOWN_SID_TYPE) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -907,7 +907,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LogonUserA<'a, P0, P1, P2>(lpszusername: P0, lpszdomain: P1, lpszpassword: P2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL
+pub unsafe fn LogonUserA<P0, P1, P2>(lpszusername: P0, lpszdomain: P1, lpszpassword: P2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -919,7 +919,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LogonUserExA<'a, P0, P1, P2>(lpszusername: P0, lpszdomain: P1, lpszpassword: P2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: ::core::option::Option<*mut super::Foundation::HANDLE>, pplogonsid: ::core::option::Option<*mut super::Foundation::PSID>, ppprofilebuffer: ::core::option::Option<*mut *mut ::core::ffi::c_void>, pdwprofilelength: ::core::option::Option<*mut u32>, pquotalimits: ::core::option::Option<*mut QUOTA_LIMITS>) -> super::Foundation::BOOL
+pub unsafe fn LogonUserExA<P0, P1, P2>(lpszusername: P0, lpszdomain: P1, lpszpassword: P2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: ::core::option::Option<*mut super::Foundation::HANDLE>, pplogonsid: ::core::option::Option<*mut super::Foundation::PSID>, ppprofilebuffer: ::core::option::Option<*mut *mut ::core::ffi::c_void>, pdwprofilelength: ::core::option::Option<*mut u32>, pquotalimits: ::core::option::Option<*mut QUOTA_LIMITS>) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -931,7 +931,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LogonUserExW<'a, P0, P1, P2>(lpszusername: P0, lpszdomain: P1, lpszpassword: P2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: ::core::option::Option<*mut super::Foundation::HANDLE>, pplogonsid: ::core::option::Option<*mut super::Foundation::PSID>, ppprofilebuffer: ::core::option::Option<*mut *mut ::core::ffi::c_void>, pdwprofilelength: ::core::option::Option<*mut u32>, pquotalimits: ::core::option::Option<*mut QUOTA_LIMITS>) -> super::Foundation::BOOL
+pub unsafe fn LogonUserExW<P0, P1, P2>(lpszusername: P0, lpszdomain: P1, lpszpassword: P2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: ::core::option::Option<*mut super::Foundation::HANDLE>, pplogonsid: ::core::option::Option<*mut super::Foundation::PSID>, ppprofilebuffer: ::core::option::Option<*mut *mut ::core::ffi::c_void>, pdwprofilelength: ::core::option::Option<*mut u32>, pquotalimits: ::core::option::Option<*mut QUOTA_LIMITS>) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -943,7 +943,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LogonUserW<'a, P0, P1, P2>(lpszusername: P0, lpszdomain: P1, lpszpassword: P2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL
+pub unsafe fn LogonUserW<P0, P1, P2>(lpszusername: P0, lpszdomain: P1, lpszpassword: P2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -955,7 +955,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LookupAccountNameA<'a, P0, P1>(lpsystemname: P0, lpaccountname: P1, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: ::windows::core::PSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
+pub unsafe fn LookupAccountNameA<P0, P1>(lpsystemname: P0, lpaccountname: P1, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: ::windows::core::PSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -966,7 +966,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LookupAccountNameW<'a, P0, P1>(lpsystemname: P0, lpaccountname: P1, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: ::windows::core::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
+pub unsafe fn LookupAccountNameW<P0, P1>(lpsystemname: P0, lpaccountname: P1, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: ::windows::core::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -977,7 +977,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LookupAccountSidA<'a, P0, P1>(lpsystemname: P0, sid: P1, name: ::windows::core::PSTR, cchname: *mut u32, referenceddomainname: ::windows::core::PSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
+pub unsafe fn LookupAccountSidA<P0, P1>(lpsystemname: P0, sid: P1, name: ::windows::core::PSTR, cchname: *mut u32, referenceddomainname: ::windows::core::PSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::Foundation::PSID>,
@@ -988,7 +988,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LookupAccountSidW<'a, P0, P1>(lpsystemname: P0, sid: P1, name: ::windows::core::PWSTR, cchname: *mut u32, referenceddomainname: ::windows::core::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
+pub unsafe fn LookupAccountSidW<P0, P1>(lpsystemname: P0, sid: P1, name: ::windows::core::PWSTR, cchname: *mut u32, referenceddomainname: ::windows::core::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::Foundation::PSID>,
@@ -999,7 +999,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LookupPrivilegeDisplayNameA<'a, P0, P1>(lpsystemname: P0, lpname: P1, lpdisplayname: ::windows::core::PSTR, cchdisplayname: *mut u32, lplanguageid: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn LookupPrivilegeDisplayNameA<P0, P1>(lpsystemname: P0, lpname: P1, lpdisplayname: ::windows::core::PSTR, cchdisplayname: *mut u32, lplanguageid: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1010,7 +1010,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LookupPrivilegeDisplayNameW<'a, P0, P1>(lpsystemname: P0, lpname: P1, lpdisplayname: ::windows::core::PWSTR, cchdisplayname: *mut u32, lplanguageid: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn LookupPrivilegeDisplayNameW<P0, P1>(lpsystemname: P0, lpname: P1, lpdisplayname: ::windows::core::PWSTR, cchdisplayname: *mut u32, lplanguageid: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1021,7 +1021,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LookupPrivilegeNameA<'a, P0>(lpsystemname: P0, lpluid: *const super::Foundation::LUID, lpname: ::windows::core::PSTR, cchname: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn LookupPrivilegeNameA<P0>(lpsystemname: P0, lpluid: *const super::Foundation::LUID, lpname: ::windows::core::PSTR, cchname: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1031,7 +1031,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LookupPrivilegeNameW<'a, P0>(lpsystemname: P0, lpluid: *const super::Foundation::LUID, lpname: ::windows::core::PWSTR, cchname: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn LookupPrivilegeNameW<P0>(lpsystemname: P0, lpluid: *const super::Foundation::LUID, lpname: ::windows::core::PWSTR, cchname: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1041,7 +1041,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LookupPrivilegeValueA<'a, P0, P1>(lpsystemname: P0, lpname: P1, lpluid: *mut super::Foundation::LUID) -> super::Foundation::BOOL
+pub unsafe fn LookupPrivilegeValueA<P0, P1>(lpsystemname: P0, lpname: P1, lpluid: *mut super::Foundation::LUID) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1052,7 +1052,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LookupPrivilegeValueW<'a, P0, P1>(lpsystemname: P0, lpname: P1, lpluid: *mut super::Foundation::LUID) -> super::Foundation::BOOL
+pub unsafe fn LookupPrivilegeValueW<P0, P1>(lpsystemname: P0, lpname: P1, lpluid: *mut super::Foundation::LUID) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1063,7 +1063,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MakeAbsoluteSD<'a, P0>(pselfrelativesecuritydescriptor: P0, pabsolutesecuritydescriptor: PSECURITY_DESCRIPTOR, lpdwabsolutesecuritydescriptorsize: *mut u32, pdacl: ::core::option::Option<*mut ACL>, lpdwdaclsize: *mut u32, psacl: ::core::option::Option<*mut ACL>, lpdwsaclsize: *mut u32, powner: super::Foundation::PSID, lpdwownersize: *mut u32, pprimarygroup: super::Foundation::PSID, lpdwprimarygroupsize: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn MakeAbsoluteSD<P0>(pselfrelativesecuritydescriptor: P0, pabsolutesecuritydescriptor: PSECURITY_DESCRIPTOR, lpdwabsolutesecuritydescriptorsize: *mut u32, pdacl: ::core::option::Option<*mut ACL>, lpdwdaclsize: *mut u32, psacl: ::core::option::Option<*mut ACL>, lpdwsaclsize: *mut u32, powner: super::Foundation::PSID, lpdwownersize: *mut u32, pprimarygroup: super::Foundation::PSID, lpdwprimarygroupsize: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
@@ -1073,7 +1073,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MakeSelfRelativeSD<'a, P0>(pabsolutesecuritydescriptor: P0, pselfrelativesecuritydescriptor: PSECURITY_DESCRIPTOR, lpdwbufferlength: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn MakeSelfRelativeSD<P0>(pabsolutesecuritydescriptor: P0, pselfrelativesecuritydescriptor: PSECURITY_DESCRIPTOR, lpdwbufferlength: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
@@ -1089,7 +1089,7 @@ pub unsafe fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERI
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectCloseAuditAlarmA<'a, P0, P1>(subsystemname: P0, handleid: *const ::core::ffi::c_void, generateonclose: P1) -> super::Foundation::BOOL
+pub unsafe fn ObjectCloseAuditAlarmA<P0, P1>(subsystemname: P0, handleid: *const ::core::ffi::c_void, generateonclose: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -1100,7 +1100,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectCloseAuditAlarmW<'a, P0, P1>(subsystemname: P0, handleid: *const ::core::ffi::c_void, generateonclose: P1) -> super::Foundation::BOOL
+pub unsafe fn ObjectCloseAuditAlarmW<P0, P1>(subsystemname: P0, handleid: *const ::core::ffi::c_void, generateonclose: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -1111,7 +1111,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectDeleteAuditAlarmA<'a, P0, P1>(subsystemname: P0, handleid: *const ::core::ffi::c_void, generateonclose: P1) -> super::Foundation::BOOL
+pub unsafe fn ObjectDeleteAuditAlarmA<P0, P1>(subsystemname: P0, handleid: *const ::core::ffi::c_void, generateonclose: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -1122,7 +1122,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectDeleteAuditAlarmW<'a, P0, P1>(subsystemname: P0, handleid: *const ::core::ffi::c_void, generateonclose: P1) -> super::Foundation::BOOL
+pub unsafe fn ObjectDeleteAuditAlarmW<P0, P1>(subsystemname: P0, handleid: *const ::core::ffi::c_void, generateonclose: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -1133,7 +1133,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectOpenAuditAlarmA<'a, P0, P1, P2, P3, P4, P5, P6>(subsystemname: P0, handleid: *const ::core::ffi::c_void, objecttypename: P1, objectname: P2, psecuritydescriptor: P3, clienttoken: P4, desiredaccess: u32, grantedaccess: u32, privileges: ::core::option::Option<*const PRIVILEGE_SET>, objectcreation: P5, accessgranted: P6, generateonclose: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn ObjectOpenAuditAlarmA<P0, P1, P2, P3, P4, P5, P6>(subsystemname: P0, handleid: *const ::core::ffi::c_void, objecttypename: P1, objectname: P2, psecuritydescriptor: P3, clienttoken: P4, desiredaccess: u32, grantedaccess: u32, privileges: ::core::option::Option<*const PRIVILEGE_SET>, objectcreation: P5, accessgranted: P6, generateonclose: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1149,7 +1149,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectOpenAuditAlarmW<'a, P0, P1, P2, P3, P4, P5, P6>(subsystemname: P0, handleid: *const ::core::ffi::c_void, objecttypename: P1, objectname: P2, psecuritydescriptor: P3, clienttoken: P4, desiredaccess: u32, grantedaccess: u32, privileges: ::core::option::Option<*const PRIVILEGE_SET>, objectcreation: P5, accessgranted: P6, generateonclose: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn ObjectOpenAuditAlarmW<P0, P1, P2, P3, P4, P5, P6>(subsystemname: P0, handleid: *const ::core::ffi::c_void, objecttypename: P1, objectname: P2, psecuritydescriptor: P3, clienttoken: P4, desiredaccess: u32, grantedaccess: u32, privileges: ::core::option::Option<*const PRIVILEGE_SET>, objectcreation: P5, accessgranted: P6, generateonclose: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1165,7 +1165,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectPrivilegeAuditAlarmA<'a, P0, P1, P2>(subsystemname: P0, handleid: *const ::core::ffi::c_void, clienttoken: P1, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: P2) -> super::Foundation::BOOL
+pub unsafe fn ObjectPrivilegeAuditAlarmA<P0, P1, P2>(subsystemname: P0, handleid: *const ::core::ffi::c_void, clienttoken: P1, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: P2) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::Foundation::HANDLE>,
@@ -1177,7 +1177,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectPrivilegeAuditAlarmW<'a, P0, P1, P2>(subsystemname: P0, handleid: *const ::core::ffi::c_void, clienttoken: P1, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: P2) -> super::Foundation::BOOL
+pub unsafe fn ObjectPrivilegeAuditAlarmW<P0, P1, P2>(subsystemname: P0, handleid: *const ::core::ffi::c_void, clienttoken: P1, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: P2) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::Foundation::HANDLE>,
@@ -1189,7 +1189,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrivilegeCheck<'a, P0>(clienttoken: P0, requiredprivileges: *mut PRIVILEGE_SET, pfresult: *mut i32) -> super::Foundation::BOOL
+pub unsafe fn PrivilegeCheck<P0>(clienttoken: P0, requiredprivileges: *mut PRIVILEGE_SET, pfresult: *mut i32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -1199,7 +1199,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrivilegedServiceAuditAlarmA<'a, P0, P1, P2, P3>(subsystemname: P0, servicename: P1, clienttoken: P2, privileges: *const PRIVILEGE_SET, accessgranted: P3) -> super::Foundation::BOOL
+pub unsafe fn PrivilegedServiceAuditAlarmA<P0, P1, P2, P3>(subsystemname: P0, servicename: P1, clienttoken: P2, privileges: *const PRIVILEGE_SET, accessgranted: P3) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1212,7 +1212,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrivilegedServiceAuditAlarmW<'a, P0, P1, P2, P3>(subsystemname: P0, servicename: P1, clienttoken: P2, privileges: *const PRIVILEGE_SET, accessgranted: P3) -> super::Foundation::BOOL
+pub unsafe fn PrivilegedServiceAuditAlarmW<P0, P1, P2, P3>(subsystemname: P0, servicename: P1, clienttoken: P2, privileges: *const PRIVILEGE_SET, accessgranted: P3) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1238,7 +1238,7 @@ pub unsafe fn RevertToSelf() -> super::Foundation::BOOL {
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlConvertSidToUnicodeString<'a, P0, P1>(unicodestring: *mut super::Foundation::UNICODE_STRING, sid: P0, allocatedestinationstring: P1) -> ::windows::core::Result<()>
+pub unsafe fn RtlConvertSidToUnicodeString<P0, P1>(unicodestring: *mut super::Foundation::UNICODE_STRING, sid: P0, allocatedestinationstring: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
     P1: ::std::convert::Into<super::Foundation::BOOLEAN>,
@@ -1249,7 +1249,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlNormalizeSecurityDescriptor<'a, P0>(securitydescriptor: *mut PSECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: ::core::option::Option<*mut PSECURITY_DESCRIPTOR>, newsecuritydescriptorlength: ::core::option::Option<*mut u32>, checkonly: P0) -> super::Foundation::BOOLEAN
+pub unsafe fn RtlNormalizeSecurityDescriptor<P0>(securitydescriptor: *mut PSECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: ::core::option::Option<*mut PSECURITY_DESCRIPTOR>, newsecuritydescriptorlength: ::core::option::Option<*mut u32>, checkonly: P0) -> super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<super::Foundation::BOOLEAN>,
 {
@@ -1266,7 +1266,7 @@ pub unsafe fn SetAclInformation(pacl: *mut ACL, paclinformation: *const ::core::
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCachedSigningLevel<'a, P0>(sourcefiles: &[super::Foundation::HANDLE], flags: u32, targetfile: P0) -> super::Foundation::BOOL
+pub unsafe fn SetCachedSigningLevel<P0>(sourcefiles: &[super::Foundation::HANDLE], flags: u32, targetfile: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -1276,7 +1276,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileSecurityA<'a, P0, P1>(lpfilename: P0, securityinformation: u32, psecuritydescriptor: P1) -> super::Foundation::BOOL
+pub unsafe fn SetFileSecurityA<P0, P1>(lpfilename: P0, securityinformation: u32, psecuritydescriptor: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
@@ -1287,7 +1287,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileSecurityW<'a, P0, P1>(lpfilename: P0, securityinformation: u32, psecuritydescriptor: P1) -> super::Foundation::BOOL
+pub unsafe fn SetFileSecurityW<P0, P1>(lpfilename: P0, securityinformation: u32, psecuritydescriptor: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
@@ -1298,7 +1298,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetKernelObjectSecurity<'a, P0, P1>(handle: P0, securityinformation: u32, securitydescriptor: P1) -> super::Foundation::BOOL
+pub unsafe fn SetKernelObjectSecurity<P0, P1>(handle: P0, securityinformation: u32, securitydescriptor: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
     P1: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
@@ -1309,7 +1309,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetPrivateObjectSecurity<'a, P0, P1>(securityinformation: u32, modificationdescriptor: P0, objectssecuritydescriptor: *mut PSECURITY_DESCRIPTOR, genericmapping: *const GENERIC_MAPPING, token: P1) -> super::Foundation::BOOL
+pub unsafe fn SetPrivateObjectSecurity<P0, P1>(securityinformation: u32, modificationdescriptor: P0, objectssecuritydescriptor: *mut PSECURITY_DESCRIPTOR, genericmapping: *const GENERIC_MAPPING, token: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
     P1: ::std::convert::Into<super::Foundation::HANDLE>,
@@ -1320,7 +1320,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetPrivateObjectSecurityEx<'a, P0, P1>(securityinformation: u32, modificationdescriptor: P0, objectssecuritydescriptor: *mut PSECURITY_DESCRIPTOR, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, genericmapping: *const GENERIC_MAPPING, token: P1) -> super::Foundation::BOOL
+pub unsafe fn SetPrivateObjectSecurityEx<P0, P1>(securityinformation: u32, modificationdescriptor: P0, objectssecuritydescriptor: *mut PSECURITY_DESCRIPTOR, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, genericmapping: *const GENERIC_MAPPING, token: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
     P1: ::std::convert::Into<super::Foundation::HANDLE>,
@@ -1337,7 +1337,7 @@ pub unsafe fn SetSecurityAccessMask(securityinformation: u32, desiredaccess: *mu
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorControl<'a, P0>(psecuritydescriptor: P0, controlbitsofinterest: u16, controlbitstoset: u16) -> super::Foundation::BOOL
+pub unsafe fn SetSecurityDescriptorControl<P0>(psecuritydescriptor: P0, controlbitsofinterest: u16, controlbitstoset: u16) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
@@ -1347,7 +1347,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorDacl<'a, P0, P1>(psecuritydescriptor: PSECURITY_DESCRIPTOR, bdaclpresent: P0, pdacl: ::core::option::Option<*const ACL>, bdacldefaulted: P1) -> super::Foundation::BOOL
+pub unsafe fn SetSecurityDescriptorDacl<P0, P1>(psecuritydescriptor: PSECURITY_DESCRIPTOR, bdaclpresent: P0, pdacl: ::core::option::Option<*const ACL>, bdacldefaulted: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::BOOL>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -1358,7 +1358,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorGroup<'a, P0, P1>(psecuritydescriptor: PSECURITY_DESCRIPTOR, pgroup: P0, bgroupdefaulted: P1) -> super::Foundation::BOOL
+pub unsafe fn SetSecurityDescriptorGroup<P0, P1>(psecuritydescriptor: PSECURITY_DESCRIPTOR, pgroup: P0, bgroupdefaulted: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -1369,7 +1369,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorOwner<'a, P0, P1>(psecuritydescriptor: PSECURITY_DESCRIPTOR, powner: P0, bownerdefaulted: P1) -> super::Foundation::BOOL
+pub unsafe fn SetSecurityDescriptorOwner<P0, P1>(psecuritydescriptor: PSECURITY_DESCRIPTOR, powner: P0, bownerdefaulted: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -1386,7 +1386,7 @@ pub unsafe fn SetSecurityDescriptorRMControl(securitydescriptor: PSECURITY_DESCR
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorSacl<'a, P0, P1>(psecuritydescriptor: PSECURITY_DESCRIPTOR, bsaclpresent: P0, psacl: ::core::option::Option<*const ACL>, bsacldefaulted: P1) -> super::Foundation::BOOL
+pub unsafe fn SetSecurityDescriptorSacl<P0, P1>(psecuritydescriptor: PSECURITY_DESCRIPTOR, bsaclpresent: P0, psacl: ::core::option::Option<*const ACL>, bsacldefaulted: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::BOOL>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -1397,7 +1397,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetTokenInformation<'a, P0>(tokenhandle: P0, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *const ::core::ffi::c_void, tokeninformationlength: u32) -> super::Foundation::BOOL
+pub unsafe fn SetTokenInformation<P0>(tokenhandle: P0, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *const ::core::ffi::c_void, tokeninformationlength: u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -1407,7 +1407,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetUserObjectSecurity<'a, P0, P1>(hobj: P0, psirequested: *const OBJECT_SECURITY_INFORMATION, psid: P1) -> super::Foundation::BOOL
+pub unsafe fn SetUserObjectSecurity<P0, P1>(hobj: P0, psirequested: *const OBJECT_SECURITY_INFORMATION, psid: P1) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
     P1: ::std::convert::Into<PSECURITY_DESCRIPTOR>,

@@ -2103,9 +2103,9 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddPackageAsync<'a, P0, E0>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn AddPackageAsync<P0, E0>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2116,9 +2116,9 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdatePackageAsync<'a, P0, E0>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn UpdatePackageAsync<P0, E0>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2138,9 +2138,9 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StagePackageAsync<'a, P0, E0>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn StagePackageAsync<P0, E0>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2151,9 +2151,9 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterPackageAsync<'a, P0, E0>(&self, manifesturi: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RegisterPackageAsync<P0, E0>(&self, manifesturi: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2276,9 +2276,9 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StagePackageWithOptionsAsync<'a, P0, E0>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn StagePackageWithOptionsAsync<P0, E0>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
@@ -2289,9 +2289,9 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterPackageByFullNameAsync<'a, P0, E0>(&self, mainpackagefullname: &::windows::core::HSTRING, dependencypackagefullnames: P0, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RegisterPackageByFullNameAsync<P0, E0>(&self, mainpackagefullname: &::windows::core::HSTRING, dependencypackagefullnames: P0, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
@@ -2374,9 +2374,9 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddPackageToVolumeAsync<'a, P0, E0>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions, targetvolume: &PackageVolume) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn AddPackageToVolumeAsync<P0, E0>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions, targetvolume: &PackageVolume) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
@@ -2391,9 +2391,9 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterPackageWithAppDataVolumeAsync<'a, P0, E0>(&self, manifesturi: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions, appdatavolume: &PackageVolume) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RegisterPackageWithAppDataVolumeAsync<P0, E0>(&self, manifesturi: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions, appdatavolume: &PackageVolume) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
@@ -2471,9 +2471,9 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StagePackageToVolumeAsync<'a, P0, E0>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions, targetvolume: &PackageVolume) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn StagePackageToVolumeAsync<P0, E0>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions, targetvolume: &PackageVolume) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
@@ -2502,13 +2502,13 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddPackageToVolumeAndOptionalPackagesAsync<'a, P0, E0, P1, E1, P2, E2>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions, targetvolume: &PackageVolume, optionalpackagefamilynames: P1, externalpackageuris: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn AddPackageToVolumeAndOptionalPackagesAsync<P0, E0, P1, E1, P2, E2>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions, targetvolume: &PackageVolume, optionalpackagefamilynames: P1, externalpackageuris: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageManager5>(self)?;
@@ -2519,13 +2519,13 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StagePackageToVolumeAndOptionalPackagesAsync<'a, P0, E0, P1, E1, P2, E2>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions, targetvolume: &PackageVolume, optionalpackagefamilynames: P1, externalpackageuris: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn StagePackageToVolumeAndOptionalPackagesAsync<P0, E0, P1, E1, P2, E2>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions, targetvolume: &PackageVolume, optionalpackagefamilynames: P1, externalpackageuris: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageManager5>(self)?;
@@ -2536,11 +2536,11 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterPackageByFamilyNameAndOptionalPackagesAsync<'a, P0, E0, P1, E1>(&self, mainpackagefamilyname: &::windows::core::HSTRING, dependencypackagefamilynames: P0, deploymentoptions: DeploymentOptions, appdatavolume: &PackageVolume, optionalpackagefamilynames: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RegisterPackageByFamilyNameAndOptionalPackagesAsync<P0, E0, P1, E1>(&self, mainpackagefamilyname: &::windows::core::HSTRING, dependencypackagefamilynames: P0, deploymentoptions: DeploymentOptions, appdatavolume: &PackageVolume, optionalpackagefamilynames: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageManager5>(self)?;
@@ -2585,15 +2585,15 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddPackageToVolumeAndRelatedSetAsync<'a, P0, E0, P1, E1, P2, E2, P3, E3>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, options: DeploymentOptions, targetvolume: &PackageVolume, optionalpackagefamilynames: P1, packageuristoinstall: P2, relatedpackageuris: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn AddPackageToVolumeAndRelatedSetAsync<P0, E0, P1, E1, P2, E2, P3, E3>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, options: DeploymentOptions, targetvolume: &PackageVolume, optionalpackagefamilynames: P1, packageuristoinstall: P2, relatedpackageuris: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
-        P3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E3>,
+        P3: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E3>,
         E3: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
@@ -2604,15 +2604,15 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StagePackageToVolumeAndRelatedSetAsync<'a, P0, E0, P1, E1, P2, E2, P3, E3>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, options: DeploymentOptions, targetvolume: &PackageVolume, optionalpackagefamilynames: P1, packageuristoinstall: P2, relatedpackageuris: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn StagePackageToVolumeAndRelatedSetAsync<P0, E0, P1, E1, P2, E2, P3, E3>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, options: DeploymentOptions, targetvolume: &PackageVolume, optionalpackagefamilynames: P1, packageuristoinstall: P2, relatedpackageuris: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
-        P3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E3>,
+        P3: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E3>,
         E3: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
@@ -2623,13 +2623,13 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestAddPackageAsync<'a, P0, E0, P1, E1, P2, E2>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions, targetvolume: &PackageVolume, optionalpackagefamilynames: P1, relatedpackageuris: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RequestAddPackageAsync<P0, E0, P1, E1, P2, E2>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions, targetvolume: &PackageVolume, optionalpackagefamilynames: P1, relatedpackageuris: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
@@ -2640,15 +2640,15 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestAddPackageAndRelatedSetAsync<'a, P0, E0, P1, E1, P2, E2, P3, E3>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions, targetvolume: &PackageVolume, optionalpackagefamilynames: P1, relatedpackageuris: P2, packageuristoinstall: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RequestAddPackageAndRelatedSetAsync<P0, E0, P1, E1, P2, E2, P3, E3>(&self, packageuri: &super::super::Foundation::Uri, dependencypackageuris: P0, deploymentoptions: DeploymentOptions, targetvolume: &PackageVolume, optionalpackagefamilynames: P1, relatedpackageuris: P2, packageuristoinstall: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
-        P3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E3>,
+        P3: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E3>,
         E3: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageManager7>(self)?;
@@ -2704,9 +2704,9 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterPackagesByFullNameAsync<'a, P0, E0>(&self, packagefullnames: P0, options: &RegisterPackageOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RegisterPackagesByFullNameAsync<P0, E0>(&self, packagefullnames: P0, options: &RegisterPackageOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPackageManager9>(self)?;

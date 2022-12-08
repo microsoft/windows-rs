@@ -163,9 +163,9 @@ impl PnpObject {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIdAsync<'a, P0, E0>(r#type: PnpObjectType, id: &::windows::core::HSTRING, requestedproperties: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObject>>
+    pub fn CreateFromIdAsync<P0, E0>(r#type: PnpObjectType, id: &::windows::core::HSTRING, requestedproperties: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObject>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
@@ -175,9 +175,9 @@ impl PnpObject {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsync<'a, P0, E0>(r#type: PnpObjectType, requestedproperties: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>
+    pub fn FindAllAsync<P0, E0>(r#type: PnpObjectType, requestedproperties: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
@@ -187,9 +187,9 @@ impl PnpObject {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsyncAqsFilter<'a, P0, E0>(r#type: PnpObjectType, requestedproperties: P0, aqsfilter: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>
+    pub fn FindAllAsyncAqsFilter<P0, E0>(r#type: PnpObjectType, requestedproperties: P0, aqsfilter: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
@@ -199,9 +199,9 @@ impl PnpObject {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcher<'a, P0, E0>(r#type: PnpObjectType, requestedproperties: P0) -> ::windows::core::Result<PnpObjectWatcher>
+    pub fn CreateWatcher<P0, E0>(r#type: PnpObjectType, requestedproperties: P0) -> ::windows::core::Result<PnpObjectWatcher>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
@@ -211,9 +211,9 @@ impl PnpObject {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcherAqsFilter<'a, P0, E0>(r#type: PnpObjectType, requestedproperties: P0, aqsfilter: &::windows::core::HSTRING) -> ::windows::core::Result<PnpObjectWatcher>
+    pub fn CreateWatcherAqsFilter<P0, E0>(r#type: PnpObjectType, requestedproperties: P0, aqsfilter: &::windows::core::HSTRING) -> ::windows::core::Result<PnpObjectWatcher>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
@@ -387,7 +387,7 @@ impl ::core::convert::TryFrom<&PnpObjectCollection> for super::super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&PnpObjectCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<PnpObject>> {
+impl ::core::convert::TryFrom<&PnpObjectCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<PnpObject>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PnpObjectCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -409,7 +409,7 @@ impl ::core::convert::TryFrom<&PnpObjectCollection> for super::super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&PnpObjectCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<PnpObject>> {
+impl ::core::convert::TryFrom<&PnpObjectCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<PnpObject>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PnpObjectCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

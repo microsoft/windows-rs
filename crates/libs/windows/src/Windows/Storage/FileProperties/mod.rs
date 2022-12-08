@@ -215,9 +215,9 @@ pub struct IStorageItemExtraProperties(::windows::core::IUnknown);
 impl IStorageItemExtraProperties {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -228,9 +228,9 @@ impl IStorageItemExtraProperties {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<'a, P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SavePropertiesAsync<P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -401,9 +401,9 @@ impl BasicProperties {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -414,9 +414,9 @@ impl BasicProperties {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<'a, P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SavePropertiesAsync<P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -480,7 +480,7 @@ impl ::core::convert::TryFrom<&BasicProperties> for IStorageItemExtraProperties 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BasicProperties> for ::windows::core::InParam<'a, IStorageItemExtraProperties> {
+impl ::core::convert::TryFrom<&BasicProperties> for ::windows::core::InParam<IStorageItemExtraProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BasicProperties) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -533,9 +533,9 @@ impl DocumentProperties {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -546,9 +546,9 @@ impl DocumentProperties {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<'a, P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SavePropertiesAsync<P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -612,7 +612,7 @@ impl ::core::convert::TryFrom<&DocumentProperties> for IStorageItemExtraProperti
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DocumentProperties> for ::windows::core::InParam<'a, IStorageItemExtraProperties> {
+impl ::core::convert::TryFrom<&DocumentProperties> for ::windows::core::InParam<IStorageItemExtraProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DocumentProperties) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -624,9 +624,9 @@ pub struct GeotagHelper;
 impl GeotagHelper {
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn GetGeotagAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>>
+    pub fn GetGeotagAsync<P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGeotagHelperStatics(|this| unsafe {
@@ -636,9 +636,9 @@ impl GeotagHelper {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn SetGeotagFromGeolocatorAsync<'a, P0, E0>(file: P0, geolocator: &super::super::Devices::Geolocation::Geolocator) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetGeotagFromGeolocatorAsync<P0, E0>(file: P0, geolocator: &super::super::Devices::Geolocation::Geolocator) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGeotagHelperStatics(|this| unsafe {
@@ -648,9 +648,9 @@ impl GeotagHelper {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn SetGeotagAsync<'a, P0, E0>(file: P0, geopoint: &super::super::Devices::Geolocation::Geopoint) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetGeotagAsync<P0, E0>(file: P0, geopoint: &super::super::Devices::Geolocation::Geopoint) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGeotagHelperStatics(|this| unsafe {
@@ -789,9 +789,9 @@ impl ImageProperties {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -802,9 +802,9 @@ impl ImageProperties {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<'a, P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SavePropertiesAsync<P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -868,7 +868,7 @@ impl ::core::convert::TryFrom<&ImageProperties> for IStorageItemExtraProperties 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ImageProperties> for ::windows::core::InParam<'a, IStorageItemExtraProperties> {
+impl ::core::convert::TryFrom<&ImageProperties> for ::windows::core::InParam<IStorageItemExtraProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageProperties) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1041,9 +1041,9 @@ impl MusicProperties {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1054,9 +1054,9 @@ impl MusicProperties {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<'a, P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SavePropertiesAsync<P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1120,7 +1120,7 @@ impl ::core::convert::TryFrom<&MusicProperties> for IStorageItemExtraProperties 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MusicProperties> for ::windows::core::InParam<'a, IStorageItemExtraProperties> {
+impl ::core::convert::TryFrom<&MusicProperties> for ::windows::core::InParam<IStorageItemExtraProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MusicProperties) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1169,9 +1169,9 @@ impl StorageItemContentProperties {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1182,9 +1182,9 @@ impl StorageItemContentProperties {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<'a, P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SavePropertiesAsync<P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1248,7 +1248,7 @@ impl ::core::convert::TryFrom<&StorageItemContentProperties> for IStorageItemExt
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageItemContentProperties> for ::windows::core::InParam<'a, IStorageItemExtraProperties> {
+impl ::core::convert::TryFrom<&StorageItemContentProperties> for ::windows::core::InParam<IStorageItemExtraProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemContentProperties) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1278,9 +1278,9 @@ impl StorageItemThumbnail {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: super::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
+    pub fn ReadAsync<P0, E0>(&self, buffer: P0, count: u32, options: super::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::Streams::IInputStream>(self)?;
@@ -1291,9 +1291,9 @@ impl StorageItemThumbnail {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::Streams::IOutputStream>(self)?;
@@ -1472,7 +1472,7 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::super::Foundatio
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-impl<'a> ::core::convert::TryFrom<&StorageItemThumbnail> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&StorageItemThumbnail> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1494,7 +1494,7 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IConten
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&StorageItemThumbnail> for ::windows::core::InParam<'a, super::Streams::IContentTypeProvider> {
+impl ::core::convert::TryFrom<&StorageItemThumbnail> for ::windows::core::InParam<super::Streams::IContentTypeProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1516,7 +1516,7 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IInputS
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&StorageItemThumbnail> for ::windows::core::InParam<'a, super::Streams::IInputStream> {
+impl ::core::convert::TryFrom<&StorageItemThumbnail> for ::windows::core::InParam<super::Streams::IInputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1538,7 +1538,7 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IOutput
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&StorageItemThumbnail> for ::windows::core::InParam<'a, super::Streams::IOutputStream> {
+impl ::core::convert::TryFrom<&StorageItemThumbnail> for ::windows::core::InParam<super::Streams::IOutputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1560,7 +1560,7 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IRandom
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&StorageItemThumbnail> for ::windows::core::InParam<'a, super::Streams::IRandomAccessStream> {
+impl ::core::convert::TryFrom<&StorageItemThumbnail> for ::windows::core::InParam<super::Streams::IRandomAccessStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1582,7 +1582,7 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IRandom
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&StorageItemThumbnail> for ::windows::core::InParam<'a, super::Streams::IRandomAccessStreamWithContentType> {
+impl ::core::convert::TryFrom<&StorageItemThumbnail> for ::windows::core::InParam<super::Streams::IRandomAccessStreamWithContentType> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1595,9 +1595,9 @@ pub struct VideoProperties(::windows::core::IUnknown);
 impl VideoProperties {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1608,9 +1608,9 @@ impl VideoProperties {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<'a, P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SavePropertiesAsync<P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1820,7 +1820,7 @@ impl ::core::convert::TryFrom<&VideoProperties> for IStorageItemExtraProperties 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VideoProperties> for ::windows::core::InParam<'a, IStorageItemExtraProperties> {
+impl ::core::convert::TryFrom<&VideoProperties> for ::windows::core::InParam<IStorageItemExtraProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VideoProperties) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -1414,9 +1414,9 @@ impl PhotoImportSession {
     }
     #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn SetDestinationFolder<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDestinationFolder<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1544,7 +1544,7 @@ impl ::core::convert::TryFrom<&PhotoImportSession> for super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&PhotoImportSession> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&PhotoImportSession> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PhotoImportSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1759,9 +1759,9 @@ impl PhotoImportSource {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn FromFolderAsync<'a, P0, E0>(sourcerootfolder: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>
+    pub fn FromFolderAsync<P0, E0>(sourcerootfolder: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPhotoImportSourceStatics(|this| unsafe {

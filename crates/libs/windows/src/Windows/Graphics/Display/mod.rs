@@ -2043,9 +2043,9 @@ impl DisplayPropertiesEventHandler {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Invoke<'a, P0>(&self, sender: P0) -> ::windows::core::Result<()>
+    pub fn Invoke<P0>(&self, sender: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), sender.into().abi()).ok() }

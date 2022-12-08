@@ -342,7 +342,7 @@ impl ::core::convert::TryFrom<&PhoneNumberInfo> for super::super::Foundation::IS
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&PhoneNumberInfo> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&PhoneNumberInfo> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PhoneNumberInfo) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

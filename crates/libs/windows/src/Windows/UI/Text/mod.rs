@@ -349,9 +349,9 @@ impl ITextCharacterFormat {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetWeight)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
-    pub fn SetClone<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetClone<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextCharacterFormat>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -364,9 +364,9 @@ impl ITextCharacterFormat {
             (::windows::core::Vtable::vtable(this).GetClone)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn IsEqual<'a, P0, E0>(&self, format: P0) -> ::windows::core::Result<bool>
+    pub fn IsEqual<P0, E0>(&self, format: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextCharacterFormat>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -613,9 +613,9 @@ impl ITextDocument {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStream<'a, P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
+    pub fn LoadFromStream<P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -627,25 +627,25 @@ impl ITextDocument {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveToStream<'a, P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
+    pub fn SaveToStream<P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SaveToStream)(::windows::core::Vtable::as_raw(this), options, value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn SetDefaultCharacterFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDefaultCharacterFormat<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextCharacterFormat>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetDefaultCharacterFormat)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn SetDefaultParagraphFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDefaultParagraphFormat<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextParagraphFormat>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1030,9 +1030,9 @@ impl ITextParagraphFormat {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).GetTab)(::windows::core::Vtable::as_raw(this), index, position, align, leader).ok() }
     }
-    pub fn IsEqual<'a, P0, E0>(&self, format: P0) -> ::windows::core::Result<bool>
+    pub fn IsEqual<P0, E0>(&self, format: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextParagraphFormat>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1041,9 +1041,9 @@ impl ITextParagraphFormat {
             (::windows::core::Vtable::vtable(this).IsEqual)(::windows::core::Vtable::as_raw(this), format.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetClone<'a, P0, E0>(&self, format: P0) -> ::windows::core::Result<()>
+    pub fn SetClone<P0, E0>(&self, format: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextParagraphFormat>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1163,9 +1163,9 @@ impl ITextRange {
             (::windows::core::Vtable::vtable(this).CharacterFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetCharacterFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetCharacterFormat<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextCharacterFormat>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1178,9 +1178,9 @@ impl ITextRange {
             (::windows::core::Vtable::vtable(this).FormattedText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetFormattedText<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetFormattedText<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextRange>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1233,9 +1233,9 @@ impl ITextRange {
             (::windows::core::Vtable::vtable(this).ParagraphFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetParagraphFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetParagraphFormat<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextParagraphFormat>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1357,17 +1357,17 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetTextViaStream<'a, P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
+    pub fn GetTextViaStream<P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).GetTextViaStream)(::windows::core::Vtable::as_raw(this), options, value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn InRange<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    pub fn InRange<P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextRange>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1378,17 +1378,17 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn InsertImage<'a, P0, E0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
+    pub fn InsertImage<P0, E0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).InsertImage)(::windows::core::Vtable::as_raw(this), width, height, ascent, verticalalign, ::core::mem::transmute_copy(alternatetext), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn InStory<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    pub fn InStory<P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextRange>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1397,9 +1397,9 @@ impl ITextRange {
             (::windows::core::Vtable::vtable(this).InStory)(::windows::core::Vtable::as_raw(this), range.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn IsEqual<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    pub fn IsEqual<P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextRange>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1461,9 +1461,9 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetTextViaStream<'a, P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
+    pub fn SetTextViaStream<P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1668,9 +1668,9 @@ impl ITextSelection {
             (::windows::core::Vtable::vtable(this).CharacterFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetCharacterFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetCharacterFormat<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextCharacterFormat>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
@@ -1683,9 +1683,9 @@ impl ITextSelection {
             (::windows::core::Vtable::vtable(this).FormattedText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetFormattedText<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetFormattedText<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextRange>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
@@ -1738,9 +1738,9 @@ impl ITextSelection {
             (::windows::core::Vtable::vtable(this).ParagraphFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetParagraphFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetParagraphFormat<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextParagraphFormat>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
@@ -1862,17 +1862,17 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetTextViaStream<'a, P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
+    pub fn GetTextViaStream<P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).GetTextViaStream)(::windows::core::Vtable::as_raw(this), options, value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn InRange<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    pub fn InRange<P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextRange>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
@@ -1883,17 +1883,17 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn InsertImage<'a, P0, E0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
+    pub fn InsertImage<P0, E0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).InsertImage)(::windows::core::Vtable::as_raw(this), width, height, ascent, verticalalign, ::core::mem::transmute_copy(alternatetext), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn InStory<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    pub fn InStory<P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextRange>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
@@ -1902,9 +1902,9 @@ impl ITextSelection {
             (::windows::core::Vtable::vtable(this).InStory)(::windows::core::Vtable::as_raw(this), range.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn IsEqual<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    pub fn IsEqual<P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextRange>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
@@ -1966,9 +1966,9 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetTextViaStream<'a, P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
+    pub fn SetTextViaStream<P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
@@ -1995,7 +1995,7 @@ impl ::core::convert::TryFrom<&ITextSelection> for ITextRange {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ITextSelection> for ::windows::core::InParam<'a, ITextRange> {
+impl ::core::convert::TryFrom<&ITextSelection> for ::windows::core::InParam<ITextRange> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ITextSelection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2393,9 +2393,9 @@ impl RichEditTextDocument {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStream<'a, P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
+    pub fn LoadFromStream<P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2407,25 +2407,25 @@ impl RichEditTextDocument {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveToStream<'a, P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
+    pub fn SaveToStream<P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SaveToStream)(::windows::core::Vtable::as_raw(this), options, value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn SetDefaultCharacterFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDefaultCharacterFormat<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextCharacterFormat>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetDefaultCharacterFormat)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn SetDefaultParagraphFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDefaultParagraphFormat<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextParagraphFormat>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2523,7 +2523,7 @@ impl ::core::convert::TryFrom<&RichEditTextDocument> for ITextDocument {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RichEditTextDocument> for ::windows::core::InParam<'a, ITextDocument> {
+impl ::core::convert::TryFrom<&RichEditTextDocument> for ::windows::core::InParam<ITextDocument> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RichEditTextDocument) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2565,9 +2565,9 @@ impl RichEditTextRange {
             (::windows::core::Vtable::vtable(this).CharacterFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetCharacterFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetCharacterFormat<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextCharacterFormat>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2580,9 +2580,9 @@ impl RichEditTextRange {
             (::windows::core::Vtable::vtable(this).FormattedText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetFormattedText<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetFormattedText<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextRange>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2635,9 +2635,9 @@ impl RichEditTextRange {
             (::windows::core::Vtable::vtable(this).ParagraphFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetParagraphFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetParagraphFormat<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextParagraphFormat>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2759,17 +2759,17 @@ impl RichEditTextRange {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetTextViaStream<'a, P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
+    pub fn GetTextViaStream<P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).GetTextViaStream)(::windows::core::Vtable::as_raw(this), options, value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn InRange<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    pub fn InRange<P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextRange>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2780,17 +2780,17 @@ impl RichEditTextRange {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn InsertImage<'a, P0, E0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
+    pub fn InsertImage<P0, E0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).InsertImage)(::windows::core::Vtable::as_raw(this), width, height, ascent, verticalalign, ::core::mem::transmute_copy(alternatetext), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn InStory<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    pub fn InStory<P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextRange>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2799,9 +2799,9 @@ impl RichEditTextRange {
             (::windows::core::Vtable::vtable(this).InStory)(::windows::core::Vtable::as_raw(this), range.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn IsEqual<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    pub fn IsEqual<P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ITextRange>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2863,9 +2863,9 @@ impl RichEditTextRange {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetTextViaStream<'a, P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
+    pub fn SetTextViaStream<P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2924,7 +2924,7 @@ impl ::core::convert::TryFrom<&RichEditTextRange> for ITextRange {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RichEditTextRange> for ::windows::core::InParam<'a, ITextRange> {
+impl ::core::convert::TryFrom<&RichEditTextRange> for ::windows::core::InParam<ITextRange> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RichEditTextRange) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

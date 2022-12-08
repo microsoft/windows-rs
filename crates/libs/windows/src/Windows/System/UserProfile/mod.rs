@@ -762,7 +762,7 @@ impl ::core::convert::TryFrom<&FirstSignInSettings> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&FirstSignInSettings> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+impl ::core::convert::TryFrom<&FirstSignInSettings> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FirstSignInSettings) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -784,7 +784,7 @@ impl ::core::convert::TryFrom<&FirstSignInSettings> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&FirstSignInSettings> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&FirstSignInSettings> for ::windows::core::InParam<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FirstSignInSettings) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -850,9 +850,9 @@ impl GlobalizationPreferences {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TrySetLanguages<'a, P0, E0>(languagetags: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetLanguages<P0, E0>(languagetags: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGlobalizationPreferencesStatics2(|this| unsafe {
@@ -1019,9 +1019,9 @@ impl LockScreen {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn SetImageFileAsync<'a, P0, E0>(value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetImageFileAsync<P0, E0>(value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILockScreenStatics(|this| unsafe {
@@ -1031,9 +1031,9 @@ impl LockScreen {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SetImageStreamAsync<'a, P0, E0>(value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetImageStreamAsync<P0, E0>(value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILockScreenStatics(|this| unsafe {
@@ -1086,9 +1086,9 @@ impl UserInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
-    pub fn SetAccountPictureAsync<'a, P0, E0>(image: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPictureAsync<P0, E0>(image: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IUserInformationStatics(|this| unsafe {
@@ -1098,13 +1098,13 @@ impl UserInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
-    pub fn SetAccountPicturesAsync<'a, P0, E0, P1, E1, P2, E2>(smallimage: P0, largeimage: P1, video: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPicturesAsync<P0, E0, P1, E1, P2, E2>(smallimage: P0, largeimage: P1, video: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IUserInformationStatics(|this| unsafe {
@@ -1114,9 +1114,9 @@ impl UserInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetAccountPictureFromStreamAsync<'a, P0, E0>(image: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPictureFromStreamAsync<P0, E0>(image: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IUserInformationStatics(|this| unsafe {
@@ -1126,13 +1126,13 @@ impl UserInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetAccountPicturesFromStreamsAsync<'a, P0, E0, P1, E1, P2, E2>(smallimage: P0, largeimage: P1, video: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPicturesFromStreamsAsync<P0, E0, P1, E1, P2, E2>(smallimage: P0, largeimage: P1, video: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IUserInformationStatics(|this| unsafe {

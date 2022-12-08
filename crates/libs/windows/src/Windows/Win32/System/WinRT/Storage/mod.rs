@@ -79,10 +79,10 @@ pub struct IStorageFolderHandleAccess(::windows::core::IUnknown);
 impl IStorageFolderHandleAccess {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Create<'a, P0, P1>(&self, filename: P0, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: P1) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
+    pub unsafe fn Create<P0, P1>(&self, filename: P0, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: P1) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IOplockBreakingHandler>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IOplockBreakingHandler>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), filename.into(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -126,9 +126,9 @@ pub struct IStorageItemHandleAccess(::windows::core::IUnknown);
 impl IStorageItemHandleAccess {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Create<'a, P0>(&self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: P0) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
+    pub unsafe fn Create<P0>(&self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: P0) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IOplockBreakingHandler>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IOplockBreakingHandler>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -207,9 +207,9 @@ pub struct IUnbufferedFileHandleOplockCallback_Vtbl {
 #[repr(transparent)]
 pub struct IUnbufferedFileHandleProvider(::windows::core::IUnknown);
 impl IUnbufferedFileHandleProvider {
-    pub unsafe fn OpenUnbufferedFileHandle<'a, P0>(&self, oplockbreakcallback: P0) -> ::windows::core::Result<usize>
+    pub unsafe fn OpenUnbufferedFileHandle<P0>(&self, oplockbreakcallback: P0) -> ::windows::core::Result<usize>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IUnbufferedFileHandleOplockCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IUnbufferedFileHandleOplockCallback>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).OpenUnbufferedFileHandle)(::windows::core::Vtable::as_raw(self), oplockbreakcallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)

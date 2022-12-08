@@ -260,17 +260,17 @@ impl LowLevelDevicesAggregateProvider {
     }
     #[doc = "*Required features: `\"Devices_Adc_Provider\"`, `\"Devices_Gpio_Provider\"`, `\"Devices_I2c_Provider\"`, `\"Devices_Pwm_Provider\"`, `\"Devices_Spi_Provider\"`*"]
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
-    pub fn Create<'a, P0, E0, P1, E1, P2, E2, P3, E3, P4, E4>(adc: P0, pwm: P1, gpio: P2, i2c: P3, spi: P4) -> ::windows::core::Result<LowLevelDevicesAggregateProvider>
+    pub fn Create<P0, E0, P1, E1, P2, E2, P3, E3, P4, E4>(adc: P0, pwm: P1, gpio: P2, i2c: P3, spi: P4) -> ::windows::core::Result<LowLevelDevicesAggregateProvider>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, Adc::Provider::IAdcControllerProvider>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<Adc::Provider::IAdcControllerProvider>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, Pwm::Provider::IPwmControllerProvider>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<Pwm::Provider::IPwmControllerProvider>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, Gpio::Provider::IGpioControllerProvider>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<Gpio::Provider::IGpioControllerProvider>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
-        P3: ::std::convert::TryInto<::windows::core::InParam<'a, I2c::Provider::II2cControllerProvider>, Error = E3>,
+        P3: ::std::convert::TryInto<::windows::core::InParam<I2c::Provider::II2cControllerProvider>, Error = E3>,
         E3: ::std::convert::Into<::windows::core::Error>,
-        P4: ::std::convert::TryInto<::windows::core::InParam<'a, Spi::Provider::ISpiControllerProvider>, Error = E4>,
+        P4: ::std::convert::TryInto<::windows::core::InParam<Spi::Provider::ISpiControllerProvider>, Error = E4>,
         E4: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILowLevelDevicesAggregateProviderFactory(|this| unsafe {
@@ -329,7 +329,7 @@ impl ::core::convert::TryFrom<&LowLevelDevicesAggregateProvider> for ILowLevelDe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LowLevelDevicesAggregateProvider> for ::windows::core::InParam<'a, ILowLevelDevicesAggregateProvider> {
+impl ::core::convert::TryFrom<&LowLevelDevicesAggregateProvider> for ::windows::core::InParam<ILowLevelDevicesAggregateProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LowLevelDevicesAggregateProvider) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -348,9 +348,9 @@ impl LowLevelDevicesController {
             (::windows::core::Vtable::vtable(this).DefaultProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn SetDefaultProvider<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
+    pub fn SetDefaultProvider<P0, E0>(value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILowLevelDevicesAggregateProvider>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILowLevelDevicesAggregateProvider>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILowLevelDevicesControllerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).SetDefaultProvider)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })

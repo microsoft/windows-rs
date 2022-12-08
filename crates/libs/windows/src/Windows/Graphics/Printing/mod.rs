@@ -1562,7 +1562,7 @@ impl ::core::convert::TryFrom<&PrintTaskOptions> for IPrintTaskOptionsCore {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintTaskOptions> for ::windows::core::InParam<'a, IPrintTaskOptionsCore> {
+impl ::core::convert::TryFrom<&PrintTaskOptions> for ::windows::core::InParam<IPrintTaskOptionsCore> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintTaskOptions) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1581,7 +1581,7 @@ impl ::core::convert::TryFrom<&PrintTaskOptions> for IPrintTaskOptionsCoreProper
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintTaskOptions> for ::windows::core::InParam<'a, IPrintTaskOptionsCoreProperties> {
+impl ::core::convert::TryFrom<&PrintTaskOptions> for ::windows::core::InParam<IPrintTaskOptionsCoreProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintTaskOptions) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1600,7 +1600,7 @@ impl ::core::convert::TryFrom<&PrintTaskOptions> for IPrintTaskOptionsCoreUIConf
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintTaskOptions> for ::windows::core::InParam<'a, IPrintTaskOptionsCoreUIConfiguration> {
+impl ::core::convert::TryFrom<&PrintTaskOptions> for ::windows::core::InParam<IPrintTaskOptionsCoreUIConfiguration> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintTaskOptions) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1823,9 +1823,9 @@ impl PrintTaskSourceRequestedArgs {
             (::windows::core::Vtable::vtable(this).Deadline)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetSource<'a, P0, E0>(&self, source: P0) -> ::windows::core::Result<()>
+    pub fn SetSource<P0, E0>(&self, source: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPrintDocumentSource>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IPrintDocumentSource>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

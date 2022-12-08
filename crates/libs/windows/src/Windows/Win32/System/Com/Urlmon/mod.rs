@@ -1,27 +1,27 @@
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoGetClassObjectFromURL<'a, P0, P1, P2>(rclassid: *const ::windows::core::GUID, szcode: P0, dwfileversionms: u32, dwfileversionls: u32, sztype: P1, pbindctx: P2, dwclscontext: super::CLSCTX, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn CoGetClassObjectFromURL<P0, P1, P2>(rclassid: *const ::windows::core::GUID, szcode: P0, dwfileversionms: u32, dwfileversionls: u32, sztype: P1, pbindctx: P2, dwclscontext: super::CLSCTX, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+    P2: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CoGetClassObjectFromURL ( rclassid : *const :: windows::core::GUID , szcode : :: windows::core::PCWSTR , dwfileversionms : u32 , dwfileversionls : u32 , sztype : :: windows::core::PCWSTR , pbindctx : * mut::core::ffi::c_void , dwclscontext : super:: CLSCTX , pvreserved : *mut ::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoGetClassObjectFromURL(rclassid, szcode.into(), dwfileversionms, dwfileversionls, sztype.into(), pbindctx.into().abi(), dwclscontext, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut())), riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetCombineIUri<'a, P0, P1>(pbaseuri: P0, prelativeuri: P1, dwcombineflags: u32, ppcombineduri: *mut ::core::option::Option<super::IUri>, dwreserved: usize) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetCombineIUri<P0, P1>(pbaseuri: P0, prelativeuri: P1, dwcombineflags: u32, ppcombineduri: *mut ::core::option::Option<super::IUri>, dwreserved: usize) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IUri>>,
+    P1: ::std::convert::Into<::windows::core::InParam<super::IUri>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CoInternetCombineIUri ( pbaseuri : * mut::core::ffi::c_void , prelativeuri : * mut::core::ffi::c_void , dwcombineflags : u32 , ppcombineduri : *mut * mut::core::ffi::c_void , dwreserved : usize ) -> :: windows::core::HRESULT );
     CoInternetCombineIUri(pbaseuri.into().abi(), prelativeuri.into().abi(), dwcombineflags, ::core::mem::transmute(ppcombineduri), dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetCombineUrl<'a, P0, P1>(pwzbaseurl: P0, pwzrelativeurl: P1, dwcombineflags: u32, pszresult: &mut [u16], pcchresult: ::core::option::Option<*mut u32>, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetCombineUrl<P0, P1>(pwzbaseurl: P0, pwzrelativeurl: P1, dwcombineflags: u32, pszresult: &mut [u16], pcchresult: ::core::option::Option<*mut u32>, dwreserved: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -31,9 +31,9 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetCombineUrlEx<'a, P0, P1>(pbaseuri: P0, pwzrelativeurl: P1, dwcombineflags: u32, ppcombineduri: *mut ::core::option::Option<super::IUri>, dwreserved: usize) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetCombineUrlEx<P0, P1>(pbaseuri: P0, pwzrelativeurl: P1, dwcombineflags: u32, ppcombineduri: *mut ::core::option::Option<super::IUri>, dwreserved: usize) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IUri>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CoInternetCombineUrlEx ( pbaseuri : * mut::core::ffi::c_void , pwzrelativeurl : :: windows::core::PCWSTR , dwcombineflags : u32 , ppcombineduri : *mut * mut::core::ffi::c_void , dwreserved : usize ) -> :: windows::core::HRESULT );
@@ -41,7 +41,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetCompareUrl<'a, P0, P1>(pwzurl1: P0, pwzurl2: P1, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetCompareUrl<P0, P1>(pwzurl1: P0, pwzurl2: P1, dwflags: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -51,25 +51,25 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetCreateSecurityManager<'a, P0>(psp: P0, ppsm: *mut ::core::option::Option<IInternetSecurityManager>, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetCreateSecurityManager<P0>(psp: P0, ppsm: *mut ::core::option::Option<IInternetSecurityManager>, dwreserved: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IServiceProvider>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IServiceProvider>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CoInternetCreateSecurityManager ( psp : * mut::core::ffi::c_void , ppsm : *mut * mut::core::ffi::c_void , dwreserved : u32 ) -> :: windows::core::HRESULT );
     CoInternetCreateSecurityManager(psp.into().abi(), ::core::mem::transmute(ppsm), dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetCreateZoneManager<'a, P0>(psp: P0, ppzm: *mut ::core::option::Option<IInternetZoneManager>, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetCreateZoneManager<P0>(psp: P0, ppzm: *mut ::core::option::Option<IInternetZoneManager>, dwreserved: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IServiceProvider>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IServiceProvider>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CoInternetCreateZoneManager ( psp : * mut::core::ffi::c_void , ppzm : *mut * mut::core::ffi::c_void , dwreserved : u32 ) -> :: windows::core::HRESULT );
     CoInternetCreateZoneManager(psp.into().abi(), ::core::mem::transmute(ppzm), dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetGetProtocolFlags<'a, P0>(pwzurl: P0, pdwflags: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetGetProtocolFlags<P0>(pwzurl: P0, pdwflags: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -78,7 +78,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetGetSecurityUrl<'a, P0>(pwszurl: P0, ppwszsecurl: *mut ::windows::core::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetGetSecurityUrl<P0>(pwszurl: P0, ppwszsecurl: *mut ::windows::core::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -87,9 +87,9 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetGetSecurityUrlEx<'a, P0>(puri: P0, ppsecuri: *mut ::core::option::Option<super::IUri>, psuaction: PSUACTION, dwreserved: usize) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetGetSecurityUrlEx<P0>(puri: P0, ppsecuri: *mut ::core::option::Option<super::IUri>, psuaction: PSUACTION, dwreserved: usize) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IUri>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CoInternetGetSecurityUrlEx ( puri : * mut::core::ffi::c_void , ppsecuri : *mut * mut::core::ffi::c_void , psuaction : PSUACTION , dwreserved : usize ) -> :: windows::core::HRESULT );
     CoInternetGetSecurityUrlEx(puri.into().abi(), ::core::mem::transmute(ppsecuri), psuaction, dwreserved).ok()
@@ -108,47 +108,47 @@ pub unsafe fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwfl
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetIsFeatureEnabledForIUri<'a, P0, P1>(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: P0, psecmgr: P1) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetIsFeatureEnabledForIUri<P0, P1>(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: P0, psecmgr: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, IInternetSecurityManagerEx2>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IUri>>,
+    P1: ::std::convert::Into<::windows::core::InParam<IInternetSecurityManagerEx2>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CoInternetIsFeatureEnabledForIUri ( featureentry : INTERNETFEATURELIST , dwflags : u32 , piuri : * mut::core::ffi::c_void , psecmgr : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoInternetIsFeatureEnabledForIUri(featureentry, dwflags, piuri.into().abi(), psecmgr.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetIsFeatureEnabledForUrl<'a, P0, P1>(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: P0, psecmgr: P1) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetIsFeatureEnabledForUrl<P0, P1>(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: P0, psecmgr: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, IInternetSecurityManager>>,
+    P1: ::std::convert::Into<::windows::core::InParam<IInternetSecurityManager>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CoInternetIsFeatureEnabledForUrl ( featureentry : INTERNETFEATURELIST , dwflags : u32 , szurl : :: windows::core::PCWSTR , psecmgr : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoInternetIsFeatureEnabledForUrl(featureentry, dwflags, szurl.into(), psecmgr.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetIsFeatureZoneElevationEnabled<'a, P0, P1, P2>(szfromurl: P0, sztourl: P1, psecmgr: P2, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetIsFeatureZoneElevationEnabled<P0, P1, P2>(szfromurl: P0, sztourl: P1, psecmgr: P2, dwflags: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, IInternetSecurityManager>>,
+    P2: ::std::convert::Into<::windows::core::InParam<IInternetSecurityManager>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CoInternetIsFeatureZoneElevationEnabled ( szfromurl : :: windows::core::PCWSTR , sztourl : :: windows::core::PCWSTR , psecmgr : * mut::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
     CoInternetIsFeatureZoneElevationEnabled(szfromurl.into(), sztourl.into(), psecmgr.into().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetParseIUri<'a, P0>(piuri: P0, parseaction: PARSEACTION, dwflags: u32, pwzresult: &mut [u16], pcchresult: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetParseIUri<P0>(piuri: P0, parseaction: PARSEACTION, dwflags: u32, pwzresult: &mut [u16], pcchresult: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IUri>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CoInternetParseIUri ( piuri : * mut::core::ffi::c_void , parseaction : PARSEACTION , dwflags : u32 , pwzresult : :: windows::core::PWSTR , cchresult : u32 , pcchresult : *mut u32 , dwreserved : usize ) -> :: windows::core::HRESULT );
     CoInternetParseIUri(piuri.into().abi(), parseaction, dwflags, ::core::mem::transmute(pwzresult.as_ptr()), pwzresult.len() as _, pcchresult, dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetParseUrl<'a, P0>(pwzurl: P0, parseaction: PARSEACTION, dwflags: u32, pszresult: &mut [u16], pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetParseUrl<P0>(pwzurl: P0, parseaction: PARSEACTION, dwflags: u32, pszresult: &mut [u16], pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -157,7 +157,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetQueryInfo<'a, P0>(pwzurl: P0, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: ::core::option::Option<*mut u32>, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetQueryInfo<P0>(pwzurl: P0, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: ::core::option::Option<*mut u32>, dwreserved: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -167,7 +167,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoInternetSetFeatureEnabled<'a, P0>(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: P0) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetSetFeatureEnabled<P0>(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
@@ -204,10 +204,10 @@ pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows::
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CreateAsyncBindCtx<'a, P0, P1>(reserved: u32, pbscb: P0, pefetc: P1) -> ::windows::core::Result<super::IBindCtx>
+pub unsafe fn CreateAsyncBindCtx<P0, P1>(reserved: u32, pbscb: P0, pefetc: P1) -> ::windows::core::Result<super::IBindCtx>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IEnumFORMATETC>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
+    P1: ::std::convert::Into<::windows::core::InParam<super::IEnumFORMATETC>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CreateAsyncBindCtx ( reserved : u32 , pbscb : * mut::core::ffi::c_void , pefetc : * mut::core::ffi::c_void , ppbc : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -215,11 +215,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CreateAsyncBindCtxEx<'a, P0, P1, P2>(pbc: P0, dwoptions: u32, pbscb: P1, penum: P2, ppbc: *mut ::core::option::Option<super::IBindCtx>, reserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn CreateAsyncBindCtxEx<P0, P1, P2>(pbc: P0, dwoptions: u32, pbscb: P1, penum: P2, ppbc: *mut ::core::option::Option<super::IBindCtx>, reserved: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IEnumFORMATETC>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
+    P1: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
+    P2: ::std::convert::Into<::windows::core::InParam<super::IEnumFORMATETC>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CreateAsyncBindCtxEx ( pbc : * mut::core::ffi::c_void , dwoptions : u32 , pbscb : * mut::core::ffi::c_void , penum : * mut::core::ffi::c_void , ppbc : *mut * mut::core::ffi::c_void , reserved : u32 ) -> :: windows::core::HRESULT );
     CreateAsyncBindCtxEx(pbc.into().abi(), dwoptions, pbscb.into().abi(), penum.into().abi(), ::core::mem::transmute(ppbc), reserved).ok()
@@ -233,9 +233,9 @@ pub unsafe fn CreateFormatEnumerator(rgfmtetc: &[super::FORMATETC]) -> ::windows
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CreateURLMoniker<'a, P0, P1>(pmkctx: P0, szurl: P1) -> ::windows::core::Result<super::IMoniker>
+pub unsafe fn CreateURLMoniker<P0, P1>(pmkctx: P0, szurl: P1) -> ::windows::core::Result<super::IMoniker>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMoniker>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IMoniker>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CreateURLMoniker ( pmkctx : * mut::core::ffi::c_void , szurl : :: windows::core::PCWSTR , ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
@@ -244,9 +244,9 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CreateURLMonikerEx<'a, P0, P1>(pmkctx: P0, szurl: P1, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn CreateURLMonikerEx<P0, P1>(pmkctx: P0, szurl: P1, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMoniker>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IMoniker>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CreateURLMonikerEx ( pmkctx : * mut::core::ffi::c_void , szurl : :: windows::core::PCWSTR , ppmk : *mut * mut::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
@@ -254,10 +254,10 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CreateURLMonikerEx2<'a, P0, P1>(pmkctx: P0, puri: P1, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn CreateURLMonikerEx2<P0, P1>(pmkctx: P0, puri: P1, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMoniker>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IMoniker>>,
+    P1: ::std::convert::Into<::windows::core::InParam<super::IUri>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn CreateURLMonikerEx2 ( pmkctx : * mut::core::ffi::c_void , puri : * mut::core::ffi::c_void , ppmk : *mut * mut::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
     CreateURLMonikerEx2(pmkctx.into().abi(), puri.into().abi(), ::core::mem::transmute(ppmk), dwflags).ok()
@@ -265,7 +265,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FaultInIEFeature<'a, P0>(hwnd: P0, pclassspec: *const super::uCLSSPEC, pquery: ::core::option::Option<*mut super::QUERYCONTEXT>, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn FaultInIEFeature<P0>(hwnd: P0, pclassspec: *const super::uCLSSPEC, pquery: ::core::option::Option<*mut super::QUERYCONTEXT>, dwflags: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
 {
@@ -274,7 +274,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn FindMediaType<'a, P0>(rgsztypes: P0) -> ::windows::core::Result<u16>
+pub unsafe fn FindMediaType<P0>(rgsztypes: P0) -> ::windows::core::Result<u16>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -284,9 +284,9 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn FindMediaTypeClass<'a, P0, P1>(pbc: P0, sztype: P1, pclsid: *mut ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn FindMediaTypeClass<P0, P1>(pbc: P0, sztype: P1, pclsid: *mut ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn FindMediaTypeClass ( pbc : * mut::core::ffi::c_void , sztype : :: windows::core::PCSTR , pclsid : *mut :: windows::core::GUID , reserved : u32 ) -> :: windows::core::HRESULT );
@@ -294,9 +294,9 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn FindMimeFromData<'a, P0, P1, P2>(pbc: P0, pwzurl: P1, pbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbsize: u32, pwzmimeproposed: P2, dwmimeflags: u32, ppwzmimeout: *mut ::windows::core::PWSTR, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn FindMimeFromData<P0, P1, P2>(pbc: P0, pwzurl: P1, pbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbsize: u32, pwzmimeproposed: P2, dwmimeflags: u32, ppwzmimeout: *mut ::windows::core::PWSTR, dwreserved: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -305,9 +305,9 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn GetClassFileOrMime<'a, P0, P1, P2>(pbc: P0, szfilename: P1, pbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbsize: u32, szmime: P2, dwreserved: u32) -> ::windows::core::Result<::windows::core::GUID>
+pub unsafe fn GetClassFileOrMime<P0, P1, P2>(pbc: P0, szfilename: P1, pbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbsize: u32, szmime: P2, dwreserved: u32) -> ::windows::core::Result<::windows::core::GUID>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -317,7 +317,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn GetClassURL<'a, P0>(szurl: P0) -> ::windows::core::Result<::windows::core::GUID>
+pub unsafe fn GetClassURL<P0>(szurl: P0) -> ::windows::core::Result<::windows::core::GUID>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -334,7 +334,7 @@ pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC) -> :
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn GetSoftwareUpdateInfo<'a, P0>(szdistunit: P0) -> ::windows::core::Result<SOFTDISTINFO>
+pub unsafe fn GetSoftwareUpdateInfo<P0>(szdistunit: P0) -> ::windows::core::Result<SOFTDISTINFO>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -344,37 +344,37 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn HlinkGoBack<'a, P0>(punk: P0) -> ::windows::core::Result<()>
+pub unsafe fn HlinkGoBack<P0>(punk: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn HlinkGoBack ( punk : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     HlinkGoBack(punk.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn HlinkGoForward<'a, P0>(punk: P0) -> ::windows::core::Result<()>
+pub unsafe fn HlinkGoForward<P0>(punk: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn HlinkGoForward ( punk : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     HlinkGoForward(punk.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn HlinkNavigateMoniker<'a, P0, P1>(punk: P0, pmktarget: P1) -> ::windows::core::Result<()>
+pub unsafe fn HlinkNavigateMoniker<P0, P1>(punk: P0, pmktarget: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IMoniker>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+    P1: ::std::convert::Into<::windows::core::InParam<super::IMoniker>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn HlinkNavigateMoniker ( punk : * mut::core::ffi::c_void , pmktarget : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     HlinkNavigateMoniker(punk.into().abi(), pmktarget.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn HlinkNavigateString<'a, P0, P1>(punk: P0, sztarget: P1) -> ::windows::core::Result<()>
+pub unsafe fn HlinkNavigateString<P0, P1>(punk: P0, sztarget: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn HlinkNavigateString ( punk : * mut::core::ffi::c_void , sztarget : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
@@ -382,28 +382,28 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn HlinkSimpleNavigateToMoniker<'a, P0, P1, P2, P3, P4, P5>(pmktarget: P0, szlocation: P1, sztargetframename: P2, punk: P3, pbc: P4, param5: P5, grfhlnf: u32, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn HlinkSimpleNavigateToMoniker<P0, P1, P2, P3, P4, P5>(pmktarget: P0, szlocation: P1, sztargetframename: P2, punk: P3, pbc: P4, param5: P5, grfhlnf: u32, dwreserved: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMoniker>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IMoniker>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P4: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-    P5: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+    P4: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
+    P5: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn HlinkSimpleNavigateToMoniker ( pmktarget : * mut::core::ffi::c_void , szlocation : :: windows::core::PCWSTR , sztargetframename : :: windows::core::PCWSTR , punk : * mut::core::ffi::c_void , pbc : * mut::core::ffi::c_void , param5 : * mut::core::ffi::c_void , grfhlnf : u32 , dwreserved : u32 ) -> :: windows::core::HRESULT );
     HlinkSimpleNavigateToMoniker(pmktarget.into().abi(), szlocation.into(), sztargetframename.into(), punk.into().abi(), pbc.into().abi(), param5.into().abi(), grfhlnf, dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn HlinkSimpleNavigateToString<'a, P0, P1, P2, P3, P4, P5>(sztarget: P0, szlocation: P1, sztargetframename: P2, punk: P3, pbc: P4, param5: P5, grfhlnf: u32, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn HlinkSimpleNavigateToString<P0, P1, P2, P3, P4, P5>(sztarget: P0, szlocation: P1, sztargetframename: P2, punk: P3, pbc: P4, param5: P5, grfhlnf: u32, dwreserved: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P4: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-    P5: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+    P4: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
+    P5: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn HlinkSimpleNavigateToString ( sztarget : :: windows::core::PCWSTR , szlocation : :: windows::core::PCWSTR , sztargetframename : :: windows::core::PCWSTR , punk : * mut::core::ffi::c_void , pbc : * mut::core::ffi::c_void , param5 : * mut::core::ffi::c_void , grfhlnf : u32 , dwreserved : u32 ) -> :: windows::core::HRESULT );
     HlinkSimpleNavigateToString(sztarget.into(), szlocation.into(), sztargetframename.into(), punk.into().abi(), pbc.into().abi(), param5.into().abi(), grfhlnf, dwreserved).ok()
@@ -423,9 +423,9 @@ pub unsafe fn IEInstallScope() -> ::windows::core::Result<u32> {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn IsAsyncMoniker<'a, P0>(pmk: P0) -> ::windows::core::Result<()>
+pub unsafe fn IsAsyncMoniker<P0>(pmk: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMoniker>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IMoniker>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn IsAsyncMoniker ( pmk : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     IsAsyncMoniker(pmk.into().abi()).ok()
@@ -433,7 +433,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsLoggingEnabledA<'a, P0>(pszurl: P0) -> super::super::super::Foundation::BOOL
+pub unsafe fn IsLoggingEnabledA<P0>(pszurl: P0) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -443,7 +443,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsLoggingEnabledW<'a, P0>(pwszurl: P0) -> super::super::super::Foundation::BOOL
+pub unsafe fn IsLoggingEnabledW<P0>(pwszurl: P0) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -452,9 +452,9 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn IsValidURL<'a, P0, P1>(pbc: P0, szurl: P1, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn IsValidURL<P0, P1>(pbc: P0, szurl: P1, dwreserved: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn IsValidURL ( pbc : * mut::core::ffi::c_void , szurl : :: windows::core::PCWSTR , dwreserved : u32 ) -> :: windows::core::HRESULT );
@@ -462,9 +462,9 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn MkParseDisplayNameEx<'a, P0, P1>(pbc: P0, szdisplayname: P1, pcheaten: *mut u32, ppmk: *mut ::core::option::Option<super::IMoniker>) -> ::windows::core::Result<()>
+pub unsafe fn MkParseDisplayNameEx<P0, P1>(pbc: P0, szdisplayname: P1, pcheaten: *mut u32, ppmk: *mut ::core::option::Option<super::IMoniker>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn MkParseDisplayNameEx ( pbc : * mut::core::ffi::c_void , szdisplayname : :: windows::core::PCWSTR , pcheaten : *mut u32 , ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
@@ -478,29 +478,29 @@ pub unsafe fn ObtainUserAgentString(dwoption: u32, pszuaout: ::windows::core::PS
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn RegisterBindStatusCallback<'a, P0, P1>(pbc: P0, pbscb: P1, ppbscbprev: *mut ::core::option::Option<super::IBindStatusCallback>, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn RegisterBindStatusCallback<P0, P1>(pbc: P0, pbscb: P1, ppbscbprev: *mut ::core::option::Option<super::IBindStatusCallback>, dwreserved: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
+    P1: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn RegisterBindStatusCallback ( pbc : * mut::core::ffi::c_void , pbscb : * mut::core::ffi::c_void , ppbscbprev : *mut * mut::core::ffi::c_void , dwreserved : u32 ) -> :: windows::core::HRESULT );
     RegisterBindStatusCallback(pbc.into().abi(), pbscb.into().abi(), ::core::mem::transmute(ppbscbprev), dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn RegisterFormatEnumerator<'a, P0, P1>(pbc: P0, pefetc: P1, reserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn RegisterFormatEnumerator<P0, P1>(pbc: P0, pefetc: P1, reserved: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IEnumFORMATETC>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
+    P1: ::std::convert::Into<::windows::core::InParam<super::IEnumFORMATETC>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn RegisterFormatEnumerator ( pbc : * mut::core::ffi::c_void , pefetc : * mut::core::ffi::c_void , reserved : u32 ) -> :: windows::core::HRESULT );
     RegisterFormatEnumerator(pbc.into().abi(), pefetc.into().abi(), reserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn RegisterMediaTypeClass<'a, P0>(pbc: P0, ctypes: u32, rgsztypes: *const ::windows::core::PCSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn RegisterMediaTypeClass<P0>(pbc: P0, ctypes: u32, rgsztypes: *const ::windows::core::PCSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn RegisterMediaTypeClass ( pbc : * mut::core::ffi::c_void , ctypes : u32 , rgsztypes : *const :: windows::core::PCSTR , rgclsid : *const :: windows::core::GUID , reserved : u32 ) -> :: windows::core::HRESULT );
     RegisterMediaTypeClass(pbc.into().abi(), ctypes, rgsztypes, rgclsid, reserved).ok()
@@ -520,20 +520,20 @@ pub unsafe fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO) {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn RevokeBindStatusCallback<'a, P0, P1>(pbc: P0, pbscb: P1) -> ::windows::core::Result<()>
+pub unsafe fn RevokeBindStatusCallback<P0, P1>(pbc: P0, pbscb: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
+    P1: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn RevokeBindStatusCallback ( pbc : * mut::core::ffi::c_void , pbscb : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     RevokeBindStatusCallback(pbc.into().abi(), pbscb.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn RevokeFormatEnumerator<'a, P0, P1>(pbc: P0, pefetc: P1) -> ::windows::core::Result<()>
+pub unsafe fn RevokeFormatEnumerator<P0, P1>(pbc: P0, pefetc: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IEnumFORMATETC>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
+    P1: ::std::convert::Into<::windows::core::InParam<super::IEnumFORMATETC>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn RevokeFormatEnumerator ( pbc : * mut::core::ffi::c_void , pefetc : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     RevokeFormatEnumerator(pbc.into().abi(), pefetc.into().abi()).ok()
@@ -541,7 +541,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetAccessForIEAppContainer<'a, P0>(hobject: P0, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::Result<()>
+pub unsafe fn SetAccessForIEAppContainer<P0>(hobject: P0, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -550,7 +550,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn SetSoftwareUpdateAdvertisementState<'a, P0>(szdistunit: P0, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::core::Result<()>
+pub unsafe fn SetSoftwareUpdateAdvertisementState<P0>(szdistunit: P0, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -559,112 +559,112 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn URLDownloadToCacheFileA<'a, P0, P1, P2>(param0: P0, param1: P1, param2: &mut [u8], param4: u32, param5: P2) -> ::windows::core::Result<()>
+pub unsafe fn URLDownloadToCacheFileA<P0, P1, P2>(param0: P0, param1: P1, param2: &mut [u8], param4: u32, param5: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+    P2: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn URLDownloadToCacheFileA ( param0 : * mut::core::ffi::c_void , param1 : :: windows::core::PCSTR , param2 : :: windows::core::PSTR , cchfilename : u32 , param4 : u32 , param5 : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     URLDownloadToCacheFileA(param0.into().abi(), param1.into(), ::core::mem::transmute(param2.as_ptr()), param2.len() as _, param4, param5.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn URLDownloadToCacheFileW<'a, P0, P1, P2>(param0: P0, param1: P1, param2: &mut [u16], param4: u32, param5: P2) -> ::windows::core::Result<()>
+pub unsafe fn URLDownloadToCacheFileW<P0, P1, P2>(param0: P0, param1: P1, param2: &mut [u16], param4: u32, param5: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+    P2: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn URLDownloadToCacheFileW ( param0 : * mut::core::ffi::c_void , param1 : :: windows::core::PCWSTR , param2 : :: windows::core::PWSTR , cchfilename : u32 , param4 : u32 , param5 : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     URLDownloadToCacheFileW(param0.into().abi(), param1.into(), ::core::mem::transmute(param2.as_ptr()), param2.len() as _, param4, param5.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn URLDownloadToFileA<'a, P0, P1, P2, P3>(param0: P0, param1: P1, param2: P2, param3: u32, param4: P3) -> ::windows::core::Result<()>
+pub unsafe fn URLDownloadToFileA<P0, P1, P2, P3>(param0: P0, param1: P1, param2: P2, param3: u32, param4: P3) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+    P3: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn URLDownloadToFileA ( param0 : * mut::core::ffi::c_void , param1 : :: windows::core::PCSTR , param2 : :: windows::core::PCSTR , param3 : u32 , param4 : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     URLDownloadToFileA(param0.into().abi(), param1.into(), param2.into(), param3, param4.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn URLDownloadToFileW<'a, P0, P1, P2, P3>(param0: P0, param1: P1, param2: P2, param3: u32, param4: P3) -> ::windows::core::Result<()>
+pub unsafe fn URLDownloadToFileW<P0, P1, P2, P3>(param0: P0, param1: P1, param2: P2, param3: u32, param4: P3) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+    P3: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn URLDownloadToFileW ( param0 : * mut::core::ffi::c_void , param1 : :: windows::core::PCWSTR , param2 : :: windows::core::PCWSTR , param3 : u32 , param4 : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     URLDownloadToFileW(param0.into().abi(), param1.into(), param2.into(), param3, param4.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn URLOpenBlockingStreamA<'a, P0, P1, P2>(param0: P0, param1: P1, param2: *mut ::core::option::Option<super::IStream>, param3: u32, param4: P2) -> ::windows::core::Result<()>
+pub unsafe fn URLOpenBlockingStreamA<P0, P1, P2>(param0: P0, param1: P1, param2: *mut ::core::option::Option<super::IStream>, param3: u32, param4: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+    P2: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn URLOpenBlockingStreamA ( param0 : * mut::core::ffi::c_void , param1 : :: windows::core::PCSTR , param2 : *mut * mut::core::ffi::c_void , param3 : u32 , param4 : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     URLOpenBlockingStreamA(param0.into().abi(), param1.into(), ::core::mem::transmute(param2), param3, param4.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn URLOpenBlockingStreamW<'a, P0, P1, P2>(param0: P0, param1: P1, param2: *mut ::core::option::Option<super::IStream>, param3: u32, param4: P2) -> ::windows::core::Result<()>
+pub unsafe fn URLOpenBlockingStreamW<P0, P1, P2>(param0: P0, param1: P1, param2: *mut ::core::option::Option<super::IStream>, param3: u32, param4: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+    P2: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn URLOpenBlockingStreamW ( param0 : * mut::core::ffi::c_void , param1 : :: windows::core::PCWSTR , param2 : *mut * mut::core::ffi::c_void , param3 : u32 , param4 : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     URLOpenBlockingStreamW(param0.into().abi(), param1.into(), ::core::mem::transmute(param2), param3, param4.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn URLOpenPullStreamA<'a, P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
+pub unsafe fn URLOpenPullStreamA<P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+    P2: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn URLOpenPullStreamA ( param0 : * mut::core::ffi::c_void , param1 : :: windows::core::PCSTR , param2 : u32 , param3 : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     URLOpenPullStreamA(param0.into().abi(), param1.into(), param2, param3.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn URLOpenPullStreamW<'a, P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
+pub unsafe fn URLOpenPullStreamW<P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+    P2: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn URLOpenPullStreamW ( param0 : * mut::core::ffi::c_void , param1 : :: windows::core::PCWSTR , param2 : u32 , param3 : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     URLOpenPullStreamW(param0.into().abi(), param1.into(), param2, param3.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn URLOpenStreamA<'a, P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
+pub unsafe fn URLOpenStreamA<P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+    P2: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn URLOpenStreamA ( param0 : * mut::core::ffi::c_void , param1 : :: windows::core::PCSTR , param2 : u32 , param3 : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     URLOpenStreamA(param0.into().abi(), param1.into(), param2, param3.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn URLOpenStreamW<'a, P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
+pub unsafe fn URLOpenStreamW<P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+    P2: ::std::convert::Into<::windows::core::InParam<super::IBindStatusCallback>>,
 {
     ::windows::core::link ! ( "urlmon.dll""system" fn URLOpenStreamW ( param0 : * mut::core::ffi::c_void , param1 : :: windows::core::PCWSTR , param2 : u32 , param3 : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     URLOpenStreamW(param0.into().abi(), param1.into(), param2, param3.into().abi()).ok()
@@ -694,7 +694,7 @@ pub struct IBindCallbackRedirect(::windows::core::IUnknown);
 impl IBindCallbackRedirect {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Redirect<'a, P0>(&self, lpcurl: P0) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL>
+    pub unsafe fn Redirect<P0>(&self, lpcurl: P0) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -776,10 +776,10 @@ pub struct IBindHttpSecurity_Vtbl {
 #[repr(transparent)]
 pub struct IBindProtocol(::windows::core::IUnknown);
 impl IBindProtocol {
-    pub unsafe fn CreateBinding<'a, P0, P1>(&self, szurl: P0, pbc: P1) -> ::windows::core::Result<super::IBinding>
+    pub unsafe fn CreateBinding<P0, P1>(&self, szurl: P0, pbc: P1) -> ::windows::core::Result<super::IBinding>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateBinding)(::windows::core::Vtable::as_raw(self), szurl.into(), pbc.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -866,7 +866,7 @@ impl ICodeInstall {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetWindow)(::windows::core::Vtable::as_raw(self), rguidreason, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn OnCodeInstallProblem<'a, P0, P1>(&self, ulstatuscode: u32, szdestination: P0, szsource: P1, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn OnCodeInstallProblem<P0, P1>(&self, ulstatuscode: u32, szdestination: P0, szsource: P1, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -952,7 +952,7 @@ pub struct IDataFilter_Vtbl {
 #[repr(transparent)]
 pub struct IEncodingFilterFactory(::windows::core::IUnknown);
 impl IEncodingFilterFactory {
-    pub unsafe fn FindBestFilter<'a, P0, P1>(&self, pwzcodein: P0, pwzcodeout: P1, info: DATAINFO) -> ::windows::core::Result<IDataFilter>
+    pub unsafe fn FindBestFilter<P0, P1>(&self, pwzcodein: P0, pwzcodeout: P1, info: DATAINFO) -> ::windows::core::Result<IDataFilter>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -960,7 +960,7 @@ impl IEncodingFilterFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).FindBestFilter)(::windows::core::Vtable::as_raw(self), pwzcodein.into(), pwzcodeout.into(), ::core::mem::transmute(info), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetDefaultFilter<'a, P0, P1>(&self, pwzcodein: P0, pwzcodeout: P1) -> ::windows::core::Result<IDataFilter>
+    pub unsafe fn GetDefaultFilter<P0, P1>(&self, pwzcodein: P0, pwzcodeout: P1) -> ::windows::core::Result<IDataFilter>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1046,7 +1046,7 @@ pub struct IGetBindHandle_Vtbl {
 #[repr(transparent)]
 pub struct IHttpNegotiate(::windows::core::IUnknown);
 impl IHttpNegotiate {
-    pub unsafe fn BeginningTransaction<'a, P0, P1>(&self, szurl: P0, szheaders: P1, dwreserved: u32) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn BeginningTransaction<P0, P1>(&self, szurl: P0, szheaders: P1, dwreserved: u32) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1054,7 +1054,7 @@ impl IHttpNegotiate {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).BeginningTransaction)(::windows::core::Vtable::as_raw(self), szurl.into(), szheaders.into(), dwreserved, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn OnResponse<'a, P0, P1>(&self, dwresponsecode: u32, szresponseheaders: P0, szrequestheaders: P1) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn OnResponse<P0, P1>(&self, dwresponsecode: u32, szresponseheaders: P0, szrequestheaders: P1) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1097,7 +1097,7 @@ pub struct IHttpNegotiate_Vtbl {
 #[repr(transparent)]
 pub struct IHttpNegotiate2(::windows::core::IUnknown);
 impl IHttpNegotiate2 {
-    pub unsafe fn BeginningTransaction<'a, P0, P1>(&self, szurl: P0, szheaders: P1, dwreserved: u32) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn BeginningTransaction<P0, P1>(&self, szurl: P0, szheaders: P1, dwreserved: u32) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1105,7 +1105,7 @@ impl IHttpNegotiate2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.BeginningTransaction)(::windows::core::Vtable::as_raw(self), szurl.into(), szheaders.into(), dwreserved, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn OnResponse<'a, P0, P1>(&self, dwresponsecode: u32, szresponseheaders: P0, szrequestheaders: P1) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn OnResponse<P0, P1>(&self, dwresponsecode: u32, szresponseheaders: P0, szrequestheaders: P1) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1150,7 +1150,7 @@ pub struct IHttpNegotiate2_Vtbl {
 #[repr(transparent)]
 pub struct IHttpNegotiate3(::windows::core::IUnknown);
 impl IHttpNegotiate3 {
-    pub unsafe fn BeginningTransaction<'a, P0, P1>(&self, szurl: P0, szheaders: P1, dwreserved: u32) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn BeginningTransaction<P0, P1>(&self, szurl: P0, szheaders: P1, dwreserved: u32) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1158,7 +1158,7 @@ impl IHttpNegotiate3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.BeginningTransaction)(::windows::core::Vtable::as_raw(self), szurl.into(), szheaders.into(), dwreserved, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn OnResponse<'a, P0, P1>(&self, dwresponsecode: u32, szresponseheaders: P0, szrequestheaders: P1) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn OnResponse<P0, P1>(&self, dwresponsecode: u32, szresponseheaders: P0, szrequestheaders: P1) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1466,11 +1466,11 @@ pub struct IInternetProtocol(::windows::core::IUnknown);
 impl IInternetProtocol {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Start<'a, P0, P1, P2, P3>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows::core::Result<()>
+    pub unsafe fn Start<P0, P1, P2, P3>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IInternetProtocolSink>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IInternetBindInfo>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IInternetProtocolSink>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IInternetBindInfo>>,
         P3: ::std::convert::Into<super::super::super::Foundation::HANDLE_PTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.Start)(::windows::core::Vtable::as_raw(self), szurl.into(), poiprotsink.into().abi(), poibindinfo.into().abi(), grfpi, dwreserved.into()).ok()
@@ -1542,11 +1542,11 @@ pub struct IInternetProtocolEx(::windows::core::IUnknown);
 impl IInternetProtocolEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Start<'a, P0, P1, P2, P3>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows::core::Result<()>
+    pub unsafe fn Start<P0, P1, P2, P3>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IInternetProtocolSink>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IInternetBindInfo>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IInternetProtocolSink>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IInternetBindInfo>>,
         P3: ::std::convert::Into<super::super::super::Foundation::HANDLE_PTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.Start)(::windows::core::Vtable::as_raw(self), szurl.into(), poiprotsink.into().abi(), poibindinfo.into().abi(), grfpi, dwreserved.into()).ok()
@@ -1581,11 +1581,11 @@ impl IInternetProtocolEx {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StartEx<'a, P0, P1, P2, P3>(&self, puri: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows::core::Result<()>
+    pub unsafe fn StartEx<P0, P1, P2, P3>(&self, puri: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IInternetProtocolSink>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IInternetBindInfo>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IUri>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IInternetProtocolSink>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IInternetBindInfo>>,
         P3: ::std::convert::Into<super::super::super::Foundation::HANDLE_PTR>,
     {
         (::windows::core::Vtable::vtable(self).StartEx)(::windows::core::Vtable::as_raw(self), puri.into().abi(), poiprotsink.into().abi(), poibindinfo.into().abi(), grfpi, dwreserved.into()).ok()
@@ -1627,13 +1627,13 @@ pub struct IInternetProtocolEx_Vtbl {
 #[repr(transparent)]
 pub struct IInternetProtocolInfo(::windows::core::IUnknown);
 impl IInternetProtocolInfo {
-    pub unsafe fn ParseUrl<'a, P0>(&self, pwzurl: P0, parseaction: PARSEACTION, dwparseflags: u32, pwzresult: ::windows::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn ParseUrl<P0>(&self, pwzurl: P0, parseaction: PARSEACTION, dwparseflags: u32, pwzresult: ::windows::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).ParseUrl)(::windows::core::Vtable::as_raw(self), pwzurl.into(), parseaction, dwparseflags, ::core::mem::transmute(pwzresult), cchresult, pcchresult, dwreserved).ok()
     }
-    pub unsafe fn CombineUrl<'a, P0, P1, P2>(&self, pwzbaseurl: P0, pwzrelativeurl: P1, dwcombineflags: u32, pwzresult: P2, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn CombineUrl<P0, P1, P2>(&self, pwzbaseurl: P0, pwzrelativeurl: P1, dwcombineflags: u32, pwzresult: P2, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1641,14 +1641,14 @@ impl IInternetProtocolInfo {
     {
         (::windows::core::Vtable::vtable(self).CombineUrl)(::windows::core::Vtable::as_raw(self), pwzbaseurl.into(), pwzrelativeurl.into(), dwcombineflags, pwzresult.into(), cchresult, pcchresult, dwreserved).ok()
     }
-    pub unsafe fn CompareUrl<'a, P0, P1>(&self, pwzurl1: P0, pwzurl2: P1, dwcompareflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn CompareUrl<P0, P1>(&self, pwzurl1: P0, pwzurl2: P1, dwcompareflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).CompareUrl)(::windows::core::Vtable::as_raw(self), pwzurl1.into(), pwzurl2.into(), dwcompareflags).ok()
     }
-    pub unsafe fn QueryInfo<'a, P0>(&self, pwzurl: P0, oueryoption: QUERYOPTION, dwqueryflags: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuf: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn QueryInfo<P0>(&self, pwzurl: P0, oueryoption: QUERYOPTION, dwqueryflags: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuf: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1693,11 +1693,11 @@ pub struct IInternetProtocolRoot(::windows::core::IUnknown);
 impl IInternetProtocolRoot {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Start<'a, P0, P1, P2, P3>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows::core::Result<()>
+    pub unsafe fn Start<P0, P1, P2, P3>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IInternetProtocolSink>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IInternetBindInfo>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IInternetProtocolSink>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IInternetBindInfo>>,
         P3: ::std::convert::Into<super::super::super::Foundation::HANDLE_PTR>,
     {
         (::windows::core::Vtable::vtable(self).Start)(::windows::core::Vtable::as_raw(self), szurl.into(), poiprotsink.into().abi(), poibindinfo.into().abi(), grfpi, dwreserved.into()).ok()
@@ -1762,7 +1762,7 @@ impl IInternetProtocolSink {
     pub unsafe fn Switch(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Switch)(::windows::core::Vtable::as_raw(self), pprotocoldata).ok()
     }
-    pub unsafe fn ReportProgress<'a, P0>(&self, ulstatuscode: u32, szstatustext: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ReportProgress<P0>(&self, ulstatuscode: u32, szstatustext: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1771,7 +1771,7 @@ impl IInternetProtocolSink {
     pub unsafe fn ReportData(&self, grfbscf: u32, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReportData)(::windows::core::Vtable::as_raw(self), grfbscf, ulprogress, ulprogressmax).ok()
     }
-    pub unsafe fn ReportResult<'a, P0>(&self, hrresult: ::windows::core::HRESULT, dwerror: u32, szresult: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ReportResult<P0>(&self, hrresult: ::windows::core::HRESULT, dwerror: u32, szresult: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1814,9 +1814,9 @@ pub struct IInternetProtocolSink_Vtbl {
 #[repr(transparent)]
 pub struct IInternetProtocolSinkStackable(::windows::core::IUnknown);
 impl IInternetProtocolSinkStackable {
-    pub unsafe fn SwitchSink<'a, P0>(&self, poiprotsink: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SwitchSink<P0>(&self, poiprotsink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IInternetProtocolSink>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IInternetProtocolSink>>,
     {
         (::windows::core::Vtable::vtable(self).SwitchSink)(::windows::core::Vtable::as_raw(self), poiprotsink.into().abi()).ok()
     }
@@ -1862,9 +1862,9 @@ pub struct IInternetProtocolSinkStackable_Vtbl {
 #[repr(transparent)]
 pub struct IInternetSecurityManager(::windows::core::IUnknown);
 impl IInternetSecurityManager {
-    pub unsafe fn SetSecuritySite<'a, P0>(&self, psite: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSecuritySite<P0>(&self, psite: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IInternetSecurityMgrSite>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IInternetSecurityMgrSite>>,
     {
         (::windows::core::Vtable::vtable(self).SetSecuritySite)(::windows::core::Vtable::as_raw(self), psite.into().abi()).ok()
     }
@@ -1872,31 +1872,31 @@ impl IInternetSecurityManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetSecuritySite)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn MapUrlToZone<'a, P0>(&self, pwszurl: P0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn MapUrlToZone<P0>(&self, pwszurl: P0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).MapUrlToZone)(::windows::core::Vtable::as_raw(self), pwszurl.into(), pdwzone, dwflags).ok()
     }
-    pub unsafe fn GetSecurityId<'a, P0>(&self, pwszurl: P0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
+    pub unsafe fn GetSecurityId<P0>(&self, pwszurl: P0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).GetSecurityId)(::windows::core::Vtable::as_raw(self), pwszurl.into(), ::core::mem::transmute(pbsecurityid.as_ptr()), pcbsecurityid, dwreserved).ok()
     }
-    pub unsafe fn ProcessUrlAction<'a, P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn ProcessUrlAction<P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).ProcessUrlAction)(::windows::core::Vtable::as_raw(self), pwszurl.into(), dwaction, ::core::mem::transmute(ppolicy.as_ptr()), ppolicy.len() as _, pcontext, cbcontext, dwflags, dwreserved).ok()
     }
-    pub unsafe fn QueryCustomPolicy<'a, P0>(&self, pwszurl: P0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn QueryCustomPolicy<P0>(&self, pwszurl: P0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).QueryCustomPolicy)(::windows::core::Vtable::as_raw(self), pwszurl.into(), guidkey, pppolicy, pcbpolicy, pcontext, cbcontext, dwreserved).ok()
     }
-    pub unsafe fn SetZoneMapping<'a, P0>(&self, dwzone: u32, lpszpattern: P0, dwflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetZoneMapping<P0>(&self, dwzone: u32, lpszpattern: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1946,9 +1946,9 @@ pub struct IInternetSecurityManager_Vtbl {
 #[repr(transparent)]
 pub struct IInternetSecurityManagerEx(::windows::core::IUnknown);
 impl IInternetSecurityManagerEx {
-    pub unsafe fn SetSecuritySite<'a, P0>(&self, psite: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSecuritySite<P0>(&self, psite: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IInternetSecurityMgrSite>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IInternetSecurityMgrSite>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetSecuritySite)(::windows::core::Vtable::as_raw(self), psite.into().abi()).ok()
     }
@@ -1956,31 +1956,31 @@ impl IInternetSecurityManagerEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetSecuritySite)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn MapUrlToZone<'a, P0>(&self, pwszurl: P0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn MapUrlToZone<P0>(&self, pwszurl: P0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.MapUrlToZone)(::windows::core::Vtable::as_raw(self), pwszurl.into(), pdwzone, dwflags).ok()
     }
-    pub unsafe fn GetSecurityId<'a, P0>(&self, pwszurl: P0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
+    pub unsafe fn GetSecurityId<P0>(&self, pwszurl: P0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.GetSecurityId)(::windows::core::Vtable::as_raw(self), pwszurl.into(), ::core::mem::transmute(pbsecurityid.as_ptr()), pcbsecurityid, dwreserved).ok()
     }
-    pub unsafe fn ProcessUrlAction<'a, P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn ProcessUrlAction<P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.ProcessUrlAction)(::windows::core::Vtable::as_raw(self), pwszurl.into(), dwaction, ::core::mem::transmute(ppolicy.as_ptr()), ppolicy.len() as _, pcontext, cbcontext, dwflags, dwreserved).ok()
     }
-    pub unsafe fn QueryCustomPolicy<'a, P0>(&self, pwszurl: P0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn QueryCustomPolicy<P0>(&self, pwszurl: P0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.QueryCustomPolicy)(::windows::core::Vtable::as_raw(self), pwszurl.into(), guidkey, pppolicy, pcbpolicy, pcontext, cbcontext, dwreserved).ok()
     }
-    pub unsafe fn SetZoneMapping<'a, P0>(&self, dwzone: u32, lpszpattern: P0, dwflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetZoneMapping<P0>(&self, dwzone: u32, lpszpattern: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1989,7 +1989,7 @@ impl IInternetSecurityManagerEx {
     pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetZoneMappings)(::windows::core::Vtable::as_raw(self), dwzone, ::core::mem::transmute(ppenumstring), dwflags).ok()
     }
-    pub unsafe fn ProcessUrlActionEx<'a, P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn ProcessUrlActionEx<P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2029,9 +2029,9 @@ pub struct IInternetSecurityManagerEx_Vtbl {
 #[repr(transparent)]
 pub struct IInternetSecurityManagerEx2(::windows::core::IUnknown);
 impl IInternetSecurityManagerEx2 {
-    pub unsafe fn SetSecuritySite<'a, P0>(&self, psite: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSecuritySite<P0>(&self, psite: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IInternetSecurityMgrSite>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IInternetSecurityMgrSite>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetSecuritySite)(::windows::core::Vtable::as_raw(self), psite.into().abi()).ok()
     }
@@ -2039,31 +2039,31 @@ impl IInternetSecurityManagerEx2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetSecuritySite)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn MapUrlToZone<'a, P0>(&self, pwszurl: P0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn MapUrlToZone<P0>(&self, pwszurl: P0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.MapUrlToZone)(::windows::core::Vtable::as_raw(self), pwszurl.into(), pdwzone, dwflags).ok()
     }
-    pub unsafe fn GetSecurityId<'a, P0>(&self, pwszurl: P0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
+    pub unsafe fn GetSecurityId<P0>(&self, pwszurl: P0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.GetSecurityId)(::windows::core::Vtable::as_raw(self), pwszurl.into(), ::core::mem::transmute(pbsecurityid.as_ptr()), pcbsecurityid, dwreserved).ok()
     }
-    pub unsafe fn ProcessUrlAction<'a, P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn ProcessUrlAction<P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.ProcessUrlAction)(::windows::core::Vtable::as_raw(self), pwszurl.into(), dwaction, ::core::mem::transmute(ppolicy.as_ptr()), ppolicy.len() as _, pcontext, cbcontext, dwflags, dwreserved).ok()
     }
-    pub unsafe fn QueryCustomPolicy<'a, P0>(&self, pwszurl: P0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn QueryCustomPolicy<P0>(&self, pwszurl: P0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.QueryCustomPolicy)(::windows::core::Vtable::as_raw(self), pwszurl.into(), guidkey, pppolicy, pcbpolicy, pcontext, cbcontext, dwreserved).ok()
     }
-    pub unsafe fn SetZoneMapping<'a, P0>(&self, dwzone: u32, lpszpattern: P0, dwflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetZoneMapping<P0>(&self, dwzone: u32, lpszpattern: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2072,33 +2072,33 @@ impl IInternetSecurityManagerEx2 {
     pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetZoneMappings)(::windows::core::Vtable::as_raw(self), dwzone, ::core::mem::transmute(ppenumstring), dwflags).ok()
     }
-    pub unsafe fn ProcessUrlActionEx<'a, P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn ProcessUrlActionEx<P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.ProcessUrlActionEx)(::windows::core::Vtable::as_raw(self), pwszurl.into(), dwaction, ::core::mem::transmute(ppolicy.as_ptr()), ppolicy.len() as _, pcontext, cbcontext, dwflags, dwreserved, pdwoutflags).ok()
     }
-    pub unsafe fn MapUrlToZoneEx2<'a, P0>(&self, puri: P0, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: ::core::option::Option<*mut ::windows::core::PWSTR>, pdwoutflags: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+    pub unsafe fn MapUrlToZoneEx2<P0>(&self, puri: P0, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: ::core::option::Option<*mut ::windows::core::PWSTR>, pdwoutflags: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IUri>>,
     {
         (::windows::core::Vtable::vtable(self).MapUrlToZoneEx2)(::windows::core::Vtable::as_raw(self), puri.into().abi(), pdwzone, dwflags, ::core::mem::transmute(ppwszmappedurl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwoutflags.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn ProcessUrlActionEx2<'a, P0>(&self, puri: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn ProcessUrlActionEx2<P0>(&self, puri: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IUri>>,
     {
         (::windows::core::Vtable::vtable(self).ProcessUrlActionEx2)(::windows::core::Vtable::as_raw(self), puri.into().abi(), dwaction, ::core::mem::transmute(ppolicy.as_ptr()), ppolicy.len() as _, pcontext, cbcontext, dwflags, dwreserved, pdwoutflags).ok()
     }
-    pub unsafe fn GetSecurityIdEx2<'a, P0>(&self, puri: P0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
+    pub unsafe fn GetSecurityIdEx2<P0>(&self, puri: P0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IUri>>,
     {
         (::windows::core::Vtable::vtable(self).GetSecurityIdEx2)(::windows::core::Vtable::as_raw(self), puri.into().abi(), ::core::mem::transmute(pbsecurityid.as_ptr()), pcbsecurityid, dwreserved).ok()
     }
-    pub unsafe fn QueryCustomPolicyEx2<'a, P0>(&self, puri: P0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::Result<()>
+    pub unsafe fn QueryCustomPolicyEx2<P0>(&self, puri: P0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IUri>>,
     {
         (::windows::core::Vtable::vtable(self).QueryCustomPolicyEx2)(::windows::core::Vtable::as_raw(self), puri.into().abi(), guidkey, pppolicy, pcbpolicy, pcontext, cbcontext, dwreserved).ok()
     }
@@ -2147,7 +2147,7 @@ impl IInternetSecurityMgrSite {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableModeless<'a, P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn EnableModeless<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2194,39 +2194,39 @@ pub struct IInternetSecurityMgrSite_Vtbl {
 #[repr(transparent)]
 pub struct IInternetSession(::windows::core::IUnknown);
 impl IInternetSession {
-    pub unsafe fn RegisterNameSpace<'a, P0, P1>(&self, pcf: P0, rclsid: *const ::windows::core::GUID, pwzprotocol: P1, cpatterns: u32, ppwzpatterns: *const ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterNameSpace<P0, P1>(&self, pcf: P0, rclsid: *const ::windows::core::GUID, pwzprotocol: P1, cpatterns: u32, ppwzpatterns: *const ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IClassFactory>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IClassFactory>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).RegisterNameSpace)(::windows::core::Vtable::as_raw(self), pcf.into().abi(), rclsid, pwzprotocol.into(), cpatterns, ppwzpatterns, dwreserved).ok()
     }
-    pub unsafe fn UnregisterNameSpace<'a, P0, P1>(&self, pcf: P0, pszprotocol: P1) -> ::windows::core::Result<()>
+    pub unsafe fn UnregisterNameSpace<P0, P1>(&self, pcf: P0, pszprotocol: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IClassFactory>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IClassFactory>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).UnregisterNameSpace)(::windows::core::Vtable::as_raw(self), pcf.into().abi(), pszprotocol.into()).ok()
     }
-    pub unsafe fn RegisterMimeFilter<'a, P0, P1>(&self, pcf: P0, rclsid: *const ::windows::core::GUID, pwztype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterMimeFilter<P0, P1>(&self, pcf: P0, rclsid: *const ::windows::core::GUID, pwztype: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IClassFactory>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IClassFactory>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).RegisterMimeFilter)(::windows::core::Vtable::as_raw(self), pcf.into().abi(), rclsid, pwztype.into()).ok()
     }
-    pub unsafe fn UnregisterMimeFilter<'a, P0, P1>(&self, pcf: P0, pwztype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn UnregisterMimeFilter<P0, P1>(&self, pcf: P0, pwztype: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IClassFactory>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IClassFactory>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).UnregisterMimeFilter)(::windows::core::Vtable::as_raw(self), pcf.into().abi(), pwztype.into()).ok()
     }
-    pub unsafe fn CreateBinding<'a, P0, P1, P2>(&self, pbc: P0, szurl: P1, punkouter: P2, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>, ppoinetprot: *mut ::core::option::Option<IInternetProtocol>, dwoption: u32) -> ::windows::core::Result<()>
+    pub unsafe fn CreateBinding<P0, P1, P2>(&self, pbc: P0, szurl: P1, punkouter: P2, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>, ppoinetprot: *mut ::core::option::Option<IInternetProtocol>, dwoption: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).CreateBinding)(::windows::core::Vtable::as_raw(self), pbc.into().abi(), szurl.into(), punkouter.into().abi(), ::core::mem::transmute(ppunk), ::core::mem::transmute(ppoinetprot), dwoption).ok()
     }
@@ -2337,7 +2337,7 @@ impl IInternetZoneManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PromptAction<'a, P0, P1, P2>(&self, dwaction: u32, hwndparent: P0, pwszurl: P1, pwsztext: P2, dwpromptflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn PromptAction<P0, P1, P2>(&self, dwaction: u32, hwndparent: P0, pwszurl: P1, pwsztext: P2, dwpromptflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2345,7 +2345,7 @@ impl IInternetZoneManager {
     {
         (::windows::core::Vtable::vtable(self).PromptAction)(::windows::core::Vtable::as_raw(self), dwaction, hwndparent.into(), pwszurl.into(), pwsztext.into(), dwpromptflags).ok()
     }
-    pub unsafe fn LogAction<'a, P0, P1>(&self, dwaction: u32, pwszurl: P0, pwsztext: P1, dwlogflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn LogAction<P0, P1>(&self, dwaction: u32, pwszurl: P0, pwsztext: P1, dwlogflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2433,7 +2433,7 @@ impl IInternetZoneManagerEx {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PromptAction<'a, P0, P1, P2>(&self, dwaction: u32, hwndparent: P0, pwszurl: P1, pwsztext: P2, dwpromptflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn PromptAction<P0, P1, P2>(&self, dwaction: u32, hwndparent: P0, pwszurl: P1, pwsztext: P2, dwpromptflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2441,7 +2441,7 @@ impl IInternetZoneManagerEx {
     {
         (::windows::core::Vtable::vtable(self).base__.PromptAction)(::windows::core::Vtable::as_raw(self), dwaction, hwndparent.into(), pwszurl.into(), pwsztext.into(), dwpromptflags).ok()
     }
-    pub unsafe fn LogAction<'a, P0, P1>(&self, dwaction: u32, pwszurl: P0, pwsztext: P1, dwlogflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn LogAction<P0, P1>(&self, dwaction: u32, pwszurl: P0, pwsztext: P1, dwlogflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2522,7 +2522,7 @@ impl IInternetZoneManagerEx2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PromptAction<'a, P0, P1, P2>(&self, dwaction: u32, hwndparent: P0, pwszurl: P1, pwsztext: P2, dwpromptflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn PromptAction<P0, P1, P2>(&self, dwaction: u32, hwndparent: P0, pwszurl: P1, pwsztext: P2, dwpromptflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2530,7 +2530,7 @@ impl IInternetZoneManagerEx2 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.PromptAction)(::windows::core::Vtable::as_raw(self), dwaction, hwndparent.into(), pwszurl.into(), pwsztext.into(), dwpromptflags).ok()
     }
-    pub unsafe fn LogAction<'a, P0, P1>(&self, dwaction: u32, pwszurl: P0, pwsztext: P1, dwlogflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn LogAction<P0, P1>(&self, dwaction: u32, pwszurl: P0, pwsztext: P1, dwlogflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2561,7 +2561,7 @@ impl IInternetZoneManagerEx2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetZoneSecurityState<'a, P0>(&self, dwzoneindex: u32, frespectpolicy: P0, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn GetZoneSecurityState<P0>(&self, dwzoneindex: u32, frespectpolicy: P0, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -2569,7 +2569,7 @@ impl IInternetZoneManagerEx2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIESecurityState<'a, P0, P1>(&self, frespectpolicy: P0, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: P1) -> ::windows::core::Result<()>
+    pub unsafe fn GetIESecurityState<P0, P1>(&self, frespectpolicy: P0, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
@@ -2622,7 +2622,7 @@ pub struct IInternetZoneManagerEx2_Vtbl {
 #[repr(transparent)]
 pub struct IMonikerProp(::windows::core::IUnknown);
 impl IMonikerProp {
-    pub unsafe fn PutProperty<'a, P0>(&self, mkp: MONIKERPROPERTY, val: P0) -> ::windows::core::Result<()>
+    pub unsafe fn PutProperty<P0>(&self, mkp: MONIKERPROPERTY, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2671,28 +2671,28 @@ impl IPersistMoniker {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Load<'a, P0, P1, P2>(&self, ffullyavailable: P0, pimkname: P1, pibc: P2, grfmode: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Load<P0, P1, P2>(&self, ffullyavailable: P0, pimkname: P1, pibc: P2, grfmode: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::IMoniker>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::IMoniker>>,
+        P2: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
     {
         (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), ffullyavailable.into(), pimkname.into().abi(), pibc.into().abi(), grfmode).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Save<'a, P0, P1, P2>(&self, pimkname: P0, pbc: P1, fremember: P2) -> ::windows::core::Result<()>
+    pub unsafe fn Save<P0, P1, P2>(&self, pimkname: P0, pbc: P1, fremember: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMoniker>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IMoniker>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
         P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).Save)(::windows::core::Vtable::as_raw(self), pimkname.into().abi(), pbc.into().abi(), fremember.into()).ok()
     }
-    pub unsafe fn SaveCompleted<'a, P0, P1>(&self, pimkname: P0, pibc: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SaveCompleted<P0, P1>(&self, pimkname: P0, pibc: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMoniker>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IMoniker>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
     {
         (::windows::core::Vtable::vtable(self).SaveCompleted)(::windows::core::Vtable::as_raw(self), pimkname.into().abi(), pibc.into().abi()).ok()
     }
@@ -2747,10 +2747,10 @@ pub struct ISoftDistExt(::windows::core::IUnknown);
 impl ISoftDistExt {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     #[cfg(feature = "Win32_Data_Xml_MsXml")]
-    pub unsafe fn ProcessSoftDist<'a, P0, P1>(&self, szcdfurl: P0, psoftdistelement: P1, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::Result<()>
+    pub unsafe fn ProcessSoftDist<P0, P1>(&self, szcdfurl: P0, psoftdistelement: P1, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Data::Xml::MsXml::IXMLElement>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::Data::Xml::MsXml::IXMLElement>>,
     {
         (::windows::core::Vtable::vtable(self).ProcessSoftDist)(::windows::core::Vtable::as_raw(self), szcdfurl.into(), psoftdistelement.into().abi(), lpsdi).ok()
     }
@@ -2760,9 +2760,9 @@ impl ISoftDistExt {
     pub unsafe fn GetNextCodeBase(&self, szcodebase: *const ::windows::core::PCWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetNextCodeBase)(::windows::core::Vtable::as_raw(self), szcodebase, dwmaxsize).ok()
     }
-    pub unsafe fn AsyncInstallDistributionUnit<'a, P0>(&self, pbc: P0, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::core::Result<()>
+    pub unsafe fn AsyncInstallDistributionUnit<P0>(&self, pbc: P0, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
     {
         (::windows::core::Vtable::vtable(self).AsyncInstallDistributionUnit)(::windows::core::Vtable::as_raw(self), pbc.into().abi(), pvreserved, flags, lpcbh).ok()
     }
@@ -2887,7 +2887,7 @@ pub struct IUriContainer_Vtbl {
 #[repr(transparent)]
 pub struct IWinInetCacheHints(::windows::core::IUnknown);
 impl IWinInetCacheHints {
-    pub unsafe fn SetCacheExtension<'a, P0>(&self, pwzext: P0, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetCacheExtension<P0>(&self, pwzext: P0, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2927,13 +2927,13 @@ pub struct IWinInetCacheHints_Vtbl {
 #[repr(transparent)]
 pub struct IWinInetCacheHints2(::windows::core::IUnknown);
 impl IWinInetCacheHints2 {
-    pub unsafe fn SetCacheExtension<'a, P0>(&self, pwzext: P0, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetCacheExtension<P0>(&self, pwzext: P0, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetCacheExtension)(::windows::core::Vtable::as_raw(self), pwzext.into(), pszcachefile, pcbcachefile, pdwwinineterror, pdwreserved).ok()
     }
-    pub unsafe fn SetCacheExtension2<'a, P0>(&self, pwzext: P0, pwzcachefile: ::windows::core::PWSTR, pcchcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetCacheExtension2<P0>(&self, pwzext: P0, pwzcachefile: ::windows::core::PWSTR, pcchcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3268,7 +3268,7 @@ impl IZoneIdentifier2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetLastWriterPackageFamilyName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetLastWriterPackageFamilyName<'a, P0>(&self, packagefamilyname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLastWriterPackageFamilyName<P0>(&self, packagefamilyname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {

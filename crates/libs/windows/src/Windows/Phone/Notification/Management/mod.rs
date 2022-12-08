@@ -692,9 +692,9 @@ impl AccessoryManager {
             (::windows::core::Vtable::vtable(this).GetNextTriggerDetails)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn ProcessTriggerDetails<'a, P0, E0>(pdetails: P0) -> ::windows::core::Result<()>
+    pub fn ProcessTriggerDetails<P0, E0>(pdetails: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IAccessoryNotificationTriggerDetails>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Vtable::vtable(this).ProcessTriggerDetails)(::windows::core::Vtable::as_raw(this), pdetails.try_into().map_err(|e| e.into())?.abi()).ok() })
@@ -939,9 +939,9 @@ impl AccessoryManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn EnableEmailNotificationFolderFilter<'a, P0, E0>(emailaccount: &::windows::core::HSTRING, folders: P0) -> ::windows::core::Result<()>
+    pub fn EnableEmailNotificationFolderFilter<P0, E0>(emailaccount: &::windows::core::HSTRING, folders: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Vtable::vtable(this).EnableEmailNotificationFolderFilter)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(emailaccount), folders.try_into().map_err(|e| e.into())?.abi()).ok() })
@@ -1108,7 +1108,7 @@ impl ::core::convert::TryFrom<&AlarmNotificationTriggerDetails> for IAccessoryNo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AlarmNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+impl ::core::convert::TryFrom<&AlarmNotificationTriggerDetails> for ::windows::core::InParam<IAccessoryNotificationTriggerDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AlarmNotificationTriggerDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1324,7 +1324,7 @@ impl ::core::convert::TryFrom<&CalendarChangedNotificationTriggerDetails> for IA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CalendarChangedNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+impl ::core::convert::TryFrom<&CalendarChangedNotificationTriggerDetails> for ::windows::core::InParam<IAccessoryNotificationTriggerDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CalendarChangedNotificationTriggerDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1492,7 +1492,7 @@ impl ::core::convert::TryFrom<&CortanaTileNotificationTriggerDetails> for IAcces
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CortanaTileNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+impl ::core::convert::TryFrom<&CortanaTileNotificationTriggerDetails> for ::windows::core::InParam<IAccessoryNotificationTriggerDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CortanaTileNotificationTriggerDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1747,7 +1747,7 @@ impl ::core::convert::TryFrom<&EmailNotificationTriggerDetails> for IAccessoryNo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&EmailNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+impl ::core::convert::TryFrom<&EmailNotificationTriggerDetails> for ::windows::core::InParam<IAccessoryNotificationTriggerDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &EmailNotificationTriggerDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1873,7 +1873,7 @@ impl ::core::convert::TryFrom<&EmailReadNotificationTriggerDetails> for IAccesso
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&EmailReadNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+impl ::core::convert::TryFrom<&EmailReadNotificationTriggerDetails> for ::windows::core::InParam<IAccessoryNotificationTriggerDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &EmailReadNotificationTriggerDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1985,7 +1985,7 @@ impl ::core::convert::TryFrom<&MediaControlsTriggerDetails> for IAccessoryNotifi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MediaControlsTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+impl ::core::convert::TryFrom<&MediaControlsTriggerDetails> for ::windows::core::InParam<IAccessoryNotificationTriggerDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaControlsTriggerDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2410,7 +2410,7 @@ impl ::core::convert::TryFrom<&PhoneNotificationTriggerDetails> for IAccessoryNo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PhoneNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+impl ::core::convert::TryFrom<&PhoneNotificationTriggerDetails> for ::windows::core::InParam<IAccessoryNotificationTriggerDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PhoneNotificationTriggerDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2568,7 +2568,7 @@ impl ::core::convert::TryFrom<&ReminderNotificationTriggerDetails> for IAccessor
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ReminderNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+impl ::core::convert::TryFrom<&ReminderNotificationTriggerDetails> for ::windows::core::InParam<IAccessoryNotificationTriggerDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ReminderNotificationTriggerDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2819,7 +2819,7 @@ impl ::core::convert::TryFrom<&ToastNotificationTriggerDetails> for IAccessoryNo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ToastNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+impl ::core::convert::TryFrom<&ToastNotificationTriggerDetails> for ::windows::core::InParam<IAccessoryNotificationTriggerDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ToastNotificationTriggerDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

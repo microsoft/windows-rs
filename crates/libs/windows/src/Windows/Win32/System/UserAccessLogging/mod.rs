@@ -7,7 +7,7 @@ pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::core::Resu
 }
 #[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`*"]
 #[inline]
-pub unsafe fn UalRegisterProduct<'a, P0, P1, P2>(wszproductname: P0, wszrolename: P1, wszguid: P2) -> ::windows::core::Result<()>
+pub unsafe fn UalRegisterProduct<P0, P1, P2>(wszproductname: P0, wszrolename: P1, wszguid: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,

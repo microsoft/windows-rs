@@ -1,9 +1,9 @@
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
-pub unsafe fn D3DCompile<'a, P0, P1, P2, P3>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: P0, pdefines: ::core::option::Option<*const super::D3D_SHADER_MACRO>, pinclude: P1, pentrypoint: P2, ptarget: P3, flags1: u32, flags2: u32, ppcode: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: ::core::option::Option<*mut ::core::option::Option<super::ID3DBlob>>) -> ::windows::core::Result<()>
+pub unsafe fn D3DCompile<P0, P1, P2, P3>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: P0, pdefines: ::core::option::Option<*const super::D3D_SHADER_MACRO>, pinclude: P1, pentrypoint: P2, ptarget: P3, flags1: u32, flags2: u32, ppcode: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: ::core::option::Option<*mut ::core::option::Option<super::ID3DBlob>>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::ID3DInclude>>,
+    P1: ::std::convert::Into<::windows::core::InParam<super::ID3DInclude>>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
     P3: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -12,10 +12,10 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
-pub unsafe fn D3DCompile2<'a, P0, P1, P2, P3>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: P0, pdefines: ::core::option::Option<*const super::D3D_SHADER_MACRO>, pinclude: P1, pentrypoint: P2, ptarget: P3, flags1: u32, flags2: u32, secondarydataflags: u32, psecondarydata: ::core::option::Option<*const ::core::ffi::c_void>, secondarydatasize: usize, ppcode: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: ::core::option::Option<*mut ::core::option::Option<super::ID3DBlob>>) -> ::windows::core::Result<()>
+pub unsafe fn D3DCompile2<P0, P1, P2, P3>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: P0, pdefines: ::core::option::Option<*const super::D3D_SHADER_MACRO>, pinclude: P1, pentrypoint: P2, ptarget: P3, flags1: u32, flags2: u32, secondarydataflags: u32, psecondarydata: ::core::option::Option<*const ::core::ffi::c_void>, secondarydatasize: usize, ppcode: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: ::core::option::Option<*mut ::core::option::Option<super::ID3DBlob>>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::ID3DInclude>>,
+    P1: ::std::convert::Into<::windows::core::InParam<super::ID3DInclude>>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
     P3: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -24,10 +24,10 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
-pub unsafe fn D3DCompileFromFile<'a, P0, P1, P2, P3>(pfilename: P0, pdefines: ::core::option::Option<*const super::D3D_SHADER_MACRO>, pinclude: P1, pentrypoint: P2, ptarget: P3, flags1: u32, flags2: u32, ppcode: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: ::core::option::Option<*mut ::core::option::Option<super::ID3DBlob>>) -> ::windows::core::Result<()>
+pub unsafe fn D3DCompileFromFile<P0, P1, P2, P3>(pfilename: P0, pdefines: ::core::option::Option<*const super::D3D_SHADER_MACRO>, pinclude: P1, pentrypoint: P2, ptarget: P3, flags1: u32, flags2: u32, ppcode: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: ::core::option::Option<*mut ::core::option::Option<super::ID3DBlob>>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::ID3DInclude>>,
+    P1: ::std::convert::Into<::windows::core::InParam<super::ID3DInclude>>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
     P3: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -72,7 +72,7 @@ pub unsafe fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdata
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
-pub unsafe fn D3DDisassemble<'a, P0>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: P0) -> ::windows::core::Result<super::ID3DBlob>
+pub unsafe fn D3DDisassemble<P0>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: P0) -> ::windows::core::Result<super::ID3DBlob>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -83,9 +83,9 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`, `\"Win32_Graphics_Direct3D10\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D10")]
 #[inline]
-pub unsafe fn D3DDisassemble10Effect<'a, P0>(peffect: P0, flags: u32) -> ::windows::core::Result<super::ID3DBlob>
+pub unsafe fn D3DDisassemble10Effect<P0>(peffect: P0, flags: u32) -> ::windows::core::Result<super::ID3DBlob>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Direct3D10::ID3D10Effect>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::super::Direct3D10::ID3D10Effect>>,
 {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DDisassemble10Effect ( peffect : * mut::core::ffi::c_void , flags : u32 , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -93,7 +93,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
-pub unsafe fn D3DDisassembleRegion<'a, P0>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: P0, startbyteoffset: usize, numinsts: usize, pfinishbyteoffset: ::core::option::Option<*mut usize>, ppdisassembly: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::Result<()>
+pub unsafe fn D3DDisassembleRegion<P0>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: P0, startbyteoffset: usize, numinsts: usize, pfinishbyteoffset: ::core::option::Option<*mut usize>, ppdisassembly: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -151,17 +151,17 @@ pub unsafe fn D3DLoadModule(psrcdata: *const ::core::ffi::c_void, cbsrcdatasize:
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
-pub unsafe fn D3DPreprocess<'a, P0, P1>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: P0, pdefines: ::core::option::Option<*const super::D3D_SHADER_MACRO>, pinclude: P1, ppcodetext: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: ::core::option::Option<*mut ::core::option::Option<super::ID3DBlob>>) -> ::windows::core::Result<()>
+pub unsafe fn D3DPreprocess<P0, P1>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: P0, pdefines: ::core::option::Option<*const super::D3D_SHADER_MACRO>, pinclude: P1, ppcodetext: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: ::core::option::Option<*mut ::core::option::Option<super::ID3DBlob>>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::ID3DInclude>>,
+    P1: ::std::convert::Into<::windows::core::InParam<super::ID3DInclude>>,
 {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DPreprocess ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , psourcename : :: windows::core::PCSTR , pdefines : *const super:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , ppcodetext : *mut * mut::core::ffi::c_void , pperrormsgs : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3DPreprocess(psrcdata, srcdatasize, psourcename.into(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), ::core::mem::transmute(ppcodetext), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
-pub unsafe fn D3DReadFileToBlob<'a, P0>(pfilename: P0) -> ::windows::core::Result<super::ID3DBlob>
+pub unsafe fn D3DReadFileToBlob<P0>(pfilename: P0) -> ::windows::core::Result<super::ID3DBlob>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -198,9 +198,9 @@ pub unsafe fn D3DStripShader(pshaderbytecode: *const ::core::ffi::c_void, byteco
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn D3DWriteBlobToFile<'a, P0, P1, P2>(pblob: P0, pfilename: P1, boverwrite: P2) -> ::windows::core::Result<()>
+pub unsafe fn D3DWriteBlobToFile<P0, P1, P2>(pblob: P0, pfilename: P1, boverwrite: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::ID3DBlob>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::ID3DBlob>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {

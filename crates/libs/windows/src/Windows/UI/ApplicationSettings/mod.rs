@@ -748,9 +748,9 @@ pub struct SettingsCommand(::windows::core::IUnknown);
 impl SettingsCommand {
     #[doc = "*Required features: `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
-    pub fn CreateSettingsCommand<'a, P0>(settingscommandid: P0, label: &::windows::core::HSTRING, handler: &super::Popups::UICommandInvokedHandler) -> ::windows::core::Result<SettingsCommand>
+    pub fn CreateSettingsCommand<P0>(settingscommandid: P0, label: &::windows::core::HSTRING, handler: &super::Popups::UICommandInvokedHandler) -> ::windows::core::Result<SettingsCommand>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         Self::ISettingsCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -806,9 +806,9 @@ impl SettingsCommand {
     }
     #[doc = "*Required features: `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
-    pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetId<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetId)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -881,7 +881,7 @@ impl ::core::convert::TryFrom<&SettingsCommand> for super::Popups::IUICommand {
     }
 }
 #[cfg(feature = "UI_Popups")]
-impl<'a> ::core::convert::TryFrom<&SettingsCommand> for ::windows::core::InParam<'a, super::Popups::IUICommand> {
+impl ::core::convert::TryFrom<&SettingsCommand> for ::windows::core::InParam<super::Popups::IUICommand> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SettingsCommand) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -487,16 +487,16 @@ impl CoreAutomationRemoteOperationContext {
             (::windows::core::Vtable::vtable(this).GetOperand)(::windows::core::Vtable::as_raw(this), id, result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetOperand<'a, P0>(&self, id: AutomationRemoteOperationOperandId, operand: P0) -> ::windows::core::Result<()>
+    pub fn SetOperand<P0>(&self, id: AutomationRemoteOperationOperandId, operand: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetOperand)(::windows::core::Vtable::as_raw(this), id, operand.into().abi()).ok() }
     }
-    pub fn SetOperand2<'a, P0>(&self, id: AutomationRemoteOperationOperandId, operand: P0, operandinterfaceid: ::windows::core::GUID) -> ::windows::core::Result<()>
+    pub fn SetOperand2<P0>(&self, id: AutomationRemoteOperationOperandId, operand: P0, operandinterfaceid: ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetOperand2)(::windows::core::Vtable::as_raw(this), id, operand.into().abi(), operandinterfaceid).ok() }
@@ -551,9 +551,9 @@ impl RemoteAutomationClientSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWindowAsync<'a, P0>(&self, remotewindowid: u64, remoteprocessid: u32, parentautomationelement: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<RemoteAutomationWindow>>
+    pub fn CreateWindowAsync<P0>(&self, remotewindowid: u64, remoteprocessid: u32, parentautomationelement: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<RemoteAutomationWindow>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {

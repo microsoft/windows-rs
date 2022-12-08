@@ -8,7 +8,7 @@ pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERF
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetInterfaceContextTableForHostName<'a, P0, P1>(hostname: P0, proxyname: P1, flags: u32, connectionprofilefilterrawdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<*mut NET_INTERFACE_CONTEXT_TABLE>
+pub unsafe fn GetInterfaceContextTableForHostName<P0, P1>(hostname: P0, proxyname: P1, flags: u32, connectionprofilefilterrawdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<*mut NET_INTERFACE_CONTEXT_TABLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -19,7 +19,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
-pub unsafe fn OnDemandGetRoutingHint<'a, P0>(destinationhostname: P0) -> ::windows::core::Result<u32>
+pub unsafe fn OnDemandGetRoutingHint<P0>(destinationhostname: P0) -> ::windows::core::Result<u32>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -38,7 +38,7 @@ pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLB
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OnDemandUnRegisterNotification<'a, P0>(registrationhandle: P0) -> ::windows::core::Result<()>
+pub unsafe fn OnDemandUnRegisterNotification<P0>(registrationhandle: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -59,7 +59,7 @@ pub unsafe fn WcmGetProfileList(preserved: ::core::option::Option<*mut ::core::f
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
-pub unsafe fn WcmQueryProperty<'a, P0>(pinterface: ::core::option::Option<*const ::windows::core::GUID>, strprofilename: P0, property: WCM_PROPERTY, preserved: ::core::option::Option<*mut ::core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: ::core::option::Option<*mut *mut u8>) -> u32
+pub unsafe fn WcmQueryProperty<P0>(pinterface: ::core::option::Option<*const ::windows::core::GUID>, strprofilename: P0, property: WCM_PROPERTY, preserved: ::core::option::Option<*mut ::core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: ::core::option::Option<*mut *mut u8>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -69,7 +69,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcmSetProfileList<'a, P0>(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: P0, preserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> u32
+pub unsafe fn WcmSetProfileList<P0>(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: P0, preserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
@@ -78,7 +78,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
-pub unsafe fn WcmSetProperty<'a, P0>(pinterface: ::core::option::Option<*const ::windows::core::GUID>, strprofilename: P0, property: WCM_PROPERTY, preserved: ::core::option::Option<*mut ::core::ffi::c_void>, pbdata: ::core::option::Option<&[u8]>) -> u32
+pub unsafe fn WcmSetProperty<P0>(pinterface: ::core::option::Option<*const ::windows::core::GUID>, strprofilename: P0, property: WCM_PROPERTY, preserved: ::core::option::Option<*mut ::core::ffi::c_void>, pbdata: ::core::option::Option<&[u8]>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {

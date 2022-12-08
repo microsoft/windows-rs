@@ -1240,9 +1240,9 @@ impl HolographicCameraRenderingParameters {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CommitDirect3D11DepthBuffer<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn CommitDirect3D11DepthBuffer<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IHolographicCameraRenderingParameters2>(self)?;
@@ -1729,7 +1729,7 @@ impl ::core::convert::TryFrom<&HolographicFramePresentationMonitor> for super::s
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&HolographicFramePresentationMonitor> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HolographicFramePresentationMonitor> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HolographicFramePresentationMonitor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1987,7 +1987,7 @@ impl ::core::convert::TryFrom<&HolographicFrameScanoutMonitor> for super::super:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HolographicFrameScanoutMonitor> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HolographicFrameScanoutMonitor> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HolographicFrameScanoutMonitor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2175,7 +2175,7 @@ impl ::core::convert::TryFrom<&HolographicQuadLayer> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HolographicQuadLayer> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HolographicQuadLayer> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HolographicQuadLayer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2290,9 +2290,9 @@ impl HolographicSpace {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn SetDirect3D11Device<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDirect3D11Device<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

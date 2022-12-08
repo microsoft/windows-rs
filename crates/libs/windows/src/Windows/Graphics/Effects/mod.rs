@@ -27,7 +27,7 @@ impl ::core::convert::TryFrom<&IGraphicsEffect> for IGraphicsEffectSource {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IGraphicsEffect> for ::windows::core::InParam<'a, IGraphicsEffectSource> {
+impl ::core::convert::TryFrom<&IGraphicsEffect> for ::windows::core::InParam<IGraphicsEffectSource> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IGraphicsEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

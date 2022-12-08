@@ -450,9 +450,9 @@ impl PushNotificationChannelManagerForUser {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync<'a, P0, E0>(&self, appserverkey: P0, channelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>
+    pub fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync<P0, E0>(&self, appserverkey: P0, channelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPushNotificationChannelManagerForUser2>(self)?;
@@ -463,9 +463,9 @@ impl PushNotificationChannelManagerForUser {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId<'a, P0, E0>(&self, appserverkey: P0, channelid: &::windows::core::HSTRING, appid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>
+    pub fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId<P0, E0>(&self, appserverkey: P0, channelid: &::windows::core::HSTRING, appid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPushNotificationChannelManagerForUser2>(self)?;

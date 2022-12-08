@@ -113,7 +113,7 @@ impl ::core::convert::TryFrom<&II2cDeviceProvider> for super::super::super::Foun
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&II2cDeviceProvider> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&II2cDeviceProvider> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &II2cDeviceProvider) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

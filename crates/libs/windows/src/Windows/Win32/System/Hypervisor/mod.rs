@@ -6,7 +6,7 @@ pub unsafe fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut ::core::ffi::c_vo
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ApplyPendingSavedStateFileReplayLog<'a, P0>(vmrsfile: P0) -> ::windows::core::Result<()>
+pub unsafe fn ApplyPendingSavedStateFileReplayLog<P0>(vmrsfile: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -22,7 +22,7 @@ pub unsafe fn CallStackUnwind(vmsavedstatedumphandle: *mut ::core::ffi::c_void, 
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindSavedStateSymbolFieldInType<'a, P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: P0, fieldname: P1, offset: *mut u32, found: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+pub unsafe fn FindSavedStateSymbolFieldInType<P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: P0, fieldname: P1, offset: *mut u32, found: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -45,7 +45,7 @@ pub unsafe fn ForceArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ForceNestedHostMode<'a, P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, hostmode: P0, oldmode: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()>
+pub unsafe fn ForceNestedHostMode<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, hostmode: P0, oldmode: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
@@ -127,7 +127,7 @@ pub unsafe fn GetRegisterValue(vmsavedstatedumphandle: *mut ::core::ffi::c_void,
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetSavedStateSymbolFieldInfo<'a, P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: P0, typefieldinfomap: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
+pub unsafe fn GetSavedStateSymbolFieldInfo<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: P0, typefieldinfomap: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -143,7 +143,7 @@ pub unsafe fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: *mut ::c
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetSavedStateSymbolTypeSize<'a, P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: P0, size: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn GetSavedStateSymbolTypeSize<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: P0, size: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -177,7 +177,7 @@ pub unsafe fn HdvCreateDeviceInstance(devicehosthandle: *const ::core::ffi::c_vo
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HdvCreateGuestMemoryAperture<'a, P0>(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, writeprotected: P0, mappedaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn HdvCreateGuestMemoryAperture<P0>(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, writeprotected: P0, mappedaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
@@ -187,7 +187,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HdvCreateSectionBackedMmioRange<'a, P0>(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: u64, lengthinpages: u64, mappingflags: HDV_MMIO_MAPPING_FLAGS, sectionhandle: P0, sectionoffsetinpages: u64) -> ::windows::core::Result<()>
+pub unsafe fn HdvCreateSectionBackedMmioRange<P0>(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: u64, lengthinpages: u64, mappingflags: HDV_MMIO_MAPPING_FLAGS, sectionhandle: P0, sectionoffsetinpages: u64) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -215,7 +215,7 @@ pub unsafe fn HdvDestroySectionBackedMmioRange(requestor: *const ::core::ffi::c_
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_System_HostComputeSystem\"`*"]
 #[cfg(feature = "Win32_System_HostComputeSystem")]
 #[inline]
-pub unsafe fn HdvInitializeDeviceHost<'a, P0>(computesystem: P0, devicehosthandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn HdvInitializeDeviceHost<P0>(computesystem: P0, devicehosthandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::HostComputeSystem::HCS_SYSTEM>,
 {
@@ -231,7 +231,7 @@ pub unsafe fn HdvReadGuestMemory(requestor: *const ::core::ffi::c_void, guestphy
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HdvRegisterDoorbell<'a, P0>(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, baroffset: u64, triggervalue: u64, flags: u64, doorbellevent: P0) -> ::windows::core::Result<()>
+pub unsafe fn HdvRegisterDoorbell<P0>(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, baroffset: u64, triggervalue: u64, flags: u64, doorbellevent: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -279,7 +279,7 @@ pub unsafe fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle: *mut ::core:
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LoadSavedStateFile<'a, P0>(vmrsfile: P0, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn LoadSavedStateFile<P0>(vmrsfile: P0, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -288,7 +288,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LoadSavedStateFiles<'a, P0, P1>(binfile: P0, vsvfile: P1, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn LoadSavedStateFiles<P0, P1>(binfile: P0, vsvfile: P1, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -298,7 +298,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LoadSavedStateModuleSymbols<'a, P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: P0, modulename: P1, baseaddress: u64, sizeofbase: u32) -> ::windows::core::Result<()>
+pub unsafe fn LoadSavedStateModuleSymbols<P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: P0, modulename: P1, baseaddress: u64, sizeofbase: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -308,7 +308,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LoadSavedStateModuleSymbolsEx<'a, P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: P0, imagetimestamp: u32, modulename: P1, baseaddress: u64, sizeofbase: u32) -> ::windows::core::Result<()>
+pub unsafe fn LoadSavedStateModuleSymbolsEx<P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: P0, imagetimestamp: u32, modulename: P1, baseaddress: u64, sizeofbase: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -319,7 +319,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadSavedStateSymbolProvider<'a, P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, usersymbols: P0, force: P1) -> ::windows::core::Result<()>
+pub unsafe fn LoadSavedStateSymbolProvider<P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, usersymbols: P0, force: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -329,7 +329,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LocateSavedStateFiles<'a, P0, P1>(vmname: P0, snapshotname: P1, binpath: *mut ::windows::core::PWSTR, vsvpath: *mut ::windows::core::PWSTR, vmrspath: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
+pub unsafe fn LocateSavedStateFiles<P0, P1>(vmname: P0, snapshotname: P1, binpath: *mut ::windows::core::PWSTR, vsvpath: *mut ::windows::core::PWSTR, vmrspath: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -351,7 +351,7 @@ pub unsafe fn ReadGuestRawSavedMemory(vmsavedstatedumphandle: *mut ::core::ffi::
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ReadSavedStateGlobalVariable<'a, P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: P0, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<()>
+pub unsafe fn ReadSavedStateGlobalVariable<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: P0, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -372,7 +372,7 @@ pub unsafe fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle: *mut ::cor
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ResolveSavedStateGlobalVariableAddress<'a, P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: P0, virtualaddress: *mut u64, size: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn ResolveSavedStateGlobalVariableAddress<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: P0, virtualaddress: *mut u64, size: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -401,7 +401,7 @@ pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandl
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvAcceptPartitionMigration<'a, P0>(migrationhandle: P0) -> ::windows::core::Result<WHV_PARTITION_HANDLE>
+pub unsafe fn WHvAcceptPartitionMigration<P0>(migrationhandle: P0) -> ::windows::core::Result<WHV_PARTITION_HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -411,7 +411,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvAdviseGpaRange<'a, P0>(partition: P0, gparanges: &[WHV_MEMORY_RANGE_ENTRY], advice: WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: *const ::core::ffi::c_void, advicebuffersizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvAdviseGpaRange<P0>(partition: P0, gparanges: &[WHV_MEMORY_RANGE_ENTRY], advice: WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: *const ::core::ffi::c_void, advicebuffersizeinbytes: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -428,7 +428,7 @@ pub unsafe fn WHvAllocateVpciResource(providerid: ::core::option::Option<*const 
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvCancelPartitionMigration<'a, P0>(partition: P0) -> ::windows::core::Result<()>
+pub unsafe fn WHvCancelPartitionMigration<P0>(partition: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -437,7 +437,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvCancelRunVirtualProcessor<'a, P0>(partition: P0, vpindex: u32, flags: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvCancelRunVirtualProcessor<P0>(partition: P0, vpindex: u32, flags: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -446,7 +446,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvCompletePartitionMigration<'a, P0>(partition: P0) -> ::windows::core::Result<()>
+pub unsafe fn WHvCompletePartitionMigration<P0>(partition: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -456,7 +456,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvCreateNotificationPort<'a, P0, P1>(partition: P0, parameters: *const WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle: P1, porthandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WHvCreateNotificationPort<P0, P1>(partition: P0, parameters: *const WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle: P1, porthandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -474,7 +474,7 @@ pub unsafe fn WHvCreatePartition() -> ::windows::core::Result<WHV_PARTITION_HAND
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvCreateTrigger<'a, P0>(partition: P0, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *mut *mut ::core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+pub unsafe fn WHvCreateTrigger<P0>(partition: P0, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *mut *mut ::core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -483,7 +483,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvCreateVirtualProcessor<'a, P0>(partition: P0, vpindex: u32, flags: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvCreateVirtualProcessor<P0>(partition: P0, vpindex: u32, flags: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -492,7 +492,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvCreateVirtualProcessor2<'a, P0>(partition: P0, vpindex: u32, properties: &[WHV_VIRTUAL_PROCESSOR_PROPERTY]) -> ::windows::core::Result<()>
+pub unsafe fn WHvCreateVirtualProcessor2<P0>(partition: P0, vpindex: u32, properties: &[WHV_VIRTUAL_PROCESSOR_PROPERTY]) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -502,7 +502,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvCreateVpciDevice<'a, P0, P1, P2>(partition: P0, logicaldeviceid: u64, vpciresource: P1, flags: WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle: P2) -> ::windows::core::Result<()>
+pub unsafe fn WHvCreateVpciDevice<P0, P1, P2>(partition: P0, logicaldeviceid: u64, vpciresource: P1, flags: WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -513,7 +513,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvDeleteNotificationPort<'a, P0>(partition: P0, porthandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WHvDeleteNotificationPort<P0>(partition: P0, porthandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -522,7 +522,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvDeletePartition<'a, P0>(partition: P0) -> ::windows::core::Result<()>
+pub unsafe fn WHvDeletePartition<P0>(partition: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -531,7 +531,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvDeleteTrigger<'a, P0>(partition: P0, triggerhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WHvDeleteTrigger<P0>(partition: P0, triggerhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -540,7 +540,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvDeleteVirtualProcessor<'a, P0>(partition: P0, vpindex: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvDeleteVirtualProcessor<P0>(partition: P0, vpindex: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -549,7 +549,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvDeleteVpciDevice<'a, P0>(partition: P0, logicaldeviceid: u64) -> ::windows::core::Result<()>
+pub unsafe fn WHvDeleteVpciDevice<P0>(partition: P0, logicaldeviceid: u64) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -590,7 +590,7 @@ pub unsafe fn WHvGetCapability(capabilitycode: WHV_CAPABILITY_CODE, capabilitybu
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetInterruptTargetVpSet<'a, P0>(partition: P0, destination: u64, destinationmode: WHV_INTERRUPT_DESTINATION_MODE, targetvps: &mut [u32], targetvpcount: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetInterruptTargetVpSet<P0>(partition: P0, destination: u64, destinationmode: WHV_INTERRUPT_DESTINATION_MODE, targetvps: &mut [u32], targetvpcount: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -599,7 +599,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetPartitionCounters<'a, P0>(partition: P0, counterset: WHV_PARTITION_COUNTER_SET, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetPartitionCounters<P0>(partition: P0, counterset: WHV_PARTITION_COUNTER_SET, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -608,7 +608,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetPartitionProperty<'a, P0>(partition: P0, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *mut ::core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetPartitionProperty<P0>(partition: P0, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *mut ::core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -617,7 +617,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorCounters<'a, P0>(partition: P0, vpindex: u32, counterset: WHV_PROCESSOR_COUNTER_SET, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVirtualProcessorCounters<P0>(partition: P0, vpindex: u32, counterset: WHV_PROCESSOR_COUNTER_SET, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -626,7 +626,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorCpuidOutput<'a, P0>(partition: P0, vpindex: u32, eax: u32, ecx: u32) -> ::windows::core::Result<WHV_CPUID_OUTPUT>
+pub unsafe fn WHvGetVirtualProcessorCpuidOutput<P0>(partition: P0, vpindex: u32, eax: u32, ecx: u32) -> ::windows::core::Result<WHV_CPUID_OUTPUT>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -636,7 +636,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorInterruptControllerState<'a, P0>(partition: P0, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVirtualProcessorInterruptControllerState<P0>(partition: P0, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -645,7 +645,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2<'a, P0>(partition: P0, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2<P0>(partition: P0, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -654,7 +654,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorRegisters<'a, P0>(partition: P0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVirtualProcessorRegisters<P0>(partition: P0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -663,7 +663,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorState<'a, P0>(partition: P0, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVirtualProcessorState<P0>(partition: P0, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -672,7 +672,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorXsaveState<'a, P0>(partition: P0, vpindex: u32, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVirtualProcessorXsaveState<P0>(partition: P0, vpindex: u32, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -681,7 +681,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVpciDeviceInterruptTarget<'a, P0>(partition: P0, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVpciDeviceInterruptTarget<P0>(partition: P0, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -690,7 +690,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVpciDeviceNotification<'a, P0>(partition: P0, logicaldeviceid: u64, notification: *mut WHV_VPCI_DEVICE_NOTIFICATION, notificationsizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVpciDeviceNotification<P0>(partition: P0, logicaldeviceid: u64, notification: *mut WHV_VPCI_DEVICE_NOTIFICATION, notificationsizeinbytes: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -699,7 +699,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVpciDeviceProperty<'a, P0>(partition: P0, logicaldeviceid: u64, propertycode: WHV_VPCI_DEVICE_PROPERTY_CODE, propertybuffer: *mut ::core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVpciDeviceProperty<P0>(partition: P0, logicaldeviceid: u64, propertycode: WHV_VPCI_DEVICE_PROPERTY_CODE, propertybuffer: *mut ::core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -708,7 +708,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvMapGpaRange<'a, P0>(partition: P0, sourceaddress: *const ::core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::core::Result<()>
+pub unsafe fn WHvMapGpaRange<P0>(partition: P0, sourceaddress: *const ::core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -718,7 +718,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvMapGpaRange2<'a, P0, P1>(partition: P0, process: P1, sourceaddress: *const ::core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::core::Result<()>
+pub unsafe fn WHvMapGpaRange2<P0, P1>(partition: P0, process: P1, sourceaddress: *const ::core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -728,7 +728,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvMapVpciDeviceInterrupt<'a, P0>(partition: P0, logicaldeviceid: u64, index: u32, messagecount: u32, target: *const WHV_VPCI_INTERRUPT_TARGET, msiaddress: *mut u64, msidata: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvMapVpciDeviceInterrupt<P0>(partition: P0, logicaldeviceid: u64, index: u32, messagecount: u32, target: *const WHV_VPCI_INTERRUPT_TARGET, msiaddress: *mut u64, msidata: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -737,7 +737,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvMapVpciDeviceMmioRanges<'a, P0>(partition: P0, logicaldeviceid: u64, mappingcount: *mut u32, mappings: *mut *mut WHV_VPCI_MMIO_MAPPING) -> ::windows::core::Result<()>
+pub unsafe fn WHvMapVpciDeviceMmioRanges<P0>(partition: P0, logicaldeviceid: u64, mappingcount: *mut u32, mappings: *mut *mut WHV_VPCI_MMIO_MAPPING) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -746,7 +746,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvPostVirtualProcessorSynicMessage<'a, P0>(partition: P0, vpindex: u32, sintindex: u32, message: *const ::core::ffi::c_void, messagesizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvPostVirtualProcessorSynicMessage<P0>(partition: P0, vpindex: u32, sintindex: u32, message: *const ::core::ffi::c_void, messagesizeinbytes: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -755,7 +755,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvQueryGpaRangeDirtyBitmap<'a, P0>(partition: P0, guestaddress: u64, rangesizeinbytes: u64, bitmap: ::core::option::Option<*mut u64>, bitmapsizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvQueryGpaRangeDirtyBitmap<P0>(partition: P0, guestaddress: u64, rangesizeinbytes: u64, bitmap: ::core::option::Option<*mut u64>, bitmapsizeinbytes: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -764,7 +764,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvReadGpaRange<'a, P0>(partition: P0, vpindex: u32, guestaddress: u64, controls: WHV_ACCESS_GPA_CONTROLS, data: *mut ::core::ffi::c_void, datasizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvReadGpaRange<P0>(partition: P0, vpindex: u32, guestaddress: u64, controls: WHV_ACCESS_GPA_CONTROLS, data: *mut ::core::ffi::c_void, datasizeinbytes: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -773,7 +773,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvReadVpciDeviceRegister<'a, P0>(partition: P0, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WHvReadVpciDeviceRegister<P0>(partition: P0, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -783,7 +783,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvRegisterPartitionDoorbellEvent<'a, P0, P1>(partition: P0, matchdata: *const WHV_DOORBELL_MATCH_DATA, eventhandle: P1) -> ::windows::core::Result<()>
+pub unsafe fn WHvRegisterPartitionDoorbellEvent<P0, P1>(partition: P0, matchdata: *const WHV_DOORBELL_MATCH_DATA, eventhandle: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -793,7 +793,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvRequestInterrupt<'a, P0>(partition: P0, interrupt: *const WHV_INTERRUPT_CONTROL, interruptcontrolsize: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvRequestInterrupt<P0>(partition: P0, interrupt: *const WHV_INTERRUPT_CONTROL, interruptcontrolsize: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -802,7 +802,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvRequestVpciDeviceInterrupt<'a, P0>(partition: P0, logicaldeviceid: u64, msiaddress: u64, msidata: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvRequestVpciDeviceInterrupt<P0>(partition: P0, logicaldeviceid: u64, msiaddress: u64, msidata: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -811,7 +811,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvResetPartition<'a, P0>(partition: P0) -> ::windows::core::Result<()>
+pub unsafe fn WHvResetPartition<P0>(partition: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -820,7 +820,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvResumePartitionTime<'a, P0>(partition: P0) -> ::windows::core::Result<()>
+pub unsafe fn WHvResumePartitionTime<P0>(partition: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -829,7 +829,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvRetargetVpciDeviceInterrupt<'a, P0>(partition: P0, logicaldeviceid: u64, msiaddress: u64, msidata: u32, target: *const WHV_VPCI_INTERRUPT_TARGET) -> ::windows::core::Result<()>
+pub unsafe fn WHvRetargetVpciDeviceInterrupt<P0>(partition: P0, logicaldeviceid: u64, msiaddress: u64, msidata: u32, target: *const WHV_VPCI_INTERRUPT_TARGET) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -838,7 +838,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvRunVirtualProcessor<'a, P0>(partition: P0, vpindex: u32, exitcontext: *mut ::core::ffi::c_void, exitcontextsizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvRunVirtualProcessor<P0>(partition: P0, vpindex: u32, exitcontext: *mut ::core::ffi::c_void, exitcontextsizeinbytes: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -847,7 +847,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetNotificationPortProperty<'a, P0>(partition: P0, porthandle: *const ::core::ffi::c_void, propertycode: WHV_NOTIFICATION_PORT_PROPERTY_CODE, propertyvalue: u64) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetNotificationPortProperty<P0>(partition: P0, porthandle: *const ::core::ffi::c_void, propertycode: WHV_NOTIFICATION_PORT_PROPERTY_CODE, propertyvalue: u64) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -856,7 +856,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetPartitionProperty<'a, P0>(partition: P0, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *const ::core::ffi::c_void, propertybuffersizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetPartitionProperty<P0>(partition: P0, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *const ::core::ffi::c_void, propertybuffersizeinbytes: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -865,7 +865,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetVirtualProcessorInterruptControllerState<'a, P0>(partition: P0, vpindex: u32, state: *const ::core::ffi::c_void, statesize: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetVirtualProcessorInterruptControllerState<P0>(partition: P0, vpindex: u32, state: *const ::core::ffi::c_void, statesize: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -874,7 +874,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetVirtualProcessorInterruptControllerState2<'a, P0>(partition: P0, vpindex: u32, state: *const ::core::ffi::c_void, statesize: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetVirtualProcessorInterruptControllerState2<P0>(partition: P0, vpindex: u32, state: *const ::core::ffi::c_void, statesize: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -883,7 +883,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetVirtualProcessorRegisters<'a, P0>(partition: P0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetVirtualProcessorRegisters<P0>(partition: P0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -892,7 +892,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetVirtualProcessorState<'a, P0>(partition: P0, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *const ::core::ffi::c_void, buffersizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetVirtualProcessorState<P0>(partition: P0, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *const ::core::ffi::c_void, buffersizeinbytes: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -901,7 +901,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetVirtualProcessorXsaveState<'a, P0>(partition: P0, vpindex: u32, buffer: *const ::core::ffi::c_void, buffersizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetVirtualProcessorXsaveState<P0>(partition: P0, vpindex: u32, buffer: *const ::core::ffi::c_void, buffersizeinbytes: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -911,7 +911,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_System_Power\"`*"]
 #[cfg(feature = "Win32_System_Power")]
 #[inline]
-pub unsafe fn WHvSetVpciDevicePowerState<'a, P0>(partition: P0, logicaldeviceid: u64, powerstate: super::Power::DEVICE_POWER_STATE) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetVpciDevicePowerState<P0>(partition: P0, logicaldeviceid: u64, powerstate: super::Power::DEVICE_POWER_STATE) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -920,7 +920,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetupPartition<'a, P0>(partition: P0) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetupPartition<P0>(partition: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -930,7 +930,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvSignalVirtualProcessorSynicEvent<'a, P0>(partition: P0, synicevent: WHV_SYNIC_EVENT_PARAMETERS) -> ::windows::core::Result<super::super::Foundation::BOOL>
+pub unsafe fn WHvSignalVirtualProcessorSynicEvent<P0>(partition: P0, synicevent: WHV_SYNIC_EVENT_PARAMETERS) -> ::windows::core::Result<super::super::Foundation::BOOL>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -941,7 +941,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvStartPartitionMigration<'a, P0>(partition: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WHvStartPartitionMigration<P0>(partition: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -951,7 +951,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSuspendPartitionTime<'a, P0>(partition: P0) -> ::windows::core::Result<()>
+pub unsafe fn WHvSuspendPartitionTime<P0>(partition: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -960,7 +960,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvTranslateGva<'a, P0>(partition: P0, vpindex: u32, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT, gpa: *mut u64) -> ::windows::core::Result<()>
+pub unsafe fn WHvTranslateGva<P0>(partition: P0, vpindex: u32, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT, gpa: *mut u64) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -969,7 +969,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvUnmapGpaRange<'a, P0>(partition: P0, guestaddress: u64, sizeinbytes: u64) -> ::windows::core::Result<()>
+pub unsafe fn WHvUnmapGpaRange<P0>(partition: P0, guestaddress: u64, sizeinbytes: u64) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -978,7 +978,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvUnmapVpciDeviceInterrupt<'a, P0>(partition: P0, logicaldeviceid: u64, index: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvUnmapVpciDeviceInterrupt<P0>(partition: P0, logicaldeviceid: u64, index: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -987,7 +987,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvUnmapVpciDeviceMmioRanges<'a, P0>(partition: P0, logicaldeviceid: u64) -> ::windows::core::Result<()>
+pub unsafe fn WHvUnmapVpciDeviceMmioRanges<P0>(partition: P0, logicaldeviceid: u64) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -996,7 +996,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvUnregisterPartitionDoorbellEvent<'a, P0>(partition: P0, matchdata: *const WHV_DOORBELL_MATCH_DATA) -> ::windows::core::Result<()>
+pub unsafe fn WHvUnregisterPartitionDoorbellEvent<P0>(partition: P0, matchdata: *const WHV_DOORBELL_MATCH_DATA) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -1005,7 +1005,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvUpdateTriggerParameters<'a, P0>(partition: P0, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WHvUpdateTriggerParameters<P0>(partition: P0, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -1014,7 +1014,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvWriteGpaRange<'a, P0>(partition: P0, vpindex: u32, guestaddress: u64, controls: WHV_ACCESS_GPA_CONTROLS, data: *const ::core::ffi::c_void, datasizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvWriteGpaRange<P0>(partition: P0, vpindex: u32, guestaddress: u64, controls: WHV_ACCESS_GPA_CONTROLS, data: *const ::core::ffi::c_void, datasizeinbytes: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -1023,7 +1023,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvWriteVpciDeviceRegister<'a, P0>(partition: P0, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WHvWriteVpciDeviceRegister<P0>(partition: P0, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {

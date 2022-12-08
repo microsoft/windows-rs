@@ -1155,7 +1155,7 @@ impl ::core::convert::TryFrom<&PrintWorkflowJobActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&PrintWorkflowJobActivatedEventArgs> for ::windows::core::InParam<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&PrintWorkflowJobActivatedEventArgs> for ::windows::core::InParam<super::super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintWorkflowJobActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1177,7 +1177,7 @@ impl ::core::convert::TryFrom<&PrintWorkflowJobActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&PrintWorkflowJobActivatedEventArgs> for ::windows::core::InParam<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&PrintWorkflowJobActivatedEventArgs> for ::windows::core::InParam<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintWorkflowJobActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1533,9 +1533,9 @@ pub struct PrintWorkflowObjectModelSourceFileContent(::windows::core::IUnknown);
 impl PrintWorkflowObjectModelSourceFileContent {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateInstance<'a, P0, E0>(xpsstream: P0) -> ::windows::core::Result<PrintWorkflowObjectModelSourceFileContent>
+    pub fn CreateInstance<P0, E0>(xpsstream: P0) -> ::windows::core::Result<PrintWorkflowObjectModelSourceFileContent>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPrintWorkflowObjectModelSourceFileContentFactory(|this| unsafe {
@@ -1629,11 +1629,11 @@ pub struct PrintWorkflowPdlConverter(::windows::core::IUnknown);
 impl PrintWorkflowPdlConverter {
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Printing_PrintTicket\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
-    pub fn ConvertPdlAsync<'a, P0, E0, P1, E1>(&self, printticket: &super::PrintTicket::WorkflowPrintTicket, inputstream: P0, outputstream: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ConvertPdlAsync<P0, E0, P1, E1>(&self, printticket: &super::PrintTicket::WorkflowPrintTicket, inputstream: P0, outputstream: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IOutputStream>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IOutputStream>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1644,11 +1644,11 @@ impl PrintWorkflowPdlConverter {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Printing_PrintTicket\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
-    pub fn ConvertPdlAsync2<'a, P0, E0, P1, E1>(&self, printticket: &super::PrintTicket::WorkflowPrintTicket, inputstream: P0, outputstream: P1, hostbasedprocessingoperations: PdlConversionHostBasedProcessingOperations) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ConvertPdlAsync2<P0, E0, P1, E1>(&self, printticket: &super::PrintTicket::WorkflowPrintTicket, inputstream: P0, outputstream: P1, hostbasedprocessingoperations: PdlConversionHostBasedProcessingOperations) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IOutputStream>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IOutputStream>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPrintWorkflowPdlConverter2>(self)?;
@@ -1804,9 +1804,9 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
     }
     #[doc = "*Required features: `\"Devices_Printers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
-    pub fn CreateJobOnPrinterWithAttributes<'a, P0, E0>(&self, jobattributes: P0, targetcontenttype: &::windows::core::HSTRING) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>
+    pub fn CreateJobOnPrinterWithAttributes<P0, E0>(&self, jobattributes: P0, targetcontenttype: &::windows::core::HSTRING) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1817,9 +1817,9 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateJobOnPrinterWithAttributesBuffer<'a, P0, E0>(&self, jobattributesbuffer: P0, targetcontenttype: &::windows::core::HSTRING) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>
+    pub fn CreateJobOnPrinterWithAttributesBuffer<P0, E0>(&self, jobattributesbuffer: P0, targetcontenttype: &::windows::core::HSTRING) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1846,11 +1846,11 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
     }
     #[doc = "*Required features: `\"Devices_Printers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
-    pub fn CreateJobOnPrinterWithAttributes2<'a, P0, E0, P1, E1>(&self, jobattributes: P0, targetcontenttype: &::windows::core::HSTRING, operationattributes: P1, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>
+    pub fn CreateJobOnPrinterWithAttributes2<P0, E0, P1, E1>(&self, jobattributes: P0, targetcontenttype: &::windows::core::HSTRING, operationattributes: P1, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPrintWorkflowPdlModificationRequestedEventArgs2>(self)?;
@@ -1861,11 +1861,11 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateJobOnPrinterWithAttributesBuffer2<'a, P0, E0, P1, E1>(&self, jobattributesbuffer: P0, targetcontenttype: &::windows::core::HSTRING, operationattributesbuffer: P1, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>
+    pub fn CreateJobOnPrinterWithAttributesBuffer2<P0, E0, P1, E1>(&self, jobattributesbuffer: P0, targetcontenttype: &::windows::core::HSTRING, operationattributesbuffer: P1, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPrintWorkflowPdlModificationRequestedEventArgs2>(self)?;
@@ -2066,9 +2066,9 @@ impl PrintWorkflowPrinterJob {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn GetJobAttributesAsBuffer<'a, P0, E0>(&self, attributenames: P0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn GetJobAttributesAsBuffer<P0, E0>(&self, attributenames: P0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2079,9 +2079,9 @@ impl PrintWorkflowPrinterJob {
     }
     #[doc = "*Required features: `\"Devices_Printers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
-    pub fn GetJobAttributes<'a, P0, E0>(&self, attributenames: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
+    pub fn GetJobAttributes<P0, E0>(&self, attributenames: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2092,9 +2092,9 @@ impl PrintWorkflowPrinterJob {
     }
     #[doc = "*Required features: `\"Devices_Printers\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Devices_Printers", feature = "Storage_Streams"))]
-    pub fn SetJobAttributesFromBuffer<'a, P0, E0>(&self, jobattributesbuffer: P0) -> ::windows::core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
+    pub fn SetJobAttributesFromBuffer<P0, E0>(&self, jobattributesbuffer: P0) -> ::windows::core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2105,9 +2105,9 @@ impl PrintWorkflowPrinterJob {
     }
     #[doc = "*Required features: `\"Devices_Printers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
-    pub fn SetJobAttributes<'a, P0, E0>(&self, jobattributes: P0) -> ::windows::core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
+    pub fn SetJobAttributes<P0, E0>(&self, jobattributes: P0) -> ::windows::core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2633,7 +2633,7 @@ impl ::core::convert::TryFrom<&PrintWorkflowUIActivatedEventArgs> for super::sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&PrintWorkflowUIActivatedEventArgs> for ::windows::core::InParam<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&PrintWorkflowUIActivatedEventArgs> for ::windows::core::InParam<super::super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintWorkflowUIActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2655,7 +2655,7 @@ impl ::core::convert::TryFrom<&PrintWorkflowUIActivatedEventArgs> for super::sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&PrintWorkflowUIActivatedEventArgs> for ::windows::core::InParam<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&PrintWorkflowUIActivatedEventArgs> for ::windows::core::InParam<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintWorkflowUIActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

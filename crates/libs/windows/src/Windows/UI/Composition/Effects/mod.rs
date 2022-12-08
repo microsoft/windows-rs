@@ -103,9 +103,9 @@ impl SceneLightingEffect {
     }
     #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
-    pub fn SetNormalMapSource<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetNormalMapSource<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Graphics::Effects::IGraphicsEffectSource>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Graphics::Effects::IGraphicsEffectSource>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -193,7 +193,7 @@ impl ::core::convert::TryFrom<&SceneLightingEffect> for super::super::super::Gra
     }
 }
 #[cfg(feature = "Graphics_Effects")]
-impl<'a> ::core::convert::TryFrom<&SceneLightingEffect> for ::windows::core::InParam<'a, super::super::super::Graphics::Effects::IGraphicsEffect> {
+impl ::core::convert::TryFrom<&SceneLightingEffect> for ::windows::core::InParam<super::super::super::Graphics::Effects::IGraphicsEffect> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneLightingEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -215,7 +215,7 @@ impl ::core::convert::TryFrom<&SceneLightingEffect> for super::super::super::Gra
     }
 }
 #[cfg(feature = "Graphics_Effects")]
-impl<'a> ::core::convert::TryFrom<&SceneLightingEffect> for ::windows::core::InParam<'a, super::super::super::Graphics::Effects::IGraphicsEffectSource> {
+impl ::core::convert::TryFrom<&SceneLightingEffect> for ::windows::core::InParam<super::super::super::Graphics::Effects::IGraphicsEffectSource> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneLightingEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -4,7 +4,7 @@ pub struct ICompositionCapabilitiesInteropFactory(::windows::core::IUnknown);
 impl ICompositionCapabilitiesInteropFactory {
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
-    pub unsafe fn GetForWindow<'a, P0>(&self, hwnd: P0) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionCapabilities>
+    pub unsafe fn GetForWindow<P0>(&self, hwnd: P0) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionCapabilities>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
@@ -154,9 +154,9 @@ impl ICompositionDrawingSurfaceInterop2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopySurface<'a, P0>(&self, destinationresource: P0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: ::core::option::Option<*const super::super::super::Foundation::RECT>) -> ::windows::core::Result<()>
+    pub unsafe fn CopySurface<P0>(&self, destinationresource: P0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: ::core::option::Option<*const super::super::super::Foundation::RECT>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).CopySurface)(::windows::core::Vtable::as_raw(self), destinationresource.into().abi(), destinationoffsetx, destinationoffsety, ::core::mem::transmute(sourcerectangle.unwrap_or(::std::ptr::null()))).ok()
     }
@@ -201,9 +201,9 @@ impl ICompositionGraphicsDeviceInterop {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetRenderingDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetRenderingDevice<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRenderingDevice<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetRenderingDevice)(::windows::core::Vtable::as_raw(self), value.into().abi()).ok()
     }
@@ -244,7 +244,7 @@ pub struct ICompositorDesktopInterop(::windows::core::IUnknown);
 impl ICompositorDesktopInterop {
     #[doc = "*Required features: `\"UI_Composition_Desktop\"`, `\"Win32_Foundation\"`*"]
     #[cfg(all(feature = "UI_Composition_Desktop", feature = "Win32_Foundation"))]
-    pub unsafe fn CreateDesktopWindowTarget<'a, P0, P1>(&self, hwndtarget: P0, istopmost: P1) -> ::windows::core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>
+    pub unsafe fn CreateDesktopWindowTarget<P0, P1>(&self, hwndtarget: P0, istopmost: P1) -> ::windows::core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
@@ -295,7 +295,7 @@ pub struct ICompositorInterop(::windows::core::IUnknown);
 impl ICompositorInterop {
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
-    pub unsafe fn CreateCompositionSurfaceForHandle<'a, P0>(&self, swapchain: P0) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface>
+    pub unsafe fn CreateCompositionSurfaceForHandle<P0>(&self, swapchain: P0) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
@@ -304,18 +304,18 @@ impl ICompositorInterop {
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
-    pub unsafe fn CreateCompositionSurfaceForSwapChain<'a, P0>(&self, swapchain: P0) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface>
+    pub unsafe fn CreateCompositionSurfaceForSwapChain<P0>(&self, swapchain: P0) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateCompositionSurfaceForSwapChain)(::windows::core::Vtable::as_raw(self), swapchain.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
-    pub unsafe fn CreateGraphicsDevice<'a, P0>(&self, renderingdevice: P0) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>
+    pub unsafe fn CreateGraphicsDevice<P0>(&self, renderingdevice: P0) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateGraphicsDevice)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -408,9 +408,9 @@ pub struct IDesktopWindowTargetInterop_Vtbl {
 #[repr(transparent)]
 pub struct ISwapChainInterop(::windows::core::IUnknown);
 impl ISwapChainInterop {
-    pub unsafe fn SetSwapChain<'a, P0>(&self, swapchain: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSwapChain<P0>(&self, swapchain: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetSwapChain)(::windows::core::Vtable::as_raw(self), swapchain.into().abi()).ok()
     }

@@ -46,7 +46,7 @@ pub struct IRdcComparator(::windows::core::IUnknown);
 impl IRdcComparator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Process<'a, P0>(&self, endofinput: P0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows::core::Result<()>
+    pub unsafe fn Process<P0>(&self, endofinput: P0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -206,7 +206,7 @@ impl IRdcGenerator {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Process<'a, P0>(&self, endofinput: P0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffers: &mut [*mut RdcBufferPointer], rdc_errorcode: *mut RDC_ErrorCode) -> ::windows::core::Result<()>
+    pub unsafe fn Process<P0>(&self, endofinput: P0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffers: &mut [*mut RdcBufferPointer], rdc_errorcode: *mut RDC_ErrorCode) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -368,16 +368,16 @@ impl IRdcLibrary {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateGenerator)(::windows::core::Vtable::as_raw(self), igeneratorparametersarray.len() as _, ::core::mem::transmute(igeneratorparametersarray.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateComparator<'a, P0>(&self, iseedsignaturesfile: P0, comparatorbuffersize: u32) -> ::windows::core::Result<IRdcComparator>
+    pub unsafe fn CreateComparator<P0>(&self, iseedsignaturesfile: P0, comparatorbuffersize: u32) -> ::windows::core::Result<IRdcComparator>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRdcFileReader>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRdcFileReader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateComparator)(::windows::core::Vtable::as_raw(self), iseedsignaturesfile.into().abi(), comparatorbuffersize, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateSignatureReader<'a, P0>(&self, ifilereader: P0) -> ::windows::core::Result<IRdcSignatureReader>
+    pub unsafe fn CreateSignatureReader<P0>(&self, ifilereader: P0) -> ::windows::core::Result<IRdcSignatureReader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRdcFileReader>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRdcFileReader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateSignatureReader)(::windows::core::Vtable::as_raw(self), ifilereader.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -516,7 +516,7 @@ pub struct ISimilarity(::windows::core::IUnknown);
 impl ISimilarity {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTable<'a, P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>
+    pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -526,10 +526,10 @@ impl ISimilarity {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTableIndirect<'a, P0, P1, P2>(&self, mapping: P0, fileidfile: P1, truncate: P2, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>
+    pub unsafe fn CreateTableIndirect<P0, P1, P2>(&self, mapping: P0, fileidfile: P1, truncate: P2, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISimilarityTraitsMapping>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IRdcFileWriter>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISimilarityTraitsMapping>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IRdcFileWriter>>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -537,7 +537,7 @@ impl ISimilarity {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CloseTable<'a, P0>(&self, isvalid: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CloseTable<P0>(&self, isvalid: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -550,10 +550,10 @@ impl ISimilarity {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).FindSimilarFileId)(::windows::core::Vtable::as_raw(self), similaritydata, numberofmatchesrequired, resultssize, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CopyAndSwap<'a, P0, P1>(&self, newsimilaritytables: P0, reportprogress: P1) -> ::windows::core::Result<()>
+    pub unsafe fn CopyAndSwap<P0, P1>(&self, newsimilaritytables: P0, reportprogress: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISimilarity>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ISimilarityReportProgress>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISimilarity>>,
+        P1: ::std::convert::Into<::windows::core::InParam<ISimilarityReportProgress>>,
     {
         (::windows::core::Vtable::vtable(self).CopyAndSwap)(::windows::core::Vtable::as_raw(self), newsimilaritytables.into().abi(), reportprogress.into().abi()).ok()
     }
@@ -612,7 +612,7 @@ pub struct ISimilarityFileIdTable(::windows::core::IUnknown);
 impl ISimilarityFileIdTable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTable<'a, P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>
+    pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -622,9 +622,9 @@ impl ISimilarityFileIdTable {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTableIndirect<'a, P0, P1>(&self, fileidfile: P0, truncate: P1, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>
+    pub unsafe fn CreateTableIndirect<P0, P1>(&self, fileidfile: P0, truncate: P1, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRdcFileWriter>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRdcFileWriter>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -632,7 +632,7 @@ impl ISimilarityFileIdTable {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CloseTable<'a, P0>(&self, isvalid: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CloseTable<P0>(&self, isvalid: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -789,7 +789,7 @@ impl ISimilarityTraitsMappedView {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Get<'a, P0>(&self, index: u64, dirty: P0, numelements: u32) -> ::windows::core::Result<SimilarityMappedViewInfo>
+    pub unsafe fn Get<P0>(&self, index: u64, dirty: P0, numelements: u32) -> ::windows::core::Result<SimilarityMappedViewInfo>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -906,7 +906,7 @@ pub struct ISimilarityTraitsTable(::windows::core::IUnknown);
 impl ISimilarityTraitsTable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTable<'a, P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8) -> ::windows::core::Result<RdcCreatedTables>
+    pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8) -> ::windows::core::Result<RdcCreatedTables>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -916,9 +916,9 @@ impl ISimilarityTraitsTable {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTableIndirect<'a, P0, P1>(&self, mapping: P0, truncate: P1) -> ::windows::core::Result<RdcCreatedTables>
+    pub unsafe fn CreateTableIndirect<P0, P1>(&self, mapping: P0, truncate: P1) -> ::windows::core::Result<RdcCreatedTables>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISimilarityTraitsMapping>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISimilarityTraitsMapping>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -926,7 +926,7 @@ impl ISimilarityTraitsTable {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CloseTable<'a, P0>(&self, isvalid: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CloseTable<P0>(&self, isvalid: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {

@@ -7,7 +7,7 @@ pub unsafe fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTU
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
-pub unsafe fn AddPackageDependency<'a, P0>(packagedependencyid: P0, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut *mut PACKAGEDEPENDENCY_CONTEXT__, packagefullname: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
+pub unsafe fn AddPackageDependency<P0>(packagedependencyid: P0, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut *mut PACKAGEDEPENDENCY_CONTEXT__, packagefullname: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -17,7 +17,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetClrCompat<'a, P0>(processtoken: P0, policy: *mut AppPolicyClrCompat) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn AppPolicyGetClrCompat<P0>(processtoken: P0, policy: *mut AppPolicyClrCompat) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -27,7 +27,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetCreateFileAccess<'a, P0>(processtoken: P0, policy: *mut AppPolicyCreateFileAccess) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn AppPolicyGetCreateFileAccess<P0>(processtoken: P0, policy: *mut AppPolicyCreateFileAccess) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -37,7 +37,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetLifecycleManagement<'a, P0>(processtoken: P0, policy: *mut AppPolicyLifecycleManagement) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn AppPolicyGetLifecycleManagement<P0>(processtoken: P0, policy: *mut AppPolicyLifecycleManagement) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -47,7 +47,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetMediaFoundationCodecLoading<'a, P0>(processtoken: P0, policy: *mut AppPolicyMediaFoundationCodecLoading) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn AppPolicyGetMediaFoundationCodecLoading<P0>(processtoken: P0, policy: *mut AppPolicyMediaFoundationCodecLoading) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -57,7 +57,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetProcessTerminationMethod<'a, P0>(processtoken: P0, policy: *mut AppPolicyProcessTerminationMethod) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn AppPolicyGetProcessTerminationMethod<P0>(processtoken: P0, policy: *mut AppPolicyProcessTerminationMethod) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -67,7 +67,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetShowDeveloperDiagnostic<'a, P0>(processtoken: P0, policy: *mut AppPolicyShowDeveloperDiagnostic) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn AppPolicyGetShowDeveloperDiagnostic<P0>(processtoken: P0, policy: *mut AppPolicyShowDeveloperDiagnostic) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -77,7 +77,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetThreadInitializationType<'a, P0>(processtoken: P0, policy: *mut AppPolicyThreadInitializationType) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn AppPolicyGetThreadInitializationType<P0>(processtoken: P0, policy: *mut AppPolicyThreadInitializationType) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -87,7 +87,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetWindowingModel<'a, P0>(processtoken: P0, policy: *mut AppPolicyWindowingModel) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn AppPolicyGetWindowingModel<P0>(processtoken: P0, policy: *mut AppPolicyWindowingModel) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -97,7 +97,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckIsMSIXPackage<'a, P0>(packagefullname: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
+pub unsafe fn CheckIsMSIXPackage<P0>(packagefullname: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -114,7 +114,7 @@ pub unsafe fn ClosePackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERE
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
-pub unsafe fn CreatePackageVirtualizationContext<'a, P0>(packagefamilyname: P0) -> ::windows::core::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>
+pub unsafe fn CreatePackageVirtualizationContext<P0>(packagefamilyname: P0) -> ::windows::core::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -130,7 +130,7 @@ pub unsafe fn DeactivatePackageVirtualizationContext(cookie: usize) {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
-pub unsafe fn DeletePackageDependency<'a, P0>(packagedependencyid: P0) -> ::windows::core::Result<()>
+pub unsafe fn DeletePackageDependency<P0>(packagedependencyid: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -147,7 +147,7 @@ pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAG
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindPackagesByPackageFamily<'a, P0>(packagefamilyname: P0, packagefilters: u32, count: *mut u32, packagefullnames: ::core::option::Option<*mut ::windows::core::PWSTR>, bufferlength: *mut u32, buffer: ::windows::core::PWSTR, packageproperties: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn FindPackagesByPackageFamily<P0>(packagefamilyname: P0, packagefilters: u32, count: *mut u32, packagefullnames: ::core::option::Option<*mut ::windows::core::PWSTR>, bufferlength: *mut u32, buffer: ::windows::core::PWSTR, packageproperties: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -157,7 +157,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FormatApplicationUserModelId<'a, P0, P1>(packagefamilyname: P0, packagerelativeapplicationid: P1, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn FormatApplicationUserModelId<P0, P1>(packagefamilyname: P0, packagerelativeapplicationid: P1, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -168,7 +168,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetApplicationUserModelId<'a, P0>(hprocess: P0, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetApplicationUserModelId<P0>(hprocess: P0, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -178,7 +178,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetApplicationUserModelIdFromToken<'a, P0>(token: P0, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetApplicationUserModelIdFromToken<P0>(token: P0, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -264,7 +264,7 @@ pub unsafe fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INF
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackageFamilyName<'a, P0>(hprocess: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetPackageFamilyName<P0>(hprocess: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -274,7 +274,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackageFamilyNameFromToken<'a, P0>(token: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetPackageFamilyNameFromToken<P0>(token: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -284,7 +284,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackageFullName<'a, P0>(hprocess: P0, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetPackageFullName<P0>(hprocess: P0, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -294,7 +294,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackageFullNameFromToken<'a, P0>(token: P0, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetPackageFullNameFromToken<P0>(token: P0, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -304,7 +304,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackageId<'a, P0>(hprocess: P0, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetPackageId<P0>(hprocess: P0, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -335,7 +335,7 @@ pub unsafe fn GetPackagePath(packageid: *const PACKAGE_ID, reserved: u32, pathle
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackagePathByFullName<'a, P0>(packagefullname: P0, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetPackagePathByFullName<P0>(packagefullname: P0, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -345,7 +345,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackagePathByFullName2<'a, P0>(packagefullname: P0, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetPackagePathByFullName2<P0>(packagefullname: P0, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -355,7 +355,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackagesByPackageFamily<'a, P0>(packagefamilyname: P0, count: *mut u32, packagefullnames: ::core::option::Option<*mut ::windows::core::PWSTR>, bufferlength: *mut u32, buffer: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetPackagesByPackageFamily<P0>(packagefamilyname: P0, count: *mut u32, packagefullnames: ::core::option::Option<*mut ::windows::core::PWSTR>, bufferlength: *mut u32, buffer: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -365,7 +365,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetProcessesInVirtualizationContext<'a, P0>(packagefamilyname: P0, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+pub unsafe fn GetProcessesInVirtualizationContext<P0>(packagefamilyname: P0, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -374,7 +374,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
-pub unsafe fn GetResolvedPackageFullNameForPackageDependency<'a, P0>(packagedependencyid: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn GetResolvedPackageFullNameForPackageDependency<P0>(packagedependencyid: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -385,7 +385,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStagedPackageOrigin<'a, P0>(packagefullname: P0, origin: *mut PackageOrigin) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetStagedPackageOrigin<P0>(packagefullname: P0, origin: *mut PackageOrigin) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -395,7 +395,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStagedPackagePathByFullName<'a, P0>(packagefullname: P0, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetStagedPackagePathByFullName<P0>(packagefullname: P0, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -405,7 +405,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStagedPackagePathByFullName2<'a, P0>(packagefullname: P0, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetStagedPackagePathByFullName2<P0>(packagefullname: P0, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -415,7 +415,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenPackageInfoByFullName<'a, P0>(packagefullname: P0, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn OpenPackageInfoByFullName<P0>(packagefullname: P0, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -425,7 +425,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenPackageInfoByFullNameForUser<'a, P0, P1>(usersid: P0, packagefullname: P1, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn OpenPackageInfoByFullNameForUser<P0, P1>(usersid: P0, packagefullname: P1, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -436,7 +436,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PackageFamilyNameFromFullName<'a, P0>(packagefullname: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn PackageFamilyNameFromFullName<P0>(packagefullname: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -460,7 +460,7 @@ pub unsafe fn PackageFullNameFromId(packageid: *const PACKAGE_ID, packagefullnam
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PackageIdFromFullName<'a, P0>(packagefullname: P0, flags: u32, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn PackageIdFromFullName<P0>(packagefullname: P0, flags: u32, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -470,7 +470,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PackageNameAndPublisherIdFromFamilyName<'a, P0>(packagefamilyname: P0, packagenamelength: *mut u32, packagename: ::windows::core::PWSTR, packagepublisheridlength: *mut u32, packagepublisherid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn PackageNameAndPublisherIdFromFamilyName<P0>(packagefamilyname: P0, packagenamelength: *mut u32, packagename: ::windows::core::PWSTR, packagepublisheridlength: *mut u32, packagepublisherid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -480,7 +480,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ParseApplicationUserModelId<'a, P0>(applicationusermodelid: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR, packagerelativeapplicationidlength: *mut u32, packagerelativeapplicationid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn ParseApplicationUserModelId<P0>(applicationusermodelid: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR, packagerelativeapplicationidlength: *mut u32, packagerelativeapplicationid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -502,7 +502,7 @@ pub unsafe fn RemovePackageDependency(packagedependencycontext: *const PACKAGEDE
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TryCreatePackageDependency<'a, P0, P1, P2>(user: P0, packagefamilyname: P1, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: P2, options: CreatePackageDependencyOptions) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn TryCreatePackageDependency<P0, P1, P2>(user: P0, packagefamilyname: P1, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: P2, options: CreatePackageDependencyOptions) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -515,7 +515,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifyApplicationUserModelId<'a, P0>(applicationusermodelid: P0) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn VerifyApplicationUserModelId<P0>(applicationusermodelid: P0) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -525,7 +525,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifyPackageFamilyName<'a, P0>(packagefamilyname: P0) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn VerifyPackageFamilyName<P0>(packagefamilyname: P0) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -535,7 +535,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifyPackageFullName<'a, P0>(packagefullname: P0) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn VerifyPackageFullName<P0>(packagefullname: P0) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -552,7 +552,7 @@ pub unsafe fn VerifyPackageId(packageid: *const PACKAGE_ID) -> super::super::sup
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifyPackageRelativeApplicationId<'a, P0>(packagerelativeapplicationid: P0) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn VerifyPackageRelativeApplicationId<P0>(packagerelativeapplicationid: P0) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -681,9 +681,9 @@ impl IAppxBlockMapFile {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ValidateFileHash<'a, P0>(&self, filestream: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
+    pub unsafe fn ValidateFileHash<P0>(&self, filestream: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ValidateFileHash)(::windows::core::Vtable::as_raw(self), filestream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -787,7 +787,7 @@ pub struct IAppxBlockMapFilesEnumerator_Vtbl {
 #[repr(transparent)]
 pub struct IAppxBlockMapReader(::windows::core::IUnknown);
 impl IAppxBlockMapReader {
-    pub unsafe fn GetFile<'a, P0>(&self, filename: P0) -> ::windows::core::Result<IAppxBlockMapFile>
+    pub unsafe fn GetFile<P0>(&self, filename: P0) -> ::windows::core::Result<IAppxBlockMapFile>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -855,27 +855,27 @@ pub struct IAppxBundleFactory(::windows::core::IUnknown);
 impl IAppxBundleFactory {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateBundleWriter<'a, P0>(&self, outputstream: P0, bundleversion: u64) -> ::windows::core::Result<IAppxBundleWriter>
+    pub unsafe fn CreateBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64) -> ::windows::core::Result<IAppxBundleWriter>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateBundleWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), bundleversion, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateBundleReader<'a, P0>(&self, inputstream: P0) -> ::windows::core::Result<IAppxBundleReader>
+    pub unsafe fn CreateBundleReader<P0>(&self, inputstream: P0) -> ::windows::core::Result<IAppxBundleReader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateBundleReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateBundleManifestReader<'a, P0>(&self, inputstream: P0) -> ::windows::core::Result<IAppxBundleManifestReader>
+    pub unsafe fn CreateBundleManifestReader<P0>(&self, inputstream: P0) -> ::windows::core::Result<IAppxBundleManifestReader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateBundleManifestReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1403,7 +1403,7 @@ impl IAppxBundleReader {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetPayloadPackages)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetPayloadPackage<'a, P0>(&self, filename: P0) -> ::windows::core::Result<IAppxFile>
+    pub unsafe fn GetPayloadPackage<P0>(&self, filename: P0) -> ::windows::core::Result<IAppxFile>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1450,10 +1450,10 @@ pub struct IAppxBundleWriter(::windows::core::IUnknown);
 impl IAppxBundleWriter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPayloadPackage<'a, P0, P1>(&self, filename: P0, packagestream: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddPayloadPackage<P0, P1>(&self, filename: P0, packagestream: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).AddPayloadPackage)(::windows::core::Vtable::as_raw(self), filename.into(), packagestream.into().abi()).ok()
     }
@@ -1500,10 +1500,10 @@ pub struct IAppxBundleWriter2(::windows::core::IUnknown);
 impl IAppxBundleWriter2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddExternalPackageReference<'a, P0, P1>(&self, filename: P0, inputstream: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).AddExternalPackageReference)(::windows::core::Vtable::as_raw(self), filename.into(), inputstream.into().abi()).ok()
     }
@@ -1546,14 +1546,14 @@ pub struct IAppxBundleWriter3(::windows::core::IUnknown);
 impl IAppxBundleWriter3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPackageReference<'a, P0, P1>(&self, filename: P0, inputstream: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).AddPackageReference)(::windows::core::Vtable::as_raw(self), filename.into(), inputstream.into().abi()).ok()
     }
-    pub unsafe fn Close<'a, P0>(&self, hashmethodstring: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Close<P0>(&self, hashmethodstring: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1599,30 +1599,30 @@ pub struct IAppxBundleWriter4(::windows::core::IUnknown);
 impl IAppxBundleWriter4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddPayloadPackage<'a, P0, P1, P2>(&self, filename: P0, packagestream: P1, isdefaultapplicablepackage: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddPayloadPackage<P0, P1, P2>(&self, filename: P0, packagestream: P1, isdefaultapplicablepackage: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
         P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).AddPayloadPackage)(::windows::core::Vtable::as_raw(self), filename.into(), packagestream.into().abi(), isdefaultapplicablepackage.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddPackageReference<'a, P0, P1, P2>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddPackageReference<P0, P1, P2>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
         P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).AddPackageReference)(::windows::core::Vtable::as_raw(self), filename.into(), inputstream.into().abi(), isdefaultapplicablepackage.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddExternalPackageReference<'a, P0, P1, P2>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddExternalPackageReference<P0, P1, P2>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
         P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).AddExternalPackageReference)(::windows::core::Vtable::as_raw(self), filename.into(), inputstream.into().abi(), isdefaultapplicablepackage.into()).ok()
@@ -1816,13 +1816,13 @@ pub struct IAppxContentGroupMapReader_Vtbl {
 #[repr(transparent)]
 pub struct IAppxContentGroupMapWriter(::windows::core::IUnknown);
 impl IAppxContentGroupMapWriter {
-    pub unsafe fn AddAutomaticGroup<'a, P0>(&self, groupname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddAutomaticGroup<P0>(&self, groupname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).AddAutomaticGroup)(::windows::core::Vtable::as_raw(self), groupname.into()).ok()
     }
-    pub unsafe fn AddAutomaticFile<'a, P0>(&self, filename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddAutomaticFile<P0>(&self, filename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1927,10 +1927,10 @@ pub struct IAppxEncryptedBundleWriter(::windows::core::IUnknown);
 impl IAppxEncryptedBundleWriter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPayloadPackageEncrypted<'a, P0, P1>(&self, filename: P0, packagestream: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddPayloadPackageEncrypted<P0, P1>(&self, filename: P0, packagestream: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).AddPayloadPackageEncrypted)(::windows::core::Vtable::as_raw(self), filename.into(), packagestream.into().abi()).ok()
     }
@@ -1977,10 +1977,10 @@ pub struct IAppxEncryptedBundleWriter2(::windows::core::IUnknown);
 impl IAppxEncryptedBundleWriter2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddExternalPackageReference<'a, P0, P1>(&self, filename: P0, inputstream: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).AddExternalPackageReference)(::windows::core::Vtable::as_raw(self), filename.into(), inputstream.into().abi()).ok()
     }
@@ -2023,20 +2023,20 @@ pub struct IAppxEncryptedBundleWriter3(::windows::core::IUnknown);
 impl IAppxEncryptedBundleWriter3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddPayloadPackageEncrypted<'a, P0, P1, P2>(&self, filename: P0, packagestream: P1, isdefaultapplicablepackage: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddPayloadPackageEncrypted<P0, P1, P2>(&self, filename: P0, packagestream: P1, isdefaultapplicablepackage: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
         P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).AddPayloadPackageEncrypted)(::windows::core::Vtable::as_raw(self), filename.into(), packagestream.into().abi(), isdefaultapplicablepackage.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddExternalPackageReference<'a, P0, P1, P2>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddExternalPackageReference<P0, P1, P2>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
         P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).AddExternalPackageReference)(::windows::core::Vtable::as_raw(self), filename.into(), inputstream.into().abi(), isdefaultapplicablepackage.into()).ok()
@@ -2084,10 +2084,10 @@ pub struct IAppxEncryptedPackageWriter(::windows::core::IUnknown);
 impl IAppxEncryptedPackageWriter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPayloadFileEncrypted<'a, P0, P1>(&self, filename: P0, compressionoption: APPX_COMPRESSION_OPTION, inputstream: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddPayloadFileEncrypted<P0, P1>(&self, filename: P0, compressionoption: APPX_COMPRESSION_OPTION, inputstream: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).AddPayloadFileEncrypted)(::windows::core::Vtable::as_raw(self), filename.into(), compressionoption, inputstream.into().abi()).ok()
     }
@@ -2176,73 +2176,73 @@ pub struct IAppxEncryptionFactory(::windows::core::IUnknown);
 impl IAppxEncryptionFactory {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn EncryptPackage<'a, P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>
+    pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).EncryptPackage)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), outputstream.into().abi(), settings, keyinfo, exemptedfiles).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DecryptPackage<'a, P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>
+    pub unsafe fn DecryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).DecryptPackage)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), outputstream.into().abi(), keyinfo).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateEncryptedPackageWriter<'a, P0, P1>(&self, outputstream: P0, manifeststream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>
+    pub unsafe fn CreateEncryptedPackageWriter<P0, P1>(&self, outputstream: P0, manifeststream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateEncryptedPackageWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), manifeststream.into().abi(), settings, keyinfo, exemptedfiles, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateEncryptedPackageReader<'a, P0>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<IAppxPackageReader>
+    pub unsafe fn CreateEncryptedPackageReader<P0>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<IAppxPackageReader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateEncryptedPackageReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), keyinfo, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn EncryptBundle<'a, P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>
+    pub unsafe fn EncryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).EncryptBundle)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), outputstream.into().abi(), settings, keyinfo, exemptedfiles).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DecryptBundle<'a, P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>
+    pub unsafe fn DecryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).DecryptBundle)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), outputstream.into().abi(), keyinfo).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateEncryptedBundleWriter<'a, P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedBundleWriter>
+    pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedBundleWriter>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateEncryptedBundleWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), bundleversion, settings, keyinfo, exemptedfiles, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateEncryptedBundleReader<'a, P0>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<IAppxBundleReader>
+    pub unsafe fn CreateEncryptedBundleReader<P0>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<IAppxBundleReader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateEncryptedBundleReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), keyinfo, result__.as_mut_ptr()).from_abi(result__)
@@ -2314,11 +2314,11 @@ pub struct IAppxEncryptionFactory2(::windows::core::IUnknown);
 impl IAppxEncryptionFactory2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateEncryptedPackageWriter<'a, P0, P1, P2>(&self, outputstream: P0, manifeststream: P1, contentgroupmapstream: P2, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>
+    pub unsafe fn CreateEncryptedPackageWriter<P0, P1, P2>(&self, outputstream: P0, manifeststream: P1, contentgroupmapstream: P2, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P2: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateEncryptedPackageWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), manifeststream.into().abi(), contentgroupmapstream.into().abi(), settings, keyinfo, exemptedfiles, result__.as_mut_ptr()).from_abi(result__)
@@ -2362,38 +2362,38 @@ pub struct IAppxEncryptionFactory3(::windows::core::IUnknown);
 impl IAppxEncryptionFactory3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EncryptPackage<'a, P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>
+    pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).EncryptPackage)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), outputstream.into().abi(), settings, keyinfo, exemptedfiles).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateEncryptedPackageWriter<'a, P0, P1, P2>(&self, outputstream: P0, manifeststream: P1, contentgroupmapstream: P2, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>
+    pub unsafe fn CreateEncryptedPackageWriter<P0, P1, P2>(&self, outputstream: P0, manifeststream: P1, contentgroupmapstream: P2, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P2: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateEncryptedPackageWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), manifeststream.into().abi(), contentgroupmapstream.into().abi(), settings, keyinfo, exemptedfiles, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EncryptBundle<'a, P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>
+    pub unsafe fn EncryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).EncryptBundle)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), outputstream.into().abi(), settings, keyinfo, exemptedfiles).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateEncryptedBundleWriter<'a, P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedBundleWriter>
+    pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedBundleWriter>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateEncryptedBundleWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), bundleversion, settings, keyinfo, exemptedfiles, result__.as_mut_ptr()).from_abi(result__)
@@ -2449,10 +2449,10 @@ pub struct IAppxEncryptionFactory4(::windows::core::IUnknown);
 impl IAppxEncryptionFactory4 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EncryptPackage<'a, P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> ::windows::core::Result<()>
+    pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).EncryptPackage)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), outputstream.into().abi(), settings, keyinfo, exemptedfiles, memorylimit).ok()
     }
@@ -2495,45 +2495,45 @@ pub struct IAppxFactory(::windows::core::IUnknown);
 impl IAppxFactory {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePackageWriter<'a, P0>(&self, outputstream: P0, settings: *const APPX_PACKAGE_SETTINGS) -> ::windows::core::Result<IAppxPackageWriter>
+    pub unsafe fn CreatePackageWriter<P0>(&self, outputstream: P0, settings: *const APPX_PACKAGE_SETTINGS) -> ::windows::core::Result<IAppxPackageWriter>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreatePackageWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), settings, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreatePackageReader<'a, P0>(&self, inputstream: P0) -> ::windows::core::Result<IAppxPackageReader>
+    pub unsafe fn CreatePackageReader<P0>(&self, inputstream: P0) -> ::windows::core::Result<IAppxPackageReader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreatePackageReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateManifestReader<'a, P0>(&self, inputstream: P0) -> ::windows::core::Result<IAppxManifestReader>
+    pub unsafe fn CreateManifestReader<P0>(&self, inputstream: P0) -> ::windows::core::Result<IAppxManifestReader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateManifestReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateBlockMapReader<'a, P0>(&self, inputstream: P0) -> ::windows::core::Result<IAppxBlockMapReader>
+    pub unsafe fn CreateBlockMapReader<P0>(&self, inputstream: P0) -> ::windows::core::Result<IAppxBlockMapReader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateBlockMapReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateValidatedBlockMapReader<'a, P0, P1>(&self, blockmapstream: P0, signaturefilename: P1) -> ::windows::core::Result<IAppxBlockMapReader>
+    pub unsafe fn CreateValidatedBlockMapReader<P0, P1>(&self, blockmapstream: P0, signaturefilename: P1) -> ::windows::core::Result<IAppxBlockMapReader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2594,27 +2594,27 @@ pub struct IAppxFactory2(::windows::core::IUnknown);
 impl IAppxFactory2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateContentGroupMapReader<'a, P0>(&self, inputstream: P0) -> ::windows::core::Result<IAppxContentGroupMapReader>
+    pub unsafe fn CreateContentGroupMapReader<P0>(&self, inputstream: P0) -> ::windows::core::Result<IAppxContentGroupMapReader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateContentGroupMapReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateSourceContentGroupMapReader<'a, P0>(&self, inputstream: P0) -> ::windows::core::Result<IAppxSourceContentGroupMapReader>
+    pub unsafe fn CreateSourceContentGroupMapReader<P0>(&self, inputstream: P0) -> ::windows::core::Result<IAppxSourceContentGroupMapReader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateSourceContentGroupMapReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateContentGroupMapWriter<'a, P0>(&self, stream: P0) -> ::windows::core::Result<IAppxContentGroupMapWriter>
+    pub unsafe fn CreateContentGroupMapWriter<P0>(&self, stream: P0) -> ::windows::core::Result<IAppxContentGroupMapWriter>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateContentGroupMapWriter)(::windows::core::Vtable::as_raw(self), stream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -2785,7 +2785,7 @@ pub struct IAppxFilesEnumerator_Vtbl {
 #[repr(transparent)]
 pub struct IAppxManifestApplication(::windows::core::IUnknown);
 impl IAppxManifestApplication {
-    pub unsafe fn GetStringValue<'a, P0>(&self, name: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetStringValue<P0>(&self, name: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3827,7 +3827,7 @@ impl IAppxManifestPackageId {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ComparePublisher<'a, P0>(&self, other: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
+    pub unsafe fn ComparePublisher<P0>(&self, other: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3908,7 +3908,7 @@ impl IAppxManifestPackageId2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ComparePublisher<'a, P0>(&self, other: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
+    pub unsafe fn ComparePublisher<P0>(&self, other: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3963,14 +3963,14 @@ pub struct IAppxManifestProperties(::windows::core::IUnknown);
 impl IAppxManifestProperties {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBoolValue<'a, P0>(&self, name: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
+    pub unsafe fn GetBoolValue<P0>(&self, name: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetBoolValue)(::windows::core::Vtable::as_raw(self), name.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetStringValue<'a, P0>(&self, name: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetStringValue<P0>(&self, name: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4145,7 +4145,7 @@ impl IAppxManifestReader {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetPrerequisite<'a, P0>(&self, name: P0) -> ::windows::core::Result<u64>
+    pub unsafe fn GetPrerequisite<P0>(&self, name: P0) -> ::windows::core::Result<u64>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4231,7 +4231,7 @@ impl IAppxManifestReader2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetPrerequisite<'a, P0>(&self, name: P0) -> ::windows::core::Result<u64>
+    pub unsafe fn GetPrerequisite<P0>(&self, name: P0) -> ::windows::core::Result<u64>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4310,7 +4310,7 @@ impl IAppxManifestReader3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetPrerequisite<'a, P0>(&self, name: P0) -> ::windows::core::Result<u64>
+    pub unsafe fn GetPrerequisite<P0>(&self, name: P0) -> ::windows::core::Result<u64>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4398,7 +4398,7 @@ impl IAppxManifestReader4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetPrerequisite<'a, P0>(&self, name: P0) -> ::windows::core::Result<u64>
+    pub unsafe fn GetPrerequisite<P0>(&self, name: P0) -> ::windows::core::Result<u64>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4758,7 +4758,7 @@ pub struct IAppxManifestTargetDeviceFamily_Vtbl {
 #[repr(transparent)]
 pub struct IAppxPackageEditor(::windows::core::IUnknown);
 impl IAppxPackageEditor {
-    pub unsafe fn SetWorkingDirectory<'a, P0>(&self, workingdirectory: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWorkingDirectory<P0>(&self, workingdirectory: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4766,49 +4766,49 @@ impl IAppxPackageEditor {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDeltaPackage<'a, P0, P1, P2>(&self, updatedpackagestream: P0, baselinepackagestream: P1, deltapackagestream: P2) -> ::windows::core::Result<()>
+    pub unsafe fn CreateDeltaPackage<P0, P1, P2>(&self, updatedpackagestream: P0, baselinepackagestream: P1, deltapackagestream: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P2: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).CreateDeltaPackage)(::windows::core::Vtable::as_raw(self), updatedpackagestream.into().abi(), baselinepackagestream.into().abi(), deltapackagestream.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDeltaPackageUsingBaselineBlockMap<'a, P0, P1, P2, P3>(&self, updatedpackagestream: P0, baselineblockmapstream: P1, baselinepackagefullname: P2, deltapackagestream: P3) -> ::windows::core::Result<()>
+    pub unsafe fn CreateDeltaPackageUsingBaselineBlockMap<P0, P1, P2, P3>(&self, updatedpackagestream: P0, baselineblockmapstream: P1, baselinepackagefullname: P2, deltapackagestream: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P3: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).CreateDeltaPackageUsingBaselineBlockMap)(::windows::core::Vtable::as_raw(self), updatedpackagestream.into().abi(), baselineblockmapstream.into().abi(), baselinepackagefullname.into(), deltapackagestream.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UpdatePackage<'a, P0, P1>(&self, baselinepackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> ::windows::core::Result<()>
+    pub unsafe fn UpdatePackage<P0, P1>(&self, baselinepackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).UpdatePackage)(::windows::core::Vtable::as_raw(self), baselinepackagestream.into().abi(), deltapackagestream.into().abi(), updateoption).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UpdateEncryptedPackage<'a, P0, P1>(&self, baselineencryptedpackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateEncryptedPackage<P0, P1>(&self, baselineencryptedpackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).UpdateEncryptedPackage)(::windows::core::Vtable::as_raw(self), baselineencryptedpackagestream.into().abi(), deltapackagestream.into().abi(), updateoption, settings, keyinfo).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn UpdatePackageManifest<'a, P0, P1, P2>(&self, packagestream: P0, updatedmanifeststream: P1, ispackageencrypted: P2, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> ::windows::core::Result<()>
+    pub unsafe fn UpdatePackageManifest<P0, P1, P2>(&self, packagestream: P0, updatedmanifeststream: P1, ispackageencrypted: P2, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
         P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).UpdatePackageManifest)(::windows::core::Vtable::as_raw(self), packagestream.into().abi(), updatedmanifeststream.into().abi(), ispackageencrypted.into(), options).ok()
@@ -4875,7 +4875,7 @@ impl IAppxPackageReader {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetFootprintFile)(::windows::core::Vtable::as_raw(self), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetPayloadFile<'a, P0>(&self, filename: P0) -> ::windows::core::Result<IAppxFile>
+    pub unsafe fn GetPayloadFile<P0>(&self, filename: P0) -> ::windows::core::Result<IAppxFile>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4930,19 +4930,19 @@ pub struct IAppxPackageWriter(::windows::core::IUnknown);
 impl IAppxPackageWriter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPayloadFile<'a, P0, P1, P2>(&self, filename: P0, contenttype: P1, compressionoption: APPX_COMPRESSION_OPTION, inputstream: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddPayloadFile<P0, P1, P2>(&self, filename: P0, contenttype: P1, compressionoption: APPX_COMPRESSION_OPTION, inputstream: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P2: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).AddPayloadFile)(::windows::core::Vtable::as_raw(self), filename.into(), contenttype.into(), compressionoption, inputstream.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Close<'a, P0>(&self, manifest: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Close<P0>(&self, manifest: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self), manifest.into().abi()).ok()
     }
@@ -4989,10 +4989,10 @@ pub struct IAppxPackageWriter2(::windows::core::IUnknown);
 impl IAppxPackageWriter2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Close<'a, P0, P1>(&self, manifest: P0, contentgroupmap: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Close<P0, P1>(&self, manifest: P0, contentgroupmap: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self), manifest.into().abi(), contentgroupmap.into().abi()).ok()
     }
@@ -5075,7 +5075,7 @@ pub struct IAppxPackageWriter3_Vtbl {
 #[repr(transparent)]
 pub struct IAppxPackagingDiagnosticEventSink(::windows::core::IUnknown);
 impl IAppxPackagingDiagnosticEventSink {
-    pub unsafe fn ReportContextChange<'a, P0, P1, P2>(&self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: P0, contextmessage: P1, detailsmessage: P2) -> ::windows::core::Result<()>
+    pub unsafe fn ReportContextChange<P0, P1, P2>(&self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: P0, contextmessage: P1, detailsmessage: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -5083,7 +5083,7 @@ impl IAppxPackagingDiagnosticEventSink {
     {
         (::windows::core::Vtable::vtable(self).ReportContextChange)(::windows::core::Vtable::as_raw(self), changetype, contextid, contextname.into(), contextmessage.into(), detailsmessage.into()).ok()
     }
-    pub unsafe fn ReportError<'a, P0>(&self, errormessage: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ReportError<P0>(&self, errormessage: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -5124,9 +5124,9 @@ pub struct IAppxPackagingDiagnosticEventSink_Vtbl {
 #[repr(transparent)]
 pub struct IAppxPackagingDiagnosticEventSinkManager(::windows::core::IUnknown);
 impl IAppxPackagingDiagnosticEventSinkManager {
-    pub unsafe fn SetSinkForProcess<'a, P0>(&self, sink: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSinkForProcess<P0>(&self, sink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IAppxPackagingDiagnosticEventSink>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IAppxPackagingDiagnosticEventSink>>,
     {
         (::windows::core::Vtable::vtable(self).SetSinkForProcess)(::windows::core::Vtable::as_raw(self), sink.into().abi()).ok()
     }

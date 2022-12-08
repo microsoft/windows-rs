@@ -93,7 +93,7 @@ pub struct ID3DDestructionNotifier_Vtbl {
 #[repr(transparent)]
 pub struct ID3DInclude(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3DInclude {
-    pub unsafe fn Open<'a, P0>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P0, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn Open<P0>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P0, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {

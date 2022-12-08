@@ -202,9 +202,9 @@ pub struct ITargetFileRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 pub struct FileOpenPickerUI(::windows::core::IUnknown);
 impl FileOpenPickerUI {
-    pub fn AddFile<'a, P0, E0>(&self, id: &::windows::core::HSTRING, file: P0) -> ::windows::core::Result<AddFileResult>
+    pub fn AddFile<P0, E0>(&self, id: &::windows::core::HSTRING, file: P0) -> ::windows::core::Result<AddFileResult>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -224,9 +224,9 @@ impl FileOpenPickerUI {
             (::windows::core::Vtable::vtable(this).ContainsFile)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn CanAddFile<'a, P0, E0>(&self, file: P0) -> ::windows::core::Result<bool>
+    pub fn CanAddFile<P0, E0>(&self, file: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -659,9 +659,9 @@ impl TargetFileRequest {
             (::windows::core::Vtable::vtable(this).TargetFile)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetTargetFile<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetTargetFile<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

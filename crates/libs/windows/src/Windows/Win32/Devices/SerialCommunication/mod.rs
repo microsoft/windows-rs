@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBClaimNextFreePort<'a, P0>(hcomdb: P0, comnumber: *mut u32) -> i32
+pub unsafe fn ComDBClaimNextFreePort<P0>(hcomdb: P0, comnumber: *mut u32) -> i32
 where
     P0: ::std::convert::Into<HCOMDB>,
 {
@@ -10,7 +10,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ComDBClaimPort<'a, P0, P1>(hcomdb: P0, comnumber: u32, forceclaim: P1, forced: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> i32
+pub unsafe fn ComDBClaimPort<P0, P1>(hcomdb: P0, comnumber: u32, forceclaim: P1, forced: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> i32
 where
     P0: ::std::convert::Into<HCOMDB>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -20,7 +20,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBClose<'a, P0>(hcomdb: P0) -> i32
+pub unsafe fn ComDBClose<P0>(hcomdb: P0) -> i32
 where
     P0: ::std::convert::Into<HCOMDB>,
 {
@@ -29,7 +29,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBGetCurrentPortUsage<'a, P0>(hcomdb: P0, buffer: ::core::option::Option<&mut [u8]>, reporttype: u32, maxportsreported: ::core::option::Option<*mut u32>) -> i32
+pub unsafe fn ComDBGetCurrentPortUsage<P0>(hcomdb: P0, buffer: ::core::option::Option<&mut [u8]>, reporttype: u32, maxportsreported: ::core::option::Option<*mut u32>) -> i32
 where
     P0: ::std::convert::Into<HCOMDB>,
 {
@@ -44,7 +44,7 @@ pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBReleasePort<'a, P0>(hcomdb: P0, comnumber: u32) -> i32
+pub unsafe fn ComDBReleasePort<P0>(hcomdb: P0, comnumber: u32) -> i32
 where
     P0: ::std::convert::Into<HCOMDB>,
 {
@@ -53,7 +53,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBResizeDatabase<'a, P0>(hcomdb: P0, newsize: u32) -> i32
+pub unsafe fn ComDBResizeDatabase<P0>(hcomdb: P0, newsize: u32) -> i32
 where
     P0: ::std::convert::Into<HCOMDB>,
 {

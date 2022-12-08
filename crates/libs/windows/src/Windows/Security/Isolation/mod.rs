@@ -674,9 +674,9 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn PostMessageToReceiverAsync<'a, P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
+    pub fn PostMessageToReceiverAsync<P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
@@ -687,9 +687,9 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn PostMessageToReceiverWithTelemetryAsync<'a, P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
+    pub fn PostMessageToReceiverWithTelemetryAsync<P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
@@ -1918,9 +1918,9 @@ pub struct IsolatedWindowsHostMessenger;
 impl IsolatedWindowsHostMessenger {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn PostMessageToReceiver<'a, P0, E0>(receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<()>
+    pub fn PostMessageToReceiver<P0, E0>(receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).PostMessageToReceiver)(::windows::core::Vtable::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi()).ok() })
@@ -2669,9 +2669,9 @@ impl HostMessageReceivedCallback {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Invoke<'a, P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2776,9 +2776,9 @@ impl MessageReceivedCallback {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Invoke<'a, P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

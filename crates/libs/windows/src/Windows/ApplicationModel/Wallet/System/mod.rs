@@ -110,9 +110,9 @@ impl WalletItemSystemStore {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn ImportItemAsync<'a, P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::WalletItem>>
+    pub fn ImportItemAsync<P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::WalletItem>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

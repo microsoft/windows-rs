@@ -624,7 +624,7 @@ impl ::core::convert::TryFrom<&BackgroundActivatedEventArgs> for super::super::A
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&BackgroundActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs> {
+impl ::core::convert::TryFrom<&BackgroundActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BackgroundActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -708,7 +708,7 @@ impl ::core::convert::TryFrom<&EnteredBackgroundEventArgs> for super::super::App
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::core::convert::TryFrom<&EnteredBackgroundEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::IEnteredBackgroundEventArgs> {
+impl ::core::convert::TryFrom<&EnteredBackgroundEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::IEnteredBackgroundEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &EnteredBackgroundEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -880,7 +880,7 @@ impl ::core::convert::TryFrom<&HtmlPrintDocumentSource> for super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HtmlPrintDocumentSource> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HtmlPrintDocumentSource> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HtmlPrintDocumentSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -902,7 +902,7 @@ impl ::core::convert::TryFrom<&HtmlPrintDocumentSource> for super::super::Graphi
     }
 }
 #[cfg(feature = "Graphics_Printing")]
-impl<'a> ::core::convert::TryFrom<&HtmlPrintDocumentSource> for ::windows::core::InParam<'a, super::super::Graphics::Printing::IPrintDocumentSource> {
+impl ::core::convert::TryFrom<&HtmlPrintDocumentSource> for ::windows::core::InParam<super::super::Graphics::Printing::IPrintDocumentSource> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HtmlPrintDocumentSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -984,7 +984,7 @@ impl ::core::convert::TryFrom<&LeavingBackgroundEventArgs> for super::super::App
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::core::convert::TryFrom<&LeavingBackgroundEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::ILeavingBackgroundEventArgs> {
+impl ::core::convert::TryFrom<&LeavingBackgroundEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::ILeavingBackgroundEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LeavingBackgroundEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1135,7 +1135,7 @@ impl ::core::convert::TryFrom<&SuspendingDeferral> for super::super::Application
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::core::convert::TryFrom<&SuspendingDeferral> for ::windows::core::InParam<'a, super::super::ApplicationModel::ISuspendingDeferral> {
+impl ::core::convert::TryFrom<&SuspendingDeferral> for ::windows::core::InParam<super::super::ApplicationModel::ISuspendingDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SuspendingDeferral) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1215,7 +1215,7 @@ impl ::core::convert::TryFrom<&SuspendingEventArgs> for super::super::Applicatio
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::core::convert::TryFrom<&SuspendingEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::ISuspendingEventArgs> {
+impl ::core::convert::TryFrom<&SuspendingEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::ISuspendingEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SuspendingEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1304,7 +1304,7 @@ impl ::core::convert::TryFrom<&SuspendingOperation> for super::super::Applicatio
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::core::convert::TryFrom<&SuspendingOperation> for ::windows::core::InParam<'a, super::super::ApplicationModel::ISuspendingOperation> {
+impl ::core::convert::TryFrom<&SuspendingOperation> for ::windows::core::InParam<super::super::ApplicationModel::ISuspendingOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SuspendingOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1586,7 +1586,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedE
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1608,7 +1608,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedE
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1630,7 +1630,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedE
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1652,7 +1652,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedE
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1674,7 +1674,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedE
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1806,7 +1806,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivat
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1828,7 +1828,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivat
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1850,7 +1850,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivat
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1872,7 +1872,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivat
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1894,7 +1894,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivat
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2026,7 +2026,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActiva
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2048,7 +2048,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActiva
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2070,7 +2070,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActiva
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2092,7 +2092,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActiva
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2114,7 +2114,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActiva
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2264,7 +2264,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsAc
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2286,7 +2286,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsAc
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2308,7 +2308,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsAc
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2330,7 +2330,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsAc
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2352,7 +2352,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsAc
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2493,7 +2493,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEv
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2515,7 +2515,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEv
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2537,7 +2537,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEv
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2559,7 +2559,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEv
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2581,7 +2581,7 @@ impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEv
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2745,7 +2745,7 @@ impl ::core::convert::TryFrom<&WebUIBackgroundTaskInstanceRuntimeClass> for supe
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
-impl<'a> ::core::convert::TryFrom<&WebUIBackgroundTaskInstanceRuntimeClass> for ::windows::core::InParam<'a, super::super::ApplicationModel::Background::IBackgroundTaskInstance> {
+impl ::core::convert::TryFrom<&WebUIBackgroundTaskInstanceRuntimeClass> for ::windows::core::InParam<super::super::ApplicationModel::Background::IBackgroundTaskInstance> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIBackgroundTaskInstanceRuntimeClass) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2764,7 +2764,7 @@ impl ::core::convert::TryFrom<&WebUIBackgroundTaskInstanceRuntimeClass> for IWeb
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebUIBackgroundTaskInstanceRuntimeClass> for ::windows::core::InParam<'a, IWebUIBackgroundTaskInstance> {
+impl ::core::convert::TryFrom<&WebUIBackgroundTaskInstanceRuntimeClass> for ::windows::core::InParam<IWebUIBackgroundTaskInstance> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIBackgroundTaskInstanceRuntimeClass) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2887,7 +2887,7 @@ impl ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIBarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2909,7 +2909,7 @@ impl ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIBarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2931,7 +2931,7 @@ impl ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIBarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2953,7 +2953,7 @@ impl ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIBarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3080,7 +3080,7 @@ impl ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3102,7 +3102,7 @@ impl ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for IAc
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3124,7 +3124,7 @@ impl ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3146,7 +3146,7 @@ impl ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3269,7 +3269,7 @@ impl ::core::convert::TryFrom<&WebUICameraSettingsActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUICameraSettingsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUICameraSettingsActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3291,7 +3291,7 @@ impl ::core::convert::TryFrom<&WebUICameraSettingsActivatedEventArgs> for IActiv
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUICameraSettingsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUICameraSettingsActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3313,7 +3313,7 @@ impl ::core::convert::TryFrom<&WebUICameraSettingsActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUICameraSettingsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUICameraSettingsActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3436,7 +3436,7 @@ impl ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3458,7 +3458,7 @@ impl ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for IActivate
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3480,7 +3480,7 @@ impl ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3502,7 +3502,7 @@ impl ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3647,7 +3647,7 @@ impl ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3669,7 +3669,7 @@ impl ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for IActivate
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3691,7 +3691,7 @@ impl ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3713,7 +3713,7 @@ impl ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3845,7 +3845,7 @@ impl ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for super::sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3867,7 +3867,7 @@ impl ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for IActivated
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3889,7 +3889,7 @@ impl ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for super::sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3911,7 +3911,7 @@ impl ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for super::sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4052,7 +4052,7 @@ impl ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4074,7 +4074,7 @@ impl ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for IActiv
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4096,7 +4096,7 @@ impl ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4118,7 +4118,7 @@ impl ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4250,7 +4250,7 @@ impl ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for super::s
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4272,7 +4272,7 @@ impl ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for IActivat
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4294,7 +4294,7 @@ impl ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for super::s
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4316,7 +4316,7 @@ impl ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for super::s
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4434,7 +4434,7 @@ impl ::core::convert::TryFrom<&WebUIContactPickerActivatedEventArgs> for super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactPickerActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactPickerActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4456,7 +4456,7 @@ impl ::core::convert::TryFrom<&WebUIContactPickerActivatedEventArgs> for IActiva
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIContactPickerActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4478,7 +4478,7 @@ impl ::core::convert::TryFrom<&WebUIContactPickerActivatedEventArgs> for super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactPickerActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactPickerActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4619,7 +4619,7 @@ impl ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4641,7 +4641,7 @@ impl ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for IActivate
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4663,7 +4663,7 @@ impl ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4685,7 +4685,7 @@ impl ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4826,7 +4826,7 @@ impl ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for supe
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4848,7 +4848,7 @@ impl ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for IAct
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4870,7 +4870,7 @@ impl ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for supe
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4892,7 +4892,7 @@ impl ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for supe
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5033,7 +5033,7 @@ impl ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for super::super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5055,7 +5055,7 @@ impl ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for IActivatedEven
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5077,7 +5077,7 @@ impl ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for super::super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5099,7 +5099,7 @@ impl ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for super::super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5121,7 +5121,7 @@ impl ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for super::super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5244,7 +5244,7 @@ impl ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5266,7 +5266,7 @@ impl ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for IActiva
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5288,7 +5288,7 @@ impl ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5310,7 +5310,7 @@ impl ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5460,7 +5460,7 @@ impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for super::s
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5482,7 +5482,7 @@ impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for IActivat
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5504,7 +5504,7 @@ impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for super::s
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5526,7 +5526,7 @@ impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for super::s
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5548,7 +5548,7 @@ impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for super::s
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5570,7 +5570,7 @@ impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for super::s
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIDialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5720,7 +5720,7 @@ impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for super::super::Ap
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5742,7 +5742,7 @@ impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for IActivatedEventA
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5764,7 +5764,7 @@ impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for super::super::Ap
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5786,7 +5786,7 @@ impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for super::super::Ap
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5808,7 +5808,7 @@ impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for super::super::Ap
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IFileActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IFileActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5830,7 +5830,7 @@ impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for super::super::Ap
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles> {
+impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5962,7 +5962,7 @@ impl ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5984,7 +5984,7 @@ impl ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for IActiv
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6006,7 +6006,7 @@ impl ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6028,7 +6028,7 @@ impl ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6050,7 +6050,7 @@ impl ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2> {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6182,7 +6182,7 @@ impl ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for sup
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6204,7 +6204,7 @@ impl ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for IAc
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6226,7 +6226,7 @@ impl ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for sup
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6248,7 +6248,7 @@ impl ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for sup
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6270,7 +6270,7 @@ impl ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for sup
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6411,7 +6411,7 @@ impl ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6433,7 +6433,7 @@ impl ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for IActiv
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6455,7 +6455,7 @@ impl ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6477,7 +6477,7 @@ impl ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6499,7 +6499,7 @@ impl ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2> {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6631,7 +6631,7 @@ impl ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for sup
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6653,7 +6653,7 @@ impl ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for IAc
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6675,7 +6675,7 @@ impl ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for sup
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6697,7 +6697,7 @@ impl ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for sup
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6719,7 +6719,7 @@ impl ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for sup
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6851,7 +6851,7 @@ impl ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for super
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6873,7 +6873,7 @@ impl ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for IActi
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6895,7 +6895,7 @@ impl ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for super
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6917,7 +6917,7 @@ impl ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for super
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6939,7 +6939,7 @@ impl ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for super
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs> {
+impl ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIFolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7098,7 +7098,7 @@ impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7120,7 +7120,7 @@ impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for IActivatedEven
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7142,7 +7142,7 @@ impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7164,7 +7164,7 @@ impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7186,7 +7186,7 @@ impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7208,7 +7208,7 @@ impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2> {
+impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7230,7 +7230,7 @@ impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7362,7 +7362,7 @@ impl ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for super::sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7384,7 +7384,7 @@ impl ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for IActivated
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7406,7 +7406,7 @@ impl ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for super::sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7428,7 +7428,7 @@ impl ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for super::sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7450,7 +7450,7 @@ impl ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for super::sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7591,7 +7591,7 @@ impl ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7613,7 +7613,7 @@ impl ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for IActiv
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7635,7 +7635,7 @@ impl ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7657,7 +7657,7 @@ impl ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7679,7 +7679,7 @@ impl ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for super:
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7784,7 +7784,7 @@ impl ::core::convert::TryFrom<&WebUILockScreenComponentActivatedEventArgs> for s
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILockScreenComponentActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUILockScreenComponentActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILockScreenComponentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7806,7 +7806,7 @@ impl ::core::convert::TryFrom<&WebUILockScreenComponentActivatedEventArgs> for I
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUILockScreenComponentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUILockScreenComponentActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUILockScreenComponentActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7912,7 +7912,7 @@ impl ::core::convert::TryFrom<&WebUINavigatedEventArgs> for IWebUINavigatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebUINavigatedEventArgs> for ::windows::core::InParam<'a, IWebUINavigatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUINavigatedEventArgs> for ::windows::core::InParam<IWebUINavigatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUINavigatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8080,7 +8080,7 @@ impl ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for super::supe
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIPhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8102,7 +8102,7 @@ impl ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for IActivatedE
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIPhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8124,7 +8124,7 @@ impl ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for super::supe
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIPhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8146,7 +8146,7 @@ impl ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for super::supe
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIPhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8264,7 +8264,7 @@ impl ::core::convert::TryFrom<&WebUIPrint3DWorkflowActivatedEventArgs> for super
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIPrint3DWorkflowActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIPrint3DWorkflowActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIPrint3DWorkflowActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8286,7 +8286,7 @@ impl ::core::convert::TryFrom<&WebUIPrint3DWorkflowActivatedEventArgs> for IActi
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIPrint3DWorkflowActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIPrint3DWorkflowActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIPrint3DWorkflowActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8308,7 +8308,7 @@ impl ::core::convert::TryFrom<&WebUIPrint3DWorkflowActivatedEventArgs> for super
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIPrint3DWorkflowActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIPrint3DWorkflowActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIPrint3DWorkflowActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8422,7 +8422,7 @@ impl ::core::convert::TryFrom<&WebUIPrintTaskSettingsActivatedEventArgs> for sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIPrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIPrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIPrintTaskSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8444,7 +8444,7 @@ impl ::core::convert::TryFrom<&WebUIPrintTaskSettingsActivatedEventArgs> for IAc
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIPrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIPrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIPrintTaskSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8466,7 +8466,7 @@ impl ::core::convert::TryFrom<&WebUIPrintTaskSettingsActivatedEventArgs> for sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIPrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIPrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIPrintTaskSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8571,7 +8571,7 @@ impl ::core::convert::TryFrom<&WebUIPrintWorkflowForegroundTaskActivatedEventArg
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIPrintWorkflowForegroundTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8593,7 +8593,7 @@ impl ::core::convert::TryFrom<&WebUIPrintWorkflowForegroundTaskActivatedEventArg
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIPrintWorkflowForegroundTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8743,7 +8743,7 @@ impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for super::super
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8765,7 +8765,7 @@ impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for IActivatedEv
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8787,7 +8787,7 @@ impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for super::super
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8809,7 +8809,7 @@ impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for super::super
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8831,7 +8831,7 @@ impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for super::super
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8853,7 +8853,7 @@ impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for super::super
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
+impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9012,7 +9012,7 @@ impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9034,7 +9034,7 @@ impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for IA
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9056,7 +9056,7 @@ impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9078,7 +9078,7 @@ impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9100,7 +9100,7 @@ impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9122,7 +9122,7 @@ impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
+impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9144,7 +9144,7 @@ impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9267,7 +9267,7 @@ impl ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for supe
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIRestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9289,7 +9289,7 @@ impl ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for IAct
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIRestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9311,7 +9311,7 @@ impl ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for supe
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIRestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9333,7 +9333,7 @@ impl ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for supe
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIRestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9474,7 +9474,7 @@ impl ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for super::super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUISearchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9496,7 +9496,7 @@ impl ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for IActivatedEven
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUISearchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9518,7 +9518,7 @@ impl ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for super::super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUISearchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9540,7 +9540,7 @@ impl ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for super::super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::ISearchActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUISearchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9562,7 +9562,7 @@ impl ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for super::super::
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails> {
+impl ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUISearchActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9685,7 +9685,7 @@ impl ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9707,7 +9707,7 @@ impl ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for IActivate
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9729,7 +9729,7 @@ impl ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9751,7 +9751,7 @@ impl ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9874,7 +9874,7 @@ impl ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIStartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9896,7 +9896,7 @@ impl ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for IActivate
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIStartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9918,7 +9918,7 @@ impl ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIStartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9940,7 +9940,7 @@ impl ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for super::su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIStartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10076,7 +10076,7 @@ impl ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10098,7 +10098,7 @@ impl ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for IAc
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10120,7 +10120,7 @@ impl ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10142,7 +10142,7 @@ impl ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for sup
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10256,7 +10256,7 @@ impl ::core::convert::TryFrom<&WebUIUserDataAccountProviderActivatedEventArgs> f
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIUserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIUserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIUserDataAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10278,7 +10278,7 @@ impl ::core::convert::TryFrom<&WebUIUserDataAccountProviderActivatedEventArgs> f
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIUserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIUserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIUserDataAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10300,7 +10300,7 @@ impl ::core::convert::TryFrom<&WebUIUserDataAccountProviderActivatedEventArgs> f
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIUserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIUserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIUserDataAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10497,9 +10497,9 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn NavigateToLocalStreamUri<'a, P0, E0>(&self, source: &super::super::Foundation::Uri, streamresolver: P0) -> ::windows::core::Result<()>
+    pub fn NavigateToLocalStreamUri<P0, E0>(&self, source: &super::super::Foundation::Uri, streamresolver: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Web::IUriToStreamResolver>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Web::IUriToStreamResolver>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
@@ -10513,9 +10513,9 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_UI"))]
-    pub fn InvokeScriptAsync<'a, P0, E0>(&self, scriptname: &::windows::core::HSTRING, arguments: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    pub fn InvokeScriptAsync<P0, E0>(&self, scriptname: &::windows::core::HSTRING, arguments: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
@@ -10526,9 +10526,9 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_UI"))]
-    pub fn CapturePreviewToStreamAsync<'a, P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn CapturePreviewToStreamAsync<P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
@@ -10876,7 +10876,7 @@ impl ::core::convert::TryFrom<&WebUIView> for super::super::Web::UI::IWebViewCon
     }
 }
 #[cfg(feature = "Web_UI")]
-impl<'a> ::core::convert::TryFrom<&WebUIView> for ::windows::core::InParam<'a, super::super::Web::UI::IWebViewControl> {
+impl ::core::convert::TryFrom<&WebUIView> for ::windows::core::InParam<super::super::Web::UI::IWebViewControl> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10898,7 +10898,7 @@ impl ::core::convert::TryFrom<&WebUIView> for super::super::Web::UI::IWebViewCon
     }
 }
 #[cfg(feature = "Web_UI")]
-impl<'a> ::core::convert::TryFrom<&WebUIView> for ::windows::core::InParam<'a, super::super::Web::UI::IWebViewControl2> {
+impl ::core::convert::TryFrom<&WebUIView> for ::windows::core::InParam<super::super::Web::UI::IWebViewControl2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11021,7 +11021,7 @@ impl ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for super::s
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIVoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11043,7 +11043,7 @@ impl ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for IActivat
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIVoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11065,7 +11065,7 @@ impl ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for super::s
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIVoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11087,7 +11087,7 @@ impl ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for super::s
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIVoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11219,7 +11219,7 @@ impl ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for super::s
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11241,7 +11241,7 @@ impl ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for IActivat
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11263,7 +11263,7 @@ impl ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for super::s
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11386,7 +11386,7 @@ impl ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11408,7 +11408,7 @@ impl ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for IA
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11430,7 +11430,7 @@ impl ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11452,7 +11452,7 @@ impl ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for su
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11575,7 +11575,7 @@ impl ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11597,7 +11597,7 @@ impl ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
+impl ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11619,7 +11619,7 @@ impl ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> {
+impl ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11641,7 +11641,7 @@ impl ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs> {
+impl ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11696,10 +11696,10 @@ impl ActivatedEventHandler {
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
-    pub fn Invoke<'a, P0, P1, E1>(&self, sender: P0, eventargs: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, P1, E1>(&self, sender: P0, eventargs: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs>, Error = E1>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -11804,10 +11804,10 @@ impl BackgroundActivatedEventHandler {
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
-    pub fn Invoke<'a, P0, P1, E1>(&self, sender: P0, eventargs: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, P1, E1>(&self, sender: P0, eventargs: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>, Error = E1>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -11912,10 +11912,10 @@ impl EnteredBackgroundEventHandler {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
-    pub fn Invoke<'a, P0, P1, E1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, P1, E1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::ApplicationModel::IEnteredBackgroundEventArgs>, Error = E1>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::ApplicationModel::IEnteredBackgroundEventArgs>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -12020,10 +12020,10 @@ impl LeavingBackgroundEventHandler {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
-    pub fn Invoke<'a, P0, P1, E1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, P1, E1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::ApplicationModel::ILeavingBackgroundEventArgs>, Error = E1>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::ApplicationModel::ILeavingBackgroundEventArgs>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -12124,10 +12124,10 @@ impl NavigatedEventHandler {
         let com = NavigatedEventHandlerBox::<F> { vtable: &NavigatedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, P1, E1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, P1, E1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, IWebUINavigatedEventArgs>, Error = E1>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<IWebUINavigatedEventArgs>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -12215,9 +12215,9 @@ impl ResumingEventHandler {
         let com = ResumingEventHandlerBox::<F> { vtable: &ResumingEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0>(&self, sender: P0) -> ::windows::core::Result<()>
+    pub fn Invoke<P0>(&self, sender: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), sender.into().abi()).ok() }
@@ -12308,10 +12308,10 @@ impl SuspendingEventHandler {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
-    pub fn Invoke<'a, P0, P1, E1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, P1, E1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::ApplicationModel::ISuspendingEventArgs>, Error = E1>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::ApplicationModel::ISuspendingEventArgs>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

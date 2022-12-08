@@ -55,9 +55,9 @@ pub struct IStorageApplicationPermissionsStatics2_Vtbl {
 #[repr(transparent)]
 pub struct IStorageItemAccessList(::windows::core::IUnknown);
 impl IStorageItemAccessList {
-    pub fn AddOverloadDefaultMetadata<'a, P0, E0>(&self, file: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn AddOverloadDefaultMetadata<P0, E0>(&self, file: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -66,9 +66,9 @@ impl IStorageItemAccessList {
             (::windows::core::Vtable::vtable(this).AddOverloadDefaultMetadata)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Add<'a, P0, E0>(&self, file: P0, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn Add<P0, E0>(&self, file: P0, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -77,17 +77,17 @@ impl IStorageItemAccessList {
             (::windows::core::Vtable::vtable(this).Add)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(metadata), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn AddOrReplaceOverloadDefaultMetadata<'a, P0, E0>(&self, token: &::windows::core::HSTRING, file: P0) -> ::windows::core::Result<()>
+    pub fn AddOrReplaceOverloadDefaultMetadata<P0, E0>(&self, token: &::windows::core::HSTRING, file: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).AddOrReplaceOverloadDefaultMetadata)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(token), file.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn AddOrReplace<'a, P0, E0>(&self, token: &::windows::core::HSTRING, file: P0, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<()>
+    pub fn AddOrReplace<P0, E0>(&self, token: &::windows::core::HSTRING, file: P0, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -162,9 +162,9 @@ impl IStorageItemAccessList {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Clear)(::windows::core::Vtable::as_raw(this)).ok() }
     }
-    pub fn CheckAccess<'a, P0, E0>(&self, file: P0) -> ::windows::core::Result<bool>
+    pub fn CheckAccess<P0, E0>(&self, file: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -335,9 +335,9 @@ impl AccessListEntryView {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AccessListEntry>>,
+        P0: ::std::convert::Into<::windows::core::InParam<AccessListEntry>>,
     {
         let this = self;
         unsafe {
@@ -428,7 +428,7 @@ impl ::core::convert::TryFrom<&AccessListEntryView> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&AccessListEntryView> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<AccessListEntry>> {
+impl ::core::convert::TryFrom<&AccessListEntryView> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<AccessListEntry>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AccessListEntryView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -450,7 +450,7 @@ impl ::core::convert::TryFrom<&AccessListEntryView> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&AccessListEntryView> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<AccessListEntry>> {
+impl ::core::convert::TryFrom<&AccessListEntryView> for ::windows::core::InParam<super::super::Foundation::Collections::IVectorView<AccessListEntry>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AccessListEntryView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -551,9 +551,9 @@ impl ::windows::core::RuntimeName for StorageApplicationPermissions {
 #[repr(transparent)]
 pub struct StorageItemAccessList(::windows::core::IUnknown);
 impl StorageItemAccessList {
-    pub fn AddOverloadDefaultMetadata<'a, P0, E0>(&self, file: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn AddOverloadDefaultMetadata<P0, E0>(&self, file: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -562,9 +562,9 @@ impl StorageItemAccessList {
             (::windows::core::Vtable::vtable(this).AddOverloadDefaultMetadata)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Add<'a, P0, E0>(&self, file: P0, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn Add<P0, E0>(&self, file: P0, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -573,17 +573,17 @@ impl StorageItemAccessList {
             (::windows::core::Vtable::vtable(this).Add)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(metadata), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn AddOrReplaceOverloadDefaultMetadata<'a, P0, E0>(&self, token: &::windows::core::HSTRING, file: P0) -> ::windows::core::Result<()>
+    pub fn AddOrReplaceOverloadDefaultMetadata<P0, E0>(&self, token: &::windows::core::HSTRING, file: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).AddOrReplaceOverloadDefaultMetadata)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(token), file.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn AddOrReplace<'a, P0, E0>(&self, token: &::windows::core::HSTRING, file: P0, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<()>
+    pub fn AddOrReplace<P0, E0>(&self, token: &::windows::core::HSTRING, file: P0, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -658,9 +658,9 @@ impl StorageItemAccessList {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Clear)(::windows::core::Vtable::as_raw(this)).ok() }
     }
-    pub fn CheckAccess<'a, P0, E0>(&self, file: P0) -> ::windows::core::Result<bool>
+    pub fn CheckAccess<P0, E0>(&self, file: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -731,7 +731,7 @@ impl ::core::convert::TryFrom<&StorageItemAccessList> for IStorageItemAccessList
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageItemAccessList> for ::windows::core::InParam<'a, IStorageItemAccessList> {
+impl ::core::convert::TryFrom<&StorageItemAccessList> for ::windows::core::InParam<IStorageItemAccessList> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemAccessList) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -742,9 +742,9 @@ impl<'a> ::core::convert::TryFrom<&StorageItemAccessList> for ::windows::core::I
 #[repr(transparent)]
 pub struct StorageItemMostRecentlyUsedList(::windows::core::IUnknown);
 impl StorageItemMostRecentlyUsedList {
-    pub fn AddOverloadDefaultMetadata<'a, P0, E0>(&self, file: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn AddOverloadDefaultMetadata<P0, E0>(&self, file: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
@@ -753,9 +753,9 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Vtable::vtable(this).AddOverloadDefaultMetadata)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Add<'a, P0, E0>(&self, file: P0, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn Add<P0, E0>(&self, file: P0, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
@@ -764,17 +764,17 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Vtable::vtable(this).Add)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(metadata), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn AddOrReplaceOverloadDefaultMetadata<'a, P0, E0>(&self, token: &::windows::core::HSTRING, file: P0) -> ::windows::core::Result<()>
+    pub fn AddOrReplaceOverloadDefaultMetadata<P0, E0>(&self, token: &::windows::core::HSTRING, file: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).AddOrReplaceOverloadDefaultMetadata)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(token), file.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn AddOrReplace<'a, P0, E0>(&self, token: &::windows::core::HSTRING, file: P0, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<()>
+    pub fn AddOrReplace<P0, E0>(&self, token: &::windows::core::HSTRING, file: P0, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
@@ -849,9 +849,9 @@ impl StorageItemMostRecentlyUsedList {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).Clear)(::windows::core::Vtable::as_raw(this)).ok() }
     }
-    pub fn CheckAccess<'a, P0, E0>(&self, file: P0) -> ::windows::core::Result<bool>
+    pub fn CheckAccess<P0, E0>(&self, file: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
@@ -891,9 +891,9 @@ impl StorageItemMostRecentlyUsedList {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).RemoveItemRemoved)(::windows::core::Vtable::as_raw(this), eventcookie).ok() }
     }
-    pub fn AddWithMetadataAndVisibility<'a, P0, E0>(&self, file: P0, metadata: &::windows::core::HSTRING, visibility: RecentStorageItemVisibility) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn AddWithMetadataAndVisibility<P0, E0>(&self, file: P0, metadata: &::windows::core::HSTRING, visibility: RecentStorageItemVisibility) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemMostRecentlyUsedList2>(self)?;
@@ -902,9 +902,9 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Vtable::vtable(this).AddWithMetadataAndVisibility)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(metadata), visibility, result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn AddOrReplaceWithMetadataAndVisibility<'a, P0, E0>(&self, token: &::windows::core::HSTRING, file: P0, metadata: &::windows::core::HSTRING, visibility: RecentStorageItemVisibility) -> ::windows::core::Result<()>
+    pub fn AddOrReplaceWithMetadataAndVisibility<P0, E0>(&self, token: &::windows::core::HSTRING, file: P0, metadata: &::windows::core::HSTRING, visibility: RecentStorageItemVisibility) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemMostRecentlyUsedList2>(self)?;
@@ -956,7 +956,7 @@ impl ::core::convert::TryFrom<&StorageItemMostRecentlyUsedList> for IStorageItem
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageItemMostRecentlyUsedList> for ::windows::core::InParam<'a, IStorageItemAccessList> {
+impl ::core::convert::TryFrom<&StorageItemMostRecentlyUsedList> for ::windows::core::InParam<IStorageItemAccessList> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemMostRecentlyUsedList) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

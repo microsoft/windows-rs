@@ -1527,9 +1527,9 @@ impl DataPackage {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).RemoveDestroyed)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
-    pub fn SetData<'a, P0>(&self, formatid: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
+    pub fn SetData<P0>(&self, formatid: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetData)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(formatid), value.into().abi()).ok() }
@@ -1573,9 +1573,9 @@ impl DataPackage {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn SetStorageItemsReadOnly<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStorageItemsReadOnly<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1583,9 +1583,9 @@ impl DataPackage {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn SetStorageItems<'a, P0, E0>(&self, value: P0, readonly: bool) -> ::windows::core::Result<()>
+    pub fn SetStorageItems<P0, E0>(&self, value: P0, readonly: bool) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1706,9 +1706,9 @@ impl DataPackagePropertySet {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetThumbnail<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetThumbnail<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1801,9 +1801,9 @@ impl DataPackagePropertySet {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetSquare30x30Logo<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSquare30x30Logo<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IDataPackagePropertySet2>(self)?;
@@ -1893,9 +1893,9 @@ impl DataPackagePropertySet {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
+    pub fn Insert<P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -1980,7 +1980,7 @@ impl ::core::convert::TryFrom<&DataPackagePropertySet> for super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&DataPackagePropertySet> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+impl ::core::convert::TryFrom<&DataPackagePropertySet> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataPackagePropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2002,7 +2002,7 @@ impl ::core::convert::TryFrom<&DataPackagePropertySet> for super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&DataPackagePropertySet> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&DataPackagePropertySet> for ::windows::core::InParam<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataPackagePropertySet) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2234,7 +2234,7 @@ impl ::core::convert::TryFrom<&DataPackagePropertySetView> for super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&DataPackagePropertySetView> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+impl ::core::convert::TryFrom<&DataPackagePropertySetView> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataPackagePropertySetView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2256,7 +2256,7 @@ impl ::core::convert::TryFrom<&DataPackagePropertySetView> for super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&DataPackagePropertySetView> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&DataPackagePropertySetView> for ::windows::core::InParam<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataPackagePropertySetView) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2540,9 +2540,9 @@ impl DataProviderRequest {
             (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetData<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetData)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -3022,9 +3022,9 @@ impl ShareProvider {
             (::windows::core::Vtable::vtable(this).Tag)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetTag<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetTag<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetTag)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -3288,9 +3288,9 @@ impl ShareUIOptions {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSelectionRect<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSelectionRect<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::Rect>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::Rect>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3337,9 +3337,9 @@ pub struct SharedStorageAccessManager;
 impl SharedStorageAccessManager {
     #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn AddFile<'a, P0, E0>(file: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn AddFile<P0, E0>(file: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ISharedStorageAccessManagerStatics(|this| unsafe {

@@ -46,9 +46,9 @@ impl IWCNDevice {
     pub unsafe fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, pbpassword: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetPassword)(::windows::core::Vtable::as_raw(self), r#type, pbpassword.len() as _, ::core::mem::transmute(pbpassword.as_ptr())).ok()
     }
-    pub unsafe fn Connect<'a, P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Connect<P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWCNConnectNotify>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWCNConnectNotify>>,
     {
         (::windows::core::Vtable::vtable(self).Connect)(::windows::core::Vtable::as_raw(self), pnotify.into().abi()).ok()
     }
@@ -65,7 +65,7 @@ impl IWCNDevice {
     pub unsafe fn GetNetworkProfile(&self, wszprofile: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetNetworkProfile)(::windows::core::Vtable::as_raw(self), wszprofile.len() as _, ::core::mem::transmute(wszprofile.as_ptr())).ok()
     }
-    pub unsafe fn SetNetworkProfile<'a, P0>(&self, pszprofilexml: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNetworkProfile<P0>(&self, pszprofilexml: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {

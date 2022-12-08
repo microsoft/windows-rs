@@ -46,9 +46,9 @@ impl PalmRejectionDelayZonePreview {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Composition\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
-    pub fn CreateForVisual<'a, P0>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect) -> ::windows::core::Result<PalmRejectionDelayZonePreview>
+    pub fn CreateForVisual<P0>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect) -> ::windows::core::Result<PalmRejectionDelayZonePreview>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Composition::Visual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Composition::Visual>>,
     {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -57,10 +57,10 @@ impl PalmRejectionDelayZonePreview {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Composition\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
-    pub fn CreateForVisualWithViewportClip<'a, P0, P1>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: P1, viewportrect: super::super::super::super::Foundation::Rect) -> ::windows::core::Result<PalmRejectionDelayZonePreview>
+    pub fn CreateForVisualWithViewportClip<P0, P1>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: P1, viewportrect: super::super::super::super::Foundation::Rect) -> ::windows::core::Result<PalmRejectionDelayZonePreview>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Composition::Visual>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Composition::Visual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Composition::Visual>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::Composition::Visual>>,
     {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -121,7 +121,7 @@ impl ::core::convert::TryFrom<&PalmRejectionDelayZonePreview> for super::super::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&PalmRejectionDelayZonePreview> for ::windows::core::InParam<'a, super::super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&PalmRejectionDelayZonePreview> for ::windows::core::InParam<super::super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PalmRejectionDelayZonePreview) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -768,7 +768,7 @@ impl ::core::convert::TryFrom<&TargetedContentFile> for super::super::Storage::S
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&TargetedContentFile> for ::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference> {
+impl ::core::convert::TryFrom<&TargetedContentFile> for ::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamReference> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TargetedContentFile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -855,7 +855,7 @@ impl ::core::convert::TryFrom<&TargetedContentImage> for super::super::Storage::
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&TargetedContentImage> for ::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference> {
+impl ::core::convert::TryFrom<&TargetedContentImage> for ::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamReference> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TargetedContentImage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

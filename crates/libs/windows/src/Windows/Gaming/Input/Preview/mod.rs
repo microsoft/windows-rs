@@ -25,9 +25,9 @@ pub struct GameControllerProviderInfo;
 impl GameControllerProviderInfo {
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
     #[cfg(feature = "Gaming_Input_Custom")]
-    pub fn GetParentProviderId<'a, P0, E0>(provider: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn GetParentProviderId<P0, E0>(provider: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Custom::IGameControllerProvider>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Custom::IGameControllerProvider>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
@@ -37,9 +37,9 @@ impl GameControllerProviderInfo {
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
     #[cfg(feature = "Gaming_Input_Custom")]
-    pub fn GetProviderId<'a, P0, E0>(provider: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn GetProviderId<P0, E0>(provider: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Custom::IGameControllerProvider>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Custom::IGameControllerProvider>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {

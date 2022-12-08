@@ -80,9 +80,9 @@ impl HolographicApplicationPreview {
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
-    pub fn IsHolographicActivation<'a, P0, E0>(activatedeventargs: P0) -> ::windows::core::Result<bool>
+    pub fn IsHolographicActivation<P0, E0>(activatedeventargs: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Activation::IActivatedEventArgs>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Activation::IActivatedEventArgs>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {

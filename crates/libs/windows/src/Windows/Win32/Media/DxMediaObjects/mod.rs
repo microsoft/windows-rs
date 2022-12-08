@@ -19,7 +19,7 @@ pub unsafe fn DMOGetTypes(clsiddmo: *const ::windows::core::GUID, ulinputtypesre
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
-pub unsafe fn DMORegister<'a, P0>(szname: P0, clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<()>
+pub unsafe fn DMORegister<P0>(szname: P0, clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -346,9 +346,9 @@ impl IMediaObject {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetInputStatus)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn ProcessInput<'a, P0>(&self, dwinputstreamindex: u32, pbuffer: P0, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> ::windows::core::Result<()>
+    pub unsafe fn ProcessInput<P0>(&self, dwinputstreamindex: u32, pbuffer: P0, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMediaBuffer>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMediaBuffer>>,
     {
         (::windows::core::Vtable::vtable(self).ProcessInput)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, pbuffer.into().abi(), dwflags, rttimestamp, rttimelength).ok()
     }

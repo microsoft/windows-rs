@@ -1133,9 +1133,9 @@ impl BackgroundDownloader {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateDownload<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, resultfile: P0) -> ::windows::core::Result<DownloadOperation>
+    pub fn CreateDownload<P0, E0>(&self, uri: &super::super::Foundation::Uri, resultfile: P0) -> ::windows::core::Result<DownloadOperation>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1146,11 +1146,11 @@ impl BackgroundDownloader {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateDownloadFromFile<'a, P0, E0, P1, E1>(&self, uri: &super::super::Foundation::Uri, resultfile: P0, requestbodyfile: P1) -> ::windows::core::Result<DownloadOperation>
+    pub fn CreateDownloadFromFile<P0, E0, P1, E1>(&self, uri: &super::super::Foundation::Uri, resultfile: P0, requestbodyfile: P1) -> ::windows::core::Result<DownloadOperation>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1161,11 +1161,11 @@ impl BackgroundDownloader {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateDownloadAsync<'a, P0, E0, P1, E1>(&self, uri: &super::super::Foundation::Uri, resultfile: P0, requestbodystream: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DownloadOperation>>
+    pub fn CreateDownloadAsync<P0, E0, P1, E1>(&self, uri: &super::super::Foundation::Uri, resultfile: P0, requestbodystream: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DownloadOperation>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IInputStream>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1284,9 +1284,9 @@ impl BackgroundDownloader {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn RequestUnconstrainedDownloadsAsync<'a, P0, E0>(operations: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>
+    pub fn RequestUnconstrainedDownloadsAsync<P0, E0>(operations: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<DownloadOperation>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<DownloadOperation>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBackgroundDownloaderUserConsent(|this| unsafe {
@@ -1432,7 +1432,7 @@ impl ::core::convert::TryFrom<&BackgroundDownloader> for IBackgroundTransferBase
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BackgroundDownloader> for ::windows::core::InParam<'a, IBackgroundTransferBase> {
+impl ::core::convert::TryFrom<&BackgroundDownloader> for ::windows::core::InParam<IBackgroundTransferBase> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BackgroundDownloader) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1587,9 +1587,9 @@ impl BackgroundTransferContentPart {
     }
     #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn SetFile<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetFile<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1886,9 +1886,9 @@ impl BackgroundUploader {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateUpload<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, sourcefile: P0) -> ::windows::core::Result<UploadOperation>
+    pub fn CreateUpload<P0, E0>(&self, uri: &super::super::Foundation::Uri, sourcefile: P0) -> ::windows::core::Result<UploadOperation>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1899,9 +1899,9 @@ impl BackgroundUploader {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateUploadFromStreamAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, sourcestream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
+    pub fn CreateUploadFromStreamAsync<P0, E0>(&self, uri: &super::super::Foundation::Uri, sourcestream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1912,9 +1912,9 @@ impl BackgroundUploader {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateUploadWithFormDataAndAutoBoundaryAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, parts: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
+    pub fn CreateUploadWithFormDataAndAutoBoundaryAsync<P0, E0>(&self, uri: &super::super::Foundation::Uri, parts: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1925,9 +1925,9 @@ impl BackgroundUploader {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateUploadWithSubTypeAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, parts: P0, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
+    pub fn CreateUploadWithSubTypeAsync<P0, E0>(&self, uri: &super::super::Foundation::Uri, parts: P0, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1938,9 +1938,9 @@ impl BackgroundUploader {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateUploadWithSubTypeAndBoundaryAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, parts: P0, subtype: &::windows::core::HSTRING, boundary: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
+    pub fn CreateUploadWithSubTypeAndBoundaryAsync<P0, E0>(&self, uri: &super::super::Foundation::Uri, parts: P0, subtype: &::windows::core::HSTRING, boundary: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2059,9 +2059,9 @@ impl BackgroundUploader {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn RequestUnconstrainedUploadsAsync<'a, P0, E0>(operations: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>
+    pub fn RequestUnconstrainedUploadsAsync<P0, E0>(operations: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<UploadOperation>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<UploadOperation>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBackgroundUploaderUserConsent(|this| unsafe {
@@ -2136,7 +2136,7 @@ impl ::core::convert::TryFrom<&BackgroundUploader> for IBackgroundTransferBase {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BackgroundUploader> for ::windows::core::InParam<'a, IBackgroundTransferBase> {
+impl ::core::convert::TryFrom<&BackgroundUploader> for ::windows::core::InParam<IBackgroundTransferBase> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BackgroundUploader) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2440,7 +2440,7 @@ impl ::core::convert::TryFrom<&DownloadOperation> for IBackgroundTransferOperati
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DownloadOperation> for ::windows::core::InParam<'a, IBackgroundTransferOperation> {
+impl ::core::convert::TryFrom<&DownloadOperation> for ::windows::core::InParam<IBackgroundTransferOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DownloadOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2459,7 +2459,7 @@ impl ::core::convert::TryFrom<&DownloadOperation> for IBackgroundTransferOperati
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DownloadOperation> for ::windows::core::InParam<'a, IBackgroundTransferOperationPriority> {
+impl ::core::convert::TryFrom<&DownloadOperation> for ::windows::core::InParam<IBackgroundTransferOperationPriority> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DownloadOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2775,7 +2775,7 @@ impl ::core::convert::TryFrom<&UploadOperation> for IBackgroundTransferOperation
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&UploadOperation> for ::windows::core::InParam<'a, IBackgroundTransferOperation> {
+impl ::core::convert::TryFrom<&UploadOperation> for ::windows::core::InParam<IBackgroundTransferOperation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UploadOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2794,7 +2794,7 @@ impl ::core::convert::TryFrom<&UploadOperation> for IBackgroundTransferOperation
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&UploadOperation> for ::windows::core::InParam<'a, IBackgroundTransferOperationPriority> {
+impl ::core::convert::TryFrom<&UploadOperation> for ::windows::core::InParam<IBackgroundTransferOperationPriority> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UploadOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

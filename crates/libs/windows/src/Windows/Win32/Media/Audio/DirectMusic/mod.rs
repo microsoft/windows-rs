@@ -5,17 +5,17 @@ impl IDirectMusic {
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnumPort)(::windows::core::Vtable::as_raw(self), dwindex, pportcaps).ok()
     }
-    pub unsafe fn CreateMusicBuffer<'a, P0>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::core::option::Option<IDirectMusicBuffer>, punkouter: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreateMusicBuffer<P0>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::core::option::Option<IDirectMusicBuffer>, punkouter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).CreateMusicBuffer)(::windows::core::Vtable::as_raw(self), pbufferdesc, ::core::mem::transmute(ppbuffer), punkouter.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreatePort<'a, P0>(&self, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::core::option::Option<IDirectMusicPort>, punkouter: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreatePort<P0>(&self, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::core::option::Option<IDirectMusicPort>, punkouter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).CreatePort)(::windows::core::Vtable::as_raw(self), rclsidport, pportparams, ::core::mem::transmute(ppport), punkouter.into().abi()).ok()
     }
@@ -30,7 +30,7 @@ impl IDirectMusic {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Activate<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -41,9 +41,9 @@ impl IDirectMusic {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_Audio_DirectSound\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
-    pub unsafe fn SetDirectSound<'a, P0, P1>(&self, pdirectsound: P0, hwnd: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, hwnd: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::DirectSound::IDirectSound>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::DirectSound::IDirectSound>>,
         P1: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
         (::windows::core::Vtable::vtable(self).SetDirectSound)(::windows::core::Vtable::as_raw(self), pdirectsound.into().abi(), hwnd.into()).ok()
@@ -102,17 +102,17 @@ impl IDirectMusic8 {
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.EnumPort)(::windows::core::Vtable::as_raw(self), dwindex, pportcaps).ok()
     }
-    pub unsafe fn CreateMusicBuffer<'a, P0>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::core::option::Option<IDirectMusicBuffer>, punkouter: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreateMusicBuffer<P0>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::core::option::Option<IDirectMusicBuffer>, punkouter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CreateMusicBuffer)(::windows::core::Vtable::as_raw(self), pbufferdesc, ::core::mem::transmute(ppbuffer), punkouter.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreatePort<'a, P0>(&self, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::core::option::Option<IDirectMusicPort>, punkouter: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreatePort<P0>(&self, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::core::option::Option<IDirectMusicPort>, punkouter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CreatePort)(::windows::core::Vtable::as_raw(self), rclsidport, pportparams, ::core::mem::transmute(ppport), punkouter.into().abi()).ok()
     }
@@ -127,7 +127,7 @@ impl IDirectMusic8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Activate<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -138,16 +138,16 @@ impl IDirectMusic8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_Audio_DirectSound\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
-    pub unsafe fn SetDirectSound<'a, P0, P1>(&self, pdirectsound: P0, hwnd: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, hwnd: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::DirectSound::IDirectSound>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::DirectSound::IDirectSound>>,
         P1: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetDirectSound)(::windows::core::Vtable::as_raw(self), pdirectsound.into().abi(), hwnd.into()).ok()
     }
-    pub unsafe fn SetExternalMasterClock<'a, P0>(&self, pclock: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetExternalMasterClock<P0>(&self, pclock: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::IReferenceClock>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::IReferenceClock>>,
     {
         (::windows::core::Vtable::vtable(self).SetExternalMasterClock)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
     }
@@ -274,7 +274,7 @@ impl IDirectMusicCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetInstrument)(::windows::core::Vtable::as_raw(self), dwpatch, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn EnumInstrument<'a, P0>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: P0, dwnamelen: u32) -> ::windows::core::Result<()>
+    pub unsafe fn EnumInstrument<P0>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: P0, dwnamelen: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -425,35 +425,35 @@ pub struct IDirectMusicInstrument_Vtbl {
 #[repr(transparent)]
 pub struct IDirectMusicPort(::windows::core::IUnknown);
 impl IDirectMusicPort {
-    pub unsafe fn PlayBuffer<'a, P0>(&self, pbuffer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn PlayBuffer<P0>(&self, pbuffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicBuffer>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicBuffer>>,
     {
         (::windows::core::Vtable::vtable(self).PlayBuffer)(::windows::core::Vtable::as_raw(self), pbuffer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReadNotificationHandle<'a, P0>(&self, hevent: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetReadNotificationHandle<P0>(&self, hevent: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
         (::windows::core::Vtable::vtable(self).SetReadNotificationHandle)(::windows::core::Vtable::as_raw(self), hevent.into()).ok()
     }
-    pub unsafe fn Read<'a, P0>(&self, pbuffer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Read<P0>(&self, pbuffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicBuffer>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicBuffer>>,
     {
         (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), pbuffer.into().abi()).ok()
     }
-    pub unsafe fn DownloadInstrument<'a, P0>(&self, pinstrument: P0, ppdownloadedinstrument: *mut ::core::option::Option<IDirectMusicDownloadedInstrument>, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> ::windows::core::Result<()>
+    pub unsafe fn DownloadInstrument<P0>(&self, pinstrument: P0, ppdownloadedinstrument: *mut ::core::option::Option<IDirectMusicDownloadedInstrument>, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicInstrument>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicInstrument>>,
     {
         (::windows::core::Vtable::vtable(self).DownloadInstrument)(::windows::core::Vtable::as_raw(self), pinstrument.into().abi(), ::core::mem::transmute(ppdownloadedinstrument), pnoteranges, dwnumnoteranges).ok()
     }
-    pub unsafe fn UnloadInstrument<'a, P0>(&self, pdownloadedinstrument: P0) -> ::windows::core::Result<()>
+    pub unsafe fn UnloadInstrument<P0>(&self, pdownloadedinstrument: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicDownloadedInstrument>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicDownloadedInstrument>>,
     {
         (::windows::core::Vtable::vtable(self).UnloadInstrument)(::windows::core::Vtable::as_raw(self), pdownloadedinstrument.into().abi()).ok()
     }
@@ -483,7 +483,7 @@ impl IDirectMusicPort {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, P0>(&self, factive: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Activate<P0>(&self, factive: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -497,10 +497,10 @@ impl IDirectMusicPort {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
-    pub unsafe fn SetDirectSound<'a, P0, P1>(&self, pdirectsound: P0, pdirectsoundbuffer: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, pdirectsoundbuffer: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::DirectSound::IDirectSound>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::DirectSound::IDirectSoundBuffer>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::DirectSound::IDirectSound>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::DirectSound::IDirectSoundBuffer>>,
     {
         (::windows::core::Vtable::vtable(self).SetDirectSound)(::windows::core::Vtable::as_raw(self), pdirectsound.into().abi(), pdirectsoundbuffer.into().abi()).ok()
     }
@@ -583,15 +583,15 @@ impl IDirectMusicPortDownload {
     pub unsafe fn GetAppend(&self, pdwappend: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetAppend)(::windows::core::Vtable::as_raw(self), pdwappend).ok()
     }
-    pub unsafe fn Download<'a, P0>(&self, pidmdownload: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Download<P0>(&self, pidmdownload: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicDownload>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicDownload>>,
     {
         (::windows::core::Vtable::vtable(self).Download)(::windows::core::Vtable::as_raw(self), pidmdownload.into().abi()).ok()
     }
-    pub unsafe fn Unload<'a, P0>(&self, pidmdownload: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Unload<P0>(&self, pidmdownload: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicDownload>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicDownload>>,
     {
         (::windows::core::Vtable::vtable(self).Unload)(::windows::core::Vtable::as_raw(self), pidmdownload.into().abi()).ok()
     }
@@ -652,7 +652,7 @@ impl IDirectMusicSynth {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Unload<'a, P0, P1>(&self, hdownload: P0, lpfreehandle: isize, huserdata: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Unload<P0, P1>(&self, hdownload: P0, lpfreehandle: isize, huserdata: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
         P1: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -668,9 +668,9 @@ impl IDirectMusicSynth {
     pub unsafe fn GetPortCaps(&self, pcaps: *mut DMUS_PORTCAPS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPortCaps)(::windows::core::Vtable::as_raw(self), pcaps).ok()
     }
-    pub unsafe fn SetMasterClock<'a, P0>(&self, pclock: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMasterClock<P0>(&self, pclock: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::IReferenceClock>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::IReferenceClock>>,
     {
         (::windows::core::Vtable::vtable(self).SetMasterClock)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
     }
@@ -680,15 +680,15 @@ impl IDirectMusicSynth {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Activate<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
-    pub unsafe fn SetSynthSink<'a, P0>(&self, psynthsink: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSynthSink<P0>(&self, psynthsink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicSynthSink>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicSynthSink>>,
     {
         (::windows::core::Vtable::vtable(self).SetSynthSink)(::windows::core::Vtable::as_raw(self), psynthsink.into().abi()).ok()
     }
@@ -787,7 +787,7 @@ impl IDirectMusicSynth8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Unload<'a, P0, P1>(&self, hdownload: P0, lpfreehandle: isize, huserdata: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Unload<P0, P1>(&self, hdownload: P0, lpfreehandle: isize, huserdata: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
         P1: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -803,9 +803,9 @@ impl IDirectMusicSynth8 {
     pub unsafe fn GetPortCaps(&self, pcaps: *mut DMUS_PORTCAPS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPortCaps)(::windows::core::Vtable::as_raw(self), pcaps).ok()
     }
-    pub unsafe fn SetMasterClock<'a, P0>(&self, pclock: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMasterClock<P0>(&self, pclock: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::IReferenceClock>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::IReferenceClock>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetMasterClock)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
     }
@@ -815,15 +815,15 @@ impl IDirectMusicSynth8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Activate<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).base__.Activate)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
-    pub unsafe fn SetSynthSink<'a, P0>(&self, psynthsink: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSynthSink<P0>(&self, psynthsink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicSynthSink>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicSynthSink>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetSynthSink)(::windows::core::Vtable::as_raw(self), psynthsink.into().abi()).ok()
     }
@@ -900,15 +900,15 @@ pub struct IDirectMusicSynth8_Vtbl {
 #[repr(transparent)]
 pub struct IDirectMusicSynthSink(::windows::core::IUnknown);
 impl IDirectMusicSynthSink {
-    pub unsafe fn Init<'a, P0>(&self, psynth: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Init<P0>(&self, psynth: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicSynth>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicSynth>>,
     {
         (::windows::core::Vtable::vtable(self).Init)(::windows::core::Vtable::as_raw(self), psynth.into().abi()).ok()
     }
-    pub unsafe fn SetMasterClock<'a, P0>(&self, pclock: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMasterClock<P0>(&self, pclock: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::IReferenceClock>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::IReferenceClock>>,
     {
         (::windows::core::Vtable::vtable(self).SetMasterClock)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
     }
@@ -918,7 +918,7 @@ impl IDirectMusicSynthSink {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Activate<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -932,10 +932,10 @@ impl IDirectMusicSynthSink {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
-    pub unsafe fn SetDirectSound<'a, P0, P1>(&self, pdirectsound: P0, pdirectsoundbuffer: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, pdirectsoundbuffer: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::DirectSound::IDirectSound>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::DirectSound::IDirectSoundBuffer>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::DirectSound::IDirectSound>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::DirectSound::IDirectSoundBuffer>>,
     {
         (::windows::core::Vtable::vtable(self).SetDirectSound)(::windows::core::Vtable::as_raw(self), pdirectsound.into().abi(), pdirectsoundbuffer.into().abi()).ok()
     }
@@ -989,9 +989,9 @@ pub struct IDirectMusicSynthSink_Vtbl {
 #[repr(transparent)]
 pub struct IDirectMusicThru(::windows::core::IUnknown);
 impl IDirectMusicThru {
-    pub unsafe fn ThruChannel<'a, P0>(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ThruChannel<P0>(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicPort>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicPort>>,
     {
         (::windows::core::Vtable::vtable(self).ThruChannel)(::windows::core::Vtable::as_raw(self), dwsourcechannelgroup, dwsourcechannel, dwdestinationchannelgroup, dwdestinationchannel, pdestinationport.into().abi()).ok()
     }
