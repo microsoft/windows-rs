@@ -83,7 +83,7 @@ pub trait IUnknownImpl {
     unsafe fn Release(&self) -> u32;
 }
 
-#[cfg(any(feature = "interface", feature = "implement"))]
+#[cfg(feature = "implement")]
 impl IUnknown_Vtbl {
     pub const fn new<T: IUnknownImpl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: *mut std::ffi::c_void, iid: &GUID, interface: *mut *const std::ffi::c_void) -> HRESULT {

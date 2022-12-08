@@ -8,7 +8,6 @@ edition = "2018"
 path = "../../libs/windows"
 features = [
     "implement",
-    "interface",
     "Storage_Search",
     "Win32_Devices_Properties",
     "Win32_Foundation",

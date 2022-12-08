@@ -8,7 +8,6 @@ edition = "2018"
 path = "../../libs/windows"
 features = [
     "implement",
-    "interface",
     "Win32_Foundation",
     "Win32_System_WinRT",
     "Win32_Media_Audio",

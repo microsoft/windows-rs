@@ -66,8 +66,7 @@ windows-interface = { path = "../interface",  version = "0.43.0", optional = tru
 [features]
 default = []
 deprecated = []
-implement = ["windows-implement"]
-interface = ["windows-interface"]
+implement = ["windows-implement", "windows-interface"]
 "#
         .as_bytes(),
     )
