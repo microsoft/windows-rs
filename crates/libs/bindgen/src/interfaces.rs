@@ -161,7 +161,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
                         }
                     }
                     #cfg
-                    impl<'a, #constraints> ::core::convert::TryFrom<&#ident> for ::windows::core::InParam<'a, #into> {
+                    impl<#constraints> ::core::convert::TryFrom<&#ident> for ::windows::core::InParam<#into> {
                         type Error = ::windows::core::Error;
                         fn try_from(value: &#ident) -> ::windows::core::Result<Self> {
                             let item = ::std::convert::TryInto::try_into(value)?;

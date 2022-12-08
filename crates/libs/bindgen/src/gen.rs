@@ -262,7 +262,7 @@ impl<'a> Gen<'a> {
             .peekable();
 
         if generics.peek().is_some() {
-            quote!('a, #(#generics),*)
+            quote!(#(#generics),*)
         } else {
             TokenStream::new()
         }
@@ -289,12 +289,12 @@ impl<'a> Gen<'a> {
                     let name: TokenStream = gen_name(position);
                     let error_name: TokenStream = format!("E{position}").into();
                     let into = self.type_name(&param.ty);
-                    tokens.combine(&quote! { #name: ::std::convert::TryInto<::windows::core::InParam<'a, #into>, Error = #error_name>, #error_name: ::std::convert::Into<::windows::core::Error>, });
+                    tokens.combine(&quote! { #name: ::std::convert::TryInto<::windows::core::InParam<#into>, Error = #error_name>, #error_name: ::std::convert::Into<::windows::core::Error>, });
                 }
                 SignatureParamKind::IntoParam => {
                     let name: TokenStream = gen_name(position);
                     let into = self.type_name(&param.ty);
-                    tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::InParam<'a, #into>>, });
+                    tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::InParam<#into>>, });
                 }
                 SignatureParamKind::Into => {
                     let name: TokenStream = gen_name(position);

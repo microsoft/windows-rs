@@ -360,9 +360,9 @@ pub struct ILanguageExceptionErrorInfo_Vtbl {
 #[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo2(IUnknown);
 impl ILanguageExceptionErrorInfo2 {
-    pub unsafe fn CapturePropagationContext<'a, P0>(&self, languageexception: P0) -> Result<()>
+    pub unsafe fn CapturePropagationContext<P0>(&self, languageexception: P0) -> Result<()>
     where
-        P0: std::convert::Into<InParam<'a, IUnknown>>,
+        P0: std::convert::Into<InParam<IUnknown>>,
     {
         (Vtable::vtable(self).CapturePropagationContext)(Vtable::as_raw(self), languageexception.into().abi()).ok()
     }
