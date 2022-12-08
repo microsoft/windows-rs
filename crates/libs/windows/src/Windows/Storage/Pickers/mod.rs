@@ -504,7 +504,7 @@ impl ::core::convert::TryFrom<&FileExtensionVector> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&FileExtensionVector> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> {
+impl ::core::convert::TryFrom<&FileExtensionVector> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileExtensionVector) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -526,7 +526,7 @@ impl ::core::convert::TryFrom<&FileExtensionVector> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&FileExtensionVector> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
+impl ::core::convert::TryFrom<&FileExtensionVector> for ::windows::core::InParam<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileExtensionVector) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -773,9 +773,9 @@ impl FilePickerFileTypesOrderedMap {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, P0, E0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
+    pub fn Insert<P0, E0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -870,7 +870,7 @@ impl ::core::convert::TryFrom<&FilePickerFileTypesOrderedMap> for super::super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&FilePickerFileTypesOrderedMap> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>> {
+impl ::core::convert::TryFrom<&FilePickerFileTypesOrderedMap> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FilePickerFileTypesOrderedMap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -892,7 +892,7 @@ impl ::core::convert::TryFrom<&FilePickerFileTypesOrderedMap> for super::super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&FilePickerFileTypesOrderedMap> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> {
+impl ::core::convert::TryFrom<&FilePickerFileTypesOrderedMap> for ::windows::core::InParam<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FilePickerFileTypesOrderedMap) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1028,7 +1028,7 @@ impl ::core::convert::TryFrom<&FilePickerSelectedFilesArray> for super::super::F
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&FilePickerSelectedFilesArray> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::StorageFile>> {
+impl ::core::convert::TryFrom<&FilePickerSelectedFilesArray> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::StorageFile>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FilePickerSelectedFilesArray) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1050,7 +1050,7 @@ impl ::core::convert::TryFrom<&FilePickerSelectedFilesArray> for super::super::F
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&FilePickerSelectedFilesArray> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::StorageFile>> {
+impl ::core::convert::TryFrom<&FilePickerSelectedFilesArray> for ::windows::core::InParam<super::super::Foundation::Collections::IVectorView<super::StorageFile>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FilePickerSelectedFilesArray) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -289,9 +289,9 @@ impl FileInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyOverloadDefaultNameAndOptions<'a, P0, E0>(&self, destinationfolder: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
+    pub fn CopyOverloadDefaultNameAndOptions<P0, E0>(&self, destinationfolder: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
@@ -302,9 +302,9 @@ impl FileInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyOverloadDefaultOptions<'a, P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
+    pub fn CopyOverloadDefaultOptions<P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
@@ -315,9 +315,9 @@ impl FileInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyOverload<'a, P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING, option: super::NameCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
+    pub fn CopyOverload<P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING, option: super::NameCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
@@ -328,9 +328,9 @@ impl FileInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyAndReplaceAsync<'a, P0, E0>(&self, filetoreplace: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn CopyAndReplaceAsync<P0, E0>(&self, filetoreplace: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
@@ -341,9 +341,9 @@ impl FileInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MoveOverloadDefaultNameAndOptions<'a, P0, E0>(&self, destinationfolder: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn MoveOverloadDefaultNameAndOptions<P0, E0>(&self, destinationfolder: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
@@ -354,9 +354,9 @@ impl FileInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MoveOverloadDefaultOptions<'a, P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn MoveOverloadDefaultOptions<P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
@@ -367,9 +367,9 @@ impl FileInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MoveOverload<'a, P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING, option: super::NameCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn MoveOverload<P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING, option: super::NameCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
@@ -380,9 +380,9 @@ impl FileInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MoveAndReplaceAsync<'a, P0, E0>(&self, filetoreplace: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn MoveAndReplaceAsync<P0, E0>(&self, filetoreplace: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IStorageFile>(self)?;
@@ -507,9 +507,9 @@ impl FileInformation {
             (::windows::core::Vtable::vtable(this).GetParentAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn IsEqual<'a, P0, E0>(&self, item: P0) -> ::windows::core::Result<bool>
+    pub fn IsEqual<P0, E0>(&self, item: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IStorageItem2>(self)?;
@@ -715,7 +715,7 @@ impl ::core::convert::TryFrom<&FileInformation> for super::Streams::IInputStream
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<'a, super::Streams::IInputStreamReference> {
+impl ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<super::Streams::IInputStreamReference> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -737,7 +737,7 @@ impl ::core::convert::TryFrom<&FileInformation> for super::Streams::IRandomAcces
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<'a, super::Streams::IRandomAccessStreamReference> {
+impl ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<super::Streams::IRandomAccessStreamReference> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -756,7 +756,7 @@ impl ::core::convert::TryFrom<&FileInformation> for super::IStorageFile {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<'a, super::IStorageFile> {
+impl ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<super::IStorageFile> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -775,7 +775,7 @@ impl ::core::convert::TryFrom<&FileInformation> for super::IStorageFile2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<'a, super::IStorageFile2> {
+impl ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<super::IStorageFile2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -794,7 +794,7 @@ impl ::core::convert::TryFrom<&FileInformation> for super::IStorageFilePropertie
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<'a, super::IStorageFilePropertiesWithAvailability> {
+impl ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<super::IStorageFilePropertiesWithAvailability> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -813,7 +813,7 @@ impl ::core::convert::TryFrom<&FileInformation> for super::IStorageItem {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<'a, super::IStorageItem> {
+impl ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<super::IStorageItem> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -832,7 +832,7 @@ impl ::core::convert::TryFrom<&FileInformation> for super::IStorageItem2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<'a, super::IStorageItem2> {
+impl ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<super::IStorageItem2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -851,7 +851,7 @@ impl ::core::convert::TryFrom<&FileInformation> for IStorageItemInformation {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<'a, IStorageItemInformation> {
+impl ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<IStorageItemInformation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -870,7 +870,7 @@ impl ::core::convert::TryFrom<&FileInformation> for super::IStorageItemPropertie
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<'a, super::IStorageItemProperties> {
+impl ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<super::IStorageItemProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -889,7 +889,7 @@ impl ::core::convert::TryFrom<&FileInformation> for super::IStorageItemPropertie
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<'a, super::IStorageItemPropertiesWithProvider> {
+impl ::core::convert::TryFrom<&FileInformation> for ::windows::core::InParam<super::IStorageItemPropertiesWithProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -977,9 +977,9 @@ impl FileInformationFactory {
     }
     #[doc = "*Required features: `\"Storage_FileProperties\"`, `\"Storage_Search\"`*"]
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
-    pub fn CreateWithMode<'a, P0, E0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode) -> ::windows::core::Result<FileInformationFactory>
+    pub fn CreateWithMode<P0, E0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode) -> ::windows::core::Result<FileInformationFactory>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Search::IStorageQueryResultBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Search::IStorageQueryResultBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileInformationFactoryFactory(|this| unsafe {
@@ -989,9 +989,9 @@ impl FileInformationFactory {
     }
     #[doc = "*Required features: `\"Storage_FileProperties\"`, `\"Storage_Search\"`*"]
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
-    pub fn CreateWithModeAndSize<'a, P0, E0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32) -> ::windows::core::Result<FileInformationFactory>
+    pub fn CreateWithModeAndSize<P0, E0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32) -> ::windows::core::Result<FileInformationFactory>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Search::IStorageQueryResultBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Search::IStorageQueryResultBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileInformationFactoryFactory(|this| unsafe {
@@ -1001,9 +1001,9 @@ impl FileInformationFactory {
     }
     #[doc = "*Required features: `\"Storage_FileProperties\"`, `\"Storage_Search\"`*"]
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
-    pub fn CreateWithModeAndSizeAndOptions<'a, P0, E0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions) -> ::windows::core::Result<FileInformationFactory>
+    pub fn CreateWithModeAndSizeAndOptions<P0, E0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions) -> ::windows::core::Result<FileInformationFactory>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Search::IStorageQueryResultBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Search::IStorageQueryResultBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileInformationFactoryFactory(|this| unsafe {
@@ -1013,9 +1013,9 @@ impl FileInformationFactory {
     }
     #[doc = "*Required features: `\"Storage_FileProperties\"`, `\"Storage_Search\"`*"]
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
-    pub fn CreateWithModeAndSizeAndOptionsAndFlags<'a, P0, E0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool) -> ::windows::core::Result<FileInformationFactory>
+    pub fn CreateWithModeAndSizeAndOptionsAndFlags<P0, E0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool) -> ::windows::core::Result<FileInformationFactory>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Search::IStorageQueryResultBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Search::IStorageQueryResultBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileInformationFactoryFactory(|this| unsafe {
@@ -1411,9 +1411,9 @@ impl FolderInformation {
             (::windows::core::Vtable::vtable(this).GetParentAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn IsEqual<'a, P0, E0>(&self, item: P0) -> ::windows::core::Result<bool>
+    pub fn IsEqual<P0, E0>(&self, item: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IStorageItem2>(self)?;
@@ -1616,7 +1616,7 @@ impl ::core::convert::TryFrom<&FolderInformation> for super::IStorageFolder {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<'a, super::IStorageFolder> {
+impl ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<super::IStorageFolder> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1635,7 +1635,7 @@ impl ::core::convert::TryFrom<&FolderInformation> for super::IStorageFolder2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<'a, super::IStorageFolder2> {
+impl ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<super::IStorageFolder2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1657,7 +1657,7 @@ impl ::core::convert::TryFrom<&FolderInformation> for super::Search::IStorageFol
     }
 }
 #[cfg(feature = "Storage_Search")]
-impl<'a> ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<'a, super::Search::IStorageFolderQueryOperations> {
+impl ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<super::Search::IStorageFolderQueryOperations> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1676,7 +1676,7 @@ impl ::core::convert::TryFrom<&FolderInformation> for super::IStorageItem {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<'a, super::IStorageItem> {
+impl ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<super::IStorageItem> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1695,7 +1695,7 @@ impl ::core::convert::TryFrom<&FolderInformation> for super::IStorageItem2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<'a, super::IStorageItem2> {
+impl ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<super::IStorageItem2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1714,7 +1714,7 @@ impl ::core::convert::TryFrom<&FolderInformation> for IStorageItemInformation {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<'a, IStorageItemInformation> {
+impl ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<IStorageItemInformation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1733,7 +1733,7 @@ impl ::core::convert::TryFrom<&FolderInformation> for super::IStorageItemPropert
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<'a, super::IStorageItemProperties> {
+impl ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<super::IStorageItemProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1752,7 +1752,7 @@ impl ::core::convert::TryFrom<&FolderInformation> for super::IStorageItemPropert
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<'a, super::IStorageItemPropertiesWithProvider> {
+impl ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<super::IStorageItemPropertiesWithProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

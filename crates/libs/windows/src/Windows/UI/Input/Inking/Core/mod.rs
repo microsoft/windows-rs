@@ -272,9 +272,9 @@ pub struct CoreIncrementalInkStroke(::windows::core::IUnknown);
 impl CoreIncrementalInkStroke {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AppendInkPoints<'a, P0, E0>(&self, inkpoints: P0) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>
+    pub fn AppendInkPoints<P0, E0>(&self, inkpoints: P0) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::InkPoint>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::super::Foundation::Collections::IIterable<super::InkPoint>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -571,9 +571,9 @@ impl CoreInkPresenterHost {
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
-    pub fn SetRootVisual<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetRootVisual<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Composition::ContainerVisual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Composition::ContainerVisual>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetRootVisual)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }

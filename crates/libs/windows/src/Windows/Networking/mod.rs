@@ -329,7 +329,7 @@ impl ::core::convert::TryFrom<&HostName> for super::Foundation::IStringable {
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HostName> for ::windows::core::InParam<'a, super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HostName> for ::windows::core::InParam<super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HostName) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

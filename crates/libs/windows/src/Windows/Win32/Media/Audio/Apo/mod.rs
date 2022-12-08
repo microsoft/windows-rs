@@ -40,9 +40,9 @@ impl IApoAuxiliaryInputConfiguration {
     pub unsafe fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveAuxiliaryInput)(::windows::core::Vtable::as_raw(self), dwinputid).ok()
     }
-    pub unsafe fn IsInputFormatSupported<'a, P0>(&self, prequestedinputformat: P0) -> ::windows::core::Result<IAudioMediaType>
+    pub unsafe fn IsInputFormatSupported<P0>(&self, prequestedinputformat: P0) -> ::windows::core::Result<IAudioMediaType>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IAudioMediaType>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IAudioMediaType>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsInputFormatSupported)(::windows::core::Vtable::as_raw(self), prequestedinputformat.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -120,9 +120,9 @@ pub struct IApoAuxiliaryInputRT_Vtbl {
 #[repr(transparent)]
 pub struct IAudioDeviceModulesClient(::windows::core::IUnknown);
 impl IAudioDeviceModulesClient {
-    pub unsafe fn SetAudioDeviceModulesManager<'a, P0>(&self, paudiodevicemodulesmanager: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAudioDeviceModulesManager<P0>(&self, paudiodevicemodulesmanager: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetAudioDeviceModulesManager)(::windows::core::Vtable::as_raw(self), paudiodevicemodulesmanager.into().abi()).ok()
     }
@@ -166,9 +166,9 @@ impl IAudioMediaType {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsCompressedFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn IsEqual<'a, P0>(&self, piaudiotype: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn IsEqual<P0>(&self, piaudiotype: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IAudioMediaType>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IAudioMediaType>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsEqual)(::windows::core::Vtable::as_raw(self), piaudiotype.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -234,18 +234,18 @@ impl IAudioProcessingObject {
     pub unsafe fn Initialize(&self, pbydata: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pbydata.len() as _, ::core::mem::transmute(pbydata.as_ptr())).ok()
     }
-    pub unsafe fn IsInputFormatSupported<'a, P0, P1>(&self, poppositeformat: P0, prequestedinputformat: P1) -> ::windows::core::Result<IAudioMediaType>
+    pub unsafe fn IsInputFormatSupported<P0, P1>(&self, poppositeformat: P0, prequestedinputformat: P1) -> ::windows::core::Result<IAudioMediaType>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IAudioMediaType>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IAudioMediaType>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IAudioMediaType>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IAudioMediaType>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsInputFormatSupported)(::windows::core::Vtable::as_raw(self), poppositeformat.into().abi(), prequestedinputformat.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn IsOutputFormatSupported<'a, P0, P1>(&self, poppositeformat: P0, prequestedoutputformat: P1) -> ::windows::core::Result<IAudioMediaType>
+    pub unsafe fn IsOutputFormatSupported<P0, P1>(&self, poppositeformat: P0, prequestedoutputformat: P1) -> ::windows::core::Result<IAudioMediaType>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IAudioMediaType>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IAudioMediaType>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IAudioMediaType>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IAudioMediaType>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsOutputFormatSupported)(::windows::core::Vtable::as_raw(self), poppositeformat.into().abi(), prequestedoutputformat.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -335,7 +335,7 @@ pub struct IAudioProcessingObjectConfiguration_Vtbl {
 #[repr(transparent)]
 pub struct IAudioProcessingObjectLoggingService(::windows::core::IUnknown);
 impl IAudioProcessingObjectLoggingService {
-    pub unsafe fn ApoLog<'a, P0>(&self, level: APO_LOG_LEVEL, format: P0)
+    pub unsafe fn ApoLog<P0>(&self, level: APO_LOG_LEVEL, format: P0)
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -581,7 +581,7 @@ pub struct IAudioSystemEffects2(::windows::core::IUnknown);
 impl IAudioSystemEffects2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectsList<'a, P0>(&self, ppeffectsids: ::core::option::Option<*mut *mut ::windows::core::GUID>, pceffects: *mut u32, event: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetEffectsList<P0>(&self, ppeffectsids: ::core::option::Option<*mut *mut ::windows::core::GUID>, pceffects: *mut u32, event: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
@@ -626,7 +626,7 @@ pub struct IAudioSystemEffects3(::windows::core::IUnknown);
 impl IAudioSystemEffects3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectsList<'a, P0>(&self, ppeffectsids: ::core::option::Option<*mut *mut ::windows::core::GUID>, pceffects: *mut u32, event: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetEffectsList<P0>(&self, ppeffectsids: ::core::option::Option<*mut *mut ::windows::core::GUID>, pceffects: *mut u32, event: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
@@ -634,7 +634,7 @@ impl IAudioSystemEffects3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetControllableSystemEffectsList<'a, P0>(&self, effects: ::core::option::Option<*mut *mut AUDIO_SYSTEMEFFECT>, numeffects: *mut u32, event: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetControllableSystemEffectsList<P0>(&self, effects: ::core::option::Option<*mut *mut AUDIO_SYSTEMEFFECT>, numeffects: *mut u32, event: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {

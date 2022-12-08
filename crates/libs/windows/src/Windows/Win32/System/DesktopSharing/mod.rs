@@ -492,9 +492,9 @@ pub struct IRDPSRAPIClipboardUseEvents(::windows::core::IUnknown);
 impl IRDPSRAPIClipboardUseEvents {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn OnPasteFromClipboard<'a, P0>(&self, clipboardformat: u32, pattendee: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    pub unsafe fn OnPasteFromClipboard<P0>(&self, clipboardformat: u32, pattendee: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDispatch>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).OnPasteFromClipboard)(::windows::core::Vtable::as_raw(self), clipboardformat, pattendee.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1132,9 +1132,9 @@ impl IRDPSRAPISharingSession2 {
     pub unsafe fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetDesktopSharedRect)(::windows::core::Vtable::as_raw(self), pleft, ptop, pright, pbottom).ok()
     }
-    pub unsafe fn ConnectUsingTransportStream<'a, P0>(&self, pstream: P0, bstrgroup: &::windows::core::BSTR, bstrauthenticatedattendeename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn ConnectUsingTransportStream<P0>(&self, pstream: P0, bstrgroup: &::windows::core::BSTR, bstrauthenticatedattendeename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPITransportStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRDPSRAPITransportStream>>,
     {
         (::windows::core::Vtable::vtable(self).ConnectUsingTransportStream)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), ::core::mem::transmute_copy(bstrgroup), ::core::mem::transmute_copy(bstrauthenticatedattendeename)).ok()
     }
@@ -1146,9 +1146,9 @@ impl IRDPSRAPISharingSession2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SendControlLevelChangeResponse<'a, P0>(&self, pattendee: P0, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> ::windows::core::Result<()>
+    pub unsafe fn SendControlLevelChangeResponse<P0>(&self, pattendee: P0, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPIAttendee>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRDPSRAPIAttendee>>,
     {
         (::windows::core::Vtable::vtable(self).SendControlLevelChangeResponse)(::windows::core::Vtable::as_raw(self), pattendee.into().abi(), requestedlevel, reasoncode).ok()
     }
@@ -1274,27 +1274,27 @@ impl IRDPSRAPITransportStream {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AllocBuffer)(::windows::core::Vtable::as_raw(self), maxpayload, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn FreeBuffer<'a, P0>(&self, pbuffer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FreeBuffer<P0>(&self, pbuffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPITransportStreamBuffer>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRDPSRAPITransportStreamBuffer>>,
     {
         (::windows::core::Vtable::vtable(self).FreeBuffer)(::windows::core::Vtable::as_raw(self), pbuffer.into().abi()).ok()
     }
-    pub unsafe fn WriteBuffer<'a, P0>(&self, pbuffer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn WriteBuffer<P0>(&self, pbuffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPITransportStreamBuffer>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRDPSRAPITransportStreamBuffer>>,
     {
         (::windows::core::Vtable::vtable(self).WriteBuffer)(::windows::core::Vtable::as_raw(self), pbuffer.into().abi()).ok()
     }
-    pub unsafe fn ReadBuffer<'a, P0>(&self, pbuffer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ReadBuffer<P0>(&self, pbuffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPITransportStreamBuffer>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRDPSRAPITransportStreamBuffer>>,
     {
         (::windows::core::Vtable::vtable(self).ReadBuffer)(::windows::core::Vtable::as_raw(self), pbuffer.into().abi()).ok()
     }
-    pub unsafe fn Open<'a, P0>(&self, pcallbacks: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Open<P0>(&self, pcallbacks: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPITransportStreamEvents>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRDPSRAPITransportStreamEvents>>,
     {
         (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pcallbacks.into().abi()).ok()
     }
@@ -1373,9 +1373,9 @@ impl IRDPSRAPITransportStreamBuffer {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Context)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetContext<'a, P0>(&self, pcontext: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetContext<P0>(&self, pcontext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetContext)(::windows::core::Vtable::as_raw(self), pcontext.into().abi()).ok()
     }
@@ -1422,15 +1422,15 @@ pub struct IRDPSRAPITransportStreamBuffer_Vtbl {
 #[repr(transparent)]
 pub struct IRDPSRAPITransportStreamEvents(::windows::core::IUnknown);
 impl IRDPSRAPITransportStreamEvents {
-    pub unsafe fn OnWriteCompleted<'a, P0>(&self, pbuffer: P0)
+    pub unsafe fn OnWriteCompleted<P0>(&self, pbuffer: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPITransportStreamBuffer>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRDPSRAPITransportStreamBuffer>>,
     {
         (::windows::core::Vtable::vtable(self).OnWriteCompleted)(::windows::core::Vtable::as_raw(self), pbuffer.into().abi())
     }
-    pub unsafe fn OnReadCompleted<'a, P0>(&self, pbuffer: P0)
+    pub unsafe fn OnReadCompleted<P0>(&self, pbuffer: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPITransportStreamBuffer>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRDPSRAPITransportStreamBuffer>>,
     {
         (::windows::core::Vtable::vtable(self).OnReadCompleted)(::windows::core::Vtable::as_raw(self), pbuffer.into().abi())
     }

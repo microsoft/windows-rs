@@ -86,9 +86,9 @@ impl ISpAudio {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<'a, P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
+    pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.CopyTo)(::windows::core::Vtable::as_raw(self), pstm.into().abi(), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -229,19 +229,19 @@ pub struct ISpAudio_Vtbl {
 #[repr(transparent)]
 pub struct ISpContainerLexicon(::windows::core::IUnknown);
 impl ISpContainerLexicon {
-    pub unsafe fn GetPronunciations<'a, P0>(&self, pszword: P0, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::Result<()>
+    pub unsafe fn GetPronunciations<P0>(&self, pszword: P0, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.GetPronunciations)(::windows::core::Vtable::as_raw(self), pszword.into(), langid, dwflags, pwordpronunciationlist).ok()
     }
-    pub unsafe fn AddPronunciation<'a, P0>(&self, pszword: P0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: ::core::option::Option<*const u16>) -> ::windows::core::Result<()>
+    pub unsafe fn AddPronunciation<P0>(&self, pszword: P0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: ::core::option::Option<*const u16>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.AddPronunciation)(::windows::core::Vtable::as_raw(self), pszword.into(), langid, epartofspeech, ::core::mem::transmute(pszpronunciation.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn RemovePronunciation<'a, P0>(&self, pszword: P0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: ::core::option::Option<*const u16>) -> ::windows::core::Result<()>
+    pub unsafe fn RemovePronunciation<P0>(&self, pszword: P0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: ::core::option::Option<*const u16>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -256,9 +256,9 @@ impl ISpContainerLexicon {
     pub unsafe fn GetWords(&self, dwflags: u32, pdwgeneration: *mut u32, pdwcookie: ::core::option::Option<*mut u32>, pwordlist: *mut SPWORDLIST) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetWords)(::windows::core::Vtable::as_raw(self), dwflags, pdwgeneration, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), pwordlist).ok()
     }
-    pub unsafe fn AddLexicon<'a, P0>(&self, paddlexicon: P0, dwflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn AddLexicon<P0>(&self, paddlexicon: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpLexicon>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpLexicon>>,
     {
         (::windows::core::Vtable::vtable(self).AddLexicon)(::windows::core::Vtable::as_raw(self), paddlexicon.into().abi(), dwflags).ok()
     }
@@ -296,65 +296,65 @@ pub struct ISpContainerLexicon_Vtbl {
 #[repr(transparent)]
 pub struct ISpDataKey(::windows::core::IUnknown);
 impl ISpDataKey {
-    pub unsafe fn SetData<'a, P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()>
+    pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).SetData)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), cbdata, pdata).ok()
     }
-    pub unsafe fn GetData<'a, P0>(&self, pszvaluename: P0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn GetData<P0>(&self, pszvaluename: P0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pcbdata, pdata).ok()
     }
-    pub unsafe fn SetStringValue<'a, P0, P1>(&self, pszvaluename: P0, pszvalue: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetStringValue<P0, P1>(&self, pszvaluename: P0, pszvalue: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).SetStringValue)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pszvalue.into()).ok()
     }
-    pub unsafe fn GetStringValue<'a, P0>(&self, pszvaluename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetStringValue<P0>(&self, pszvaluename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetStringValue)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDWORD<'a, P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetDWORD<P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).SetDWORD)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), dwvalue).ok()
     }
-    pub unsafe fn GetDWORD<'a, P0>(&self, pszvaluename: P0, pdwvalue: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetDWORD<P0>(&self, pszvaluename: P0, pdwvalue: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).GetDWORD)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pdwvalue).ok()
     }
-    pub unsafe fn OpenKey<'a, P0>(&self, pszsubkeyname: P0) -> ::windows::core::Result<ISpDataKey>
+    pub unsafe fn OpenKey<P0>(&self, pszsubkeyname: P0) -> ::windows::core::Result<ISpDataKey>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).OpenKey)(::windows::core::Vtable::as_raw(self), pszsubkeyname.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateKey<'a, P0>(&self, pszsubkey: P0) -> ::windows::core::Result<ISpDataKey>
+    pub unsafe fn CreateKey<P0>(&self, pszsubkey: P0) -> ::windows::core::Result<ISpDataKey>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateKey)(::windows::core::Vtable::as_raw(self), pszsubkey.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn DeleteKey<'a, P0>(&self, pszsubkey: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteKey<P0>(&self, pszsubkey: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).DeleteKey)(::windows::core::Vtable::as_raw(self), pszsubkey.into()).ok()
     }
-    pub unsafe fn DeleteValue<'a, P0>(&self, pszvaluename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteValue<P0>(&self, pszvaluename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -454,7 +454,7 @@ pub struct ISpDisplayAlternates_Vtbl {
 #[repr(transparent)]
 pub struct ISpEnginePronunciation(::windows::core::IUnknown);
 impl ISpEnginePronunciation {
-    pub unsafe fn Normalize<'a, P0, P1, P2>(&self, pszword: P0, pszleftcontext: P1, pszrightcontext: P2, langid: u16, pnormalizationlist: *mut SPNORMALIZATIONLIST) -> ::windows::core::Result<()>
+    pub unsafe fn Normalize<P0, P1, P2>(&self, pszword: P0, pszleftcontext: P1, pszrightcontext: P2, langid: u16, pnormalizationlist: *mut SPNORMALIZATIONLIST) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -462,7 +462,7 @@ impl ISpEnginePronunciation {
     {
         (::windows::core::Vtable::vtable(self).Normalize)(::windows::core::Vtable::as_raw(self), pszword.into(), pszleftcontext.into(), pszrightcontext.into(), langid, pnormalizationlist).ok()
     }
-    pub unsafe fn GetPronunciations<'a, P0, P1, P2>(&self, pszword: P0, pszleftcontext: P1, pszrightcontext: P2, langid: u16, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::Result<()>
+    pub unsafe fn GetPronunciations<P0, P1, P2>(&self, pszword: P0, pszleftcontext: P1, pszrightcontext: P2, langid: u16, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -551,15 +551,15 @@ pub struct ISpEventSink_Vtbl {
 #[repr(transparent)]
 pub struct ISpEventSource(::windows::core::IUnknown);
 impl ISpEventSource {
-    pub unsafe fn SetNotifySink<'a, P0>(&self, pnotifysink: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifySink>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpNotifySink>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetNotifySink)(::windows::core::Vtable::as_raw(self), pnotifysink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyWindowMessage<'a, P0, P1, P2>(&self, hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyWindowMessage<P0, P1, P2>(&self, hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
@@ -569,7 +569,7 @@ impl ISpEventSource {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackFunction<'a, P0, P1>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackFunction<P0, P1>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -578,9 +578,9 @@ impl ISpEventSource {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackInterface<P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifyCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpNotifyCallback>>,
         P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -647,15 +647,15 @@ pub struct ISpEventSource_Vtbl {
 #[repr(transparent)]
 pub struct ISpEventSource2(::windows::core::IUnknown);
 impl ISpEventSource2 {
-    pub unsafe fn SetNotifySink<'a, P0>(&self, pnotifysink: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifySink>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpNotifySink>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetNotifySink)(::windows::core::Vtable::as_raw(self), pnotifysink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyWindowMessage<'a, P0, P1, P2>(&self, hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyWindowMessage<P0, P1, P2>(&self, hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
@@ -665,7 +665,7 @@ impl ISpEventSource2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackFunction<'a, P0, P1>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackFunction<P0, P1>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -674,9 +674,9 @@ impl ISpEventSource2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackInterface<P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifyCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpNotifyCallback>>,
         P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -751,7 +751,7 @@ impl ISpGrammarBuilder {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRule<'a, P0, P1>(&self, pszrulename: P0, dwruleid: u32, dwattributes: u32, fcreateifnotexist: P1, phinitialstate: *mut *mut SPSTATEHANDLE__) -> ::windows::core::Result<()>
+    pub unsafe fn GetRule<P0, P1>(&self, pszrulename: P0, dwruleid: u32, dwattributes: u32, fcreateifnotexist: P1, phinitialstate: *mut *mut SPSTATEHANDLE__) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -766,7 +766,7 @@ impl ISpGrammarBuilder {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddWordTransition<'a, P0, P1>(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: P0, pszseparators: P1, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::Result<()>
+    pub unsafe fn AddWordTransition<P0, P1>(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: P0, pszseparators: P1, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -778,7 +778,7 @@ impl ISpGrammarBuilder {
     pub unsafe fn AddRuleTransition(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, hrule: *mut SPSTATEHANDLE__, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddRuleTransition)(::windows::core::Vtable::as_raw(self), hfromstate, htostate, hrule, weight, ppropinfo).ok()
     }
-    pub unsafe fn AddResource<'a, P0, P1>(&self, hrulestate: *mut SPSTATEHANDLE__, pszresourcename: P0, pszresourcevalue: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddResource<P0, P1>(&self, hrulestate: *mut SPSTATEHANDLE__, pszresourcename: P0, pszresourcevalue: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -838,7 +838,7 @@ pub struct ISpGrammarBuilder_Vtbl {
 #[repr(transparent)]
 pub struct ISpGrammarBuilder2(::windows::core::IUnknown);
 impl ISpGrammarBuilder2 {
-    pub unsafe fn AddTextSubset<'a, P0>(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: P0, ematchmode: SPMATCHINGMODE) -> ::windows::core::Result<()>
+    pub unsafe fn AddTextSubset<P0>(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: P0, ematchmode: SPMATCHINGMODE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -882,19 +882,19 @@ pub struct ISpGrammarBuilder2_Vtbl {
 #[repr(transparent)]
 pub struct ISpLexicon(::windows::core::IUnknown);
 impl ISpLexicon {
-    pub unsafe fn GetPronunciations<'a, P0>(&self, pszword: P0, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::Result<()>
+    pub unsafe fn GetPronunciations<P0>(&self, pszword: P0, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).GetPronunciations)(::windows::core::Vtable::as_raw(self), pszword.into(), langid, dwflags, pwordpronunciationlist).ok()
     }
-    pub unsafe fn AddPronunciation<'a, P0>(&self, pszword: P0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: ::core::option::Option<*const u16>) -> ::windows::core::Result<()>
+    pub unsafe fn AddPronunciation<P0>(&self, pszword: P0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: ::core::option::Option<*const u16>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).AddPronunciation)(::windows::core::Vtable::as_raw(self), pszword.into(), langid, epartofspeech, ::core::mem::transmute(pszpronunciation.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn RemovePronunciation<'a, P0>(&self, pszword: P0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: ::core::option::Option<*const u16>) -> ::windows::core::Result<()>
+    pub unsafe fn RemovePronunciation<P0>(&self, pszword: P0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: ::core::option::Option<*const u16>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -973,9 +973,9 @@ impl ISpMMSysAudio {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<'a, P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
+    pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CopyTo)(::windows::core::Vtable::as_raw(self), pstm.into().abi(), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -1118,7 +1118,7 @@ pub struct ISpNotifyCallback(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ISpNotifyCallback {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn NotifyCallback<'a, P0, P1>(&self, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
+    pub unsafe fn NotifyCallback<P0, P1>(&self, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -1194,15 +1194,15 @@ pub struct ISpNotifySink_Vtbl {
 #[repr(transparent)]
 pub struct ISpNotifySource(::windows::core::IUnknown);
 impl ISpNotifySource {
-    pub unsafe fn SetNotifySink<'a, P0>(&self, pnotifysink: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifySink>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpNotifySink>>,
     {
         (::windows::core::Vtable::vtable(self).SetNotifySink)(::windows::core::Vtable::as_raw(self), pnotifysink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyWindowMessage<'a, P0, P1, P2>(&self, hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyWindowMessage<P0, P1, P2>(&self, hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
@@ -1212,7 +1212,7 @@ impl ISpNotifySource {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackFunction<'a, P0, P1>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackFunction<P0, P1>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -1221,9 +1221,9 @@ impl ISpNotifySource {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackInterface<P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifyCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpNotifyCallback>>,
         P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -1297,7 +1297,7 @@ impl ISpNotifyTranslator {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InitWindowMessage<'a, P0, P1, P2>(&self, hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InitWindowMessage<P0, P1, P2>(&self, hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
@@ -1307,7 +1307,7 @@ impl ISpNotifyTranslator {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InitCallback<'a, P0, P1>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
+    pub unsafe fn InitCallback<P0, P1>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -1316,9 +1316,9 @@ impl ISpNotifyTranslator {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InitSpNotifyCallback<'a, P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InitSpNotifyCallback<P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifyCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpNotifyCallback>>,
         P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -1326,7 +1326,7 @@ impl ISpNotifyTranslator {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InitWin32Event<'a, P0, P1>(&self, hevent: P0, fclosehandleonrelease: P1) -> ::windows::core::Result<()>
+    pub unsafe fn InitWin32Event<P0, P1>(&self, hevent: P0, fclosehandleonrelease: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -1395,65 +1395,65 @@ pub struct ISpNotifyTranslator_Vtbl {
 #[repr(transparent)]
 pub struct ISpObjectToken(::windows::core::IUnknown);
 impl ISpObjectToken {
-    pub unsafe fn SetData<'a, P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()>
+    pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetData)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), cbdata, pdata).ok()
     }
-    pub unsafe fn GetData<'a, P0>(&self, pszvaluename: P0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn GetData<P0>(&self, pszvaluename: P0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.GetData)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pcbdata, pdata).ok()
     }
-    pub unsafe fn SetStringValue<'a, P0, P1>(&self, pszvaluename: P0, pszvalue: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetStringValue<P0, P1>(&self, pszvaluename: P0, pszvalue: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetStringValue)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pszvalue.into()).ok()
     }
-    pub unsafe fn GetStringValue<'a, P0>(&self, pszvaluename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetStringValue<P0>(&self, pszvaluename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetStringValue)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDWORD<'a, P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetDWORD<P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetDWORD)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), dwvalue).ok()
     }
-    pub unsafe fn GetDWORD<'a, P0>(&self, pszvaluename: P0, pdwvalue: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetDWORD<P0>(&self, pszvaluename: P0, pdwvalue: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.GetDWORD)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pdwvalue).ok()
     }
-    pub unsafe fn OpenKey<'a, P0>(&self, pszsubkeyname: P0) -> ::windows::core::Result<ISpDataKey>
+    pub unsafe fn OpenKey<P0>(&self, pszsubkeyname: P0) -> ::windows::core::Result<ISpDataKey>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.OpenKey)(::windows::core::Vtable::as_raw(self), pszsubkeyname.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateKey<'a, P0>(&self, pszsubkey: P0) -> ::windows::core::Result<ISpDataKey>
+    pub unsafe fn CreateKey<P0>(&self, pszsubkey: P0) -> ::windows::core::Result<ISpDataKey>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateKey)(::windows::core::Vtable::as_raw(self), pszsubkey.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn DeleteKey<'a, P0>(&self, pszsubkey: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteKey<P0>(&self, pszsubkey: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.DeleteKey)(::windows::core::Vtable::as_raw(self), pszsubkey.into()).ok()
     }
-    pub unsafe fn DeleteValue<'a, P0>(&self, pszvaluename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteValue<P0>(&self, pszvaluename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1469,7 +1469,7 @@ impl ISpObjectToken {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, P0, P1, P2>(&self, pszcategoryid: P0, psztokenid: P1, fcreateifnotexist: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetId<P0, P1, P2>(&self, pszcategoryid: P0, psztokenid: P1, fcreateifnotexist: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1485,13 +1485,13 @@ impl ISpObjectToken {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCategory)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateInstance<'a, P0>(&self, punkouter: P0, dwclscontext: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn CreateInstance<P0>(&self, punkouter: P0, dwclscontext: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), dwclscontext, riid, ppvobject).ok()
     }
-    pub unsafe fn GetStorageFileName<'a, P0, P1>(&self, clsidcaller: *const ::windows::core::GUID, pszvaluename: P0, pszfilenamespecifier: P1, nfolder: u32) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetStorageFileName<P0, P1>(&self, clsidcaller: *const ::windows::core::GUID, pszvaluename: P0, pszfilenamespecifier: P1, nfolder: u32) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1501,7 +1501,7 @@ impl ISpObjectToken {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RemoveStorageFileName<'a, P0, P1>(&self, clsidcaller: *const ::windows::core::GUID, pszkeyname: P0, fdeletefile: P1) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveStorageFileName<P0, P1>(&self, clsidcaller: *const ::windows::core::GUID, pszkeyname: P0, fdeletefile: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -1513,27 +1513,27 @@ impl ISpObjectToken {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsUISupported<'a, P0, P1>(&self, psztypeofui: P0, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: P1, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn IsUISupported<P0, P1>(&self, psztypeofui: P0, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: P1, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).IsUISupported)(::windows::core::Vtable::as_raw(self), psztypeofui.into(), pvextradata, cbextradata, punkobject.into().abi(), pfsupported).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DisplayUI<'a, P0, P1, P2, P3>(&self, hwndparent: P0, psztitle: P1, psztypeofui: P2, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: P3) -> ::windows::core::Result<()>
+    pub unsafe fn DisplayUI<P0, P1, P2, P3>(&self, hwndparent: P0, psztitle: P1, psztypeofui: P2, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).DisplayUI)(::windows::core::Vtable::as_raw(self), hwndparent.into(), psztitle.into(), psztypeofui.into(), pvextradata, cbextradata, punkobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MatchesAttributes<'a, P0>(&self, pszattributes: P0, pfmatches: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn MatchesAttributes<P0>(&self, pszattributes: P0, pfmatches: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1597,65 +1597,65 @@ pub struct ISpObjectToken_Vtbl {
 #[repr(transparent)]
 pub struct ISpObjectTokenCategory(::windows::core::IUnknown);
 impl ISpObjectTokenCategory {
-    pub unsafe fn SetData<'a, P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()>
+    pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetData)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), cbdata, pdata).ok()
     }
-    pub unsafe fn GetData<'a, P0>(&self, pszvaluename: P0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn GetData<P0>(&self, pszvaluename: P0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.GetData)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pcbdata, pdata).ok()
     }
-    pub unsafe fn SetStringValue<'a, P0, P1>(&self, pszvaluename: P0, pszvalue: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetStringValue<P0, P1>(&self, pszvaluename: P0, pszvalue: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetStringValue)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pszvalue.into()).ok()
     }
-    pub unsafe fn GetStringValue<'a, P0>(&self, pszvaluename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetStringValue<P0>(&self, pszvaluename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetStringValue)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDWORD<'a, P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetDWORD<P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetDWORD)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), dwvalue).ok()
     }
-    pub unsafe fn GetDWORD<'a, P0>(&self, pszvaluename: P0, pdwvalue: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetDWORD<P0>(&self, pszvaluename: P0, pdwvalue: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.GetDWORD)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pdwvalue).ok()
     }
-    pub unsafe fn OpenKey<'a, P0>(&self, pszsubkeyname: P0) -> ::windows::core::Result<ISpDataKey>
+    pub unsafe fn OpenKey<P0>(&self, pszsubkeyname: P0) -> ::windows::core::Result<ISpDataKey>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.OpenKey)(::windows::core::Vtable::as_raw(self), pszsubkeyname.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateKey<'a, P0>(&self, pszsubkey: P0) -> ::windows::core::Result<ISpDataKey>
+    pub unsafe fn CreateKey<P0>(&self, pszsubkey: P0) -> ::windows::core::Result<ISpDataKey>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateKey)(::windows::core::Vtable::as_raw(self), pszsubkey.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn DeleteKey<'a, P0>(&self, pszsubkey: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteKey<P0>(&self, pszsubkey: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.DeleteKey)(::windows::core::Vtable::as_raw(self), pszsubkey.into()).ok()
     }
-    pub unsafe fn DeleteValue<'a, P0>(&self, pszvaluename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteValue<P0>(&self, pszvaluename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1671,7 +1671,7 @@ impl ISpObjectTokenCategory {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, P0, P1>(&self, pszcategoryid: P0, fcreateifnotexist: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetId<P0, P1>(&self, pszcategoryid: P0, fcreateifnotexist: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -1686,7 +1686,7 @@ impl ISpObjectTokenCategory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetDataKey)(::windows::core::Vtable::as_raw(self), spdkl, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn EnumTokens<'a, P0, P1>(&self, pzsreqattribs: P0, pszoptattribs: P1) -> ::windows::core::Result<IEnumSpObjectTokens>
+    pub unsafe fn EnumTokens<P0, P1>(&self, pzsreqattribs: P0, pszoptattribs: P1) -> ::windows::core::Result<IEnumSpObjectTokens>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1694,7 +1694,7 @@ impl ISpObjectTokenCategory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).EnumTokens)(::windows::core::Vtable::as_raw(self), pzsreqattribs.into(), pszoptattribs.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDefaultTokenId<'a, P0>(&self, psztokenid: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDefaultTokenId<P0>(&self, psztokenid: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1746,65 +1746,65 @@ pub struct ISpObjectTokenCategory_Vtbl {
 #[repr(transparent)]
 pub struct ISpObjectTokenInit(::windows::core::IUnknown);
 impl ISpObjectTokenInit {
-    pub unsafe fn SetData<'a, P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()>
+    pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetData)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), cbdata, pdata).ok()
     }
-    pub unsafe fn GetData<'a, P0>(&self, pszvaluename: P0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn GetData<P0>(&self, pszvaluename: P0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.GetData)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pcbdata, pdata).ok()
     }
-    pub unsafe fn SetStringValue<'a, P0, P1>(&self, pszvaluename: P0, pszvalue: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetStringValue<P0, P1>(&self, pszvaluename: P0, pszvalue: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetStringValue)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pszvalue.into()).ok()
     }
-    pub unsafe fn GetStringValue<'a, P0>(&self, pszvaluename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetStringValue<P0>(&self, pszvaluename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetStringValue)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDWORD<'a, P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetDWORD<P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetDWORD)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), dwvalue).ok()
     }
-    pub unsafe fn GetDWORD<'a, P0>(&self, pszvaluename: P0, pdwvalue: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetDWORD<P0>(&self, pszvaluename: P0, pdwvalue: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDWORD)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pdwvalue).ok()
     }
-    pub unsafe fn OpenKey<'a, P0>(&self, pszsubkeyname: P0) -> ::windows::core::Result<ISpDataKey>
+    pub unsafe fn OpenKey<P0>(&self, pszsubkeyname: P0) -> ::windows::core::Result<ISpDataKey>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.OpenKey)(::windows::core::Vtable::as_raw(self), pszsubkeyname.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateKey<'a, P0>(&self, pszsubkey: P0) -> ::windows::core::Result<ISpDataKey>
+    pub unsafe fn CreateKey<P0>(&self, pszsubkey: P0) -> ::windows::core::Result<ISpDataKey>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CreateKey)(::windows::core::Vtable::as_raw(self), pszsubkey.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn DeleteKey<'a, P0>(&self, pszsubkey: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteKey<P0>(&self, pszsubkey: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.DeleteKey)(::windows::core::Vtable::as_raw(self), pszsubkey.into()).ok()
     }
-    pub unsafe fn DeleteValue<'a, P0>(&self, pszvaluename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteValue<P0>(&self, pszvaluename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1820,7 +1820,7 @@ impl ISpObjectTokenInit {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, P0, P1, P2>(&self, pszcategoryid: P0, psztokenid: P1, fcreateifnotexist: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetId<P0, P1, P2>(&self, pszcategoryid: P0, psztokenid: P1, fcreateifnotexist: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1836,13 +1836,13 @@ impl ISpObjectTokenInit {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetCategory)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateInstance<'a, P0>(&self, punkouter: P0, dwclscontext: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn CreateInstance<P0>(&self, punkouter: P0, dwclscontext: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CreateInstance)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), dwclscontext, riid, ppvobject).ok()
     }
-    pub unsafe fn GetStorageFileName<'a, P0, P1>(&self, clsidcaller: *const ::windows::core::GUID, pszvaluename: P0, pszfilenamespecifier: P1, nfolder: u32) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetStorageFileName<P0, P1>(&self, clsidcaller: *const ::windows::core::GUID, pszvaluename: P0, pszfilenamespecifier: P1, nfolder: u32) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1852,7 +1852,7 @@ impl ISpObjectTokenInit {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RemoveStorageFileName<'a, P0, P1>(&self, clsidcaller: *const ::windows::core::GUID, pszkeyname: P0, fdeletefile: P1) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveStorageFileName<P0, P1>(&self, clsidcaller: *const ::windows::core::GUID, pszkeyname: P0, fdeletefile: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -1864,37 +1864,37 @@ impl ISpObjectTokenInit {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsUISupported<'a, P0, P1>(&self, psztypeofui: P0, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: P1, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn IsUISupported<P0, P1>(&self, psztypeofui: P0, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: P1, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.IsUISupported)(::windows::core::Vtable::as_raw(self), psztypeofui.into(), pvextradata, cbextradata, punkobject.into().abi(), pfsupported).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DisplayUI<'a, P0, P1, P2, P3>(&self, hwndparent: P0, psztitle: P1, psztypeofui: P2, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: P3) -> ::windows::core::Result<()>
+    pub unsafe fn DisplayUI<P0, P1, P2, P3>(&self, hwndparent: P0, psztitle: P1, psztypeofui: P2, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.DisplayUI)(::windows::core::Vtable::as_raw(self), hwndparent.into(), psztitle.into(), psztypeofui.into(), pvextradata, cbextradata, punkobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MatchesAttributes<'a, P0>(&self, pszattributes: P0, pfmatches: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn MatchesAttributes<P0>(&self, pszattributes: P0, pfmatches: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.MatchesAttributes)(::windows::core::Vtable::as_raw(self), pszattributes.into(), pfmatches).ok()
     }
-    pub unsafe fn InitFromDataKey<'a, P0, P1, P2>(&self, pszcategoryid: P0, psztokenid: P1, pdatakey: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InitFromDataKey<P0, P1, P2>(&self, pszcategoryid: P0, psztokenid: P1, pdatakey: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ISpDataKey>>,
+        P2: ::std::convert::Into<::windows::core::InParam<ISpDataKey>>,
     {
         (::windows::core::Vtable::vtable(self).InitFromDataKey)(::windows::core::Vtable::as_raw(self), pszcategoryid.into(), psztokenid.into(), pdatakey.into().abi()).ok()
     }
@@ -1932,9 +1932,9 @@ pub struct ISpObjectTokenInit_Vtbl {
 #[repr(transparent)]
 pub struct ISpObjectWithToken(::windows::core::IUnknown);
 impl ISpObjectWithToken {
-    pub unsafe fn SetObjectToken<'a, P0>(&self, ptoken: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetObjectToken<P0>(&self, ptoken: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpObjectToken>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpObjectToken>>,
     {
         (::windows::core::Vtable::vtable(self).SetObjectToken)(::windows::core::Vtable::as_raw(self), ptoken.into().abi()).ok()
     }
@@ -1977,9 +1977,9 @@ pub struct ISpObjectWithToken_Vtbl {
 #[repr(transparent)]
 pub struct ISpPhoneConverter(::windows::core::IUnknown);
 impl ISpPhoneConverter {
-    pub unsafe fn SetObjectToken<'a, P0>(&self, ptoken: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetObjectToken<P0>(&self, ptoken: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpObjectToken>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpObjectToken>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetObjectToken)(::windows::core::Vtable::as_raw(self), ptoken.into().abi()).ok()
     }
@@ -1987,7 +1987,7 @@ impl ISpPhoneConverter {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetObjectToken)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn PhoneToId<'a, P0>(&self, pszphone: P0) -> ::windows::core::Result<u16>
+    pub unsafe fn PhoneToId<P0>(&self, pszphone: P0) -> ::windows::core::Result<u16>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2047,7 +2047,7 @@ impl ISpPhoneticAlphabetConverter {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMaxConvertLength<'a, P0>(&self, csrclength: u32, bsapi2ups: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn GetMaxConvertLength<P0>(&self, csrclength: u32, bsapi2ups: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2103,7 +2103,7 @@ impl ISpPhoneticAlphabetSelection {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAlphabetToUPS<'a, P0>(&self, fforceups: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAlphabetToUPS<P0>(&self, fforceups: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2162,7 +2162,7 @@ impl ISpPhrase {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetText<'a, P0>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: P0, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: ::core::option::Option<*mut u8>) -> ::windows::core::Result<()>
+    pub unsafe fn GetText<P0>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: P0, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: ::core::option::Option<*mut u8>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2226,7 +2226,7 @@ impl ISpPhrase2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetText<'a, P0>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: P0, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: ::core::option::Option<*mut u8>) -> ::windows::core::Result<()>
+    pub unsafe fn GetText<P0>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: P0, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: ::core::option::Option<*mut u8>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2298,7 +2298,7 @@ impl ISpPhraseAlt {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetText<'a, P0>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: P0, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: ::core::option::Option<*mut u8>) -> ::windows::core::Result<()>
+    pub unsafe fn GetText<P0>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: P0, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: ::core::option::Option<*mut u8>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2348,26 +2348,26 @@ pub struct ISpPhraseAlt_Vtbl {
 #[repr(transparent)]
 pub struct ISpProperties(::windows::core::IUnknown);
 impl ISpProperties {
-    pub unsafe fn SetPropertyNum<'a, P0>(&self, pname: P0, lvalue: i32) -> ::windows::core::Result<()>
+    pub unsafe fn SetPropertyNum<P0>(&self, pname: P0, lvalue: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).SetPropertyNum)(::windows::core::Vtable::as_raw(self), pname.into(), lvalue).ok()
     }
-    pub unsafe fn GetPropertyNum<'a, P0>(&self, pname: P0, plvalue: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn GetPropertyNum<P0>(&self, pname: P0, plvalue: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).GetPropertyNum)(::windows::core::Vtable::as_raw(self), pname.into(), plvalue).ok()
     }
-    pub unsafe fn SetPropertyString<'a, P0, P1>(&self, pname: P0, pvalue: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetPropertyString<P0, P1>(&self, pname: P0, pvalue: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).SetPropertyString)(::windows::core::Vtable::as_raw(self), pname.into(), pvalue.into()).ok()
     }
-    pub unsafe fn GetPropertyString<'a, P0>(&self, pname: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetPropertyString<P0>(&self, pname: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2411,15 +2411,15 @@ pub struct ISpProperties_Vtbl {
 #[repr(transparent)]
 pub struct ISpRecoContext(::windows::core::IUnknown);
 impl ISpRecoContext {
-    pub unsafe fn SetNotifySink<'a, P0>(&self, pnotifysink: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifySink>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpNotifySink>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetNotifySink)(::windows::core::Vtable::as_raw(self), pnotifysink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyWindowMessage<'a, P0, P1, P2>(&self, hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyWindowMessage<P0, P1, P2>(&self, hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
@@ -2429,7 +2429,7 @@ impl ISpRecoContext {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackFunction<'a, P0, P1>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackFunction<P0, P1>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -2438,9 +2438,9 @@ impl ISpRecoContext {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackInterface<P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifyCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpNotifyCallback>>,
         P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -2501,13 +2501,13 @@ impl ISpRecoContext {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Bookmark<'a, P0>(&self, options: SPBOOKMARKOPTIONS, ullstreamposition: u64, lparamevent: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Bookmark<P0>(&self, options: SPBOOKMARKOPTIONS, ullstreamposition: u64, lparamevent: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
         (::windows::core::Vtable::vtable(self).Bookmark)(::windows::core::Vtable::as_raw(self), options, ullstreamposition, lparamevent.into()).ok()
     }
-    pub unsafe fn SetAdaptationData<'a, P0>(&self, padaptationdata: P0, cch: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetAdaptationData<P0>(&self, padaptationdata: P0, cch: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2521,9 +2521,9 @@ impl ISpRecoContext {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVoice<'a, P0, P1>(&self, pvoice: P0, fallowformatchanges: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetVoice<P0, P1>(&self, pvoice: P0, fallowformatchanges: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpVoice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpVoice>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).SetVoice)(::windows::core::Vtable::as_raw(self), pvoice.into().abi(), fallowformatchanges.into()).ok()
@@ -2613,7 +2613,7 @@ impl ISpRecoContext2 {
     pub unsafe fn GetGrammarOptions(&self, pegrammaroptions: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetGrammarOptions)(::windows::core::Vtable::as_raw(self), pegrammaroptions).ok()
     }
-    pub unsafe fn SetAdaptationData2<'a, P0, P1>(&self, padaptationdata: P0, cch: u32, ptopicname: P1, eadaptationsettings: u32, erelevance: SPADAPTATIONRELEVANCE) -> ::windows::core::Result<()>
+    pub unsafe fn SetAdaptationData2<P0, P1>(&self, padaptationdata: P0, cch: u32, ptopicname: P1, eadaptationsettings: u32, erelevance: SPADAPTATIONRELEVANCE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2661,7 +2661,7 @@ impl ISpRecoGrammar {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRule<'a, P0, P1>(&self, pszrulename: P0, dwruleid: u32, dwattributes: u32, fcreateifnotexist: P1, phinitialstate: *mut *mut SPSTATEHANDLE__) -> ::windows::core::Result<()>
+    pub unsafe fn GetRule<P0, P1>(&self, pszrulename: P0, dwruleid: u32, dwattributes: u32, fcreateifnotexist: P1, phinitialstate: *mut *mut SPSTATEHANDLE__) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -2676,7 +2676,7 @@ impl ISpRecoGrammar {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddWordTransition<'a, P0, P1>(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: P0, pszseparators: P1, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::Result<()>
+    pub unsafe fn AddWordTransition<P0, P1>(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: P0, pszseparators: P1, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2688,7 +2688,7 @@ impl ISpRecoGrammar {
     pub unsafe fn AddRuleTransition(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, hrule: *mut SPSTATEHANDLE__, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.AddRuleTransition)(::windows::core::Vtable::as_raw(self), hfromstate, htostate, hrule, weight, ppropinfo).ok()
     }
-    pub unsafe fn AddResource<'a, P0, P1>(&self, hrulestate: *mut SPSTATEHANDLE__, pszresourcename: P0, pszresourcevalue: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddResource<P0, P1>(&self, hrulestate: *mut SPSTATEHANDLE__, pszresourcename: P0, pszresourcevalue: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2705,13 +2705,13 @@ impl ISpRecoGrammar {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetRecoContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn LoadCmdFromFile<'a, P0>(&self, pszfilename: P0, options: SPLOADOPTIONS) -> ::windows::core::Result<()>
+    pub unsafe fn LoadCmdFromFile<P0>(&self, pszfilename: P0, options: SPLOADOPTIONS) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).LoadCmdFromFile)(::windows::core::Vtable::as_raw(self), pszfilename.into(), options).ok()
     }
-    pub unsafe fn LoadCmdFromObject<'a, P0>(&self, rcid: *const ::windows::core::GUID, pszgrammarname: P0, options: SPLOADOPTIONS) -> ::windows::core::Result<()>
+    pub unsafe fn LoadCmdFromObject<P0>(&self, rcid: *const ::windows::core::GUID, pszgrammarname: P0, options: SPLOADOPTIONS) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2719,7 +2719,7 @@ impl ISpRecoGrammar {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LoadCmdFromResource<'a, P0, P1, P2>(&self, hmodule: P0, pszresourcename: P1, pszresourcetype: P2, wlanguage: u16, options: SPLOADOPTIONS) -> ::windows::core::Result<()>
+    pub unsafe fn LoadCmdFromResource<P0, P1, P2>(&self, hmodule: P0, pszresourcename: P1, pszresourcetype: P2, wlanguage: u16, options: SPLOADOPTIONS) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2730,13 +2730,13 @@ impl ISpRecoGrammar {
     pub unsafe fn LoadCmdFromMemory(&self, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).LoadCmdFromMemory)(::windows::core::Vtable::as_raw(self), pgrammar, options).ok()
     }
-    pub unsafe fn LoadCmdFromProprietaryGrammar<'a, P0>(&self, rguidparam: *const ::windows::core::GUID, pszstringparam: P0, pvdataprarm: *const ::core::ffi::c_void, cbdatasize: u32, options: SPLOADOPTIONS) -> ::windows::core::Result<()>
+    pub unsafe fn LoadCmdFromProprietaryGrammar<P0>(&self, rguidparam: *const ::windows::core::GUID, pszstringparam: P0, pvdataprarm: *const ::core::ffi::c_void, cbdatasize: u32, options: SPLOADOPTIONS) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).LoadCmdFromProprietaryGrammar)(::windows::core::Vtable::as_raw(self), rguidparam, pszstringparam.into(), pvdataprarm, cbdatasize, options).ok()
     }
-    pub unsafe fn SetRuleState<'a, P0>(&self, pszname: P0, preserved: *mut ::core::ffi::c_void, newstate: SPRULESTATE) -> ::windows::core::Result<()>
+    pub unsafe fn SetRuleState<P0>(&self, pszname: P0, preserved: *mut ::core::ffi::c_void, newstate: SPRULESTATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2745,7 +2745,7 @@ impl ISpRecoGrammar {
     pub unsafe fn SetRuleIdState(&self, ulruleid: u32, newstate: SPRULESTATE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetRuleIdState)(::windows::core::Vtable::as_raw(self), ulruleid, newstate).ok()
     }
-    pub unsafe fn LoadDictation<'a, P0>(&self, psztopicname: P0, options: SPLOADOPTIONS) -> ::windows::core::Result<()>
+    pub unsafe fn LoadDictation<P0>(&self, psztopicname: P0, options: SPLOADOPTIONS) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2763,7 +2763,7 @@ impl ISpRecoGrammar {
     pub unsafe fn SetTextSelection(&self, pinfo: *const SPTEXTSELECTIONINFO) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetTextSelection)(::windows::core::Vtable::as_raw(self), pinfo).ok()
     }
-    pub unsafe fn IsPronounceable<'a, P0>(&self, pszword: P0, pwordpronounceable: *mut SPWORDPRONOUNCEABLE) -> ::windows::core::Result<()>
+    pub unsafe fn IsPronounceable<P0>(&self, pszword: P0, pwordpronounceable: *mut SPWORDPRONOUNCEABLE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2774,9 +2774,9 @@ impl ISpRecoGrammar {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SaveCmd<'a, P0>(&self, pstream: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn SaveCmd<P0>(&self, pstream: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SaveCmd)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -2844,7 +2844,7 @@ impl ISpRecoGrammar2 {
     pub unsafe fn GetRules(&self, ppcomemrules: *mut *mut SPRULE, punumrules: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetRules)(::windows::core::Vtable::as_raw(self), ppcomemrules, punumrules).ok()
     }
-    pub unsafe fn LoadCmdFromFile2<'a, P0, P1, P2>(&self, pszfilename: P0, options: SPLOADOPTIONS, pszsharinguri: P1, pszbaseuri: P2) -> ::windows::core::Result<()>
+    pub unsafe fn LoadCmdFromFile2<P0, P1, P2>(&self, pszfilename: P0, options: SPLOADOPTIONS, pszsharinguri: P1, pszbaseuri: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2852,20 +2852,20 @@ impl ISpRecoGrammar2 {
     {
         (::windows::core::Vtable::vtable(self).LoadCmdFromFile2)(::windows::core::Vtable::as_raw(self), pszfilename.into(), options, pszsharinguri.into(), pszbaseuri.into()).ok()
     }
-    pub unsafe fn LoadCmdFromMemory2<'a, P0, P1>(&self, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS, pszsharinguri: P0, pszbaseuri: P1) -> ::windows::core::Result<()>
+    pub unsafe fn LoadCmdFromMemory2<P0, P1>(&self, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS, pszsharinguri: P0, pszbaseuri: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).LoadCmdFromMemory2)(::windows::core::Vtable::as_raw(self), pgrammar, options, pszsharinguri.into(), pszbaseuri.into()).ok()
     }
-    pub unsafe fn SetRulePriority<'a, P0>(&self, pszrulename: P0, ulruleid: u32, nrulepriority: i32) -> ::windows::core::Result<()>
+    pub unsafe fn SetRulePriority<P0>(&self, pszrulename: P0, ulruleid: u32, nrulepriority: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).SetRulePriority)(::windows::core::Vtable::as_raw(self), pszrulename.into(), ulruleid, nrulepriority).ok()
     }
-    pub unsafe fn SetRuleWeight<'a, P0>(&self, pszrulename: P0, ulruleid: u32, flweight: f32) -> ::windows::core::Result<()>
+    pub unsafe fn SetRuleWeight<P0>(&self, pszrulename: P0, ulruleid: u32, flweight: f32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2876,17 +2876,17 @@ impl ISpRecoGrammar2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetGrammarLoader<'a, P0>(&self, ploader: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetGrammarLoader<P0>(&self, ploader: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechResourceLoader>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechResourceLoader>>,
     {
         (::windows::core::Vtable::vtable(self).SetGrammarLoader)(::windows::core::Vtable::as_raw(self), ploader.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     #[cfg(feature = "Win32_System_Com_Urlmon")]
-    pub unsafe fn SetSMLSecurityManager<'a, P0>(&self, psmlsecuritymanager: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSMLSecurityManager<P0>(&self, psmlsecuritymanager: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::Urlmon::IInternetSecurityManager>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::Urlmon::IInternetSecurityManager>>,
     {
         (::windows::core::Vtable::vtable(self).SetSMLSecurityManager)(::windows::core::Vtable::as_raw(self), psmlsecuritymanager.into().abi()).ok()
     }
@@ -2949,7 +2949,7 @@ impl ISpRecoResult {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetText<'a, P0>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: P0, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: ::core::option::Option<*mut u8>) -> ::windows::core::Result<()>
+    pub unsafe fn GetText<P0>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: P0, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: ::core::option::Option<*mut u8>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -3048,7 +3048,7 @@ impl ISpRecoResult2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetText<'a, P0>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: P0, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: ::core::option::Option<*mut u8>) -> ::windows::core::Result<()>
+    pub unsafe fn GetText<P0>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: P0, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: ::core::option::Option<*mut u8>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -3086,14 +3086,14 @@ impl ISpRecoResult2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetRecoContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CommitAlternate<'a, P0>(&self, pphrasealt: P0) -> ::windows::core::Result<ISpRecoResult>
+    pub unsafe fn CommitAlternate<P0>(&self, pphrasealt: P0) -> ::windows::core::Result<ISpRecoResult>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpPhraseAlt>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpPhraseAlt>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CommitAlternate)(::windows::core::Vtable::as_raw(self), pphrasealt.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CommitText<'a, P0>(&self, ulstartelement: u32, celements: u32, pszcorrecteddata: P0, ecommitflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn CommitText<P0>(&self, ulstartelement: u32, celements: u32, pszcorrecteddata: P0, ecommitflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3101,7 +3101,7 @@ impl ISpRecoResult2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTextFeedback<'a, P0, P1>(&self, pszfeedback: P0, fsuccessful: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetTextFeedback<P0, P1>(&self, pszfeedback: P0, fsuccessful: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -3147,35 +3147,35 @@ pub struct ISpRecoResult2_Vtbl {
 #[repr(transparent)]
 pub struct ISpRecognizer(::windows::core::IUnknown);
 impl ISpRecognizer {
-    pub unsafe fn SetPropertyNum<'a, P0>(&self, pname: P0, lvalue: i32) -> ::windows::core::Result<()>
+    pub unsafe fn SetPropertyNum<P0>(&self, pname: P0, lvalue: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetPropertyNum)(::windows::core::Vtable::as_raw(self), pname.into(), lvalue).ok()
     }
-    pub unsafe fn GetPropertyNum<'a, P0>(&self, pname: P0, plvalue: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn GetPropertyNum<P0>(&self, pname: P0, plvalue: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.GetPropertyNum)(::windows::core::Vtable::as_raw(self), pname.into(), plvalue).ok()
     }
-    pub unsafe fn SetPropertyString<'a, P0, P1>(&self, pname: P0, pvalue: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetPropertyString<P0, P1>(&self, pname: P0, pvalue: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetPropertyString)(::windows::core::Vtable::as_raw(self), pname.into(), pvalue.into()).ok()
     }
-    pub unsafe fn GetPropertyString<'a, P0>(&self, pname: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetPropertyString<P0>(&self, pname: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetPropertyString)(::windows::core::Vtable::as_raw(self), pname.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetRecognizer<'a, P0>(&self, precognizer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRecognizer<P0>(&self, precognizer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpObjectToken>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpObjectToken>>,
     {
         (::windows::core::Vtable::vtable(self).SetRecognizer)(::windows::core::Vtable::as_raw(self), precognizer.into().abi()).ok()
     }
@@ -3185,9 +3185,9 @@ impl ISpRecognizer {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInput<'a, P0, P1>(&self, punkinput: P0, fallowformatchanges: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0, P1>(&self, punkinput: P0, fallowformatchanges: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).SetInput)(::windows::core::Vtable::as_raw(self), punkinput.into().abi(), fallowformatchanges.into()).ok()
@@ -3210,9 +3210,9 @@ impl ISpRecognizer {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetRecoProfile)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetRecoProfile<'a, P0>(&self, ptoken: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRecoProfile<P0>(&self, ptoken: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpObjectToken>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpObjectToken>>,
     {
         (::windows::core::Vtable::vtable(self).SetRecoProfile)(::windows::core::Vtable::as_raw(self), ptoken.into().abi()).ok()
     }
@@ -3235,7 +3235,7 @@ impl ISpRecognizer {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsUISupported<'a, P0>(&self, psztypeofui: P0, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn IsUISupported<P0>(&self, psztypeofui: P0, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3243,7 +3243,7 @@ impl ISpRecognizer {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DisplayUI<'a, P0, P1, P2>(&self, hwndparent: P0, psztitle: P1, psztypeofui: P2, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32) -> ::windows::core::Result<()>
+    pub unsafe fn DisplayUI<P0, P1, P2>(&self, hwndparent: P0, psztitle: P1, psztypeofui: P2, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3251,9 +3251,9 @@ impl ISpRecognizer {
     {
         (::windows::core::Vtable::vtable(self).DisplayUI)(::windows::core::Vtable::as_raw(self), hwndparent.into(), psztitle.into(), psztypeofui.into(), pvextradata, cbextradata).ok()
     }
-    pub unsafe fn EmulateRecognition<'a, P0>(&self, pphrase: P0) -> ::windows::core::Result<()>
+    pub unsafe fn EmulateRecognition<P0>(&self, pphrase: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpPhrase>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpPhrase>>,
     {
         (::windows::core::Vtable::vtable(self).EmulateRecognition)(::windows::core::Vtable::as_raw(self), pphrase.into().abi()).ok()
     }
@@ -3321,15 +3321,15 @@ pub struct ISpRecognizer_Vtbl {
 #[repr(transparent)]
 pub struct ISpRecognizer2(::windows::core::IUnknown);
 impl ISpRecognizer2 {
-    pub unsafe fn EmulateRecognitionEx<'a, P0>(&self, pphrase: P0, dwcompareflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn EmulateRecognitionEx<P0>(&self, pphrase: P0, dwcompareflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpPhrase>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpPhrase>>,
     {
         (::windows::core::Vtable::vtable(self).EmulateRecognitionEx)(::windows::core::Vtable::as_raw(self), pphrase.into().abi(), dwcompareflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTrainingState<'a, P0, P1>(&self, fdoingtraining: P0, fadaptfromtrainingdata: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetTrainingState<P0, P1>(&self, fdoingtraining: P0, fadaptfromtrainingdata: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -3378,65 +3378,65 @@ pub struct ISpRecognizer2_Vtbl {
 #[repr(transparent)]
 pub struct ISpRegDataKey(::windows::core::IUnknown);
 impl ISpRegDataKey {
-    pub unsafe fn SetData<'a, P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()>
+    pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetData)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), cbdata, pdata).ok()
     }
-    pub unsafe fn GetData<'a, P0>(&self, pszvaluename: P0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn GetData<P0>(&self, pszvaluename: P0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.GetData)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pcbdata, pdata).ok()
     }
-    pub unsafe fn SetStringValue<'a, P0, P1>(&self, pszvaluename: P0, pszvalue: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetStringValue<P0, P1>(&self, pszvaluename: P0, pszvalue: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetStringValue)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pszvalue.into()).ok()
     }
-    pub unsafe fn GetStringValue<'a, P0>(&self, pszvaluename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetStringValue<P0>(&self, pszvaluename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetStringValue)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetDWORD<'a, P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetDWORD<P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetDWORD)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), dwvalue).ok()
     }
-    pub unsafe fn GetDWORD<'a, P0>(&self, pszvaluename: P0, pdwvalue: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetDWORD<P0>(&self, pszvaluename: P0, pdwvalue: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.GetDWORD)(::windows::core::Vtable::as_raw(self), pszvaluename.into(), pdwvalue).ok()
     }
-    pub unsafe fn OpenKey<'a, P0>(&self, pszsubkeyname: P0) -> ::windows::core::Result<ISpDataKey>
+    pub unsafe fn OpenKey<P0>(&self, pszsubkeyname: P0) -> ::windows::core::Result<ISpDataKey>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.OpenKey)(::windows::core::Vtable::as_raw(self), pszsubkeyname.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateKey<'a, P0>(&self, pszsubkey: P0) -> ::windows::core::Result<ISpDataKey>
+    pub unsafe fn CreateKey<P0>(&self, pszsubkey: P0) -> ::windows::core::Result<ISpDataKey>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateKey)(::windows::core::Vtable::as_raw(self), pszsubkey.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn DeleteKey<'a, P0>(&self, pszsubkey: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteKey<P0>(&self, pszsubkey: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.DeleteKey)(::windows::core::Vtable::as_raw(self), pszsubkey.into()).ok()
     }
-    pub unsafe fn DeleteValue<'a, P0>(&self, pszvaluename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteValue<P0>(&self, pszvaluename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3452,7 +3452,7 @@ impl ISpRegDataKey {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub unsafe fn SetKey<'a, P0, P1>(&self, hkey: P0, freadonly: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetKey<P0, P1>(&self, hkey: P0, freadonly: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -3503,15 +3503,15 @@ impl ISpResourceManager {
     pub unsafe fn QueryService(&self, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.QueryService)(::windows::core::Vtable::as_raw(self), guidservice, riid, ppvobject).ok()
     }
-    pub unsafe fn SetObject<'a, P0>(&self, guidserviceid: *const ::windows::core::GUID, punkobject: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetObject<P0>(&self, guidserviceid: *const ::windows::core::GUID, punkobject: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetObject)(::windows::core::Vtable::as_raw(self), guidserviceid, punkobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObject<'a, P0>(&self, guidserviceid: *const ::windows::core::GUID, objectclsid: *const ::windows::core::GUID, objectiid: *const ::windows::core::GUID, freleasewhenlastexternalrefreleased: P0, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn GetObject<P0>(&self, guidserviceid: *const ::windows::core::GUID, objectclsid: *const ::windows::core::GUID, objectiid: *const ::windows::core::GUID, freleasewhenlastexternalrefreleased: P0, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -3604,14 +3604,14 @@ pub struct ISpSerializeState_Vtbl {
 #[repr(transparent)]
 pub struct ISpShortcut(::windows::core::IUnknown);
 impl ISpShortcut {
-    pub unsafe fn AddShortcut<'a, P0, P1>(&self, pszdisplay: P0, langid: u16, pszspoken: P1, shtype: SPSHORTCUTTYPE) -> ::windows::core::Result<()>
+    pub unsafe fn AddShortcut<P0, P1>(&self, pszdisplay: P0, langid: u16, pszspoken: P1, shtype: SPSHORTCUTTYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).AddShortcut)(::windows::core::Vtable::as_raw(self), pszdisplay.into(), langid, pszspoken.into(), shtype).ok()
     }
-    pub unsafe fn RemoveShortcut<'a, P0, P1>(&self, pszdisplay: P0, langid: u16, pszspoken: P1, shtype: SPSHORTCUTTYPE) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveShortcut<P0, P1>(&self, pszdisplay: P0, langid: u16, pszspoken: P1, shtype: SPSHORTCUTTYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3703,9 +3703,9 @@ impl ISpStream {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<'a, P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
+    pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.CopyTo)(::windows::core::Vtable::as_raw(self), pstm.into().abi(), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -3748,9 +3748,9 @@ impl ISpStream {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
-    pub unsafe fn SetBaseStream<'a, P0>(&self, pstream: P0, rguidformat: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>
+    pub unsafe fn SetBaseStream<P0>(&self, pstream: P0, rguidformat: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).SetBaseStream)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), rguidformat, pwaveformatex).ok()
     }
@@ -3762,7 +3762,7 @@ impl ISpStream {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn BindToFile<'a, P0>(&self, pszfilename: P0, emode: SPFILEMODE, pformatid: ::core::option::Option<*const ::windows::core::GUID>, pwaveformatex: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, ulleventinterest: u64) -> ::windows::core::Result<()>
+    pub unsafe fn BindToFile<P0>(&self, pszfilename: P0, emode: SPFILEMODE, pformatid: ::core::option::Option<*const ::windows::core::GUID>, pwaveformatex: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, ulleventinterest: u64) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3850,9 +3850,9 @@ impl ISpStreamFormat {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<'a, P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
+    pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), pstm.into().abi(), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -3963,9 +3963,9 @@ impl ISpStreamFormatConverter {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<'a, P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
+    pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.CopyTo)(::windows::core::Vtable::as_raw(self), pstm.into().abi(), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -4008,9 +4008,9 @@ impl ISpStreamFormatConverter {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetBaseStream<'a, P0, P1, P2>(&self, pstream: P0, fsetformattobasestreamformat: P1, fwritetobasestream: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetBaseStream<P0, P1, P2>(&self, pstream: P0, fsetformattobasestreamformat: P1, fwritetobasestream: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpStreamFormat>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpStreamFormat>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -4098,7 +4098,7 @@ impl ISpTranscript {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetTranscript)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn AppendTranscript<'a, P0>(&self, psztranscript: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AppendTranscript<P0>(&self, psztranscript: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4139,15 +4139,15 @@ pub struct ISpTranscript_Vtbl {
 #[repr(transparent)]
 pub struct ISpVoice(::windows::core::IUnknown);
 impl ISpVoice {
-    pub unsafe fn SetNotifySink<'a, P0>(&self, pnotifysink: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifySink>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpNotifySink>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetNotifySink)(::windows::core::Vtable::as_raw(self), pnotifysink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyWindowMessage<'a, P0, P1, P2>(&self, hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyWindowMessage<P0, P1, P2>(&self, hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
@@ -4157,7 +4157,7 @@ impl ISpVoice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackFunction<'a, P0, P1>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackFunction<P0, P1>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -4166,9 +4166,9 @@ impl ISpVoice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackInterface<P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifyCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpNotifyCallback>>,
         P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
@@ -4198,9 +4198,9 @@ impl ISpVoice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOutput<'a, P0, P1>(&self, punkoutput: P0, fallowformatchanges: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetOutput<P0, P1>(&self, punkoutput: P0, fallowformatchanges: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).SetOutput)(::windows::core::Vtable::as_raw(self), punkoutput.into().abi(), fallowformatchanges.into()).ok()
@@ -4221,9 +4221,9 @@ impl ISpVoice {
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Resume)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn SetVoice<'a, P0>(&self, ptoken: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetVoice<P0>(&self, ptoken: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpObjectToken>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpObjectToken>>,
     {
         (::windows::core::Vtable::vtable(self).SetVoice)(::windows::core::Vtable::as_raw(self), ptoken.into().abi()).ok()
     }
@@ -4231,7 +4231,7 @@ impl ISpVoice {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetVoice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Speak<'a, P0>(&self, pwcs: P0, dwflags: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn Speak<P0>(&self, pwcs: P0, dwflags: u32) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4240,9 +4240,9 @@ impl ISpVoice {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SpeakStream<'a, P0>(&self, pstream: P0, dwflags: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn SpeakStream<P0>(&self, pstream: P0, dwflags: u32) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SpeakStream)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), dwflags, result__.as_mut_ptr()).from_abi(result__)
@@ -4250,7 +4250,7 @@ impl ISpVoice {
     pub unsafe fn GetStatus(&self, pstatus: *mut SPVOICESTATUS, ppszlastbookmark: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), pstatus, ppszlastbookmark).ok()
     }
-    pub unsafe fn Skip<'a, P0>(&self, pitemtype: P0, lnumitems: i32, pulnumskipped: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn Skip<P0>(&self, pitemtype: P0, lnumitems: i32, pulnumskipped: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4296,7 +4296,7 @@ impl ISpVoice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsUISupported<'a, P0>(&self, psztypeofui: P0, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn IsUISupported<P0>(&self, psztypeofui: P0, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4304,7 +4304,7 @@ impl ISpVoice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DisplayUI<'a, P0, P1, P2>(&self, hwndparent: P0, psztitle: P1, psztypeofui: P2, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32) -> ::windows::core::Result<()>
+    pub unsafe fn DisplayUI<P0, P1, P2>(&self, hwndparent: P0, psztitle: P1, psztypeofui: P2, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -4400,7 +4400,7 @@ impl ISpXMLRecoResult {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetText<'a, P0>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: P0, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: ::core::option::Option<*mut u8>) -> ::windows::core::Result<()>
+    pub unsafe fn GetText<P0>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: P0, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: ::core::option::Option<*mut u8>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -4489,9 +4489,9 @@ impl ISpeechAudio {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Format<'a, P0>(&self, audioformat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_Format<P0>(&self, audioformat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechAudioFormat>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechAudioFormat>>,
     {
         (::windows::core::Vtable::vtable(self).base__.putref_Format)(::windows::core::Vtable::as_raw(self), audioformat.into().abi()).ok()
     }
@@ -4704,9 +4704,9 @@ impl ISpeechAudioFormat {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWaveFormatEx<'a, P0>(&self, speechwaveformatex: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWaveFormatEx<P0>(&self, speechwaveformatex: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechWaveFormatEx>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechWaveFormatEx>>,
     {
         (::windows::core::Vtable::vtable(self).SetWaveFormatEx)(::windows::core::Vtable::as_raw(self), speechwaveformatex.into().abi()).ok()
     }
@@ -4851,9 +4851,9 @@ impl ISpeechBaseStream {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Format<'a, P0>(&self, audioformat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_Format<P0>(&self, audioformat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechAudioFormat>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechAudioFormat>>,
     {
         (::windows::core::Vtable::vtable(self).putref_Format)(::windows::core::Vtable::as_raw(self), audioformat.into().abi()).ok()
     }
@@ -4945,9 +4945,9 @@ impl ISpeechCustomStream {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Format<'a, P0>(&self, audioformat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_Format<P0>(&self, audioformat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechAudioFormat>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechAudioFormat>>,
     {
         (::windows::core::Vtable::vtable(self).base__.putref_Format)(::windows::core::Vtable::as_raw(self), audioformat.into().abi()).ok()
     }
@@ -4972,9 +4972,9 @@ impl ISpeechCustomStream {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).BaseStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn putref_BaseStream<'a, P0>(&self, punkstream: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_BaseStream<P0>(&self, punkstream: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).putref_BaseStream)(::windows::core::Vtable::as_raw(self), punkstream.into().abi()).ok()
     }
@@ -5149,9 +5149,9 @@ impl ISpeechFileStream {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Format<'a, P0>(&self, audioformat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_Format<P0>(&self, audioformat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechAudioFormat>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechAudioFormat>>,
     {
         (::windows::core::Vtable::vtable(self).base__.putref_Format)(::windows::core::Vtable::as_raw(self), audioformat.into().abi()).ok()
     }
@@ -5328,26 +5328,26 @@ impl ISpeechGrammarRuleState {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddWordTransition<'a, P0>(&self, deststate: P0, words: &::windows::core::BSTR, separators: &::windows::core::BSTR, r#type: SpeechGrammarWordType, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
+    pub unsafe fn AddWordTransition<P0>(&self, deststate: P0, words: &::windows::core::BSTR, separators: &::windows::core::BSTR, r#type: SpeechGrammarWordType, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechGrammarRuleState>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechGrammarRuleState>>,
     {
         (::windows::core::Vtable::vtable(self).AddWordTransition)(::windows::core::Vtable::as_raw(self), deststate.into().abi(), ::core::mem::transmute_copy(words), ::core::mem::transmute_copy(separators), r#type, ::core::mem::transmute_copy(propertyname), propertyid, propertyvalue, weight).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddRuleTransition<'a, P0, P1>(&self, destinationstate: P0, rule: P1, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
+    pub unsafe fn AddRuleTransition<P0, P1>(&self, destinationstate: P0, rule: P1, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechGrammarRuleState>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ISpeechGrammarRule>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechGrammarRuleState>>,
+        P1: ::std::convert::Into<::windows::core::InParam<ISpeechGrammarRule>>,
     {
         (::windows::core::Vtable::vtable(self).AddRuleTransition)(::windows::core::Vtable::as_raw(self), destinationstate.into().abi(), rule.into().abi(), ::core::mem::transmute_copy(propertyname), propertyid, propertyvalue, weight).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddSpecialTransition<'a, P0>(&self, destinationstate: P0, r#type: SpeechSpecialTransitionType, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
+    pub unsafe fn AddSpecialTransition<P0>(&self, destinationstate: P0, r#type: SpeechSpecialTransitionType, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechGrammarRuleState>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechGrammarRuleState>>,
     {
         (::windows::core::Vtable::vtable(self).AddSpecialTransition)(::windows::core::Vtable::as_raw(self), destinationstate.into().abi(), r#type, ::core::mem::transmute_copy(propertyname), propertyid, propertyvalue, weight).ok()
     }
@@ -6063,9 +6063,9 @@ impl ISpeechMMSysAudio {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Format<'a, P0>(&self, audioformat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_Format<P0>(&self, audioformat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechAudioFormat>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechAudioFormat>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.putref_Format)(::windows::core::Vtable::as_raw(self), audioformat.into().abi()).ok()
     }
@@ -6199,9 +6199,9 @@ impl ISpeechMemoryStream {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Format<'a, P0>(&self, audioformat: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_Format<P0>(&self, audioformat: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechAudioFormat>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechAudioFormat>>,
     {
         (::windows::core::Vtable::vtable(self).base__.putref_Format)(::windows::core::Vtable::as_raw(self), audioformat.into().abi()).ok()
     }
@@ -6313,9 +6313,9 @@ impl ISpeechObjectToken {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(attributename), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateInstance<'a, P0>(&self, punkouter: P0, clscontext: SpeechTokenContext) -> ::windows::core::Result<::windows::core::IUnknown>
+    pub unsafe fn CreateInstance<P0>(&self, punkouter: P0, clscontext: SpeechTokenContext) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), clscontext, result__.as_mut_ptr()).from_abi(result__)
@@ -6334,18 +6334,18 @@ impl ISpeechObjectToken {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn IsUISupported<'a, P0>(&self, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT, object: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    pub unsafe fn IsUISupported<P0>(&self, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT, object: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsUISupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typeofui), extradata, object.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DisplayUI<'a, P0>(&self, hwnd: i32, title: &::windows::core::BSTR, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT, object: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DisplayUI<P0>(&self, hwnd: i32, title: &::windows::core::BSTR, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT, object: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).DisplayUI)(::windows::core::Vtable::as_raw(self), hwnd, ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(typeofui), extradata, object.into().abi()).ok()
     }
@@ -7664,9 +7664,9 @@ impl ISpeechRecoContext {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Voice<'a, P0>(&self, voice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_Voice<P0>(&self, voice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechVoice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechVoice>>,
     {
         (::windows::core::Vtable::vtable(self).putref_Voice)(::windows::core::Vtable::as_raw(self), voice.into().abi()).ok()
     }
@@ -7724,9 +7724,9 @@ impl ISpeechRecoContext {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_RetainedAudioFormat<'a, P0>(&self, format: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_RetainedAudioFormat<P0>(&self, format: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechAudioFormat>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechAudioFormat>>,
     {
         (::windows::core::Vtable::vtable(self).putref_RetainedAudioFormat)(::windows::core::Vtable::as_raw(self), format.into().abi()).ok()
     }
@@ -7926,17 +7926,17 @@ impl ISpeechRecoGrammar {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWordSequenceData<'a, P0>(&self, text: &::windows::core::BSTR, textlength: i32, info: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWordSequenceData<P0>(&self, text: &::windows::core::BSTR, textlength: i32, info: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechTextSelectionInformation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechTextSelectionInformation>>,
     {
         (::windows::core::Vtable::vtable(self).SetWordSequenceData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(text), textlength, info.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetTextSelection<'a, P0>(&self, info: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTextSelection<P0>(&self, info: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechTextSelectionInformation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechTextSelectionInformation>>,
     {
         (::windows::core::Vtable::vtable(self).SetTextSelection)(::windows::core::Vtable::as_raw(self), info.into().abi()).ok()
     }
@@ -8044,9 +8044,9 @@ impl ISpeechRecoResult {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AudioFormat<'a, P0>(&self, format: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AudioFormat<P0>(&self, format: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechAudioFormat>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechAudioFormat>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AudioFormat)(::windows::core::Vtable::as_raw(self), format.into().abi()).ok()
     }
@@ -8178,9 +8178,9 @@ impl ISpeechRecoResult2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AudioFormat<'a, P0>(&self, format: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AudioFormat<P0>(&self, format: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechAudioFormat>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechAudioFormat>>,
     {
         (::windows::core::Vtable::vtable(self).base__.putref_AudioFormat)(::windows::core::Vtable::as_raw(self), format.into().abi()).ok()
     }
@@ -8287,9 +8287,9 @@ impl ISpeechRecoResultDispatch {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AudioFormat<'a, P0>(&self, format: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AudioFormat<P0>(&self, format: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechAudioFormat>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechAudioFormat>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AudioFormat)(::windows::core::Vtable::as_raw(self), format.into().abi()).ok()
     }
@@ -8510,9 +8510,9 @@ pub struct ISpeechRecognizer(::windows::core::IUnknown);
 impl ISpeechRecognizer {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Recognizer<'a, P0>(&self, recognizer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_Recognizer<P0>(&self, recognizer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechObjectToken>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechObjectToken>>,
     {
         (::windows::core::Vtable::vtable(self).putref_Recognizer)(::windows::core::Vtable::as_raw(self), recognizer.into().abi()).ok()
     }
@@ -8535,9 +8535,9 @@ impl ISpeechRecognizer {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AudioInput<'a, P0>(&self, audioinput: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AudioInput<P0>(&self, audioinput: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechObjectToken>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechObjectToken>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AudioInput)(::windows::core::Vtable::as_raw(self), audioinput.into().abi()).ok()
     }
@@ -8549,9 +8549,9 @@ impl ISpeechRecognizer {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AudioInputStream<'a, P0>(&self, audioinputstream: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AudioInputStream<P0>(&self, audioinputstream: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechBaseStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechBaseStream>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AudioInputStream)(::windows::core::Vtable::as_raw(self), audioinputstream.into().abi()).ok()
     }
@@ -8582,9 +8582,9 @@ impl ISpeechRecognizer {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Profile<'a, P0>(&self, profile: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_Profile<P0>(&self, profile: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechObjectToken>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechObjectToken>>,
     {
         (::windows::core::Vtable::vtable(self).putref_Profile)(::windows::core::Vtable::as_raw(self), profile.into().abi()).ok()
     }
@@ -9044,9 +9044,9 @@ impl ISpeechVoice {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Voice<'a, P0>(&self, voice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_Voice<P0>(&self, voice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechObjectToken>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechObjectToken>>,
     {
         (::windows::core::Vtable::vtable(self).putref_Voice)(::windows::core::Vtable::as_raw(self), voice.into().abi()).ok()
     }
@@ -9058,9 +9058,9 @@ impl ISpeechVoice {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AudioOutput<'a, P0>(&self, audiooutput: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AudioOutput<P0>(&self, audiooutput: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechObjectToken>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechObjectToken>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AudioOutput)(::windows::core::Vtable::as_raw(self), audiooutput.into().abi()).ok()
     }
@@ -9072,9 +9072,9 @@ impl ISpeechVoice {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AudioOutputStream<'a, P0>(&self, audiooutputstream: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AudioOutputStream<P0>(&self, audiooutputstream: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechBaseStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechBaseStream>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AudioOutputStream)(::windows::core::Vtable::as_raw(self), audiooutputstream.into().abi()).ok()
     }
@@ -9137,9 +9137,9 @@ impl ISpeechVoice {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SpeakStream<'a, P0>(&self, stream: P0, flags: SpeechVoiceSpeakFlags) -> ::windows::core::Result<i32>
+    pub unsafe fn SpeakStream<P0>(&self, stream: P0, flags: SpeechVoiceSpeakFlags) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechBaseStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechBaseStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SpeakStream)(::windows::core::Vtable::as_raw(self), stream.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
@@ -9540,9 +9540,9 @@ impl ISpeechXMLRecoResult {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AudioFormat<'a, P0>(&self, format: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AudioFormat<P0>(&self, format: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpeechAudioFormat>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISpeechAudioFormat>>,
     {
         (::windows::core::Vtable::vtable(self).base__.putref_AudioFormat)(::windows::core::Vtable::as_raw(self), format.into().abi()).ok()
     }

@@ -1,17 +1,17 @@
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
-pub unsafe fn CoCreateActivity<'a, P0>(piunknown: P0, riid: *const ::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn CoCreateActivity<P0>(piunknown: P0, riid: *const ::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "comsvcs.dll""system" fn CoCreateActivity ( piunknown : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoCreateActivity(piunknown.into().abi(), riid, ppobj).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
-pub unsafe fn CoEnterServiceDomain<'a, P0>(pconfigobject: P0) -> ::windows::core::Result<()>
+pub unsafe fn CoEnterServiceDomain<P0>(pconfigobject: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "comsvcs.dll""system" fn CoEnterServiceDomain ( pconfigobject : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoEnterServiceDomain(pconfigobject.into().abi()).ok()
@@ -25,9 +25,9 @@ pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::w
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
-pub unsafe fn CoLeaveServiceDomain<'a, P0>(punkstatus: P0)
+pub unsafe fn CoLeaveServiceDomain<P0>(punkstatus: P0)
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "comsvcs.dll""system" fn CoLeaveServiceDomain ( punkstatus : * mut::core::ffi::c_void ) -> ( ) );
     CoLeaveServiceDomain(punkstatus.into().abi())
@@ -59,9 +59,9 @@ pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::Result<()> 
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
-pub unsafe fn SafeRef<'a, P0>(rid: *const ::windows::core::GUID, punk: P0) -> *mut ::core::ffi::c_void
+pub unsafe fn SafeRef<P0>(rid: *const ::windows::core::GUID, punk: P0) -> *mut ::core::ffi::c_void
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "comsvcs.dll""cdecl" fn SafeRef ( rid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
     SafeRef(rid, punk.into().abi())
@@ -225,15 +225,15 @@ pub struct ContextInfo2_Vtbl {
 pub struct IAppDomainHelper(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAppDomainHelper {
-    pub unsafe fn Initialize<'a, P0>(&self, punkad: P0, __midl__iappdomainhelper0000: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, punkad: P0, __midl__iappdomainhelper0000: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), punkad.into().abi(), __midl__iappdomainhelper0000, ppool).ok()
     }
-    pub unsafe fn DoCallback<'a, P0>(&self, punkad: P0, __midl__iappdomainhelper0001: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn DoCallback<P0>(&self, punkad: P0, __midl__iappdomainhelper0001: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).DoCallback)(::windows::core::Vtable::as_raw(self), punkad.into().abi(), __midl__iappdomainhelper0001, ppool).ok()
     }
@@ -1244,7 +1244,7 @@ pub struct ICatalogObject_Vtbl {
 #[repr(transparent)]
 pub struct ICheckSxsConfig(::windows::core::IUnknown);
 impl ICheckSxsConfig {
-    pub unsafe fn IsSameSxsConfig<'a, P0, P1, P2>(&self, wszsxsname: P0, wszsxsdirectory: P1, wszsxsappname: P2) -> ::windows::core::Result<()>
+    pub unsafe fn IsSameSxsConfig<P0, P1, P2>(&self, wszsxsname: P0, wszsxsdirectory: P1, wszsxsappname: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1358,7 +1358,7 @@ impl IComApp2Events {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnAppPaused2<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, bpaused: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnAppPaused2<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, bpaused: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1488,7 +1488,7 @@ impl IComCRMEvents {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnCRMWrite<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, fvariants: P0, dwrecordsize: u32) -> ::windows::core::Result<()>
+    pub unsafe fn OnCRMWrite<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, fvariants: P0, dwrecordsize: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1502,7 +1502,7 @@ impl IComCRMEvents {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnCRMDeliver<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, fvariants: P0, dwrecordsize: u32) -> ::windows::core::Result<()>
+    pub unsafe fn OnCRMDeliver<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, fvariants: P0, dwrecordsize: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1562,7 +1562,7 @@ pub struct IComCRMEvents_Vtbl {
 #[repr(transparent)]
 pub struct IComExceptionEvents(::windows::core::IUnknown);
 impl IComExceptionEvents {
-    pub unsafe fn OnExceptionUser<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, code: u32, address: u64, pszstacktrace: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnExceptionUser<P0>(&self, pinfo: *const COMSVCSEVENTINFO, code: u32, address: u64, pszstacktrace: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1602,7 +1602,7 @@ pub struct IComExceptionEvents_Vtbl {
 #[repr(transparent)]
 pub struct IComIdentityEvents(::windows::core::IUnknown);
 impl IComIdentityEvents {
-    pub unsafe fn OnIISRequestInfo<'a, P0, P1, P2>(&self, pinfo: *const COMSVCSEVENTINFO, objid: u64, pszclientip: P0, pszserverip: P1, pszurl: P2) -> ::windows::core::Result<()>
+    pub unsafe fn OnIISRequestInfo<P0, P1, P2>(&self, pinfo: *const COMSVCSEVENTINFO, objid: u64, pszclientip: P0, pszserverip: P1, pszurl: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1728,7 +1728,7 @@ pub struct IComLTxEvents(::windows::core::IUnknown);
 impl IComLTxEvents {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnLtxTransactionStart<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, tsid: ::windows::core::GUID, froot: P0, nisolationlevel: i32) -> ::windows::core::Result<()>
+    pub unsafe fn OnLtxTransactionStart<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, tsid: ::windows::core::GUID, froot: P0, nisolationlevel: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1736,7 +1736,7 @@ impl IComLTxEvents {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnLtxTransactionPrepare<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, fvote: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnLtxTransactionPrepare<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, fvote: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1936,7 +1936,7 @@ pub struct IComMtaThreadPoolKnobs_Vtbl {
 #[repr(transparent)]
 pub struct IComObjectConstruction2Events(::windows::core::IUnknown);
 impl IComObjectConstruction2Events {
-    pub unsafe fn OnObjectConstruct2<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: P0, oid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::Result<()>
+    pub unsafe fn OnObjectConstruct2<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: P0, oid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1976,7 +1976,7 @@ pub struct IComObjectConstruction2Events_Vtbl {
 #[repr(transparent)]
 pub struct IComObjectConstructionEvents(::windows::core::IUnknown);
 impl IComObjectConstructionEvents {
-    pub unsafe fn OnObjectConstruct<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: P0, oid: u64) -> ::windows::core::Result<()>
+    pub unsafe fn OnObjectConstruct<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: P0, oid: u64) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2287,7 +2287,7 @@ pub struct IComResourceEvents(::windows::core::IUnknown);
 impl IComResourceEvents {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnResourceCreate<'a, P0, P1>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64, enlisted: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnResourceCreate<P0, P1>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64, enlisted: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -2296,20 +2296,20 @@ impl IComResourceEvents {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnResourceAllocate<'a, P0, P1>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64, enlisted: P1, numrated: u32, rating: u32) -> ::windows::core::Result<()>
+    pub unsafe fn OnResourceAllocate<P0, P1>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64, enlisted: P1, numrated: u32, rating: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).OnResourceAllocate)(::windows::core::Vtable::as_raw(self), pinfo, objectid, psztype.into(), resid, enlisted.into(), numrated, rating).ok()
     }
-    pub unsafe fn OnResourceRecycle<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64) -> ::windows::core::Result<()>
+    pub unsafe fn OnResourceRecycle<P0>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).OnResourceRecycle)(::windows::core::Vtable::as_raw(self), pinfo, objectid, psztype.into(), resid).ok()
     }
-    pub unsafe fn OnResourceDestroy<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, hr: ::windows::core::HRESULT, psztype: P0, resid: u64) -> ::windows::core::Result<()>
+    pub unsafe fn OnResourceDestroy<P0>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, hr: ::windows::core::HRESULT, psztype: P0, resid: u64) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2317,7 +2317,7 @@ impl IComResourceEvents {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnResourceTrack<'a, P0, P1>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64, enlisted: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnResourceTrack<P0, P1>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64, enlisted: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -2373,7 +2373,7 @@ pub struct IComSecurityEvents(::windows::core::IUnknown);
 impl IComSecurityEvents {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnAuthenticate<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, objectid: u64, guidiid: *const ::windows::core::GUID, imeth: u32, psidoriginaluser: &[u8], psidcurrentuser: &[u8], bcurrentuserinpersonatinginproc: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnAuthenticate<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, objectid: u64, guidiid: *const ::windows::core::GUID, imeth: u32, psidoriginaluser: &[u8], psidcurrentuser: &[u8], bcurrentuserinpersonatinginproc: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2381,7 +2381,7 @@ impl IComSecurityEvents {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnAuthenticateFail<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, objectid: u64, guidiid: *const ::windows::core::GUID, imeth: u32, psidoriginaluser: &[u8], psidcurrentuser: &[u8], bcurrentuserinpersonatinginproc: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnAuthenticateFail<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, objectid: u64, guidiid: *const ::windows::core::GUID, imeth: u32, psidoriginaluser: &[u8], psidcurrentuser: &[u8], bcurrentuserinpersonatinginproc: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2565,7 +2565,7 @@ impl IComStaThreadPoolKnobs2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCPUMetricEnabled<'a, P0>(&self, bmetricenabled: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCPUMetricEnabled<P0>(&self, bmetricenabled: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2579,7 +2579,7 @@ impl IComStaThreadPoolKnobs2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCreateThreadsAggressively<'a, P0>(&self, bmetricenabled: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCreateThreadsAggressively<P0>(&self, bmetricenabled: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2778,9 +2778,9 @@ pub struct IComTrackingInfoCollection_Vtbl {
 #[repr(transparent)]
 pub struct IComTrackingInfoEvents(::windows::core::IUnknown);
 impl IComTrackingInfoEvents {
-    pub unsafe fn OnNewTrackingInfo<'a, P0>(&self, ptoplevelcollection: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnNewTrackingInfo<P0>(&self, ptoplevelcollection: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).OnNewTrackingInfo)(::windows::core::Vtable::as_raw(self), ptoplevelcollection.into().abi()).ok()
     }
@@ -2820,7 +2820,7 @@ pub struct IComTrackingInfoObject(::windows::core::IUnknown);
 impl IComTrackingInfoObject {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetValue<'a, P0>(&self, szpropertyname: P0) -> ::windows::core::Result<super::Com::VARIANT>
+    pub unsafe fn GetValue<P0>(&self, szpropertyname: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2909,7 +2909,7 @@ pub struct IComTransaction2Events(::windows::core::IUnknown);
 impl IComTransaction2Events {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnTransactionStart2<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, froot: P0, nisolationlevel: i32) -> ::windows::core::Result<()>
+    pub unsafe fn OnTransactionStart2<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, froot: P0, nisolationlevel: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2917,7 +2917,7 @@ impl IComTransaction2Events {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnTransactionPrepare2<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, fvoteyes: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnTransactionPrepare2<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, fvoteyes: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2974,7 +2974,7 @@ pub struct IComTransactionEvents(::windows::core::IUnknown);
 impl IComTransactionEvents {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnTransactionStart<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, froot: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnTransactionStart<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, froot: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2982,7 +2982,7 @@ impl IComTransactionEvents {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnTransactionPrepare<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, fvoteyes: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnTransactionPrepare<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, fvoteyes: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -3150,7 +3150,7 @@ impl IContextSecurityPerimeter {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPerimeterFlag<'a, P0>(&self, fflag: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPerimeterFlag<P0>(&self, fflag: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -3256,9 +3256,9 @@ pub struct IContextState_Vtbl {
 #[repr(transparent)]
 pub struct ICreateWithLocalTransaction(::windows::core::IUnknown);
 impl ICreateWithLocalTransaction {
-    pub unsafe fn CreateInstanceWithSysTx<'a, P0>(&self, ptransaction: P0, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn CreateInstanceWithSysTx<P0>(&self, ptransaction: P0, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).CreateInstanceWithSysTx)(::windows::core::Vtable::as_raw(self), ptransaction.into().abi(), rclsid, riid, pobject).ok()
     }
@@ -3339,9 +3339,9 @@ pub struct ICreateWithTransactionEx(::windows::core::IUnknown);
 impl ICreateWithTransactionEx {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-    pub unsafe fn CreateInstance<'a, P0, T>(&self, ptransaction: P0, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
+    pub unsafe fn CreateInstance<P0, T>(&self, ptransaction: P0, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::DistributedTransactionCoordinator::ITransaction>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::DistributedTransactionCoordinator::ITransaction>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3384,9 +3384,9 @@ pub struct ICreateWithTransactionEx_Vtbl {
 #[repr(transparent)]
 pub struct ICrmCompensator(::windows::core::IUnknown);
 impl ICrmCompensator {
-    pub unsafe fn SetLogControl<'a, P0>(&self, plogcontrol: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLogControl<P0>(&self, plogcontrol: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICrmLogControl>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICrmLogControl>>,
     {
         (::windows::core::Vtable::vtable(self).SetLogControl)(::windows::core::Vtable::as_raw(self), plogcontrol.into().abi()).ok()
     }
@@ -3407,7 +3407,7 @@ impl ICrmCompensator {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BeginCommit<'a, P0>(&self, frecovery: P0) -> ::windows::core::Result<()>
+    pub unsafe fn BeginCommit<P0>(&self, frecovery: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -3424,7 +3424,7 @@ impl ICrmCompensator {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BeginAbort<'a, P0>(&self, frecovery: P0) -> ::windows::core::Result<()>
+    pub unsafe fn BeginAbort<P0>(&self, frecovery: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -3500,9 +3500,9 @@ pub struct ICrmCompensator_Vtbl {
 #[repr(transparent)]
 pub struct ICrmCompensatorVariants(::windows::core::IUnknown);
 impl ICrmCompensatorVariants {
-    pub unsafe fn SetLogControlVariants<'a, P0>(&self, plogcontrol: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLogControlVariants<P0>(&self, plogcontrol: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICrmLogControl>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICrmLogControl>>,
     {
         (::windows::core::Vtable::vtable(self).SetLogControlVariants)(::windows::core::Vtable::as_raw(self), plogcontrol.into().abi()).ok()
     }
@@ -3682,7 +3682,7 @@ impl ICrmLogControl {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).TransactionUOW)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn RegisterCompensator<'a, P0, P1>(&self, lpcwstrprogidcompensator: P0, lpcwstrdescription: P1, lcrmregflags: i32) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterCompensator<P0, P1>(&self, lpcwstrprogidcompensator: P0, lpcwstrdescription: P1, lcrmregflags: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3987,7 +3987,7 @@ impl IDispenserDriver {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RateResource<'a, P0>(&self, restypid: usize, resid: usize, frequirestransactionenlistment: P0, prating: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn RateResource<P0>(&self, restypid: usize, resid: usize, frequirestransactionenlistment: P0, prating: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -4047,9 +4047,9 @@ pub struct IDispenserDriver_Vtbl {
 #[repr(transparent)]
 pub struct IDispenserManager(::windows::core::IUnknown);
 impl IDispenserManager {
-    pub unsafe fn RegisterDispenser<'a, P0, P1>(&self, __midl__idispensermanager0000: P0, szdispensername: P1) -> ::windows::core::Result<IHolder>
+    pub unsafe fn RegisterDispenser<P0, P1>(&self, __midl__idispensermanager0000: P0, szdispensername: P1) -> ::windows::core::Result<IHolder>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDispenserDriver>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDispenserDriver>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4394,7 +4394,7 @@ impl IHolder {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UntrackResource<'a, P0>(&self, __midl__iholder0005: usize, __midl__iholder0006: P0) -> ::windows::core::Result<()>
+    pub unsafe fn UntrackResource<P0>(&self, __midl__iholder0005: usize, __midl__iholder0006: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -4402,7 +4402,7 @@ impl IHolder {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UntrackResourceS<'a, P0>(&self, __midl__iholder0007: *mut u16, __midl__iholder0008: P0) -> ::windows::core::Result<()>
+    pub unsafe fn UntrackResourceS<P0>(&self, __midl__iholder0007: *mut u16, __midl__iholder0008: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -4511,15 +4511,15 @@ pub struct ILBEvents_Vtbl {
 #[repr(transparent)]
 pub struct IMTSActivity(::windows::core::IUnknown);
 impl IMTSActivity {
-    pub unsafe fn SynchronousCall<'a, P0>(&self, pcall: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SynchronousCall<P0>(&self, pcall: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMTSCall>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMTSCall>>,
     {
         (::windows::core::Vtable::vtable(self).SynchronousCall)(::windows::core::Vtable::as_raw(self), pcall.into().abi()).ok()
     }
-    pub unsafe fn AsyncCall<'a, P0>(&self, pcall: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AsyncCall<P0>(&self, pcall: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMTSCall>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMTSCall>>,
     {
         (::windows::core::Vtable::vtable(self).AsyncCall)(::windows::core::Vtable::as_raw(self), pcall.into().abi()).ok()
     }
@@ -4657,16 +4657,16 @@ pub struct IManagedActivationEvents(::windows::core::IUnknown);
 impl IManagedActivationEvents {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateManagedStub<'a, P0, P1>(&self, pinfo: P0, fdist: P1) -> ::windows::core::Result<()>
+    pub unsafe fn CreateManagedStub<P0, P1>(&self, pinfo: P0, fdist: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IManagedObjectInfo>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IManagedObjectInfo>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).CreateManagedStub)(::windows::core::Vtable::as_raw(self), pinfo.into().abi(), fdist.into()).ok()
     }
-    pub unsafe fn DestroyManagedStub<'a, P0>(&self, pinfo: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DestroyManagedStub<P0>(&self, pinfo: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IManagedObjectInfo>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IManagedObjectInfo>>,
     {
         (::windows::core::Vtable::vtable(self).DestroyManagedStub)(::windows::core::Vtable::as_raw(self), pinfo.into().abi()).ok()
     }
@@ -4718,16 +4718,16 @@ impl IManagedObjectInfo {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInPool<'a, P0, P1>(&self, binpool: P0, ppooledobj: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetInPool<P0, P1>(&self, binpool: P0, ppooledobj: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IManagedPooledObj>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IManagedPooledObj>>,
     {
         (::windows::core::Vtable::vtable(self).SetInPool)(::windows::core::Vtable::as_raw(self), binpool.into(), ppooledobj.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWrapperStrength<'a, P0>(&self, bstrong: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWrapperStrength<P0>(&self, bstrong: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -4815,7 +4815,7 @@ pub struct IManagedPooledObj(::windows::core::IUnknown);
 impl IManagedPooledObj {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHeld<'a, P0>(&self, m_bheld: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHeld<P0>(&self, m_bheld: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -5152,9 +5152,9 @@ impl IObjPool {
     pub unsafe fn Reserved4(&self) {
         (::windows::core::Vtable::vtable(self).Reserved4)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn PutEndTx<'a, P0>(&self, pobj: P0)
+    pub unsafe fn PutEndTx<P0>(&self, pobj: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).PutEndTx)(::windows::core::Vtable::as_raw(self), pobj.into().abi())
     }
@@ -5206,9 +5206,9 @@ pub struct IObjectConstruct(::windows::core::IUnknown);
 impl IObjectConstruct {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Construct<'a, P0>(&self, pctorobj: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Construct<P0>(&self, pctorobj: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).Construct)(::windows::core::Vtable::as_raw(self), pctorobj.into().abi()).ok()
     }
@@ -5710,9 +5710,9 @@ pub struct IPoolManager_Vtbl {
 #[repr(transparent)]
 pub struct IProcessInitializer(::windows::core::IUnknown);
 impl IProcessInitializer {
-    pub unsafe fn Startup<'a, P0>(&self, punkprocesscontrol: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Startup<P0>(&self, punkprocesscontrol: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).Startup)(::windows::core::Vtable::as_raw(self), punkprocesscontrol.into().abi()).ok()
     }
@@ -5995,7 +5995,7 @@ impl ISecurityProperty {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReleaseSID<'a, P0>(&self, psid: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ReleaseSID<P0>(&self, psid: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::PSID>,
     {
@@ -6057,9 +6057,9 @@ impl ISelectCOMLBServer {
     pub unsafe fn Init(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Init)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn GetLBServer<'a, P0>(&self, punk: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetLBServer<P0>(&self, punk: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).GetLBServer)(::windows::core::Vtable::as_raw(self), punk.into().abi()).ok()
     }
@@ -6139,15 +6139,15 @@ pub struct ISendMethodEvents_Vtbl {
 #[repr(transparent)]
 pub struct IServiceActivity(::windows::core::IUnknown);
 impl IServiceActivity {
-    pub unsafe fn SynchronousCall<'a, P0>(&self, piservicecall: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SynchronousCall<P0>(&self, piservicecall: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IServiceCall>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IServiceCall>>,
     {
         (::windows::core::Vtable::vtable(self).SynchronousCall)(::windows::core::Vtable::as_raw(self), piservicecall.into().abi()).ok()
     }
-    pub unsafe fn AsynchronousCall<'a, P0>(&self, piservicecall: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AsynchronousCall<P0>(&self, piservicecall: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IServiceCall>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IServiceCall>>,
     {
         (::windows::core::Vtable::vtable(self).AsynchronousCall)(::windows::core::Vtable::as_raw(self), piservicecall.into().abi()).ok()
     }
@@ -6383,9 +6383,9 @@ pub struct IServicePartitionConfig_Vtbl {
 #[repr(transparent)]
 pub struct IServicePool(::windows::core::IUnknown);
 impl IServicePool {
-    pub unsafe fn Initialize<'a, P0>(&self, ppoolconfig: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, ppoolconfig: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ppoolconfig.into().abi()).ok()
     }
@@ -6451,7 +6451,7 @@ impl IServicePoolConfig {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTransactionAffinity<'a, P0>(&self, ftxaffinity: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTransactionAffinity<P0>(&self, ftxaffinity: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -6464,9 +6464,9 @@ impl IServicePoolConfig {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetClassFactory<'a, P0>(&self, pfactory: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetClassFactory<P0>(&self, pfactory: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IClassFactory>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IClassFactory>>,
     {
         (::windows::core::Vtable::vtable(self).SetClassFactory)(::windows::core::Vtable::as_raw(self), pfactory.into().abi()).ok()
     }
@@ -6534,13 +6534,13 @@ impl IServiceSxsConfig {
     pub unsafe fn SxsConfig(&self, scsconfig: CSC_SxsConfig) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SxsConfig)(::windows::core::Vtable::as_raw(self), scsconfig).ok()
     }
-    pub unsafe fn SxsName<'a, P0>(&self, szsxsname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SxsName<P0>(&self, szsxsname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).SxsName)(::windows::core::Vtable::as_raw(self), szsxsname.into()).ok()
     }
-    pub unsafe fn SxsDirectory<'a, P0>(&self, szsxsdirectory: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SxsDirectory<P0>(&self, szsxsdirectory: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -6628,13 +6628,13 @@ impl IServiceSysTxnConfig {
     pub unsafe fn TransactionTimeout(&self, ultimeoutsec: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.TransactionTimeout)(::windows::core::Vtable::as_raw(self), ultimeoutsec).ok()
     }
-    pub unsafe fn BringYourOwnTransaction<'a, P0>(&self, sztipurl: P0) -> ::windows::core::Result<()>
+    pub unsafe fn BringYourOwnTransaction<P0>(&self, sztipurl: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.BringYourOwnTransaction)(::windows::core::Vtable::as_raw(self), sztipurl.into()).ok()
     }
-    pub unsafe fn NewTransactionDescription<'a, P0>(&self, sztxdesc: P0) -> ::windows::core::Result<()>
+    pub unsafe fn NewTransactionDescription<P0>(&self, sztxdesc: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -6642,15 +6642,15 @@ impl IServiceSysTxnConfig {
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-    pub unsafe fn ConfigureBYOT<'a, P0>(&self, pitxbyot: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ConfigureBYOT<P0>(&self, pitxbyot: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::DistributedTransactionCoordinator::ITransaction>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::DistributedTransactionCoordinator::ITransaction>>,
     {
         (::windows::core::Vtable::vtable(self).base__.ConfigureBYOT)(::windows::core::Vtable::as_raw(self), pitxbyot.into().abi()).ok()
     }
-    pub unsafe fn ConfigureBYOTSysTxn<'a, P0>(&self, ptxproxy: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ConfigureBYOTSysTxn<P0>(&self, ptxproxy: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ITransactionProxy>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ITransactionProxy>>,
     {
         (::windows::core::Vtable::vtable(self).ConfigureBYOTSysTxn)(::windows::core::Vtable::as_raw(self), ptxproxy.into().abi()).ok()
     }
@@ -6729,7 +6729,7 @@ pub struct IServiceThreadPoolConfig_Vtbl {
 #[repr(transparent)]
 pub struct IServiceTrackerConfig(::windows::core::IUnknown);
 impl IServiceTrackerConfig {
-    pub unsafe fn TrackerConfig<'a, P0, P1>(&self, trackerconfig: CSC_TrackerConfig, sztrackerappname: P0, sztrackerctxname: P1) -> ::windows::core::Result<()>
+    pub unsafe fn TrackerConfig<P0, P1>(&self, trackerconfig: CSC_TrackerConfig, sztrackerappname: P0, sztrackerctxname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -6779,13 +6779,13 @@ impl IServiceTransactionConfig {
     pub unsafe fn TransactionTimeout(&self, ultimeoutsec: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.TransactionTimeout)(::windows::core::Vtable::as_raw(self), ultimeoutsec).ok()
     }
-    pub unsafe fn BringYourOwnTransaction<'a, P0>(&self, sztipurl: P0) -> ::windows::core::Result<()>
+    pub unsafe fn BringYourOwnTransaction<P0>(&self, sztipurl: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.BringYourOwnTransaction)(::windows::core::Vtable::as_raw(self), sztipurl.into()).ok()
     }
-    pub unsafe fn NewTransactionDescription<'a, P0>(&self, sztxdesc: P0) -> ::windows::core::Result<()>
+    pub unsafe fn NewTransactionDescription<P0>(&self, sztxdesc: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -6793,9 +6793,9 @@ impl IServiceTransactionConfig {
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-    pub unsafe fn ConfigureBYOT<'a, P0>(&self, pitxbyot: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ConfigureBYOT<P0>(&self, pitxbyot: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::DistributedTransactionCoordinator::ITransaction>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::DistributedTransactionCoordinator::ITransaction>>,
     {
         (::windows::core::Vtable::vtable(self).ConfigureBYOT)(::windows::core::Vtable::as_raw(self), pitxbyot.into().abi()).ok()
     }
@@ -6845,13 +6845,13 @@ impl IServiceTransactionConfigBase {
     pub unsafe fn TransactionTimeout(&self, ultimeoutsec: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).TransactionTimeout)(::windows::core::Vtable::as_raw(self), ultimeoutsec).ok()
     }
-    pub unsafe fn BringYourOwnTransaction<'a, P0>(&self, sztipurl: P0) -> ::windows::core::Result<()>
+    pub unsafe fn BringYourOwnTransaction<P0>(&self, sztipurl: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).BringYourOwnTransaction)(::windows::core::Vtable::as_raw(self), sztipurl.into()).ok()
     }
-    pub unsafe fn NewTransactionDescription<'a, P0>(&self, sztxdesc: P0) -> ::windows::core::Result<()>
+    pub unsafe fn NewTransactionDescription<P0>(&self, sztxdesc: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -7449,9 +7449,9 @@ impl ITransactionProxy {
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-    pub unsafe fn CreateVoter<'a, P0>(&self, ptxasync: P0) -> ::windows::core::Result<super::DistributedTransactionCoordinator::ITransactionVoterBallotAsync2>
+    pub unsafe fn CreateVoter<P0>(&self, ptxasync: P0) -> ::windows::core::Result<super::DistributedTransactionCoordinator::ITransactionVoterBallotAsync2>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::DistributedTransactionCoordinator::ITransactionVoterNotifyAsync2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::DistributedTransactionCoordinator::ITransactionVoterNotifyAsync2>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateVoter)(::windows::core::Vtable::as_raw(self), ptxasync.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -7516,16 +7516,16 @@ pub struct ITransactionProxy_Vtbl {
 #[repr(transparent)]
 pub struct ITransactionResourcePool(::windows::core::IUnknown);
 impl ITransactionResourcePool {
-    pub unsafe fn PutResource<'a, P0, P1>(&self, ppool: P0, punk: P1) -> ::windows::core::Result<()>
+    pub unsafe fn PutResource<P0, P1>(&self, ppool: P0, punk: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjPool>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjPool>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).PutResource)(::windows::core::Vtable::as_raw(self), ppool.into().abi(), punk.into().abi()).ok()
     }
-    pub unsafe fn GetResource<'a, P0>(&self, ppool: P0) -> ::windows::core::Result<::windows::core::IUnknown>
+    pub unsafe fn GetResource<P0>(&self, ppool: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjPool>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjPool>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetResource)(::windows::core::Vtable::as_raw(self), ppool.into().abi(), result__.as_mut_ptr()).from_abi(result__)

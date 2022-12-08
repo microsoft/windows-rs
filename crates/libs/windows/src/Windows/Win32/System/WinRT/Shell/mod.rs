@@ -4,12 +4,12 @@ pub struct IDDEInitializer(::windows::core::IUnknown);
 impl IDDEInitializer {
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
     #[cfg(feature = "Win32_UI_Shell")]
-    pub unsafe fn Initialize<'a, P0, P1, P2, P3, P4, P5, P6, P7>(&self, fileextensionorprotocol: P0, method: CreateProcessMethod, currentdirectory: P1, exectarget: P2, site: P3, application: P4, targetfile: P5, arguments: P6, verb: P7) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0, P1, P2, P3, P4, P5, P6, P7>(&self, fileextensionorprotocol: P0, method: CreateProcessMethod, currentdirectory: P1, exectarget: P2, site: P3, application: P4, targetfile: P5, arguments: P6, verb: P7) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::UI::Shell::IShellItem>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<super::super::super::UI::Shell::IShellItem>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P4: ::std::convert::Into<::windows::core::PCWSTR>,
         P5: ::std::convert::Into<::windows::core::PCWSTR>,
         P6: ::std::convert::Into<::windows::core::PCWSTR>,

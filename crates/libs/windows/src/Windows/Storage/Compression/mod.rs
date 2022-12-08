@@ -108,9 +108,9 @@ impl Compressor {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCompressor<'a, P0, E0>(underlyingstream: P0) -> ::windows::core::Result<Compressor>
+    pub fn CreateCompressor<P0, E0>(underlyingstream: P0) -> ::windows::core::Result<Compressor>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICompressorFactory(|this| unsafe {
@@ -120,9 +120,9 @@ impl Compressor {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCompressorEx<'a, P0, E0>(underlyingstream: P0, algorithm: CompressAlgorithm, blocksize: u32) -> ::windows::core::Result<Compressor>
+    pub fn CreateCompressorEx<P0, E0>(underlyingstream: P0, algorithm: CompressAlgorithm, blocksize: u32) -> ::windows::core::Result<Compressor>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IOutputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICompressorFactory(|this| unsafe {
@@ -132,9 +132,9 @@ impl Compressor {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::Streams::IOutputStream>(self)?;
@@ -206,7 +206,7 @@ impl ::core::convert::TryFrom<&Compressor> for super::super::Foundation::IClosab
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&Compressor> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&Compressor> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Compressor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -228,7 +228,7 @@ impl ::core::convert::TryFrom<&Compressor> for super::Streams::IOutputStream {
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&Compressor> for ::windows::core::InParam<'a, super::Streams::IOutputStream> {
+impl ::core::convert::TryFrom<&Compressor> for ::windows::core::InParam<super::Streams::IOutputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Compressor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -258,9 +258,9 @@ impl Decompressor {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateDecompressor<'a, P0, E0>(underlyingstream: P0) -> ::windows::core::Result<Decompressor>
+    pub fn CreateDecompressor<P0, E0>(underlyingstream: P0) -> ::windows::core::Result<Decompressor>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IDecompressorFactory(|this| unsafe {
@@ -270,9 +270,9 @@ impl Decompressor {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: super::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
+    pub fn ReadAsync<P0, E0>(&self, buffer: P0, count: u32, options: super::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::Streams::IInputStream>(self)?;
@@ -335,7 +335,7 @@ impl ::core::convert::TryFrom<&Decompressor> for super::super::Foundation::IClos
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&Decompressor> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&Decompressor> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Decompressor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -357,7 +357,7 @@ impl ::core::convert::TryFrom<&Decompressor> for super::Streams::IInputStream {
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&Decompressor> for ::windows::core::InParam<'a, super::Streams::IInputStream> {
+impl ::core::convert::TryFrom<&Decompressor> for ::windows::core::InParam<super::Streams::IInputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Decompressor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

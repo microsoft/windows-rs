@@ -587,7 +587,7 @@ impl ::core::convert::TryFrom<&WebUICommandBarBitmapIcon> for IWebUICommandBarIc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebUICommandBarBitmapIcon> for ::windows::core::InParam<'a, IWebUICommandBarIcon> {
+impl ::core::convert::TryFrom<&WebUICommandBarBitmapIcon> for ::windows::core::InParam<IWebUICommandBarIcon> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICommandBarBitmapIcon) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -679,7 +679,7 @@ impl ::core::convert::TryFrom<&WebUICommandBarConfirmationButton> for IWebUIComm
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebUICommandBarConfirmationButton> for ::windows::core::InParam<'a, IWebUICommandBarElement> {
+impl ::core::convert::TryFrom<&WebUICommandBarConfirmationButton> for ::windows::core::InParam<IWebUICommandBarElement> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICommandBarConfirmationButton) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -750,9 +750,9 @@ impl WebUICommandBarIconButton {
             (::windows::core::Vtable::vtable(this).Icon)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetIcon<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetIcon<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IWebUICommandBarIcon>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IWebUICommandBarIcon>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -819,7 +819,7 @@ impl ::core::convert::TryFrom<&WebUICommandBarIconButton> for IWebUICommandBarEl
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebUICommandBarIconButton> for ::windows::core::InParam<'a, IWebUICommandBarElement> {
+impl ::core::convert::TryFrom<&WebUICommandBarIconButton> for ::windows::core::InParam<IWebUICommandBarElement> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICommandBarIconButton) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1003,7 +1003,7 @@ impl ::core::convert::TryFrom<&WebUICommandBarSymbolIcon> for IWebUICommandBarIc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebUICommandBarSymbolIcon> for ::windows::core::InParam<'a, IWebUICommandBarIcon> {
+impl ::core::convert::TryFrom<&WebUICommandBarSymbolIcon> for ::windows::core::InParam<IWebUICommandBarIcon> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUICommandBarSymbolIcon) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

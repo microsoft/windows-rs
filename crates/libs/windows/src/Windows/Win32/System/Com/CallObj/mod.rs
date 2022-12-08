@@ -1,18 +1,18 @@
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
 #[inline]
-pub unsafe fn CoGetInterceptor<'a, P0>(iidintercepted: *const ::windows::core::GUID, punkouter: P0, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn CoGetInterceptor<P0>(iidintercepted: *const ::windows::core::GUID, punkouter: P0, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CoGetInterceptor ( iidintercepted : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoGetInterceptor(iidintercepted, punkouter.into().abi(), iid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
 #[inline]
-pub unsafe fn CoGetInterceptorFromTypeInfo<'a, P0, P1>(iidintercepted: *const ::windows::core::GUID, punkouter: P0, typeinfo: P1, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn CoGetInterceptorFromTypeInfo<P0, P1>(iidintercepted: *const ::windows::core::GUID, punkouter: P0, typeinfo: P1, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::ITypeInfo>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+    P1: ::std::convert::Into<::windows::core::InParam<super::ITypeInfo>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CoGetInterceptorFromTypeInfo ( iidintercepted : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , typeinfo : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoGetInterceptorFromTypeInfo(iidintercepted, punkouter.into().abi(), typeinfo.into().abi(), iid, ppv).ok()
@@ -62,31 +62,31 @@ impl ICallFrame {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetParam)(::windows::core::Vtable::as_raw(self), iparam, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Copy<'a, P0>(&self, copycontrol: CALLFRAME_COPY, pwalker: P0) -> ::windows::core::Result<ICallFrame>
+    pub unsafe fn Copy<P0>(&self, copycontrol: CALLFRAME_COPY, pwalker: P0) -> ::windows::core::Result<ICallFrame>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICallFrameWalker>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICallFrameWalker>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Copy)(::windows::core::Vtable::as_raw(self), copycontrol, pwalker.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Free<'a, P0, P1, P2, P3>(&self, pframeargsdest: P0, pwalkerdestfree: P1, pwalkercopy: P2, freeflags: u32, pwalkerfree: P3, nullflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Free<P0, P1, P2, P3>(&self, pframeargsdest: P0, pwalkerdestfree: P1, pwalkercopy: P2, freeflags: u32, pwalkerfree: P3, nullflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICallFrame>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ICallFrameWalker>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ICallFrameWalker>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, ICallFrameWalker>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICallFrame>>,
+        P1: ::std::convert::Into<::windows::core::InParam<ICallFrameWalker>>,
+        P2: ::std::convert::Into<::windows::core::InParam<ICallFrameWalker>>,
+        P3: ::std::convert::Into<::windows::core::InParam<ICallFrameWalker>>,
     {
         (::windows::core::Vtable::vtable(self).Free)(::windows::core::Vtable::as_raw(self), pframeargsdest.into().abi(), pwalkerdestfree.into().abi(), pwalkercopy.into().abi(), freeflags, pwalkerfree.into().abi(), nullflags).ok()
     }
-    pub unsafe fn FreeParam<'a, P0>(&self, iparam: u32, freeflags: u32, pwalkerfree: P0, nullflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn FreeParam<P0>(&self, iparam: u32, freeflags: u32, pwalkerfree: P0, nullflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICallFrameWalker>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICallFrameWalker>>,
     {
         (::windows::core::Vtable::vtable(self).FreeParam)(::windows::core::Vtable::as_raw(self), iparam, freeflags, pwalkerfree.into().abi(), nullflags).ok()
     }
-    pub unsafe fn WalkFrame<'a, P0>(&self, walkwhat: u32, pwalker: P0) -> ::windows::core::Result<()>
+    pub unsafe fn WalkFrame<P0>(&self, walkwhat: u32, pwalker: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICallFrameWalker>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICallFrameWalker>>,
     {
         (::windows::core::Vtable::vtable(self).WalkFrame)(::windows::core::Vtable::as_raw(self), walkwhat, pwalker.into().abi()).ok()
     }
@@ -191,9 +191,9 @@ pub struct ICallFrame_Vtbl {
 #[repr(transparent)]
 pub struct ICallFrameEvents(::windows::core::IUnknown);
 impl ICallFrameEvents {
-    pub unsafe fn OnCall<'a, P0>(&self, pframe: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnCall<P0>(&self, pframe: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICallFrame>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICallFrame>>,
     {
         (::windows::core::Vtable::vtable(self).OnCall)(::windows::core::Vtable::as_raw(self), pframe.into().abi()).ok()
     }
@@ -233,7 +233,7 @@ pub struct ICallFrameWalker(::windows::core::IUnknown);
 impl ICallFrameWalker {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnWalkInterface<'a, P0, P1>(&self, iid: *const ::windows::core::GUID, ppvinterface: *const *const ::core::ffi::c_void, fin: P0, fout: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnWalkInterface<P0, P1>(&self, iid: *const ::windows::core::GUID, ppvinterface: *const *const ::core::ffi::c_void, fin: P0, fout: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
@@ -354,9 +354,9 @@ impl ICallInterceptor {
     pub unsafe fn GetIID(&self, piid: ::core::option::Option<*mut ::windows::core::GUID>, pfderivesfromidispatch: ::core::option::Option<*mut super::super::super::Foundation::BOOL>, pcmethod: ::core::option::Option<*mut u32>, pwszinterface: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetIID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(piid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfderivesfromidispatch.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcmethod.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pwszinterface.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn RegisterSink<'a, P0>(&self, psink: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterSink<P0>(&self, psink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ICallFrameEvents>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ICallFrameEvents>>,
     {
         (::windows::core::Vtable::vtable(self).RegisterSink)(::windows::core::Vtable::as_raw(self), psink.into().abi()).ok()
     }
@@ -401,7 +401,7 @@ pub struct ICallUnmarshal(::windows::core::IUnknown);
 impl ICallUnmarshal {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Unmarshal<'a, P0>(&self, imethod: u32, pbuffer: &[u8], fforcebuffercopy: P0, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut ::core::option::Option<ICallFrame>) -> ::windows::core::Result<()>
+    pub unsafe fn Unmarshal<P0>(&self, imethod: u32, pbuffer: &[u8], fforcebuffercopy: P0, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut ::core::option::Option<ICallFrame>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {

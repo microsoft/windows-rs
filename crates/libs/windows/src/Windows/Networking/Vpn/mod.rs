@@ -263,10 +263,10 @@ pub struct IVpnChannelConfiguration2_Vtbl {
 #[repr(transparent)]
 pub struct IVpnChannelStatics(::windows::core::IUnknown);
 impl IVpnChannelStatics {
-    pub fn ProcessEventAsync<'a, P0, P1>(&self, thirdpartyplugin: P0, event: P1) -> ::windows::core::Result<()>
+    pub fn ProcessEventAsync<P0, P1>(&self, thirdpartyplugin: P0, event: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).ProcessEventAsync)(::windows::core::Vtable::as_raw(this), thirdpartyplugin.into().abi(), event.into().abi()).ok() }
@@ -789,11 +789,11 @@ pub struct IVpnDomainNameInfoFactory(::windows::core::IUnknown);
 impl IVpnDomainNameInfoFactory {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateVpnDomainNameInfo<'a, P0, E0, P1, E1>(&self, name: &::windows::core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: P0, proxyserverlist: P1) -> ::windows::core::Result<VpnDomainNameInfo>
+    pub fn CreateVpnDomainNameInfo<P0, E0, P1, E1>(&self, name: &::windows::core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: P0, proxyserverlist: P1) -> ::windows::core::Result<VpnDomainNameInfo>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1061,11 +1061,11 @@ pub struct IVpnNamespaceInfoFactory(::windows::core::IUnknown);
 impl IVpnNamespaceInfoFactory {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateVpnNamespaceInfo<'a, P0, E0, P1, E1>(&self, name: &::windows::core::HSTRING, dnsserverlist: P0, proxyserverlist: P1) -> ::windows::core::Result<VpnNamespaceInfo>
+    pub fn CreateVpnNamespaceInfo<P0, E0, P1, E1>(&self, name: &::windows::core::HSTRING, dnsserverlist: P0, proxyserverlist: P1) -> ::windows::core::Result<VpnNamespaceInfo>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<super::HostName>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<super::HostName>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<super::HostName>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<super::HostName>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1844,24 +1844,24 @@ unsafe impl ::core::marker::Sync for VpnAppId {}
 #[repr(transparent)]
 pub struct VpnChannel(::windows::core::IUnknown);
 impl VpnChannel {
-    pub fn AssociateTransport<'a, P0, P1>(&self, mainoutertunneltransport: P0, optionaloutertunneltransport: P1) -> ::windows::core::Result<()>
+    pub fn AssociateTransport<P0, P1>(&self, mainoutertunneltransport: P0, optionaloutertunneltransport: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).AssociateTransport)(::windows::core::Vtable::as_raw(this), mainoutertunneltransport.into().abi(), optionaloutertunneltransport.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Start<'a, P0, E0, P1, E1, P2, P3>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: &VpnInterfaceId, routescope: &VpnRouteAssignment, namespacescope: &VpnNamespaceAssignment, mtusize: u32, maxframesize: u32, optimizeforlowcostnetwork: bool, mainoutertunneltransport: P2, optionaloutertunneltransport: P3) -> ::windows::core::Result<()>
+    pub fn Start<P0, E0, P1, E1, P2, P3>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: &VpnInterfaceId, routescope: &VpnRouteAssignment, namespacescope: &VpnNamespaceAssignment, mtusize: u32, maxframesize: u32, optimizeforlowcostnetwork: bool, mainoutertunneltransport: P2, optionaloutertunneltransport: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this), assignedclientipv4list.try_into().map_err(|e| e.into())?.abi(), assignedclientipv6list.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(vpninterfaceid), ::core::mem::transmute_copy(routescope), ::core::mem::transmute_copy(namespacescope), mtusize, maxframesize, optimizeforlowcostnetwork, mainoutertunneltransport.into().abi(), optionaloutertunneltransport.into().abi()).ok() }
@@ -1916,9 +1916,9 @@ impl VpnChannel {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).RemoveActivityChange)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
-    pub fn SetPlugInContext<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetPlugInContext<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetPlugInContext)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -1939,9 +1939,9 @@ impl VpnChannel {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestCustomPrompt<'a, P0, E0>(&self, customprompt: P0) -> ::windows::core::Result<()>
+    pub fn RequestCustomPrompt<P0, E0>(&self, customprompt: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<IVpnCustomPrompt>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<IVpnCustomPrompt>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1951,33 +1951,33 @@ impl VpnChannel {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetErrorMessage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(message)).ok() }
     }
-    pub fn SetAllowedSslTlsVersions<'a, P0>(&self, tunneltransport: P0, usetls12: bool) -> ::windows::core::Result<()>
+    pub fn SetAllowedSslTlsVersions<P0>(&self, tunneltransport: P0, usetls12: bool) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetAllowedSslTlsVersions)(::windows::core::Vtable::as_raw(this), tunneltransport.into().abi(), usetls12).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartWithMainTransport<'a, P0, E0, P1, E1, P2>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: &VpnInterfaceId, assignedroutes: &VpnRouteAssignment, assigneddomainname: &VpnDomainNameAssignment, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: P2) -> ::windows::core::Result<()>
+    pub fn StartWithMainTransport<P0, E0, P1, E1, P2>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: &VpnInterfaceId, assignedroutes: &VpnRouteAssignment, assigneddomainname: &VpnDomainNameAssignment, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IVpnChannel2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartWithMainTransport)(::windows::core::Vtable::as_raw(this), assignedclientipv4list.try_into().map_err(|e| e.into())?.abi(), assignedclientipv6list.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(vpninterfaceid), ::core::mem::transmute_copy(assignedroutes), ::core::mem::transmute_copy(assigneddomainname), mtusize, maxframesize, reserved, mainoutertunneltransport.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartExistingTransports<'a, P0, E0, P1, E1>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: &VpnInterfaceId, assignedroutes: &VpnRouteAssignment, assigneddomainname: &VpnDomainNameAssignment, mtusize: u32, maxframesize: u32, reserved: bool) -> ::windows::core::Result<()>
+    pub fn StartExistingTransports<P0, E0, P1, E1>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: &VpnInterfaceId, assignedroutes: &VpnRouteAssignment, assigneddomainname: &VpnDomainNameAssignment, mtusize: u32, maxframesize: u32, reserved: bool) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IVpnChannel2>(self)?;
@@ -2014,9 +2014,9 @@ impl VpnChannel {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestCustomPromptAsync<'a, P0, E0>(&self, custompromptelement: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RequestCustomPromptAsync<P0, E0>(&self, custompromptelement: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<IVpnCustomPromptElement>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<IVpnCustomPromptElement>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IVpnChannel2>(self)?;
@@ -2058,61 +2058,61 @@ impl VpnChannel {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartWithTrafficFilter<'a, P0, E0, P1, E1, P2, P3>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: &VpnInterfaceId, assignedroutes: &VpnRouteAssignment, assignednamespace: &VpnDomainNameAssignment, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: P2, optionaloutertunneltransport: P3, assignedtrafficfilters: &VpnTrafficFilterAssignment) -> ::windows::core::Result<()>
+    pub fn StartWithTrafficFilter<P0, E0, P1, E1, P2, P3>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: &VpnInterfaceId, assignedroutes: &VpnRouteAssignment, assignednamespace: &VpnDomainNameAssignment, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: P2, optionaloutertunneltransport: P3, assignedtrafficfilters: &VpnTrafficFilterAssignment) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<super::HostName>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IVpnChannel2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartWithTrafficFilter)(::windows::core::Vtable::as_raw(this), assignedclientipv4list.try_into().map_err(|e| e.into())?.abi(), assignedclientipv6list.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(vpninterfaceid), ::core::mem::transmute_copy(assignedroutes), ::core::mem::transmute_copy(assignednamespace), mtusize, maxframesize, reserved, mainoutertunneltransport.into().abi(), optionaloutertunneltransport.into().abi(), ::core::mem::transmute_copy(assignedtrafficfilters)).ok() }
     }
-    pub fn AddAndAssociateTransport<'a, P0, P1>(&self, transport: P0, context: P1) -> ::windows::core::Result<()>
+    pub fn AddAndAssociateTransport<P0, P1>(&self, transport: P0, context: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IVpnChannel4>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).AddAndAssociateTransport)(::windows::core::Vtable::as_raw(this), transport.into().abi(), context.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartWithMultipleTransports<'a, P0, E0, P1, E1, P2, E2>(&self, assignedclientipv4addresses: P0, assignedclientipv6addresses: P1, vpninterfaceid: &VpnInterfaceId, assignedroutes: &VpnRouteAssignment, assignednamespace: &VpnDomainNameAssignment, mtusize: u32, maxframesize: u32, reserved: bool, transports: P2, assignedtrafficfilters: &VpnTrafficFilterAssignment) -> ::windows::core::Result<()>
+    pub fn StartWithMultipleTransports<P0, E0, P1, E1, P2, E2>(&self, assignedclientipv4addresses: P0, assignedclientipv6addresses: P1, vpninterfaceid: &VpnInterfaceId, assignedroutes: &VpnRouteAssignment, assignednamespace: &VpnDomainNameAssignment, mtusize: u32, maxframesize: u32, reserved: bool, transports: P2, assignedtrafficfilters: &VpnTrafficFilterAssignment) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IVpnChannel4>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartWithMultipleTransports)(::windows::core::Vtable::as_raw(this), assignedclientipv4addresses.try_into().map_err(|e| e.into())?.abi(), assignedclientipv6addresses.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(vpninterfaceid), ::core::mem::transmute_copy(assignedroutes), ::core::mem::transmute_copy(assignednamespace), mtusize, maxframesize, reserved, transports.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(assignedtrafficfilters)).ok() }
     }
-    pub fn ReplaceAndAssociateTransport<'a, P0, P1>(&self, transport: P0, context: P1) -> ::windows::core::Result<()>
+    pub fn ReplaceAndAssociateTransport<P0, P1>(&self, transport: P0, context: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IVpnChannel4>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).ReplaceAndAssociateTransport)(::windows::core::Vtable::as_raw(this), transport.into().abi(), context.into().abi()).ok() }
     }
-    pub fn StartReconnectingTransport<'a, P0, P1>(&self, transport: P0, context: P1) -> ::windows::core::Result<()>
+    pub fn StartReconnectingTransport<P0, P1>(&self, transport: P0, context: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IVpnChannel4>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartReconnectingTransport)(::windows::core::Vtable::as_raw(this), transport.into().abi(), context.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_Sockets\"`*"]
     #[cfg(feature = "Networking_Sockets")]
-    pub fn GetSlotTypeForTransportContext<'a, P0>(&self, context: P0) -> ::windows::core::Result<super::Sockets::ControlChannelTriggerStatus>
+    pub fn GetSlotTypeForTransportContext<P0>(&self, context: P0) -> ::windows::core::Result<super::Sockets::ControlChannelTriggerStatus>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IVpnChannel4>(self)?;
         unsafe {
@@ -2152,10 +2152,10 @@ impl VpnChannel {
             (::windows::core::Vtable::vtable(this).ActivateForeground)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(packagerelativeappid), ::core::mem::transmute_copy(sharedcontext), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn ProcessEventAsync<'a, P0, P1>(thirdpartyplugin: P0, event: P1) -> ::windows::core::Result<()>
+    pub fn ProcessEventAsync<P0, P1>(thirdpartyplugin: P0, event: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         Self::IVpnChannelStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).ProcessEventAsync)(::windows::core::Vtable::as_raw(this), thirdpartyplugin.into().abi(), event.into().abi()).ok() })
     }
@@ -2450,7 +2450,7 @@ impl ::core::convert::TryFrom<&VpnCredential> for IVpnCredential {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VpnCredential> for ::windows::core::InParam<'a, IVpnCredential> {
+impl ::core::convert::TryFrom<&VpnCredential> for ::windows::core::InParam<IVpnCredential> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnCredential) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2567,7 +2567,7 @@ impl ::core::convert::TryFrom<&VpnCustomCheckBox> for IVpnCustomPrompt {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VpnCustomCheckBox> for ::windows::core::InParam<'a, IVpnCustomPrompt> {
+impl ::core::convert::TryFrom<&VpnCustomCheckBox> for ::windows::core::InParam<IVpnCustomPrompt> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnCustomCheckBox) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2589,9 +2589,9 @@ impl VpnCustomComboBox {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetOptionsText<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetOptionsText<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2692,7 +2692,7 @@ impl ::core::convert::TryFrom<&VpnCustomComboBox> for IVpnCustomPrompt {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VpnCustomComboBox> for ::windows::core::InParam<'a, IVpnCustomPrompt> {
+impl ::core::convert::TryFrom<&VpnCustomComboBox> for ::windows::core::InParam<IVpnCustomPrompt> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnCustomComboBox) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2820,7 +2820,7 @@ impl ::core::convert::TryFrom<&VpnCustomEditBox> for IVpnCustomPrompt {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VpnCustomEditBox> for ::windows::core::InParam<'a, IVpnCustomPrompt> {
+impl ::core::convert::TryFrom<&VpnCustomEditBox> for ::windows::core::InParam<IVpnCustomPrompt> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnCustomEditBox) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2919,7 +2919,7 @@ impl ::core::convert::TryFrom<&VpnCustomErrorBox> for IVpnCustomPrompt {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VpnCustomErrorBox> for ::windows::core::InParam<'a, IVpnCustomPrompt> {
+impl ::core::convert::TryFrom<&VpnCustomErrorBox> for ::windows::core::InParam<IVpnCustomPrompt> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnCustomErrorBox) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3036,7 +3036,7 @@ impl ::core::convert::TryFrom<&VpnCustomPromptBooleanInput> for IVpnCustomPrompt
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VpnCustomPromptBooleanInput> for ::windows::core::InParam<'a, IVpnCustomPromptElement> {
+impl ::core::convert::TryFrom<&VpnCustomPromptBooleanInput> for ::windows::core::InParam<IVpnCustomPromptElement> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnCustomPromptBooleanInput) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3151,7 +3151,7 @@ impl ::core::convert::TryFrom<&VpnCustomPromptOptionSelector> for IVpnCustomProm
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VpnCustomPromptOptionSelector> for ::windows::core::InParam<'a, IVpnCustomPromptElement> {
+impl ::core::convert::TryFrom<&VpnCustomPromptOptionSelector> for ::windows::core::InParam<IVpnCustomPromptElement> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnCustomPromptOptionSelector) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3261,7 +3261,7 @@ impl ::core::convert::TryFrom<&VpnCustomPromptText> for IVpnCustomPromptElement 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VpnCustomPromptText> for ::windows::core::InParam<'a, IVpnCustomPromptElement> {
+impl ::core::convert::TryFrom<&VpnCustomPromptText> for ::windows::core::InParam<IVpnCustomPromptElement> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnCustomPromptText) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3389,7 +3389,7 @@ impl ::core::convert::TryFrom<&VpnCustomPromptTextInput> for IVpnCustomPromptEle
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VpnCustomPromptTextInput> for ::windows::core::InParam<'a, IVpnCustomPromptElement> {
+impl ::core::convert::TryFrom<&VpnCustomPromptTextInput> for ::windows::core::InParam<IVpnCustomPromptElement> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnCustomPromptTextInput) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3499,7 +3499,7 @@ impl ::core::convert::TryFrom<&VpnCustomTextBox> for IVpnCustomPrompt {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VpnCustomTextBox> for ::windows::core::InParam<'a, IVpnCustomPrompt> {
+impl ::core::convert::TryFrom<&VpnCustomTextBox> for ::windows::core::InParam<IVpnCustomPrompt> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnCustomTextBox) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3634,11 +3634,11 @@ impl VpnDomainNameInfo {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateVpnDomainNameInfo<'a, P0, E0, P1, E1>(name: &::windows::core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: P0, proxyserverlist: P1) -> ::windows::core::Result<VpnDomainNameInfo>
+    pub fn CreateVpnDomainNameInfo<P0, E0, P1, E1>(name: &::windows::core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: P0, proxyserverlist: P1) -> ::windows::core::Result<VpnDomainNameInfo>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IVpnDomainNameInfoFactory(|this| unsafe {
@@ -3799,7 +3799,7 @@ impl ::core::convert::TryFrom<&VpnForegroundActivatedEventArgs> for super::super
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&VpnForegroundActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&VpnForegroundActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnForegroundActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3821,7 +3821,7 @@ impl ::core::convert::TryFrom<&VpnForegroundActivatedEventArgs> for super::super
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&VpnForegroundActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&VpnForegroundActivatedEventArgs> for ::windows::core::InParam<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnForegroundActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3953,9 +3953,9 @@ impl VpnManagementAgent {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AddProfileFromObjectAsync<'a, P0, E0>(&self, profile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
+    pub fn AddProfileFromObjectAsync<P0, E0>(&self, profile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IVpnProfile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IVpnProfile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3975,9 +3975,9 @@ impl VpnManagementAgent {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateProfileFromObjectAsync<'a, P0, E0>(&self, profile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
+    pub fn UpdateProfileFromObjectAsync<P0, E0>(&self, profile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IVpnProfile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IVpnProfile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3997,9 +3997,9 @@ impl VpnManagementAgent {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteProfileAsync<'a, P0, E0>(&self, profile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
+    pub fn DeleteProfileAsync<P0, E0>(&self, profile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IVpnProfile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IVpnProfile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4010,9 +4010,9 @@ impl VpnManagementAgent {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectProfileAsync<'a, P0, E0>(&self, profile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
+    pub fn ConnectProfileAsync<P0, E0>(&self, profile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IVpnProfile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IVpnProfile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4023,9 +4023,9 @@ impl VpnManagementAgent {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn ConnectProfileWithPasswordCredentialAsync<'a, P0, E0>(&self, profile: P0, passwordcredential: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
+    pub fn ConnectProfileWithPasswordCredentialAsync<P0, E0>(&self, profile: P0, passwordcredential: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IVpnProfile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IVpnProfile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4036,9 +4036,9 @@ impl VpnManagementAgent {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DisconnectProfileAsync<'a, P0, E0>(&self, profile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
+    pub fn DisconnectProfileAsync<P0, E0>(&self, profile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IVpnProfile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IVpnProfile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4096,9 +4096,9 @@ impl VpnNamespaceAssignment {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetNamespaceList<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetNamespaceList<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<VpnNamespaceInfo>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<VpnNamespaceInfo>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4181,9 +4181,9 @@ impl VpnNamespaceInfo {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetDnsServers<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDnsServers<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<super::HostName>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<super::HostName>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4200,9 +4200,9 @@ impl VpnNamespaceInfo {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetWebProxyServers<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetWebProxyServers<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<super::HostName>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<super::HostName>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4219,11 +4219,11 @@ impl VpnNamespaceInfo {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateVpnNamespaceInfo<'a, P0, E0, P1, E1>(name: &::windows::core::HSTRING, dnsserverlist: P0, proxyserverlist: P1) -> ::windows::core::Result<VpnNamespaceInfo>
+    pub fn CreateVpnNamespaceInfo<P0, E0, P1, E1>(name: &::windows::core::HSTRING, dnsserverlist: P0, proxyserverlist: P1) -> ::windows::core::Result<VpnNamespaceInfo>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<super::HostName>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<super::HostName>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<super::HostName>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<super::HostName>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IVpnNamespaceInfoFactory(|this| unsafe {
@@ -4480,7 +4480,7 @@ impl ::core::convert::TryFrom<&VpnNativeProfile> for IVpnProfile {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VpnNativeProfile> for ::windows::core::InParam<'a, IVpnProfile> {
+impl ::core::convert::TryFrom<&VpnNativeProfile> for ::windows::core::InParam<IVpnProfile> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnNativeProfile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4531,9 +4531,9 @@ impl VpnPacketBuffer {
             (::windows::core::Vtable::vtable(this).AppId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetTransportContext<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetTransportContext<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IVpnPacketBuffer3>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetTransportContext)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -4714,7 +4714,7 @@ impl ::core::convert::TryFrom<&VpnPacketBufferList> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&VpnPacketBufferList> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<VpnPacketBuffer>> {
+impl ::core::convert::TryFrom<&VpnPacketBufferList> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<VpnPacketBuffer>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnPacketBufferList) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4963,7 +4963,7 @@ impl ::core::convert::TryFrom<&VpnPlugInProfile> for IVpnProfile {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VpnPlugInProfile> for ::windows::core::InParam<'a, IVpnProfile> {
+impl ::core::convert::TryFrom<&VpnPlugInProfile> for ::windows::core::InParam<IVpnProfile> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VpnPlugInProfile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5058,9 +5058,9 @@ impl VpnRouteAssignment {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetIpv4InclusionRoutes<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetIpv4InclusionRoutes<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<VpnRoute>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<VpnRoute>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5068,9 +5068,9 @@ impl VpnRouteAssignment {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetIpv6InclusionRoutes<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetIpv6InclusionRoutes<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<VpnRoute>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<VpnRoute>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5096,9 +5096,9 @@ impl VpnRouteAssignment {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetIpv4ExclusionRoutes<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetIpv4ExclusionRoutes<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<VpnRoute>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<VpnRoute>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5106,9 +5106,9 @@ impl VpnRouteAssignment {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetIpv6ExclusionRoutes<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetIpv6ExclusionRoutes<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<VpnRoute>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<VpnRoute>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

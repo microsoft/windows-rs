@@ -608,7 +608,7 @@ impl ::core::convert::TryFrom<&LampArrayBitmapEffect> for ILampArrayEffect {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LampArrayBitmapEffect> for ::windows::core::InParam<'a, ILampArrayEffect> {
+impl ::core::convert::TryFrom<&LampArrayBitmapEffect> for ::windows::core::InParam<ILampArrayEffect> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LampArrayBitmapEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -856,7 +856,7 @@ impl ::core::convert::TryFrom<&LampArrayBlinkEffect> for ILampArrayEffect {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LampArrayBlinkEffect> for ::windows::core::InParam<'a, ILampArrayEffect> {
+impl ::core::convert::TryFrom<&LampArrayBlinkEffect> for ::windows::core::InParam<ILampArrayEffect> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LampArrayBlinkEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -993,7 +993,7 @@ impl ::core::convert::TryFrom<&LampArrayColorRampEffect> for ILampArrayEffect {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LampArrayColorRampEffect> for ::windows::core::InParam<'a, ILampArrayEffect> {
+impl ::core::convert::TryFrom<&LampArrayColorRampEffect> for ::windows::core::InParam<ILampArrayEffect> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LampArrayColorRampEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1119,7 +1119,7 @@ impl ::core::convert::TryFrom<&LampArrayCustomEffect> for ILampArrayEffect {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LampArrayCustomEffect> for ::windows::core::InParam<'a, ILampArrayEffect> {
+impl ::core::convert::TryFrom<&LampArrayCustomEffect> for ::windows::core::InParam<ILampArrayEffect> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LampArrayCustomEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1148,9 +1148,9 @@ impl LampArrayEffectPlaylist {
             (::windows::core::Vtable::vtable(this).First)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn Append<'a, P0, E0>(&self, effect: P0) -> ::windows::core::Result<()>
+    pub fn Append<P0, E0>(&self, effect: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILampArrayEffect>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILampArrayEffect>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1207,27 +1207,27 @@ impl LampArrayEffectPlaylist {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartAll<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
+    pub fn StartAll<P0, E0>(value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).StartAll)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StopAll<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
+    pub fn StopAll<P0, E0>(value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).StopAll)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn PauseAll<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
+    pub fn PauseAll<P0, E0>(value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).PauseAll)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
@@ -1252,9 +1252,9 @@ impl LampArrayEffectPlaylist {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, P0, E0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
+    pub fn IndexOf<P0, E0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILampArrayEffect>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ILampArrayEffect>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
@@ -1342,7 +1342,7 @@ impl ::core::convert::TryFrom<&LampArrayEffectPlaylist> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&LampArrayEffectPlaylist> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>> {
+impl ::core::convert::TryFrom<&LampArrayEffectPlaylist> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LampArrayEffectPlaylist) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1364,7 +1364,7 @@ impl ::core::convert::TryFrom<&LampArrayEffectPlaylist> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&LampArrayEffectPlaylist> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>> {
+impl ::core::convert::TryFrom<&LampArrayEffectPlaylist> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LampArrayEffectPlaylist) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1501,7 +1501,7 @@ impl ::core::convert::TryFrom<&LampArraySolidEffect> for ILampArrayEffect {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LampArraySolidEffect> for ::windows::core::InParam<'a, ILampArrayEffect> {
+impl ::core::convert::TryFrom<&LampArraySolidEffect> for ::windows::core::InParam<ILampArrayEffect> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LampArraySolidEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

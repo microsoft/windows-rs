@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[inline]
-pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<'a, P0>(wszservername: P0, netisoerror: *mut NETISO_ERROR_TYPE) -> u32
+pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<P0>(wszservername: P0, netisoerror: *mut NETISO_ERROR_TYPE) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -45,7 +45,7 @@ pub unsafe fn NetworkIsolationSetAppContainerConfig(appcontainersids: &[super::s
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetworkIsolationSetupAppContainerBinaries<'a, P0, P1, P2, P3, P4>(applicationcontainersid: P0, packagefullname: P1, packagefolder: P2, displayname: P3, bbinariesfullycomputed: P4, binaries: &[::windows::core::PCWSTR]) -> ::windows::core::Result<()>
+pub unsafe fn NetworkIsolationSetupAppContainerBinaries<P0, P1, P2, P3, P4>(applicationcontainersid: P0, packagefullname: P1, packagefolder: P2, displayname: P3, bbinariesfullycomputed: P4, binaries: &[::windows::core::PCWSTR]) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::PSID>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -59,7 +59,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges<'a, P0>(registrationobject: P0) -> u32
+pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges<P0>(registrationobject: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -538,15 +538,15 @@ pub struct IEnumNetSharingPublicConnection_Vtbl {
 pub struct INATEventManager(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INATEventManager {
-    pub unsafe fn SetExternalIPAddressCallback<'a, P0>(&self, punk: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetExternalIPAddressCallback<P0>(&self, punk: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetExternalIPAddressCallback)(::windows::core::Vtable::as_raw(self), punk.into().abi()).ok()
     }
-    pub unsafe fn SetNumberOfEntriesCallback<'a, P0>(&self, punk: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNumberOfEntriesCallback<P0>(&self, punk: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetNumberOfEntriesCallback)(::windows::core::Vtable::as_raw(self), punk.into().abi()).ok()
     }
@@ -676,7 +676,7 @@ impl INetConnection {
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn Duplicate<'a, P0>(&self, pszwduplicatename: P0) -> ::windows::core::Result<INetConnection>
+    pub unsafe fn Duplicate<P0>(&self, pszwduplicatename: P0) -> ::windows::core::Result<INetConnection>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -691,7 +691,7 @@ impl INetConnection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetUiObjectClassId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Rename<'a, P0>(&self, pszwnewname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Rename<P0>(&self, pszwnewname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -737,15 +737,15 @@ pub struct INetConnection_Vtbl {
 #[repr(transparent)]
 pub struct INetConnectionConnectUi(::windows::core::IUnknown);
 impl INetConnectionConnectUi {
-    pub unsafe fn SetConnection<'a, P0>(&self, pcon: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetConnection<P0>(&self, pcon: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, INetConnection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<INetConnection>>,
     {
         (::windows::core::Vtable::vtable(self).SetConnection)(::windows::core::Vtable::as_raw(self), pcon.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Connect<'a, P0>(&self, hwndparent: P0, dwflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Connect<P0>(&self, hwndparent: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -753,7 +753,7 @@ impl INetConnectionConnectUi {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Disconnect<'a, P0>(&self, hwndparent: P0, dwflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Disconnect<P0>(&self, hwndparent: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -1027,9 +1027,9 @@ impl INetFwAuthorizedApplications {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, app: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, app: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, INetFwAuthorizedApplication>>,
+        P0: ::std::convert::Into<::windows::core::InParam<INetFwAuthorizedApplication>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), app.into().abi()).ok()
     }
@@ -1545,9 +1545,9 @@ impl INetFwOpenPorts {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, port: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, port: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, INetFwOpenPort>>,
+        P0: ::std::convert::Into<::windows::core::InParam<INetFwOpenPort>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), port.into().abi()).ok()
     }
@@ -1982,9 +1982,9 @@ impl INetFwProducts {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Register<'a, P0>(&self, product: P0) -> ::windows::core::Result<::windows::core::IUnknown>
+    pub unsafe fn Register<P0>(&self, product: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, INetFwProduct>>,
+        P0: ::std::convert::Into<::windows::core::InParam<INetFwProduct>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Register)(::windows::core::Vtable::as_raw(self), product.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -2988,9 +2988,9 @@ impl INetFwRules {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, rule: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, rule: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, INetFwRule>>,
+        P0: ::std::convert::Into<::windows::core::InParam<INetFwRule>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), rule.into().abi()).ok()
     }
@@ -3357,9 +3357,9 @@ impl INetSharingConfiguration {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RemovePortMapping<'a, P0>(&self, pmapping: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemovePortMapping<P0>(&self, pmapping: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, INetSharingPortMapping>>,
+        P0: ::std::convert::Into<::windows::core::InParam<INetSharingPortMapping>>,
     {
         (::windows::core::Vtable::vtable(self).RemovePortMapping)(::windows::core::Vtable::as_raw(self), pmapping.into().abi()).ok()
     }
@@ -3504,9 +3504,9 @@ impl INetSharingManager {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_INetSharingConfigurationForINetConnection<'a, P0>(&self, pnetconnection: P0) -> ::windows::core::Result<INetSharingConfiguration>
+    pub unsafe fn get_INetSharingConfigurationForINetConnection<P0>(&self, pnetconnection: P0) -> ::windows::core::Result<INetSharingConfiguration>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, INetConnection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<INetConnection>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_INetSharingConfigurationForINetConnection)(::windows::core::Vtable::as_raw(self), pnetconnection.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -3519,9 +3519,9 @@ impl INetSharingManager {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_NetConnectionProps<'a, P0>(&self, pnetconnection: P0) -> ::windows::core::Result<INetConnectionProps>
+    pub unsafe fn get_NetConnectionProps<P0>(&self, pnetconnection: P0) -> ::windows::core::Result<INetConnectionProps>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, INetConnection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<INetConnection>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_NetConnectionProps)(::windows::core::Vtable::as_raw(self), pnetconnection.into().abi(), result__.as_mut_ptr()).from_abi(result__)

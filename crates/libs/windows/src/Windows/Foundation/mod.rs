@@ -68,7 +68,7 @@ impl ::core::convert::TryFrom<&IAsyncAction> for IAsyncInfo {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IAsyncAction> for ::windows::core::InParam<'a, IAsyncInfo> {
+impl ::core::convert::TryFrom<&IAsyncAction> for ::windows::core::InParam<IAsyncInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAsyncAction) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -247,7 +247,7 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, TProgress: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IAsyncActionWithProgress<TProgress>> for ::windows::core::InParam<'a, IAsyncInfo> {
+impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IAsyncActionWithProgress<TProgress>> for ::windows::core::InParam<IAsyncInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAsyncActionWithProgress<TProgress>) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -498,7 +498,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, TResult: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IAsyncOperation<TResult>> for ::windows::core::InParam<'a, IAsyncInfo> {
+impl<TResult: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IAsyncOperation<TResult>> for ::windows::core::InParam<IAsyncInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAsyncOperation<TResult>) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -685,7 +685,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IAsyncOperationWithProgress<TResult, TProgress>> for ::windows::core::InParam<'a, IAsyncInfo> {
+impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IAsyncOperationWithProgress<TResult, TProgress>> for ::windows::core::InParam<IAsyncInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IAsyncOperationWithProgress<TResult, TProgress>) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -937,7 +937,7 @@ impl ::core::convert::TryFrom<&IMemoryBuffer> for IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IMemoryBuffer> for ::windows::core::InParam<'a, IClosable> {
+impl ::core::convert::TryFrom<&IMemoryBuffer> for ::windows::core::InParam<IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IMemoryBuffer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1034,7 +1034,7 @@ impl ::core::convert::TryFrom<&IMemoryBufferReference> for IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IMemoryBufferReference> for ::windows::core::InParam<'a, IClosable> {
+impl ::core::convert::TryFrom<&IMemoryBufferReference> for ::windows::core::InParam<IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IMemoryBufferReference) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1698,7 +1698,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IRefer
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IReference<T>> for ::windows::core::InParam<'a, IPropertyValue> {
+impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IReference<T>> for ::windows::core::InParam<IPropertyValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IReference<T>) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2016,7 +2016,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IRefer
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IReferenceArray<T>> for ::windows::core::InParam<'a, IPropertyValue> {
+impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IReferenceArray<T>> for ::windows::core::InParam<IPropertyValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IReferenceArray<T>) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2344,7 +2344,7 @@ impl ::core::convert::TryFrom<&Deferral> for IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&Deferral> for ::windows::core::InParam<'a, IClosable> {
+impl ::core::convert::TryFrom<&Deferral> for ::windows::core::InParam<IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Deferral) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2455,7 +2455,7 @@ impl ::core::convert::TryFrom<&MemoryBuffer> for IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MemoryBuffer> for ::windows::core::InParam<'a, IClosable> {
+impl ::core::convert::TryFrom<&MemoryBuffer> for ::windows::core::InParam<IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MemoryBuffer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2474,7 +2474,7 @@ impl ::core::convert::TryFrom<&MemoryBuffer> for IMemoryBuffer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MemoryBuffer> for ::windows::core::InParam<'a, IMemoryBuffer> {
+impl ::core::convert::TryFrom<&MemoryBuffer> for ::windows::core::InParam<IMemoryBuffer> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MemoryBuffer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2564,9 +2564,9 @@ impl PropertyValue {
             (::windows::core::Vtable::vtable(this).CreateString)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn CreateInspectable<'a, P0>(value: P0) -> ::windows::core::Result<::windows::core::IInspectable>
+    pub fn CreateInspectable<P0>(value: P0) -> ::windows::core::Result<::windows::core::IInspectable>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2956,7 +2956,7 @@ impl ::core::convert::TryFrom<&Uri> for IStringable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&Uri> for ::windows::core::InParam<'a, IStringable> {
+impl ::core::convert::TryFrom<&Uri> for ::windows::core::InParam<IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Uri) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2998,9 +2998,9 @@ impl WwwFormUrlDecoder {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, P0, E0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
+    pub fn IndexOf<P0, E0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IWwwFormUrlDecoderEntry>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IWwwFormUrlDecoderEntry>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
@@ -3101,7 +3101,7 @@ impl ::core::convert::TryFrom<&WwwFormUrlDecoder> for Collections::IIterable<IWw
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&WwwFormUrlDecoder> for ::windows::core::InParam<'a, Collections::IIterable<IWwwFormUrlDecoderEntry>> {
+impl ::core::convert::TryFrom<&WwwFormUrlDecoder> for ::windows::core::InParam<Collections::IIterable<IWwwFormUrlDecoderEntry>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WwwFormUrlDecoder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3123,7 +3123,7 @@ impl ::core::convert::TryFrom<&WwwFormUrlDecoder> for Collections::IVectorView<I
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&WwwFormUrlDecoder> for ::windows::core::InParam<'a, Collections::IVectorView<IWwwFormUrlDecoderEntry>> {
+impl ::core::convert::TryFrom<&WwwFormUrlDecoder> for ::windows::core::InParam<Collections::IVectorView<IWwwFormUrlDecoderEntry>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WwwFormUrlDecoder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3196,7 +3196,7 @@ impl ::core::convert::TryFrom<&WwwFormUrlDecoderEntry> for IWwwFormUrlDecoderEnt
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WwwFormUrlDecoderEntry> for ::windows::core::InParam<'a, IWwwFormUrlDecoderEntry> {
+impl ::core::convert::TryFrom<&WwwFormUrlDecoderEntry> for ::windows::core::InParam<IWwwFormUrlDecoderEntry> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WwwFormUrlDecoderEntry) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3559,9 +3559,9 @@ impl AsyncActionCompletedHandler {
         let com = AsyncActionCompletedHandlerBox::<F> { vtable: &AsyncActionCompletedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncAction>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IAsyncAction>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3651,11 +3651,11 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> AsyncActionProgressHandl
         let com = AsyncActionProgressHandlerBox::<TProgress, F> { vtable: &AsyncActionProgressHandlerBox::<TProgress, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, E0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, E0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncActionWithProgress<TProgress>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IAsyncActionWithProgress<TProgress>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, TProgress>>,
+        P1: ::std::convert::Into<::windows::core::InParam<TProgress>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), progressinfo.into().abi()).ok() }
@@ -3752,9 +3752,9 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> AsyncActionWithProgressC
         let com = AsyncActionWithProgressCompletedHandlerBox::<TProgress, F> { vtable: &AsyncActionWithProgressCompletedHandlerBox::<TProgress, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncActionWithProgress<TProgress>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IAsyncActionWithProgress<TProgress>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3852,9 +3852,9 @@ impl<TResult: ::windows::core::RuntimeType + 'static> AsyncOperationCompletedHan
         let com = AsyncOperationCompletedHandlerBox::<TResult, F> { vtable: &AsyncOperationCompletedHandlerBox::<TResult, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncOperation<TResult>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IAsyncOperation<TResult>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3953,11 +3953,11 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         let com = AsyncOperationProgressHandlerBox::<TResult, TProgress, F> { vtable: &AsyncOperationProgressHandlerBox::<TResult, TProgress, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, E0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, E0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IAsyncOperationWithProgress<TResult, TProgress>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, TProgress>>,
+        P1: ::std::convert::Into<::windows::core::InParam<TProgress>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), progressinfo.into().abi()).ok() }
@@ -4059,9 +4059,9 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         let com = AsyncOperationWithProgressCompletedHandlerBox::<TResult, TProgress, F> { vtable: &AsyncOperationWithProgressCompletedHandlerBox::<TResult, TProgress, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IAsyncOperationWithProgress<TResult, TProgress>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4249,10 +4249,10 @@ impl<T: ::windows::core::RuntimeType + 'static> EventHandler<T> {
         let com = EventHandlerBox::<T, F> { vtable: &EventHandlerBox::<T, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, P1>(&self, sender: P0, args: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, T>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P1: ::std::convert::Into<::windows::core::InParam<T>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), sender.into().abi(), args.into().abi()).ok() }
@@ -4350,10 +4350,10 @@ impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::
         let com = TypedEventHandlerBox::<TSender, TResult, F> { vtable: &TypedEventHandlerBox::<TSender, TResult, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, P1>(&self, sender: P0, args: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, TSender>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, TResult>>,
+        P0: ::std::convert::Into<::windows::core::InParam<TSender>>,
+        P1: ::std::convert::Into<::windows::core::InParam<TResult>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), sender.into().abi(), args.into().abi()).ok() }

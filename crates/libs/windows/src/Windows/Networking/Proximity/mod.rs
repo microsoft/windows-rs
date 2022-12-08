@@ -481,9 +481,9 @@ impl PeerFinder {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetDiscoveryData<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
+    pub fn SetDiscoveryData<P0, E0>(value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPeerFinderStatics2(|this| unsafe { (::windows::core::Vtable::vtable(this).SetDiscoveryData)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
@@ -742,9 +742,9 @@ impl ProximityDevice {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn PublishBinaryMessage<'a, P0, E0>(&self, messagetype: &::windows::core::HSTRING, message: P0) -> ::windows::core::Result<i64>
+    pub fn PublishBinaryMessage<P0, E0>(&self, messagetype: &::windows::core::HSTRING, message: P0) -> ::windows::core::Result<i64>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -755,9 +755,9 @@ impl ProximityDevice {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn PublishBinaryMessageWithCallback<'a, P0, E0>(&self, messagetype: &::windows::core::HSTRING, message: P0, messagetransmittedhandler: &MessageTransmittedHandler) -> ::windows::core::Result<i64>
+    pub fn PublishBinaryMessageWithCallback<P0, E0>(&self, messagetype: &::windows::core::HSTRING, message: P0, messagetransmittedhandler: &MessageTransmittedHandler) -> ::windows::core::Result<i64>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

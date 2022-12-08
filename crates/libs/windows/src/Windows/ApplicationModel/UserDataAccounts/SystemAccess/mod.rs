@@ -741,9 +741,9 @@ pub struct UserDataAccountSystemAccessManager;
 impl UserDataAccountSystemAccessManager {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddAndShowDeviceAccountsAsync<'a, P0, E0>(accounts: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>
+    pub fn AddAndShowDeviceAccountsAsync<P0, E0>(accounts: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IUserDataAccountSystemAccessManagerStatics(|this| unsafe {

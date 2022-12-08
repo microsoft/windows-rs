@@ -923,7 +923,7 @@ impl ::core::convert::TryFrom<&ICorePointerInputSource2> for ICorePointerInputSo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ICorePointerInputSource2> for ::windows::core::InParam<'a, ICorePointerInputSource> {
+impl ::core::convert::TryFrom<&ICorePointerInputSource2> for ::windows::core::InParam<ICorePointerInputSource> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ICorePointerInputSource2) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2423,7 +2423,7 @@ impl ::core::convert::TryFrom<&AcceleratorKeyEventArgs> for ICoreWindowEventArgs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AcceleratorKeyEventArgs> for ::windows::core::InParam<'a, ICoreWindowEventArgs> {
+impl ::core::convert::TryFrom<&AcceleratorKeyEventArgs> for ::windows::core::InParam<ICoreWindowEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AcceleratorKeyEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2443,9 +2443,9 @@ impl AutomationProviderRequestedEventArgs {
             (::windows::core::Vtable::vtable(this).AutomationProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetAutomationProvider<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetAutomationProvider<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetAutomationProvider)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -2507,7 +2507,7 @@ impl ::core::convert::TryFrom<&AutomationProviderRequestedEventArgs> for ICoreWi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AutomationProviderRequestedEventArgs> for ::windows::core::InParam<'a, ICoreWindowEventArgs> {
+impl ::core::convert::TryFrom<&AutomationProviderRequestedEventArgs> for ::windows::core::InParam<ICoreWindowEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AutomationProviderRequestedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2640,7 +2640,7 @@ impl ::core::convert::TryFrom<&CharacterReceivedEventArgs> for ICoreWindowEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CharacterReceivedEventArgs> for ::windows::core::InParam<'a, ICoreWindowEventArgs> {
+impl ::core::convert::TryFrom<&CharacterReceivedEventArgs> for ::windows::core::InParam<ICoreWindowEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CharacterReceivedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2783,7 +2783,7 @@ impl ::core::convert::TryFrom<&CoreAcceleratorKeys> for ICoreAcceleratorKeys {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CoreAcceleratorKeys> for ::windows::core::InParam<'a, ICoreAcceleratorKeys> {
+impl ::core::convert::TryFrom<&CoreAcceleratorKeys> for ::windows::core::InParam<ICoreAcceleratorKeys> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CoreAcceleratorKeys) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3152,7 +3152,7 @@ impl ::core::convert::TryFrom<&CoreComponentInputSource> for ICoreInputSourceBas
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CoreComponentInputSource> for ::windows::core::InParam<'a, ICoreInputSourceBase> {
+impl ::core::convert::TryFrom<&CoreComponentInputSource> for ::windows::core::InParam<ICoreInputSourceBase> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CoreComponentInputSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3171,7 +3171,7 @@ impl ::core::convert::TryFrom<&CoreComponentInputSource> for ICorePointerInputSo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CoreComponentInputSource> for ::windows::core::InParam<'a, ICorePointerInputSource> {
+impl ::core::convert::TryFrom<&CoreComponentInputSource> for ::windows::core::InParam<ICorePointerInputSource> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CoreComponentInputSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3190,7 +3190,7 @@ impl ::core::convert::TryFrom<&CoreComponentInputSource> for ICorePointerInputSo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CoreComponentInputSource> for ::windows::core::InParam<'a, ICorePointerInputSource2> {
+impl ::core::convert::TryFrom<&CoreComponentInputSource> for ::windows::core::InParam<ICorePointerInputSource2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CoreComponentInputSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3405,7 +3405,7 @@ impl ::core::convert::TryFrom<&CoreDispatcher> for ICoreAcceleratorKeys {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CoreDispatcher> for ::windows::core::InParam<'a, ICoreAcceleratorKeys> {
+impl ::core::convert::TryFrom<&CoreDispatcher> for ::windows::core::InParam<ICoreAcceleratorKeys> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CoreDispatcher) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3691,7 +3691,7 @@ impl ::core::convert::TryFrom<&CoreIndependentInputSource> for ICoreInputSourceB
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CoreIndependentInputSource> for ::windows::core::InParam<'a, ICoreInputSourceBase> {
+impl ::core::convert::TryFrom<&CoreIndependentInputSource> for ::windows::core::InParam<ICoreInputSourceBase> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CoreIndependentInputSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3710,7 +3710,7 @@ impl ::core::convert::TryFrom<&CoreIndependentInputSource> for ICorePointerInput
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CoreIndependentInputSource> for ::windows::core::InParam<'a, ICorePointerInputSource> {
+impl ::core::convert::TryFrom<&CoreIndependentInputSource> for ::windows::core::InParam<ICorePointerInputSource> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CoreIndependentInputSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3729,7 +3729,7 @@ impl ::core::convert::TryFrom<&CoreIndependentInputSource> for ICorePointerInput
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CoreIndependentInputSource> for ::windows::core::InParam<'a, ICorePointerInputSource2> {
+impl ::core::convert::TryFrom<&CoreIndependentInputSource> for ::windows::core::InParam<ICorePointerInputSource2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CoreIndependentInputSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3748,7 +3748,7 @@ impl ::core::convert::TryFrom<&CoreIndependentInputSource> for ICorePointerRedir
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CoreIndependentInputSource> for ::windows::core::InParam<'a, ICorePointerRedirector> {
+impl ::core::convert::TryFrom<&CoreIndependentInputSource> for ::windows::core::InParam<ICorePointerRedirector> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CoreIndependentInputSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3806,9 +3806,9 @@ impl CoreIndependentInputSourceController {
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
-    pub fn CreateForVisual<'a, P0>(visual: P0) -> ::windows::core::Result<CoreIndependentInputSourceController>
+    pub fn CreateForVisual<P0>(visual: P0) -> ::windows::core::Result<CoreIndependentInputSourceController>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Composition::Visual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Composition::Visual>>,
     {
         Self::ICoreIndependentInputSourceControllerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3817,9 +3817,9 @@ impl CoreIndependentInputSourceController {
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
-    pub fn CreateForIVisualElement<'a, P0, E0>(visualelement: P0) -> ::windows::core::Result<CoreIndependentInputSourceController>
+    pub fn CreateForIVisualElement<P0, E0>(visualelement: P0) -> ::windows::core::Result<CoreIndependentInputSourceController>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Composition::IVisualElement>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Composition::IVisualElement>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICoreIndependentInputSourceControllerStatics(|this| unsafe {
@@ -3881,7 +3881,7 @@ impl ::core::convert::TryFrom<&CoreIndependentInputSourceController> for super::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&CoreIndependentInputSourceController> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&CoreIndependentInputSourceController> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CoreIndependentInputSourceController) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4447,7 +4447,7 @@ impl ::core::convert::TryFrom<&CoreWindow> for ICorePointerRedirector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CoreWindow> for ::windows::core::InParam<'a, ICorePointerRedirector> {
+impl ::core::convert::TryFrom<&CoreWindow> for ::windows::core::InParam<ICorePointerRedirector> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CoreWindow) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4466,7 +4466,7 @@ impl ::core::convert::TryFrom<&CoreWindow> for ICoreWindow {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CoreWindow> for ::windows::core::InParam<'a, ICoreWindow> {
+impl ::core::convert::TryFrom<&CoreWindow> for ::windows::core::InParam<ICoreWindow> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CoreWindow) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4700,7 +4700,7 @@ impl ::core::convert::TryFrom<&CoreWindowEventArgs> for ICoreWindowEventArgs {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CoreWindowEventArgs> for ::windows::core::InParam<'a, ICoreWindowEventArgs> {
+impl ::core::convert::TryFrom<&CoreWindowEventArgs> for ::windows::core::InParam<ICoreWindowEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CoreWindowEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5088,7 +5088,7 @@ impl ::core::convert::TryFrom<&InputEnabledEventArgs> for ICoreWindowEventArgs {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&InputEnabledEventArgs> for ::windows::core::InParam<'a, ICoreWindowEventArgs> {
+impl ::core::convert::TryFrom<&InputEnabledEventArgs> for ::windows::core::InParam<ICoreWindowEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InputEnabledEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5179,7 +5179,7 @@ impl ::core::convert::TryFrom<&KeyEventArgs> for ICoreWindowEventArgs {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&KeyEventArgs> for ::windows::core::InParam<'a, ICoreWindowEventArgs> {
+impl ::core::convert::TryFrom<&KeyEventArgs> for ::windows::core::InParam<ICoreWindowEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &KeyEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5274,7 +5274,7 @@ impl ::core::convert::TryFrom<&PointerEventArgs> for ICoreWindowEventArgs {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PointerEventArgs> for ::windows::core::InParam<'a, ICoreWindowEventArgs> {
+impl ::core::convert::TryFrom<&PointerEventArgs> for ::windows::core::InParam<ICoreWindowEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PointerEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5470,7 +5470,7 @@ impl ::core::convert::TryFrom<&TouchHitTestingEventArgs> for ICoreWindowEventArg
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TouchHitTestingEventArgs> for ::windows::core::InParam<'a, ICoreWindowEventArgs> {
+impl ::core::convert::TryFrom<&TouchHitTestingEventArgs> for ::windows::core::InParam<ICoreWindowEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TouchHitTestingEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5545,7 +5545,7 @@ impl ::core::convert::TryFrom<&VisibilityChangedEventArgs> for ICoreWindowEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VisibilityChangedEventArgs> for ::windows::core::InParam<'a, ICoreWindowEventArgs> {
+impl ::core::convert::TryFrom<&VisibilityChangedEventArgs> for ::windows::core::InParam<ICoreWindowEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VisibilityChangedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5620,7 +5620,7 @@ impl ::core::convert::TryFrom<&WindowActivatedEventArgs> for ICoreWindowEventArg
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WindowActivatedEventArgs> for ::windows::core::InParam<'a, ICoreWindowEventArgs> {
+impl ::core::convert::TryFrom<&WindowActivatedEventArgs> for ::windows::core::InParam<ICoreWindowEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WindowActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5697,7 +5697,7 @@ impl ::core::convert::TryFrom<&WindowSizeChangedEventArgs> for ICoreWindowEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WindowSizeChangedEventArgs> for ::windows::core::InParam<'a, ICoreWindowEventArgs> {
+impl ::core::convert::TryFrom<&WindowSizeChangedEventArgs> for ::windows::core::InParam<ICoreWindowEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WindowSizeChangedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

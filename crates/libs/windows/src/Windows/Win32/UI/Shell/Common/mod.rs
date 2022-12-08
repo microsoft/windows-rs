@@ -59,15 +59,15 @@ impl IObjectCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetAt)(::windows::core::Vtable::as_raw(self), uiindex, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn AddObject<'a, P0>(&self, punk: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddObject<P0>(&self, punk: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).AddObject)(::windows::core::Vtable::as_raw(self), punk.into().abi()).ok()
     }
-    pub unsafe fn AddFromArray<'a, P0>(&self, poasource: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddFromArray<P0>(&self, poasource: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectArray>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IObjectArray>>,
     {
         (::windows::core::Vtable::vtable(self).AddFromArray)(::windows::core::Vtable::as_raw(self), poasource.into().abi()).ok()
     }

@@ -146,9 +146,9 @@ impl PwmController {
     }
     #[doc = "*Required features: `\"Devices_Pwm_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Pwm_Provider", feature = "Foundation_Collections"))]
-    pub fn GetControllersAsync<'a, P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>>
+    pub fn GetControllersAsync<P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, Provider::IPwmProvider>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<Provider::IPwmProvider>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPwmControllerStatics(|this| unsafe {
@@ -338,7 +338,7 @@ impl ::core::convert::TryFrom<&PwmPin> for super::super::Foundation::IClosable {
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&PwmPin> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&PwmPin> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PwmPin) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

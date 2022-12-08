@@ -1428,9 +1428,9 @@ impl RemoteSystem {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcherWithFilters<'a, P0, E0>(filters: P0) -> ::windows::core::Result<RemoteSystemWatcher>
+    pub fn CreateWatcherWithFilters<P0, E0>(filters: P0) -> ::windows::core::Result<RemoteSystemWatcher>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IRemoteSystemStatics(|this| unsafe {
@@ -1460,9 +1460,9 @@ impl RemoteSystem {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcherWithFiltersForUser<'a, P0, E0>(user: &super::User, filters: P0) -> ::windows::core::Result<RemoteSystemWatcher>
+    pub fn CreateWatcherWithFiltersForUser<P0, E0>(user: &super::User, filters: P0) -> ::windows::core::Result<RemoteSystemWatcher>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IRemoteSystemStatics3(|this| unsafe {
@@ -1809,7 +1809,7 @@ impl ::core::convert::TryFrom<&RemoteSystemAuthorizationKindFilter> for IRemoteS
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RemoteSystemAuthorizationKindFilter> for ::windows::core::InParam<'a, IRemoteSystemFilter> {
+impl ::core::convert::TryFrom<&RemoteSystemAuthorizationKindFilter> for ::windows::core::InParam<IRemoteSystemFilter> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RemoteSystemAuthorizationKindFilter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2046,7 +2046,7 @@ impl ::core::convert::TryFrom<&RemoteSystemDiscoveryTypeFilter> for IRemoteSyste
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RemoteSystemDiscoveryTypeFilter> for ::windows::core::InParam<'a, IRemoteSystemFilter> {
+impl ::core::convert::TryFrom<&RemoteSystemDiscoveryTypeFilter> for ::windows::core::InParam<IRemoteSystemFilter> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RemoteSystemDiscoveryTypeFilter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2109,9 +2109,9 @@ impl RemoteSystemKindFilter {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, P0, E0>(remotesystemkinds: P0) -> ::windows::core::Result<RemoteSystemKindFilter>
+    pub fn Create<P0, E0>(remotesystemkinds: P0) -> ::windows::core::Result<RemoteSystemKindFilter>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IRemoteSystemKindFilterFactory(|this| unsafe {
@@ -2170,7 +2170,7 @@ impl ::core::convert::TryFrom<&RemoteSystemKindFilter> for IRemoteSystemFilter {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RemoteSystemKindFilter> for ::windows::core::InParam<'a, IRemoteSystemFilter> {
+impl ::core::convert::TryFrom<&RemoteSystemKindFilter> for ::windows::core::InParam<IRemoteSystemFilter> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RemoteSystemKindFilter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2413,7 +2413,7 @@ impl ::core::convert::TryFrom<&RemoteSystemSession> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&RemoteSystemSession> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&RemoteSystemSession> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RemoteSystemSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3078,9 +3078,9 @@ impl RemoteSystemSessionMessageChannel {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SendValueSetToParticipantsAsync<'a, P0, E0>(&self, messagedata: &super::super::Foundation::Collections::ValueSet, participants: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn SendValueSetToParticipantsAsync<P0, E0>(&self, messagedata: &super::super::Foundation::Collections::ValueSet, participants: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<RemoteSystemSessionParticipant>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<RemoteSystemSessionParticipant>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3783,7 +3783,7 @@ impl ::core::convert::TryFrom<&RemoteSystemStatusTypeFilter> for IRemoteSystemFi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RemoteSystemStatusTypeFilter> for ::windows::core::InParam<'a, IRemoteSystemFilter> {
+impl ::core::convert::TryFrom<&RemoteSystemStatusTypeFilter> for ::windows::core::InParam<IRemoteSystemFilter> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RemoteSystemStatusTypeFilter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4088,7 +4088,7 @@ impl ::core::convert::TryFrom<&RemoteSystemWebAccountFilter> for IRemoteSystemFi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RemoteSystemWebAccountFilter> for ::windows::core::InParam<'a, IRemoteSystemFilter> {
+impl ::core::convert::TryFrom<&RemoteSystemWebAccountFilter> for ::windows::core::InParam<IRemoteSystemFilter> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RemoteSystemWebAccountFilter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

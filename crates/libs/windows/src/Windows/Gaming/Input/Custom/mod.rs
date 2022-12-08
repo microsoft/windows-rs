@@ -2,9 +2,9 @@
 #[repr(transparent)]
 pub struct ICustomGameControllerFactory(::windows::core::IUnknown);
 impl ICustomGameControllerFactory {
-    pub fn CreateGameController<'a, P0, E0>(&self, provider: P0) -> ::windows::core::Result<::windows::core::IInspectable>
+    pub fn CreateGameController<P0, E0>(&self, provider: P0) -> ::windows::core::Result<::windows::core::IInspectable>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IGameControllerProvider>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IGameControllerProvider>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -13,17 +13,17 @@ impl ICustomGameControllerFactory {
             (::windows::core::Vtable::vtable(this).CreateGameController)(::windows::core::Vtable::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn OnGameControllerAdded<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn OnGameControllerAdded<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGameController>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IGameController>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).OnGameControllerAdded)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn OnGameControllerRemoved<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn OnGameControllerRemoved<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGameController>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::IGameController>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -281,7 +281,7 @@ impl ::core::convert::TryFrom<&IGipGameControllerInputSink> for IGameControllerI
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IGipGameControllerInputSink> for ::windows::core::InParam<'a, IGameControllerInputSink> {
+impl ::core::convert::TryFrom<&IGipGameControllerInputSink> for ::windows::core::InParam<IGameControllerInputSink> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IGipGameControllerInputSink) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -374,7 +374,7 @@ impl ::core::convert::TryFrom<&IHidGameControllerInputSink> for IGameControllerI
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IHidGameControllerInputSink> for ::windows::core::InParam<'a, IGameControllerInputSink> {
+impl ::core::convert::TryFrom<&IHidGameControllerInputSink> for ::windows::core::InParam<IGameControllerInputSink> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IHidGameControllerInputSink) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -465,7 +465,7 @@ impl ::core::convert::TryFrom<&IXusbGameControllerInputSink> for IGameController
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IXusbGameControllerInputSink> for ::windows::core::InParam<'a, IGameControllerInputSink> {
+impl ::core::convert::TryFrom<&IXusbGameControllerInputSink> for ::windows::core::InParam<IGameControllerInputSink> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IXusbGameControllerInputSink) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -525,32 +525,32 @@ pub struct IXusbGameControllerProvider_Vtbl {
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 pub struct GameControllerFactoryManager;
 impl GameControllerFactoryManager {
-    pub fn RegisterCustomFactoryForGipInterface<'a, P0, E0>(factory: P0, interfaceid: ::windows::core::GUID) -> ::windows::core::Result<()>
+    pub fn RegisterCustomFactoryForGipInterface<P0, E0>(factory: P0, interfaceid: ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICustomGameControllerFactory>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ICustomGameControllerFactory>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGameControllerFactoryManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterCustomFactoryForGipInterface)(::windows::core::Vtable::as_raw(this), factory.try_into().map_err(|e| e.into())?.abi(), interfaceid).ok() })
     }
-    pub fn RegisterCustomFactoryForHardwareId<'a, P0, E0>(factory: P0, hardwarevendorid: u16, hardwareproductid: u16) -> ::windows::core::Result<()>
+    pub fn RegisterCustomFactoryForHardwareId<P0, E0>(factory: P0, hardwarevendorid: u16, hardwareproductid: u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICustomGameControllerFactory>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ICustomGameControllerFactory>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGameControllerFactoryManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterCustomFactoryForHardwareId)(::windows::core::Vtable::as_raw(this), factory.try_into().map_err(|e| e.into())?.abi(), hardwarevendorid, hardwareproductid).ok() })
     }
-    pub fn RegisterCustomFactoryForXusbType<'a, P0, E0>(factory: P0, xusbtype: XusbDeviceType, xusbsubtype: XusbDeviceSubtype) -> ::windows::core::Result<()>
+    pub fn RegisterCustomFactoryForXusbType<P0, E0>(factory: P0, xusbtype: XusbDeviceType, xusbsubtype: XusbDeviceSubtype) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICustomGameControllerFactory>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ICustomGameControllerFactory>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGameControllerFactoryManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterCustomFactoryForXusbType)(::windows::core::Vtable::as_raw(this), factory.try_into().map_err(|e| e.into())?.abi(), xusbtype, xusbsubtype).ok() })
     }
-    pub fn TryGetFactoryControllerFromGameController<'a, P0, E0, P1, E1>(factory: P0, gamecontroller: P1) -> ::windows::core::Result<super::IGameController>
+    pub fn TryGetFactoryControllerFromGameController<P0, E0, P1, E1>(factory: P0, gamecontroller: P1) -> ::windows::core::Result<super::IGameController>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICustomGameControllerFactory>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<ICustomGameControllerFactory>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGameController>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::IGameController>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGameControllerFactoryManagerStatics2(|this| unsafe {
@@ -682,9 +682,9 @@ impl GipGameControllerProvider {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn UpdateFirmwareAsync<'a, P0, E0>(&self, firmwareimage: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>>
+    pub fn UpdateFirmwareAsync<P0, E0>(&self, firmwareimage: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IInputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -739,7 +739,7 @@ impl ::core::convert::TryFrom<&GipGameControllerProvider> for IGameControllerPro
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&GipGameControllerProvider> for ::windows::core::InParam<'a, IGameControllerProvider> {
+impl ::core::convert::TryFrom<&GipGameControllerProvider> for ::windows::core::InParam<IGameControllerProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GipGameControllerProvider) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -859,7 +859,7 @@ impl ::core::convert::TryFrom<&HidGameControllerProvider> for IGameControllerPro
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&HidGameControllerProvider> for ::windows::core::InParam<'a, IGameControllerProvider> {
+impl ::core::convert::TryFrom<&HidGameControllerProvider> for ::windows::core::InParam<IGameControllerProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HidGameControllerProvider) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -957,7 +957,7 @@ impl ::core::convert::TryFrom<&XusbGameControllerProvider> for IGameControllerPr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&XusbGameControllerProvider> for ::windows::core::InParam<'a, IGameControllerProvider> {
+impl ::core::convert::TryFrom<&XusbGameControllerProvider> for ::windows::core::InParam<IGameControllerProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &XusbGameControllerProvider) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

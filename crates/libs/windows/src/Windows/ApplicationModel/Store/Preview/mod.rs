@@ -389,9 +389,9 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FilterUnsupportedSystemFeaturesAsync<'a, P0, E0>(systemfeatures: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StoreSystemFeature>>>
+    pub fn FilterUnsupportedSystemFeaturesAsync<P0, E0>(systemfeatures: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StoreSystemFeature>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<StoreSystemFeature>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<StoreSystemFeature>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IStoreConfigurationStatics(|this| unsafe {
@@ -409,9 +409,9 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPurchasePromptingPolicy<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
+    pub fn SetPurchasePromptingPolicy<P0, E0>(value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IStoreConfigurationStatics2(|this| unsafe { (::windows::core::Vtable::vtable(this).SetPurchasePromptingPolicy)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
@@ -461,9 +461,9 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn SetPurchasePromptingPolicyForUser<'a, P0, E0>(user: &super::super::super::System::User, value: P0) -> ::windows::core::Result<()>
+    pub fn SetPurchasePromptingPolicyForUser<P0, E0>(user: &super::super::super::System::User, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IStoreConfigurationStatics3(|this| unsafe { (::windows::core::Vtable::vtable(this).SetPurchasePromptingPolicyForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), value.try_into().map_err(|e| e.into())?.abi()).ok() })
@@ -901,9 +901,9 @@ pub struct WebAuthenticationCoreManagerHelper;
 impl WebAuthenticationCoreManagerHelper {
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Authentication_Web_Core\"`, `\"UI_Xaml\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "UI_Xaml"))]
-    pub fn RequestTokenWithUIElementHostingAsync<'a, P0>(request: &super::super::super::Security::Authentication::Web::Core::WebTokenRequest, uielement: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
+    pub fn RequestTokenWithUIElementHostingAsync<P0>(request: &super::super::super::Security::Authentication::Web::Core::WebTokenRequest, uielement: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::UI::Xaml::UIElement>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::UI::Xaml::UIElement>>,
     {
         Self::IWebAuthenticationCoreManagerHelper(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -912,9 +912,9 @@ impl WebAuthenticationCoreManagerHelper {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`, `\"UI_Xaml\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml"))]
-    pub fn RequestTokenWithUIElementHostingAndWebAccountAsync<'a, P0>(request: &super::super::super::Security::Authentication::Web::Core::WebTokenRequest, webaccount: &super::super::super::Security::Credentials::WebAccount, uielement: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
+    pub fn RequestTokenWithUIElementHostingAndWebAccountAsync<P0>(request: &super::super::super::Security::Authentication::Web::Core::WebTokenRequest, webaccount: &super::super::super::Security::Credentials::WebAccount, uielement: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::UI::Xaml::UIElement>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::UI::Xaml::UIElement>>,
     {
         Self::IWebAuthenticationCoreManagerHelper(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();

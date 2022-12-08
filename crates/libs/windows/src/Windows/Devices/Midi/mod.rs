@@ -260,9 +260,9 @@ pub struct IMidiNoteOnMessageFactory_Vtbl {
 #[repr(transparent)]
 pub struct IMidiOutPort(::windows::core::IUnknown);
 impl IMidiOutPort {
-    pub fn SendMessage<'a, P0, E0>(&self, midimessage: P0) -> ::windows::core::Result<()>
+    pub fn SendMessage<P0, E0>(&self, midimessage: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMidiMessage>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IMidiMessage>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -270,9 +270,9 @@ impl IMidiOutPort {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<'a, P0, E0>(&self, mididata: P0) -> ::windows::core::Result<()>
+    pub fn SendBuffer<P0, E0>(&self, mididata: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -308,7 +308,7 @@ impl ::core::convert::TryFrom<&IMidiOutPort> for super::super::Foundation::IClos
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&IMidiOutPort> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&IMidiOutPort> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IMidiOutPort) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -705,7 +705,7 @@ impl ::core::convert::TryFrom<&MidiActiveSensingMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiActiveSensingMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiActiveSensingMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiActiveSensingMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -814,7 +814,7 @@ impl ::core::convert::TryFrom<&MidiChannelPressureMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiChannelPressureMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiChannelPressureMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiChannelPressureMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -905,7 +905,7 @@ impl ::core::convert::TryFrom<&MidiContinueMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiContinueMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiContinueMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiContinueMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1021,7 +1021,7 @@ impl ::core::convert::TryFrom<&MidiControlChangeMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiControlChangeMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiControlChangeMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiControlChangeMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1130,7 +1130,7 @@ impl ::core::convert::TryFrom<&MidiInPort> for super::super::Foundation::IClosab
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&MidiInPort> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&MidiInPort> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiInPort) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1293,7 +1293,7 @@ impl ::core::convert::TryFrom<&MidiNoteOffMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiNoteOffMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiNoteOffMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiNoteOffMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1409,7 +1409,7 @@ impl ::core::convert::TryFrom<&MidiNoteOnMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiNoteOnMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiNoteOnMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiNoteOnMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1428,9 +1428,9 @@ impl MidiOutPort {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
-    pub fn SendMessage<'a, P0, E0>(&self, midimessage: P0) -> ::windows::core::Result<()>
+    pub fn SendMessage<P0, E0>(&self, midimessage: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMidiMessage>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IMidiMessage>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1438,9 +1438,9 @@ impl MidiOutPort {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<'a, P0, E0>(&self, mididata: P0) -> ::windows::core::Result<()>
+    pub fn SendBuffer<P0, E0>(&self, mididata: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1521,7 +1521,7 @@ impl ::core::convert::TryFrom<&MidiOutPort> for super::super::Foundation::IClosa
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&MidiOutPort> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&MidiOutPort> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiOutPort) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1540,7 +1540,7 @@ impl ::core::convert::TryFrom<&MidiOutPort> for IMidiOutPort {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiOutPort> for ::windows::core::InParam<'a, IMidiOutPort> {
+impl ::core::convert::TryFrom<&MidiOutPort> for ::windows::core::InParam<IMidiOutPort> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiOutPort) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1649,7 +1649,7 @@ impl ::core::convert::TryFrom<&MidiPitchBendChangeMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiPitchBendChangeMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiPitchBendChangeMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiPitchBendChangeMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1765,7 +1765,7 @@ impl ::core::convert::TryFrom<&MidiPolyphonicKeyPressureMessage> for IMidiMessag
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiPolyphonicKeyPressureMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiPolyphonicKeyPressureMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiPolyphonicKeyPressureMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1874,7 +1874,7 @@ impl ::core::convert::TryFrom<&MidiProgramChangeMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiProgramChangeMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiProgramChangeMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiProgramChangeMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1976,7 +1976,7 @@ impl ::core::convert::TryFrom<&MidiSongPositionPointerMessage> for IMidiMessage 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiSongPositionPointerMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiSongPositionPointerMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiSongPositionPointerMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2078,7 +2078,7 @@ impl ::core::convert::TryFrom<&MidiSongSelectMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiSongSelectMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiSongSelectMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiSongSelectMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2169,7 +2169,7 @@ impl ::core::convert::TryFrom<&MidiStartMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiStartMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiStartMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiStartMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2260,7 +2260,7 @@ impl ::core::convert::TryFrom<&MidiStopMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiStopMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiStopMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiStopMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2279,9 +2279,9 @@ impl MidiSynthesizer {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
-    pub fn SendMessage<'a, P0, E0>(&self, midimessage: P0) -> ::windows::core::Result<()>
+    pub fn SendMessage<P0, E0>(&self, midimessage: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMidiMessage>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IMidiMessage>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMidiOutPort>(self)?;
@@ -2289,9 +2289,9 @@ impl MidiSynthesizer {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<'a, P0, E0>(&self, mididata: P0) -> ::windows::core::Result<()>
+    pub fn SendBuffer<P0, E0>(&self, mididata: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMidiOutPort>(self)?;
@@ -2402,7 +2402,7 @@ impl ::core::convert::TryFrom<&MidiSynthesizer> for super::super::Foundation::IC
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&MidiSynthesizer> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&MidiSynthesizer> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiSynthesizer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2421,7 +2421,7 @@ impl ::core::convert::TryFrom<&MidiSynthesizer> for IMidiOutPort {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiSynthesizer> for ::windows::core::InParam<'a, IMidiOutPort> {
+impl ::core::convert::TryFrom<&MidiSynthesizer> for ::windows::core::InParam<IMidiOutPort> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiSynthesizer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2461,9 +2461,9 @@ impl MidiSystemExclusiveMessage {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateMidiSystemExclusiveMessage<'a, P0, E0>(rawdata: P0) -> ::windows::core::Result<MidiSystemExclusiveMessage>
+    pub fn CreateMidiSystemExclusiveMessage<P0, E0>(rawdata: P0) -> ::windows::core::Result<MidiSystemExclusiveMessage>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMidiSystemExclusiveMessageFactory(|this| unsafe {
@@ -2522,7 +2522,7 @@ impl ::core::convert::TryFrom<&MidiSystemExclusiveMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiSystemExclusiveMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiSystemExclusiveMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiSystemExclusiveMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2613,7 +2613,7 @@ impl ::core::convert::TryFrom<&MidiSystemResetMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiSystemResetMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiSystemResetMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiSystemResetMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2722,7 +2722,7 @@ impl ::core::convert::TryFrom<&MidiTimeCodeMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiTimeCodeMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiTimeCodeMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiTimeCodeMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2813,7 +2813,7 @@ impl ::core::convert::TryFrom<&MidiTimingClockMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiTimingClockMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiTimingClockMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiTimingClockMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2904,7 +2904,7 @@ impl ::core::convert::TryFrom<&MidiTuneRequestMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MidiTuneRequestMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+impl ::core::convert::TryFrom<&MidiTuneRequestMessage> for ::windows::core::InParam<IMidiMessage> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MidiTuneRequestMessage) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -575,9 +575,9 @@ impl UserActivity {
             (::windows::core::Vtable::vtable(this).ContentInfo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetContentInfo<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetContentInfo<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IUserActivityContentInfo>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IUserActivityContentInfo>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -639,9 +639,9 @@ impl UserActivity {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ToJsonArray<'a, P0, E0>(activities: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn ToJsonArray<P0, E0>(activities: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<UserActivity>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<UserActivity>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IUserActivityStatics(|this| unsafe {
@@ -985,7 +985,7 @@ impl ::core::convert::TryFrom<&UserActivityContentInfo> for IUserActivityContent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&UserActivityContentInfo> for ::windows::core::InParam<'a, IUserActivityContentInfo> {
+impl ::core::convert::TryFrom<&UserActivityContentInfo> for ::windows::core::InParam<IUserActivityContentInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UserActivityContentInfo) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1224,7 +1224,7 @@ impl ::core::convert::TryFrom<&UserActivitySession> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&UserActivitySession> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&UserActivitySession> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UserActivitySession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1352,9 +1352,9 @@ impl UserActivityVisualElements {
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     #[cfg(feature = "UI_Shell")]
-    pub fn SetContent<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetContent<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::UI::Shell::IAdaptiveCard>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::UI::Shell::IAdaptiveCard>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

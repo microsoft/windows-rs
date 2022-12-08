@@ -1082,7 +1082,7 @@ impl ::core::convert::TryFrom<&SpeechRecognitionGrammarFileConstraint> for ISpee
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SpeechRecognitionGrammarFileConstraint> for ::windows::core::InParam<'a, ISpeechRecognitionConstraint> {
+impl ::core::convert::TryFrom<&SpeechRecognitionGrammarFileConstraint> for ::windows::core::InParam<ISpeechRecognitionConstraint> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpeechRecognitionGrammarFileConstraint) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1240,9 +1240,9 @@ impl SpeechRecognitionListConstraint {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, P0, E0>(commands: P0) -> ::windows::core::Result<SpeechRecognitionListConstraint>
+    pub fn Create<P0, E0>(commands: P0) -> ::windows::core::Result<SpeechRecognitionListConstraint>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ISpeechRecognitionListConstraintFactory(|this| unsafe {
@@ -1252,9 +1252,9 @@ impl SpeechRecognitionListConstraint {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithTag<'a, P0, E0>(commands: P0, tag: &::windows::core::HSTRING) -> ::windows::core::Result<SpeechRecognitionListConstraint>
+    pub fn CreateWithTag<P0, E0>(commands: P0, tag: &::windows::core::HSTRING) -> ::windows::core::Result<SpeechRecognitionListConstraint>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ISpeechRecognitionListConstraintFactory(|this| unsafe {
@@ -1313,7 +1313,7 @@ impl ::core::convert::TryFrom<&SpeechRecognitionListConstraint> for ISpeechRecog
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SpeechRecognitionListConstraint> for ::windows::core::InParam<'a, ISpeechRecognitionConstraint> {
+impl ::core::convert::TryFrom<&SpeechRecognitionListConstraint> for ::windows::core::InParam<ISpeechRecognitionConstraint> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpeechRecognitionListConstraint) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1657,7 +1657,7 @@ impl ::core::convert::TryFrom<&SpeechRecognitionTopicConstraint> for ISpeechReco
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SpeechRecognitionTopicConstraint> for ::windows::core::InParam<'a, ISpeechRecognitionConstraint> {
+impl ::core::convert::TryFrom<&SpeechRecognitionTopicConstraint> for ::windows::core::InParam<ISpeechRecognitionConstraint> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpeechRecognitionTopicConstraint) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1756,7 +1756,7 @@ impl ::core::convert::TryFrom<&SpeechRecognitionVoiceCommandDefinitionConstraint
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SpeechRecognitionVoiceCommandDefinitionConstraint> for ::windows::core::InParam<'a, ISpeechRecognitionConstraint> {
+impl ::core::convert::TryFrom<&SpeechRecognitionVoiceCommandDefinitionConstraint> for ::windows::core::InParam<ISpeechRecognitionConstraint> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpeechRecognitionVoiceCommandDefinitionConstraint) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2013,7 +2013,7 @@ impl ::core::convert::TryFrom<&SpeechRecognizer> for super::super::Foundation::I
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SpeechRecognizer> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SpeechRecognizer> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpeechRecognizer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2286,9 +2286,9 @@ impl VoiceCommandSet {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetPhraseListAsync<'a, P0, E0>(&self, phraselistname: &::windows::core::HSTRING, phraselist: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetPhraseListAsync<P0, E0>(&self, phraselistname: &::windows::core::HSTRING, phraselist: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

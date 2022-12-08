@@ -245,9 +245,9 @@ impl IBasicAudioEffect {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<'a, P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
+    pub fn SetProperties<P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
@@ -267,7 +267,7 @@ impl ::core::convert::TryFrom<&IBasicAudioEffect> for super::IMediaExtension {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IBasicAudioEffect> for ::windows::core::InParam<'a, super::IMediaExtension> {
+impl ::core::convert::TryFrom<&IBasicAudioEffect> for ::windows::core::InParam<super::IMediaExtension> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IBasicAudioEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -356,9 +356,9 @@ impl IBasicVideoEffect {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub fn SetEncodingProperties<'a, P0, E0>(&self, encodingproperties: &super::MediaProperties::VideoEncodingProperties, device: P0) -> ::windows::core::Result<()>
+    pub fn SetEncodingProperties<P0, E0>(&self, encodingproperties: &super::MediaProperties::VideoEncodingProperties, device: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -378,9 +378,9 @@ impl IBasicVideoEffect {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<'a, P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
+    pub fn SetProperties<P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
@@ -400,7 +400,7 @@ impl ::core::convert::TryFrom<&IBasicVideoEffect> for super::IMediaExtension {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IBasicVideoEffect> for ::windows::core::InParam<'a, super::IMediaExtension> {
+impl ::core::convert::TryFrom<&IBasicVideoEffect> for ::windows::core::InParam<super::IMediaExtension> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IBasicVideoEffect) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -540,9 +540,9 @@ impl IVideoCompositor {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub fn SetEncodingProperties<'a, P0, E0>(&self, backgroundproperties: &super::MediaProperties::VideoEncodingProperties, device: P0) -> ::windows::core::Result<()>
+    pub fn SetEncodingProperties<P0, E0>(&self, backgroundproperties: &super::MediaProperties::VideoEncodingProperties, device: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -562,9 +562,9 @@ impl IVideoCompositor {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<'a, P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
+    pub fn SetProperties<P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
@@ -584,7 +584,7 @@ impl ::core::convert::TryFrom<&IVideoCompositor> for super::IMediaExtension {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IVideoCompositor> for ::windows::core::InParam<'a, super::IMediaExtension> {
+impl ::core::convert::TryFrom<&IVideoCompositor> for ::windows::core::InParam<super::IMediaExtension> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IVideoCompositor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1051,9 +1051,9 @@ impl AudioEffectDefinition {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<'a, P0, E0>(activatableclassid: &::windows::core::HSTRING, props: P0) -> ::windows::core::Result<AudioEffectDefinition>
+    pub fn CreateWithProperties<P0, E0>(activatableclassid: &::windows::core::HSTRING, props: P0) -> ::windows::core::Result<AudioEffectDefinition>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IAudioEffectDefinitionFactory(|this| unsafe {
@@ -1112,7 +1112,7 @@ impl ::core::convert::TryFrom<&AudioEffectDefinition> for IAudioEffectDefinition
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AudioEffectDefinition> for ::windows::core::InParam<'a, IAudioEffectDefinition> {
+impl ::core::convert::TryFrom<&AudioEffectDefinition> for ::windows::core::InParam<IAudioEffectDefinition> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AudioEffectDefinition) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1282,9 +1282,9 @@ impl CompositeVideoFrameContext {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Media_Editing\"`*"]
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing"))]
-    pub fn GetOverlayForSurface<'a, P0, E0>(&self, surfacetooverlay: P0) -> ::windows::core::Result<super::Editing::MediaOverlay>
+    pub fn GetOverlayForSurface<P0, E0>(&self, surfacetooverlay: P0) -> ::windows::core::Result<super::Editing::MediaOverlay>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1521,7 +1521,7 @@ impl ::core::convert::TryFrom<&SlowMotionEffectDefinition> for IVideoEffectDefin
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SlowMotionEffectDefinition> for ::windows::core::InParam<'a, IVideoEffectDefinition> {
+impl ::core::convert::TryFrom<&SlowMotionEffectDefinition> for ::windows::core::InParam<IVideoEffectDefinition> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SlowMotionEffectDefinition) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1558,9 +1558,9 @@ impl VideoCompositorDefinition {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<'a, P0, E0>(activatableclassid: &::windows::core::HSTRING, props: P0) -> ::windows::core::Result<VideoCompositorDefinition>
+    pub fn CreateWithProperties<P0, E0>(activatableclassid: &::windows::core::HSTRING, props: P0) -> ::windows::core::Result<VideoCompositorDefinition>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IVideoCompositorDefinitionFactory(|this| unsafe {
@@ -1619,7 +1619,7 @@ impl ::core::convert::TryFrom<&VideoCompositorDefinition> for IVideoCompositorDe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VideoCompositorDefinition> for ::windows::core::InParam<'a, IVideoCompositorDefinition> {
+impl ::core::convert::TryFrom<&VideoCompositorDefinition> for ::windows::core::InParam<IVideoCompositorDefinition> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VideoCompositorDefinition) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1656,9 +1656,9 @@ impl VideoEffectDefinition {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<'a, P0, E0>(activatableclassid: &::windows::core::HSTRING, props: P0) -> ::windows::core::Result<VideoEffectDefinition>
+    pub fn CreateWithProperties<P0, E0>(activatableclassid: &::windows::core::HSTRING, props: P0) -> ::windows::core::Result<VideoEffectDefinition>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IVideoEffectDefinitionFactory(|this| unsafe {
@@ -1717,7 +1717,7 @@ impl ::core::convert::TryFrom<&VideoEffectDefinition> for IVideoEffectDefinition
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VideoEffectDefinition> for ::windows::core::InParam<'a, IVideoEffectDefinition> {
+impl ::core::convert::TryFrom<&VideoEffectDefinition> for ::windows::core::InParam<IVideoEffectDefinition> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VideoEffectDefinition) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1896,7 +1896,7 @@ impl ::core::convert::TryFrom<&VideoTransformEffectDefinition> for IVideoEffectD
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VideoTransformEffectDefinition> for ::windows::core::InParam<'a, IVideoEffectDefinition> {
+impl ::core::convert::TryFrom<&VideoTransformEffectDefinition> for ::windows::core::InParam<IVideoEffectDefinition> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VideoTransformEffectDefinition) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

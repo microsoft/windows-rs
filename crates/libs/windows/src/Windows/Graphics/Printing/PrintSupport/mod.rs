@@ -482,9 +482,9 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetSupportedPdlPassthroughContentTypes<'a, P0, E0>(&self, supportedpdlcontenttypes: P0) -> ::windows::core::Result<()>
+    pub fn SetSupportedPdlPassthroughContentTypes<P0, E0>(&self, supportedpdlcontenttypes: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
@@ -772,9 +772,9 @@ impl PrintSupportPrinterSelectedEventArgs {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAdditionalFeatures<'a, P0, E0>(&self, features: P0) -> ::windows::core::Result<()>
+    pub fn SetAdditionalFeatures<P0, E0>(&self, features: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -782,9 +782,9 @@ impl PrintSupportPrinterSelectedEventArgs {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAdditionalParameters<'a, P0, E0>(&self, parameters: P0) -> ::windows::core::Result<()>
+    pub fn SetAdditionalParameters<P0, E0>(&self, parameters: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -799,9 +799,9 @@ impl PrintSupportPrinterSelectedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     #[cfg(feature = "UI_Shell")]
-    pub fn SetAdaptiveCard<'a, P0, E0>(&self, adaptivecard: P0) -> ::windows::core::Result<()>
+    pub fn SetAdaptiveCard<P0, E0>(&self, adaptivecard: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::UI::Shell::IAdaptiveCard>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::UI::Shell::IAdaptiveCard>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1015,7 +1015,7 @@ impl ::core::convert::TryFrom<&PrintSupportSettingsActivatedEventArgs> for super
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&PrintSupportSettingsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+impl ::core::convert::TryFrom<&PrintSupportSettingsActivatedEventArgs> for ::windows::core::InParam<super::super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintSupportSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1037,7 +1037,7 @@ impl ::core::convert::TryFrom<&PrintSupportSettingsActivatedEventArgs> for super
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::core::convert::TryFrom<&PrintSupportSettingsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+impl ::core::convert::TryFrom<&PrintSupportSettingsActivatedEventArgs> for ::windows::core::InParam<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintSupportSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

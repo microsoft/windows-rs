@@ -1318,9 +1318,9 @@ impl HttpCacheDirectiveHeaderValueCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetMaxAge<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetMaxAge<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1337,9 +1337,9 @@ impl HttpCacheDirectiveHeaderValueCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetMaxStale<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetMaxStale<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1356,9 +1356,9 @@ impl HttpCacheDirectiveHeaderValueCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetMinFresh<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetMinFresh<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1375,9 +1375,9 @@ impl HttpCacheDirectiveHeaderValueCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSharedMaxAge<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSharedMaxAge<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1564,7 +1564,7 @@ impl ::core::convert::TryFrom<&HttpCacheDirectiveHeaderValueCollection> for supe
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpCacheDirectiveHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<HttpNameValueHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpCacheDirectiveHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<HttpNameValueHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpCacheDirectiveHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1586,7 +1586,7 @@ impl ::core::convert::TryFrom<&HttpCacheDirectiveHeaderValueCollection> for supe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpCacheDirectiveHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpCacheDirectiveHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpCacheDirectiveHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1608,7 +1608,7 @@ impl ::core::convert::TryFrom<&HttpCacheDirectiveHeaderValueCollection> for supe
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpCacheDirectiveHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpCacheDirectiveHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpCacheDirectiveHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1736,7 +1736,7 @@ impl ::core::convert::TryFrom<&HttpChallengeHeaderValue> for super::super::super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpChallengeHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpChallengeHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpChallengeHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1930,7 +1930,7 @@ impl ::core::convert::TryFrom<&HttpChallengeHeaderValueCollection> for super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpChallengeHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<HttpChallengeHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpChallengeHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<HttpChallengeHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpChallengeHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1952,7 +1952,7 @@ impl ::core::convert::TryFrom<&HttpChallengeHeaderValueCollection> for super::su
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpChallengeHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpChallengeHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpChallengeHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1974,7 +1974,7 @@ impl ::core::convert::TryFrom<&HttpChallengeHeaderValueCollection> for super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpChallengeHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpChallengeHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpChallengeHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2080,7 +2080,7 @@ impl ::core::convert::TryFrom<&HttpConnectionOptionHeaderValue> for super::super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpConnectionOptionHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpConnectionOptionHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpConnectionOptionHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2274,7 +2274,7 @@ impl ::core::convert::TryFrom<&HttpConnectionOptionHeaderValueCollection> for su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpConnectionOptionHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<HttpConnectionOptionHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpConnectionOptionHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<HttpConnectionOptionHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpConnectionOptionHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2296,7 +2296,7 @@ impl ::core::convert::TryFrom<&HttpConnectionOptionHeaderValueCollection> for su
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpConnectionOptionHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpConnectionOptionHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpConnectionOptionHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2318,7 +2318,7 @@ impl ::core::convert::TryFrom<&HttpConnectionOptionHeaderValueCollection> for su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpConnectionOptionHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpConnectionOptionHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpConnectionOptionHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2424,7 +2424,7 @@ impl ::core::convert::TryFrom<&HttpContentCodingHeaderValue> for super::super::s
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpContentCodingHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpContentCodingHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpContentCodingHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2618,7 +2618,7 @@ impl ::core::convert::TryFrom<&HttpContentCodingHeaderValueCollection> for super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpContentCodingHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<HttpContentCodingHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpContentCodingHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<HttpContentCodingHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpContentCodingHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2640,7 +2640,7 @@ impl ::core::convert::TryFrom<&HttpContentCodingHeaderValueCollection> for super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpContentCodingHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpContentCodingHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpContentCodingHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2662,7 +2662,7 @@ impl ::core::convert::TryFrom<&HttpContentCodingHeaderValueCollection> for super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpContentCodingHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpContentCodingHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpContentCodingHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2783,7 +2783,7 @@ impl ::core::convert::TryFrom<&HttpContentCodingWithQualityHeaderValue> for supe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpContentCodingWithQualityHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpContentCodingWithQualityHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpContentCodingWithQualityHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2977,7 +2977,7 @@ impl ::core::convert::TryFrom<&HttpContentCodingWithQualityHeaderValueCollection
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpContentCodingWithQualityHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<HttpContentCodingWithQualityHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpContentCodingWithQualityHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<HttpContentCodingWithQualityHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpContentCodingWithQualityHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2999,7 +2999,7 @@ impl ::core::convert::TryFrom<&HttpContentCodingWithQualityHeaderValueCollection
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpContentCodingWithQualityHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpContentCodingWithQualityHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpContentCodingWithQualityHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3021,7 +3021,7 @@ impl ::core::convert::TryFrom<&HttpContentCodingWithQualityHeaderValueCollection
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpContentCodingWithQualityHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpContentCodingWithQualityHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpContentCodingWithQualityHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3098,9 +3098,9 @@ impl HttpContentDispositionHeaderValue {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSize<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSize<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<u64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<u64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3192,7 +3192,7 @@ impl ::core::convert::TryFrom<&HttpContentDispositionHeaderValue> for super::sup
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpContentDispositionHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpContentDispositionHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpContentDispositionHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3248,9 +3248,9 @@ impl HttpContentHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetContentLength<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetContentLength<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<u64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<u64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3282,9 +3282,9 @@ impl HttpContentHeaderCollection {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetContentMD5<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetContentMD5<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3323,9 +3323,9 @@ impl HttpContentHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpires<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetExpires<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3342,9 +3342,9 @@ impl HttpContentHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetLastModified<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetLastModified<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3501,7 +3501,7 @@ impl ::core::convert::TryFrom<&HttpContentHeaderCollection> for super::super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpContentHeaderCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
+impl ::core::convert::TryFrom<&HttpContentHeaderCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpContentHeaderCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3523,7 +3523,7 @@ impl ::core::convert::TryFrom<&HttpContentHeaderCollection> for super::super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpContentHeaderCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
+impl ::core::convert::TryFrom<&HttpContentHeaderCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpContentHeaderCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3545,7 +3545,7 @@ impl ::core::convert::TryFrom<&HttpContentHeaderCollection> for super::super::su
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpContentHeaderCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpContentHeaderCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpContentHeaderCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3694,7 +3694,7 @@ impl ::core::convert::TryFrom<&HttpContentRangeHeaderValue> for super::super::su
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpContentRangeHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpContentRangeHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpContentRangeHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3817,7 +3817,7 @@ impl ::core::convert::TryFrom<&HttpCookiePairHeaderValue> for super::super::supe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpCookiePairHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpCookiePairHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpCookiePairHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4011,7 +4011,7 @@ impl ::core::convert::TryFrom<&HttpCookiePairHeaderValueCollection> for super::s
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpCookiePairHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<HttpCookiePairHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpCookiePairHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<HttpCookiePairHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpCookiePairHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4033,7 +4033,7 @@ impl ::core::convert::TryFrom<&HttpCookiePairHeaderValueCollection> for super::s
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpCookiePairHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpCookiePairHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpCookiePairHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4055,7 +4055,7 @@ impl ::core::convert::TryFrom<&HttpCookiePairHeaderValueCollection> for super::s
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpCookiePairHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpCookiePairHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpCookiePairHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4183,7 +4183,7 @@ impl ::core::convert::TryFrom<&HttpCredentialsHeaderValue> for super::super::sup
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpCredentialsHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpCredentialsHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpCredentialsHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4289,7 +4289,7 @@ impl ::core::convert::TryFrom<&HttpDateOrDeltaHeaderValue> for super::super::sup
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpDateOrDeltaHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpDateOrDeltaHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpDateOrDeltaHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4421,7 +4421,7 @@ impl ::core::convert::TryFrom<&HttpExpectationHeaderValue> for super::super::sup
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpExpectationHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpExpectationHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpExpectationHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4615,7 +4615,7 @@ impl ::core::convert::TryFrom<&HttpExpectationHeaderValueCollection> for super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpExpectationHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<HttpExpectationHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpExpectationHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<HttpExpectationHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpExpectationHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4637,7 +4637,7 @@ impl ::core::convert::TryFrom<&HttpExpectationHeaderValueCollection> for super::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpExpectationHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpExpectationHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpExpectationHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4659,7 +4659,7 @@ impl ::core::convert::TryFrom<&HttpExpectationHeaderValueCollection> for super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpExpectationHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpExpectationHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpExpectationHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4853,7 +4853,7 @@ impl ::core::convert::TryFrom<&HttpLanguageHeaderValueCollection> for super::sup
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
-impl<'a> ::core::convert::TryFrom<&HttpLanguageHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Globalization::Language>> {
+impl ::core::convert::TryFrom<&HttpLanguageHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Globalization::Language>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpLanguageHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4875,7 +4875,7 @@ impl ::core::convert::TryFrom<&HttpLanguageHeaderValueCollection> for super::sup
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpLanguageHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpLanguageHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpLanguageHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4897,7 +4897,7 @@ impl ::core::convert::TryFrom<&HttpLanguageHeaderValueCollection> for super::sup
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
-impl<'a> ::core::convert::TryFrom<&HttpLanguageHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>> {
+impl ::core::convert::TryFrom<&HttpLanguageHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpLanguageHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5018,7 +5018,7 @@ impl ::core::convert::TryFrom<&HttpLanguageRangeWithQualityHeaderValue> for supe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpLanguageRangeWithQualityHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpLanguageRangeWithQualityHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpLanguageRangeWithQualityHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5212,7 +5212,7 @@ impl ::core::convert::TryFrom<&HttpLanguageRangeWithQualityHeaderValueCollection
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpLanguageRangeWithQualityHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<HttpLanguageRangeWithQualityHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpLanguageRangeWithQualityHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<HttpLanguageRangeWithQualityHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpLanguageRangeWithQualityHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5234,7 +5234,7 @@ impl ::core::convert::TryFrom<&HttpLanguageRangeWithQualityHeaderValueCollection
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpLanguageRangeWithQualityHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpLanguageRangeWithQualityHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpLanguageRangeWithQualityHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5256,7 +5256,7 @@ impl ::core::convert::TryFrom<&HttpLanguageRangeWithQualityHeaderValueCollection
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpLanguageRangeWithQualityHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpLanguageRangeWithQualityHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpLanguageRangeWithQualityHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5386,7 +5386,7 @@ impl ::core::convert::TryFrom<&HttpMediaTypeHeaderValue> for super::super::super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpMediaTypeHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpMediaTypeHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMediaTypeHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5441,9 +5441,9 @@ impl HttpMediaTypeWithQualityHeaderValue {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetQuality<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetQuality<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<f64>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<f64>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5541,7 +5541,7 @@ impl ::core::convert::TryFrom<&HttpMediaTypeWithQualityHeaderValue> for super::s
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpMediaTypeWithQualityHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpMediaTypeWithQualityHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMediaTypeWithQualityHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5735,7 +5735,7 @@ impl ::core::convert::TryFrom<&HttpMediaTypeWithQualityHeaderValueCollection> fo
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpMediaTypeWithQualityHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<HttpMediaTypeWithQualityHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpMediaTypeWithQualityHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<HttpMediaTypeWithQualityHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMediaTypeWithQualityHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5757,7 +5757,7 @@ impl ::core::convert::TryFrom<&HttpMediaTypeWithQualityHeaderValueCollection> fo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpMediaTypeWithQualityHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpMediaTypeWithQualityHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMediaTypeWithQualityHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5779,7 +5779,7 @@ impl ::core::convert::TryFrom<&HttpMediaTypeWithQualityHeaderValueCollection> fo
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpMediaTypeWithQualityHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpMediaTypeWithQualityHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMediaTypeWithQualityHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5973,7 +5973,7 @@ impl ::core::convert::TryFrom<&HttpMethodHeaderValueCollection> for super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpMethodHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::HttpMethod>> {
+impl ::core::convert::TryFrom<&HttpMethodHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::HttpMethod>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMethodHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5995,7 +5995,7 @@ impl ::core::convert::TryFrom<&HttpMethodHeaderValueCollection> for super::super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpMethodHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpMethodHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMethodHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6017,7 +6017,7 @@ impl ::core::convert::TryFrom<&HttpMethodHeaderValueCollection> for super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpMethodHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::HttpMethod>> {
+impl ::core::convert::TryFrom<&HttpMethodHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<super::HttpMethod>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpMethodHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6140,7 +6140,7 @@ impl ::core::convert::TryFrom<&HttpNameValueHeaderValue> for super::super::super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpNameValueHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpNameValueHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpNameValueHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6259,7 +6259,7 @@ impl ::core::convert::TryFrom<&HttpProductHeaderValue> for super::super::super::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpProductHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpProductHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpProductHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6378,7 +6378,7 @@ impl ::core::convert::TryFrom<&HttpProductInfoHeaderValue> for super::super::sup
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpProductInfoHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpProductInfoHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpProductInfoHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6572,7 +6572,7 @@ impl ::core::convert::TryFrom<&HttpProductInfoHeaderValueCollection> for super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpProductInfoHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<HttpProductInfoHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpProductInfoHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<HttpProductInfoHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpProductInfoHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6594,7 +6594,7 @@ impl ::core::convert::TryFrom<&HttpProductInfoHeaderValueCollection> for super::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpProductInfoHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpProductInfoHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpProductInfoHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6616,7 +6616,7 @@ impl ::core::convert::TryFrom<&HttpProductInfoHeaderValueCollection> for super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpProductInfoHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpProductInfoHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpProductInfoHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6693,9 +6693,9 @@ impl HttpRequestHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDate<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDate<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -6745,9 +6745,9 @@ impl HttpRequestHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIfModifiedSince<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetIfModifiedSince<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -6764,9 +6764,9 @@ impl HttpRequestHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIfUnmodifiedSince<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetIfUnmodifiedSince<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -6783,9 +6783,9 @@ impl HttpRequestHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetMaxForwards<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetMaxForwards<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -6982,7 +6982,7 @@ impl ::core::convert::TryFrom<&HttpRequestHeaderCollection> for super::super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpRequestHeaderCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
+impl ::core::convert::TryFrom<&HttpRequestHeaderCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpRequestHeaderCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7004,7 +7004,7 @@ impl ::core::convert::TryFrom<&HttpRequestHeaderCollection> for super::super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpRequestHeaderCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
+impl ::core::convert::TryFrom<&HttpRequestHeaderCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpRequestHeaderCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7026,7 +7026,7 @@ impl ::core::convert::TryFrom<&HttpRequestHeaderCollection> for super::super::su
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpRequestHeaderCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpRequestHeaderCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpRequestHeaderCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7050,9 +7050,9 @@ impl HttpResponseHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetAge<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetAge<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -7090,9 +7090,9 @@ impl HttpResponseHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDate<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDate<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -7296,7 +7296,7 @@ impl ::core::convert::TryFrom<&HttpResponseHeaderCollection> for super::super::s
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpResponseHeaderCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
+impl ::core::convert::TryFrom<&HttpResponseHeaderCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpResponseHeaderCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7318,7 +7318,7 @@ impl ::core::convert::TryFrom<&HttpResponseHeaderCollection> for super::super::s
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpResponseHeaderCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
+impl ::core::convert::TryFrom<&HttpResponseHeaderCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpResponseHeaderCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7340,7 +7340,7 @@ impl ::core::convert::TryFrom<&HttpResponseHeaderCollection> for super::super::s
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpResponseHeaderCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpResponseHeaderCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpResponseHeaderCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7455,7 +7455,7 @@ impl ::core::convert::TryFrom<&HttpTransferCodingHeaderValue> for super::super::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpTransferCodingHeaderValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpTransferCodingHeaderValue> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpTransferCodingHeaderValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7649,7 +7649,7 @@ impl ::core::convert::TryFrom<&HttpTransferCodingHeaderValueCollection> for supe
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpTransferCodingHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<HttpTransferCodingHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpTransferCodingHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<HttpTransferCodingHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpTransferCodingHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7671,7 +7671,7 @@ impl ::core::convert::TryFrom<&HttpTransferCodingHeaderValueCollection> for supe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpTransferCodingHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&HttpTransferCodingHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpTransferCodingHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7693,7 +7693,7 @@ impl ::core::convert::TryFrom<&HttpTransferCodingHeaderValueCollection> for supe
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&HttpTransferCodingHeaderValueCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>> {
+impl ::core::convert::TryFrom<&HttpTransferCodingHeaderValueCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpTransferCodingHeaderValueCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CloseCompressor<'a, P0>(compressorhandle: P0) -> super::super::Foundation::BOOL
+pub unsafe fn CloseCompressor<P0>(compressorhandle: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<COMPRESSOR_HANDLE>,
 {
@@ -18,7 +18,7 @@ pub unsafe fn CloseDecompressor(decompressorhandle: isize) -> super::super::Foun
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Compress<'a, P0>(compressorhandle: P0, uncompresseddata: ::core::option::Option<*const ::core::ffi::c_void>, uncompresseddatasize: usize, compressedbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, compressedbuffersize: usize, compresseddatasize: *mut usize) -> super::super::Foundation::BOOL
+pub unsafe fn Compress<P0>(compressorhandle: P0, uncompresseddata: ::core::option::Option<*const ::core::ffi::c_void>, uncompresseddatasize: usize, compressedbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, compressedbuffersize: usize, compresseddatasize: *mut usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<COMPRESSOR_HANDLE>,
 {
@@ -49,7 +49,7 @@ pub unsafe fn Decompress(decompressorhandle: isize, compresseddata: ::core::opti
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryCompressorInformation<'a, P0>(compressorhandle: P0, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *mut ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL
+pub unsafe fn QueryCompressorInformation<P0>(compressorhandle: P0, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *mut ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<COMPRESSOR_HANDLE>,
 {
@@ -66,7 +66,7 @@ pub unsafe fn QueryDecompressorInformation(decompressorhandle: isize, compressin
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ResetCompressor<'a, P0>(compressorhandle: P0) -> super::super::Foundation::BOOL
+pub unsafe fn ResetCompressor<P0>(compressorhandle: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<COMPRESSOR_HANDLE>,
 {
@@ -83,7 +83,7 @@ pub unsafe fn ResetDecompressor(decompressorhandle: isize) -> super::super::Foun
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCompressorInformation<'a, P0>(compressorhandle: P0, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL
+pub unsafe fn SetCompressorInformation<P0>(compressorhandle: P0, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<COMPRESSOR_HANDLE>,
 {

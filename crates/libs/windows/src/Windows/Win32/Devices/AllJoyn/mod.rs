@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynAcceptBusConnection<'a, P0, P1>(serverbushandle: P0, abortevent: P1) -> u32
+pub unsafe fn AllJoynAcceptBusConnection<P0, P1>(serverbushandle: P0, abortevent: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -12,7 +12,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynCloseBusHandle<'a, P0>(bushandle: P0) -> super::super::Foundation::BOOL
+pub unsafe fn AllJoynCloseBusHandle<P0>(bushandle: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -22,7 +22,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynConnectToBus<'a, P0>(connectionspec: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn AllJoynConnectToBus<P0>(connectionspec: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -40,7 +40,7 @@ pub unsafe fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurity
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynEnumEvents<'a, P0, P1>(connectedbushandle: P0, eventtoreset: P1, eventtypes: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn AllJoynEnumEvents<P0, P1>(connectedbushandle: P0, eventtoreset: P1, eventtypes: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -51,7 +51,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynEventSelect<'a, P0, P1>(connectedbushandle: P0, eventhandle: P1, eventtypes: u32) -> super::super::Foundation::BOOL
+pub unsafe fn AllJoynEventSelect<P0, P1>(connectedbushandle: P0, eventhandle: P1, eventtypes: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -62,7 +62,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynReceiveFromBus<'a, P0>(connectedbushandle: P0, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, bytestoread: u32, bytestransferred: ::core::option::Option<*mut u32>, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn AllJoynReceiveFromBus<P0>(connectedbushandle: P0, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, bytestoread: u32, bytestransferred: ::core::option::Option<*mut u32>, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -72,7 +72,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynSendToBus<'a, P0>(connectedbushandle: P0, buffer: ::core::option::Option<*const ::core::ffi::c_void>, bytestowrite: u32, bytestransferred: ::core::option::Option<*mut u32>, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn AllJoynSendToBus<P0>(connectedbushandle: P0, buffer: ::core::option::Option<*const ::core::ffi::c_void>, bytestowrite: u32, bytestransferred: ::core::option::Option<*mut u32>, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -87,7 +87,7 @@ pub unsafe fn QCC_StatusText(status: QStatus) -> ::windows::core::PSTR {
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_create<'a, P0>(defaultlanguage: P0) -> alljoyn_aboutdata
+pub unsafe fn alljoyn_aboutdata_create<P0>(defaultlanguage: P0) -> alljoyn_aboutdata
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -102,7 +102,7 @@ pub unsafe fn alljoyn_aboutdata_create_empty() -> alljoyn_aboutdata {
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_create_full<'a, P0, P1>(arg: P0, language: P1) -> alljoyn_aboutdata
+pub unsafe fn alljoyn_aboutdata_create_full<P0, P1>(arg: P0, language: P1) -> alljoyn_aboutdata
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -112,7 +112,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_createfrommsgarg<'a, P0, P1, P2>(data: P0, arg: P1, language: P2) -> QStatus
+pub unsafe fn alljoyn_aboutdata_createfrommsgarg<P0, P1, P2>(data: P0, arg: P1, language: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
@@ -123,7 +123,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_createfromxml<'a, P0, P1>(data: P0, aboutdataxml: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_createfromxml<P0, P1>(data: P0, aboutdataxml: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -133,7 +133,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_destroy<'a, P0>(data: P0)
+pub unsafe fn alljoyn_aboutdata_destroy<P0>(data: P0)
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
@@ -142,7 +142,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getaboutdata<'a, P0, P1, P2>(data: P0, msgarg: P1, language: P2) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getaboutdata<P0, P1, P2>(data: P0, msgarg: P1, language: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
@@ -153,7 +153,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getajsoftwareversion<'a, P0>(data: P0, ajsoftwareversion: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getajsoftwareversion<P0>(data: P0, ajsoftwareversion: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
@@ -162,7 +162,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getannouncedaboutdata<'a, P0, P1>(data: P0, msgarg: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getannouncedaboutdata<P0, P1>(data: P0, msgarg: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
@@ -172,7 +172,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getappid<'a, P0>(data: P0, appid: *mut *mut u8, num: *mut usize) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getappid<P0>(data: P0, appid: *mut *mut u8, num: *mut usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
@@ -181,7 +181,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getappname<'a, P0, P1>(data: P0, appname: *mut *mut i8, language: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getappname<P0, P1>(data: P0, appname: *mut *mut i8, language: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -191,7 +191,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getdateofmanufacture<'a, P0>(data: P0, dateofmanufacture: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getdateofmanufacture<P0>(data: P0, dateofmanufacture: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
@@ -200,7 +200,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getdefaultlanguage<'a, P0>(data: P0, defaultlanguage: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getdefaultlanguage<P0>(data: P0, defaultlanguage: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
@@ -209,7 +209,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getdescription<'a, P0, P1>(data: P0, description: *mut *mut i8, language: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getdescription<P0, P1>(data: P0, description: *mut *mut i8, language: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -219,7 +219,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getdeviceid<'a, P0>(data: P0, deviceid: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getdeviceid<P0>(data: P0, deviceid: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
@@ -228,7 +228,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getdevicename<'a, P0, P1>(data: P0, devicename: *mut *mut i8, language: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getdevicename<P0, P1>(data: P0, devicename: *mut *mut i8, language: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -238,7 +238,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getfield<'a, P0, P1, P2>(data: P0, name: P1, value: *mut alljoyn_msgarg, language: P2) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getfield<P0, P1, P2>(data: P0, name: P1, value: *mut alljoyn_msgarg, language: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -249,7 +249,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getfields<'a, P0>(data: P0, fields: *const *const i8, num_fields: usize) -> usize
+pub unsafe fn alljoyn_aboutdata_getfields<P0>(data: P0, fields: *const *const i8, num_fields: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
@@ -258,7 +258,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getfieldsignature<'a, P0, P1>(data: P0, fieldname: P1) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_aboutdata_getfieldsignature<P0, P1>(data: P0, fieldname: P1) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -268,7 +268,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_gethardwareversion<'a, P0>(data: P0, hardwareversion: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_aboutdata_gethardwareversion<P0>(data: P0, hardwareversion: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
@@ -277,7 +277,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getmanufacturer<'a, P0, P1>(data: P0, manufacturer: *mut *mut i8, language: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getmanufacturer<P0, P1>(data: P0, manufacturer: *mut *mut i8, language: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -287,7 +287,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getmodelnumber<'a, P0>(data: P0, modelnumber: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getmodelnumber<P0>(data: P0, modelnumber: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
@@ -296,7 +296,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getsoftwareversion<'a, P0>(data: P0, softwareversion: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getsoftwareversion<P0>(data: P0, softwareversion: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
@@ -305,7 +305,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getsupportedlanguages<'a, P0>(data: P0, languagetags: *const *const i8, num: usize) -> usize
+pub unsafe fn alljoyn_aboutdata_getsupportedlanguages<P0>(data: P0, languagetags: *const *const i8, num: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
@@ -314,7 +314,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getsupporturl<'a, P0>(data: P0, supporturl: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_aboutdata_getsupporturl<P0>(data: P0, supporturl: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
@@ -323,7 +323,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_isfieldannounced<'a, P0, P1>(data: P0, fieldname: P1) -> u8
+pub unsafe fn alljoyn_aboutdata_isfieldannounced<P0, P1>(data: P0, fieldname: P1) -> u8
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -333,7 +333,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_isfieldlocalized<'a, P0, P1>(data: P0, fieldname: P1) -> u8
+pub unsafe fn alljoyn_aboutdata_isfieldlocalized<P0, P1>(data: P0, fieldname: P1) -> u8
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -343,7 +343,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_isfieldrequired<'a, P0, P1>(data: P0, fieldname: P1) -> u8
+pub unsafe fn alljoyn_aboutdata_isfieldrequired<P0, P1>(data: P0, fieldname: P1) -> u8
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -353,7 +353,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_isvalid<'a, P0, P1>(data: P0, language: P1) -> u8
+pub unsafe fn alljoyn_aboutdata_isvalid<P0, P1>(data: P0, language: P1) -> u8
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -363,7 +363,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_setappid<'a, P0>(data: P0, appid: *const u8, num: usize) -> QStatus
+pub unsafe fn alljoyn_aboutdata_setappid<P0>(data: P0, appid: *const u8, num: usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
@@ -372,7 +372,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_setappid_fromstring<'a, P0, P1>(data: P0, appid: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_setappid_fromstring<P0, P1>(data: P0, appid: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -382,7 +382,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_setappname<'a, P0, P1, P2>(data: P0, appname: P1, language: P2) -> QStatus
+pub unsafe fn alljoyn_aboutdata_setappname<P0, P1, P2>(data: P0, appname: P1, language: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -393,7 +393,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_setdateofmanufacture<'a, P0, P1>(data: P0, dateofmanufacture: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_setdateofmanufacture<P0, P1>(data: P0, dateofmanufacture: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -403,7 +403,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_setdefaultlanguage<'a, P0, P1>(data: P0, defaultlanguage: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_setdefaultlanguage<P0, P1>(data: P0, defaultlanguage: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -413,7 +413,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_setdescription<'a, P0, P1, P2>(data: P0, description: P1, language: P2) -> QStatus
+pub unsafe fn alljoyn_aboutdata_setdescription<P0, P1, P2>(data: P0, description: P1, language: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -424,7 +424,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_setdeviceid<'a, P0, P1>(data: P0, deviceid: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_setdeviceid<P0, P1>(data: P0, deviceid: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -434,7 +434,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_setdevicename<'a, P0, P1, P2>(data: P0, devicename: P1, language: P2) -> QStatus
+pub unsafe fn alljoyn_aboutdata_setdevicename<P0, P1, P2>(data: P0, devicename: P1, language: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -445,7 +445,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_setfield<'a, P0, P1, P2, P3>(data: P0, name: P1, value: P2, language: P3) -> QStatus
+pub unsafe fn alljoyn_aboutdata_setfield<P0, P1, P2, P3>(data: P0, name: P1, value: P2, language: P3) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -457,7 +457,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_sethardwareversion<'a, P0, P1>(data: P0, hardwareversion: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_sethardwareversion<P0, P1>(data: P0, hardwareversion: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -467,7 +467,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_setmanufacturer<'a, P0, P1, P2>(data: P0, manufacturer: P1, language: P2) -> QStatus
+pub unsafe fn alljoyn_aboutdata_setmanufacturer<P0, P1, P2>(data: P0, manufacturer: P1, language: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -478,7 +478,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_setmodelnumber<'a, P0, P1>(data: P0, modelnumber: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_setmodelnumber<P0, P1>(data: P0, modelnumber: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -488,7 +488,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_setsoftwareversion<'a, P0, P1>(data: P0, softwareversion: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_setsoftwareversion<P0, P1>(data: P0, softwareversion: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -498,7 +498,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_setsupportedlanguage<'a, P0, P1>(data: P0, language: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_setsupportedlanguage<P0, P1>(data: P0, language: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -508,7 +508,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_setsupporturl<'a, P0, P1>(data: P0, supporturl: P1) -> QStatus
+pub unsafe fn alljoyn_aboutdata_setsupporturl<P0, P1>(data: P0, supporturl: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -524,7 +524,7 @@ pub unsafe fn alljoyn_aboutdatalistener_create(callbacks: *const alljoyn_aboutda
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdatalistener_destroy<'a, P0>(listener: P0)
+pub unsafe fn alljoyn_aboutdatalistener_destroy<P0>(listener: P0)
 where
     P0: ::std::convert::Into<alljoyn_aboutdatalistener>,
 {
@@ -563,7 +563,7 @@ pub unsafe fn alljoyn_abouticon_geturl(icon: *mut _alljoyn_abouticon_handle, r#t
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticon_setcontent<'a, P0>(icon: *mut _alljoyn_abouticon_handle, r#type: P0, data: *mut u8, csize: usize, ownsdata: u8) -> QStatus
+pub unsafe fn alljoyn_abouticon_setcontent<P0>(icon: *mut _alljoyn_abouticon_handle, r#type: P0, data: *mut u8, csize: usize, ownsdata: u8) -> QStatus
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -572,7 +572,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticon_setcontent_frommsgarg<'a, P0>(icon: *mut _alljoyn_abouticon_handle, arg: P0) -> QStatus
+pub unsafe fn alljoyn_abouticon_setcontent_frommsgarg<P0>(icon: *mut _alljoyn_abouticon_handle, arg: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -581,7 +581,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticon_seturl<'a, P0, P1>(icon: *mut _alljoyn_abouticon_handle, r#type: P0, url: P1) -> QStatus
+pub unsafe fn alljoyn_abouticon_seturl<P0, P1>(icon: *mut _alljoyn_abouticon_handle, r#type: P0, url: P1) -> QStatus
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -591,7 +591,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticonobj_create<'a, P0>(bus: P0, icon: *mut _alljoyn_abouticon_handle) -> *mut _alljoyn_abouticonobj_handle
+pub unsafe fn alljoyn_abouticonobj_create<P0>(bus: P0, icon: *mut _alljoyn_abouticon_handle) -> *mut _alljoyn_abouticonobj_handle
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -606,7 +606,7 @@ pub unsafe fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_hand
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticonproxy_create<'a, P0, P1>(bus: P0, busname: P1, sessionid: u32) -> *mut _alljoyn_abouticonproxy_handle
+pub unsafe fn alljoyn_abouticonproxy_create<P0, P1>(bus: P0, busname: P1, sessionid: u32) -> *mut _alljoyn_abouticonproxy_handle
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -640,7 +640,7 @@ pub unsafe fn alljoyn_aboutlistener_create(callback: *const alljoyn_aboutlistene
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutlistener_destroy<'a, P0>(listener: P0)
+pub unsafe fn alljoyn_aboutlistener_destroy<P0>(listener: P0)
 where
     P0: ::std::convert::Into<alljoyn_aboutlistener>,
 {
@@ -649,7 +649,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobj_announce<'a, P0, P1>(obj: P0, sessionport: u16, aboutdata: P1) -> QStatus
+pub unsafe fn alljoyn_aboutobj_announce<P0, P1>(obj: P0, sessionport: u16, aboutdata: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutobj>,
     P1: ::std::convert::Into<alljoyn_aboutdata>,
@@ -659,7 +659,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobj_announce_using_datalistener<'a, P0, P1>(obj: P0, sessionport: u16, aboutlistener: P1) -> QStatus
+pub unsafe fn alljoyn_aboutobj_announce_using_datalistener<P0, P1>(obj: P0, sessionport: u16, aboutlistener: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutobj>,
     P1: ::std::convert::Into<alljoyn_aboutdatalistener>,
@@ -669,7 +669,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobj_create<'a, P0>(bus: P0, isannounced: alljoyn_about_announceflag) -> alljoyn_aboutobj
+pub unsafe fn alljoyn_aboutobj_create<P0>(bus: P0, isannounced: alljoyn_about_announceflag) -> alljoyn_aboutobj
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -678,7 +678,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobj_destroy<'a, P0>(obj: P0)
+pub unsafe fn alljoyn_aboutobj_destroy<P0>(obj: P0)
 where
     P0: ::std::convert::Into<alljoyn_aboutobj>,
 {
@@ -687,7 +687,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobj_unannounce<'a, P0>(obj: P0) -> QStatus
+pub unsafe fn alljoyn_aboutobj_unannounce<P0>(obj: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutobj>,
 {
@@ -696,7 +696,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobjectdescription_clear<'a, P0>(description: P0)
+pub unsafe fn alljoyn_aboutobjectdescription_clear<P0>(description: P0)
 where
     P0: ::std::convert::Into<alljoyn_aboutobjectdescription>,
 {
@@ -711,7 +711,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_create() -> alljoyn_aboutobjectdesc
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobjectdescription_create_full<'a, P0>(arg: P0) -> alljoyn_aboutobjectdescription
+pub unsafe fn alljoyn_aboutobjectdescription_create_full<P0>(arg: P0) -> alljoyn_aboutobjectdescription
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -720,7 +720,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobjectdescription_createfrommsgarg<'a, P0, P1>(description: P0, arg: P1) -> QStatus
+pub unsafe fn alljoyn_aboutobjectdescription_createfrommsgarg<P0, P1>(description: P0, arg: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutobjectdescription>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
@@ -730,7 +730,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobjectdescription_destroy<'a, P0>(description: P0)
+pub unsafe fn alljoyn_aboutobjectdescription_destroy<P0>(description: P0)
 where
     P0: ::std::convert::Into<alljoyn_aboutobjectdescription>,
 {
@@ -739,7 +739,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobjectdescription_getinterfacepaths<'a, P0, P1>(description: P0, interfacename: P1, paths: *const *const i8, numpaths: usize) -> usize
+pub unsafe fn alljoyn_aboutobjectdescription_getinterfacepaths<P0, P1>(description: P0, interfacename: P1, paths: *const *const i8, numpaths: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_aboutobjectdescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -749,7 +749,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobjectdescription_getinterfaces<'a, P0, P1>(description: P0, path: P1, interfaces: *const *const i8, numinterfaces: usize) -> usize
+pub unsafe fn alljoyn_aboutobjectdescription_getinterfaces<P0, P1>(description: P0, path: P1, interfaces: *const *const i8, numinterfaces: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_aboutobjectdescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -759,7 +759,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobjectdescription_getmsgarg<'a, P0, P1>(description: P0, msgarg: P1) -> QStatus
+pub unsafe fn alljoyn_aboutobjectdescription_getmsgarg<P0, P1>(description: P0, msgarg: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutobjectdescription>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
@@ -769,7 +769,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobjectdescription_getpaths<'a, P0>(description: P0, paths: *const *const i8, numpaths: usize) -> usize
+pub unsafe fn alljoyn_aboutobjectdescription_getpaths<P0>(description: P0, paths: *const *const i8, numpaths: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_aboutobjectdescription>,
 {
@@ -778,7 +778,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobjectdescription_hasinterface<'a, P0, P1>(description: P0, interfacename: P1) -> u8
+pub unsafe fn alljoyn_aboutobjectdescription_hasinterface<P0, P1>(description: P0, interfacename: P1) -> u8
 where
     P0: ::std::convert::Into<alljoyn_aboutobjectdescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -788,7 +788,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobjectdescription_hasinterfaceatpath<'a, P0, P1, P2>(description: P0, path: P1, interfacename: P2) -> u8
+pub unsafe fn alljoyn_aboutobjectdescription_hasinterfaceatpath<P0, P1, P2>(description: P0, path: P1, interfacename: P2) -> u8
 where
     P0: ::std::convert::Into<alljoyn_aboutobjectdescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -799,7 +799,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutobjectdescription_haspath<'a, P0, P1>(description: P0, path: P1) -> u8
+pub unsafe fn alljoyn_aboutobjectdescription_haspath<P0, P1>(description: P0, path: P1) -> u8
 where
     P0: ::std::convert::Into<alljoyn_aboutobjectdescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -809,7 +809,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutproxy_create<'a, P0, P1>(bus: P0, busname: P1, sessionid: u32) -> alljoyn_aboutproxy
+pub unsafe fn alljoyn_aboutproxy_create<P0, P1>(bus: P0, busname: P1, sessionid: u32) -> alljoyn_aboutproxy
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -819,7 +819,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutproxy_destroy<'a, P0>(proxy: P0)
+pub unsafe fn alljoyn_aboutproxy_destroy<P0>(proxy: P0)
 where
     P0: ::std::convert::Into<alljoyn_aboutproxy>,
 {
@@ -828,7 +828,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutproxy_getaboutdata<'a, P0, P1, P2>(proxy: P0, language: P1, data: P2) -> QStatus
+pub unsafe fn alljoyn_aboutproxy_getaboutdata<P0, P1, P2>(proxy: P0, language: P1, data: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutproxy>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -839,7 +839,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutproxy_getobjectdescription<'a, P0, P1>(proxy: P0, objectdesc: P1) -> QStatus
+pub unsafe fn alljoyn_aboutproxy_getobjectdescription<P0, P1>(proxy: P0, objectdesc: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutproxy>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
@@ -849,7 +849,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutproxy_getversion<'a, P0>(proxy: P0, version: *mut u16) -> QStatus
+pub unsafe fn alljoyn_aboutproxy_getversion<P0>(proxy: P0, version: *mut u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_aboutproxy>,
 {
@@ -864,7 +864,7 @@ pub unsafe fn alljoyn_applicationstatelistener_create(callbacks: *const alljoyn_
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_applicationstatelistener_destroy<'a, P0>(listener: P0)
+pub unsafe fn alljoyn_applicationstatelistener_destroy<P0>(listener: P0)
 where
     P0: ::std::convert::Into<alljoyn_applicationstatelistener>,
 {
@@ -879,7 +879,7 @@ pub unsafe fn alljoyn_authlistener_create(callbacks: *const alljoyn_authlistener
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_authlistener_destroy<'a, P0>(listener: P0)
+pub unsafe fn alljoyn_authlistener_destroy<P0>(listener: P0)
 where
     P0: ::std::convert::Into<alljoyn_authlistener>,
 {
@@ -888,7 +888,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_authlistener_requestcredentialsresponse<'a, P0, P1>(listener: P0, authcontext: *mut ::core::ffi::c_void, accept: i32, credentials: P1) -> QStatus
+pub unsafe fn alljoyn_authlistener_requestcredentialsresponse<P0, P1>(listener: P0, authcontext: *mut ::core::ffi::c_void, accept: i32, credentials: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_authlistener>,
     P1: ::std::convert::Into<alljoyn_credentials>,
@@ -898,7 +898,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_authlistener_setsharedsecret<'a, P0>(listener: P0, sharedsecret: *const u8, sharedsecretsize: usize) -> QStatus
+pub unsafe fn alljoyn_authlistener_setsharedsecret<P0>(listener: P0, sharedsecret: *const u8, sharedsecretsize: usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_authlistener>,
 {
@@ -907,7 +907,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_authlistener_verifycredentialsresponse<'a, P0>(listener: P0, authcontext: *mut ::core::ffi::c_void, accept: i32) -> QStatus
+pub unsafe fn alljoyn_authlistener_verifycredentialsresponse<P0>(listener: P0, authcontext: *mut ::core::ffi::c_void, accept: i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_authlistener>,
 {
@@ -922,7 +922,7 @@ pub unsafe fn alljoyn_authlistenerasync_create(callbacks: *const alljoyn_authlis
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_authlistenerasync_destroy<'a, P0>(listener: P0)
+pub unsafe fn alljoyn_authlistenerasync_destroy<P0>(listener: P0)
 where
     P0: ::std::convert::Into<alljoyn_authlistener>,
 {
@@ -931,7 +931,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_autopinger_adddestination<'a, P0, P1, P2>(autopinger: P0, group: P1, destination: P2) -> QStatus
+pub unsafe fn alljoyn_autopinger_adddestination<P0, P1, P2>(autopinger: P0, group: P1, destination: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_autopinger>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -942,7 +942,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_autopinger_addpinggroup<'a, P0, P1, P2>(autopinger: P0, group: P1, listener: P2, pinginterval: u32)
+pub unsafe fn alljoyn_autopinger_addpinggroup<P0, P1, P2>(autopinger: P0, group: P1, listener: P2, pinginterval: u32)
 where
     P0: ::std::convert::Into<alljoyn_autopinger>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -953,7 +953,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_autopinger_create<'a, P0>(bus: P0) -> alljoyn_autopinger
+pub unsafe fn alljoyn_autopinger_create<P0>(bus: P0) -> alljoyn_autopinger
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -962,7 +962,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_autopinger_destroy<'a, P0>(autopinger: P0)
+pub unsafe fn alljoyn_autopinger_destroy<P0>(autopinger: P0)
 where
     P0: ::std::convert::Into<alljoyn_autopinger>,
 {
@@ -971,7 +971,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_autopinger_pause<'a, P0>(autopinger: P0)
+pub unsafe fn alljoyn_autopinger_pause<P0>(autopinger: P0)
 where
     P0: ::std::convert::Into<alljoyn_autopinger>,
 {
@@ -980,7 +980,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_autopinger_removedestination<'a, P0, P1, P2>(autopinger: P0, group: P1, destination: P2, removeall: i32) -> QStatus
+pub unsafe fn alljoyn_autopinger_removedestination<P0, P1, P2>(autopinger: P0, group: P1, destination: P2, removeall: i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_autopinger>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -991,7 +991,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_autopinger_removepinggroup<'a, P0, P1>(autopinger: P0, group: P1)
+pub unsafe fn alljoyn_autopinger_removepinggroup<P0, P1>(autopinger: P0, group: P1)
 where
     P0: ::std::convert::Into<alljoyn_autopinger>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1001,7 +1001,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_autopinger_resume<'a, P0>(autopinger: P0)
+pub unsafe fn alljoyn_autopinger_resume<P0>(autopinger: P0)
 where
     P0: ::std::convert::Into<alljoyn_autopinger>,
 {
@@ -1010,7 +1010,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_autopinger_setpinginterval<'a, P0, P1>(autopinger: P0, group: P1, pinginterval: u32) -> QStatus
+pub unsafe fn alljoyn_autopinger_setpinginterval<P0, P1>(autopinger: P0, group: P1, pinginterval: u32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_autopinger>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1020,7 +1020,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_addlogonentry<'a, P0, P1, P2, P3>(bus: P0, authmechanism: P1, username: P2, password: P3) -> QStatus
+pub unsafe fn alljoyn_busattachment_addlogonentry<P0, P1, P2, P3>(bus: P0, authmechanism: P1, username: P2, password: P3) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1032,7 +1032,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_addmatch<'a, P0, P1>(bus: P0, rule: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_addmatch<P0, P1>(bus: P0, rule: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1042,7 +1042,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_advertisename<'a, P0, P1>(bus: P0, name: P1, transports: u16) -> QStatus
+pub unsafe fn alljoyn_busattachment_advertisename<P0, P1>(bus: P0, name: P1, transports: u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1052,7 +1052,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_bindsessionport<'a, P0, P1, P2>(bus: P0, sessionport: *mut u16, opts: P1, listener: P2) -> QStatus
+pub unsafe fn alljoyn_busattachment_bindsessionport<P0, P1, P2>(bus: P0, sessionport: *mut u16, opts: P1, listener: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<alljoyn_sessionopts>,
@@ -1063,7 +1063,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_canceladvertisename<'a, P0, P1>(bus: P0, name: P1, transports: u16) -> QStatus
+pub unsafe fn alljoyn_busattachment_canceladvertisename<P0, P1>(bus: P0, name: P1, transports: u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1073,7 +1073,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_cancelfindadvertisedname<'a, P0, P1>(bus: P0, nameprefix: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_cancelfindadvertisedname<P0, P1>(bus: P0, nameprefix: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1083,7 +1083,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_cancelfindadvertisednamebytransport<'a, P0, P1>(bus: P0, nameprefix: P1, transports: u16) -> QStatus
+pub unsafe fn alljoyn_busattachment_cancelfindadvertisednamebytransport<P0, P1>(bus: P0, nameprefix: P1, transports: u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1093,7 +1093,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interface<'a, P0, P1>(bus: P0, implementsinterface: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interface<P0, P1>(bus: P0, implementsinterface: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1103,7 +1103,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interfaces<'a, P0>(bus: P0, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus
+pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interfaces<P0>(bus: P0, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1112,7 +1112,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_clearkeys<'a, P0, P1>(bus: P0, guid: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_clearkeys<P0, P1>(bus: P0, guid: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1122,7 +1122,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_clearkeystore<'a, P0>(bus: P0)
+pub unsafe fn alljoyn_busattachment_clearkeystore<P0>(bus: P0)
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1131,7 +1131,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_connect<'a, P0, P1>(bus: P0, connectspec: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_connect<P0, P1>(bus: P0, connectspec: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1141,7 +1141,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_create<'a, P0>(applicationname: P0, allowremotemessages: i32) -> alljoyn_busattachment
+pub unsafe fn alljoyn_busattachment_create<P0>(applicationname: P0, allowremotemessages: i32) -> alljoyn_busattachment
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1150,7 +1150,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_create_concurrency<'a, P0>(applicationname: P0, allowremotemessages: i32, concurrency: u32) -> alljoyn_busattachment
+pub unsafe fn alljoyn_busattachment_create_concurrency<P0>(applicationname: P0, allowremotemessages: i32, concurrency: u32) -> alljoyn_busattachment
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1159,7 +1159,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_createinterface<'a, P0, P1>(bus: P0, name: P1, iface: *mut alljoyn_interfacedescription) -> QStatus
+pub unsafe fn alljoyn_busattachment_createinterface<P0, P1>(bus: P0, name: P1, iface: *mut alljoyn_interfacedescription) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1169,7 +1169,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_createinterface_secure<'a, P0, P1>(bus: P0, name: P1, iface: *mut alljoyn_interfacedescription, secpolicy: alljoyn_interfacedescription_securitypolicy) -> QStatus
+pub unsafe fn alljoyn_busattachment_createinterface_secure<P0, P1>(bus: P0, name: P1, iface: *mut alljoyn_interfacedescription, secpolicy: alljoyn_interfacedescription_securitypolicy) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1179,7 +1179,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_createinterfacesfromxml<'a, P0, P1>(bus: P0, xml: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_createinterfacesfromxml<P0, P1>(bus: P0, xml: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1189,7 +1189,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_deletedefaultkeystore<'a, P0>(applicationname: P0) -> QStatus
+pub unsafe fn alljoyn_busattachment_deletedefaultkeystore<P0>(applicationname: P0) -> QStatus
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1198,7 +1198,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_deleteinterface<'a, P0, P1>(bus: P0, iface: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_deleteinterface<P0, P1>(bus: P0, iface: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<alljoyn_interfacedescription>,
@@ -1208,7 +1208,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_destroy<'a, P0>(bus: P0)
+pub unsafe fn alljoyn_busattachment_destroy<P0>(bus: P0)
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1217,7 +1217,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_disconnect<'a, P0, P1>(bus: P0, unused: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_disconnect<P0, P1>(bus: P0, unused: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1227,7 +1227,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_enableconcurrentcallbacks<'a, P0>(bus: P0)
+pub unsafe fn alljoyn_busattachment_enableconcurrentcallbacks<P0>(bus: P0)
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1236,7 +1236,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_enablepeersecurity<'a, P0, P1, P2, P3>(bus: P0, authmechanisms: P1, listener: P2, keystorefilename: P3, isshared: i32) -> QStatus
+pub unsafe fn alljoyn_busattachment_enablepeersecurity<P0, P1, P2, P3>(bus: P0, authmechanisms: P1, listener: P2, keystorefilename: P3, isshared: i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1248,7 +1248,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener<'a, P0, P1, P2, P3, P4>(bus: P0, authmechanisms: P1, authlistener: P2, keystorefilename: P3, isshared: i32, permissionconfigurationlistener: P4) -> QStatus
+pub unsafe fn alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener<P0, P1, P2, P3, P4>(bus: P0, authmechanisms: P1, authlistener: P2, keystorefilename: P3, isshared: i32, permissionconfigurationlistener: P4) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1261,7 +1261,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_findadvertisedname<'a, P0, P1>(bus: P0, nameprefix: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_findadvertisedname<P0, P1>(bus: P0, nameprefix: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1271,7 +1271,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_findadvertisednamebytransport<'a, P0, P1>(bus: P0, nameprefix: P1, transports: u16) -> QStatus
+pub unsafe fn alljoyn_busattachment_findadvertisednamebytransport<P0, P1>(bus: P0, nameprefix: P1, transports: u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1281,7 +1281,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getalljoyndebugobj<'a, P0>(bus: P0) -> alljoyn_proxybusobject
+pub unsafe fn alljoyn_busattachment_getalljoyndebugobj<P0>(bus: P0) -> alljoyn_proxybusobject
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1290,7 +1290,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getalljoynproxyobj<'a, P0>(bus: P0) -> alljoyn_proxybusobject
+pub unsafe fn alljoyn_busattachment_getalljoynproxyobj<P0>(bus: P0) -> alljoyn_proxybusobject
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1299,7 +1299,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getconcurrency<'a, P0>(bus: P0) -> u32
+pub unsafe fn alljoyn_busattachment_getconcurrency<P0>(bus: P0) -> u32
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1308,7 +1308,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getconnectspec<'a, P0>(bus: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_busattachment_getconnectspec<P0>(bus: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1317,7 +1317,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getdbusproxyobj<'a, P0>(bus: P0) -> alljoyn_proxybusobject
+pub unsafe fn alljoyn_busattachment_getdbusproxyobj<P0>(bus: P0) -> alljoyn_proxybusobject
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1326,7 +1326,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getglobalguidstring<'a, P0>(bus: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_busattachment_getglobalguidstring<P0>(bus: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1335,7 +1335,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getinterface<'a, P0, P1>(bus: P0, name: P1) -> alljoyn_interfacedescription
+pub unsafe fn alljoyn_busattachment_getinterface<P0, P1>(bus: P0, name: P1) -> alljoyn_interfacedescription
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1345,7 +1345,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getinterfaces<'a, P0>(bus: P0, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize
+pub unsafe fn alljoyn_busattachment_getinterfaces<P0>(bus: P0, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1354,7 +1354,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getkeyexpiration<'a, P0, P1>(bus: P0, guid: P1, timeout: *mut u32) -> QStatus
+pub unsafe fn alljoyn_busattachment_getkeyexpiration<P0, P1>(bus: P0, guid: P1, timeout: *mut u32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1364,7 +1364,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getpeerguid<'a, P0, P1, P2>(bus: P0, name: P1, guid: P2, guidsz: *mut usize) -> QStatus
+pub unsafe fn alljoyn_busattachment_getpeerguid<P0, P1, P2>(bus: P0, name: P1, guid: P2, guidsz: *mut usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1375,7 +1375,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getpermissionconfigurator<'a, P0>(bus: P0) -> alljoyn_permissionconfigurator
+pub unsafe fn alljoyn_busattachment_getpermissionconfigurator<P0>(bus: P0) -> alljoyn_permissionconfigurator
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1390,7 +1390,7 @@ pub unsafe fn alljoyn_busattachment_gettimestamp() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getuniquename<'a, P0>(bus: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_busattachment_getuniquename<P0>(bus: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1399,7 +1399,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_isconnected<'a, P0>(bus: P0) -> i32
+pub unsafe fn alljoyn_busattachment_isconnected<P0>(bus: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1408,7 +1408,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_ispeersecurityenabled<'a, P0>(bus: P0) -> i32
+pub unsafe fn alljoyn_busattachment_ispeersecurityenabled<P0>(bus: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1417,7 +1417,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_isstarted<'a, P0>(bus: P0) -> i32
+pub unsafe fn alljoyn_busattachment_isstarted<P0>(bus: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1426,7 +1426,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_isstopping<'a, P0>(bus: P0) -> i32
+pub unsafe fn alljoyn_busattachment_isstopping<P0>(bus: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1435,7 +1435,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_join<'a, P0>(bus: P0) -> QStatus
+pub unsafe fn alljoyn_busattachment_join<P0>(bus: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1444,7 +1444,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_joinsession<'a, P0, P1, P2, P3>(bus: P0, sessionhost: P1, sessionport: u16, listener: P2, sessionid: *mut u32, opts: P3) -> QStatus
+pub unsafe fn alljoyn_busattachment_joinsession<P0, P1, P2, P3>(bus: P0, sessionhost: P1, sessionport: u16, listener: P2, sessionid: *mut u32, opts: P3) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1456,7 +1456,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_joinsessionasync<'a, P0, P1, P2, P3>(bus: P0, sessionhost: P1, sessionport: u16, listener: P2, opts: P3, callback: alljoyn_busattachment_joinsessioncb_ptr, context: *mut ::core::ffi::c_void) -> QStatus
+pub unsafe fn alljoyn_busattachment_joinsessionasync<P0, P1, P2, P3>(bus: P0, sessionhost: P1, sessionport: u16, listener: P2, opts: P3, callback: alljoyn_busattachment_joinsessioncb_ptr, context: *mut ::core::ffi::c_void) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1468,7 +1468,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_leavesession<'a, P0>(bus: P0, sessionid: u32) -> QStatus
+pub unsafe fn alljoyn_busattachment_leavesession<P0>(bus: P0, sessionid: u32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1477,7 +1477,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_namehasowner<'a, P0, P1>(bus: P0, name: P1, hasowner: *mut i32) -> QStatus
+pub unsafe fn alljoyn_busattachment_namehasowner<P0, P1>(bus: P0, name: P1, hasowner: *mut i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1487,7 +1487,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_ping<'a, P0, P1>(bus: P0, name: P1, timeout: u32) -> QStatus
+pub unsafe fn alljoyn_busattachment_ping<P0, P1>(bus: P0, name: P1, timeout: u32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1497,7 +1497,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_registeraboutlistener<'a, P0, P1>(bus: P0, aboutlistener: P1)
+pub unsafe fn alljoyn_busattachment_registeraboutlistener<P0, P1>(bus: P0, aboutlistener: P1)
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<alljoyn_aboutlistener>,
@@ -1507,7 +1507,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_registerapplicationstatelistener<'a, P0, P1>(bus: P0, listener: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_registerapplicationstatelistener<P0, P1>(bus: P0, listener: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<alljoyn_applicationstatelistener>,
@@ -1517,7 +1517,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_registerbuslistener<'a, P0, P1>(bus: P0, listener: P1)
+pub unsafe fn alljoyn_busattachment_registerbuslistener<P0, P1>(bus: P0, listener: P1)
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<alljoyn_buslistener>,
@@ -1527,7 +1527,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_registerbusobject<'a, P0, P1>(bus: P0, obj: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_registerbusobject<P0, P1>(bus: P0, obj: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<alljoyn_busobject>,
@@ -1537,7 +1537,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_registerbusobject_secure<'a, P0, P1>(bus: P0, obj: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_registerbusobject_secure<P0, P1>(bus: P0, obj: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<alljoyn_busobject>,
@@ -1547,7 +1547,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_registerkeystorelistener<'a, P0, P1>(bus: P0, listener: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_registerkeystorelistener<P0, P1>(bus: P0, listener: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<alljoyn_keystorelistener>,
@@ -1557,7 +1557,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_registersignalhandler<'a, P0, P1>(bus: P0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, srcpath: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_registersignalhandler<P0, P1>(bus: P0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, srcpath: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1567,7 +1567,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_registersignalhandlerwithrule<'a, P0, P1>(bus: P0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, matchrule: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_registersignalhandlerwithrule<P0, P1>(bus: P0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, matchrule: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1577,7 +1577,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_releasename<'a, P0, P1>(bus: P0, name: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_releasename<P0, P1>(bus: P0, name: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1587,7 +1587,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_reloadkeystore<'a, P0>(bus: P0) -> QStatus
+pub unsafe fn alljoyn_busattachment_reloadkeystore<P0>(bus: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1596,7 +1596,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_removematch<'a, P0, P1>(bus: P0, rule: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_removematch<P0, P1>(bus: P0, rule: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1606,7 +1606,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_removesessionmember<'a, P0, P1>(bus: P0, sessionid: u32, membername: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_removesessionmember<P0, P1>(bus: P0, sessionid: u32, membername: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1616,7 +1616,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_requestname<'a, P0, P1>(bus: P0, requestedname: P1, flags: u32) -> QStatus
+pub unsafe fn alljoyn_busattachment_requestname<P0, P1>(bus: P0, requestedname: P1, flags: u32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1626,7 +1626,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_secureconnection<'a, P0, P1>(bus: P0, name: P1, forceauth: i32) -> QStatus
+pub unsafe fn alljoyn_busattachment_secureconnection<P0, P1>(bus: P0, name: P1, forceauth: i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1636,7 +1636,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_secureconnectionasync<'a, P0, P1>(bus: P0, name: P1, forceauth: i32) -> QStatus
+pub unsafe fn alljoyn_busattachment_secureconnectionasync<P0, P1>(bus: P0, name: P1, forceauth: i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1646,7 +1646,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_setdaemondebug<'a, P0, P1>(bus: P0, module: P1, level: u32) -> QStatus
+pub unsafe fn alljoyn_busattachment_setdaemondebug<P0, P1>(bus: P0, module: P1, level: u32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1656,7 +1656,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_setkeyexpiration<'a, P0, P1>(bus: P0, guid: P1, timeout: u32) -> QStatus
+pub unsafe fn alljoyn_busattachment_setkeyexpiration<P0, P1>(bus: P0, guid: P1, timeout: u32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1666,7 +1666,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_setlinktimeout<'a, P0>(bus: P0, sessionid: u32, linktimeout: *mut u32) -> QStatus
+pub unsafe fn alljoyn_busattachment_setlinktimeout<P0>(bus: P0, sessionid: u32, linktimeout: *mut u32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1675,7 +1675,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_setlinktimeoutasync<'a, P0>(bus: P0, sessionid: u32, linktimeout: u32, callback: alljoyn_busattachment_setlinktimeoutcb_ptr, context: *mut ::core::ffi::c_void) -> QStatus
+pub unsafe fn alljoyn_busattachment_setlinktimeoutasync<P0>(bus: P0, sessionid: u32, linktimeout: u32, callback: alljoyn_busattachment_setlinktimeoutcb_ptr, context: *mut ::core::ffi::c_void) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1684,7 +1684,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_setsessionlistener<'a, P0, P1>(bus: P0, sessionid: u32, listener: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_setsessionlistener<P0, P1>(bus: P0, sessionid: u32, listener: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<alljoyn_sessionlistener>,
@@ -1694,7 +1694,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_start<'a, P0>(bus: P0) -> QStatus
+pub unsafe fn alljoyn_busattachment_start<P0>(bus: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1703,7 +1703,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_stop<'a, P0>(bus: P0) -> QStatus
+pub unsafe fn alljoyn_busattachment_stop<P0>(bus: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1712,7 +1712,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_unbindsessionport<'a, P0>(bus: P0, sessionport: u16) -> QStatus
+pub unsafe fn alljoyn_busattachment_unbindsessionport<P0>(bus: P0, sessionport: u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1721,7 +1721,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_unregisteraboutlistener<'a, P0, P1>(bus: P0, aboutlistener: P1)
+pub unsafe fn alljoyn_busattachment_unregisteraboutlistener<P0, P1>(bus: P0, aboutlistener: P1)
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<alljoyn_aboutlistener>,
@@ -1731,7 +1731,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_unregisterallaboutlisteners<'a, P0>(bus: P0)
+pub unsafe fn alljoyn_busattachment_unregisterallaboutlisteners<P0>(bus: P0)
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1740,7 +1740,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_unregisterallhandlers<'a, P0>(bus: P0) -> QStatus
+pub unsafe fn alljoyn_busattachment_unregisterallhandlers<P0>(bus: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1749,7 +1749,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_unregisterapplicationstatelistener<'a, P0, P1>(bus: P0, listener: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_unregisterapplicationstatelistener<P0, P1>(bus: P0, listener: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<alljoyn_applicationstatelistener>,
@@ -1759,7 +1759,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_unregisterbuslistener<'a, P0, P1>(bus: P0, listener: P1)
+pub unsafe fn alljoyn_busattachment_unregisterbuslistener<P0, P1>(bus: P0, listener: P1)
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<alljoyn_buslistener>,
@@ -1769,7 +1769,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_unregisterbusobject<'a, P0, P1>(bus: P0, object: P1)
+pub unsafe fn alljoyn_busattachment_unregisterbusobject<P0, P1>(bus: P0, object: P1)
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<alljoyn_busobject>,
@@ -1779,7 +1779,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_unregistersignalhandler<'a, P0, P1>(bus: P0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, srcpath: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_unregistersignalhandler<P0, P1>(bus: P0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, srcpath: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1789,7 +1789,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_unregistersignalhandlerwithrule<'a, P0, P1>(bus: P0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, matchrule: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_unregistersignalhandlerwithrule<P0, P1>(bus: P0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, matchrule: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1799,7 +1799,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_whoimplements_interface<'a, P0, P1>(bus: P0, implementsinterface: P1) -> QStatus
+pub unsafe fn alljoyn_busattachment_whoimplements_interface<P0, P1>(bus: P0, implementsinterface: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1809,7 +1809,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_whoimplements_interfaces<'a, P0>(bus: P0, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus
+pub unsafe fn alljoyn_busattachment_whoimplements_interfaces<P0>(bus: P0, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -1824,7 +1824,7 @@ pub unsafe fn alljoyn_buslistener_create(callbacks: *const alljoyn_buslistener_c
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_buslistener_destroy<'a, P0>(listener: P0)
+pub unsafe fn alljoyn_buslistener_destroy<P0>(listener: P0)
 where
     P0: ::std::convert::Into<alljoyn_buslistener>,
 {
@@ -1833,7 +1833,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_addinterface<'a, P0, P1>(bus: P0, iface: P1) -> QStatus
+pub unsafe fn alljoyn_busobject_addinterface<P0, P1>(bus: P0, iface: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
     P1: ::std::convert::Into<alljoyn_interfacedescription>,
@@ -1843,7 +1843,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_addinterface_announced<'a, P0, P1>(bus: P0, iface: P1) -> QStatus
+pub unsafe fn alljoyn_busobject_addinterface_announced<P0, P1>(bus: P0, iface: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
     P1: ::std::convert::Into<alljoyn_interfacedescription>,
@@ -1853,7 +1853,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_addmethodhandler<'a, P0>(bus: P0, member: alljoyn_interfacedescription_member, handler: alljoyn_messagereceiver_methodhandler_ptr, context: *mut ::core::ffi::c_void) -> QStatus
+pub unsafe fn alljoyn_busobject_addmethodhandler<P0>(bus: P0, member: alljoyn_interfacedescription_member, handler: alljoyn_messagereceiver_methodhandler_ptr, context: *mut ::core::ffi::c_void) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
 {
@@ -1862,7 +1862,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_addmethodhandlers<'a, P0>(bus: P0, entries: *const alljoyn_busobject_methodentry, numentries: usize) -> QStatus
+pub unsafe fn alljoyn_busobject_addmethodhandlers<P0>(bus: P0, entries: *const alljoyn_busobject_methodentry, numentries: usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
 {
@@ -1871,7 +1871,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_cancelsessionlessmessage<'a, P0, P1>(bus: P0, msg: P1) -> QStatus
+pub unsafe fn alljoyn_busobject_cancelsessionlessmessage<P0, P1>(bus: P0, msg: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
     P1: ::std::convert::Into<alljoyn_message>,
@@ -1881,7 +1881,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_cancelsessionlessmessage_serial<'a, P0>(bus: P0, serialnumber: u32) -> QStatus
+pub unsafe fn alljoyn_busobject_cancelsessionlessmessage_serial<P0>(bus: P0, serialnumber: u32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
 {
@@ -1890,7 +1890,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_create<'a, P0>(path: P0, isplaceholder: i32, callbacks_in: *const alljoyn_busobject_callbacks, context_in: *const ::core::ffi::c_void) -> alljoyn_busobject
+pub unsafe fn alljoyn_busobject_create<P0>(path: P0, isplaceholder: i32, callbacks_in: *const alljoyn_busobject_callbacks, context_in: *const ::core::ffi::c_void) -> alljoyn_busobject
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1899,7 +1899,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_destroy<'a, P0>(bus: P0)
+pub unsafe fn alljoyn_busobject_destroy<P0>(bus: P0)
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
 {
@@ -1908,7 +1908,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_emitpropertieschanged<'a, P0, P1>(bus: P0, ifcname: P1, propnames: *const *const i8, numprops: usize, id: u32)
+pub unsafe fn alljoyn_busobject_emitpropertieschanged<P0, P1>(bus: P0, ifcname: P1, propnames: *const *const i8, numprops: usize, id: u32)
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1918,7 +1918,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_emitpropertychanged<'a, P0, P1, P2, P3>(bus: P0, ifcname: P1, propname: P2, val: P3, id: u32)
+pub unsafe fn alljoyn_busobject_emitpropertychanged<P0, P1, P2, P3>(bus: P0, ifcname: P1, propname: P2, val: P3, id: u32)
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1930,7 +1930,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_getannouncedinterfacenames<'a, P0>(bus: P0, interfaces: *const *const i8, numinterfaces: usize) -> usize
+pub unsafe fn alljoyn_busobject_getannouncedinterfacenames<P0>(bus: P0, interfaces: *const *const i8, numinterfaces: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
 {
@@ -1939,7 +1939,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_getbusattachment<'a, P0>(bus: P0) -> alljoyn_busattachment
+pub unsafe fn alljoyn_busobject_getbusattachment<P0>(bus: P0) -> alljoyn_busattachment
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
 {
@@ -1948,7 +1948,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_getname<'a, P0, P1>(bus: P0, buffer: P1, buffersz: usize) -> usize
+pub unsafe fn alljoyn_busobject_getname<P0, P1>(bus: P0, buffer: P1, buffersz: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1958,7 +1958,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_getpath<'a, P0>(bus: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_busobject_getpath<P0>(bus: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
 {
@@ -1967,7 +1967,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_issecure<'a, P0>(bus: P0) -> i32
+pub unsafe fn alljoyn_busobject_issecure<P0>(bus: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
 {
@@ -1976,7 +1976,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_methodreply_args<'a, P0, P1, P2>(bus: P0, msg: P1, args: P2, numargs: usize) -> QStatus
+pub unsafe fn alljoyn_busobject_methodreply_args<P0, P1, P2>(bus: P0, msg: P1, args: P2, numargs: usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
     P1: ::std::convert::Into<alljoyn_message>,
@@ -1987,7 +1987,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_methodreply_err<'a, P0, P1, P2, P3>(bus: P0, msg: P1, error: P2, errormessage: P3) -> QStatus
+pub unsafe fn alljoyn_busobject_methodreply_err<P0, P1, P2, P3>(bus: P0, msg: P1, error: P2, errormessage: P3) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
     P1: ::std::convert::Into<alljoyn_message>,
@@ -1999,7 +1999,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_methodreply_status<'a, P0, P1>(bus: P0, msg: P1, status: QStatus) -> QStatus
+pub unsafe fn alljoyn_busobject_methodreply_status<P0, P1>(bus: P0, msg: P1, status: QStatus) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
     P1: ::std::convert::Into<alljoyn_message>,
@@ -2009,7 +2009,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_setannounceflag<'a, P0, P1>(bus: P0, iface: P1, isannounced: alljoyn_about_announceflag) -> QStatus
+pub unsafe fn alljoyn_busobject_setannounceflag<P0, P1>(bus: P0, iface: P1, isannounced: alljoyn_about_announceflag) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
     P1: ::std::convert::Into<alljoyn_interfacedescription>,
@@ -2019,7 +2019,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_signal<'a, P0, P1, P2, P3>(bus: P0, destination: P1, sessionid: u32, signal: alljoyn_interfacedescription_member, args: P2, numargs: usize, timetolive: u16, flags: u8, msg: P3) -> QStatus
+pub unsafe fn alljoyn_busobject_signal<P0, P1, P2, P3>(bus: P0, destination: P1, sessionid: u32, signal: alljoyn_interfacedescription_member, args: P2, numargs: usize, timetolive: u16, flags: u8, msg: P3) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2031,7 +2031,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_clear<'a, P0>(cred: P0)
+pub unsafe fn alljoyn_credentials_clear<P0>(cred: P0)
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
 {
@@ -2046,7 +2046,7 @@ pub unsafe fn alljoyn_credentials_create() -> alljoyn_credentials {
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_destroy<'a, P0>(cred: P0)
+pub unsafe fn alljoyn_credentials_destroy<P0>(cred: P0)
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
 {
@@ -2055,7 +2055,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_getcertchain<'a, P0>(cred: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_credentials_getcertchain<P0>(cred: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
 {
@@ -2064,7 +2064,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_getexpiration<'a, P0>(cred: P0) -> u32
+pub unsafe fn alljoyn_credentials_getexpiration<P0>(cred: P0) -> u32
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
 {
@@ -2073,7 +2073,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_getlogonentry<'a, P0>(cred: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_credentials_getlogonentry<P0>(cred: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
 {
@@ -2082,7 +2082,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_getpassword<'a, P0>(cred: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_credentials_getpassword<P0>(cred: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
 {
@@ -2091,7 +2091,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_getprivateKey<'a, P0>(cred: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_credentials_getprivateKey<P0>(cred: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
 {
@@ -2100,7 +2100,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_getusername<'a, P0>(cred: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_credentials_getusername<P0>(cred: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
 {
@@ -2109,7 +2109,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_isset<'a, P0>(cred: P0, creds: u16) -> i32
+pub unsafe fn alljoyn_credentials_isset<P0>(cred: P0, creds: u16) -> i32
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
 {
@@ -2118,7 +2118,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_setcertchain<'a, P0, P1>(cred: P0, certchain: P1)
+pub unsafe fn alljoyn_credentials_setcertchain<P0, P1>(cred: P0, certchain: P1)
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2128,7 +2128,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_setexpiration<'a, P0>(cred: P0, expiration: u32)
+pub unsafe fn alljoyn_credentials_setexpiration<P0>(cred: P0, expiration: u32)
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
 {
@@ -2137,7 +2137,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_setlogonentry<'a, P0, P1>(cred: P0, logonentry: P1)
+pub unsafe fn alljoyn_credentials_setlogonentry<P0, P1>(cred: P0, logonentry: P1)
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2147,7 +2147,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_setpassword<'a, P0, P1>(cred: P0, pwd: P1)
+pub unsafe fn alljoyn_credentials_setpassword<P0, P1>(cred: P0, pwd: P1)
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2157,7 +2157,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_setprivatekey<'a, P0, P1>(cred: P0, pk: P1)
+pub unsafe fn alljoyn_credentials_setprivatekey<P0, P1>(cred: P0, pk: P1)
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2167,7 +2167,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_setusername<'a, P0, P1>(cred: P0, username: P1)
+pub unsafe fn alljoyn_credentials_setusername<P0, P1>(cred: P0, username: P1)
 where
     P0: ::std::convert::Into<alljoyn_credentials>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2201,7 +2201,7 @@ pub unsafe fn alljoyn_init() -> QStatus {
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_activate<'a, P0>(iface: P0)
+pub unsafe fn alljoyn_interfacedescription_activate<P0>(iface: P0)
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
@@ -2210,7 +2210,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_addannotation<'a, P0, P1, P2>(iface: P0, name: P1, value: P2) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_addannotation<P0, P1, P2>(iface: P0, name: P1, value: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2221,7 +2221,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_addargannotation<'a, P0, P1, P2, P3, P4>(iface: P0, member: P1, argname: P2, name: P3, value: P4) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_addargannotation<P0, P1, P2, P3, P4>(iface: P0, member: P1, argname: P2, name: P3, value: P4) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2234,7 +2234,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_addmember<'a, P0, P1, P2, P3, P4>(iface: P0, r#type: alljoyn_messagetype, name: P1, inputsig: P2, outsig: P3, argnames: P4, annotation: u8) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_addmember<P0, P1, P2, P3, P4>(iface: P0, r#type: alljoyn_messagetype, name: P1, inputsig: P2, outsig: P3, argnames: P4, annotation: u8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2247,7 +2247,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_addmemberannotation<'a, P0, P1, P2, P3>(iface: P0, member: P1, name: P2, value: P3) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_addmemberannotation<P0, P1, P2, P3>(iface: P0, member: P1, name: P2, value: P3) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2259,7 +2259,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_addmethod<'a, P0, P1, P2, P3, P4, P5>(iface: P0, name: P1, inputsig: P2, outsig: P3, argnames: P4, annotation: u8, accessperms: P5) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_addmethod<P0, P1, P2, P3, P4, P5>(iface: P0, name: P1, inputsig: P2, outsig: P3, argnames: P4, annotation: u8, accessperms: P5) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2273,7 +2273,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_addproperty<'a, P0, P1, P2>(iface: P0, name: P1, signature: P2, access: u8) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_addproperty<P0, P1, P2>(iface: P0, name: P1, signature: P2, access: u8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2284,7 +2284,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_addpropertyannotation<'a, P0, P1, P2, P3>(iface: P0, property: P1, name: P2, value: P3) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_addpropertyannotation<P0, P1, P2, P3>(iface: P0, property: P1, name: P2, value: P3) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2296,7 +2296,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_addsignal<'a, P0, P1, P2, P3, P4>(iface: P0, name: P1, sig: P2, argnames: P3, annotation: u8, accessperms: P4) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_addsignal<P0, P1, P2, P3, P4>(iface: P0, name: P1, sig: P2, argnames: P3, annotation: u8, accessperms: P4) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2309,7 +2309,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_eql<'a, P0, P1>(one: P0, other: P1) -> i32
+pub unsafe fn alljoyn_interfacedescription_eql<P0, P1>(one: P0, other: P1) -> i32
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<alljoyn_interfacedescription>,
@@ -2319,7 +2319,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getannotation<'a, P0, P1, P2>(iface: P0, name: P1, value: P2, value_size: *mut usize) -> i32
+pub unsafe fn alljoyn_interfacedescription_getannotation<P0, P1, P2>(iface: P0, name: P1, value: P2, value_size: *mut usize) -> i32
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2330,7 +2330,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getannotationatindex<'a, P0, P1, P2>(iface: P0, index: usize, name: P1, name_size: *mut usize, value: P2, value_size: *mut usize)
+pub unsafe fn alljoyn_interfacedescription_getannotationatindex<P0, P1, P2>(iface: P0, index: usize, name: P1, name_size: *mut usize, value: P2, value_size: *mut usize)
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2341,7 +2341,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getannotationscount<'a, P0>(iface: P0) -> usize
+pub unsafe fn alljoyn_interfacedescription_getannotationscount<P0>(iface: P0) -> usize
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
@@ -2350,7 +2350,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getargdescriptionforlanguage<'a, P0, P1, P2, P3, P4>(iface: P0, member: P1, arg: P2, description: P3, maxlanguagelength: usize, languagetag: P4) -> usize
+pub unsafe fn alljoyn_interfacedescription_getargdescriptionforlanguage<P0, P1, P2, P3, P4>(iface: P0, member: P1, arg: P2, description: P3, maxlanguagelength: usize, languagetag: P4) -> usize
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2363,7 +2363,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getdescriptionforlanguage<'a, P0, P1, P2>(iface: P0, description: P1, maxlanguagelength: usize, languagetag: P2) -> usize
+pub unsafe fn alljoyn_interfacedescription_getdescriptionforlanguage<P0, P1, P2>(iface: P0, description: P1, maxlanguagelength: usize, languagetag: P2) -> usize
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2374,7 +2374,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages<'a, P0>(iface: P0, languages: *const *const i8, size: usize) -> usize
+pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages<P0>(iface: P0, languages: *const *const i8, size: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
@@ -2383,7 +2383,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages2<'a, P0, P1>(iface: P0, languages: P1, languagessize: usize) -> usize
+pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages2<P0, P1>(iface: P0, languages: P1, languagessize: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2393,7 +2393,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getdescriptiontranslationcallback<'a, P0>(iface: P0) -> alljoyn_interfacedescription_translation_callback_ptr
+pub unsafe fn alljoyn_interfacedescription_getdescriptiontranslationcallback<P0>(iface: P0) -> alljoyn_interfacedescription_translation_callback_ptr
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
@@ -2402,7 +2402,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getmember<'a, P0, P1>(iface: P0, name: P1, member: *mut alljoyn_interfacedescription_member) -> i32
+pub unsafe fn alljoyn_interfacedescription_getmember<P0, P1>(iface: P0, name: P1, member: *mut alljoyn_interfacedescription_member) -> i32
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2412,7 +2412,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getmemberannotation<'a, P0, P1, P2, P3>(iface: P0, member: P1, name: P2, value: P3, value_size: *mut usize) -> i32
+pub unsafe fn alljoyn_interfacedescription_getmemberannotation<P0, P1, P2, P3>(iface: P0, member: P1, name: P2, value: P3, value_size: *mut usize) -> i32
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2424,7 +2424,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getmemberargannotation<'a, P0, P1, P2, P3, P4>(iface: P0, member: P1, argname: P2, name: P3, value: P4, value_size: *mut usize) -> i32
+pub unsafe fn alljoyn_interfacedescription_getmemberargannotation<P0, P1, P2, P3, P4>(iface: P0, member: P1, argname: P2, name: P3, value: P4, value_size: *mut usize) -> i32
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2437,7 +2437,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getmemberdescriptionforlanguage<'a, P0, P1, P2, P3>(iface: P0, member: P1, description: P2, maxlanguagelength: usize, languagetag: P3) -> usize
+pub unsafe fn alljoyn_interfacedescription_getmemberdescriptionforlanguage<P0, P1, P2, P3>(iface: P0, member: P1, description: P2, maxlanguagelength: usize, languagetag: P3) -> usize
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2449,7 +2449,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getmembers<'a, P0>(iface: P0, members: *mut alljoyn_interfacedescription_member, nummembers: usize) -> usize
+pub unsafe fn alljoyn_interfacedescription_getmembers<P0>(iface: P0, members: *mut alljoyn_interfacedescription_member, nummembers: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
@@ -2458,7 +2458,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getmethod<'a, P0, P1>(iface: P0, name: P1, member: *mut alljoyn_interfacedescription_member) -> i32
+pub unsafe fn alljoyn_interfacedescription_getmethod<P0, P1>(iface: P0, name: P1, member: *mut alljoyn_interfacedescription_member) -> i32
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2468,7 +2468,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getname<'a, P0>(iface: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_interfacedescription_getname<P0>(iface: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
@@ -2477,7 +2477,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getproperties<'a, P0>(iface: P0, props: *mut alljoyn_interfacedescription_property, numprops: usize) -> usize
+pub unsafe fn alljoyn_interfacedescription_getproperties<P0>(iface: P0, props: *mut alljoyn_interfacedescription_property, numprops: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
@@ -2486,7 +2486,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getproperty<'a, P0, P1>(iface: P0, name: P1, property: *mut alljoyn_interfacedescription_property) -> i32
+pub unsafe fn alljoyn_interfacedescription_getproperty<P0, P1>(iface: P0, name: P1, property: *mut alljoyn_interfacedescription_property) -> i32
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2496,7 +2496,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getpropertyannotation<'a, P0, P1, P2, P3>(iface: P0, property: P1, name: P2, value: P3, str_size: *mut usize) -> i32
+pub unsafe fn alljoyn_interfacedescription_getpropertyannotation<P0, P1, P2, P3>(iface: P0, property: P1, name: P2, value: P3, str_size: *mut usize) -> i32
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2508,7 +2508,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getpropertydescriptionforlanguage<'a, P0, P1, P2, P3>(iface: P0, property: P1, description: P2, maxlanguagelength: usize, languagetag: P3) -> usize
+pub unsafe fn alljoyn_interfacedescription_getpropertydescriptionforlanguage<P0, P1, P2, P3>(iface: P0, property: P1, description: P2, maxlanguagelength: usize, languagetag: P3) -> usize
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2520,7 +2520,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getsecuritypolicy<'a, P0>(iface: P0) -> alljoyn_interfacedescription_securitypolicy
+pub unsafe fn alljoyn_interfacedescription_getsecuritypolicy<P0>(iface: P0) -> alljoyn_interfacedescription_securitypolicy
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
@@ -2529,7 +2529,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getsignal<'a, P0, P1>(iface: P0, name: P1, member: *mut alljoyn_interfacedescription_member) -> i32
+pub unsafe fn alljoyn_interfacedescription_getsignal<P0, P1>(iface: P0, name: P1, member: *mut alljoyn_interfacedescription_member) -> i32
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2539,7 +2539,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_hasdescription<'a, P0>(iface: P0) -> i32
+pub unsafe fn alljoyn_interfacedescription_hasdescription<P0>(iface: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
@@ -2548,7 +2548,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_hasmember<'a, P0, P1, P2, P3>(iface: P0, name: P1, insig: P2, outsig: P3) -> i32
+pub unsafe fn alljoyn_interfacedescription_hasmember<P0, P1, P2, P3>(iface: P0, name: P1, insig: P2, outsig: P3) -> i32
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2560,7 +2560,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_hasproperties<'a, P0>(iface: P0) -> i32
+pub unsafe fn alljoyn_interfacedescription_hasproperties<P0>(iface: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
@@ -2569,7 +2569,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_hasproperty<'a, P0, P1>(iface: P0, name: P1) -> i32
+pub unsafe fn alljoyn_interfacedescription_hasproperty<P0, P1>(iface: P0, name: P1) -> i32
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2579,7 +2579,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_introspect<'a, P0, P1>(iface: P0, str: P1, buf: usize, indent: usize) -> usize
+pub unsafe fn alljoyn_interfacedescription_introspect<P0, P1>(iface: P0, str: P1, buf: usize, indent: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2589,7 +2589,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_issecure<'a, P0>(iface: P0) -> i32
+pub unsafe fn alljoyn_interfacedescription_issecure<P0>(iface: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
@@ -2604,7 +2604,7 @@ pub unsafe fn alljoyn_interfacedescription_member_eql(one: alljoyn_interfacedesc
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_member_getannotation<'a, P0, P1>(member: alljoyn_interfacedescription_member, name: P0, value: P1, value_size: *mut usize) -> i32
+pub unsafe fn alljoyn_interfacedescription_member_getannotation<P0, P1>(member: alljoyn_interfacedescription_member, name: P0, value: P1, value_size: *mut usize) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2614,7 +2614,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_member_getannotationatindex<'a, P0, P1>(member: alljoyn_interfacedescription_member, index: usize, name: P0, name_size: *mut usize, value: P1, value_size: *mut usize)
+pub unsafe fn alljoyn_interfacedescription_member_getannotationatindex<P0, P1>(member: alljoyn_interfacedescription_member, index: usize, name: P0, name_size: *mut usize, value: P1, value_size: *mut usize)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2630,7 +2630,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getannotationscount(member: al
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_member_getargannotation<'a, P0, P1, P2>(member: alljoyn_interfacedescription_member, argname: P0, name: P1, value: P2, value_size: *mut usize) -> i32
+pub unsafe fn alljoyn_interfacedescription_member_getargannotation<P0, P1, P2>(member: alljoyn_interfacedescription_member, argname: P0, name: P1, value: P2, value_size: *mut usize) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2641,7 +2641,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_member_getargannotationatindex<'a, P0, P1, P2>(member: alljoyn_interfacedescription_member, argname: P0, index: usize, name: P1, name_size: *mut usize, value: P2, value_size: *mut usize)
+pub unsafe fn alljoyn_interfacedescription_member_getargannotationatindex<P0, P1, P2>(member: alljoyn_interfacedescription_member, argname: P0, index: usize, name: P1, name_size: *mut usize, value: P2, value_size: *mut usize)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2652,7 +2652,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_member_getargannotationscount<'a, P0>(member: alljoyn_interfacedescription_member, argname: P0) -> usize
+pub unsafe fn alljoyn_interfacedescription_member_getargannotationscount<P0>(member: alljoyn_interfacedescription_member, argname: P0) -> usize
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2667,7 +2667,7 @@ pub unsafe fn alljoyn_interfacedescription_property_eql(one: alljoyn_interfacede
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_property_getannotation<'a, P0, P1>(property: alljoyn_interfacedescription_property, name: P0, value: P1, value_size: *mut usize) -> i32
+pub unsafe fn alljoyn_interfacedescription_property_getannotation<P0, P1>(property: alljoyn_interfacedescription_property, name: P0, value: P1, value_size: *mut usize) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2677,7 +2677,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_property_getannotationatindex<'a, P0, P1>(property: alljoyn_interfacedescription_property, index: usize, name: P0, name_size: *mut usize, value: P1, value_size: *mut usize)
+pub unsafe fn alljoyn_interfacedescription_property_getannotationatindex<P0, P1>(property: alljoyn_interfacedescription_property, index: usize, name: P0, name_size: *mut usize, value: P1, value_size: *mut usize)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2693,7 +2693,7 @@ pub unsafe fn alljoyn_interfacedescription_property_getannotationscount(property
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_setargdescription<'a, P0, P1, P2, P3>(iface: P0, member: P1, argname: P2, description: P3) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_setargdescription<P0, P1, P2, P3>(iface: P0, member: P1, argname: P2, description: P3) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2705,7 +2705,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_setargdescriptionforlanguage<'a, P0, P1, P2, P3, P4>(iface: P0, member: P1, arg: P2, description: P3, languagetag: P4) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_setargdescriptionforlanguage<P0, P1, P2, P3, P4>(iface: P0, member: P1, arg: P2, description: P3, languagetag: P4) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2718,7 +2718,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_setdescription<'a, P0, P1>(iface: P0, description: P1)
+pub unsafe fn alljoyn_interfacedescription_setdescription<P0, P1>(iface: P0, description: P1)
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2728,7 +2728,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_setdescriptionforlanguage<'a, P0, P1, P2>(iface: P0, description: P1, languagetag: P2) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_setdescriptionforlanguage<P0, P1, P2>(iface: P0, description: P1, languagetag: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2739,7 +2739,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_setdescriptionlanguage<'a, P0, P1>(iface: P0, language: P1)
+pub unsafe fn alljoyn_interfacedescription_setdescriptionlanguage<P0, P1>(iface: P0, language: P1)
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2749,7 +2749,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_setdescriptiontranslationcallback<'a, P0>(iface: P0, translationcallback: alljoyn_interfacedescription_translation_callback_ptr)
+pub unsafe fn alljoyn_interfacedescription_setdescriptiontranslationcallback<P0>(iface: P0, translationcallback: alljoyn_interfacedescription_translation_callback_ptr)
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
@@ -2758,7 +2758,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_setmemberdescription<'a, P0, P1, P2>(iface: P0, member: P1, description: P2) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_setmemberdescription<P0, P1, P2>(iface: P0, member: P1, description: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2769,7 +2769,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_setmemberdescriptionforlanguage<'a, P0, P1, P2, P3>(iface: P0, member: P1, description: P2, languagetag: P3) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_setmemberdescriptionforlanguage<P0, P1, P2, P3>(iface: P0, member: P1, description: P2, languagetag: P3) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2781,7 +2781,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_setpropertydescription<'a, P0, P1, P2>(iface: P0, name: P1, description: P2) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_setpropertydescription<P0, P1, P2>(iface: P0, name: P1, description: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2792,7 +2792,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_setpropertydescriptionforlanguage<'a, P0, P1, P2, P3>(iface: P0, name: P1, description: P2, languagetag: P3) -> QStatus
+pub unsafe fn alljoyn_interfacedescription_setpropertydescriptionforlanguage<P0, P1, P2, P3>(iface: P0, name: P1, description: P2, languagetag: P3) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2810,7 +2810,7 @@ pub unsafe fn alljoyn_keystorelistener_create(callbacks: *const alljoyn_keystore
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_keystorelistener_destroy<'a, P0>(listener: P0)
+pub unsafe fn alljoyn_keystorelistener_destroy<P0>(listener: P0)
 where
     P0: ::std::convert::Into<alljoyn_keystorelistener>,
 {
@@ -2819,7 +2819,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_keystorelistener_getkeys<'a, P0, P1, P2>(listener: P0, keystore: P1, sink: P2, sink_sz: *mut usize) -> QStatus
+pub unsafe fn alljoyn_keystorelistener_getkeys<P0, P1, P2>(listener: P0, keystore: P1, sink: P2, sink_sz: *mut usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_keystorelistener>,
     P1: ::std::convert::Into<alljoyn_keystore>,
@@ -2830,7 +2830,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_keystorelistener_putkeys<'a, P0, P1, P2, P3>(listener: P0, keystore: P1, source: P2, password: P3) -> QStatus
+pub unsafe fn alljoyn_keystorelistener_putkeys<P0, P1, P2, P3>(listener: P0, keystore: P1, source: P2, password: P3) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_keystorelistener>,
     P1: ::std::convert::Into<alljoyn_keystore>,
@@ -2848,7 +2848,7 @@ pub unsafe fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *c
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_create<'a, P0>(bus: P0) -> alljoyn_message
+pub unsafe fn alljoyn_message_create<P0>(bus: P0) -> alljoyn_message
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -2857,7 +2857,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_description<'a, P0, P1>(msg: P0, str: P1, buf: usize) -> usize
+pub unsafe fn alljoyn_message_description<P0, P1>(msg: P0, str: P1, buf: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_message>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2867,7 +2867,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_destroy<'a, P0>(msg: P0)
+pub unsafe fn alljoyn_message_destroy<P0>(msg: P0)
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -2876,7 +2876,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_eql<'a, P0, P1>(one: P0, other: P1) -> i32
+pub unsafe fn alljoyn_message_eql<P0, P1>(one: P0, other: P1) -> i32
 where
     P0: ::std::convert::Into<alljoyn_message>,
     P1: ::std::convert::Into<alljoyn_message>,
@@ -2886,7 +2886,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getarg<'a, P0>(msg: P0, argn: usize) -> alljoyn_msgarg
+pub unsafe fn alljoyn_message_getarg<P0>(msg: P0, argn: usize) -> alljoyn_msgarg
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -2895,7 +2895,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getargs<'a, P0>(msg: P0, numargs: *mut usize, args: *mut alljoyn_msgarg)
+pub unsafe fn alljoyn_message_getargs<P0>(msg: P0, numargs: *mut usize, args: *mut alljoyn_msgarg)
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -2904,7 +2904,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getauthmechanism<'a, P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getauthmechanism<P0>(msg: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -2913,7 +2913,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getcallserial<'a, P0>(msg: P0) -> u32
+pub unsafe fn alljoyn_message_getcallserial<P0>(msg: P0) -> u32
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -2922,7 +2922,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getcompressiontoken<'a, P0>(msg: P0) -> u32
+pub unsafe fn alljoyn_message_getcompressiontoken<P0>(msg: P0) -> u32
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -2931,7 +2931,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getdestination<'a, P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getdestination<P0>(msg: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -2940,7 +2940,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_geterrorname<'a, P0, P1>(msg: P0, errormessage: P1, errormessage_size: *mut usize) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_geterrorname<P0, P1>(msg: P0, errormessage: P1, errormessage_size: *mut usize) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_message>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2950,7 +2950,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getflags<'a, P0>(msg: P0) -> u8
+pub unsafe fn alljoyn_message_getflags<P0>(msg: P0) -> u8
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -2959,7 +2959,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getinterface<'a, P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getinterface<P0>(msg: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -2968,7 +2968,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getmembername<'a, P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getmembername<P0>(msg: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -2977,7 +2977,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getobjectpath<'a, P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getobjectpath<P0>(msg: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -2986,7 +2986,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getreceiveendpointname<'a, P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getreceiveendpointname<P0>(msg: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -2995,7 +2995,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getreplyserial<'a, P0>(msg: P0) -> u32
+pub unsafe fn alljoyn_message_getreplyserial<P0>(msg: P0) -> u32
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -3004,7 +3004,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getsender<'a, P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getsender<P0>(msg: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -3013,7 +3013,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getsessionid<'a, P0>(msg: P0) -> u32
+pub unsafe fn alljoyn_message_getsessionid<P0>(msg: P0) -> u32
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -3022,7 +3022,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getsignature<'a, P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getsignature<P0>(msg: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -3031,7 +3031,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_gettimestamp<'a, P0>(msg: P0) -> u32
+pub unsafe fn alljoyn_message_gettimestamp<P0>(msg: P0) -> u32
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -3040,7 +3040,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_gettype<'a, P0>(msg: P0) -> alljoyn_messagetype
+pub unsafe fn alljoyn_message_gettype<P0>(msg: P0) -> alljoyn_messagetype
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -3049,7 +3049,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_isbroadcastsignal<'a, P0>(msg: P0) -> i32
+pub unsafe fn alljoyn_message_isbroadcastsignal<P0>(msg: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -3058,7 +3058,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_isencrypted<'a, P0>(msg: P0) -> i32
+pub unsafe fn alljoyn_message_isencrypted<P0>(msg: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -3067,7 +3067,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_isexpired<'a, P0>(msg: P0, tillexpirems: *mut u32) -> i32
+pub unsafe fn alljoyn_message_isexpired<P0>(msg: P0, tillexpirems: *mut u32) -> i32
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -3076,7 +3076,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_isglobalbroadcast<'a, P0>(msg: P0) -> i32
+pub unsafe fn alljoyn_message_isglobalbroadcast<P0>(msg: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -3085,7 +3085,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_issessionless<'a, P0>(msg: P0) -> i32
+pub unsafe fn alljoyn_message_issessionless<P0>(msg: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -3094,7 +3094,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_isunreliable<'a, P0>(msg: P0) -> i32
+pub unsafe fn alljoyn_message_isunreliable<P0>(msg: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_message>,
 {
@@ -3103,7 +3103,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_parseargs<'a, P0, P1>(msg: P0, signature: P1) -> QStatus
+pub unsafe fn alljoyn_message_parseargs<P0, P1>(msg: P0, signature: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_message>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3119,7 +3119,7 @@ pub unsafe fn alljoyn_message_setendianess(endian: i8) {
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_tostring<'a, P0, P1>(msg: P0, str: P1, buf: usize) -> usize
+pub unsafe fn alljoyn_message_tostring<P0, P1>(msg: P0, str: P1, buf: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_message>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3135,7 +3135,7 @@ pub unsafe fn alljoyn_msgarg_array_create(size: usize) -> alljoyn_msgarg {
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_array_element<'a, P0>(arg: P0, index: usize) -> alljoyn_msgarg
+pub unsafe fn alljoyn_msgarg_array_element<P0>(arg: P0, index: usize) -> alljoyn_msgarg
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3144,7 +3144,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_array_get<'a, P0, P1>(args: P0, numargs: usize, signature: P1) -> QStatus
+pub unsafe fn alljoyn_msgarg_array_get<P0, P1>(args: P0, numargs: usize, signature: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3154,7 +3154,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_array_set<'a, P0, P1>(args: P0, numargs: *mut usize, signature: P1) -> QStatus
+pub unsafe fn alljoyn_msgarg_array_set<P0, P1>(args: P0, numargs: *mut usize, signature: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3164,7 +3164,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_array_set_offset<'a, P0, P1>(args: P0, argoffset: usize, numargs: *mut usize, signature: P1) -> QStatus
+pub unsafe fn alljoyn_msgarg_array_set_offset<P0, P1>(args: P0, argoffset: usize, numargs: *mut usize, signature: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3174,7 +3174,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_array_signature<'a, P0, P1>(values: P0, numvalues: usize, str: P1, buf: usize) -> usize
+pub unsafe fn alljoyn_msgarg_array_signature<P0, P1>(values: P0, numvalues: usize, str: P1, buf: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3184,7 +3184,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_array_tostring<'a, P0, P1>(args: P0, numargs: usize, str: P1, buf: usize, indent: usize) -> usize
+pub unsafe fn alljoyn_msgarg_array_tostring<P0, P1>(args: P0, numargs: usize, str: P1, buf: usize, indent: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3194,7 +3194,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_clear<'a, P0>(arg: P0)
+pub unsafe fn alljoyn_msgarg_clear<P0>(arg: P0)
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3203,7 +3203,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_clone<'a, P0, P1>(destination: P0, source: P1)
+pub unsafe fn alljoyn_msgarg_clone<P0, P1>(destination: P0, source: P1)
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
@@ -3213,7 +3213,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_copy<'a, P0>(source: P0) -> alljoyn_msgarg
+pub unsafe fn alljoyn_msgarg_copy<P0>(source: P0) -> alljoyn_msgarg
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3228,7 +3228,7 @@ pub unsafe fn alljoyn_msgarg_create() -> alljoyn_msgarg {
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_create_and_set<'a, P0>(signature: P0) -> alljoyn_msgarg
+pub unsafe fn alljoyn_msgarg_create_and_set<P0>(signature: P0) -> alljoyn_msgarg
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -3237,7 +3237,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_destroy<'a, P0>(arg: P0)
+pub unsafe fn alljoyn_msgarg_destroy<P0>(arg: P0)
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3246,7 +3246,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_equal<'a, P0, P1>(lhv: P0, rhv: P1) -> i32
+pub unsafe fn alljoyn_msgarg_equal<P0, P1>(lhv: P0, rhv: P1) -> i32
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
@@ -3256,7 +3256,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get<'a, P0, P1>(arg: P0, signature: P1) -> QStatus
+pub unsafe fn alljoyn_msgarg_get<P0, P1>(arg: P0, signature: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3266,7 +3266,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_array_element<'a, P0>(arg: P0, index: usize, element: *mut alljoyn_msgarg)
+pub unsafe fn alljoyn_msgarg_get_array_element<P0>(arg: P0, index: usize, element: *mut alljoyn_msgarg)
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3275,7 +3275,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_array_elementsignature<'a, P0>(arg: P0, index: usize) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_msgarg_get_array_elementsignature<P0>(arg: P0, index: usize) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3284,7 +3284,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_array_numberofelements<'a, P0>(arg: P0) -> usize
+pub unsafe fn alljoyn_msgarg_get_array_numberofelements<P0>(arg: P0) -> usize
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3293,7 +3293,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_bool<'a, P0>(arg: P0, b: *mut i32) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_bool<P0>(arg: P0, b: *mut i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3302,7 +3302,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_bool_array<'a, P0>(arg: P0, length: *mut usize, ab: *mut i32) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_bool_array<P0>(arg: P0, length: *mut usize, ab: *mut i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3311,7 +3311,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_double<'a, P0>(arg: P0, d: *mut f64) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_double<P0>(arg: P0, d: *mut f64) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3320,7 +3320,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_double_array<'a, P0>(arg: P0, length: *mut usize, ad: *mut f64) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_double_array<P0>(arg: P0, length: *mut usize, ad: *mut f64) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3329,7 +3329,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_int16<'a, P0>(arg: P0, n: *mut i16) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_int16<P0>(arg: P0, n: *mut i16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3338,7 +3338,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_int16_array<'a, P0>(arg: P0, length: *mut usize, an: *mut i16) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_int16_array<P0>(arg: P0, length: *mut usize, an: *mut i16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3347,7 +3347,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_int32<'a, P0>(arg: P0, i: *mut i32) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_int32<P0>(arg: P0, i: *mut i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3356,7 +3356,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_int32_array<'a, P0>(arg: P0, length: *mut usize, ai: *mut i32) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_int32_array<P0>(arg: P0, length: *mut usize, ai: *mut i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3365,7 +3365,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_int64<'a, P0>(arg: P0, x: *mut i64) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_int64<P0>(arg: P0, x: *mut i64) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3374,7 +3374,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_int64_array<'a, P0>(arg: P0, length: *mut usize, ax: *mut i64) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_int64_array<P0>(arg: P0, length: *mut usize, ax: *mut i64) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3383,7 +3383,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_objectpath<'a, P0>(arg: P0, o: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_objectpath<P0>(arg: P0, o: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3392,7 +3392,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_signature<'a, P0>(arg: P0, g: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_signature<P0>(arg: P0, g: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3401,7 +3401,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_string<'a, P0>(arg: P0, s: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_string<P0>(arg: P0, s: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3410,7 +3410,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_uint16<'a, P0>(arg: P0, q: *mut u16) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_uint16<P0>(arg: P0, q: *mut u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3419,7 +3419,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_uint16_array<'a, P0>(arg: P0, length: *mut usize, aq: *mut u16) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_uint16_array<P0>(arg: P0, length: *mut usize, aq: *mut u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3428,7 +3428,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_uint32<'a, P0>(arg: P0, u: *mut u32) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_uint32<P0>(arg: P0, u: *mut u32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3437,7 +3437,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_uint32_array<'a, P0>(arg: P0, length: *mut usize, au: *mut u32) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_uint32_array<P0>(arg: P0, length: *mut usize, au: *mut u32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3446,7 +3446,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_uint64<'a, P0>(arg: P0, t: *mut u64) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_uint64<P0>(arg: P0, t: *mut u64) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3455,7 +3455,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_uint64_array<'a, P0>(arg: P0, length: *mut usize, at: *mut u64) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_uint64_array<P0>(arg: P0, length: *mut usize, at: *mut u64) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3464,7 +3464,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_uint8<'a, P0>(arg: P0, y: *mut u8) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_uint8<P0>(arg: P0, y: *mut u8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3473,7 +3473,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_uint8_array<'a, P0>(arg: P0, length: *mut usize, ay: *mut u8) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_uint8_array<P0>(arg: P0, length: *mut usize, ay: *mut u8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3482,7 +3482,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_variant<'a, P0, P1>(arg: P0, v: P1) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_variant<P0, P1>(arg: P0, v: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
@@ -3492,7 +3492,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_variant_array<'a, P0, P1>(arg: P0, signature: P1, length: *mut usize, av: *mut alljoyn_msgarg) -> QStatus
+pub unsafe fn alljoyn_msgarg_get_variant_array<P0, P1>(arg: P0, signature: P1, length: *mut usize, av: *mut alljoyn_msgarg) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3502,7 +3502,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_getdictelement<'a, P0, P1>(arg: P0, elemsig: P1) -> QStatus
+pub unsafe fn alljoyn_msgarg_getdictelement<P0, P1>(arg: P0, elemsig: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3512,7 +3512,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_getkey<'a, P0>(arg: P0) -> alljoyn_msgarg
+pub unsafe fn alljoyn_msgarg_getkey<P0>(arg: P0) -> alljoyn_msgarg
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3521,7 +3521,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_getmember<'a, P0>(arg: P0, index: usize) -> alljoyn_msgarg
+pub unsafe fn alljoyn_msgarg_getmember<P0>(arg: P0, index: usize) -> alljoyn_msgarg
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3530,7 +3530,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_getnummembers<'a, P0>(arg: P0) -> usize
+pub unsafe fn alljoyn_msgarg_getnummembers<P0>(arg: P0) -> usize
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3539,7 +3539,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_gettype<'a, P0>(arg: P0) -> alljoyn_typeid
+pub unsafe fn alljoyn_msgarg_gettype<P0>(arg: P0) -> alljoyn_typeid
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3548,7 +3548,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_getvalue<'a, P0>(arg: P0) -> alljoyn_msgarg
+pub unsafe fn alljoyn_msgarg_getvalue<P0>(arg: P0) -> alljoyn_msgarg
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3557,7 +3557,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_hassignature<'a, P0, P1>(arg: P0, signature: P1) -> i32
+pub unsafe fn alljoyn_msgarg_hassignature<P0, P1>(arg: P0, signature: P1) -> i32
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3567,7 +3567,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set<'a, P0, P1>(arg: P0, signature: P1) -> QStatus
+pub unsafe fn alljoyn_msgarg_set<P0, P1>(arg: P0, signature: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3577,7 +3577,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_and_stabilize<'a, P0, P1>(arg: P0, signature: P1) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_and_stabilize<P0, P1>(arg: P0, signature: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3587,7 +3587,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_bool<'a, P0>(arg: P0, b: i32) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_bool<P0>(arg: P0, b: i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3596,7 +3596,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_bool_array<'a, P0>(arg: P0, length: usize, ab: *mut i32) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_bool_array<P0>(arg: P0, length: usize, ab: *mut i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3605,7 +3605,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_double<'a, P0>(arg: P0, d: f64) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_double<P0>(arg: P0, d: f64) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3614,7 +3614,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_double_array<'a, P0>(arg: P0, length: usize, ad: *mut f64) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_double_array<P0>(arg: P0, length: usize, ad: *mut f64) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3623,7 +3623,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_int16<'a, P0>(arg: P0, n: i16) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_int16<P0>(arg: P0, n: i16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3632,7 +3632,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_int16_array<'a, P0>(arg: P0, length: usize, an: *mut i16) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_int16_array<P0>(arg: P0, length: usize, an: *mut i16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3641,7 +3641,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_int32<'a, P0>(arg: P0, i: i32) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_int32<P0>(arg: P0, i: i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3650,7 +3650,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_int32_array<'a, P0>(arg: P0, length: usize, ai: *mut i32) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_int32_array<P0>(arg: P0, length: usize, ai: *mut i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3659,7 +3659,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_int64<'a, P0>(arg: P0, x: i64) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_int64<P0>(arg: P0, x: i64) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3668,7 +3668,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_int64_array<'a, P0>(arg: P0, length: usize, ax: *mut i64) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_int64_array<P0>(arg: P0, length: usize, ax: *mut i64) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3677,7 +3677,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_objectpath<'a, P0, P1>(arg: P0, o: P1) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_objectpath<P0, P1>(arg: P0, o: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3687,7 +3687,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_objectpath_array<'a, P0>(arg: P0, length: usize, ao: *const *const i8) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_objectpath_array<P0>(arg: P0, length: usize, ao: *const *const i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3696,7 +3696,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_signature<'a, P0, P1>(arg: P0, g: P1) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_signature<P0, P1>(arg: P0, g: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3706,7 +3706,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_signature_array<'a, P0>(arg: P0, length: usize, ag: *const *const i8) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_signature_array<P0>(arg: P0, length: usize, ag: *const *const i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3715,7 +3715,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_string<'a, P0, P1>(arg: P0, s: P1) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_string<P0, P1>(arg: P0, s: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3725,7 +3725,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_string_array<'a, P0>(arg: P0, length: usize, r#as: *const *const i8) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_string_array<P0>(arg: P0, length: usize, r#as: *const *const i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3734,7 +3734,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_uint16<'a, P0>(arg: P0, q: u16) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_uint16<P0>(arg: P0, q: u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3743,7 +3743,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_uint16_array<'a, P0>(arg: P0, length: usize, aq: *mut u16) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_uint16_array<P0>(arg: P0, length: usize, aq: *mut u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3752,7 +3752,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_uint32<'a, P0>(arg: P0, u: u32) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_uint32<P0>(arg: P0, u: u32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3761,7 +3761,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_uint32_array<'a, P0>(arg: P0, length: usize, au: *mut u32) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_uint32_array<P0>(arg: P0, length: usize, au: *mut u32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3770,7 +3770,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_uint64<'a, P0>(arg: P0, t: u64) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_uint64<P0>(arg: P0, t: u64) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3779,7 +3779,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_uint64_array<'a, P0>(arg: P0, length: usize, at: *mut u64) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_uint64_array<P0>(arg: P0, length: usize, at: *mut u64) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3788,7 +3788,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_uint8<'a, P0>(arg: P0, y: u8) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_uint8<P0>(arg: P0, y: u8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3797,7 +3797,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_uint8_array<'a, P0>(arg: P0, length: usize, ay: *mut u8) -> QStatus
+pub unsafe fn alljoyn_msgarg_set_uint8_array<P0>(arg: P0, length: usize, ay: *mut u8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3806,7 +3806,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_setdictentry<'a, P0, P1, P2>(arg: P0, key: P1, value: P2) -> QStatus
+pub unsafe fn alljoyn_msgarg_setdictentry<P0, P1, P2>(arg: P0, key: P1, value: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
@@ -3817,7 +3817,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_setstruct<'a, P0, P1>(arg: P0, struct_members: P1, num_members: usize) -> QStatus
+pub unsafe fn alljoyn_msgarg_setstruct<P0, P1>(arg: P0, struct_members: P1, num_members: usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
@@ -3827,7 +3827,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_signature<'a, P0, P1>(arg: P0, str: P1, buf: usize) -> usize
+pub unsafe fn alljoyn_msgarg_signature<P0, P1>(arg: P0, str: P1, buf: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3837,7 +3837,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_stabilize<'a, P0>(arg: P0)
+pub unsafe fn alljoyn_msgarg_stabilize<P0>(arg: P0)
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
@@ -3846,7 +3846,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_tostring<'a, P0, P1>(arg: P0, str: P1, buf: usize, indent: usize) -> usize
+pub unsafe fn alljoyn_msgarg_tostring<P0, P1>(arg: P0, str: P1, buf: usize, indent: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_msgarg>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3856,7 +3856,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_observer_create<'a, P0>(bus: P0, mandatoryinterfaces: *const *const i8, nummandatoryinterfaces: usize) -> alljoyn_observer
+pub unsafe fn alljoyn_observer_create<P0>(bus: P0, mandatoryinterfaces: *const *const i8, nummandatoryinterfaces: usize) -> alljoyn_observer
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -3865,7 +3865,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_observer_destroy<'a, P0>(observer: P0)
+pub unsafe fn alljoyn_observer_destroy<P0>(observer: P0)
 where
     P0: ::std::convert::Into<alljoyn_observer>,
 {
@@ -3874,7 +3874,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_observer_get<'a, P0, P1, P2>(observer: P0, uniquebusname: P1, objectpath: P2) -> alljoyn_proxybusobject_ref
+pub unsafe fn alljoyn_observer_get<P0, P1, P2>(observer: P0, uniquebusname: P1, objectpath: P2) -> alljoyn_proxybusobject_ref
 where
     P0: ::std::convert::Into<alljoyn_observer>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3885,7 +3885,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_observer_getfirst<'a, P0>(observer: P0) -> alljoyn_proxybusobject_ref
+pub unsafe fn alljoyn_observer_getfirst<P0>(observer: P0) -> alljoyn_proxybusobject_ref
 where
     P0: ::std::convert::Into<alljoyn_observer>,
 {
@@ -3894,7 +3894,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_observer_getnext<'a, P0, P1>(observer: P0, proxyref: P1) -> alljoyn_proxybusobject_ref
+pub unsafe fn alljoyn_observer_getnext<P0, P1>(observer: P0, proxyref: P1) -> alljoyn_proxybusobject_ref
 where
     P0: ::std::convert::Into<alljoyn_observer>,
     P1: ::std::convert::Into<alljoyn_proxybusobject_ref>,
@@ -3904,7 +3904,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_observer_registerlistener<'a, P0, P1>(observer: P0, listener: P1, triggeronexisting: i32)
+pub unsafe fn alljoyn_observer_registerlistener<P0, P1>(observer: P0, listener: P1, triggeronexisting: i32)
 where
     P0: ::std::convert::Into<alljoyn_observer>,
     P1: ::std::convert::Into<alljoyn_observerlistener>,
@@ -3914,7 +3914,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_observer_unregisteralllisteners<'a, P0>(observer: P0)
+pub unsafe fn alljoyn_observer_unregisteralllisteners<P0>(observer: P0)
 where
     P0: ::std::convert::Into<alljoyn_observer>,
 {
@@ -3923,7 +3923,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_observer_unregisterlistener<'a, P0, P1>(observer: P0, listener: P1)
+pub unsafe fn alljoyn_observer_unregisterlistener<P0, P1>(observer: P0, listener: P1)
 where
     P0: ::std::convert::Into<alljoyn_observer>,
     P1: ::std::convert::Into<alljoyn_observerlistener>,
@@ -3939,7 +3939,7 @@ pub unsafe fn alljoyn_observerlistener_create(callback: *const alljoyn_observerl
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_observerlistener_destroy<'a, P0>(listener: P0)
+pub unsafe fn alljoyn_observerlistener_destroy<P0>(listener: P0)
 where
     P0: ::std::convert::Into<alljoyn_observerlistener>,
 {
@@ -3948,7 +3948,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_passwordmanager_setcredentials<'a, P0, P1>(authmechanism: P0, password: P1) -> QStatus
+pub unsafe fn alljoyn_passwordmanager_setcredentials<P0, P1>(authmechanism: P0, password: P1) -> QStatus
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3964,7 +3964,7 @@ pub unsafe fn alljoyn_permissionconfigurationlistener_create(callbacks: *const a
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurationlistener_destroy<'a, P0>(listener: P0)
+pub unsafe fn alljoyn_permissionconfigurationlistener_destroy<P0>(listener: P0)
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurationlistener>,
 {
@@ -3991,7 +3991,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificateidarray_cleanup(certific
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_claim<'a, P0>(configurator: P0, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_claim<P0>(configurator: P0, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4000,7 +4000,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_endmanagement<'a, P0>(configurator: P0) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_endmanagement<P0>(configurator: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4009,7 +4009,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_getapplicationstate<'a, P0>(configurator: P0, state: *mut alljoyn_applicationstate) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_getapplicationstate<P0>(configurator: P0, state: *mut alljoyn_applicationstate) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4018,7 +4018,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilities<'a, P0>(configurator: P0, claimcapabilities: *mut u16) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilities<P0>(configurator: P0, claimcapabilities: *mut u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4027,7 +4027,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo<'a, P0>(configurator: P0, additionalinfo: *mut u16) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo<P0>(configurator: P0, additionalinfo: *mut u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4042,7 +4042,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getdefaultclaimcapabilities() -> u1
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_getdefaultpolicy<'a, P0>(configurator: P0, policyxml: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_getdefaultpolicy<P0>(configurator: P0, policyxml: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4051,7 +4051,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_getidentity<'a, P0>(configurator: P0, identitycertificatechain: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_getidentity<P0>(configurator: P0, identitycertificatechain: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4060,7 +4060,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_getidentitycertificateid<'a, P0>(configurator: P0, certificateid: *mut alljoyn_certificateid) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_getidentitycertificateid<P0>(configurator: P0, certificateid: *mut alljoyn_certificateid) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4069,7 +4069,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_getmanifests<'a, P0>(configurator: P0, manifestarray: *mut alljoyn_manifestarray) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_getmanifests<P0>(configurator: P0, manifestarray: *mut alljoyn_manifestarray) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4078,7 +4078,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_getmanifesttemplate<'a, P0>(configurator: P0, manifesttemplatexml: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_getmanifesttemplate<P0>(configurator: P0, manifesttemplatexml: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4087,7 +4087,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_getmembershipsummaries<'a, P0>(configurator: P0, certificateids: *mut alljoyn_certificateidarray) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_getmembershipsummaries<P0>(configurator: P0, certificateids: *mut alljoyn_certificateidarray) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4096,7 +4096,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_getpolicy<'a, P0>(configurator: P0, policyxml: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_getpolicy<P0>(configurator: P0, policyxml: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4105,7 +4105,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_getpublickey<'a, P0>(configurator: P0, publickey: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_getpublickey<P0>(configurator: P0, publickey: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4114,7 +4114,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_installmanifests<'a, P0>(configurator: P0, manifestsxmls: *mut *mut i8, manifestscount: usize, append: i32) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_installmanifests<P0>(configurator: P0, manifestsxmls: *mut *mut i8, manifestscount: usize, append: i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4123,7 +4123,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_installmembership<'a, P0>(configurator: P0, membershipcertificatechain: *mut i8) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_installmembership<P0>(configurator: P0, membershipcertificatechain: *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4156,7 +4156,7 @@ pub unsafe fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_removemembership<'a, P0>(configurator: P0, serial: *const u8, seriallen: usize, issuerpublickey: *mut i8, issueraki: *const u8, issuerakilen: usize) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_removemembership<P0>(configurator: P0, serial: *const u8, seriallen: usize, issuerpublickey: *mut i8, issueraki: *const u8, issuerakilen: usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4165,7 +4165,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_reset<'a, P0>(configurator: P0) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_reset<P0>(configurator: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4174,7 +4174,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_resetpolicy<'a, P0>(configurator: P0) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_resetpolicy<P0>(configurator: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4183,7 +4183,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_setapplicationstate<'a, P0>(configurator: P0, state: alljoyn_applicationstate) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_setapplicationstate<P0>(configurator: P0, state: alljoyn_applicationstate) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4192,7 +4192,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_setclaimcapabilities<'a, P0>(configurator: P0, claimcapabilities: u16) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_setclaimcapabilities<P0>(configurator: P0, claimcapabilities: u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4201,7 +4201,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo<'a, P0>(configurator: P0, additionalinfo: u16) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo<P0>(configurator: P0, additionalinfo: u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4210,7 +4210,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_setmanifesttemplatefromxml<'a, P0>(configurator: P0, manifesttemplatexml: *mut i8) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_setmanifesttemplatefromxml<P0>(configurator: P0, manifesttemplatexml: *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4219,7 +4219,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_startmanagement<'a, P0>(configurator: P0) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_startmanagement<P0>(configurator: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4228,7 +4228,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_updateidentity<'a, P0>(configurator: P0, identitycertificatechain: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_updateidentity<P0>(configurator: P0, identitycertificatechain: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4237,7 +4237,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_updatepolicy<'a, P0>(configurator: P0, policyxml: *mut i8) -> QStatus
+pub unsafe fn alljoyn_permissionconfigurator_updatepolicy<P0>(configurator: P0, policyxml: *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
@@ -4252,7 +4252,7 @@ pub unsafe fn alljoyn_pinglistener_create(callback: *const alljoyn_pinglistener_
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_pinglistener_destroy<'a, P0>(listener: P0)
+pub unsafe fn alljoyn_pinglistener_destroy<P0>(listener: P0)
 where
     P0: ::std::convert::Into<alljoyn_pinglistener>,
 {
@@ -4261,7 +4261,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_addchild<'a, P0, P1>(proxyobj: P0, child: P1) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_addchild<P0, P1>(proxyobj: P0, child: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<alljoyn_proxybusobject>,
@@ -4271,7 +4271,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_addinterface<'a, P0, P1>(proxyobj: P0, iface: P1) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_addinterface<P0, P1>(proxyobj: P0, iface: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<alljoyn_interfacedescription>,
@@ -4281,7 +4281,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_addinterface_by_name<'a, P0, P1>(proxyobj: P0, name: P1) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_addinterface_by_name<P0, P1>(proxyobj: P0, name: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4291,7 +4291,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_copy<'a, P0>(source: P0) -> alljoyn_proxybusobject
+pub unsafe fn alljoyn_proxybusobject_copy<P0>(source: P0) -> alljoyn_proxybusobject
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4300,7 +4300,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_create<'a, P0, P1, P2>(bus: P0, service: P1, path: P2, sessionid: u32) -> alljoyn_proxybusobject
+pub unsafe fn alljoyn_proxybusobject_create<P0, P1, P2>(bus: P0, service: P1, path: P2, sessionid: u32) -> alljoyn_proxybusobject
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4311,7 +4311,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_create_secure<'a, P0, P1, P2>(bus: P0, service: P1, path: P2, sessionid: u32) -> alljoyn_proxybusobject
+pub unsafe fn alljoyn_proxybusobject_create_secure<P0, P1, P2>(bus: P0, service: P1, path: P2, sessionid: u32) -> alljoyn_proxybusobject
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4322,7 +4322,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_destroy<'a, P0>(proxyobj: P0)
+pub unsafe fn alljoyn_proxybusobject_destroy<P0>(proxyobj: P0)
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4331,7 +4331,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_enablepropertycaching<'a, P0>(proxyobj: P0)
+pub unsafe fn alljoyn_proxybusobject_enablepropertycaching<P0>(proxyobj: P0)
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4340,7 +4340,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getallproperties<'a, P0, P1, P2>(proxyobj: P0, iface: P1, values: P2) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_getallproperties<P0, P1, P2>(proxyobj: P0, iface: P1, values: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4351,7 +4351,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getallpropertiesasync<'a, P0, P1>(proxyobj: P0, iface: P1, callback: alljoyn_proxybusobject_listener_getallpropertiescb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_getallpropertiesasync<P0, P1>(proxyobj: P0, iface: P1, callback: alljoyn_proxybusobject_listener_getallpropertiescb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4361,7 +4361,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getchild<'a, P0, P1>(proxyobj: P0, path: P1) -> alljoyn_proxybusobject
+pub unsafe fn alljoyn_proxybusobject_getchild<P0, P1>(proxyobj: P0, path: P1) -> alljoyn_proxybusobject
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4371,7 +4371,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getchildren<'a, P0>(proxyobj: P0, children: *mut alljoyn_proxybusobject, numchildren: usize) -> usize
+pub unsafe fn alljoyn_proxybusobject_getchildren<P0>(proxyobj: P0, children: *mut alljoyn_proxybusobject, numchildren: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4380,7 +4380,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getinterface<'a, P0, P1>(proxyobj: P0, iface: P1) -> alljoyn_interfacedescription
+pub unsafe fn alljoyn_proxybusobject_getinterface<P0, P1>(proxyobj: P0, iface: P1) -> alljoyn_interfacedescription
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4390,7 +4390,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getinterfaces<'a, P0>(proxyobj: P0, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize
+pub unsafe fn alljoyn_proxybusobject_getinterfaces<P0>(proxyobj: P0, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4399,7 +4399,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getpath<'a, P0>(proxyobj: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_proxybusobject_getpath<P0>(proxyobj: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4408,7 +4408,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getproperty<'a, P0, P1, P2, P3>(proxyobj: P0, iface: P1, property: P2, value: P3) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_getproperty<P0, P1, P2, P3>(proxyobj: P0, iface: P1, property: P2, value: P3) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4420,7 +4420,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getpropertyasync<'a, P0, P1, P2>(proxyobj: P0, iface: P1, property: P2, callback: alljoyn_proxybusobject_listener_getpropertycb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_getpropertyasync<P0, P1, P2>(proxyobj: P0, iface: P1, property: P2, callback: alljoyn_proxybusobject_listener_getpropertycb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4431,7 +4431,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getservicename<'a, P0>(proxyobj: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_proxybusobject_getservicename<P0>(proxyobj: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4440,7 +4440,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getsessionid<'a, P0>(proxyobj: P0) -> u32
+pub unsafe fn alljoyn_proxybusobject_getsessionid<P0>(proxyobj: P0) -> u32
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4449,7 +4449,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getuniquename<'a, P0>(proxyobj: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_proxybusobject_getuniquename<P0>(proxyobj: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4458,7 +4458,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_implementsinterface<'a, P0, P1>(proxyobj: P0, iface: P1) -> i32
+pub unsafe fn alljoyn_proxybusobject_implementsinterface<P0, P1>(proxyobj: P0, iface: P1) -> i32
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4468,7 +4468,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_introspectremoteobject<'a, P0>(proxyobj: P0) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_introspectremoteobject<P0>(proxyobj: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4477,7 +4477,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_introspectremoteobjectasync<'a, P0>(proxyobj: P0, callback: alljoyn_proxybusobject_listener_introspectcb_ptr, context: *mut ::core::ffi::c_void) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_introspectremoteobjectasync<P0>(proxyobj: P0, callback: alljoyn_proxybusobject_listener_introspectcb_ptr, context: *mut ::core::ffi::c_void) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4486,7 +4486,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_issecure<'a, P0>(proxyobj: P0) -> i32
+pub unsafe fn alljoyn_proxybusobject_issecure<P0>(proxyobj: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4495,7 +4495,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_isvalid<'a, P0>(proxyobj: P0) -> i32
+pub unsafe fn alljoyn_proxybusobject_isvalid<P0>(proxyobj: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4504,7 +4504,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_methodcall<'a, P0, P1, P2, P3, P4>(proxyobj: P0, ifacename: P1, methodname: P2, args: P3, numargs: usize, replymsg: P4, timeout: u32, flags: u8) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_methodcall<P0, P1, P2, P3, P4>(proxyobj: P0, ifacename: P1, methodname: P2, args: P3, numargs: usize, replymsg: P4, timeout: u32, flags: u8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4517,7 +4517,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_methodcall_member<'a, P0, P1, P2>(proxyobj: P0, method: alljoyn_interfacedescription_member, args: P1, numargs: usize, replymsg: P2, timeout: u32, flags: u8) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_methodcall_member<P0, P1, P2>(proxyobj: P0, method: alljoyn_interfacedescription_member, args: P1, numargs: usize, replymsg: P2, timeout: u32, flags: u8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
@@ -4528,7 +4528,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_methodcall_member_noreply<'a, P0, P1>(proxyobj: P0, method: alljoyn_interfacedescription_member, args: P1, numargs: usize, flags: u8) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_methodcall_member_noreply<P0, P1>(proxyobj: P0, method: alljoyn_interfacedescription_member, args: P1, numargs: usize, flags: u8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
@@ -4538,7 +4538,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_methodcall_noreply<'a, P0, P1, P2, P3>(proxyobj: P0, ifacename: P1, methodname: P2, args: P3, numargs: usize, flags: u8) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_methodcall_noreply<P0, P1, P2, P3>(proxyobj: P0, ifacename: P1, methodname: P2, args: P3, numargs: usize, flags: u8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4550,7 +4550,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_methodcallasync<'a, P0, P1, P2, P3>(proxyobj: P0, ifacename: P1, methodname: P2, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: P3, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_methodcallasync<P0, P1, P2, P3>(proxyobj: P0, ifacename: P1, methodname: P2, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: P3, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4562,7 +4562,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_methodcallasync_member<'a, P0, P1>(proxyobj: P0, method: alljoyn_interfacedescription_member, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: P1, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_methodcallasync_member<P0, P1>(proxyobj: P0, method: alljoyn_interfacedescription_member, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: P1, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
@@ -4572,7 +4572,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_parsexml<'a, P0, P1, P2>(proxyobj: P0, xml: P1, identifier: P2) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_parsexml<P0, P1, P2>(proxyobj: P0, xml: P1, identifier: P2) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4583,7 +4583,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_ref_create<'a, P0>(proxy: P0) -> alljoyn_proxybusobject_ref
+pub unsafe fn alljoyn_proxybusobject_ref_create<P0>(proxy: P0) -> alljoyn_proxybusobject_ref
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4592,7 +4592,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_ref_decref<'a, P0>(r#ref: P0)
+pub unsafe fn alljoyn_proxybusobject_ref_decref<P0>(r#ref: P0)
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject_ref>,
 {
@@ -4601,7 +4601,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_ref_get<'a, P0>(r#ref: P0) -> alljoyn_proxybusobject
+pub unsafe fn alljoyn_proxybusobject_ref_get<P0>(r#ref: P0) -> alljoyn_proxybusobject
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject_ref>,
 {
@@ -4610,7 +4610,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_ref_incref<'a, P0>(r#ref: P0)
+pub unsafe fn alljoyn_proxybusobject_ref_incref<P0>(r#ref: P0)
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject_ref>,
 {
@@ -4619,7 +4619,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_registerpropertieschangedlistener<'a, P0, P1>(proxyobj: P0, iface: P1, properties: *const *const i8, numproperties: usize, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr, context: *mut ::core::ffi::c_void) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_registerpropertieschangedlistener<P0, P1>(proxyobj: P0, iface: P1, properties: *const *const i8, numproperties: usize, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr, context: *mut ::core::ffi::c_void) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4629,7 +4629,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_removechild<'a, P0, P1>(proxyobj: P0, path: P1) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_removechild<P0, P1>(proxyobj: P0, path: P1) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4639,7 +4639,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_secureconnection<'a, P0>(proxyobj: P0, forceauth: i32) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_secureconnection<P0>(proxyobj: P0, forceauth: i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4648,7 +4648,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_secureconnectionasync<'a, P0>(proxyobj: P0, forceauth: i32) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_secureconnectionasync<P0>(proxyobj: P0, forceauth: i32) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
@@ -4657,7 +4657,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_setproperty<'a, P0, P1, P2, P3>(proxyobj: P0, iface: P1, property: P2, value: P3) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_setproperty<P0, P1, P2, P3>(proxyobj: P0, iface: P1, property: P2, value: P3) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4669,7 +4669,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_setpropertyasync<'a, P0, P1, P2, P3>(proxyobj: P0, iface: P1, property: P2, value: P3, callback: alljoyn_proxybusobject_listener_setpropertycb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_setpropertyasync<P0, P1, P2, P3>(proxyobj: P0, iface: P1, property: P2, value: P3, callback: alljoyn_proxybusobject_listener_setpropertycb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4681,7 +4681,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_unregisterpropertieschangedlistener<'a, P0, P1>(proxyobj: P0, iface: P1, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr) -> QStatus
+pub unsafe fn alljoyn_proxybusobject_unregisterpropertieschangedlistener<P0, P1>(proxyobj: P0, iface: P1, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4709,7 +4709,7 @@ pub unsafe fn alljoyn_routershutdown() -> QStatus {
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_claim<'a, P0>(proxy: P0, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_claim<P0>(proxy: P0, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4724,7 +4724,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_computemanifestdigest(unsignedman
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_create<'a, P0>(bus: P0, appbusname: *mut i8, sessionid: u32) -> alljoyn_securityapplicationproxy
+pub unsafe fn alljoyn_securityapplicationproxy_create<P0>(bus: P0, appbusname: *mut i8, sessionid: u32) -> alljoyn_securityapplicationproxy
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
@@ -4733,7 +4733,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_destroy<'a, P0>(proxy: P0)
+pub unsafe fn alljoyn_securityapplicationproxy_destroy<P0>(proxy: P0)
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4754,7 +4754,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_endmanagement<'a, P0>(proxy: P0) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_endmanagement<P0>(proxy: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4763,7 +4763,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_getapplicationstate<'a, P0>(proxy: P0, applicationstate: *mut alljoyn_applicationstate) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_getapplicationstate<P0>(proxy: P0, applicationstate: *mut alljoyn_applicationstate) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4772,7 +4772,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_getclaimcapabilities<'a, P0>(proxy: P0, capabilities: *mut u16) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_getclaimcapabilities<P0>(proxy: P0, capabilities: *mut u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4781,7 +4781,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo<'a, P0>(proxy: P0, additionalinfo: *mut u16) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo<P0>(proxy: P0, additionalinfo: *mut u16) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4790,7 +4790,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_getdefaultpolicy<'a, P0>(proxy: P0, policyxml: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_getdefaultpolicy<P0>(proxy: P0, policyxml: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4799,7 +4799,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_geteccpublickey<'a, P0>(proxy: P0, eccpublickey: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_geteccpublickey<P0>(proxy: P0, eccpublickey: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4808,7 +4808,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_getmanifesttemplate<'a, P0>(proxy: P0, manifesttemplatexml: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_getmanifesttemplate<P0>(proxy: P0, manifesttemplatexml: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4823,7 +4823,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getpermissionmanagementsessionpor
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_getpolicy<'a, P0>(proxy: P0, policyxml: *mut *mut i8) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_getpolicy<P0>(proxy: P0, policyxml: *mut *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4832,7 +4832,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_installmembership<'a, P0>(proxy: P0, membershipcertificatechain: *mut i8) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_installmembership<P0>(proxy: P0, membershipcertificatechain: *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4859,7 +4859,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_reset<'a, P0>(proxy: P0) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_reset<P0>(proxy: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4868,7 +4868,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_resetpolicy<'a, P0>(proxy: P0) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_resetpolicy<P0>(proxy: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4889,7 +4889,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_signmanifest(unsignedmanifestxml:
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_startmanagement<'a, P0>(proxy: P0) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_startmanagement<P0>(proxy: P0) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4898,7 +4898,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_updateidentity<'a, P0>(proxy: P0, identitycertificatechain: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_updateidentity<P0>(proxy: P0, identitycertificatechain: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4907,7 +4907,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_updatepolicy<'a, P0>(proxy: P0, policyxml: *mut i8) -> QStatus
+pub unsafe fn alljoyn_securityapplicationproxy_updatepolicy<P0>(proxy: P0, policyxml: *mut i8) -> QStatus
 where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
@@ -4922,7 +4922,7 @@ pub unsafe fn alljoyn_sessionlistener_create(callbacks: *const alljoyn_sessionli
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_sessionlistener_destroy<'a, P0>(listener: P0)
+pub unsafe fn alljoyn_sessionlistener_destroy<P0>(listener: P0)
 where
     P0: ::std::convert::Into<alljoyn_sessionlistener>,
 {
@@ -4931,7 +4931,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_sessionopts_cmp<'a, P0, P1>(one: P0, other: P1) -> i32
+pub unsafe fn alljoyn_sessionopts_cmp<P0, P1>(one: P0, other: P1) -> i32
 where
     P0: ::std::convert::Into<alljoyn_sessionopts>,
     P1: ::std::convert::Into<alljoyn_sessionopts>,
@@ -4947,7 +4947,7 @@ pub unsafe fn alljoyn_sessionopts_create(traffic: u8, ismultipoint: i32, proximi
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_sessionopts_destroy<'a, P0>(opts: P0)
+pub unsafe fn alljoyn_sessionopts_destroy<P0>(opts: P0)
 where
     P0: ::std::convert::Into<alljoyn_sessionopts>,
 {
@@ -4956,7 +4956,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_sessionopts_get_multipoint<'a, P0>(opts: P0) -> i32
+pub unsafe fn alljoyn_sessionopts_get_multipoint<P0>(opts: P0) -> i32
 where
     P0: ::std::convert::Into<alljoyn_sessionopts>,
 {
@@ -4965,7 +4965,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_sessionopts_get_proximity<'a, P0>(opts: P0) -> u8
+pub unsafe fn alljoyn_sessionopts_get_proximity<P0>(opts: P0) -> u8
 where
     P0: ::std::convert::Into<alljoyn_sessionopts>,
 {
@@ -4974,7 +4974,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_sessionopts_get_traffic<'a, P0>(opts: P0) -> u8
+pub unsafe fn alljoyn_sessionopts_get_traffic<P0>(opts: P0) -> u8
 where
     P0: ::std::convert::Into<alljoyn_sessionopts>,
 {
@@ -4983,7 +4983,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_sessionopts_get_transports<'a, P0>(opts: P0) -> u16
+pub unsafe fn alljoyn_sessionopts_get_transports<P0>(opts: P0) -> u16
 where
     P0: ::std::convert::Into<alljoyn_sessionopts>,
 {
@@ -4992,7 +4992,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_sessionopts_iscompatible<'a, P0, P1>(one: P0, other: P1) -> i32
+pub unsafe fn alljoyn_sessionopts_iscompatible<P0, P1>(one: P0, other: P1) -> i32
 where
     P0: ::std::convert::Into<alljoyn_sessionopts>,
     P1: ::std::convert::Into<alljoyn_sessionopts>,
@@ -5002,7 +5002,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_sessionopts_set_multipoint<'a, P0>(opts: P0, ismultipoint: i32)
+pub unsafe fn alljoyn_sessionopts_set_multipoint<P0>(opts: P0, ismultipoint: i32)
 where
     P0: ::std::convert::Into<alljoyn_sessionopts>,
 {
@@ -5011,7 +5011,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_sessionopts_set_proximity<'a, P0>(opts: P0, proximity: u8)
+pub unsafe fn alljoyn_sessionopts_set_proximity<P0>(opts: P0, proximity: u8)
 where
     P0: ::std::convert::Into<alljoyn_sessionopts>,
 {
@@ -5020,7 +5020,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_sessionopts_set_traffic<'a, P0>(opts: P0, traffic: u8)
+pub unsafe fn alljoyn_sessionopts_set_traffic<P0>(opts: P0, traffic: u8)
 where
     P0: ::std::convert::Into<alljoyn_sessionopts>,
 {
@@ -5029,7 +5029,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_sessionopts_set_transports<'a, P0>(opts: P0, transports: u16)
+pub unsafe fn alljoyn_sessionopts_set_transports<P0>(opts: P0, transports: u16)
 where
     P0: ::std::convert::Into<alljoyn_sessionopts>,
 {
@@ -5044,7 +5044,7 @@ pub unsafe fn alljoyn_sessionportlistener_create(callbacks: *const alljoyn_sessi
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_sessionportlistener_destroy<'a, P0>(listener: P0)
+pub unsafe fn alljoyn_sessionportlistener_destroy<P0>(listener: P0)
 where
     P0: ::std::convert::Into<alljoyn_sessionportlistener>,
 {

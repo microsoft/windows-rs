@@ -197,7 +197,7 @@ impl ::core::convert::TryFrom<&IHttpFilter> for super::super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&IHttpFilter> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&IHttpFilter> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IHttpFilter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -539,7 +539,7 @@ impl ::core::convert::TryFrom<&HttpBaseProtocolFilter> for super::super::super::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&HttpBaseProtocolFilter> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&HttpBaseProtocolFilter> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpBaseProtocolFilter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -558,7 +558,7 @@ impl ::core::convert::TryFrom<&HttpBaseProtocolFilter> for IHttpFilter {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&HttpBaseProtocolFilter> for ::windows::core::InParam<'a, IHttpFilter> {
+impl ::core::convert::TryFrom<&HttpBaseProtocolFilter> for ::windows::core::InParam<IHttpFilter> {
     type Error = ::windows::core::Error;
     fn try_from(value: &HttpBaseProtocolFilter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

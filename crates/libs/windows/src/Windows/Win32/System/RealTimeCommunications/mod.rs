@@ -408,15 +408,15 @@ impl IRTCBuddyGroup {
     pub unsafe fn SetName(&self, bstrgroupname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrgroupname)).ok()
     }
-    pub unsafe fn AddBuddy<'a, P0>(&self, pbuddy: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddBuddy<P0>(&self, pbuddy: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCBuddy>>,
     {
         (::windows::core::Vtable::vtable(self).AddBuddy)(::windows::core::Vtable::as_raw(self), pbuddy.into().abi()).ok()
     }
-    pub unsafe fn RemoveBuddy<'a, P0>(&self, pbuddy: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveBuddy<P0>(&self, pbuddy: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCBuddy>>,
     {
         (::windows::core::Vtable::vtable(self).RemoveBuddy)(::windows::core::Vtable::as_raw(self), pbuddy.into().abi()).ok()
     }
@@ -578,9 +578,9 @@ impl IRTCClient {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).MediaCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateSession<'a, P0>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &::windows::core::BSTR, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCSession>
+    pub unsafe fn CreateSession<P0>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &::windows::core::BSTR, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCSession>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateSession)(::windows::core::Vtable::as_raw(self), entype, ::core::mem::transmute_copy(bstrlocalphoneuri), pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
@@ -853,9 +853,9 @@ impl IRTCClient2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.MediaCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateSession<'a, P0>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &::windows::core::BSTR, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCSession>
+    pub unsafe fn CreateSession<P0>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &::windows::core::BSTR, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCSession>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateSession)(::windows::core::Vtable::as_raw(self), entype, ::core::mem::transmute_copy(bstrlocalphoneuri), pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
@@ -1019,16 +1019,16 @@ impl IRTCClient2 {
     pub unsafe fn InitializeEx(&self, lflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).InitializeEx)(::windows::core::Vtable::as_raw(self), lflags).ok()
     }
-    pub unsafe fn CreateSessionWithDescription<'a, P0>(&self, bstrcontenttype: &::windows::core::BSTR, bstrsessiondescription: &::windows::core::BSTR, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCSession2>
+    pub unsafe fn CreateSessionWithDescription<P0>(&self, bstrcontenttype: &::windows::core::BSTR, bstrsessiondescription: &::windows::core::BSTR, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCSession2>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateSessionWithDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcontenttype), ::core::mem::transmute_copy(bstrsessiondescription), pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetSessionDescriptionManager<'a, P0>(&self, psessiondescriptionmanager: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSessionDescriptionManager<P0>(&self, psessiondescriptionmanager: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCSessionDescriptionManager>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCSessionDescriptionManager>>,
     {
         (::windows::core::Vtable::vtable(self).SetSessionDescriptionManager)(::windows::core::Vtable::as_raw(self), psessiondescriptionmanager.into().abi()).ok()
     }
@@ -1224,16 +1224,16 @@ impl IRTCClientPresence {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddBuddy<'a, P0>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCBuddy>
+    pub unsafe fn AddBuddy<P0>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCBuddy>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AddBuddy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fpersistent, pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn RemoveBuddy<'a, P0>(&self, pbuddy: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveBuddy<P0>(&self, pbuddy: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCBuddy>>,
     {
         (::windows::core::Vtable::vtable(self).RemoveBuddy)(::windows::core::Vtable::as_raw(self), pbuddy.into().abi()).ok()
     }
@@ -1257,9 +1257,9 @@ impl IRTCClientPresence {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AddWatcher)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fblocked, fpersistent, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn RemoveWatcher<'a, P0>(&self, pwatcher: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveWatcher<P0>(&self, pwatcher: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCWatcher>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCWatcher>>,
     {
         (::windows::core::Vtable::vtable(self).RemoveWatcher)(::windows::core::Vtable::as_raw(self), pwatcher.into().abi()).ok()
     }
@@ -1383,16 +1383,16 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddBuddy<'a, P0>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCBuddy>
+    pub unsafe fn AddBuddy<P0>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCBuddy>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.AddBuddy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fpersistent, pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn RemoveBuddy<'a, P0>(&self, pbuddy: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveBuddy<P0>(&self, pbuddy: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCBuddy>>,
     {
         (::windows::core::Vtable::vtable(self).base__.RemoveBuddy)(::windows::core::Vtable::as_raw(self), pbuddy.into().abi()).ok()
     }
@@ -1416,9 +1416,9 @@ impl IRTCClientPresence2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.AddWatcher)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fblocked, fpersistent, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn RemoveWatcher<'a, P0>(&self, pwatcher: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveWatcher<P0>(&self, pwatcher: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCWatcher>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCWatcher>>,
     {
         (::windows::core::Vtable::vtable(self).base__.RemoveWatcher)(::windows::core::Vtable::as_raw(self), pwatcher.into().abi()).ok()
     }
@@ -1441,25 +1441,25 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnablePresenceEx<'a, P0>(&self, pprofile: P0, varstorage: super::Com::VARIANT, lflags: i32) -> ::windows::core::Result<()>
+    pub unsafe fn EnablePresenceEx<P0>(&self, pprofile: P0, varstorage: super::Com::VARIANT, lflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         (::windows::core::Vtable::vtable(self).EnablePresenceEx)(::windows::core::Vtable::as_raw(self), pprofile.into().abi(), ::core::mem::transmute(varstorage), lflags).ok()
     }
     pub unsafe fn DisablePresence(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DisablePresence)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn AddGroup<'a, P0>(&self, bstrgroupname: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCBuddyGroup>
+    pub unsafe fn AddGroup<P0>(&self, bstrgroupname: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCBuddyGroup>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AddGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrgroupname), ::core::mem::transmute_copy(bstrdata), pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn RemoveGroup<'a, P0>(&self, pgroup: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveGroup<P0>(&self, pgroup: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddyGroup>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCBuddyGroup>>,
     {
         (::windows::core::Vtable::vtable(self).RemoveGroup)(::windows::core::Vtable::as_raw(self), pgroup.into().abi()).ok()
     }
@@ -1479,9 +1479,9 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddWatcherEx<'a, P0>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCWatcher2>
+    pub unsafe fn AddWatcherEx<P0>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCWatcher2>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AddWatcherEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), enstate, fpersistent, enscope, pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
@@ -1508,9 +1508,9 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddBuddyEx<'a, P0>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCBuddy2>
+    pub unsafe fn AddBuddyEx<P0>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCBuddy2>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AddBuddyEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fpersistent, ensubscriptiontype, pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
@@ -1579,15 +1579,15 @@ impl IRTCClientProvisioning {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateProfile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprofilexml), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn EnableProfile<'a, P0>(&self, pprofile: P0, lregisterflags: i32) -> ::windows::core::Result<()>
+    pub unsafe fn EnableProfile<P0>(&self, pprofile: P0, lregisterflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         (::windows::core::Vtable::vtable(self).EnableProfile)(::windows::core::Vtable::as_raw(self), pprofile.into().abi(), lregisterflags).ok()
     }
-    pub unsafe fn DisableProfile<'a, P0>(&self, pprofile: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DisableProfile<P0>(&self, pprofile: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         (::windows::core::Vtable::vtable(self).DisableProfile)(::windows::core::Vtable::as_raw(self), pprofile.into().abi()).ok()
     }
@@ -1655,15 +1655,15 @@ impl IRTCClientProvisioning2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateProfile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprofilexml), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn EnableProfile<'a, P0>(&self, pprofile: P0, lregisterflags: i32) -> ::windows::core::Result<()>
+    pub unsafe fn EnableProfile<P0>(&self, pprofile: P0, lregisterflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         (::windows::core::Vtable::vtable(self).base__.EnableProfile)(::windows::core::Vtable::as_raw(self), pprofile.into().abi(), lregisterflags).ok()
     }
-    pub unsafe fn DisableProfile<'a, P0>(&self, pprofile: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DisableProfile<P0>(&self, pprofile: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         (::windows::core::Vtable::vtable(self).base__.DisableProfile)(::windows::core::Vtable::as_raw(self), pprofile.into().abi()).ok()
     }
@@ -1684,9 +1684,9 @@ impl IRTCClientProvisioning2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.SessionCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn EnableProfileEx<'a, P0>(&self, pprofile: P0, lregisterflags: i32, lroamingflags: i32) -> ::windows::core::Result<()>
+    pub unsafe fn EnableProfileEx<P0>(&self, pprofile: P0, lregisterflags: i32, lroamingflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         (::windows::core::Vtable::vtable(self).EnableProfileEx)(::windows::core::Vtable::as_raw(self), pprofile.into().abi(), lregisterflags, lroamingflags).ok()
     }
@@ -2181,9 +2181,9 @@ pub struct IRTCEventNotification(::windows::core::IUnknown);
 impl IRTCEventNotification {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Event<'a, P0>(&self, rtcevent: RTC_EVENT, pevent: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Event<P0>(&self, rtcevent: RTC_EVENT, pevent: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).Event)(::windows::core::Vtable::as_raw(self), rtcevent, pevent.into().abi()).ok()
     }
@@ -3619,9 +3619,9 @@ impl IRTCSession {
     pub unsafe fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Terminate)(::windows::core::Vtable::as_raw(self), enreason).ok()
     }
-    pub unsafe fn Redirect<'a, P0>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &::windows::core::BSTR, pprofile: P0, lflags: i32) -> ::windows::core::Result<()>
+    pub unsafe fn Redirect<P0>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &::windows::core::BSTR, pprofile: P0, lflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         (::windows::core::Vtable::vtable(self).Redirect)(::windows::core::Vtable::as_raw(self), entype, ::core::mem::transmute_copy(bstrlocalphoneuri), pprofile.into().abi(), lflags).ok()
     }
@@ -3629,9 +3629,9 @@ impl IRTCSession {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AddParticipant)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstraddress), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn RemoveParticipant<'a, P0>(&self, pparticipant: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveParticipant<P0>(&self, pparticipant: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCParticipant>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCParticipant>>,
     {
         (::windows::core::Vtable::vtable(self).RemoveParticipant)(::windows::core::Vtable::as_raw(self), pparticipant.into().abi()).ok()
     }
@@ -3758,9 +3758,9 @@ impl IRTCSession2 {
     pub unsafe fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Terminate)(::windows::core::Vtable::as_raw(self), enreason).ok()
     }
-    pub unsafe fn Redirect<'a, P0>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &::windows::core::BSTR, pprofile: P0, lflags: i32) -> ::windows::core::Result<()>
+    pub unsafe fn Redirect<P0>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &::windows::core::BSTR, pprofile: P0, lflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Redirect)(::windows::core::Vtable::as_raw(self), entype, ::core::mem::transmute_copy(bstrlocalphoneuri), pprofile.into().abi(), lflags).ok()
     }
@@ -3768,9 +3768,9 @@ impl IRTCSession2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.AddParticipant)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstraddress), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn RemoveParticipant<'a, P0>(&self, pparticipant: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveParticipant<P0>(&self, pparticipant: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCParticipant>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCParticipant>>,
     {
         (::windows::core::Vtable::vtable(self).base__.RemoveParticipant)(::windows::core::Vtable::as_raw(self), pparticipant.into().abi()).ok()
     }
@@ -4124,9 +4124,9 @@ pub struct IRTCSessionOperationCompleteEvent2_Vtbl {
 #[repr(transparent)]
 pub struct IRTCSessionPortManagement(::windows::core::IUnknown);
 impl IRTCSessionPortManagement {
-    pub unsafe fn SetPortManager<'a, P0>(&self, pportmanager: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPortManager<P0>(&self, pportmanager: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCPortManager>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCPortManager>>,
     {
         (::windows::core::Vtable::vtable(self).SetPortManager)(::windows::core::Vtable::as_raw(self), pportmanager.into().abi()).ok()
     }
@@ -4452,10 +4452,10 @@ impl IRTCUserSearch {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateQuery)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn ExecuteSearch<'a, P0, P1>(&self, pquery: P0, pprofile: P1, lcookie: isize) -> ::windows::core::Result<()>
+    pub unsafe fn ExecuteSearch<P0, P1>(&self, pquery: P0, pprofile: P1, lcookie: isize) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCUserSearchQuery>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IRTCUserSearchQuery>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         (::windows::core::Vtable::vtable(self).ExecuteSearch)(::windows::core::Vtable::as_raw(self), pquery.into().abi(), pprofile.into().abi(), lcookie).ok()
     }

@@ -682,9 +682,9 @@ impl ArcadeStick {
             (::windows::core::Vtable::vtable(this).ArcadeSticks)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn FromGameController<'a, P0, E0>(gamecontroller: P0) -> ::windows::core::Result<ArcadeStick>
+    pub fn FromGameController<P0, E0>(gamecontroller: P0) -> ::windows::core::Result<ArcadeStick>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IGameController>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IGameController>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IArcadeStickStatics2(|this| unsafe {
@@ -825,7 +825,7 @@ impl ::core::convert::TryFrom<&ArcadeStick> for IGameController {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ArcadeStick> for ::windows::core::InParam<'a, IGameController> {
+impl ::core::convert::TryFrom<&ArcadeStick> for ::windows::core::InParam<IGameController> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ArcadeStick) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -844,7 +844,7 @@ impl ::core::convert::TryFrom<&ArcadeStick> for IGameControllerBatteryInfo {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ArcadeStick> for ::windows::core::InParam<'a, IGameControllerBatteryInfo> {
+impl ::core::convert::TryFrom<&ArcadeStick> for ::windows::core::InParam<IGameControllerBatteryInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ArcadeStick) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -912,9 +912,9 @@ impl FlightStick {
             (::windows::core::Vtable::vtable(this).FlightSticks)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn FromGameController<'a, P0, E0>(gamecontroller: P0) -> ::windows::core::Result<FlightStick>
+    pub fn FromGameController<P0, E0>(gamecontroller: P0) -> ::windows::core::Result<FlightStick>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IGameController>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IGameController>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFlightStickStatics(|this| unsafe {
@@ -1050,7 +1050,7 @@ impl ::core::convert::TryFrom<&FlightStick> for IGameController {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FlightStick> for ::windows::core::InParam<'a, IGameController> {
+impl ::core::convert::TryFrom<&FlightStick> for ::windows::core::InParam<IGameController> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FlightStick) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1069,7 +1069,7 @@ impl ::core::convert::TryFrom<&FlightStick> for IGameControllerBatteryInfo {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&FlightStick> for ::windows::core::InParam<'a, IGameControllerBatteryInfo> {
+impl ::core::convert::TryFrom<&FlightStick> for ::windows::core::InParam<IGameControllerBatteryInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FlightStick) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1218,9 +1218,9 @@ impl Gamepad {
             (::windows::core::Vtable::vtable(this).Gamepads)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn FromGameController<'a, P0, E0>(gamecontroller: P0) -> ::windows::core::Result<Gamepad>
+    pub fn FromGameController<P0, E0>(gamecontroller: P0) -> ::windows::core::Result<Gamepad>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IGameController>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IGameController>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGamepadStatics2(|this| unsafe {
@@ -1284,7 +1284,7 @@ impl ::core::convert::TryFrom<&Gamepad> for IGameController {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&Gamepad> for ::windows::core::InParam<'a, IGameController> {
+impl ::core::convert::TryFrom<&Gamepad> for ::windows::core::InParam<IGameController> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Gamepad) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1303,7 +1303,7 @@ impl ::core::convert::TryFrom<&Gamepad> for IGameControllerBatteryInfo {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&Gamepad> for ::windows::core::InParam<'a, IGameControllerBatteryInfo> {
+impl ::core::convert::TryFrom<&Gamepad> for ::windows::core::InParam<IGameControllerBatteryInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Gamepad) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1385,7 +1385,7 @@ impl ::core::convert::TryFrom<&Headset> for IGameControllerBatteryInfo {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&Headset> for ::windows::core::InParam<'a, IGameControllerBatteryInfo> {
+impl ::core::convert::TryFrom<&Headset> for ::windows::core::InParam<IGameControllerBatteryInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Headset) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1567,9 +1567,9 @@ impl RacingWheel {
             (::windows::core::Vtable::vtable(this).RacingWheels)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn FromGameController<'a, P0, E0>(gamecontroller: P0) -> ::windows::core::Result<RacingWheel>
+    pub fn FromGameController<P0, E0>(gamecontroller: P0) -> ::windows::core::Result<RacingWheel>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IGameController>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IGameController>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IRacingWheelStatics2(|this| unsafe {
@@ -1633,7 +1633,7 @@ impl ::core::convert::TryFrom<&RacingWheel> for IGameController {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RacingWheel> for ::windows::core::InParam<'a, IGameController> {
+impl ::core::convert::TryFrom<&RacingWheel> for ::windows::core::InParam<IGameController> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RacingWheel) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1652,7 +1652,7 @@ impl ::core::convert::TryFrom<&RacingWheel> for IGameControllerBatteryInfo {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RacingWheel> for ::windows::core::InParam<'a, IGameControllerBatteryInfo> {
+impl ::core::convert::TryFrom<&RacingWheel> for ::windows::core::InParam<IGameControllerBatteryInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RacingWheel) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1864,9 +1864,9 @@ impl RawGameController {
             (::windows::core::Vtable::vtable(this).RawGameControllers)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn FromGameController<'a, P0, E0>(gamecontroller: P0) -> ::windows::core::Result<RawGameController>
+    pub fn FromGameController<P0, E0>(gamecontroller: P0) -> ::windows::core::Result<RawGameController>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IGameController>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IGameController>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IRawGameControllerStatics(|this| unsafe {
@@ -1925,7 +1925,7 @@ impl ::core::convert::TryFrom<&RawGameController> for IGameController {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RawGameController> for ::windows::core::InParam<'a, IGameController> {
+impl ::core::convert::TryFrom<&RawGameController> for ::windows::core::InParam<IGameController> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RawGameController) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1944,7 +1944,7 @@ impl ::core::convert::TryFrom<&RawGameController> for IGameControllerBatteryInfo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RawGameController> for ::windows::core::InParam<'a, IGameControllerBatteryInfo> {
+impl ::core::convert::TryFrom<&RawGameController> for ::windows::core::InParam<IGameControllerBatteryInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RawGameController) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2089,9 +2089,9 @@ impl UINavigationController {
             (::windows::core::Vtable::vtable(this).UINavigationControllers)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn FromGameController<'a, P0, E0>(gamecontroller: P0) -> ::windows::core::Result<UINavigationController>
+    pub fn FromGameController<P0, E0>(gamecontroller: P0) -> ::windows::core::Result<UINavigationController>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IGameController>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IGameController>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IUINavigationControllerStatics2(|this| unsafe {
@@ -2155,7 +2155,7 @@ impl ::core::convert::TryFrom<&UINavigationController> for IGameController {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&UINavigationController> for ::windows::core::InParam<'a, IGameController> {
+impl ::core::convert::TryFrom<&UINavigationController> for ::windows::core::InParam<IGameController> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UINavigationController) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2174,7 +2174,7 @@ impl ::core::convert::TryFrom<&UINavigationController> for IGameControllerBatter
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&UINavigationController> for ::windows::core::InParam<'a, IGameControllerBatteryInfo> {
+impl ::core::convert::TryFrom<&UINavigationController> for ::windows::core::InParam<IGameControllerBatteryInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UINavigationController) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -1321,7 +1321,7 @@ impl ::core::convert::TryFrom<&IWebSocket> for super::super::Foundation::IClosab
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&IWebSocket> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&IWebSocket> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IWebSocket) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1585,7 +1585,7 @@ impl ::core::convert::TryFrom<&IWebSocketControl2> for IWebSocketControl {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IWebSocketControl2> for ::windows::core::InParam<'a, IWebSocketControl> {
+impl ::core::convert::TryFrom<&IWebSocketControl2> for ::windows::core::InParam<IWebSocketControl> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IWebSocketControl2) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1785,7 +1785,7 @@ impl ::core::convert::TryFrom<&IWebSocketInformation2> for IWebSocketInformation
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IWebSocketInformation2> for ::windows::core::InParam<'a, IWebSocketInformation> {
+impl ::core::convert::TryFrom<&IWebSocketInformation2> for ::windows::core::InParam<IWebSocketInformation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IWebSocketInformation2) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1931,9 +1931,9 @@ impl ControlChannelTrigger {
             (::windows::core::Vtable::vtable(this).PushNotificationTrigger)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn UsingTransport<'a, P0>(&self, transport: P0) -> ::windows::core::Result<()>
+    pub fn UsingTransport<P0>(&self, transport: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).UsingTransport)(::windows::core::Vtable::as_raw(this), transport.into().abi()).ok() }
@@ -2026,7 +2026,7 @@ impl ::core::convert::TryFrom<&ControlChannelTrigger> for super::super::Foundati
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&ControlChannelTrigger> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&ControlChannelTrigger> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ControlChannelTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2258,7 +2258,7 @@ impl ::core::convert::TryFrom<&DatagramSocket> for super::super::Foundation::ICl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&DatagramSocket> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&DatagramSocket> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DatagramSocket) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2572,9 +2572,9 @@ impl MessageWebSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendNonfinalFrameAsync<'a, P0, E0>(&self, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SendNonfinalFrameAsync<P0, E0>(&self, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMessageWebSocket3>(self)?;
@@ -2585,9 +2585,9 @@ impl MessageWebSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendFinalFrameAsync<'a, P0, E0>(&self, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SendFinalFrameAsync<P0, E0>(&self, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMessageWebSocket3>(self)?;
@@ -2686,7 +2686,7 @@ impl ::core::convert::TryFrom<&MessageWebSocket> for super::super::Foundation::I
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&MessageWebSocket> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&MessageWebSocket> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MessageWebSocket) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2705,7 +2705,7 @@ impl ::core::convert::TryFrom<&MessageWebSocket> for IWebSocket {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MessageWebSocket> for ::windows::core::InParam<'a, IWebSocket> {
+impl ::core::convert::TryFrom<&MessageWebSocket> for ::windows::core::InParam<IWebSocket> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MessageWebSocket) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2895,7 +2895,7 @@ impl ::core::convert::TryFrom<&MessageWebSocketControl> for IWebSocketControl {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MessageWebSocketControl> for ::windows::core::InParam<'a, IWebSocketControl> {
+impl ::core::convert::TryFrom<&MessageWebSocketControl> for ::windows::core::InParam<IWebSocketControl> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MessageWebSocketControl) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2914,7 +2914,7 @@ impl ::core::convert::TryFrom<&MessageWebSocketControl> for IWebSocketControl2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MessageWebSocketControl> for ::windows::core::InParam<'a, IWebSocketControl2> {
+impl ::core::convert::TryFrom<&MessageWebSocketControl> for ::windows::core::InParam<IWebSocketControl2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MessageWebSocketControl) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3028,7 +3028,7 @@ impl ::core::convert::TryFrom<&MessageWebSocketInformation> for IWebSocketInform
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MessageWebSocketInformation> for ::windows::core::InParam<'a, IWebSocketInformation> {
+impl ::core::convert::TryFrom<&MessageWebSocketInformation> for ::windows::core::InParam<IWebSocketInformation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MessageWebSocketInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3047,7 +3047,7 @@ impl ::core::convert::TryFrom<&MessageWebSocketInformation> for IWebSocketInform
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MessageWebSocketInformation> for ::windows::core::InParam<'a, IWebSocketInformation2> {
+impl ::core::convert::TryFrom<&MessageWebSocketInformation> for ::windows::core::InParam<IWebSocketInformation2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MessageWebSocketInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3244,7 +3244,7 @@ impl ::core::convert::TryFrom<&ServerMessageWebSocket> for super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&ServerMessageWebSocket> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&ServerMessageWebSocket> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ServerMessageWebSocket) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3468,7 +3468,7 @@ impl ::core::convert::TryFrom<&ServerStreamWebSocket> for super::super::Foundati
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&ServerStreamWebSocket> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&ServerStreamWebSocket> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ServerStreamWebSocket) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3553,9 +3553,9 @@ impl SocketActivityContext {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<'a, P0, E0>(data: P0) -> ::windows::core::Result<SocketActivityContext>
+    pub fn Create<P0, E0>(data: P0) -> ::windows::core::Result<SocketActivityContext>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ISocketActivityContextFactory(|this| unsafe {
@@ -3982,7 +3982,7 @@ impl ::core::convert::TryFrom<&StreamSocket> for super::super::Foundation::IClos
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&StreamSocket> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&StreamSocket> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StreamSocket) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4434,7 +4434,7 @@ impl ::core::convert::TryFrom<&StreamSocketListener> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&StreamSocketListener> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&StreamSocketListener> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StreamSocketListener) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4777,7 +4777,7 @@ impl ::core::convert::TryFrom<&StreamWebSocket> for super::super::Foundation::IC
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&StreamWebSocket> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&StreamWebSocket> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StreamWebSocket) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4796,7 +4796,7 @@ impl ::core::convert::TryFrom<&StreamWebSocket> for IWebSocket {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StreamWebSocket> for ::windows::core::InParam<'a, IWebSocket> {
+impl ::core::convert::TryFrom<&StreamWebSocket> for ::windows::core::InParam<IWebSocket> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StreamWebSocket) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4964,7 +4964,7 @@ impl ::core::convert::TryFrom<&StreamWebSocketControl> for IWebSocketControl {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StreamWebSocketControl> for ::windows::core::InParam<'a, IWebSocketControl> {
+impl ::core::convert::TryFrom<&StreamWebSocketControl> for ::windows::core::InParam<IWebSocketControl> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StreamWebSocketControl) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4983,7 +4983,7 @@ impl ::core::convert::TryFrom<&StreamWebSocketControl> for IWebSocketControl2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StreamWebSocketControl> for ::windows::core::InParam<'a, IWebSocketControl2> {
+impl ::core::convert::TryFrom<&StreamWebSocketControl> for ::windows::core::InParam<IWebSocketControl2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StreamWebSocketControl) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5097,7 +5097,7 @@ impl ::core::convert::TryFrom<&StreamWebSocketInformation> for IWebSocketInforma
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StreamWebSocketInformation> for ::windows::core::InParam<'a, IWebSocketInformation> {
+impl ::core::convert::TryFrom<&StreamWebSocketInformation> for ::windows::core::InParam<IWebSocketInformation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StreamWebSocketInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5116,7 +5116,7 @@ impl ::core::convert::TryFrom<&StreamWebSocketInformation> for IWebSocketInforma
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StreamWebSocketInformation> for ::windows::core::InParam<'a, IWebSocketInformation2> {
+impl ::core::convert::TryFrom<&StreamWebSocketInformation> for ::windows::core::InParam<IWebSocketInformation2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StreamWebSocketInformation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5214,9 +5214,9 @@ impl WebSocketKeepAlive {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     #[cfg(feature = "ApplicationModel_Background")]
-    pub fn Run<'a, P0, E0>(&self, taskinstance: P0) -> ::windows::core::Result<()>
+    pub fn Run<P0, E0>(&self, taskinstance: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::ApplicationModel::Background::IBackgroundTaskInstance>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::ApplicationModel::Background::IBackgroundTaskInstance>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5280,7 +5280,7 @@ impl ::core::convert::TryFrom<&WebSocketKeepAlive> for super::super::Application
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
-impl<'a> ::core::convert::TryFrom<&WebSocketKeepAlive> for ::windows::core::InParam<'a, super::super::ApplicationModel::Background::IBackgroundTask> {
+impl ::core::convert::TryFrom<&WebSocketKeepAlive> for ::windows::core::InParam<super::super::ApplicationModel::Background::IBackgroundTask> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebSocketKeepAlive) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

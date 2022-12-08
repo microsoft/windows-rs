@@ -7,9 +7,9 @@ impl ISideShowBulkCapabilities {
     pub unsafe fn GetCapability(&self, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetCapability)(::windows::core::Vtable::as_raw(self), in_keycapability, inout_pvalue).ok()
     }
-    pub unsafe fn GetCapabilities<'a, P0>(&self, in_keycollection: P0, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()>
+    pub unsafe fn GetCapabilities<P0>(&self, in_keycollection: P0, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowKeyCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISideShowKeyCollection>>,
     {
         (::windows::core::Vtable::vtable(self).GetCapabilities)(::windows::core::Vtable::as_raw(self), in_keycollection.into().abi(), ::core::mem::transmute(inout_pvalues)).ok()
     }
@@ -132,9 +132,9 @@ pub struct ISideShowCapabilitiesCollection_Vtbl {
 #[repr(transparent)]
 pub struct ISideShowContent(::windows::core::IUnknown);
 impl ISideShowContent {
-    pub unsafe fn GetContent<'a, P0>(&self, in_picapabilities: P0, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn GetContent<P0>(&self, in_picapabilities: P0, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISideShowCapabilities>>,
     {
         (::windows::core::Vtable::vtable(self).GetContent)(::windows::core::Vtable::as_raw(self), in_picapabilities.into().abi(), out_pdwsize, out_ppbdata).ok()
     }
@@ -187,9 +187,9 @@ pub struct ISideShowContent_Vtbl {
 #[repr(transparent)]
 pub struct ISideShowContentManager(::windows::core::IUnknown);
 impl ISideShowContentManager {
-    pub unsafe fn Add<'a, P0>(&self, in_picontent: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0>(&self, in_picontent: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowContent>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISideShowContent>>,
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), in_picontent.into().abi()).ok()
     }
@@ -199,9 +199,9 @@ impl ISideShowContentManager {
     pub unsafe fn RemoveAll(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveAll)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn SetEventSink<'a, P0>(&self, in_pievents: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEventSink<P0>(&self, in_pievents: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowEvents>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISideShowEvents>>,
     {
         (::windows::core::Vtable::vtable(self).SetEventSink)(::windows::core::Vtable::as_raw(self), in_pievents.into().abi()).ok()
     }
@@ -251,21 +251,21 @@ impl ISideShowEvents {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ContentMissing)(::windows::core::Vtable::as_raw(self), in_contentid, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn ApplicationEvent<'a, P0>(&self, in_picapabilities: P0, in_dweventid: u32, in_pbeventdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
+    pub unsafe fn ApplicationEvent<P0>(&self, in_picapabilities: P0, in_dweventid: u32, in_pbeventdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISideShowCapabilities>>,
     {
         (::windows::core::Vtable::vtable(self).ApplicationEvent)(::windows::core::Vtable::as_raw(self), in_picapabilities.into().abi(), in_dweventid, in_pbeventdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(in_pbeventdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    pub unsafe fn DeviceAdded<'a, P0>(&self, in_pidevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeviceAdded<P0>(&self, in_pidevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISideShowCapabilities>>,
     {
         (::windows::core::Vtable::vtable(self).DeviceAdded)(::windows::core::Vtable::as_raw(self), in_pidevice.into().abi()).ok()
     }
-    pub unsafe fn DeviceRemoved<'a, P0>(&self, in_pidevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeviceRemoved<P0>(&self, in_pidevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISideShowCapabilities>>,
     {
         (::windows::core::Vtable::vtable(self).DeviceRemoved)(::windows::core::Vtable::as_raw(self), in_pidevice.into().abi()).ok()
     }
@@ -380,7 +380,7 @@ impl ISideShowNotification {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Title)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetTitle<'a, P0>(&self, in_pwsztitle: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTitle<P0>(&self, in_pwsztitle: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -390,7 +390,7 @@ impl ISideShowNotification {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Message)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetMessage<'a, P0>(&self, in_pwszmessage: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMessage<P0>(&self, in_pwszmessage: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -404,7 +404,7 @@ impl ISideShowNotification {
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn SetImage<'a, P0>(&self, in_hicon: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetImage<P0>(&self, in_hicon: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::UI::WindowsAndMessaging::HICON>,
     {
@@ -476,9 +476,9 @@ pub struct ISideShowNotification_Vtbl {
 #[repr(transparent)]
 pub struct ISideShowNotificationManager(::windows::core::IUnknown);
 impl ISideShowNotificationManager {
-    pub unsafe fn Show<'a, P0>(&self, in_pinotification: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Show<P0>(&self, in_pinotification: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowNotification>>,
+        P0: ::std::convert::Into<::windows::core::InParam<ISideShowNotification>>,
     {
         (::windows::core::Vtable::vtable(self).Show)(::windows::core::Vtable::as_raw(self), in_pinotification.into().abi()).ok()
     }

@@ -1,4 +1,4 @@
-use super::{Abi, Borrowed};
+use super::{Abi, ManuallyDrop};
 
 /// An "IN" param to a Windows API.
 ///
@@ -42,16 +42,11 @@ use super::{Abi, Borrowed};
 ///
 /// `InParam`s are composed of either an owned type or a `Borrowed<'a, T>`. If you want to know more about how the types line up at the abi layer,
 /// read the docs for `Borrowed` and for `Abi`.
-pub struct InParam<'a, T: Abi> {
-    inner: InParamRepr<'a, T>,
+pub struct InParam<T: Abi> {
+    inner: InParamRepr<T>,
 }
 
-impl<'a, T: Abi> InParam<'a, T> {
-    /// Pass a null pointer as the param
-    pub fn null() -> Self {
-        Self::borrowed(Borrowed::none())
-    }
-
+impl<T: Abi> InParam<T> {
     /// Create an owned `InParam`
     ///
     /// Normally, it is not necessary to use this function. Generally, there is a `From` implementation
@@ -64,7 +59,7 @@ impl<'a, T: Abi> InParam<'a, T> {
     ///
     /// Normally, it is not necessary to use this function. Generally, there is a `From` implementation
     /// that allows you to call `.into` to safely create an `InParam` value.
-    pub fn borrowed(item: Borrowed<'a, T>) -> Self {
+    pub fn borrowed(item: ManuallyDrop<T>) -> Self {
         Self { inner: InParamRepr::Borrowed(item) }
     }
 
@@ -74,18 +69,18 @@ impl<'a, T: Abi> InParam<'a, T> {
     }
 }
 
-impl<'a, T, U: Abi> From<&'a T> for InParam<'a, U>
+impl<'a, T, U: Abi> From<&'a T> for InParam<U>
 where
-    &'a T: Into<Borrowed<'a, U>>,
+    &'a T: Into<ManuallyDrop<U>>,
 {
     fn from(borrowed: &'a T) -> Self {
         InParam::borrowed(borrowed.into())
     }
 }
 
-impl<'a, T: Abi> From<Option<&'a T>> for InParam<'a, T>
+impl<'a, T: Abi> From<Option<&'a T>> for InParam<T>
 where
-    &'a T: Into<Borrowed<'a, T>>,
+    &'a T: Into<ManuallyDrop<T>>,
 {
     fn from(item: Option<&'a T>) -> Self {
         InParam::borrowed(item.into())
@@ -93,12 +88,12 @@ where
 }
 
 /// This allows us to represent `InParam` as an enum but keep that as an implementation detail
-enum InParamRepr<'a, T: Abi> {
+enum InParamRepr<T: Abi> {
     Owned(T),
-    Borrowed(Borrowed<'a, T>),
+    Borrowed(ManuallyDrop<T>),
 }
 
-impl<'a, T: Abi> InParamRepr<'a, T> {
+impl<T: Abi> InParamRepr<T> {
     fn abi(&self) -> T::Abi {
         let borrowed = match self {
             Self::Owned(item) => item.into(),
@@ -111,7 +106,7 @@ impl<'a, T: Abi> InParamRepr<'a, T> {
 macro_rules! primitive_types {
     ($($t:ty),+) => {
         $(
-            impl <'a> From<$t> for InParam<'a, $t> {
+            impl From<$t> for InParam<$t> {
                 fn from(item: $t) -> Self {
                     Self::borrowed(item.into())
                 }

@@ -556,9 +556,9 @@ impl IMSMQDestination {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_IADs<'a, P0>(&self, piads: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_IADs<P0>(&self, piads: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).putref_IADs)(::windows::core::Vtable::as_raw(self), piads.into().abi()).ok()
     }
@@ -591,9 +591,9 @@ impl IMSMQDestination {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Destinations<'a, P0>(&self, pdestinations: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_Destinations<P0>(&self, pdestinations: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).putref_Destinations)(::windows::core::Vtable::as_raw(self), pdestinations.into().abi()).ok()
     }
@@ -982,9 +982,9 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo<'a, P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo>>,
     {
         (::windows::core::Vtable::vtable(self).putref_ResponseQueueInfo)(::windows::core::Vtable::as_raw(self), pqinforesponse.into().abi()).ok()
     }
@@ -1022,9 +1022,9 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo<'a, P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AdminQueueInfo)(::windows::core::Vtable::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
@@ -1131,9 +1131,9 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Send<'a, P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueue>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueue>>,
     {
         (::windows::core::Vtable::vtable(self).Send)(::windows::core::Vtable::as_raw(self), destinationqueue.into().abi(), transaction).ok()
     }
@@ -1338,9 +1338,9 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v1<'a, P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo>>,
     {
         (::windows::core::Vtable::vtable(self).putref_ResponseQueueInfo_v1)(::windows::core::Vtable::as_raw(self), pqinforesponse.into().abi()).ok()
     }
@@ -1378,9 +1378,9 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v1<'a, P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AdminQueueInfo_v1)(::windows::core::Vtable::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
@@ -1487,9 +1487,9 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Send<'a, P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueue2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueue2>>,
     {
         (::windows::core::Vtable::vtable(self).Send)(::windows::core::Vtable::as_raw(self), destinationqueue.into().abi(), transaction).ok()
     }
@@ -1600,9 +1600,9 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo<'a, P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo2>>,
     {
         (::windows::core::Vtable::vtable(self).putref_ResponseQueueInfo)(::windows::core::Vtable::as_raw(self), pqinforesponse.into().abi()).ok()
     }
@@ -1614,9 +1614,9 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo<'a, P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo2>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AdminQueueInfo)(::windows::core::Vtable::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
@@ -1890,9 +1890,9 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v1<'a, P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo>>,
     {
         (::windows::core::Vtable::vtable(self).putref_ResponseQueueInfo_v1)(::windows::core::Vtable::as_raw(self), pqinforesponse.into().abi()).ok()
     }
@@ -1930,9 +1930,9 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v1<'a, P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AdminQueueInfo_v1)(::windows::core::Vtable::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
@@ -2039,9 +2039,9 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Send<'a, P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).Send)(::windows::core::Vtable::as_raw(self), destinationqueue.into().abi(), transaction).ok()
     }
@@ -2152,9 +2152,9 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v2<'a, P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_ResponseQueueInfo_v2<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo2>>,
     {
         (::windows::core::Vtable::vtable(self).putref_ResponseQueueInfo_v2)(::windows::core::Vtable::as_raw(self), pqinforesponse.into().abi()).ok()
     }
@@ -2166,9 +2166,9 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v2<'a, P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo_v2<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo2>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AdminQueueInfo_v2)(::windows::core::Vtable::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
@@ -2184,9 +2184,9 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo<'a, P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo3>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo3>>,
     {
         (::windows::core::Vtable::vtable(self).putref_ResponseQueueInfo)(::windows::core::Vtable::as_raw(self), pqinforesponse.into().abi()).ok()
     }
@@ -2198,9 +2198,9 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo<'a, P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo3>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo3>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AdminQueueInfo)(::windows::core::Vtable::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
@@ -2212,9 +2212,9 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseDestination<'a, P0>(&self, pdestresponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_ResponseDestination<P0>(&self, pdestresponse: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).putref_ResponseDestination)(::windows::core::Vtable::as_raw(self), pdestresponse.into().abi()).ok()
     }
@@ -2585,9 +2585,9 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v1<'a, P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo>>,
     {
         (::windows::core::Vtable::vtable(self).putref_ResponseQueueInfo_v1)(::windows::core::Vtable::as_raw(self), pqinforesponse.into().abi()).ok()
     }
@@ -2625,9 +2625,9 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v1<'a, P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AdminQueueInfo_v1)(::windows::core::Vtable::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
@@ -2734,9 +2734,9 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Send<'a, P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).Send)(::windows::core::Vtable::as_raw(self), destinationqueue.into().abi(), transaction).ok()
     }
@@ -2847,9 +2847,9 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v2<'a, P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_ResponseQueueInfo_v2<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo2>>,
     {
         (::windows::core::Vtable::vtable(self).putref_ResponseQueueInfo_v2)(::windows::core::Vtable::as_raw(self), pqinforesponse.into().abi()).ok()
     }
@@ -2861,9 +2861,9 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v2<'a, P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo_v2<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo2>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AdminQueueInfo_v2)(::windows::core::Vtable::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
@@ -2879,9 +2879,9 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo<'a, P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo4>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo4>>,
     {
         (::windows::core::Vtable::vtable(self).putref_ResponseQueueInfo)(::windows::core::Vtable::as_raw(self), pqinforesponse.into().abi()).ok()
     }
@@ -2893,9 +2893,9 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo<'a, P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo4>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueueInfo4>>,
     {
         (::windows::core::Vtable::vtable(self).putref_AdminQueueInfo)(::windows::core::Vtable::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
@@ -2907,9 +2907,9 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseDestination<'a, P0>(&self, pdestresponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_ResponseDestination<P0>(&self, pdestresponse: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).putref_ResponseDestination)(::windows::core::Vtable::as_raw(self), pdestresponse.into().abi()).ok()
     }
@@ -3411,17 +3411,17 @@ impl IMSMQPrivateEvent {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn FireArrivedEvent<'a, P0>(&self, pq: P0, msgcursor: i32) -> ::windows::core::Result<()>
+    pub unsafe fn FireArrivedEvent<P0>(&self, pq: P0, msgcursor: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueue>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueue>>,
     {
         (::windows::core::Vtable::vtable(self).FireArrivedEvent)(::windows::core::Vtable::as_raw(self), pq.into().abi(), msgcursor).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn FireArrivedErrorEvent<'a, P0>(&self, pq: P0, hrstatus: ::windows::core::HRESULT, msgcursor: i32) -> ::windows::core::Result<()>
+    pub unsafe fn FireArrivedErrorEvent<P0>(&self, pq: P0, hrstatus: ::windows::core::HRESULT, msgcursor: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueue>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQQueue>>,
     {
         (::windows::core::Vtable::vtable(self).FireArrivedErrorEvent)(::windows::core::Vtable::as_raw(self), pq.into().abi(), hrstatus, msgcursor).ok()
     }
@@ -3778,9 +3778,9 @@ impl IMSMQQueue {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnableNotification<'a, P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQEvent>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQEvent>>,
     {
         (::windows::core::Vtable::vtable(self).EnableNotification)(::windows::core::Vtable::as_raw(self), event.into().abi(), cursor, receivetimeout).ok()
     }
@@ -3921,9 +3921,9 @@ impl IMSMQQueue2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnableNotification<'a, P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQEvent2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQEvent2>>,
     {
         (::windows::core::Vtable::vtable(self).EnableNotification)(::windows::core::Vtable::as_raw(self), event.into().abi(), cursor, receivetimeout).ok()
     }
@@ -4124,9 +4124,9 @@ impl IMSMQQueue3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnableNotification<'a, P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQEvent3>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQEvent3>>,
     {
         (::windows::core::Vtable::vtable(self).EnableNotification)(::windows::core::Vtable::as_raw(self), event.into().abi(), cursor, receivetimeout).ok()
     }
@@ -4451,9 +4451,9 @@ impl IMSMQQueue4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnableNotification<'a, P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQEvent3>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMSMQEvent3>>,
     {
         (::windows::core::Vtable::vtable(self).EnableNotification)(::windows::core::Vtable::as_raw(self), event.into().abi(), cursor, receivetimeout).ok()
     }

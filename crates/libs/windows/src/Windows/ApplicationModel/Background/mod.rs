@@ -280,9 +280,9 @@ pub struct IBackgroundExecutionManagerStatics3_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundTask(::windows::core::IUnknown);
 impl IBackgroundTask {
-    pub fn Run<'a, P0, E0>(&self, taskinstance: P0) -> ::windows::core::Result<()>
+    pub fn Run<P0, E0>(&self, taskinstance: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBackgroundTaskInstance>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBackgroundTaskInstance>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -642,7 +642,7 @@ impl ::core::convert::TryFrom<&IBackgroundTaskInstance2> for IBackgroundTaskInst
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IBackgroundTaskInstance2> for ::windows::core::InParam<'a, IBackgroundTaskInstance> {
+impl ::core::convert::TryFrom<&IBackgroundTaskInstance2> for ::windows::core::InParam<IBackgroundTaskInstance> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IBackgroundTaskInstance2) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -772,7 +772,7 @@ impl ::core::convert::TryFrom<&IBackgroundTaskInstance4> for IBackgroundTaskInst
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IBackgroundTaskInstance4> for ::windows::core::InParam<'a, IBackgroundTaskInstance> {
+impl ::core::convert::TryFrom<&IBackgroundTaskInstance4> for ::windows::core::InParam<IBackgroundTaskInstance> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IBackgroundTaskInstance4) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1013,7 +1013,7 @@ impl ::core::convert::TryFrom<&IBackgroundTaskRegistration2> for IBackgroundTask
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IBackgroundTaskRegistration2> for ::windows::core::InParam<'a, IBackgroundTaskRegistration> {
+impl ::core::convert::TryFrom<&IBackgroundTaskRegistration2> for ::windows::core::InParam<IBackgroundTaskRegistration> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IBackgroundTaskRegistration2) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1128,7 +1128,7 @@ impl ::core::convert::TryFrom<&IBackgroundTaskRegistration3> for IBackgroundTask
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IBackgroundTaskRegistration3> for ::windows::core::InParam<'a, IBackgroundTaskRegistration> {
+impl ::core::convert::TryFrom<&IBackgroundTaskRegistration3> for ::windows::core::InParam<IBackgroundTaskRegistration> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IBackgroundTaskRegistration3) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2526,7 +2526,7 @@ impl ::core::convert::TryFrom<&ActivitySensorTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ActivitySensorTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&ActivitySensorTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ActivitySensorTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2633,7 +2633,7 @@ impl ::core::convert::TryFrom<&AppBroadcastTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppBroadcastTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&AppBroadcastTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppBroadcastTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2827,7 +2827,7 @@ impl ::core::convert::TryFrom<&ApplicationTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ApplicationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&ApplicationTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ApplicationTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2942,7 +2942,7 @@ impl ::core::convert::TryFrom<&AppointmentStoreNotificationTrigger> for IBackgro
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AppointmentStoreNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&AppointmentStoreNotificationTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AppointmentStoreNotificationTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3057,17 +3057,17 @@ impl BackgroundTaskBuilder {
             (::windows::core::Vtable::vtable(this).TaskEntryPoint)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetTrigger<'a, P0, E0>(&self, trigger: P0) -> ::windows::core::Result<()>
+    pub fn SetTrigger<P0, E0>(&self, trigger: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBackgroundTrigger>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBackgroundTrigger>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetTrigger)(::windows::core::Vtable::as_raw(this), trigger.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn AddCondition<'a, P0, E0>(&self, condition: P0) -> ::windows::core::Result<()>
+    pub fn AddCondition<P0, E0>(&self, condition: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBackgroundCondition>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBackgroundCondition>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3455,7 +3455,7 @@ impl ::core::convert::TryFrom<&BackgroundTaskRegistration> for IBackgroundTaskRe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BackgroundTaskRegistration> for ::windows::core::InParam<'a, IBackgroundTaskRegistration> {
+impl ::core::convert::TryFrom<&BackgroundTaskRegistration> for ::windows::core::InParam<IBackgroundTaskRegistration> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BackgroundTaskRegistration) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3474,7 +3474,7 @@ impl ::core::convert::TryFrom<&BackgroundTaskRegistration> for IBackgroundTaskRe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BackgroundTaskRegistration> for ::windows::core::InParam<'a, IBackgroundTaskRegistration2> {
+impl ::core::convert::TryFrom<&BackgroundTaskRegistration> for ::windows::core::InParam<IBackgroundTaskRegistration2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BackgroundTaskRegistration) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3493,7 +3493,7 @@ impl ::core::convert::TryFrom<&BackgroundTaskRegistration> for IBackgroundTaskRe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BackgroundTaskRegistration> for ::windows::core::InParam<'a, IBackgroundTaskRegistration3> {
+impl ::core::convert::TryFrom<&BackgroundTaskRegistration> for ::windows::core::InParam<IBackgroundTaskRegistration3> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BackgroundTaskRegistration) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3646,9 +3646,9 @@ impl BluetoothLEAdvertisementPublisherTrigger {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPreferredTransmitPowerLevelInDBm<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetPreferredTransmitPowerLevelInDBm<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<i16>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<i16>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
@@ -3733,7 +3733,7 @@ impl ::core::convert::TryFrom<&BluetoothLEAdvertisementPublisherTrigger> for IBa
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BluetoothLEAdvertisementPublisherTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&BluetoothLEAdvertisementPublisherTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BluetoothLEAdvertisementPublisherTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3876,7 +3876,7 @@ impl ::core::convert::TryFrom<&BluetoothLEAdvertisementWatcherTrigger> for IBack
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&BluetoothLEAdvertisementWatcherTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&BluetoothLEAdvertisementWatcherTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BluetoothLEAdvertisementWatcherTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3942,7 +3942,7 @@ impl ::core::convert::TryFrom<&CachedFileUpdaterTrigger> for IBackgroundTrigger 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CachedFileUpdaterTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&CachedFileUpdaterTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CachedFileUpdaterTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4073,7 +4073,7 @@ impl ::core::convert::TryFrom<&ChatMessageNotificationTrigger> for IBackgroundTr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ChatMessageNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&ChatMessageNotificationTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ChatMessageNotificationTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4139,7 +4139,7 @@ impl ::core::convert::TryFrom<&ChatMessageReceivedNotificationTrigger> for IBack
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ChatMessageReceivedNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&ChatMessageReceivedNotificationTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ChatMessageReceivedNotificationTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4205,7 +4205,7 @@ impl ::core::convert::TryFrom<&CommunicationBlockingAppSetAsActiveTrigger> for I
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CommunicationBlockingAppSetAsActiveTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&CommunicationBlockingAppSetAsActiveTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CommunicationBlockingAppSetAsActiveTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4271,7 +4271,7 @@ impl ::core::convert::TryFrom<&ContactStoreNotificationTrigger> for IBackgroundT
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContactStoreNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&ContactStoreNotificationTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContactStoreNotificationTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4359,7 +4359,7 @@ impl ::core::convert::TryFrom<&ContentPrefetchTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ContentPrefetchTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&ContentPrefetchTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ContentPrefetchTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4423,7 +4423,7 @@ impl ::core::convert::TryFrom<&ConversationalAgentTrigger> for IBackgroundTrigge
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ConversationalAgentTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&ConversationalAgentTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ConversationalAgentTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4505,7 +4505,7 @@ impl ::core::convert::TryFrom<&CustomSystemEventTrigger> for IBackgroundTrigger 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CustomSystemEventTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&CustomSystemEventTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CustomSystemEventTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4600,7 +4600,7 @@ impl ::core::convert::TryFrom<&DeviceConnectionChangeTrigger> for IBackgroundTri
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DeviceConnectionChangeTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&DeviceConnectionChangeTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceConnectionChangeTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4705,7 +4705,7 @@ impl ::core::convert::TryFrom<&DeviceManufacturerNotificationTrigger> for IBackg
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&DeviceManufacturerNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&DeviceManufacturerNotificationTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceManufacturerNotificationTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4787,7 +4787,7 @@ impl ::core::convert::TryFrom<&DeviceServicingTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DeviceServicingTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&DeviceServicingTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceServicingTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4871,7 +4871,7 @@ impl ::core::convert::TryFrom<&DeviceUseTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DeviceUseTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&DeviceUseTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceUseTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4929,7 +4929,7 @@ impl ::core::convert::TryFrom<&DeviceWatcherTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DeviceWatcherTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&DeviceWatcherTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceWatcherTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -4993,7 +4993,7 @@ impl ::core::convert::TryFrom<&EmailStoreNotificationTrigger> for IBackgroundTri
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&EmailStoreNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&EmailStoreNotificationTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &EmailStoreNotificationTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5096,7 +5096,7 @@ impl ::core::convert::TryFrom<&GattCharacteristicNotificationTrigger> for IBackg
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&GattCharacteristicNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&GattCharacteristicNotificationTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GattCharacteristicNotificationTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5199,7 +5199,7 @@ impl ::core::convert::TryFrom<&GattServiceProviderTrigger> for IBackgroundTrigge
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&GattServiceProviderTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&GattServiceProviderTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GattServiceProviderTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5336,7 +5336,7 @@ impl ::core::convert::TryFrom<&GeovisitTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&GeovisitTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&GeovisitTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GeovisitTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5413,7 +5413,7 @@ impl ::core::convert::TryFrom<&LocationTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&LocationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&LocationTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LocationTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5497,7 +5497,7 @@ impl ::core::convert::TryFrom<&MaintenanceTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MaintenanceTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&MaintenanceTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MaintenanceTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5579,7 +5579,7 @@ impl ::core::convert::TryFrom<&MediaProcessingTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MediaProcessingTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&MediaProcessingTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaProcessingTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5643,7 +5643,7 @@ impl ::core::convert::TryFrom<&MobileBroadbandDeviceServiceNotificationTrigger> 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MobileBroadbandDeviceServiceNotificationTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5709,7 +5709,7 @@ impl ::core::convert::TryFrom<&MobileBroadbandPcoDataChangeTrigger> for IBackgro
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MobileBroadbandPcoDataChangeTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&MobileBroadbandPcoDataChangeTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MobileBroadbandPcoDataChangeTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5775,7 +5775,7 @@ impl ::core::convert::TryFrom<&MobileBroadbandPinLockStateChangeTrigger> for IBa
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MobileBroadbandPinLockStateChangeTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&MobileBroadbandPinLockStateChangeTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MobileBroadbandPinLockStateChangeTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5841,7 +5841,7 @@ impl ::core::convert::TryFrom<&MobileBroadbandRadioStateChangeTrigger> for IBack
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MobileBroadbandRadioStateChangeTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&MobileBroadbandRadioStateChangeTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MobileBroadbandRadioStateChangeTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5907,7 +5907,7 @@ impl ::core::convert::TryFrom<&MobileBroadbandRegistrationStateChangeTrigger> fo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&MobileBroadbandRegistrationStateChangeTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&MobileBroadbandRegistrationStateChangeTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MobileBroadbandRegistrationStateChangeTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5973,7 +5973,7 @@ impl ::core::convert::TryFrom<&NetworkOperatorDataUsageTrigger> for IBackgroundT
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&NetworkOperatorDataUsageTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&NetworkOperatorDataUsageTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &NetworkOperatorDataUsageTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6039,7 +6039,7 @@ impl ::core::convert::TryFrom<&NetworkOperatorHotspotAuthenticationTrigger> for 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&NetworkOperatorHotspotAuthenticationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&NetworkOperatorHotspotAuthenticationTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &NetworkOperatorHotspotAuthenticationTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6114,7 +6114,7 @@ impl ::core::convert::TryFrom<&NetworkOperatorNotificationTrigger> for IBackgrou
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&NetworkOperatorNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&NetworkOperatorNotificationTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &NetworkOperatorNotificationTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6178,7 +6178,7 @@ impl ::core::convert::TryFrom<&PaymentAppCanMakePaymentTrigger> for IBackgroundT
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PaymentAppCanMakePaymentTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&PaymentAppCanMakePaymentTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PaymentAppCanMakePaymentTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6266,7 +6266,7 @@ impl ::core::convert::TryFrom<&PhoneTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PhoneTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&PhoneTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PhoneTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6343,7 +6343,7 @@ impl ::core::convert::TryFrom<&PushNotificationTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PushNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&PushNotificationTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PushNotificationTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6409,7 +6409,7 @@ impl ::core::convert::TryFrom<&RcsEndUserMessageAvailableTrigger> for IBackgroun
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RcsEndUserMessageAvailableTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&RcsEndUserMessageAvailableTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RcsEndUserMessageAvailableTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6534,7 +6534,7 @@ impl ::core::convert::TryFrom<&RfcommConnectionTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&RfcommConnectionTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&RfcommConnectionTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &RfcommConnectionTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6614,7 +6614,7 @@ impl ::core::convert::TryFrom<&SecondaryAuthenticationFactorAuthenticationTrigge
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6627,9 +6627,9 @@ pub struct SensorDataThresholdTrigger(::windows::core::IUnknown);
 impl SensorDataThresholdTrigger {
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
     #[cfg(feature = "Devices_Sensors")]
-    pub fn Create<'a, P0, E0>(threshold: P0) -> ::windows::core::Result<SensorDataThresholdTrigger>
+    pub fn Create<P0, E0>(threshold: P0) -> ::windows::core::Result<SensorDataThresholdTrigger>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Devices::Sensors::ISensorDataThreshold>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Devices::Sensors::ISensorDataThreshold>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ISensorDataThresholdTriggerFactory(|this| unsafe {
@@ -6688,7 +6688,7 @@ impl ::core::convert::TryFrom<&SensorDataThresholdTrigger> for IBackgroundTrigge
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SensorDataThresholdTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&SensorDataThresholdTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SensorDataThresholdTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6769,7 +6769,7 @@ impl ::core::convert::TryFrom<&SmartCardTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SmartCardTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&SmartCardTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SmartCardTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6839,7 +6839,7 @@ impl ::core::convert::TryFrom<&SmsMessageReceivedTrigger> for IBackgroundTrigger
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SmsMessageReceivedTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&SmsMessageReceivedTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SmsMessageReceivedTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6912,7 +6912,7 @@ impl ::core::convert::TryFrom<&SocketActivityTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SocketActivityTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&SocketActivityTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SocketActivityTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6984,7 +6984,7 @@ impl ::core::convert::TryFrom<&StorageLibraryChangeTrackerTrigger> for IBackgrou
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageLibraryChangeTrackerTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&StorageLibraryChangeTrackerTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageLibraryChangeTrackerTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7007,9 +7007,9 @@ impl StorageLibraryContentChangedTrigger {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn CreateFromLibraries<'a, P0, E0>(storagelibraries: P0) -> ::windows::core::Result<StorageLibraryContentChangedTrigger>
+    pub fn CreateFromLibraries<P0, E0>(storagelibraries: P0) -> ::windows::core::Result<StorageLibraryContentChangedTrigger>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::StorageLibrary>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Storage::StorageLibrary>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IStorageLibraryContentChangedTriggerStatics(|this| unsafe {
@@ -7068,7 +7068,7 @@ impl ::core::convert::TryFrom<&StorageLibraryContentChangedTrigger> for IBackgro
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageLibraryContentChangedTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&StorageLibraryContentChangedTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageLibraryContentChangedTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7143,7 +7143,7 @@ impl ::core::convert::TryFrom<&SystemCondition> for IBackgroundCondition {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SystemCondition> for ::windows::core::InParam<'a, IBackgroundCondition> {
+impl ::core::convert::TryFrom<&SystemCondition> for ::windows::core::InParam<IBackgroundCondition> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SystemCondition) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7225,7 +7225,7 @@ impl ::core::convert::TryFrom<&SystemTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SystemTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&SystemTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SystemTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7289,7 +7289,7 @@ impl ::core::convert::TryFrom<&TetheringEntitlementCheckTrigger> for IBackground
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TetheringEntitlementCheckTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&TetheringEntitlementCheckTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TetheringEntitlementCheckTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7373,7 +7373,7 @@ impl ::core::convert::TryFrom<&TimeTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&TimeTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&TimeTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TimeTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7448,7 +7448,7 @@ impl ::core::convert::TryFrom<&ToastNotificationActionTrigger> for IBackgroundTr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ToastNotificationActionTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&ToastNotificationActionTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ToastNotificationActionTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7525,7 +7525,7 @@ impl ::core::convert::TryFrom<&ToastNotificationHistoryChangedTrigger> for IBack
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ToastNotificationHistoryChangedTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&ToastNotificationHistoryChangedTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ToastNotificationHistoryChangedTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7597,7 +7597,7 @@ impl ::core::convert::TryFrom<&UserNotificationChangedTrigger> for IBackgroundTr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&UserNotificationChangedTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&UserNotificationChangedTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UserNotificationChangedTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7663,7 +7663,7 @@ impl ::core::convert::TryFrom<&WiFiOnDemandHotspotConnectTrigger> for IBackgroun
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WiFiOnDemandHotspotConnectTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&WiFiOnDemandHotspotConnectTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WiFiOnDemandHotspotConnectTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7729,7 +7729,7 @@ impl ::core::convert::TryFrom<&WiFiOnDemandHotspotUpdateMetadataTrigger> for IBa
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WiFiOnDemandHotspotUpdateMetadataTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+impl ::core::convert::TryFrom<&WiFiOnDemandHotspotUpdateMetadataTrigger> for ::windows::core::InParam<IBackgroundTrigger> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WiFiOnDemandHotspotUpdateMetadataTrigger) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8234,9 +8234,9 @@ impl BackgroundTaskCanceledEventHandler {
         let com = BackgroundTaskCanceledEventHandlerBox::<F> { vtable: &BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, E0>(&self, sender: P0, reason: BackgroundTaskCancellationReason) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, E0>(&self, sender: P0, reason: BackgroundTaskCancellationReason) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBackgroundTaskInstance>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IBackgroundTaskInstance>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

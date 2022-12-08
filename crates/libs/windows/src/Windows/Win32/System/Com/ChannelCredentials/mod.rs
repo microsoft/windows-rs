@@ -4,7 +4,7 @@ pub struct IChannelCredentials(::windows::core::IUnknown);
 impl IChannelCredentials {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWindowsCredential<'a, P0>(&self, domain: &::windows::core::BSTR, username: &::windows::core::BSTR, password: &::windows::core::BSTR, impersonationlevel: i32, allowntlm: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWindowsCredential<P0>(&self, domain: &::windows::core::BSTR, username: &::windows::core::BSTR, password: &::windows::core::BSTR, impersonationlevel: i32, allowntlm: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {

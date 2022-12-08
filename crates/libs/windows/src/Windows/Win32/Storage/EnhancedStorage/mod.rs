@@ -330,7 +330,7 @@ impl IEnumEnhancedStorageACT {
     pub unsafe fn GetACTs(&self, pppienhancedstorageacts: *mut *mut ::core::option::Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetACTs)(::windows::core::Vtable::as_raw(self), pppienhancedstorageacts, pcenhancedstorageacts).ok()
     }
-    pub unsafe fn GetMatchingACT<'a, P0>(&self, szvolume: P0) -> ::windows::core::Result<IEnhancedStorageACT>
+    pub unsafe fn GetMatchingACT<P0>(&self, szvolume: P0) -> ::windows::core::Result<IEnhancedStorageACT>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {

@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn AddPointerInteractionContext<'a, P0>(interactioncontext: P0, pointerid: u32) -> ::windows::core::Result<()>
+pub unsafe fn AddPointerInteractionContext<P0>(interactioncontext: P0, pointerid: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -10,7 +10,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn BufferPointerPacketsInteractionContext<'a, P0>(interactioncontext: P0, pointerinfo: &[super::Input::Pointer::POINTER_INFO]) -> ::windows::core::Result<()>
+pub unsafe fn BufferPointerPacketsInteractionContext<P0>(interactioncontext: P0, pointerinfo: &[super::Input::Pointer::POINTER_INFO]) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -26,7 +26,7 @@ pub unsafe fn CreateInteractionContext() -> ::windows::core::Result<HINTERACTION
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn DestroyInteractionContext<'a, P0>(interactioncontext: P0) -> ::windows::core::Result<()>
+pub unsafe fn DestroyInteractionContext<P0>(interactioncontext: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -35,7 +35,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetCrossSlideParameterInteractionContext<'a, P0>(interactioncontext: P0, threshold: CROSS_SLIDE_THRESHOLD) -> ::windows::core::Result<f32>
+pub unsafe fn GetCrossSlideParameterInteractionContext<P0>(interactioncontext: P0, threshold: CROSS_SLIDE_THRESHOLD) -> ::windows::core::Result<f32>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -45,7 +45,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetHoldParameterInteractionContext<'a, P0>(interactioncontext: P0, parameter: HOLD_PARAMETER) -> ::windows::core::Result<f32>
+pub unsafe fn GetHoldParameterInteractionContext<P0>(interactioncontext: P0, parameter: HOLD_PARAMETER) -> ::windows::core::Result<f32>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -55,7 +55,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetInertiaParameterInteractionContext<'a, P0>(interactioncontext: P0, inertiaparameter: INERTIA_PARAMETER) -> ::windows::core::Result<f32>
+pub unsafe fn GetInertiaParameterInteractionContext<P0>(interactioncontext: P0, inertiaparameter: INERTIA_PARAMETER) -> ::windows::core::Result<f32>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -65,7 +65,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetInteractionConfigurationInteractionContext<'a, P0>(interactioncontext: P0, configuration: &mut [INTERACTION_CONTEXT_CONFIGURATION]) -> ::windows::core::Result<()>
+pub unsafe fn GetInteractionConfigurationInteractionContext<P0>(interactioncontext: P0, configuration: &mut [INTERACTION_CONTEXT_CONFIGURATION]) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -74,7 +74,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetMouseWheelParameterInteractionContext<'a, P0>(interactioncontext: P0, parameter: MOUSE_WHEEL_PARAMETER) -> ::windows::core::Result<f32>
+pub unsafe fn GetMouseWheelParameterInteractionContext<P0>(interactioncontext: P0, parameter: MOUSE_WHEEL_PARAMETER) -> ::windows::core::Result<f32>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -84,7 +84,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetPropertyInteractionContext<'a, P0>(interactioncontext: P0, contextproperty: INTERACTION_CONTEXT_PROPERTY) -> ::windows::core::Result<u32>
+pub unsafe fn GetPropertyInteractionContext<P0>(interactioncontext: P0, contextproperty: INTERACTION_CONTEXT_PROPERTY) -> ::windows::core::Result<u32>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -95,7 +95,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn GetStateInteractionContext<'a, P0>(interactioncontext: P0, pointerinfo: ::core::option::Option<*const super::Input::Pointer::POINTER_INFO>) -> ::windows::core::Result<INTERACTION_STATE>
+pub unsafe fn GetStateInteractionContext<P0>(interactioncontext: P0, pointerinfo: ::core::option::Option<*const super::Input::Pointer::POINTER_INFO>) -> ::windows::core::Result<INTERACTION_STATE>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -105,7 +105,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetTapParameterInteractionContext<'a, P0>(interactioncontext: P0, parameter: TAP_PARAMETER) -> ::windows::core::Result<f32>
+pub unsafe fn GetTapParameterInteractionContext<P0>(interactioncontext: P0, parameter: TAP_PARAMETER) -> ::windows::core::Result<f32>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -115,7 +115,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetTranslationParameterInteractionContext<'a, P0>(interactioncontext: P0, parameter: TRANSLATION_PARAMETER) -> ::windows::core::Result<f32>
+pub unsafe fn GetTranslationParameterInteractionContext<P0>(interactioncontext: P0, parameter: TRANSLATION_PARAMETER) -> ::windows::core::Result<f32>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -125,7 +125,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn ProcessBufferedPacketsInteractionContext<'a, P0>(interactioncontext: P0) -> ::windows::core::Result<()>
+pub unsafe fn ProcessBufferedPacketsInteractionContext<P0>(interactioncontext: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -134,7 +134,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn ProcessInertiaInteractionContext<'a, P0>(interactioncontext: P0) -> ::windows::core::Result<()>
+pub unsafe fn ProcessInertiaInteractionContext<P0>(interactioncontext: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -144,7 +144,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn ProcessPointerFramesInteractionContext<'a, P0>(interactioncontext: P0, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()>
+pub unsafe fn ProcessPointerFramesInteractionContext<P0>(interactioncontext: P0, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -154,7 +154,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterOutputCallbackInteractionContext<'a, P0>(interactioncontext: P0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
+pub unsafe fn RegisterOutputCallbackInteractionContext<P0>(interactioncontext: P0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -164,7 +164,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, P0>(interactioncontext: P0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
+pub unsafe fn RegisterOutputCallbackInteractionContext2<P0>(interactioncontext: P0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -173,7 +173,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn RemovePointerInteractionContext<'a, P0>(interactioncontext: P0, pointerid: u32) -> ::windows::core::Result<()>
+pub unsafe fn RemovePointerInteractionContext<P0>(interactioncontext: P0, pointerid: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -182,7 +182,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn ResetInteractionContext<'a, P0>(interactioncontext: P0) -> ::windows::core::Result<()>
+pub unsafe fn ResetInteractionContext<P0>(interactioncontext: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -191,7 +191,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetCrossSlideParametersInteractionContext<'a, P0>(interactioncontext: P0, crossslideparameters: &[CROSS_SLIDE_PARAMETER]) -> ::windows::core::Result<()>
+pub unsafe fn SetCrossSlideParametersInteractionContext<P0>(interactioncontext: P0, crossslideparameters: &[CROSS_SLIDE_PARAMETER]) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -200,7 +200,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetHoldParameterInteractionContext<'a, P0>(interactioncontext: P0, parameter: HOLD_PARAMETER, value: f32) -> ::windows::core::Result<()>
+pub unsafe fn SetHoldParameterInteractionContext<P0>(interactioncontext: P0, parameter: HOLD_PARAMETER, value: f32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -209,7 +209,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetInertiaParameterInteractionContext<'a, P0>(interactioncontext: P0, inertiaparameter: INERTIA_PARAMETER, value: f32) -> ::windows::core::Result<()>
+pub unsafe fn SetInertiaParameterInteractionContext<P0>(interactioncontext: P0, inertiaparameter: INERTIA_PARAMETER, value: f32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -218,7 +218,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetInteractionConfigurationInteractionContext<'a, P0>(interactioncontext: P0, configuration: &[INTERACTION_CONTEXT_CONFIGURATION]) -> ::windows::core::Result<()>
+pub unsafe fn SetInteractionConfigurationInteractionContext<P0>(interactioncontext: P0, configuration: &[INTERACTION_CONTEXT_CONFIGURATION]) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -227,7 +227,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetMouseWheelParameterInteractionContext<'a, P0>(interactioncontext: P0, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> ::windows::core::Result<()>
+pub unsafe fn SetMouseWheelParameterInteractionContext<P0>(interactioncontext: P0, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -236,7 +236,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetPivotInteractionContext<'a, P0>(interactioncontext: P0, x: f32, y: f32, radius: f32) -> ::windows::core::Result<()>
+pub unsafe fn SetPivotInteractionContext<P0>(interactioncontext: P0, x: f32, y: f32, radius: f32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -245,7 +245,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetPropertyInteractionContext<'a, P0>(interactioncontext: P0, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: u32) -> ::windows::core::Result<()>
+pub unsafe fn SetPropertyInteractionContext<P0>(interactioncontext: P0, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -254,7 +254,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetTapParameterInteractionContext<'a, P0>(interactioncontext: P0, parameter: TAP_PARAMETER, value: f32) -> ::windows::core::Result<()>
+pub unsafe fn SetTapParameterInteractionContext<P0>(interactioncontext: P0, parameter: TAP_PARAMETER, value: f32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -263,7 +263,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetTranslationParameterInteractionContext<'a, P0>(interactioncontext: P0, parameter: TRANSLATION_PARAMETER, value: f32) -> ::windows::core::Result<()>
+pub unsafe fn SetTranslationParameterInteractionContext<P0>(interactioncontext: P0, parameter: TRANSLATION_PARAMETER, value: f32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -272,7 +272,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn StopInteractionContext<'a, P0>(interactioncontext: P0) -> ::windows::core::Result<()>
+pub unsafe fn StopInteractionContext<P0>(interactioncontext: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {

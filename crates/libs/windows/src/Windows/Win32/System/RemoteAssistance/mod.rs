@@ -44,9 +44,9 @@ pub struct DRendezvousSessionEvents_Vtbl {
 #[repr(transparent)]
 pub struct IRendezvousApplication(::windows::core::IUnknown);
 impl IRendezvousApplication {
-    pub unsafe fn SetRendezvousSession<'a, P0>(&self, prendezvoussession: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRendezvousSession<P0>(&self, prendezvoussession: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetRendezvousSession)(::windows::core::Vtable::as_raw(self), prendezvoussession.into().abi()).ok()
     }

@@ -1515,9 +1515,9 @@ impl Calendar {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCalendarDefaultCalendarAndClock<'a, P0, E0>(languages: P0) -> ::windows::core::Result<Calendar>
+    pub fn CreateCalendarDefaultCalendarAndClock<P0, E0>(languages: P0) -> ::windows::core::Result<Calendar>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICalendarFactory(|this| unsafe {
@@ -1527,9 +1527,9 @@ impl Calendar {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCalendar<'a, P0, E0>(languages: P0, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING) -> ::windows::core::Result<Calendar>
+    pub fn CreateCalendar<P0, E0>(languages: P0, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING) -> ::windows::core::Result<Calendar>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICalendarFactory(|this| unsafe {
@@ -1539,9 +1539,9 @@ impl Calendar {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCalendarWithTimeZone<'a, P0, E0>(languages: P0, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING, timezoneid: &::windows::core::HSTRING) -> ::windows::core::Result<Calendar>
+    pub fn CreateCalendarWithTimeZone<P0, E0>(languages: P0, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING, timezoneid: &::windows::core::HSTRING) -> ::windows::core::Result<Calendar>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICalendarFactory2(|this| unsafe {
@@ -3103,9 +3103,9 @@ impl Language {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMuiCompatibleLanguageListFromLanguageTags<'a, P0, E0>(languagetags: P0) -> ::windows::core::Result<super::Foundation::Collections::IVector<::windows::core::HSTRING>>
+    pub fn GetMuiCompatibleLanguageListFromLanguageTags<P0, E0>(languagetags: P0) -> ::windows::core::Result<super::Foundation::Collections::IVector<::windows::core::HSTRING>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILanguageStatics3(|this| unsafe {

@@ -1635,9 +1635,9 @@ impl IWMPCdromBurn {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetburnPlaylist<'a, P0>(&self, pplaylist: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetburnPlaylist<P0>(&self, pplaylist: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).SetburnPlaylist)(::windows::core::Vtable::as_raw(self), pplaylist.into().abi()).ok()
     }
@@ -2104,9 +2104,9 @@ pub struct IWMPContentContainerList_Vtbl {
 #[repr(transparent)]
 pub struct IWMPContentPartner(::windows::core::IUnknown);
 impl IWMPContentPartner {
-    pub unsafe fn SetCallback<'a, P0>(&self, pcallback: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCallback<P0>(&self, pcallback: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPContentPartnerCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPContentPartnerCallback>>,
     {
         (::windows::core::Vtable::vtable(self).SetCallback)(::windows::core::Vtable::as_raw(self), pcallback.into().abi()).ok()
     }
@@ -2139,15 +2139,15 @@ impl IWMPContentPartner {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CanBuySilent<'a, P0>(&self, pinfo: P0, pbstrtotalprice: *mut ::windows::core::BSTR, psilentok: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn CanBuySilent<P0>(&self, pinfo: P0, pbstrtotalprice: *mut ::windows::core::BSTR, psilentok: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPContentContainerList>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPContentContainerList>>,
     {
         (::windows::core::Vtable::vtable(self).CanBuySilent)(::windows::core::Vtable::as_raw(self), pinfo.into().abi(), ::core::mem::transmute(pbstrtotalprice), psilentok).ok()
     }
-    pub unsafe fn Buy<'a, P0>(&self, pinfo: P0, cookie: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Buy<P0>(&self, pinfo: P0, cookie: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPContentContainerList>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPContentContainerList>>,
     {
         (::windows::core::Vtable::vtable(self).Buy)(::windows::core::Vtable::as_raw(self), pinfo.into().abi(), cookie).ok()
     }
@@ -2157,9 +2157,9 @@ impl IWMPContentPartner {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetStreamingURL)(::windows::core::Vtable::as_raw(self), st, pstreamcontext, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Download<'a, P0>(&self, pinfo: P0, cookie: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Download<P0>(&self, pinfo: P0, cookie: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPContentContainerList>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPContentContainerList>>,
     {
         (::windows::core::Vtable::vtable(self).Download)(::windows::core::Vtable::as_raw(self), pinfo.into().abi(), cookie).ok()
     }
@@ -2208,10 +2208,10 @@ impl IWMPContentPartner {
     pub unsafe fn StationEvent(&self, bstrstationeventtype: &::windows::core::BSTR, stationid: u32, playlistindex: u32, trackid: u32, trackdata: &::windows::core::BSTR, dwsecondsplayed: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).StationEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrstationeventtype), stationid, playlistindex, trackid, ::core::mem::transmute_copy(trackdata), dwsecondsplayed).ok()
     }
-    pub unsafe fn CompareContainerListPrices<'a, P0, P1>(&self, plistbase: P0, plistcompare: P1) -> ::windows::core::Result<i32>
+    pub unsafe fn CompareContainerListPrices<P0, P1>(&self, plistbase: P0, plistcompare: P1) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPContentContainerList>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMPContentContainerList>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPContentContainerList>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMPContentContainerList>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CompareContainerListPrices)(::windows::core::Vtable::as_raw(self), plistbase.into().abi(), plistcompare.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -2459,9 +2459,9 @@ impl IWMPControls {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentItem<'a, P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentItem<P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).SetcurrentItem)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi()).ok()
     }
@@ -2473,9 +2473,9 @@ impl IWMPControls {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn playItem<'a, P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn playItem<P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).playItem)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi()).ok()
     }
@@ -2593,9 +2593,9 @@ impl IWMPControls2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentItem<'a, P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentItem<P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetcurrentItem)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi()).ok()
     }
@@ -2607,9 +2607,9 @@ impl IWMPControls2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn playItem<'a, P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn playItem<P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.playItem)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi()).ok()
     }
@@ -2703,9 +2703,9 @@ impl IWMPControls3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentItem<'a, P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentItem<P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetcurrentItem)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi()).ok()
     }
@@ -2717,9 +2717,9 @@ impl IWMPControls3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn playItem<'a, P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn playItem<P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.playItem)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi()).ok()
     }
@@ -2885,9 +2885,9 @@ impl IWMPCore {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<'a, P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentMedia<P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).SetcurrentMedia)(::windows::core::Vtable::as_raw(self), pmedia.into().abi()).ok()
     }
@@ -2923,9 +2923,9 @@ impl IWMPCore {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<'a, P0>(&self, ppl: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentPlaylist<P0>(&self, ppl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).SetcurrentPlaylist)(::windows::core::Vtable::as_raw(self), ppl.into().abi()).ok()
     }
@@ -3093,9 +3093,9 @@ impl IWMPCore2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<'a, P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentMedia<P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetcurrentMedia)(::windows::core::Vtable::as_raw(self), pmedia.into().abi()).ok()
     }
@@ -3131,9 +3131,9 @@ impl IWMPCore2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<'a, P0>(&self, ppl: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentPlaylist<P0>(&self, ppl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetcurrentPlaylist)(::windows::core::Vtable::as_raw(self), ppl.into().abi()).ok()
     }
@@ -3251,9 +3251,9 @@ impl IWMPCore3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<'a, P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentMedia<P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetcurrentMedia)(::windows::core::Vtable::as_raw(self), pmedia.into().abi()).ok()
     }
@@ -3289,9 +3289,9 @@ impl IWMPCore3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<'a, P0>(&self, ppl: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentPlaylist<P0>(&self, ppl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetcurrentPlaylist)(::windows::core::Vtable::as_raw(self), ppl.into().abi()).ok()
     }
@@ -3750,7 +3750,7 @@ pub struct IWMPEffects(::windows::core::IUnknown);
 impl IWMPEffects {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn Render<'a, P0>(&self, plevels: *mut TimedLevel, hdc: P0, prc: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>
+    pub unsafe fn Render<P0>(&self, plevels: *mut TimedLevel, hdc: P0, prc: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
     {
@@ -3779,7 +3779,7 @@ impl IWMPEffects {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DisplayPropertyPage<'a, P0>(&self, hwndowner: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DisplayPropertyPage<P0>(&self, hwndowner: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -3787,7 +3787,7 @@ impl IWMPEffects {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GoFullscreen<'a, P0>(&self, ffullscreen: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GoFullscreen<P0>(&self, ffullscreen: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -3851,7 +3851,7 @@ pub struct IWMPEffects2(::windows::core::IUnknown);
 impl IWMPEffects2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn Render<'a, P0>(&self, plevels: *mut TimedLevel, hdc: P0, prc: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>
+    pub unsafe fn Render<P0>(&self, plevels: *mut TimedLevel, hdc: P0, prc: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
     {
@@ -3880,7 +3880,7 @@ impl IWMPEffects2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DisplayPropertyPage<'a, P0>(&self, hwndowner: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DisplayPropertyPage<P0>(&self, hwndowner: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -3888,7 +3888,7 @@ impl IWMPEffects2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GoFullscreen<'a, P0>(&self, ffullscreen: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GoFullscreen<P0>(&self, ffullscreen: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -3899,15 +3899,15 @@ impl IWMPEffects2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCore<'a, P0>(&self, pplayer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCore<P0>(&self, pplayer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCore>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPCore>>,
     {
         (::windows::core::Vtable::vtable(self).SetCore)(::windows::core::Vtable::as_raw(self), pplayer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Create<'a, P0>(&self, hwndparent: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Create<P0>(&self, hwndparent: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -3918,15 +3918,15 @@ impl IWMPEffects2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn NotifyNewMedia<'a, P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn NotifyNewMedia<P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).NotifyNewMedia)(::windows::core::Vtable::as_raw(self), pmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnWindowMessage<'a, P0, P1>(&self, msg: u32, wparam: P0, lparam: P1, plresultparam: *mut super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
+    pub unsafe fn OnWindowMessage<P0, P1>(&self, msg: u32, wparam: P0, lparam: P1, plresultparam: *mut super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -3935,7 +3935,7 @@ impl IWMPEffects2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RenderWindowed<'a, P0>(&self, pdata: *mut TimedLevel, frequiredrender: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RenderWindowed<P0>(&self, pdata: *mut TimedLevel, frequiredrender: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -4241,9 +4241,9 @@ impl IWMPEvents {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PlaylistChange<'a, P0>(&self, playlist: P0, change: WMPPlaylistChangeEventType)
+    pub unsafe fn PlaylistChange<P0>(&self, playlist: P0, change: WMPPlaylistChangeEventType)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).PlaylistChange)(::windows::core::Vtable::as_raw(self), playlist.into().abi(), change)
     }
@@ -4255,9 +4255,9 @@ impl IWMPEvents {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaChange<'a, P0>(&self, item: P0)
+    pub unsafe fn MediaChange<P0>(&self, item: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).MediaChange)(::windows::core::Vtable::as_raw(self), item.into().abi())
     }
@@ -4266,9 +4266,9 @@ impl IWMPEvents {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentItemChange<'a, P0>(&self, pdispmedia: P0)
+    pub unsafe fn CurrentItemChange<P0>(&self, pdispmedia: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).CurrentItemChange)(::windows::core::Vtable::as_raw(self), pdispmedia.into().abi())
     }
@@ -4305,17 +4305,17 @@ impl IWMPEvents {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaError<'a, P0>(&self, pmediaobject: P0)
+    pub unsafe fn MediaError<P0>(&self, pmediaobject: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).MediaError)(::windows::core::Vtable::as_raw(self), pmediaobject.into().abi())
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenPlaylistSwitch<'a, P0>(&self, pitem: P0)
+    pub unsafe fn OpenPlaylistSwitch<P0>(&self, pitem: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).OpenPlaylistSwitch)(::windows::core::Vtable::as_raw(self), pitem.into().abi())
     }
@@ -4509,9 +4509,9 @@ impl IWMPEvents2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PlaylistChange<'a, P0>(&self, playlist: P0, change: WMPPlaylistChangeEventType)
+    pub unsafe fn PlaylistChange<P0>(&self, playlist: P0, change: WMPPlaylistChangeEventType)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.PlaylistChange)(::windows::core::Vtable::as_raw(self), playlist.into().abi(), change)
     }
@@ -4523,9 +4523,9 @@ impl IWMPEvents2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaChange<'a, P0>(&self, item: P0)
+    pub unsafe fn MediaChange<P0>(&self, item: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.MediaChange)(::windows::core::Vtable::as_raw(self), item.into().abi())
     }
@@ -4534,9 +4534,9 @@ impl IWMPEvents2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentItemChange<'a, P0>(&self, pdispmedia: P0)
+    pub unsafe fn CurrentItemChange<P0>(&self, pdispmedia: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CurrentItemChange)(::windows::core::Vtable::as_raw(self), pdispmedia.into().abi())
     }
@@ -4573,17 +4573,17 @@ impl IWMPEvents2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaError<'a, P0>(&self, pmediaobject: P0)
+    pub unsafe fn MediaError<P0>(&self, pmediaobject: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.MediaError)(::windows::core::Vtable::as_raw(self), pmediaobject.into().abi())
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenPlaylistSwitch<'a, P0>(&self, pitem: P0)
+    pub unsafe fn OpenPlaylistSwitch<P0>(&self, pitem: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.OpenPlaylistSwitch)(::windows::core::Vtable::as_raw(self), pitem.into().abi())
     }
@@ -4626,42 +4626,42 @@ impl IWMPEvents2 {
     pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
         (::windows::core::Vtable::vtable(self).base__.MouseUp)(::windows::core::Vtable::as_raw(self), nbutton, nshiftstate, fx, fy)
     }
-    pub unsafe fn DeviceConnect<'a, P0>(&self, pdevice: P0)
+    pub unsafe fn DeviceConnect<P0>(&self, pdevice: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).DeviceConnect)(::windows::core::Vtable::as_raw(self), pdevice.into().abi())
     }
-    pub unsafe fn DeviceDisconnect<'a, P0>(&self, pdevice: P0)
+    pub unsafe fn DeviceDisconnect<P0>(&self, pdevice: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).DeviceDisconnect)(::windows::core::Vtable::as_raw(self), pdevice.into().abi())
     }
-    pub unsafe fn DeviceStatusChange<'a, P0>(&self, pdevice: P0, newstatus: WMPDeviceStatus)
+    pub unsafe fn DeviceStatusChange<P0>(&self, pdevice: P0, newstatus: WMPDeviceStatus)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).DeviceStatusChange)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), newstatus)
     }
-    pub unsafe fn DeviceSyncStateChange<'a, P0>(&self, pdevice: P0, newstate: WMPSyncState)
+    pub unsafe fn DeviceSyncStateChange<P0>(&self, pdevice: P0, newstate: WMPSyncState)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).DeviceSyncStateChange)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), newstate)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeviceSyncError<'a, P0, P1>(&self, pdevice: P0, pmedia: P1)
+    pub unsafe fn DeviceSyncError<P0, P1>(&self, pdevice: P0, pmedia: P1)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).DeviceSyncError)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pmedia.into().abi())
     }
-    pub unsafe fn CreatePartnershipComplete<'a, P0>(&self, pdevice: P0, hrresult: ::windows::core::HRESULT)
+    pub unsafe fn CreatePartnershipComplete<P0>(&self, pdevice: P0, hrresult: ::windows::core::HRESULT)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).CreatePartnershipComplete)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), hrresult)
     }
@@ -4756,9 +4756,9 @@ impl IWMPEvents3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PlaylistChange<'a, P0>(&self, playlist: P0, change: WMPPlaylistChangeEventType)
+    pub unsafe fn PlaylistChange<P0>(&self, playlist: P0, change: WMPPlaylistChangeEventType)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.PlaylistChange)(::windows::core::Vtable::as_raw(self), playlist.into().abi(), change)
     }
@@ -4770,9 +4770,9 @@ impl IWMPEvents3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaChange<'a, P0>(&self, item: P0)
+    pub unsafe fn MediaChange<P0>(&self, item: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.MediaChange)(::windows::core::Vtable::as_raw(self), item.into().abi())
     }
@@ -4781,9 +4781,9 @@ impl IWMPEvents3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentItemChange<'a, P0>(&self, pdispmedia: P0)
+    pub unsafe fn CurrentItemChange<P0>(&self, pdispmedia: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.CurrentItemChange)(::windows::core::Vtable::as_raw(self), pdispmedia.into().abi())
     }
@@ -4820,17 +4820,17 @@ impl IWMPEvents3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaError<'a, P0>(&self, pmediaobject: P0)
+    pub unsafe fn MediaError<P0>(&self, pmediaobject: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.MediaError)(::windows::core::Vtable::as_raw(self), pmediaobject.into().abi())
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenPlaylistSwitch<'a, P0>(&self, pitem: P0)
+    pub unsafe fn OpenPlaylistSwitch<P0>(&self, pitem: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.OpenPlaylistSwitch)(::windows::core::Vtable::as_raw(self), pitem.into().abi())
     }
@@ -4873,90 +4873,90 @@ impl IWMPEvents3 {
     pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
         (::windows::core::Vtable::vtable(self).base__.base__.MouseUp)(::windows::core::Vtable::as_raw(self), nbutton, nshiftstate, fx, fy)
     }
-    pub unsafe fn DeviceConnect<'a, P0>(&self, pdevice: P0)
+    pub unsafe fn DeviceConnect<P0>(&self, pdevice: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).base__.DeviceConnect)(::windows::core::Vtable::as_raw(self), pdevice.into().abi())
     }
-    pub unsafe fn DeviceDisconnect<'a, P0>(&self, pdevice: P0)
+    pub unsafe fn DeviceDisconnect<P0>(&self, pdevice: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).base__.DeviceDisconnect)(::windows::core::Vtable::as_raw(self), pdevice.into().abi())
     }
-    pub unsafe fn DeviceStatusChange<'a, P0>(&self, pdevice: P0, newstatus: WMPDeviceStatus)
+    pub unsafe fn DeviceStatusChange<P0>(&self, pdevice: P0, newstatus: WMPDeviceStatus)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).base__.DeviceStatusChange)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), newstatus)
     }
-    pub unsafe fn DeviceSyncStateChange<'a, P0>(&self, pdevice: P0, newstate: WMPSyncState)
+    pub unsafe fn DeviceSyncStateChange<P0>(&self, pdevice: P0, newstate: WMPSyncState)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).base__.DeviceSyncStateChange)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), newstate)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeviceSyncError<'a, P0, P1>(&self, pdevice: P0, pmedia: P1)
+    pub unsafe fn DeviceSyncError<P0, P1>(&self, pdevice: P0, pmedia: P1)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.DeviceSyncError)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pmedia.into().abi())
     }
-    pub unsafe fn CreatePartnershipComplete<'a, P0>(&self, pdevice: P0, hrresult: ::windows::core::HRESULT)
+    pub unsafe fn CreatePartnershipComplete<P0>(&self, pdevice: P0, hrresult: ::windows::core::HRESULT)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CreatePartnershipComplete)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), hrresult)
     }
-    pub unsafe fn CdromRipStateChange<'a, P0>(&self, pcdromrip: P0, wmprs: WMPRipState)
+    pub unsafe fn CdromRipStateChange<P0>(&self, pcdromrip: P0, wmprs: WMPRipState)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromRip>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPCdromRip>>,
     {
         (::windows::core::Vtable::vtable(self).CdromRipStateChange)(::windows::core::Vtable::as_raw(self), pcdromrip.into().abi(), wmprs)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CdromRipMediaError<'a, P0, P1>(&self, pcdromrip: P0, pmedia: P1)
+    pub unsafe fn CdromRipMediaError<P0, P1>(&self, pcdromrip: P0, pmedia: P1)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromRip>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPCdromRip>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).CdromRipMediaError)(::windows::core::Vtable::as_raw(self), pcdromrip.into().abi(), pmedia.into().abi())
     }
-    pub unsafe fn CdromBurnStateChange<'a, P0>(&self, pcdromburn: P0, wmpbs: WMPBurnState)
+    pub unsafe fn CdromBurnStateChange<P0>(&self, pcdromburn: P0, wmpbs: WMPBurnState)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromBurn>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPCdromBurn>>,
     {
         (::windows::core::Vtable::vtable(self).CdromBurnStateChange)(::windows::core::Vtable::as_raw(self), pcdromburn.into().abi(), wmpbs)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CdromBurnMediaError<'a, P0, P1>(&self, pcdromburn: P0, pmedia: P1)
+    pub unsafe fn CdromBurnMediaError<P0, P1>(&self, pcdromburn: P0, pmedia: P1)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromBurn>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPCdromBurn>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).CdromBurnMediaError)(::windows::core::Vtable::as_raw(self), pcdromburn.into().abi(), pmedia.into().abi())
     }
-    pub unsafe fn CdromBurnError<'a, P0>(&self, pcdromburn: P0, hrerror: ::windows::core::HRESULT)
+    pub unsafe fn CdromBurnError<P0>(&self, pcdromburn: P0, hrerror: ::windows::core::HRESULT)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromBurn>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPCdromBurn>>,
     {
         (::windows::core::Vtable::vtable(self).CdromBurnError)(::windows::core::Vtable::as_raw(self), pcdromburn.into().abi(), hrerror)
     }
-    pub unsafe fn LibraryConnect<'a, P0>(&self, plibrary: P0)
+    pub unsafe fn LibraryConnect<P0>(&self, plibrary: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPLibrary>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPLibrary>>,
     {
         (::windows::core::Vtable::vtable(self).LibraryConnect)(::windows::core::Vtable::as_raw(self), plibrary.into().abi())
     }
-    pub unsafe fn LibraryDisconnect<'a, P0>(&self, plibrary: P0)
+    pub unsafe fn LibraryDisconnect<P0>(&self, plibrary: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPLibrary>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPLibrary>>,
     {
         (::windows::core::Vtable::vtable(self).LibraryDisconnect)(::windows::core::Vtable::as_raw(self), plibrary.into().abi())
     }
@@ -4965,25 +4965,25 @@ impl IWMPEvents3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn StringCollectionChange<'a, P0>(&self, pdispstringcollection: P0, change: WMPStringCollectionChangeEventType, lcollectionindex: i32)
+    pub unsafe fn StringCollectionChange<P0>(&self, pdispstringcollection: P0, change: WMPStringCollectionChangeEventType, lcollectionindex: i32)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).StringCollectionChange)(::windows::core::Vtable::as_raw(self), pdispstringcollection.into().abi(), change, lcollectionindex)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaCollectionMediaAdded<'a, P0>(&self, pdispmedia: P0)
+    pub unsafe fn MediaCollectionMediaAdded<P0>(&self, pdispmedia: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).MediaCollectionMediaAdded)(::windows::core::Vtable::as_raw(self), pdispmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaCollectionMediaRemoved<'a, P0>(&self, pdispmedia: P0)
+    pub unsafe fn MediaCollectionMediaRemoved<P0>(&self, pdispmedia: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).MediaCollectionMediaRemoved)(::windows::core::Vtable::as_raw(self), pdispmedia.into().abi())
     }
@@ -5095,9 +5095,9 @@ impl IWMPEvents4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PlaylistChange<'a, P0>(&self, playlist: P0, change: WMPPlaylistChangeEventType)
+    pub unsafe fn PlaylistChange<P0>(&self, playlist: P0, change: WMPPlaylistChangeEventType)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.PlaylistChange)(::windows::core::Vtable::as_raw(self), playlist.into().abi(), change)
     }
@@ -5109,9 +5109,9 @@ impl IWMPEvents4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaChange<'a, P0>(&self, item: P0)
+    pub unsafe fn MediaChange<P0>(&self, item: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.MediaChange)(::windows::core::Vtable::as_raw(self), item.into().abi())
     }
@@ -5120,9 +5120,9 @@ impl IWMPEvents4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentItemChange<'a, P0>(&self, pdispmedia: P0)
+    pub unsafe fn CurrentItemChange<P0>(&self, pdispmedia: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CurrentItemChange)(::windows::core::Vtable::as_raw(self), pdispmedia.into().abi())
     }
@@ -5159,17 +5159,17 @@ impl IWMPEvents4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaError<'a, P0>(&self, pmediaobject: P0)
+    pub unsafe fn MediaError<P0>(&self, pmediaobject: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.MediaError)(::windows::core::Vtable::as_raw(self), pmediaobject.into().abi())
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenPlaylistSwitch<'a, P0>(&self, pitem: P0)
+    pub unsafe fn OpenPlaylistSwitch<P0>(&self, pitem: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.OpenPlaylistSwitch)(::windows::core::Vtable::as_raw(self), pitem.into().abi())
     }
@@ -5212,90 +5212,90 @@ impl IWMPEvents4 {
     pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.MouseUp)(::windows::core::Vtable::as_raw(self), nbutton, nshiftstate, fx, fy)
     }
-    pub unsafe fn DeviceConnect<'a, P0>(&self, pdevice: P0)
+    pub unsafe fn DeviceConnect<P0>(&self, pdevice: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.DeviceConnect)(::windows::core::Vtable::as_raw(self), pdevice.into().abi())
     }
-    pub unsafe fn DeviceDisconnect<'a, P0>(&self, pdevice: P0)
+    pub unsafe fn DeviceDisconnect<P0>(&self, pdevice: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.DeviceDisconnect)(::windows::core::Vtable::as_raw(self), pdevice.into().abi())
     }
-    pub unsafe fn DeviceStatusChange<'a, P0>(&self, pdevice: P0, newstatus: WMPDeviceStatus)
+    pub unsafe fn DeviceStatusChange<P0>(&self, pdevice: P0, newstatus: WMPDeviceStatus)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.DeviceStatusChange)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), newstatus)
     }
-    pub unsafe fn DeviceSyncStateChange<'a, P0>(&self, pdevice: P0, newstate: WMPSyncState)
+    pub unsafe fn DeviceSyncStateChange<P0>(&self, pdevice: P0, newstate: WMPSyncState)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.DeviceSyncStateChange)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), newstate)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeviceSyncError<'a, P0, P1>(&self, pdevice: P0, pmedia: P1)
+    pub unsafe fn DeviceSyncError<P0, P1>(&self, pdevice: P0, pmedia: P1)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.DeviceSyncError)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pmedia.into().abi())
     }
-    pub unsafe fn CreatePartnershipComplete<'a, P0>(&self, pdevice: P0, hrresult: ::windows::core::HRESULT)
+    pub unsafe fn CreatePartnershipComplete<P0>(&self, pdevice: P0, hrresult: ::windows::core::HRESULT)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.CreatePartnershipComplete)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), hrresult)
     }
-    pub unsafe fn CdromRipStateChange<'a, P0>(&self, pcdromrip: P0, wmprs: WMPRipState)
+    pub unsafe fn CdromRipStateChange<P0>(&self, pcdromrip: P0, wmprs: WMPRipState)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromRip>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPCdromRip>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CdromRipStateChange)(::windows::core::Vtable::as_raw(self), pcdromrip.into().abi(), wmprs)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CdromRipMediaError<'a, P0, P1>(&self, pcdromrip: P0, pmedia: P1)
+    pub unsafe fn CdromRipMediaError<P0, P1>(&self, pcdromrip: P0, pmedia: P1)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromRip>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPCdromRip>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CdromRipMediaError)(::windows::core::Vtable::as_raw(self), pcdromrip.into().abi(), pmedia.into().abi())
     }
-    pub unsafe fn CdromBurnStateChange<'a, P0>(&self, pcdromburn: P0, wmpbs: WMPBurnState)
+    pub unsafe fn CdromBurnStateChange<P0>(&self, pcdromburn: P0, wmpbs: WMPBurnState)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromBurn>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPCdromBurn>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CdromBurnStateChange)(::windows::core::Vtable::as_raw(self), pcdromburn.into().abi(), wmpbs)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CdromBurnMediaError<'a, P0, P1>(&self, pcdromburn: P0, pmedia: P1)
+    pub unsafe fn CdromBurnMediaError<P0, P1>(&self, pcdromburn: P0, pmedia: P1)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromBurn>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPCdromBurn>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CdromBurnMediaError)(::windows::core::Vtable::as_raw(self), pcdromburn.into().abi(), pmedia.into().abi())
     }
-    pub unsafe fn CdromBurnError<'a, P0>(&self, pcdromburn: P0, hrerror: ::windows::core::HRESULT)
+    pub unsafe fn CdromBurnError<P0>(&self, pcdromburn: P0, hrerror: ::windows::core::HRESULT)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromBurn>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPCdromBurn>>,
     {
         (::windows::core::Vtable::vtable(self).base__.CdromBurnError)(::windows::core::Vtable::as_raw(self), pcdromburn.into().abi(), hrerror)
     }
-    pub unsafe fn LibraryConnect<'a, P0>(&self, plibrary: P0)
+    pub unsafe fn LibraryConnect<P0>(&self, plibrary: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPLibrary>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPLibrary>>,
     {
         (::windows::core::Vtable::vtable(self).base__.LibraryConnect)(::windows::core::Vtable::as_raw(self), plibrary.into().abi())
     }
-    pub unsafe fn LibraryDisconnect<'a, P0>(&self, plibrary: P0)
+    pub unsafe fn LibraryDisconnect<P0>(&self, plibrary: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPLibrary>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPLibrary>>,
     {
         (::windows::core::Vtable::vtable(self).base__.LibraryDisconnect)(::windows::core::Vtable::as_raw(self), plibrary.into().abi())
     }
@@ -5304,31 +5304,31 @@ impl IWMPEvents4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn StringCollectionChange<'a, P0>(&self, pdispstringcollection: P0, change: WMPStringCollectionChangeEventType, lcollectionindex: i32)
+    pub unsafe fn StringCollectionChange<P0>(&self, pdispstringcollection: P0, change: WMPStringCollectionChangeEventType, lcollectionindex: i32)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.StringCollectionChange)(::windows::core::Vtable::as_raw(self), pdispstringcollection.into().abi(), change, lcollectionindex)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaCollectionMediaAdded<'a, P0>(&self, pdispmedia: P0)
+    pub unsafe fn MediaCollectionMediaAdded<P0>(&self, pdispmedia: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.MediaCollectionMediaAdded)(::windows::core::Vtable::as_raw(self), pdispmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaCollectionMediaRemoved<'a, P0>(&self, pdispmedia: P0)
+    pub unsafe fn MediaCollectionMediaRemoved<P0>(&self, pdispmedia: P0)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
         (::windows::core::Vtable::vtable(self).base__.MediaCollectionMediaRemoved)(::windows::core::Vtable::as_raw(self), pdispmedia.into().abi())
     }
-    pub unsafe fn DeviceEstimation<'a, P0>(&self, pdevice: P0, hrresult: ::windows::core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64)
+    pub unsafe fn DeviceEstimation<P0>(&self, pdevice: P0, hrresult: ::windows::core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64)
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).DeviceEstimation)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), hrresult, qwestimatedusedspace, qwestimatedspace)
     }
@@ -5443,16 +5443,16 @@ pub struct IWMPFolderMonitorServices_Vtbl {
 #[repr(transparent)]
 pub struct IWMPGraphCreation(::windows::core::IUnknown);
 impl IWMPGraphCreation {
-    pub unsafe fn GraphCreationPreRender<'a, P0, P1>(&self, pfiltergraph: P0, preserved: P1) -> ::windows::core::Result<()>
+    pub unsafe fn GraphCreationPreRender<P0, P1>(&self, pfiltergraph: P0, preserved: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).GraphCreationPreRender)(::windows::core::Vtable::as_raw(self), pfiltergraph.into().abi(), preserved.into().abi()).ok()
     }
-    pub unsafe fn GraphCreationPostRender<'a, P0>(&self, pfiltergraph: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GraphCreationPostRender<P0>(&self, pfiltergraph: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).GraphCreationPostRender)(::windows::core::Vtable::as_raw(self), pfiltergraph.into().abi()).ok()
     }
@@ -5509,9 +5509,9 @@ impl IWMPLibrary {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn isIdentical<'a, P0>(&self, piwmplibrary: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn isIdentical<P0>(&self, piwmplibrary: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPLibrary>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPLibrary>>,
     {
         (::windows::core::Vtable::vtable(self).isIdentical)(::windows::core::Vtable::as_raw(self), piwmplibrary.into().abi(), pvbool).ok()
     }
@@ -5572,9 +5572,9 @@ impl IWMPLibrary2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn isIdentical<'a, P0>(&self, piwmplibrary: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn isIdentical<P0>(&self, piwmplibrary: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPLibrary>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPLibrary>>,
     {
         (::windows::core::Vtable::vtable(self).base__.isIdentical)(::windows::core::Vtable::as_raw(self), piwmplibrary.into().abi(), pvbool).ok()
     }
@@ -5716,9 +5716,9 @@ pub struct IWMPMedia(::windows::core::IUnknown);
 impl IWMPMedia {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn get_isIdentical<'a, P0>(&self, piwmpmedia: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn get_isIdentical<P0>(&self, piwmpmedia: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).get_isIdentical)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi(), pvbool).ok()
     }
@@ -5769,9 +5769,9 @@ impl IWMPMedia {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn isMemberOf<'a, P0>(&self, pplaylist: P0, pvarfismemberof: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn isMemberOf<P0>(&self, pplaylist: P0, pvarfismemberof: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).isMemberOf)(::windows::core::Vtable::as_raw(self), pplaylist.into().abi(), pvarfismemberof).ok()
     }
@@ -5852,9 +5852,9 @@ pub struct IWMPMedia2(::windows::core::IUnknown);
 impl IWMPMedia2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn get_isIdentical<'a, P0>(&self, piwmpmedia: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn get_isIdentical<P0>(&self, piwmpmedia: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.get_isIdentical)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi(), pvbool).ok()
     }
@@ -5905,9 +5905,9 @@ impl IWMPMedia2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn isMemberOf<'a, P0>(&self, pplaylist: P0, pvarfismemberof: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn isMemberOf<P0>(&self, pplaylist: P0, pvarfismemberof: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).base__.isMemberOf)(::windows::core::Vtable::as_raw(self), pplaylist.into().abi(), pvarfismemberof).ok()
     }
@@ -5971,9 +5971,9 @@ pub struct IWMPMedia3(::windows::core::IUnknown);
 impl IWMPMedia3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn get_isIdentical<'a, P0>(&self, piwmpmedia: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn get_isIdentical<P0>(&self, piwmpmedia: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.get_isIdentical)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi(), pvbool).ok()
     }
@@ -6024,9 +6024,9 @@ impl IWMPMedia3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn isMemberOf<'a, P0>(&self, pplaylist: P0, pvarfismemberof: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn isMemberOf<P0>(&self, pplaylist: P0, pvarfismemberof: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.isMemberOf)(::windows::core::Vtable::as_raw(self), pplaylist.into().abi(), pvarfismemberof).ok()
     }
@@ -6141,9 +6141,9 @@ impl IWMPMediaCollection {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn remove<'a, P0>(&self, pitem: P0, varfdeletefile: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn remove<P0>(&self, pitem: P0, varfdeletefile: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).remove)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), varfdeletefile).ok()
     }
@@ -6158,17 +6158,17 @@ impl IWMPMediaCollection {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn setDeleted<'a, P0>(&self, pitem: P0, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn setDeleted<P0>(&self, pitem: P0, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).setDeleted)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), varfisdeleted).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn isDeleted<'a, P0>(&self, pitem: P0, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn isDeleted<P0>(&self, pitem: P0, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).isDeleted)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), pvarfisdeleted).ok()
     }
@@ -6304,9 +6304,9 @@ impl IWMPMediaCollection2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn remove<'a, P0>(&self, pitem: P0, varfdeletefile: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn remove<P0>(&self, pitem: P0, varfdeletefile: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.remove)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), varfdeletefile).ok()
     }
@@ -6321,17 +6321,17 @@ impl IWMPMediaCollection2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn setDeleted<'a, P0>(&self, pitem: P0, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn setDeleted<P0>(&self, pitem: P0, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.setDeleted)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), varfisdeleted).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn isDeleted<'a, P0>(&self, pitem: P0, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn isDeleted<P0>(&self, pitem: P0, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.isDeleted)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), pvarfisdeleted).ok()
     }
@@ -6343,18 +6343,18 @@ impl IWMPMediaCollection2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getPlaylistByQuery<'a, P0>(&self, pquery: P0, bstrmediatype: &::windows::core::BSTR, bstrsortattribute: &::windows::core::BSTR, fsortascending: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<IWMPPlaylist>
+    pub unsafe fn getPlaylistByQuery<P0>(&self, pquery: P0, bstrmediatype: &::windows::core::BSTR, bstrsortattribute: &::windows::core::BSTR, fsortascending: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<IWMPPlaylist>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPQuery>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPQuery>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getPlaylistByQuery)(::windows::core::Vtable::as_raw(self), pquery.into().abi(), ::core::mem::transmute_copy(bstrmediatype), ::core::mem::transmute_copy(bstrsortattribute), fsortascending, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getStringCollectionByQuery<'a, P0>(&self, bstrattribute: &::windows::core::BSTR, pquery: P0, bstrmediatype: &::windows::core::BSTR, bstrsortattribute: &::windows::core::BSTR, fsortascending: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<IWMPStringCollection>
+    pub unsafe fn getStringCollectionByQuery<P0>(&self, bstrattribute: &::windows::core::BSTR, pquery: P0, bstrmediatype: &::windows::core::BSTR, bstrsortattribute: &::windows::core::BSTR, fsortascending: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<IWMPStringCollection>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPQuery>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPQuery>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getStringCollectionByQuery)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrattribute), pquery.into().abi(), ::core::mem::transmute_copy(bstrmediatype), ::core::mem::transmute_copy(bstrsortattribute), fsortascending, result__.as_mut_ptr()).from_abi(result__)
@@ -6422,7 +6422,7 @@ pub struct IWMPMediaCollection2_Vtbl {
 #[repr(transparent)]
 pub struct IWMPMediaPluginRegistrar(::windows::core::IUnknown);
 impl IWMPMediaPluginRegistrar {
-    pub unsafe fn WMPRegisterPlayerPlugin<'a, P0, P1, P2>(&self, pwszfriendlyname: P0, pwszdescription: P1, pwszuninstallstring: P2, dwpriority: u32, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID, cmediatypes: u32, pmediatypes: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn WMPRegisterPlayerPlugin<P0, P1, P2>(&self, pwszfriendlyname: P0, pwszdescription: P1, pwszuninstallstring: P2, dwpriority: u32, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID, cmediatypes: u32, pmediatypes: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -6760,7 +6760,7 @@ impl IWMPNodeRealEstate {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWindowless<'a, P0>(&self, fwindowless: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWindowless<P0>(&self, fwindowless: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -6773,7 +6773,7 @@ impl IWMPNodeRealEstate {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullScreen<'a, P0>(&self, ffullscreen: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFullScreen<P0>(&self, ffullscreen: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -6852,7 +6852,7 @@ impl IWMPNodeRealEstateHost {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnFullScreenTransition<'a, P0>(&self, ffullscreen: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnFullScreenTransition<P0>(&self, ffullscreen: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -6942,7 +6942,7 @@ pub struct IWMPNodeWindowedHost(::windows::core::IUnknown);
 impl IWMPNodeWindowedHost {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnWindowMessageFromRenderer<'a, P0, P1>(&self, umsg: u32, wparam: P0, lparam: P1, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn OnWindowMessageFromRenderer<P0, P1>(&self, umsg: u32, wparam: P0, lparam: P1, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -6988,7 +6988,7 @@ pub struct IWMPNodeWindowless(::windows::core::IUnknown);
 impl IWMPNodeWindowless {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnWindowMessage<'a, P0, P1>(&self, umsg: u32, wparam: P0, lparam: P1, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn OnWindowMessage<P0, P1>(&self, umsg: u32, wparam: P0, lparam: P1, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -7039,7 +7039,7 @@ pub struct IWMPNodeWindowlessHost(::windows::core::IUnknown);
 impl IWMPNodeWindowlessHost {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InvalidateRect<'a, P0>(&self, prc: *const super::super::Foundation::RECT, ferase: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InvalidateRect<P0>(&self, prc: *const super::super::Foundation::RECT, ferase: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -7119,9 +7119,9 @@ impl IWMPPlayer {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<'a, P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentMedia<P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetcurrentMedia)(::windows::core::Vtable::as_raw(self), pmedia.into().abi()).ok()
     }
@@ -7157,9 +7157,9 @@ impl IWMPPlayer {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<'a, P0>(&self, ppl: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentPlaylist<P0>(&self, ppl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetcurrentPlaylist)(::windows::core::Vtable::as_raw(self), ppl.into().abi()).ok()
     }
@@ -7329,9 +7329,9 @@ impl IWMPPlayer2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<'a, P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentMedia<P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetcurrentMedia)(::windows::core::Vtable::as_raw(self), pmedia.into().abi()).ok()
     }
@@ -7367,9 +7367,9 @@ impl IWMPPlayer2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<'a, P0>(&self, ppl: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentPlaylist<P0>(&self, ppl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetcurrentPlaylist)(::windows::core::Vtable::as_raw(self), ppl.into().abi()).ok()
     }
@@ -7575,9 +7575,9 @@ impl IWMPPlayer3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<'a, P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentMedia<P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetcurrentMedia)(::windows::core::Vtable::as_raw(self), pmedia.into().abi()).ok()
     }
@@ -7613,9 +7613,9 @@ impl IWMPPlayer3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<'a, P0>(&self, ppl: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentPlaylist<P0>(&self, ppl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetcurrentPlaylist)(::windows::core::Vtable::as_raw(self), ppl.into().abi()).ok()
     }
@@ -7827,9 +7827,9 @@ impl IWMPPlayer4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<'a, P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentMedia<P0>(&self, pmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetcurrentMedia)(::windows::core::Vtable::as_raw(self), pmedia.into().abi()).ok()
     }
@@ -7865,9 +7865,9 @@ impl IWMPPlayer4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<'a, P0>(&self, ppl: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetcurrentPlaylist<P0>(&self, ppl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetcurrentPlaylist)(::windows::core::Vtable::as_raw(self), ppl.into().abi()).ok()
     }
@@ -8268,9 +8268,9 @@ impl IWMPPlaylist {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn get_isIdentical<'a, P0>(&self, piwmpplaylist: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn get_isIdentical<P0>(&self, piwmpplaylist: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).get_isIdentical)(::windows::core::Vtable::as_raw(self), piwmpplaylist.into().abi(), pvbool).ok()
     }
@@ -8279,25 +8279,25 @@ impl IWMPPlaylist {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn insertItem<'a, P0>(&self, lindex: i32, piwmpmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn insertItem<P0>(&self, lindex: i32, piwmpmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).insertItem)(::windows::core::Vtable::as_raw(self), lindex, piwmpmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn appendItem<'a, P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn appendItem<P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).appendItem)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn removeItem<'a, P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
+    pub unsafe fn removeItem<P0>(&self, piwmpmedia: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).removeItem)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi()).ok()
     }
@@ -8453,33 +8453,33 @@ impl IWMPPlaylistCollection {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn remove<'a, P0>(&self, pitem: P0) -> ::windows::core::Result<()>
+    pub unsafe fn remove<P0>(&self, pitem: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).remove)(::windows::core::Vtable::as_raw(self), pitem.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn setDeleted<'a, P0>(&self, pitem: P0, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn setDeleted<P0>(&self, pitem: P0, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).setDeleted)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), varfisdeleted).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn isDeleted<'a, P0>(&self, pitem: P0, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn isDeleted<P0>(&self, pitem: P0, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).isDeleted)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), pvarfisdeleted).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn importPlaylist<'a, P0>(&self, pitem: P0) -> ::windows::core::Result<IWMPPlaylist>
+    pub unsafe fn importPlaylist<P0>(&self, pitem: P0) -> ::windows::core::Result<IWMPPlaylist>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).importPlaylist)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -8565,9 +8565,9 @@ impl IWMPPlugin {
     pub unsafe fn GetCaps(&self, pdwflags: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCaps)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
     }
-    pub unsafe fn AdviseWMPServices<'a, P0>(&self, pwmpservices: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AdviseWMPServices<P0>(&self, pwmpservices: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPServices>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPServices>>,
     {
         (::windows::core::Vtable::vtable(self).AdviseWMPServices)(::windows::core::Vtable::as_raw(self), pwmpservices.into().abi()).ok()
     }
@@ -8615,7 +8615,7 @@ pub struct IWMPPluginEnable(::windows::core::IUnknown);
 impl IWMPPluginEnable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnable<'a, P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEnable<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -8669,15 +8669,15 @@ pub struct IWMPPluginUI(::windows::core::IUnknown);
 impl IWMPPluginUI {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCore<'a, P0>(&self, pcore: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCore<P0>(&self, pcore: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCore>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPCore>>,
     {
         (::windows::core::Vtable::vtable(self).SetCore)(::windows::core::Vtable::as_raw(self), pcore.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Create<'a, P0>(&self, hwndparent: P0, phwndwindow: *mut super::super::Foundation::HWND) -> ::windows::core::Result<()>
+    pub unsafe fn Create<P0>(&self, hwndparent: P0, phwndwindow: *mut super::super::Foundation::HWND) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -8688,7 +8688,7 @@ impl IWMPPluginUI {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DisplayPropertyPage<'a, P0>(&self, hwndparent: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DisplayPropertyPage<P0>(&self, hwndparent: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -8696,7 +8696,7 @@ impl IWMPPluginUI {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProperty<'a, P0>(&self, pwszname: P0, pvarproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn GetProperty<P0>(&self, pwszname: P0, pvarproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8704,7 +8704,7 @@ impl IWMPPluginUI {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetProperty<'a, P0>(&self, pwszname: P0, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn SetProperty<P0>(&self, pwszname: P0, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -8880,7 +8880,7 @@ pub struct IWMPRenderConfig(::windows::core::IUnknown);
 impl IWMPRenderConfig {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetinProcOnly<'a, P0>(&self, finproc: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetinProcOnly<P0>(&self, finproc: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -9412,9 +9412,9 @@ impl IWMPStringCollection2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn isIdentical<'a, P0>(&self, piwmpstringcollection2: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn isIdentical<P0>(&self, piwmpstringcollection2: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPStringCollection2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPStringCollection2>>,
     {
         (::windows::core::Vtable::vtable(self).isIdentical)(::windows::core::Vtable::as_raw(self), piwmpstringcollection2.into().abi(), pvbool).ok()
     }
@@ -9482,34 +9482,34 @@ pub struct IWMPSubscriptionService(::windows::core::IUnknown);
 impl IWMPSubscriptionService {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn allowPlay<'a, P0, P1>(&self, hwnd: P0, pmedia: P1, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn allowPlay<P0, P1>(&self, hwnd: P0, pmedia: P1, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).allowPlay)(::windows::core::Vtable::as_raw(self), hwnd.into(), pmedia.into().abi(), pfallowplay).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn allowCDBurn<'a, P0, P1>(&self, hwnd: P0, pplaylist: P1, pfallowburn: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn allowCDBurn<P0, P1>(&self, hwnd: P0, pplaylist: P1, pfallowburn: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).allowCDBurn)(::windows::core::Vtable::as_raw(self), hwnd.into(), pplaylist.into().abi(), pfallowburn).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn allowPDATransfer<'a, P0, P1>(&self, hwnd: P0, pplaylist: P1, pfallowtransfer: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn allowPDATransfer<P0, P1>(&self, hwnd: P0, pplaylist: P1, pfallowtransfer: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).allowPDATransfer)(::windows::core::Vtable::as_raw(self), hwnd.into(), pplaylist.into().abi(), pfallowtransfer).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn startBackgroundProcessing<'a, P0>(&self, hwnd: P0) -> ::windows::core::Result<()>
+    pub unsafe fn startBackgroundProcessing<P0>(&self, hwnd: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -9566,34 +9566,34 @@ pub struct IWMPSubscriptionService2(::windows::core::IUnknown);
 impl IWMPSubscriptionService2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn allowPlay<'a, P0, P1>(&self, hwnd: P0, pmedia: P1, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn allowPlay<P0, P1>(&self, hwnd: P0, pmedia: P1, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMPMedia>>,
     {
         (::windows::core::Vtable::vtable(self).base__.allowPlay)(::windows::core::Vtable::as_raw(self), hwnd.into(), pmedia.into().abi(), pfallowplay).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn allowCDBurn<'a, P0, P1>(&self, hwnd: P0, pplaylist: P1, pfallowburn: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn allowCDBurn<P0, P1>(&self, hwnd: P0, pplaylist: P1, pfallowburn: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).base__.allowCDBurn)(::windows::core::Vtable::as_raw(self), hwnd.into(), pplaylist.into().abi(), pfallowburn).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn allowPDATransfer<'a, P0, P1>(&self, hwnd: P0, pplaylist: P1, pfallowtransfer: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn allowPDATransfer<P0, P1>(&self, hwnd: P0, pplaylist: P1, pfallowtransfer: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).base__.allowPDATransfer)(::windows::core::Vtable::as_raw(self), hwnd.into(), pplaylist.into().abi(), pfallowtransfer).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn startBackgroundProcessing<'a, P0>(&self, hwnd: P0) -> ::windows::core::Result<()>
+    pub unsafe fn startBackgroundProcessing<P0>(&self, hwnd: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -9605,15 +9605,15 @@ impl IWMPSubscriptionService2 {
     pub unsafe fn serviceEvent(&self, event: WMPSubscriptionServiceEvent) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).serviceEvent)(::windows::core::Vtable::as_raw(self), event).ok()
     }
-    pub unsafe fn deviceAvailable<'a, P0>(&self, bstrdevicename: &::windows::core::BSTR, pcb: P0) -> ::windows::core::Result<()>
+    pub unsafe fn deviceAvailable<P0>(&self, bstrdevicename: &::windows::core::BSTR, pcb: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSubscriptionServiceCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSubscriptionServiceCallback>>,
     {
         (::windows::core::Vtable::vtable(self).deviceAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdevicename), pcb.into().abi()).ok()
     }
-    pub unsafe fn prepareForSync<'a, P0>(&self, bstrfilename: &::windows::core::BSTR, bstrdevicename: &::windows::core::BSTR, pcb: P0) -> ::windows::core::Result<()>
+    pub unsafe fn prepareForSync<P0>(&self, bstrfilename: &::windows::core::BSTR, bstrdevicename: &::windows::core::BSTR, pcb: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSubscriptionServiceCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSubscriptionServiceCallback>>,
     {
         (::windows::core::Vtable::vtable(self).prepareForSync)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrfilename), ::core::mem::transmute_copy(bstrdevicename), pcb.into().abi()).ok()
     }
@@ -9742,9 +9742,9 @@ impl IWMPSyncDevice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn isIdentical<'a, P0>(&self, pdevice: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn isIdentical<P0>(&self, pdevice: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).isIdentical)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pvbool).ok()
     }
@@ -9857,9 +9857,9 @@ impl IWMPSyncDevice2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn isIdentical<'a, P0>(&self, pdevice: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn isIdentical<P0>(&self, pdevice: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).base__.isIdentical)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pvbool).ok()
     }
@@ -9951,9 +9951,9 @@ impl IWMPSyncDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn isIdentical<'a, P0>(&self, pdevice: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn isIdentical<P0>(&self, pdevice: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPSyncDevice>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.isIdentical)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pvbool).ok()
     }
@@ -9962,10 +9962,10 @@ impl IWMPSyncDevice3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn estimateSyncSize<'a, P0, P1>(&self, pnonruleplaylist: P0, prulesplaylist: P1) -> ::windows::core::Result<()>
+    pub unsafe fn estimateSyncSize<P0, P1>(&self, pnonruleplaylist: P0, prulesplaylist: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMPPlaylist>>,
     {
         (::windows::core::Vtable::vtable(self).estimateSyncSize)(::windows::core::Vtable::as_raw(self), pnonruleplaylist.into().abi(), prulesplaylist.into().abi()).ok()
     }
@@ -10133,9 +10133,9 @@ pub struct IWMPVideoRenderConfig(::windows::core::IUnknown);
 impl IWMPVideoRenderConfig {
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
-    pub unsafe fn SetpresenterActivate<'a, P0>(&self, pactivate: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetpresenterActivate<P0>(&self, pactivate: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaFoundation::IMFActivate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::MediaFoundation::IMFActivate>>,
     {
         (::windows::core::Vtable::vtable(self).SetpresenterActivate)(::windows::core::Vtable::as_raw(self), pactivate.into().abi()).ok()
     }
@@ -10178,7 +10178,7 @@ pub struct IWMPWindowMessageSink(::windows::core::IUnknown);
 impl IWMPWindowMessageSink {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnWindowMessage<'a, P0, P1>(&self, umsg: u32, wparam: P0, lparam: P1, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn OnWindowMessage<P0, P1>(&self, umsg: u32, wparam: P0, lparam: P1, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -10232,7 +10232,7 @@ impl IXFeed {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Rename<'a, P0>(&self, pszname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Rename<P0>(&self, pszname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -10242,7 +10242,7 @@ impl IXFeed {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Url)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetUrl<'a, P0>(&self, pszurl: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetUrl<P0>(&self, pszurl: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -10256,7 +10256,7 @@ impl IXFeed {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Path)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Move<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Move<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -10340,7 +10340,7 @@ impl IXFeed {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDownloadEnclosuresAutomatically<'a, P0>(&self, bdownloadenclosuresautomatically: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDownloadEnclosuresAutomatically<P0>(&self, bdownloadenclosuresautomatically: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -10356,9 +10356,9 @@ impl IXFeed {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Merge<'a, P0, P1>(&self, pstream: P0, pszurl: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Merge<P0, P1>(&self, pstream: P0, pszurl: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).Merge)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), pszurl.into()).ok()
@@ -10542,7 +10542,7 @@ impl IXFeed2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Rename<'a, P0>(&self, pszname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Rename<P0>(&self, pszname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -10552,7 +10552,7 @@ impl IXFeed2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Url)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetUrl<'a, P0>(&self, pszurl: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetUrl<P0>(&self, pszurl: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -10566,7 +10566,7 @@ impl IXFeed2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Path)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Move<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Move<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -10650,7 +10650,7 @@ impl IXFeed2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDownloadEnclosuresAutomatically<'a, P0>(&self, bdownloadenclosuresautomatically: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetDownloadEnclosuresAutomatically<P0>(&self, bdownloadenclosuresautomatically: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -10666,9 +10666,9 @@ impl IXFeed2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Merge<'a, P0, P1>(&self, pstream: P0, pszurl: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Merge<P0, P1>(&self, pstream: P0, pszurl: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.Merge)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), pszurl.into()).ok()
@@ -10759,7 +10759,7 @@ impl IXFeed2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Password)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetCredentials<'a, P0, P1>(&self, pszusername: P0, pszpassword: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetCredentials<P0, P1>(&self, pszusername: P0, pszpassword: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -10859,7 +10859,7 @@ impl IXFeedEnclosure {
     pub unsafe fn RemoveFile(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveFile)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn SetFile<'a, P0, P1, P2, P3>(&self, pszdownloadurl: P0, pszdownloadfilepath: P1, pszdownloadmimetype: P2, pszenclosurefilename: P3) -> ::windows::core::Result<()>
+    pub unsafe fn SetFile<P0, P1, P2, P3>(&self, pszdownloadurl: P0, pszdownloadfilepath: P1, pszdownloadmimetype: P2, pszenclosurefilename: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -10917,45 +10917,45 @@ impl IXFeedEvents {
     pub unsafe fn Error(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Error)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn FeedDeleted<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FeedDeleted<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FeedDeleted)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
     }
-    pub unsafe fn FeedRenamed<'a, P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
+    pub unsafe fn FeedRenamed<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FeedRenamed)(::windows::core::Vtable::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
-    pub unsafe fn FeedUrlChanged<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FeedUrlChanged<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FeedUrlChanged)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
     }
-    pub unsafe fn FeedMoved<'a, P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
+    pub unsafe fn FeedMoved<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FeedMoved)(::windows::core::Vtable::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
-    pub unsafe fn FeedDownloading<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FeedDownloading<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FeedDownloading)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
     }
-    pub unsafe fn FeedDownloadCompleted<'a, P0>(&self, pszpath: P0, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()>
+    pub unsafe fn FeedDownloadCompleted<P0>(&self, pszpath: P0, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FeedDownloadCompleted)(::windows::core::Vtable::as_raw(self), pszpath.into(), fde).ok()
     }
-    pub unsafe fn FeedItemCountChanged<'a, P0>(&self, pszpath: P0, feicfflags: i32) -> ::windows::core::Result<()>
+    pub unsafe fn FeedItemCountChanged<P0>(&self, pszpath: P0, feicfflags: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -11010,7 +11010,7 @@ impl IXFeedFolder {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Subfolders)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateFeed<'a, P0, P1, T>(&self, pszname: P0, pszurl: P1) -> ::windows::core::Result<T>
+    pub unsafe fn CreateFeed<P0, P1, T>(&self, pszname: P0, pszurl: P1) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -11019,7 +11019,7 @@ impl IXFeedFolder {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateFeed)(::windows::core::Vtable::as_raw(self), pszname.into(), pszurl.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateSubfolder<'a, P0, T>(&self, pszname: P0) -> ::windows::core::Result<T>
+    pub unsafe fn CreateSubfolder<P0, T>(&self, pszname: P0) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         T: ::windows::core::Interface,
@@ -11029,7 +11029,7 @@ impl IXFeedFolder {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsFeed<'a, P0>(&self, pszname: P0, pbfeedexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn ExistsFeed<P0>(&self, pszname: P0, pbfeedexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -11037,13 +11037,13 @@ impl IXFeedFolder {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsSubfolder<'a, P0>(&self, pszname: P0, pbsubfolderexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn ExistsSubfolder<P0>(&self, pszname: P0, pbsubfolderexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).ExistsSubfolder)(::windows::core::Vtable::as_raw(self), pszname.into(), pbsubfolderexists).ok()
     }
-    pub unsafe fn GetFeed<'a, P0, T>(&self, pszname: P0) -> ::windows::core::Result<T>
+    pub unsafe fn GetFeed<P0, T>(&self, pszname: P0) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         T: ::windows::core::Interface,
@@ -11051,7 +11051,7 @@ impl IXFeedFolder {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetFeed)(::windows::core::Vtable::as_raw(self), pszname.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetSubfolder<'a, P0, T>(&self, pszname: P0) -> ::windows::core::Result<T>
+    pub unsafe fn GetSubfolder<P0, T>(&self, pszname: P0) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         T: ::windows::core::Interface,
@@ -11066,7 +11066,7 @@ impl IXFeedFolder {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Rename<'a, P0>(&self, pszname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Rename<P0>(&self, pszname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -11076,7 +11076,7 @@ impl IXFeedFolder {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Path)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Move<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Move<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -11173,97 +11173,97 @@ impl IXFeedFolderEvents {
     pub unsafe fn Error(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Error)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn FolderAdded<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FolderAdded<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FolderAdded)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
     }
-    pub unsafe fn FolderDeleted<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FolderDeleted<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FolderDeleted)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
     }
-    pub unsafe fn FolderRenamed<'a, P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
+    pub unsafe fn FolderRenamed<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FolderRenamed)(::windows::core::Vtable::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
-    pub unsafe fn FolderMovedFrom<'a, P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
+    pub unsafe fn FolderMovedFrom<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FolderMovedFrom)(::windows::core::Vtable::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
-    pub unsafe fn FolderMovedTo<'a, P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
+    pub unsafe fn FolderMovedTo<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FolderMovedTo)(::windows::core::Vtable::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
-    pub unsafe fn FolderItemCountChanged<'a, P0>(&self, pszpath: P0, feicfflags: i32) -> ::windows::core::Result<()>
+    pub unsafe fn FolderItemCountChanged<P0>(&self, pszpath: P0, feicfflags: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FolderItemCountChanged)(::windows::core::Vtable::as_raw(self), pszpath.into(), feicfflags).ok()
     }
-    pub unsafe fn FeedAdded<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FeedAdded<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FeedAdded)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
     }
-    pub unsafe fn FeedDeleted<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FeedDeleted<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FeedDeleted)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
     }
-    pub unsafe fn FeedRenamed<'a, P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
+    pub unsafe fn FeedRenamed<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FeedRenamed)(::windows::core::Vtable::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
-    pub unsafe fn FeedUrlChanged<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FeedUrlChanged<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FeedUrlChanged)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
     }
-    pub unsafe fn FeedMovedFrom<'a, P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
+    pub unsafe fn FeedMovedFrom<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FeedMovedFrom)(::windows::core::Vtable::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
-    pub unsafe fn FeedMovedTo<'a, P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
+    pub unsafe fn FeedMovedTo<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FeedMovedTo)(::windows::core::Vtable::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
-    pub unsafe fn FeedDownloading<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FeedDownloading<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FeedDownloading)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
     }
-    pub unsafe fn FeedDownloadCompleted<'a, P0>(&self, pszpath: P0, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()>
+    pub unsafe fn FeedDownloadCompleted<P0>(&self, pszpath: P0, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).FeedDownloadCompleted)(::windows::core::Vtable::as_raw(self), pszpath.into(), fde).ok()
     }
-    pub unsafe fn FeedItemCountChanged<'a, P0>(&self, pszpath: P0, feicfflags: i32) -> ::windows::core::Result<()>
+    pub unsafe fn FeedItemCountChanged<P0>(&self, pszpath: P0, feicfflags: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -11369,7 +11369,7 @@ impl IXFeedItem {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsRead<'a, P0>(&self, bisread: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetIsRead<P0>(&self, bisread: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -11524,7 +11524,7 @@ impl IXFeedItem2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsRead<'a, P0>(&self, bisread: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetIsRead<P0>(&self, bisread: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -11653,7 +11653,7 @@ impl IXFeedsManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsSubscribed<'a, P0>(&self, pszurl: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn IsSubscribed<P0>(&self, pszurl: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -11662,14 +11662,14 @@ impl IXFeedsManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsFeed<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn ExistsFeed<P0>(&self, pszpath: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ExistsFeed)(::windows::core::Vtable::as_raw(self), pszpath.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetFeed<'a, P0, T>(&self, pszpath: P0) -> ::windows::core::Result<T>
+    pub unsafe fn GetFeed<P0, T>(&self, pszpath: P0) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         T: ::windows::core::Interface,
@@ -11677,7 +11677,7 @@ impl IXFeedsManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetFeed)(::windows::core::Vtable::as_raw(self), pszpath.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetFeedByUrl<'a, P0, T>(&self, pszurl: P0) -> ::windows::core::Result<T>
+    pub unsafe fn GetFeedByUrl<P0, T>(&self, pszurl: P0) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         T: ::windows::core::Interface,
@@ -11687,14 +11687,14 @@ impl IXFeedsManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsFolder<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn ExistsFolder<P0>(&self, pszpath: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ExistsFolder)(::windows::core::Vtable::as_raw(self), pszpath.into(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetFolder<'a, P0, T>(&self, pszpath: P0) -> ::windows::core::Result<T>
+    pub unsafe fn GetFolder<P0, T>(&self, pszpath: P0) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         T: ::windows::core::Interface,
@@ -11702,13 +11702,13 @@ impl IXFeedsManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetFolder)(::windows::core::Vtable::as_raw(self), pszpath.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn DeleteFeed<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteFeed<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).DeleteFeed)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
     }
-    pub unsafe fn DeleteFolder<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteFolder<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -11733,9 +11733,9 @@ impl IXFeedsManager {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Normalize<'a, P0>(&self, pstreamin: P0) -> ::windows::core::Result<super::super::System::Com::IStream>
+    pub unsafe fn Normalize<P0>(&self, pstreamin: P0) -> ::windows::core::Result<super::super::System::Com::IStream>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Normalize)(::windows::core::Vtable::as_raw(self), pstreamin.into().abi(), result__.as_mut_ptr()).from_abi(result__)

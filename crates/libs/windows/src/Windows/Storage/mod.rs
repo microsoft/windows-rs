@@ -616,9 +616,9 @@ impl IStorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyOverloadDefaultNameAndOptions<'a, P0, E0>(&self, destinationfolder: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn CopyOverloadDefaultNameAndOptions<P0, E0>(&self, destinationfolder: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -629,9 +629,9 @@ impl IStorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyOverloadDefaultOptions<'a, P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn CopyOverloadDefaultOptions<P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -642,9 +642,9 @@ impl IStorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyOverload<'a, P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn CopyOverload<P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -655,9 +655,9 @@ impl IStorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyAndReplaceAsync<'a, P0, E0>(&self, filetoreplace: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn CopyAndReplaceAsync<P0, E0>(&self, filetoreplace: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -668,9 +668,9 @@ impl IStorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MoveOverloadDefaultNameAndOptions<'a, P0, E0>(&self, destinationfolder: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn MoveOverloadDefaultNameAndOptions<P0, E0>(&self, destinationfolder: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -681,9 +681,9 @@ impl IStorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MoveOverloadDefaultOptions<'a, P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn MoveOverloadDefaultOptions<P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -694,9 +694,9 @@ impl IStorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MoveOverload<'a, P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn MoveOverload<P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -707,9 +707,9 @@ impl IStorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MoveAndReplaceAsync<'a, P0, E0>(&self, filetoreplace: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn MoveAndReplaceAsync<P0, E0>(&self, filetoreplace: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -835,7 +835,7 @@ impl ::core::convert::TryFrom<&IStorageFile> for Streams::IInputStreamReference 
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&IStorageFile> for ::windows::core::InParam<'a, Streams::IInputStreamReference> {
+impl ::core::convert::TryFrom<&IStorageFile> for ::windows::core::InParam<Streams::IInputStreamReference> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IStorageFile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -857,7 +857,7 @@ impl ::core::convert::TryFrom<&IStorageFile> for Streams::IRandomAccessStreamRef
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&IStorageFile> for ::windows::core::InParam<'a, Streams::IRandomAccessStreamReference> {
+impl ::core::convert::TryFrom<&IStorageFile> for ::windows::core::InParam<Streams::IRandomAccessStreamReference> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IStorageFile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -876,7 +876,7 @@ impl ::core::convert::TryFrom<&IStorageFile> for IStorageItem {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IStorageFile> for ::windows::core::InParam<'a, IStorageItem> {
+impl ::core::convert::TryFrom<&IStorageFile> for ::windows::core::InParam<IStorageItem> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IStorageFile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1319,7 +1319,7 @@ impl ::core::convert::TryFrom<&IStorageFolder> for IStorageItem {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IStorageFolder> for ::windows::core::InParam<'a, IStorageItem> {
+impl ::core::convert::TryFrom<&IStorageFolder> for ::windows::core::InParam<IStorageItem> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IStorageFolder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1667,9 +1667,9 @@ impl IStorageItem2 {
             (::windows::core::Vtable::vtable(this).GetParentAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn IsEqual<'a, P0, E0>(&self, item: P0) -> ::windows::core::Result<bool>
+    pub fn IsEqual<P0, E0>(&self, item: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1774,7 +1774,7 @@ impl ::core::convert::TryFrom<&IStorageItem2> for IStorageItem {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IStorageItem2> for ::windows::core::InParam<'a, IStorageItem> {
+impl ::core::convert::TryFrom<&IStorageItem2> for ::windows::core::InParam<IStorageItem> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IStorageItem2) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2038,7 +2038,7 @@ impl ::core::convert::TryFrom<&IStorageItemProperties2> for IStorageItemProperti
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IStorageItemProperties2> for ::windows::core::InParam<'a, IStorageItemProperties> {
+impl ::core::convert::TryFrom<&IStorageItemProperties2> for ::windows::core::InParam<IStorageItemProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IStorageItemProperties2) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2173,7 +2173,7 @@ impl ::core::convert::TryFrom<&IStorageItemPropertiesWithProvider> for IStorageI
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IStorageItemPropertiesWithProvider> for ::windows::core::InParam<'a, IStorageItemProperties> {
+impl ::core::convert::TryFrom<&IStorageItemPropertiesWithProvider> for ::windows::core::InParam<IStorageItemProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IStorageItemPropertiesWithProvider) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3138,7 +3138,7 @@ impl ::core::convert::TryFrom<&ApplicationData> for super::Foundation::IClosable
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&ApplicationData> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&ApplicationData> for ::windows::core::InParam<super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ApplicationData) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3207,9 +3207,9 @@ impl ApplicationDataCompositeValue {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
+    pub fn Insert<P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -3318,7 +3318,7 @@ impl ::core::convert::TryFrom<&ApplicationDataCompositeValue> for super::Foundat
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ApplicationDataCompositeValue> for ::windows::core::InParam<'a, super::Foundation::Collections::IIterable<super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+impl ::core::convert::TryFrom<&ApplicationDataCompositeValue> for ::windows::core::InParam<super::Foundation::Collections::IIterable<super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ApplicationDataCompositeValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3340,7 +3340,7 @@ impl ::core::convert::TryFrom<&ApplicationDataCompositeValue> for super::Foundat
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ApplicationDataCompositeValue> for ::windows::core::InParam<'a, super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&ApplicationDataCompositeValue> for ::windows::core::InParam<super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ApplicationDataCompositeValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3362,7 +3362,7 @@ impl ::core::convert::TryFrom<&ApplicationDataCompositeValue> for super::Foundat
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ApplicationDataCompositeValue> for ::windows::core::InParam<'a, super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&ApplicationDataCompositeValue> for ::windows::core::InParam<super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ApplicationDataCompositeValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3384,7 +3384,7 @@ impl ::core::convert::TryFrom<&ApplicationDataCompositeValue> for super::Foundat
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ApplicationDataCompositeValue> for ::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet> {
+impl ::core::convert::TryFrom<&ApplicationDataCompositeValue> for ::windows::core::InParam<super::Foundation::Collections::IPropertySet> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ApplicationDataCompositeValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3497,7 +3497,7 @@ impl ::core::convert::TryFrom<&ApplicationDataContainer> for super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&ApplicationDataContainer> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&ApplicationDataContainer> for ::windows::core::InParam<super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ApplicationDataContainer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3559,9 +3559,9 @@ impl ApplicationDataContainerSettings {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
+    pub fn Insert<P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -3670,7 +3670,7 @@ impl ::core::convert::TryFrom<&ApplicationDataContainerSettings> for super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ApplicationDataContainerSettings> for ::windows::core::InParam<'a, super::Foundation::Collections::IIterable<super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+impl ::core::convert::TryFrom<&ApplicationDataContainerSettings> for ::windows::core::InParam<super::Foundation::Collections::IIterable<super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ApplicationDataContainerSettings) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3692,7 +3692,7 @@ impl ::core::convert::TryFrom<&ApplicationDataContainerSettings> for super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ApplicationDataContainerSettings> for ::windows::core::InParam<'a, super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&ApplicationDataContainerSettings> for ::windows::core::InParam<super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ApplicationDataContainerSettings) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3714,7 +3714,7 @@ impl ::core::convert::TryFrom<&ApplicationDataContainerSettings> for super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ApplicationDataContainerSettings> for ::windows::core::InParam<'a, super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&ApplicationDataContainerSettings> for ::windows::core::InParam<super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ApplicationDataContainerSettings) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3736,7 +3736,7 @@ impl ::core::convert::TryFrom<&ApplicationDataContainerSettings> for super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&ApplicationDataContainerSettings> for ::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet> {
+impl ::core::convert::TryFrom<&ApplicationDataContainerSettings> for ::windows::core::InParam<super::Foundation::Collections::IPropertySet> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ApplicationDataContainerSettings) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3750,18 +3750,18 @@ unsafe impl ::core::marker::Sync for ApplicationDataContainerSettings {}
 #[doc = "*Required features: `\"Storage\"`*"]
 pub struct CachedFileManager;
 impl CachedFileManager {
-    pub fn DeferUpdates<'a, P0, E0>(file: P0) -> ::windows::core::Result<()>
+    pub fn DeferUpdates<P0, E0>(file: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICachedFileManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).DeferUpdates)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Provider\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Provider"))]
-    pub fn CompleteUpdatesAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Provider::FileUpdateStatus>>
+    pub fn CompleteUpdatesAsync<P0, E0>(file: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Provider::FileUpdateStatus>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICachedFileManagerStatics(|this| unsafe {
@@ -3864,9 +3864,9 @@ pub struct FileIO;
 impl FileIO {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadTextAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    pub fn ReadTextAsync<P0, E0>(file: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -3876,9 +3876,9 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadTextWithEncodingAsync<'a, P0, E0>(file: P0, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    pub fn ReadTextWithEncodingAsync<P0, E0>(file: P0, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -3888,9 +3888,9 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteTextAsync<'a, P0, E0>(file: P0, contents: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn WriteTextAsync<P0, E0>(file: P0, contents: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -3900,9 +3900,9 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteTextWithEncodingAsync<'a, P0, E0>(file: P0, contents: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn WriteTextWithEncodingAsync<P0, E0>(file: P0, contents: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -3912,9 +3912,9 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AppendTextAsync<'a, P0, E0>(file: P0, contents: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn AppendTextAsync<P0, E0>(file: P0, contents: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -3924,9 +3924,9 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn AppendTextWithEncodingAsync<'a, P0, E0>(file: P0, contents: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn AppendTextWithEncodingAsync<P0, E0>(file: P0, contents: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -3936,9 +3936,9 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReadLinesAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>
+    pub fn ReadLinesAsync<P0, E0>(file: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -3948,9 +3948,9 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn ReadLinesWithEncodingAsync<'a, P0, E0>(file: P0, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>
+    pub fn ReadLinesWithEncodingAsync<P0, E0>(file: P0, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -3960,11 +3960,11 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn WriteLinesAsync<'a, P0, E0, P1, E1>(file: P0, lines: P1) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn WriteLinesAsync<P0, E0, P1, E1>(file: P0, lines: P1) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -3974,11 +3974,11 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn WriteLinesWithEncodingAsync<'a, P0, E0, P1, E1>(file: P0, lines: P1, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn WriteLinesWithEncodingAsync<P0, E0, P1, E1>(file: P0, lines: P1, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -3988,11 +3988,11 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AppendLinesAsync<'a, P0, E0, P1, E1>(file: P0, lines: P1) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn AppendLinesAsync<P0, E0, P1, E1>(file: P0, lines: P1) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -4002,11 +4002,11 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn AppendLinesWithEncodingAsync<'a, P0, E0, P1, E1>(file: P0, lines: P1, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn AppendLinesWithEncodingAsync<P0, E0, P1, E1>(file: P0, lines: P1, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -4016,9 +4016,9 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadBufferAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IBuffer>>
+    pub fn ReadBufferAsync<P0, E0>(file: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IBuffer>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -4028,11 +4028,11 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteBufferAsync<'a, P0, E0, P1, E1>(file: P0, buffer: P1) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn WriteBufferAsync<P0, E0, P1, E1>(file: P0, buffer: P1) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, Streams::IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<Streams::IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -4042,9 +4042,9 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteBytesAsync<'a, P0, E0>(file: P0, buffer: &[u8]) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn WriteBytesAsync<P0, E0>(file: P0, buffer: &[u8]) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IFileIOStatics(|this| unsafe {
@@ -4282,9 +4282,9 @@ impl PathIO {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn WriteLinesAsync<'a, P0, E0>(absolutepath: &::windows::core::HSTRING, lines: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn WriteLinesAsync<P0, E0>(absolutepath: &::windows::core::HSTRING, lines: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPathIOStatics(|this| unsafe {
@@ -4294,9 +4294,9 @@ impl PathIO {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn WriteLinesWithEncodingAsync<'a, P0, E0>(absolutepath: &::windows::core::HSTRING, lines: P0, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn WriteLinesWithEncodingAsync<P0, E0>(absolutepath: &::windows::core::HSTRING, lines: P0, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPathIOStatics(|this| unsafe {
@@ -4306,9 +4306,9 @@ impl PathIO {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AppendLinesAsync<'a, P0, E0>(absolutepath: &::windows::core::HSTRING, lines: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn AppendLinesAsync<P0, E0>(absolutepath: &::windows::core::HSTRING, lines: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPathIOStatics(|this| unsafe {
@@ -4318,9 +4318,9 @@ impl PathIO {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn AppendLinesWithEncodingAsync<'a, P0, E0>(absolutepath: &::windows::core::HSTRING, lines: P0, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn AppendLinesWithEncodingAsync<P0, E0>(absolutepath: &::windows::core::HSTRING, lines: P0, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPathIOStatics(|this| unsafe {
@@ -4338,9 +4338,9 @@ impl PathIO {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteBufferAsync<'a, P0, E0>(absolutepath: &::windows::core::HSTRING, buffer: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn WriteBufferAsync<P0, E0>(absolutepath: &::windows::core::HSTRING, buffer: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPathIOStatics(|this| unsafe {
@@ -4526,9 +4526,9 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyOverloadDefaultNameAndOptions<'a, P0, E0>(&self, destinationfolder: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn CopyOverloadDefaultNameAndOptions<P0, E0>(&self, destinationfolder: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4539,9 +4539,9 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyOverloadDefaultOptions<'a, P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn CopyOverloadDefaultOptions<P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4552,9 +4552,9 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyOverload<'a, P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn CopyOverload<P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4565,9 +4565,9 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyAndReplaceAsync<'a, P0, E0>(&self, filetoreplace: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn CopyAndReplaceAsync<P0, E0>(&self, filetoreplace: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4578,9 +4578,9 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MoveOverloadDefaultNameAndOptions<'a, P0, E0>(&self, destinationfolder: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn MoveOverloadDefaultNameAndOptions<P0, E0>(&self, destinationfolder: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4591,9 +4591,9 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MoveOverloadDefaultOptions<'a, P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn MoveOverloadDefaultOptions<P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4604,9 +4604,9 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MoveOverload<'a, P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn MoveOverload<P0, E0>(&self, destinationfolder: P0, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4617,9 +4617,9 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MoveAndReplaceAsync<'a, P0, E0>(&self, filetoreplace: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn MoveAndReplaceAsync<P0, E0>(&self, filetoreplace: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4671,9 +4671,9 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateStreamedFileAsync<'a, P0, E0>(displaynamewithextension: &::windows::core::HSTRING, datarequested: &StreamedFileDataRequestedHandler, thumbnail: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn CreateStreamedFileAsync<P0, E0>(displaynamewithextension: &::windows::core::HSTRING, datarequested: &StreamedFileDataRequestedHandler, thumbnail: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, Streams::IRandomAccessStreamReference>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<Streams::IRandomAccessStreamReference>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IStorageFileStatics(|this| unsafe {
@@ -4683,11 +4683,11 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReplaceWithStreamedFileAsync<'a, P0, E0, P1, E1>(filetoreplace: P0, datarequested: &StreamedFileDataRequestedHandler, thumbnail: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn ReplaceWithStreamedFileAsync<P0, E0, P1, E1>(filetoreplace: P0, datarequested: &StreamedFileDataRequestedHandler, thumbnail: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, Streams::IRandomAccessStreamReference>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<Streams::IRandomAccessStreamReference>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IStorageFileStatics(|this| unsafe {
@@ -4697,9 +4697,9 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateStreamedFileFromUriAsync<'a, P0, E0>(displaynamewithextension: &::windows::core::HSTRING, uri: &super::Foundation::Uri, thumbnail: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn CreateStreamedFileFromUriAsync<P0, E0>(displaynamewithextension: &::windows::core::HSTRING, uri: &super::Foundation::Uri, thumbnail: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, Streams::IRandomAccessStreamReference>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<Streams::IRandomAccessStreamReference>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IStorageFileStatics(|this| unsafe {
@@ -4709,11 +4709,11 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReplaceWithStreamedFileFromUriAsync<'a, P0, E0, P1, E1>(filetoreplace: P0, uri: &super::Foundation::Uri, thumbnail: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn ReplaceWithStreamedFileFromUriAsync<P0, E0, P1, E1>(filetoreplace: P0, uri: &super::Foundation::Uri, thumbnail: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, Streams::IRandomAccessStreamReference>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<Streams::IRandomAccessStreamReference>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IStorageFileStatics(|this| unsafe {
@@ -4820,9 +4820,9 @@ impl StorageFile {
             (::windows::core::Vtable::vtable(this).GetParentAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn IsEqual<'a, P0, E0>(&self, item: P0) -> ::windows::core::Result<bool>
+    pub fn IsEqual<P0, E0>(&self, item: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItem2>(self)?;
@@ -4981,7 +4981,7 @@ impl ::core::convert::TryFrom<&StorageFile> for Streams::IInputStreamReference {
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<'a, Streams::IInputStreamReference> {
+impl ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<Streams::IInputStreamReference> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5003,7 +5003,7 @@ impl ::core::convert::TryFrom<&StorageFile> for Streams::IRandomAccessStreamRefe
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<'a, Streams::IRandomAccessStreamReference> {
+impl ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<Streams::IRandomAccessStreamReference> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5022,7 +5022,7 @@ impl ::core::convert::TryFrom<&StorageFile> for IStorageFile {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<'a, IStorageFile> {
+impl ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<IStorageFile> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5041,7 +5041,7 @@ impl ::core::convert::TryFrom<&StorageFile> for IStorageFile2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<'a, IStorageFile2> {
+impl ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<IStorageFile2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5060,7 +5060,7 @@ impl ::core::convert::TryFrom<&StorageFile> for IStorageFilePropertiesWithAvaila
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<'a, IStorageFilePropertiesWithAvailability> {
+impl ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<IStorageFilePropertiesWithAvailability> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5079,7 +5079,7 @@ impl ::core::convert::TryFrom<&StorageFile> for IStorageItem {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<'a, IStorageItem> {
+impl ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<IStorageItem> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5098,7 +5098,7 @@ impl ::core::convert::TryFrom<&StorageFile> for IStorageItem2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<'a, IStorageItem2> {
+impl ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<IStorageItem2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5117,7 +5117,7 @@ impl ::core::convert::TryFrom<&StorageFile> for IStorageItemProperties {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<'a, IStorageItemProperties> {
+impl ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<IStorageItemProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5136,7 +5136,7 @@ impl ::core::convert::TryFrom<&StorageFile> for IStorageItemProperties2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<'a, IStorageItemProperties2> {
+impl ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<IStorageItemProperties2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5155,7 +5155,7 @@ impl ::core::convert::TryFrom<&StorageFile> for IStorageItemPropertiesWithProvid
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<'a, IStorageItemPropertiesWithProvider> {
+impl ::core::convert::TryFrom<&StorageFile> for ::windows::core::InParam<IStorageItemPropertiesWithProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFile) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5532,9 +5532,9 @@ impl StorageFolder {
             (::windows::core::Vtable::vtable(this).GetParentAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn IsEqual<'a, P0, E0>(&self, item: P0) -> ::windows::core::Result<bool>
+    pub fn IsEqual<P0, E0>(&self, item: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageItem>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItem2>(self)?;
@@ -5690,7 +5690,7 @@ impl ::core::convert::TryFrom<&StorageFolder> for IStorageFolder {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<'a, IStorageFolder> {
+impl ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<IStorageFolder> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFolder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5709,7 +5709,7 @@ impl ::core::convert::TryFrom<&StorageFolder> for IStorageFolder2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<'a, IStorageFolder2> {
+impl ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<IStorageFolder2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFolder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5731,7 +5731,7 @@ impl ::core::convert::TryFrom<&StorageFolder> for Search::IStorageFolderQueryOpe
     }
 }
 #[cfg(feature = "Storage_Search")]
-impl<'a> ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<'a, Search::IStorageFolderQueryOperations> {
+impl ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<Search::IStorageFolderQueryOperations> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFolder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5750,7 +5750,7 @@ impl ::core::convert::TryFrom<&StorageFolder> for IStorageItem {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<'a, IStorageItem> {
+impl ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<IStorageItem> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFolder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5769,7 +5769,7 @@ impl ::core::convert::TryFrom<&StorageFolder> for IStorageItem2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<'a, IStorageItem2> {
+impl ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<IStorageItem2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFolder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5788,7 +5788,7 @@ impl ::core::convert::TryFrom<&StorageFolder> for IStorageItemProperties {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<'a, IStorageItemProperties> {
+impl ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<IStorageItemProperties> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFolder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5807,7 +5807,7 @@ impl ::core::convert::TryFrom<&StorageFolder> for IStorageItemProperties2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<'a, IStorageItemProperties2> {
+impl ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<IStorageItemProperties2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFolder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5826,7 +5826,7 @@ impl ::core::convert::TryFrom<&StorageFolder> for IStorageItemPropertiesWithProv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<'a, IStorageItemPropertiesWithProvider> {
+impl ::core::convert::TryFrom<&StorageFolder> for ::windows::core::InParam<IStorageItemPropertiesWithProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageFolder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6414,7 +6414,7 @@ impl ::core::convert::TryFrom<&StorageStreamTransaction> for super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&StorageStreamTransaction> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&StorageStreamTransaction> for ::windows::core::InParam<super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageStreamTransaction) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6435,9 +6435,9 @@ impl StreamedFileDataRequest {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -6517,7 +6517,7 @@ impl ::core::convert::TryFrom<&StreamedFileDataRequest> for super::Foundation::I
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-impl<'a> ::core::convert::TryFrom<&StreamedFileDataRequest> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&StreamedFileDataRequest> for ::windows::core::InParam<super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StreamedFileDataRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6539,7 +6539,7 @@ impl ::core::convert::TryFrom<&StreamedFileDataRequest> for Streams::IOutputStre
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&StreamedFileDataRequest> for ::windows::core::InParam<'a, Streams::IOutputStream> {
+impl ::core::convert::TryFrom<&StreamedFileDataRequest> for ::windows::core::InParam<Streams::IOutputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StreamedFileDataRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6561,7 +6561,7 @@ impl ::core::convert::TryFrom<&StreamedFileDataRequest> for IStreamedFileDataReq
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&StreamedFileDataRequest> for ::windows::core::InParam<'a, IStreamedFileDataRequest> {
+impl ::core::convert::TryFrom<&StreamedFileDataRequest> for ::windows::core::InParam<IStreamedFileDataRequest> {
     type Error = ::windows::core::Error;
     fn try_from(value: &StreamedFileDataRequest) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

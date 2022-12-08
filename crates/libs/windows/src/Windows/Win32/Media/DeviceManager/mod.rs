@@ -170,7 +170,7 @@ impl IMDSPDevice2 {
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), pcommand).ok()
     }
-    pub unsafe fn GetStorage<'a, P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -273,7 +273,7 @@ impl IMDSPDevice3 {
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), pcommand).ok()
     }
-    pub unsafe fn GetStorage<'a, P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -295,7 +295,7 @@ impl IMDSPDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetProperty<'a, P0>(&self, pwszpropname: P0) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
+    pub unsafe fn GetProperty<P0>(&self, pwszpropname: P0) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -304,7 +304,7 @@ impl IMDSPDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetProperty<'a, P0>(&self, pwszpropname: P0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn SetProperty<P0>(&self, pwszpropname: P0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -319,7 +319,7 @@ impl IMDSPDevice3 {
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: &[u8], lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeviceIoControl)(::windows::core::Vtable::as_raw(self), dwiocontrolcode, ::core::mem::transmute(lpinbuffer.as_ptr()), lpinbuffer.len() as _, lpoutbuffer, pnoutbuffersize).ok()
     }
-    pub unsafe fn FindStorage<'a, P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn FindStorage<P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -445,13 +445,13 @@ pub struct IMDSPDeviceControl_Vtbl {
 #[repr(transparent)]
 pub struct IMDSPDirectTransfer(::windows::core::IUnknown);
 impl IMDSPDirectTransfer {
-    pub unsafe fn TransferToDevice<'a, P0, P1, P2, P3, P4>(&self, pwszsourcefilepath: P0, psourceoperation: P1, fuflags: u32, pwszdestinationname: P2, psourcemetadata: P3, ptransferprogress: P4) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn TransferToDevice<P0, P1, P2, P3, P4>(&self, pwszsourcefilepath: P0, psourceoperation: P1, fuflags: u32, pwszdestinationname: P2, psourcemetadata: P3, ptransferprogress: P4) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMOperation>>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>,
-        P4: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P3: ::std::convert::Into<::windows::core::InParam<IWMDMMetaData>>,
+        P4: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).TransferToDevice)(::windows::core::Vtable::as_raw(self), pwszsourcefilepath.into(), psourceoperation.into().abi(), fuflags, pwszdestinationname.into(), psourcemetadata.into().abi(), ptransferprogress.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -601,26 +601,26 @@ impl IMDSPObject {
     pub unsafe fn Write(&self, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), pdata, pdwsize, abmac).ok()
     }
-    pub unsafe fn Delete<'a, P0>(&self, fumode: u32, pprogress: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Delete<P0>(&self, fumode: u32, pprogress: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), fumode, pprogress.into().abi()).ok()
     }
     pub unsafe fn Seek(&self, fuflags: u32, dwoffset: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Seek)(::windows::core::Vtable::as_raw(self), fuflags, dwoffset).ok()
     }
-    pub unsafe fn Rename<'a, P0, P1>(&self, pwsznewname: P0, pprogress: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Rename<P0, P1>(&self, pwsznewname: P0, pprogress: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).Rename)(::windows::core::Vtable::as_raw(self), pwsznewname.into(), pprogress.into().abi()).ok()
     }
-    pub unsafe fn Move<'a, P0, P1>(&self, fumode: u32, pprogress: P0, ptarget: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Move<P0, P1>(&self, fumode: u32, pprogress: P0, ptarget: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorage>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IMDSPStorage>>,
     {
         (::windows::core::Vtable::vtable(self).Move)(::windows::core::Vtable::as_raw(self), fumode, pprogress.into().abi(), ptarget.into().abi()).ok()
     }
@@ -677,26 +677,26 @@ impl IMDSPObject2 {
     pub unsafe fn Write(&self, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), pdata, pdwsize, abmac).ok()
     }
-    pub unsafe fn Delete<'a, P0>(&self, fumode: u32, pprogress: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Delete<P0>(&self, fumode: u32, pprogress: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Delete)(::windows::core::Vtable::as_raw(self), fumode, pprogress.into().abi()).ok()
     }
     pub unsafe fn Seek(&self, fuflags: u32, dwoffset: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Seek)(::windows::core::Vtable::as_raw(self), fuflags, dwoffset).ok()
     }
-    pub unsafe fn Rename<'a, P0, P1>(&self, pwsznewname: P0, pprogress: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Rename<P0, P1>(&self, pwsznewname: P0, pprogress: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Rename)(::windows::core::Vtable::as_raw(self), pwsznewname.into(), pprogress.into().abi()).ok()
     }
-    pub unsafe fn Move<'a, P0, P1>(&self, fumode: u32, pprogress: P0, ptarget: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Move<P0, P1>(&self, fumode: u32, pprogress: P0, ptarget: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorage>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IMDSPStorage>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Move)(::windows::core::Vtable::as_raw(self), fumode, pprogress.into().abi(), ptarget.into().abi()).ok()
     }
@@ -876,7 +876,7 @@ impl IMDSPStorage {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn CreateStorage<'a, P0>(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pwszname: P0) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn CreateStorage<P0>(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pwszname: P0) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -971,7 +971,7 @@ impl IMDSPStorage2 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn CreateStorage<'a, P0>(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pwszname: P0) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn CreateStorage<P0>(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pwszname: P0) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -985,7 +985,7 @@ impl IMDSPStorage2 {
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), pcommand).ok()
     }
-    pub unsafe fn GetStorage<'a, P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -994,7 +994,7 @@ impl IMDSPStorage2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn CreateStorage2<'a, P0>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>, pwszname: P0, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn CreateStorage2<P0>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>, pwszname: P0, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1086,7 +1086,7 @@ impl IMDSPStorage3 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn CreateStorage<'a, P0>(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pwszname: P0) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn CreateStorage<P0>(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pwszname: P0) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1100,7 +1100,7 @@ impl IMDSPStorage3 {
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), pcommand).ok()
     }
-    pub unsafe fn GetStorage<'a, P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1109,7 +1109,7 @@ impl IMDSPStorage3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn CreateStorage2<'a, P0>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>, pwszname: P0, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn CreateStorage2<P0>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>, pwszname: P0, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1126,15 +1126,15 @@ impl IMDSPStorage3 {
     pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetAttributes2)(::windows::core::Vtable::as_raw(self), pdwattributes, pdwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetMetadata<'a, P0>(&self, pmetadata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetMetadata<P0>(&self, pmetadata: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMMetaData>>,
     {
         (::windows::core::Vtable::vtable(self).GetMetadata)(::windows::core::Vtable::as_raw(self), pmetadata.into().abi()).ok()
     }
-    pub unsafe fn SetMetadata<'a, P0>(&self, pmetadata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMetadata<P0>(&self, pmetadata: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMMetaData>>,
     {
         (::windows::core::Vtable::vtable(self).SetMetadata)(::windows::core::Vtable::as_raw(self), pmetadata.into().abi()).ok()
     }
@@ -1202,7 +1202,7 @@ impl IMDSPStorage4 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn CreateStorage<'a, P0>(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pwszname: P0) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn CreateStorage<P0>(&self, dwattributes: u32, pformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pwszname: P0) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1216,7 +1216,7 @@ impl IMDSPStorage4 {
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), pcommand).ok()
     }
-    pub unsafe fn GetStorage<'a, P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1225,7 +1225,7 @@ impl IMDSPStorage4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn CreateStorage2<'a, P0>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>, pwszname: P0, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn CreateStorage2<P0>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: ::core::option::Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*const super::MediaFoundation::VIDEOINFOHEADER>, pwszname: P0, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1242,15 +1242,15 @@ impl IMDSPStorage4 {
     pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: ::core::option::Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: ::core::option::Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetAttributes2)(::windows::core::Vtable::as_raw(self), pdwattributes, pdwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetMetadata<'a, P0>(&self, pmetadata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetMetadata<P0>(&self, pmetadata: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMMetaData>>,
     {
         (::windows::core::Vtable::vtable(self).base__.GetMetadata)(::windows::core::Vtable::as_raw(self), pmetadata.into().abi()).ok()
     }
-    pub unsafe fn SetMetadata<'a, P0>(&self, pmetadata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMetadata<P0>(&self, pmetadata: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMMetaData>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetMetadata)(::windows::core::Vtable::as_raw(self), pmetadata.into().abi()).ok()
     }
@@ -1260,21 +1260,21 @@ impl IMDSPStorage4 {
     pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetReferences)(::windows::core::Vtable::as_raw(self), pdwrefs, pppispstorage).ok()
     }
-    pub unsafe fn CreateStorageWithMetadata<'a, P0, P1>(&self, dwattributes: u32, pwszname: P0, pmetadata: P1, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn CreateStorageWithMetadata<P0, P1>(&self, dwattributes: u32, pwszname: P0, pmetadata: P1, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMMetaData>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateStorageWithMetadata)(::windows::core::Vtable::as_raw(self), dwattributes, pwszname.into(), pmetadata.into().abi(), qwfilesize, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetSpecifiedMetadata<'a, P0>(&self, ppwszpropnames: &[::windows::core::PCWSTR], pmetadata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetSpecifiedMetadata<P0>(&self, ppwszpropnames: &[::windows::core::PCWSTR], pmetadata: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMMetaData>>,
     {
         (::windows::core::Vtable::vtable(self).GetSpecifiedMetadata)(::windows::core::Vtable::as_raw(self), ppwszpropnames.len() as _, ::core::mem::transmute(ppwszpropnames.as_ptr()), pmetadata.into().abi()).ok()
     }
-    pub unsafe fn FindStorage<'a, P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn FindStorage<P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows::core::Result<IMDSPStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1344,9 +1344,9 @@ impl IMDSPStorageGlobals {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Initialize<'a, P0>(&self, fumode: u32, pprogress: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, fumode: u32, pprogress: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), fumode, pprogress.into().abi()).ok()
     }
@@ -1451,7 +1451,7 @@ impl IMDServiceProvider2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.EnumDevices)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateDevice<'a, P0>(&self, pwszdevicepath: P0, pdwcount: *mut u32, pppdevicearray: *mut *mut ::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()>
+    pub unsafe fn CreateDevice<P0>(&self, pwszdevicepath: P0, pdwcount: *mut u32, pppdevicearray: *mut *mut ::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1499,7 +1499,7 @@ impl IMDServiceProvider3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.EnumDevices)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateDevice<'a, P0>(&self, pwszdevicepath: P0, pdwcount: *mut u32, pppdevicearray: *mut *mut ::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()>
+    pub unsafe fn CreateDevice<P0>(&self, pwszdevicepath: P0, pdwcount: *mut u32, pppdevicearray: *mut *mut ::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -1676,9 +1676,9 @@ impl ISCPSecureExchange2 {
     pub unsafe fn TransferComplete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.TransferComplete)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn TransferContainerData2<'a, P0>(&self, pdata: &[u8], pprogresscallback: P0, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn TransferContainerData2<P0>(&self, pdata: &[u8], pprogresscallback: P0, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress3>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMProgress3>>,
     {
         (::windows::core::Vtable::vtable(self).TransferContainerData2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, pprogresscallback.into().abi(), pfureadyflags, abmac).ok()
     }
@@ -1725,29 +1725,29 @@ impl ISCPSecureExchange3 {
     pub unsafe fn TransferComplete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.TransferComplete)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn TransferContainerData2<'a, P0>(&self, pdata: &[u8], pprogresscallback: P0, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn TransferContainerData2<P0>(&self, pdata: &[u8], pprogresscallback: P0, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress3>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMProgress3>>,
     {
         (::windows::core::Vtable::vtable(self).base__.TransferContainerData2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, pprogresscallback.into().abi(), pfureadyflags, abmac).ok()
     }
-    pub unsafe fn TransferContainerDataOnClearChannel<'a, P0, P1>(&self, pdevice: P0, pdata: &[u8], pprogresscallback: P1) -> ::windows::core::Result<u32>
+    pub unsafe fn TransferContainerDataOnClearChannel<P0, P1>(&self, pdevice: P0, pdata: &[u8], pprogresscallback: P1) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPDevice>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress3>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMDSPDevice>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMProgress3>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).TransferContainerDataOnClearChannel)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, pprogresscallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetObjectDataOnClearChannel<'a, P0>(&self, pdevice: P0, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetObjectDataOnClearChannel<P0>(&self, pdevice: P0, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMDSPDevice>>,
     {
         (::windows::core::Vtable::vtable(self).GetObjectDataOnClearChannel)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdata, pdwsize).ok()
     }
-    pub unsafe fn TransferCompleteForDevice<'a, P0>(&self, pdevice: P0) -> ::windows::core::Result<()>
+    pub unsafe fn TransferCompleteForDevice<P0>(&self, pdevice: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMDSPDevice>>,
     {
         (::windows::core::Vtable::vtable(self).TransferCompleteForDevice)(::windows::core::Vtable::as_raw(self), pdevice.into().abi()).ok()
     }
@@ -1790,21 +1790,21 @@ impl ISCPSecureQuery {
     pub unsafe fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetDataDemands)(::windows::core::Vtable::as_raw(self), pfuflags, pdwminrightsdata, pdwminexaminedata, pdwmindecidedata, abmac).ok()
     }
-    pub unsafe fn ExamineData<'a, P0>(&self, fuflags: u32, pwszextension: P0, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn ExamineData<P0>(&self, fuflags: u32, pwszextension: P0, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).ExamineData)(::windows::core::Vtable::as_raw(self), fuflags, pwszextension.into(), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, abmac).ok()
     }
-    pub unsafe fn MakeDecision<'a, P0>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn MakeDecision<P0>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMDSPStorageGlobals>>,
     {
         (::windows::core::Vtable::vtable(self).MakeDecision)(::windows::core::Vtable::as_raw(self), fuflags, ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, dwappsec, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstorageglobals.into().abi(), ::core::mem::transmute(ppexchange), abmac).ok()
     }
-    pub unsafe fn GetRights<'a, P0>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn GetRights<P0>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMDSPStorageGlobals>>,
     {
         (::windows::core::Vtable::vtable(self).GetRights)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstgglobals.into().abi(), pprights, pnrightscount, abmac).ok()
     }
@@ -1848,28 +1848,28 @@ impl ISCPSecureQuery2 {
     pub unsafe fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetDataDemands)(::windows::core::Vtable::as_raw(self), pfuflags, pdwminrightsdata, pdwminexaminedata, pdwmindecidedata, abmac).ok()
     }
-    pub unsafe fn ExamineData<'a, P0>(&self, fuflags: u32, pwszextension: P0, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn ExamineData<P0>(&self, fuflags: u32, pwszextension: P0, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.ExamineData)(::windows::core::Vtable::as_raw(self), fuflags, pwszextension.into(), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, abmac).ok()
     }
-    pub unsafe fn MakeDecision<'a, P0>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn MakeDecision<P0>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMDSPStorageGlobals>>,
     {
         (::windows::core::Vtable::vtable(self).base__.MakeDecision)(::windows::core::Vtable::as_raw(self), fuflags, ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, dwappsec, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstorageglobals.into().abi(), ::core::mem::transmute(ppexchange), abmac).ok()
     }
-    pub unsafe fn GetRights<'a, P0>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn GetRights<P0>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMDSPStorageGlobals>>,
     {
         (::windows::core::Vtable::vtable(self).base__.GetRights)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstgglobals.into().abi(), pprights, pnrightscount, abmac).ok()
     }
-    pub unsafe fn MakeDecision2<'a, P0, P1>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: ::core::option::Option<*mut u64>, punknown: P1, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn MakeDecision2<P0, P1>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: ::core::option::Option<*mut u64>, punknown: P1, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMDSPStorageGlobals>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).MakeDecision2)(
             ::windows::core::Vtable::as_raw(self),
@@ -1931,28 +1931,28 @@ impl ISCPSecureQuery3 {
     pub unsafe fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDataDemands)(::windows::core::Vtable::as_raw(self), pfuflags, pdwminrightsdata, pdwminexaminedata, pdwmindecidedata, abmac).ok()
     }
-    pub unsafe fn ExamineData<'a, P0>(&self, fuflags: u32, pwszextension: P0, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn ExamineData<P0>(&self, fuflags: u32, pwszextension: P0, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.ExamineData)(::windows::core::Vtable::as_raw(self), fuflags, pwszextension.into(), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, abmac).ok()
     }
-    pub unsafe fn MakeDecision<'a, P0>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn MakeDecision<P0>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMDSPStorageGlobals>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.MakeDecision)(::windows::core::Vtable::as_raw(self), fuflags, ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, dwappsec, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstorageglobals.into().abi(), ::core::mem::transmute(ppexchange), abmac).ok()
     }
-    pub unsafe fn GetRights<'a, P0>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn GetRights<P0>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMDSPStorageGlobals>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.GetRights)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstgglobals.into().abi(), pprights, pnrightscount, abmac).ok()
     }
-    pub unsafe fn MakeDecision2<'a, P0, P1>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: ::core::option::Option<*mut u64>, punknown: P1, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn MakeDecision2<P0, P1>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: ::core::option::Option<*mut u64>, punknown: P1, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMDSPStorageGlobals>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.MakeDecision2)(
             ::windows::core::Vtable::as_raw(self),
@@ -1977,18 +1977,18 @@ impl ISCPSecureQuery3 {
         )
         .ok()
     }
-    pub unsafe fn GetRightsOnClearChannel<'a, P0, P1>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P0, pprogresscallback: P1, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetRightsOnClearChannel<P0, P1>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P0, pprogresscallback: P1, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress3>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMDSPStorageGlobals>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMProgress3>>,
     {
         (::windows::core::Vtable::vtable(self).GetRightsOnClearChannel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstgglobals.into().abi(), pprogresscallback.into().abi(), pprights, pnrightscount).ok()
     }
-    pub unsafe fn MakeDecisionOnClearChannel<'a, P0, P1, P2>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, pprogresscallback: P1, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: ::core::option::Option<*mut u64>, punknown: P2, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>) -> ::windows::core::Result<()>
+    pub unsafe fn MakeDecisionOnClearChannel<P0, P1, P2>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P0, pprogresscallback: P1, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: ::core::option::Option<*mut u64>, punknown: P2, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress3>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMDSPStorageGlobals>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMProgress3>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).MakeDecisionOnClearChannel)(
             ::windows::core::Vtable::as_raw(self),
@@ -2048,9 +2048,9 @@ pub struct ISCPSecureQuery3_Vtbl {
 #[repr(transparent)]
 pub struct ISCPSession(::windows::core::IUnknown);
 impl ISCPSession {
-    pub unsafe fn BeginSession<'a, P0>(&self, pidevice: P0, pctx: &[u8]) -> ::windows::core::Result<()>
+    pub unsafe fn BeginSession<P0>(&self, pidevice: P0, pctx: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPDevice>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IMDSPDevice>>,
     {
         (::windows::core::Vtable::vtable(self).BeginSession)(::windows::core::Vtable::as_raw(self), pidevice.into().abi(), ::core::mem::transmute(pctx.as_ptr()), pctx.len() as _).ok()
     }
@@ -2224,7 +2224,7 @@ impl IWMDMDevice2 {
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), pcommand).ok()
     }
-    pub unsafe fn GetStorage<'a, P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IWMDMStorage>
+    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IWMDMStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2327,7 +2327,7 @@ impl IWMDMDevice3 {
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), pcommand).ok()
     }
-    pub unsafe fn GetStorage<'a, P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IWMDMStorage>
+    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IWMDMStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2349,7 +2349,7 @@ impl IWMDMDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetProperty<'a, P0>(&self, pwszpropname: P0) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
+    pub unsafe fn GetProperty<P0>(&self, pwszpropname: P0) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2358,7 +2358,7 @@ impl IWMDMDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetProperty<'a, P0>(&self, pwszpropname: P0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn SetProperty<P0>(&self, pwszpropname: P0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2373,7 +2373,7 @@ impl IWMDMDevice3 {
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: &[u8], lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeviceIoControl)(::windows::core::Vtable::as_raw(self), dwiocontrolcode, ::core::mem::transmute(lpinbuffer.as_ptr()), lpinbuffer.len() as _, lpoutbuffer, pnoutbuffersize).ok()
     }
-    pub unsafe fn FindStorage<'a, P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows::core::Result<IWMDMStorage>
+    pub unsafe fn FindStorage<P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows::core::Result<IWMDMStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2650,7 +2650,7 @@ impl IWMDMLogger {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Enable<'a, P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Enable<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2659,20 +2659,20 @@ impl IWMDMLogger {
     pub unsafe fn GetLogFileName(&self, pszfilename: ::windows::core::PSTR, nmaxchars: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetLogFileName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszfilename), nmaxchars).ok()
     }
-    pub unsafe fn SetLogFileName<'a, P0>(&self, pszfilename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLogFileName<P0>(&self, pszfilename: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
         (::windows::core::Vtable::vtable(self).SetLogFileName)(::windows::core::Vtable::as_raw(self), pszfilename.into()).ok()
     }
-    pub unsafe fn LogString<'a, P0, P1>(&self, dwflags: u32, pszsrcname: P0, pszlog: P1) -> ::windows::core::Result<()>
+    pub unsafe fn LogString<P0, P1>(&self, dwflags: u32, pszsrcname: P0, pszlog: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
         P1: ::std::convert::Into<::windows::core::PCSTR>,
     {
         (::windows::core::Vtable::vtable(self).LogString)(::windows::core::Vtable::as_raw(self), dwflags, pszsrcname.into(), pszlog.into()).ok()
     }
-    pub unsafe fn LogDword<'a, P0, P1>(&self, dwflags: u32, pszsrcname: P0, pszlogformat: P1, dwlog: u32) -> ::windows::core::Result<()>
+    pub unsafe fn LogDword<P0, P1>(&self, dwflags: u32, pszsrcname: P0, pszlogformat: P1, dwlog: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
         P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2736,13 +2736,13 @@ pub struct IWMDMLogger_Vtbl {
 #[repr(transparent)]
 pub struct IWMDMMetaData(::windows::core::IUnknown);
 impl IWMDMMetaData {
-    pub unsafe fn AddItem<'a, P0>(&self, r#type: WMDM_TAG_DATATYPE, pwsztagname: P0, pvalue: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
+    pub unsafe fn AddItem<P0>(&self, r#type: WMDM_TAG_DATATYPE, pwsztagname: P0, pvalue: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).AddItem)(::windows::core::Vtable::as_raw(self), r#type, pwsztagname.into(), ::core::mem::transmute(pvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
-    pub unsafe fn QueryByName<'a, P0>(&self, pwsztagname: P0, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn QueryByName<P0>(&self, pwsztagname: P0, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2792,7 +2792,7 @@ pub struct IWMDMMetaData_Vtbl {
 #[repr(transparent)]
 pub struct IWMDMNotification(::windows::core::IUnknown);
 impl IWMDMNotification {
-    pub unsafe fn WMDMMessage<'a, P0>(&self, dwmessagetype: u32, pwszcanonicalname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn WMDMMessage<P0>(&self, dwmessagetype: u32, pwszcanonicalname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -2929,9 +2929,9 @@ impl IWMDMOperation {
     pub unsafe fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).TransferObjectData)(::windows::core::Vtable::as_raw(self), pdata, pdwsize, abmac).ok()
     }
-    pub unsafe fn End<'a, P0>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: P0) -> ::windows::core::Result<()>
+    pub unsafe fn End<P0>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self), phcompletioncode, pnewobject.into().abi()).ok()
     }
@@ -3015,9 +3015,9 @@ impl IWMDMOperation2 {
     pub unsafe fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.TransferObjectData)(::windows::core::Vtable::as_raw(self), pdata, pdwsize, abmac).ok()
     }
-    pub unsafe fn End<'a, P0>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: P0) -> ::windows::core::Result<()>
+    pub unsafe fn End<P0>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.End)(::windows::core::Vtable::as_raw(self), phcompletioncode, pnewobject.into().abi()).ok()
     }
@@ -3103,9 +3103,9 @@ impl IWMDMOperation3 {
     pub unsafe fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.TransferObjectData)(::windows::core::Vtable::as_raw(self), pdata, pdwsize, abmac).ok()
     }
-    pub unsafe fn End<'a, P0>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: P0) -> ::windows::core::Result<()>
+    pub unsafe fn End<P0>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.End)(::windows::core::Vtable::as_raw(self), phcompletioncode, pnewobject.into().abi()).ok()
     }
@@ -3447,7 +3447,7 @@ impl IWMDMStorage2 {
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), pcommand).ok()
     }
-    pub unsafe fn GetStorage<'a, P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IWMDMStorage>
+    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IWMDMStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3540,7 +3540,7 @@ impl IWMDMStorage3 {
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), pcommand).ok()
     }
-    pub unsafe fn GetStorage<'a, P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IWMDMStorage>
+    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IWMDMStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3561,9 +3561,9 @@ impl IWMDMStorage3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetMetadata)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetMetadata<'a, P0>(&self, pmetadata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMetadata<P0>(&self, pmetadata: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMMetaData>>,
     {
         (::windows::core::Vtable::vtable(self).SetMetadata)(::windows::core::Vtable::as_raw(self), pmetadata.into().abi()).ok()
     }
@@ -3645,7 +3645,7 @@ impl IWMDMStorage4 {
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), pcommand).ok()
     }
-    pub unsafe fn GetStorage<'a, P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IWMDMStorage>
+    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> ::windows::core::Result<IWMDMStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3666,9 +3666,9 @@ impl IWMDMStorage4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetMetadata)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetMetadata<'a, P0>(&self, pmetadata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMetadata<P0>(&self, pmetadata: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMMetaData>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetMetadata)(::windows::core::Vtable::as_raw(self), pmetadata.into().abi()).ok()
     }
@@ -3685,9 +3685,9 @@ impl IWMDMStorage4 {
     pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetReferences)(::windows::core::Vtable::as_raw(self), pdwrefs, pppiwmdmstorage).ok()
     }
-    pub unsafe fn GetRightsWithProgress<'a, P0>(&self, piprogresscallback: P0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetRightsWithProgress<P0>(&self, piprogresscallback: P0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress3>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMProgress3>>,
     {
         (::windows::core::Vtable::vtable(self).GetRightsWithProgress)(::windows::core::Vtable::as_raw(self), piprogresscallback.into().abi(), pprights, pnrightscount).ok()
     }
@@ -3695,7 +3695,7 @@ impl IWMDMStorage4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetSpecifiedMetadata)(::windows::core::Vtable::as_raw(self), ppwszpropnames.len() as _, ::core::mem::transmute(ppwszpropnames.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn FindStorage<'a, P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows::core::Result<IWMDMStorage>
+    pub unsafe fn FindStorage<P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows::core::Result<IWMDMStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3745,40 +3745,40 @@ pub struct IWMDMStorage4_Vtbl {
 #[repr(transparent)]
 pub struct IWMDMStorageControl(::windows::core::IUnknown);
 impl IWMDMStorageControl {
-    pub unsafe fn Insert<'a, P0, P1, P2>(&self, fumode: u32, pwszfile: P0, poperation: P1, pprogress: P2) -> ::windows::core::Result<IWMDMStorage>
+    pub unsafe fn Insert<P0, P1, P2>(&self, fumode: u32, pwszfile: P0, poperation: P1, pprogress: P2) -> ::windows::core::Result<IWMDMStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMOperation>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Insert)(::windows::core::Vtable::as_raw(self), fumode, pwszfile.into(), poperation.into().abi(), pprogress.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Delete<'a, P0>(&self, fumode: u32, pprogress: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Delete<P0>(&self, fumode: u32, pprogress: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), fumode, pprogress.into().abi()).ok()
     }
-    pub unsafe fn Rename<'a, P0, P1>(&self, fumode: u32, pwsznewname: P0, pprogress: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Rename<P0, P1>(&self, fumode: u32, pwsznewname: P0, pprogress: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).Rename)(::windows::core::Vtable::as_raw(self), fumode, pwsznewname.into(), pprogress.into().abi()).ok()
     }
-    pub unsafe fn Read<'a, P0, P1, P2>(&self, fumode: u32, pwszfile: P0, pprogress: P1, poperation: P2) -> ::windows::core::Result<()>
+    pub unsafe fn Read<P0, P1, P2>(&self, fumode: u32, pwszfile: P0, pprogress: P1, poperation: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IWMDMOperation>>,
     {
         (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), fumode, pwszfile.into(), pprogress.into().abi(), poperation.into().abi()).ok()
     }
-    pub unsafe fn Move<'a, P0, P1>(&self, fumode: u32, ptargetobject: P0, pprogress: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Move<P0, P1>(&self, fumode: u32, ptargetobject: P0, pprogress: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMStorage>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMStorage>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).Move)(::windows::core::Vtable::as_raw(self), fumode, ptargetobject.into().abi(), pprogress.into().abi()).ok()
     }
@@ -3820,50 +3820,50 @@ pub struct IWMDMStorageControl_Vtbl {
 #[repr(transparent)]
 pub struct IWMDMStorageControl2(::windows::core::IUnknown);
 impl IWMDMStorageControl2 {
-    pub unsafe fn Insert<'a, P0, P1, P2>(&self, fumode: u32, pwszfile: P0, poperation: P1, pprogress: P2) -> ::windows::core::Result<IWMDMStorage>
+    pub unsafe fn Insert<P0, P1, P2>(&self, fumode: u32, pwszfile: P0, poperation: P1, pprogress: P2) -> ::windows::core::Result<IWMDMStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMOperation>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Insert)(::windows::core::Vtable::as_raw(self), fumode, pwszfile.into(), poperation.into().abi(), pprogress.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Delete<'a, P0>(&self, fumode: u32, pprogress: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Delete<P0>(&self, fumode: u32, pprogress: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Delete)(::windows::core::Vtable::as_raw(self), fumode, pprogress.into().abi()).ok()
     }
-    pub unsafe fn Rename<'a, P0, P1>(&self, fumode: u32, pwsznewname: P0, pprogress: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Rename<P0, P1>(&self, fumode: u32, pwsznewname: P0, pprogress: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Rename)(::windows::core::Vtable::as_raw(self), fumode, pwsznewname.into(), pprogress.into().abi()).ok()
     }
-    pub unsafe fn Read<'a, P0, P1, P2>(&self, fumode: u32, pwszfile: P0, pprogress: P1, poperation: P2) -> ::windows::core::Result<()>
+    pub unsafe fn Read<P0, P1, P2>(&self, fumode: u32, pwszfile: P0, pprogress: P1, poperation: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IWMDMOperation>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), fumode, pwszfile.into(), pprogress.into().abi(), poperation.into().abi()).ok()
     }
-    pub unsafe fn Move<'a, P0, P1>(&self, fumode: u32, ptargetobject: P0, pprogress: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Move<P0, P1>(&self, fumode: u32, ptargetobject: P0, pprogress: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMStorage>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMStorage>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Move)(::windows::core::Vtable::as_raw(self), fumode, ptargetobject.into().abi(), pprogress.into().abi()).ok()
     }
-    pub unsafe fn Insert2<'a, P0, P1, P2, P3, P4>(&self, fumode: u32, pwszfilesource: P0, pwszfiledest: P1, poperation: P2, pprogress: P3, punknown: P4, ppnewobject: ::core::option::Option<*mut ::core::option::Option<IWMDMStorage>>) -> ::windows::core::Result<()>
+    pub unsafe fn Insert2<P0, P1, P2, P3, P4>(&self, fumode: u32, pwszfilesource: P0, pwszfiledest: P1, poperation: P2, pprogress: P3, punknown: P4, ppnewobject: ::core::option::Option<*mut ::core::option::Option<IWMDMStorage>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
-        P4: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IWMDMOperation>>,
+        P3: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
+        P4: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).Insert2)(::windows::core::Vtable::as_raw(self), fumode, pwszfilesource.into(), pwszfiledest.into(), poperation.into().abi(), pprogress.into().abi(), punknown.into().abi(), ::core::mem::transmute(ppnewobject.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -3901,61 +3901,61 @@ pub struct IWMDMStorageControl2_Vtbl {
 #[repr(transparent)]
 pub struct IWMDMStorageControl3(::windows::core::IUnknown);
 impl IWMDMStorageControl3 {
-    pub unsafe fn Insert<'a, P0, P1, P2>(&self, fumode: u32, pwszfile: P0, poperation: P1, pprogress: P2) -> ::windows::core::Result<IWMDMStorage>
+    pub unsafe fn Insert<P0, P1, P2>(&self, fumode: u32, pwszfile: P0, poperation: P1, pprogress: P2) -> ::windows::core::Result<IWMDMStorage>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMOperation>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.Insert)(::windows::core::Vtable::as_raw(self), fumode, pwszfile.into(), poperation.into().abi(), pprogress.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Delete<'a, P0>(&self, fumode: u32, pprogress: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Delete<P0>(&self, fumode: u32, pprogress: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.Delete)(::windows::core::Vtable::as_raw(self), fumode, pprogress.into().abi()).ok()
     }
-    pub unsafe fn Rename<'a, P0, P1>(&self, fumode: u32, pwsznewname: P0, pprogress: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Rename<P0, P1>(&self, fumode: u32, pwsznewname: P0, pprogress: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.Rename)(::windows::core::Vtable::as_raw(self), fumode, pwsznewname.into(), pprogress.into().abi()).ok()
     }
-    pub unsafe fn Read<'a, P0, P1, P2>(&self, fumode: u32, pwszfile: P0, pprogress: P1, poperation: P2) -> ::windows::core::Result<()>
+    pub unsafe fn Read<P0, P1, P2>(&self, fumode: u32, pwszfile: P0, pprogress: P1, poperation: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IWMDMOperation>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.Read)(::windows::core::Vtable::as_raw(self), fumode, pwszfile.into(), pprogress.into().abi(), poperation.into().abi()).ok()
     }
-    pub unsafe fn Move<'a, P0, P1>(&self, fumode: u32, ptargetobject: P0, pprogress: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Move<P0, P1>(&self, fumode: u32, ptargetobject: P0, pprogress: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMStorage>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMStorage>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.Move)(::windows::core::Vtable::as_raw(self), fumode, ptargetobject.into().abi(), pprogress.into().abi()).ok()
     }
-    pub unsafe fn Insert2<'a, P0, P1, P2, P3, P4>(&self, fumode: u32, pwszfilesource: P0, pwszfiledest: P1, poperation: P2, pprogress: P3, punknown: P4, ppnewobject: ::core::option::Option<*mut ::core::option::Option<IWMDMStorage>>) -> ::windows::core::Result<()>
+    pub unsafe fn Insert2<P0, P1, P2, P3, P4>(&self, fumode: u32, pwszfilesource: P0, pwszfiledest: P1, poperation: P2, pprogress: P3, punknown: P4, ppnewobject: ::core::option::Option<*mut ::core::option::Option<IWMDMStorage>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
-        P4: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IWMDMOperation>>,
+        P3: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
+        P4: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Insert2)(::windows::core::Vtable::as_raw(self), fumode, pwszfilesource.into(), pwszfiledest.into(), poperation.into().abi(), pprogress.into().abi(), punknown.into().abi(), ::core::mem::transmute(ppnewobject.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn Insert3<'a, P0, P1, P2, P3, P4, P5>(&self, fumode: u32, futype: u32, pwszfilesource: P0, pwszfiledest: P1, poperation: P2, pprogress: P3, pmetadata: P4, punknown: P5, ppnewobject: ::core::option::Option<*mut ::core::option::Option<IWMDMStorage>>) -> ::windows::core::Result<()>
+    pub unsafe fn Insert3<P0, P1, P2, P3, P4, P5>(&self, fumode: u32, futype: u32, pwszfilesource: P0, pwszfiledest: P1, poperation: P2, pprogress: P3, pmetadata: P4, punknown: P5, ppnewobject: ::core::option::Option<*mut ::core::option::Option<IWMDMStorage>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
-        P4: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>,
-        P5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IWMDMOperation>>,
+        P3: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
+        P4: ::std::convert::Into<::windows::core::InParam<IWMDMMetaData>>,
+        P5: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).Insert3)(::windows::core::Vtable::as_raw(self), fumode, futype, pwszfilesource.into(), pwszfiledest.into(), poperation.into().abi(), pprogress.into().abi(), pmetadata.into().abi(), punknown.into().abi(), ::core::mem::transmute(ppnewobject.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -4013,9 +4013,9 @@ impl IWMDMStorageGlobals {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Initialize<'a, P0>(&self, fumode: u32, pprogress: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, fumode: u32, pprogress: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IWMDMProgress>>,
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), fumode, pprogress.into().abi()).ok()
     }
@@ -4119,7 +4119,7 @@ impl IWMDeviceManager2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.EnumDevices)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetDeviceFromCanonicalName<'a, P0>(&self, pwszcanonicalname: P0) -> ::windows::core::Result<IWMDMDevice>
+    pub unsafe fn GetDeviceFromCanonicalName<P0>(&self, pwszcanonicalname: P0) -> ::windows::core::Result<IWMDMDevice>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4181,7 +4181,7 @@ impl IWMDeviceManager3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.EnumDevices)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetDeviceFromCanonicalName<'a, P0>(&self, pwszcanonicalname: P0) -> ::windows::core::Result<IWMDMDevice>
+    pub unsafe fn GetDeviceFromCanonicalName<P0>(&self, pwszcanonicalname: P0) -> ::windows::core::Result<IWMDMDevice>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {

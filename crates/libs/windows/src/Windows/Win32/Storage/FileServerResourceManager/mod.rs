@@ -1650,9 +1650,9 @@ pub struct IFsrmClassifierModuleImplementation(::windows::core::IUnknown);
 impl IFsrmClassifierModuleImplementation {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnLoad<'a, P0>(&self, moduledefinition: P0) -> ::windows::core::Result<IFsrmPipelineModuleConnector>
+    pub unsafe fn OnLoad<P0>(&self, moduledefinition: P0) -> ::windows::core::Result<IFsrmPipelineModuleConnector>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPipelineModuleDefinition>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmPipelineModuleDefinition>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.OnLoad)(::windows::core::Vtable::as_raw(self), moduledefinition.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1668,18 +1668,18 @@ impl IFsrmClassifierModuleImplementation {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UseRulesAndDefinitions<'a, P0, P1>(&self, rules: P0, propertydefinitions: P1) -> ::windows::core::Result<()>
+    pub unsafe fn UseRulesAndDefinitions<P0, P1>(&self, rules: P0, propertydefinitions: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmCollection>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IFsrmCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmCollection>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IFsrmCollection>>,
     {
         (::windows::core::Vtable::vtable(self).UseRulesAndDefinitions)(::windows::core::Vtable::as_raw(self), rules.into().abi(), propertydefinitions.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnBeginFile<'a, P0>(&self, propertybag: P0, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
+    pub unsafe fn OnBeginFile<P0>(&self, propertybag: P0, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPropertyBag>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmPropertyBag>>,
     {
         (::windows::core::Vtable::vtable(self).OnBeginFile)(::windows::core::Vtable::as_raw(self), propertybag.into().abi(), arrayruleids).ok()
     }
@@ -2302,9 +2302,9 @@ impl IFsrmFileGroup {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetMembers<'a, P0>(&self, members: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMembers<P0>(&self, members: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmMutableCollection>>,
     {
         (::windows::core::Vtable::vtable(self).SetMembers)(::windows::core::Vtable::as_raw(self), members.into().abi()).ok()
     }
@@ -2316,9 +2316,9 @@ impl IFsrmFileGroup {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetNonMembers<'a, P0>(&self, nonmembers: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNonMembers<P0>(&self, nonmembers: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmMutableCollection>>,
     {
         (::windows::core::Vtable::vtable(self).SetNonMembers)(::windows::core::Vtable::as_raw(self), nonmembers.into().abi()).ok()
     }
@@ -2415,9 +2415,9 @@ impl IFsrmFileGroupImported {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetMembers<'a, P0>(&self, members: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMembers<P0>(&self, members: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmMutableCollection>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetMembers)(::windows::core::Vtable::as_raw(self), members.into().abi()).ok()
     }
@@ -2429,9 +2429,9 @@ impl IFsrmFileGroupImported {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetNonMembers<'a, P0>(&self, nonmembers: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetNonMembers<P0>(&self, nonmembers: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmMutableCollection>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetNonMembers)(::windows::core::Vtable::as_raw(self), nonmembers.into().abi()).ok()
     }
@@ -3082,9 +3082,9 @@ impl IFsrmFileScreen {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetBlockedFileGroups<'a, P0>(&self, blocklist: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBlockedFileGroups<P0>(&self, blocklist: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmMutableCollection>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetBlockedFileGroups)(::windows::core::Vtable::as_raw(self), blocklist.into().abi()).ok()
     }
@@ -3209,9 +3209,9 @@ impl IFsrmFileScreenBase {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetBlockedFileGroups<'a, P0>(&self, blocklist: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBlockedFileGroups<P0>(&self, blocklist: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmMutableCollection>>,
     {
         (::windows::core::Vtable::vtable(self).SetBlockedFileGroups)(::windows::core::Vtable::as_raw(self), blocklist.into().abi()).ok()
     }
@@ -3324,9 +3324,9 @@ impl IFsrmFileScreenException {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetAllowedFileGroups<'a, P0>(&self, allowlist: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAllowedFileGroups<P0>(&self, allowlist: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmMutableCollection>>,
     {
         (::windows::core::Vtable::vtable(self).SetAllowedFileGroups)(::windows::core::Vtable::as_raw(self), allowlist.into().abi()).ok()
     }
@@ -3540,9 +3540,9 @@ impl IFsrmFileScreenTemplate {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetBlockedFileGroups<'a, P0>(&self, blocklist: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBlockedFileGroups<P0>(&self, blocklist: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmMutableCollection>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetBlockedFileGroups)(::windows::core::Vtable::as_raw(self), blocklist.into().abi()).ok()
     }
@@ -3656,9 +3656,9 @@ impl IFsrmFileScreenTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetBlockedFileGroups<'a, P0>(&self, blocklist: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBlockedFileGroups<P0>(&self, blocklist: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmMutableCollection>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetBlockedFileGroups)(::windows::core::Vtable::as_raw(self), blocklist.into().abi()).ok()
     }
@@ -4093,10 +4093,10 @@ impl IFsrmPipelineModuleConnector {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Bind<'a, P0, P1>(&self, moduledefinition: P0, moduleimplementation: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Bind<P0, P1>(&self, moduledefinition: P0, moduleimplementation: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPipelineModuleDefinition>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPipelineModuleImplementation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmPipelineModuleDefinition>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IFsrmPipelineModuleImplementation>>,
     {
         (::windows::core::Vtable::vtable(self).Bind)(::windows::core::Vtable::as_raw(self), moduledefinition.into().abi(), moduleimplementation.into().abi()).ok()
     }
@@ -4342,9 +4342,9 @@ pub struct IFsrmPipelineModuleImplementation(::windows::core::IUnknown);
 impl IFsrmPipelineModuleImplementation {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnLoad<'a, P0>(&self, moduledefinition: P0) -> ::windows::core::Result<IFsrmPipelineModuleConnector>
+    pub unsafe fn OnLoad<P0>(&self, moduledefinition: P0) -> ::windows::core::Result<IFsrmPipelineModuleConnector>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPipelineModuleDefinition>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmPipelineModuleDefinition>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).OnLoad)(::windows::core::Vtable::as_raw(self), moduledefinition.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -7231,9 +7231,9 @@ pub struct IFsrmStorageModuleImplementation(::windows::core::IUnknown);
 impl IFsrmStorageModuleImplementation {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnLoad<'a, P0>(&self, moduledefinition: P0) -> ::windows::core::Result<IFsrmPipelineModuleConnector>
+    pub unsafe fn OnLoad<P0>(&self, moduledefinition: P0) -> ::windows::core::Result<IFsrmPipelineModuleConnector>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPipelineModuleDefinition>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmPipelineModuleDefinition>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.OnLoad)(::windows::core::Vtable::as_raw(self), moduledefinition.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -7243,25 +7243,25 @@ impl IFsrmStorageModuleImplementation {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UseDefinitions<'a, P0>(&self, propertydefinitions: P0) -> ::windows::core::Result<()>
+    pub unsafe fn UseDefinitions<P0>(&self, propertydefinitions: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmCollection>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmCollection>>,
     {
         (::windows::core::Vtable::vtable(self).UseDefinitions)(::windows::core::Vtable::as_raw(self), propertydefinitions.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadProperties<'a, P0>(&self, propertybag: P0) -> ::windows::core::Result<()>
+    pub unsafe fn LoadProperties<P0>(&self, propertybag: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPropertyBag>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmPropertyBag>>,
     {
         (::windows::core::Vtable::vtable(self).LoadProperties)(::windows::core::Vtable::as_raw(self), propertybag.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SaveProperties<'a, P0>(&self, propertybag: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SaveProperties<P0>(&self, propertybag: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPropertyBag>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IFsrmPropertyBag>>,
     {
         (::windows::core::Vtable::vtable(self).SaveProperties)(::windows::core::Vtable::as_raw(self), propertybag.into().abi()).ok()
     }

@@ -188,9 +188,9 @@ impl SpeechSynthesisStream {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
+    pub fn ReadAsync<P0, E0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
@@ -201,9 +201,9 @@ impl SpeechSynthesisStream {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
@@ -363,7 +363,7 @@ impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Foundati
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpeechSynthesisStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -385,7 +385,7 @@ impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage:
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IContentTypeProvider> {
+impl ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<super::super::Storage::Streams::IContentTypeProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpeechSynthesisStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -407,7 +407,7 @@ impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage:
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream> {
+impl ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<super::super::Storage::Streams::IInputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpeechSynthesisStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -429,7 +429,7 @@ impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage:
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream> {
+impl ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<super::super::Storage::Streams::IOutputStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpeechSynthesisStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -451,7 +451,7 @@ impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage:
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream> {
+impl ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpeechSynthesisStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -473,7 +473,7 @@ impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage:
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
+impl ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpeechSynthesisStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -495,7 +495,7 @@ impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::Core::ITimedMet
     }
 }
 #[cfg(feature = "Media_Core")]
-impl<'a> ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<'a, super::Core::ITimedMetadataTrackProvider> {
+impl ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<super::Core::ITimedMetadataTrackProvider> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpeechSynthesisStream) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -638,7 +638,7 @@ impl ::core::convert::TryFrom<&SpeechSynthesizer> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SpeechSynthesizer> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SpeechSynthesizer> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SpeechSynthesizer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

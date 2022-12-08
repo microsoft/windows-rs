@@ -39,24 +39,24 @@ pub struct IDirectManipulationAutoScrollBehavior_Vtbl {
 #[repr(transparent)]
 pub struct IDirectManipulationCompositor(::windows::core::IUnknown);
 impl IDirectManipulationCompositor {
-    pub unsafe fn AddContent<'a, P0, P1, P2, P3>(&self, content: P0, device: P1, parentvisual: P2, childvisual: P3) -> ::windows::core::Result<()>
+    pub unsafe fn AddContent<P0, P1, P2, P3>(&self, content: P0, device: P1, parentvisual: P2, childvisual: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationContent>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationContent>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).AddContent)(::windows::core::Vtable::as_raw(self), content.into().abi(), device.into().abi(), parentvisual.into().abi(), childvisual.into().abi()).ok()
     }
-    pub unsafe fn RemoveContent<'a, P0>(&self, content: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveContent<P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationContent>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationContent>>,
     {
         (::windows::core::Vtable::vtable(self).RemoveContent)(::windows::core::Vtable::as_raw(self), content.into().abi()).ok()
     }
-    pub unsafe fn SetUpdateManager<'a, P0>(&self, updatemanager: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetUpdateManager<P0>(&self, updatemanager: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationUpdateManager>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationUpdateManager>>,
     {
         (::windows::core::Vtable::vtable(self).SetUpdateManager)(::windows::core::Vtable::as_raw(self), updatemanager.into().abi()).ok()
     }
@@ -100,36 +100,36 @@ pub struct IDirectManipulationCompositor_Vtbl {
 #[repr(transparent)]
 pub struct IDirectManipulationCompositor2(::windows::core::IUnknown);
 impl IDirectManipulationCompositor2 {
-    pub unsafe fn AddContent<'a, P0, P1, P2, P3>(&self, content: P0, device: P1, parentvisual: P2, childvisual: P3) -> ::windows::core::Result<()>
+    pub unsafe fn AddContent<P0, P1, P2, P3>(&self, content: P0, device: P1, parentvisual: P2, childvisual: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationContent>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationContent>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.AddContent)(::windows::core::Vtable::as_raw(self), content.into().abi(), device.into().abi(), parentvisual.into().abi(), childvisual.into().abi()).ok()
     }
-    pub unsafe fn RemoveContent<'a, P0>(&self, content: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveContent<P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationContent>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationContent>>,
     {
         (::windows::core::Vtable::vtable(self).base__.RemoveContent)(::windows::core::Vtable::as_raw(self), content.into().abi()).ok()
     }
-    pub unsafe fn SetUpdateManager<'a, P0>(&self, updatemanager: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetUpdateManager<P0>(&self, updatemanager: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationUpdateManager>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationUpdateManager>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetUpdateManager)(::windows::core::Vtable::as_raw(self), updatemanager.into().abi()).ok()
     }
     pub unsafe fn Flush(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn AddContentWithCrossProcessChaining<'a, P0, P1, P2, P3>(&self, content: P0, device: P1, parentvisual: P2, childvisual: P3) -> ::windows::core::Result<()>
+    pub unsafe fn AddContentWithCrossProcessChaining<P0, P1, P2, P3>(&self, content: P0, device: P1, parentvisual: P2, childvisual: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationPrimaryContent>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationPrimaryContent>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).AddContentWithCrossProcessChaining)(::windows::core::Vtable::as_raw(self), content.into().abi(), device.into().abi(), parentvisual.into().abi(), childvisual.into().abi()).ok()
     }
@@ -191,9 +191,9 @@ impl IDirectManipulationContent {
     {
         (::windows::core::Vtable::vtable(self).GetTag)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _, ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetTag<'a, P0>(&self, object: P0, id: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetTag<P0>(&self, object: P0, id: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetTag)(::windows::core::Vtable::as_raw(self), object.into().abi(), id).ok()
     }
@@ -340,9 +340,9 @@ pub struct IDirectManipulationDragDropBehavior_Vtbl {
 #[repr(transparent)]
 pub struct IDirectManipulationDragDropEventHandler(::windows::core::IUnknown);
 impl IDirectManipulationDragDropEventHandler {
-    pub unsafe fn OnDragDropStatusChange<'a, P0>(&self, viewport: P0, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> ::windows::core::Result<()>
+    pub unsafe fn OnDragDropStatusChange<P0>(&self, viewport: P0, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationViewport2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationViewport2>>,
     {
         (::windows::core::Vtable::vtable(self).OnDragDropStatusChange)(::windows::core::Vtable::as_raw(self), viewport.into().abi(), current, previous).ok()
     }
@@ -417,9 +417,9 @@ pub struct IDirectManipulationFrameInfoProvider_Vtbl {
 #[repr(transparent)]
 pub struct IDirectManipulationInteractionEventHandler(::windows::core::IUnknown);
 impl IDirectManipulationInteractionEventHandler {
-    pub unsafe fn OnInteraction<'a, P0>(&self, viewport: P0, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> ::windows::core::Result<()>
+    pub unsafe fn OnInteraction<P0>(&self, viewport: P0, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationViewport2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationViewport2>>,
     {
         (::windows::core::Vtable::vtable(self).OnInteraction)(::windows::core::Vtable::as_raw(self), viewport.into().abi(), interaction).ok()
     }
@@ -459,7 +459,7 @@ pub struct IDirectManipulationManager(::windows::core::IUnknown);
 impl IDirectManipulationManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, P0>(&self, window: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Activate<P0>(&self, window: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -467,7 +467,7 @@ impl IDirectManipulationManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Deactivate<'a, P0>(&self, window: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Deactivate<P0>(&self, window: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -475,7 +475,7 @@ impl IDirectManipulationManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterHitTestTarget<'a, P0, P1>(&self, window: P0, hittestwindow: P1, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterHitTestTarget<P0, P1>(&self, window: P0, hittestwindow: P1, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -497,18 +497,18 @@ impl IDirectManipulationManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateViewport<'a, P0, P1, T>(&self, frameinfo: P0, window: P1) -> ::windows::core::Result<T>
+    pub unsafe fn CreateViewport<P0, P1, T>(&self, frameinfo: P0, window: P1) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationFrameInfoProvider>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationFrameInfoProvider>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateViewport)(::windows::core::Vtable::as_raw(self), frameinfo.into().abi(), window.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateContent<'a, P0, T>(&self, frameinfo: P0, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
+    pub unsafe fn CreateContent<P0, T>(&self, frameinfo: P0, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationFrameInfoProvider>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationFrameInfoProvider>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -571,7 +571,7 @@ pub struct IDirectManipulationManager2(::windows::core::IUnknown);
 impl IDirectManipulationManager2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, P0>(&self, window: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Activate<P0>(&self, window: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -579,7 +579,7 @@ impl IDirectManipulationManager2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Deactivate<'a, P0>(&self, window: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Deactivate<P0>(&self, window: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -587,7 +587,7 @@ impl IDirectManipulationManager2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterHitTestTarget<'a, P0, P1>(&self, window: P0, hittestwindow: P1, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterHitTestTarget<P0, P1>(&self, window: P0, hittestwindow: P1, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -609,18 +609,18 @@ impl IDirectManipulationManager2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateViewport<'a, P0, P1, T>(&self, frameinfo: P0, window: P1) -> ::windows::core::Result<T>
+    pub unsafe fn CreateViewport<P0, P1, T>(&self, frameinfo: P0, window: P1) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationFrameInfoProvider>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationFrameInfoProvider>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateViewport)(::windows::core::Vtable::as_raw(self), frameinfo.into().abi(), window.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateContent<'a, P0, T>(&self, frameinfo: P0, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
+    pub unsafe fn CreateContent<P0, T>(&self, frameinfo: P0, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationFrameInfoProvider>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationFrameInfoProvider>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -669,7 +669,7 @@ pub struct IDirectManipulationManager3(::windows::core::IUnknown);
 impl IDirectManipulationManager3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, P0>(&self, window: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Activate<P0>(&self, window: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -677,7 +677,7 @@ impl IDirectManipulationManager3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Deactivate<'a, P0>(&self, window: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Deactivate<P0>(&self, window: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -685,7 +685,7 @@ impl IDirectManipulationManager3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterHitTestTarget<'a, P0, P1>(&self, window: P0, hittestwindow: P1, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterHitTestTarget<P0, P1>(&self, window: P0, hittestwindow: P1, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -707,18 +707,18 @@ impl IDirectManipulationManager3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateViewport<'a, P0, P1, T>(&self, frameinfo: P0, window: P1) -> ::windows::core::Result<T>
+    pub unsafe fn CreateViewport<P0, P1, T>(&self, frameinfo: P0, window: P1) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationFrameInfoProvider>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationFrameInfoProvider>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CreateViewport)(::windows::core::Vtable::as_raw(self), frameinfo.into().abi(), window.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateContent<'a, P0, T>(&self, frameinfo: P0, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
+    pub unsafe fn CreateContent<P0, T>(&self, frameinfo: P0, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationFrameInfoProvider>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationFrameInfoProvider>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -880,10 +880,10 @@ pub struct IDirectManipulationUpdateManager(::windows::core::IUnknown);
 impl IDirectManipulationUpdateManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterWaitHandleCallback<'a, P0, P1>(&self, handle: P0, eventhandler: P1) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterWaitHandleCallback<P0, P1>(&self, handle: P0, eventhandler: P1) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationUpdateHandler>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDirectManipulationUpdateHandler>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).RegisterWaitHandleCallback)(::windows::core::Vtable::as_raw(self), handle.into(), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -891,9 +891,9 @@ impl IDirectManipulationUpdateManager {
     pub unsafe fn UnregisterWaitHandleCallback(&self, cookie: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnregisterWaitHandleCallback)(::windows::core::Vtable::as_raw(self), cookie).ok()
     }
-    pub unsafe fn Update<'a, P0>(&self, frameinfo: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Update<P0>(&self, frameinfo: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationFrameInfoProvider>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationFrameInfoProvider>>,
     {
         (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self), frameinfo.into().abi()).ok()
     }
@@ -961,9 +961,9 @@ impl IDirectManipulationViewport {
     {
         (::windows::core::Vtable::vtable(self).GetTag)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _, ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetTag<'a, P0>(&self, object: P0, id: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetTag<P0>(&self, object: P0, id: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetTag)(::windows::core::Vtable::as_raw(self), object.into().abi(), id).ok()
     }
@@ -980,7 +980,7 @@ impl IDirectManipulationViewport {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ZoomToRect<'a, P0>(&self, left: f32, top: f32, right: f32, bottom: f32, animate: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ZoomToRect<P0>(&self, left: f32, top: f32, right: f32, bottom: f32, animate: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -999,15 +999,15 @@ impl IDirectManipulationViewport {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetPrimaryContent)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn AddContent<'a, P0>(&self, content: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddContent<P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationContent>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationContent>>,
     {
         (::windows::core::Vtable::vtable(self).AddContent)(::windows::core::Vtable::as_raw(self), content.into().abi()).ok()
     }
-    pub unsafe fn RemoveContent<'a, P0>(&self, content: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveContent<P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationContent>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationContent>>,
     {
         (::windows::core::Vtable::vtable(self).RemoveContent)(::windows::core::Vtable::as_raw(self), content.into().abi()).ok()
     }
@@ -1031,10 +1031,10 @@ impl IDirectManipulationViewport {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddEventHandler<'a, P0, P1>(&self, window: P0, eventhandler: P1) -> ::windows::core::Result<u32>
+    pub unsafe fn AddEventHandler<P0, P1>(&self, window: P0, eventhandler: P1) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationViewportEventHandler>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDirectManipulationViewportEventHandler>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AddEventHandler)(::windows::core::Vtable::as_raw(self), window.into(), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1152,9 +1152,9 @@ impl IDirectManipulationViewport2 {
     {
         (::windows::core::Vtable::vtable(self).base__.GetTag)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _, ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetTag<'a, P0>(&self, object: P0, id: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetTag<P0>(&self, object: P0, id: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetTag)(::windows::core::Vtable::as_raw(self), object.into().abi(), id).ok()
     }
@@ -1171,7 +1171,7 @@ impl IDirectManipulationViewport2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ZoomToRect<'a, P0>(&self, left: f32, top: f32, right: f32, bottom: f32, animate: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ZoomToRect<P0>(&self, left: f32, top: f32, right: f32, bottom: f32, animate: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1190,15 +1190,15 @@ impl IDirectManipulationViewport2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetPrimaryContent)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn AddContent<'a, P0>(&self, content: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddContent<P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationContent>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationContent>>,
     {
         (::windows::core::Vtable::vtable(self).base__.AddContent)(::windows::core::Vtable::as_raw(self), content.into().abi()).ok()
     }
-    pub unsafe fn RemoveContent<'a, P0>(&self, content: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveContent<P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationContent>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationContent>>,
     {
         (::windows::core::Vtable::vtable(self).base__.RemoveContent)(::windows::core::Vtable::as_raw(self), content.into().abi()).ok()
     }
@@ -1222,10 +1222,10 @@ impl IDirectManipulationViewport2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddEventHandler<'a, P0, P1>(&self, window: P0, eventhandler: P1) -> ::windows::core::Result<u32>
+    pub unsafe fn AddEventHandler<P0, P1>(&self, window: P0, eventhandler: P1) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationViewportEventHandler>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDirectManipulationViewportEventHandler>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.AddEventHandler)(::windows::core::Vtable::as_raw(self), window.into(), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1245,9 +1245,9 @@ impl IDirectManipulationViewport2 {
     pub unsafe fn Abandon(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Abandon)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn AddBehavior<'a, P0>(&self, behavior: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn AddBehavior<P0>(&self, behavior: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AddBehavior)(::windows::core::Vtable::as_raw(self), behavior.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1294,22 +1294,22 @@ pub struct IDirectManipulationViewport2_Vtbl {
 #[repr(transparent)]
 pub struct IDirectManipulationViewportEventHandler(::windows::core::IUnknown);
 impl IDirectManipulationViewportEventHandler {
-    pub unsafe fn OnViewportStatusChanged<'a, P0>(&self, viewport: P0, current: DIRECTMANIPULATION_STATUS, previous: DIRECTMANIPULATION_STATUS) -> ::windows::core::Result<()>
+    pub unsafe fn OnViewportStatusChanged<P0>(&self, viewport: P0, current: DIRECTMANIPULATION_STATUS, previous: DIRECTMANIPULATION_STATUS) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationViewport>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationViewport>>,
     {
         (::windows::core::Vtable::vtable(self).OnViewportStatusChanged)(::windows::core::Vtable::as_raw(self), viewport.into().abi(), current, previous).ok()
     }
-    pub unsafe fn OnViewportUpdated<'a, P0>(&self, viewport: P0) -> ::windows::core::Result<()>
+    pub unsafe fn OnViewportUpdated<P0>(&self, viewport: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationViewport>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationViewport>>,
     {
         (::windows::core::Vtable::vtable(self).OnViewportUpdated)(::windows::core::Vtable::as_raw(self), viewport.into().abi()).ok()
     }
-    pub unsafe fn OnContentUpdated<'a, P0, P1>(&self, viewport: P0, content: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnContentUpdated<P0, P1>(&self, viewport: P0, content: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationViewport>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationContent>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDirectManipulationViewport>>,
+        P1: ::std::convert::Into<::windows::core::InParam<IDirectManipulationContent>>,
     {
         (::windows::core::Vtable::vtable(self).OnContentUpdated)(::windows::core::Vtable::as_raw(self), viewport.into().abi(), content.into().abi()).ok()
     }

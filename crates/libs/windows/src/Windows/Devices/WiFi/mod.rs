@@ -907,9 +907,9 @@ impl WiFiOnDemandHotspotNetworkProperties {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRemainingBatteryPercent<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetRemainingBatteryPercent<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -926,9 +926,9 @@ impl WiFiOnDemandHotspotNetworkProperties {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCellularBars<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetCellularBars<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<WiFiOnDemandHotspotCellularBars>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<WiFiOnDemandHotspotCellularBars>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

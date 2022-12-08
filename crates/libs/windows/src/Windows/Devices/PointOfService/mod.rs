@@ -1919,7 +1919,7 @@ impl ::core::convert::TryFrom<&ICommonReceiptSlipCapabilities> for ICommonPosPri
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ICommonReceiptSlipCapabilities> for ::windows::core::InParam<'a, ICommonPosPrintStationCapabilities> {
+impl ::core::convert::TryFrom<&ICommonReceiptSlipCapabilities> for ::windows::core::InParam<ICommonPosPrintStationCapabilities> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ICommonReceiptSlipCapabilities) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3180,7 +3180,7 @@ impl ::core::convert::TryFrom<&IReceiptOrSlipJob> for IPosPrinterJob {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IReceiptOrSlipJob> for ::windows::core::InParam<'a, IPosPrinterJob> {
+impl ::core::convert::TryFrom<&IReceiptOrSlipJob> for ::windows::core::InParam<IPosPrinterJob> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IReceiptOrSlipJob) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3477,9 +3477,9 @@ impl BarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn RetrieveStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    pub fn RetrieveStatisticsAsync<P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3619,7 +3619,7 @@ impl ::core::convert::TryFrom<&BarcodeScanner> for super::super::Foundation::ICl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&BarcodeScanner> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&BarcodeScanner> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BarcodeScanner) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3898,11 +3898,11 @@ impl BarcodeScannerReport {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateInstance<'a, P0, E0, P1, E1>(scandatatype: u32, scandata: P0, scandatalabel: P1) -> ::windows::core::Result<BarcodeScannerReport>
+    pub fn CreateInstance<P0, E0, P1, E1>(scandatatype: u32, scandata: P0, scandatalabel: P1) -> ::windows::core::Result<BarcodeScannerReport>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBarcodeScannerReportFactory(|this| unsafe {
@@ -4767,9 +4767,9 @@ impl CashDrawer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    pub fn GetStatisticsAsync<P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4886,7 +4886,7 @@ impl ::core::convert::TryFrom<&CashDrawer> for super::super::Foundation::IClosab
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&CashDrawer> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&CashDrawer> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CashDrawer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5154,7 +5154,7 @@ impl ::core::convert::TryFrom<&CashDrawerClosedEventArgs> for ICashDrawerEventSo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CashDrawerClosedEventArgs> for ::windows::core::InParam<'a, ICashDrawerEventSourceEventArgs> {
+impl ::core::convert::TryFrom<&CashDrawerClosedEventArgs> for ::windows::core::InParam<ICashDrawerEventSourceEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CashDrawerClosedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5290,7 +5290,7 @@ impl ::core::convert::TryFrom<&CashDrawerOpenedEventArgs> for ICashDrawerEventSo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CashDrawerOpenedEventArgs> for ::windows::core::InParam<'a, ICashDrawerEventSourceEventArgs> {
+impl ::core::convert::TryFrom<&CashDrawerOpenedEventArgs> for ::windows::core::InParam<ICashDrawerEventSourceEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CashDrawerOpenedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5464,9 +5464,9 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetActiveSymbologiesAsync<'a, P0, E0>(&self, symbologies: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetActiveSymbologiesAsync<P0, E0>(&self, symbologies: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5477,9 +5477,9 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ResetStatisticsAsync<P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5490,9 +5490,9 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<'a, P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn UpdateStatisticsAsync<P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5730,7 +5730,7 @@ impl ::core::convert::TryFrom<&ClaimedBarcodeScanner> for super::super::Foundati
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&ClaimedBarcodeScanner> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&ClaimedBarcodeScanner> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ClaimedBarcodeScanner) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5848,9 +5848,9 @@ impl ClaimedCashDrawer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn ResetStatisticsAsync<P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5861,9 +5861,9 @@ impl ClaimedCashDrawer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<'a, P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn UpdateStatisticsAsync<P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5957,7 +5957,7 @@ impl ::core::convert::TryFrom<&ClaimedCashDrawer> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&ClaimedCashDrawer> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&ClaimedCashDrawer> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ClaimedCashDrawer) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6180,7 +6180,7 @@ impl ::core::convert::TryFrom<&ClaimedJournalPrinter> for ICommonClaimedPosPrint
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ClaimedJournalPrinter> for ::windows::core::InParam<'a, ICommonClaimedPosPrinterStation> {
+impl ::core::convert::TryFrom<&ClaimedJournalPrinter> for ::windows::core::InParam<ICommonClaimedPosPrinterStation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ClaimedJournalPrinter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6270,9 +6270,9 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    pub fn GetStatisticsAsync<P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -6513,7 +6513,7 @@ impl ::core::convert::TryFrom<&ClaimedLineDisplay> for super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&ClaimedLineDisplay> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&ClaimedLineDisplay> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ClaimedLineDisplay) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -6705,9 +6705,9 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ResetStatisticsAsync<P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -6718,9 +6718,9 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<'a, P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn UpdateStatisticsAsync<P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -6874,7 +6874,7 @@ impl ::core::convert::TryFrom<&ClaimedMagneticStripeReader> for super::super::Fo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&ClaimedMagneticStripeReader> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&ClaimedMagneticStripeReader> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ClaimedMagneticStripeReader) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7030,9 +7030,9 @@ impl ClaimedPosPrinter {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn ResetStatisticsAsync<P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -7043,9 +7043,9 @@ impl ClaimedPosPrinter {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<'a, P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn UpdateStatisticsAsync<P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -7139,7 +7139,7 @@ impl ::core::convert::TryFrom<&ClaimedPosPrinter> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&ClaimedPosPrinter> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&ClaimedPosPrinter> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ClaimedPosPrinter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7401,7 +7401,7 @@ impl ::core::convert::TryFrom<&ClaimedReceiptPrinter> for ICommonClaimedPosPrint
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ClaimedReceiptPrinter> for ::windows::core::InParam<'a, ICommonClaimedPosPrinterStation> {
+impl ::core::convert::TryFrom<&ClaimedReceiptPrinter> for ::windows::core::InParam<ICommonClaimedPosPrinterStation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ClaimedReceiptPrinter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7668,7 +7668,7 @@ impl ::core::convert::TryFrom<&ClaimedSlipPrinter> for ICommonClaimedPosPrinterS
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ClaimedSlipPrinter> for ::windows::core::InParam<'a, ICommonClaimedPosPrinterStation> {
+impl ::core::convert::TryFrom<&ClaimedSlipPrinter> for ::windows::core::InParam<ICommonClaimedPosPrinterStation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ClaimedSlipPrinter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7760,7 +7760,7 @@ impl ::core::convert::TryFrom<&JournalPrintJob> for IPosPrinterJob {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&JournalPrintJob> for ::windows::core::InParam<'a, IPosPrinterJob> {
+impl ::core::convert::TryFrom<&JournalPrintJob> for ::windows::core::InParam<IPosPrinterJob> {
     type Error = ::windows::core::Error;
     fn try_from(value: &JournalPrintJob) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -7954,7 +7954,7 @@ impl ::core::convert::TryFrom<&JournalPrinterCapabilities> for ICommonPosPrintSt
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&JournalPrinterCapabilities> for ::windows::core::InParam<'a, ICommonPosPrintStationCapabilities> {
+impl ::core::convert::TryFrom<&JournalPrinterCapabilities> for ::windows::core::InParam<ICommonPosPrintStationCapabilities> {
     type Error = ::windows::core::Error;
     fn try_from(value: &JournalPrinterCapabilities) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8133,7 +8133,7 @@ impl ::core::convert::TryFrom<&LineDisplay> for super::super::Foundation::IClosa
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&LineDisplay> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&LineDisplay> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LineDisplay) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -8650,9 +8650,9 @@ impl LineDisplayCustomGlyphs {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn TryRedefineAsync<'a, P0, E0>(&self, glyphcode: u32, glyphdata: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryRedefineAsync<P0, E0>(&self, glyphcode: u32, glyphdata: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -9174,7 +9174,7 @@ impl ::core::convert::TryFrom<&LineDisplayWindow> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&LineDisplayWindow> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&LineDisplayWindow> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &LineDisplayWindow) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -9241,9 +9241,9 @@ impl MagneticStripeReader {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn RetrieveStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    pub fn RetrieveStatisticsAsync<P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -9361,7 +9361,7 @@ impl ::core::convert::TryFrom<&MagneticStripeReader> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&MagneticStripeReader> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&MagneticStripeReader> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MagneticStripeReader) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -10257,9 +10257,9 @@ impl PosPrinter {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    pub fn GetStatisticsAsync<P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -10386,7 +10386,7 @@ impl ::core::convert::TryFrom<&PosPrinter> for super::super::Foundation::IClosab
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&PosPrinter> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&PosPrinter> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PosPrinter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11105,7 +11105,7 @@ impl ::core::convert::TryFrom<&ReceiptPrintJob> for IPosPrinterJob {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ReceiptPrintJob> for ::windows::core::InParam<'a, IPosPrinterJob> {
+impl ::core::convert::TryFrom<&ReceiptPrintJob> for ::windows::core::InParam<IPosPrinterJob> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ReceiptPrintJob) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11124,7 +11124,7 @@ impl ::core::convert::TryFrom<&ReceiptPrintJob> for IReceiptOrSlipJob {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ReceiptPrintJob> for ::windows::core::InParam<'a, IReceiptOrSlipJob> {
+impl ::core::convert::TryFrom<&ReceiptPrintJob> for ::windows::core::InParam<IReceiptOrSlipJob> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ReceiptPrintJob) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11406,7 +11406,7 @@ impl ::core::convert::TryFrom<&ReceiptPrinterCapabilities> for ICommonPosPrintSt
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ReceiptPrinterCapabilities> for ::windows::core::InParam<'a, ICommonPosPrintStationCapabilities> {
+impl ::core::convert::TryFrom<&ReceiptPrinterCapabilities> for ::windows::core::InParam<ICommonPosPrintStationCapabilities> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ReceiptPrinterCapabilities) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11425,7 +11425,7 @@ impl ::core::convert::TryFrom<&ReceiptPrinterCapabilities> for ICommonReceiptSli
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&ReceiptPrinterCapabilities> for ::windows::core::InParam<'a, ICommonReceiptSlipCapabilities> {
+impl ::core::convert::TryFrom<&ReceiptPrinterCapabilities> for ::windows::core::InParam<ICommonReceiptSlipCapabilities> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ReceiptPrinterCapabilities) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11595,7 +11595,7 @@ impl ::core::convert::TryFrom<&SlipPrintJob> for IPosPrinterJob {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SlipPrintJob> for ::windows::core::InParam<'a, IPosPrinterJob> {
+impl ::core::convert::TryFrom<&SlipPrintJob> for ::windows::core::InParam<IPosPrinterJob> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SlipPrintJob) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11614,7 +11614,7 @@ impl ::core::convert::TryFrom<&SlipPrintJob> for IReceiptOrSlipJob {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SlipPrintJob> for ::windows::core::InParam<'a, IReceiptOrSlipJob> {
+impl ::core::convert::TryFrom<&SlipPrintJob> for ::windows::core::InParam<IReceiptOrSlipJob> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SlipPrintJob) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11889,7 +11889,7 @@ impl ::core::convert::TryFrom<&SlipPrinterCapabilities> for ICommonPosPrintStati
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SlipPrinterCapabilities> for ::windows::core::InParam<'a, ICommonPosPrintStationCapabilities> {
+impl ::core::convert::TryFrom<&SlipPrinterCapabilities> for ::windows::core::InParam<ICommonPosPrintStationCapabilities> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SlipPrinterCapabilities) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -11908,7 +11908,7 @@ impl ::core::convert::TryFrom<&SlipPrinterCapabilities> for ICommonReceiptSlipCa
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SlipPrinterCapabilities> for ::windows::core::InParam<'a, ICommonReceiptSlipCapabilities> {
+impl ::core::convert::TryFrom<&SlipPrinterCapabilities> for ::windows::core::InParam<ICommonReceiptSlipCapabilities> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SlipPrinterCapabilities) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -854,9 +854,9 @@ impl GeoboundingBox {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryCompute<'a, P0, E0>(positions: P0) -> ::windows::core::Result<GeoboundingBox>
+    pub fn TryCompute<P0, E0>(positions: P0) -> ::windows::core::Result<GeoboundingBox>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGeoboundingBoxStatics(|this| unsafe {
@@ -866,9 +866,9 @@ impl GeoboundingBox {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryComputeWithAltitudeReference<'a, P0, E0>(positions: P0, altituderefsystem: AltitudeReferenceSystem) -> ::windows::core::Result<GeoboundingBox>
+    pub fn TryComputeWithAltitudeReference<P0, E0>(positions: P0, altituderefsystem: AltitudeReferenceSystem) -> ::windows::core::Result<GeoboundingBox>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGeoboundingBoxStatics(|this| unsafe {
@@ -878,9 +878,9 @@ impl GeoboundingBox {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryComputeWithAltitudeReferenceAndSpatialReference<'a, P0, E0>(positions: P0, altituderefsystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<GeoboundingBox>
+    pub fn TryComputeWithAltitudeReferenceAndSpatialReference<P0, E0>(positions: P0, altituderefsystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<GeoboundingBox>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGeoboundingBoxStatics(|this| unsafe {
@@ -965,7 +965,7 @@ impl ::core::convert::TryFrom<&GeoboundingBox> for IGeoshape {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&GeoboundingBox> for ::windows::core::InParam<'a, IGeoshape> {
+impl ::core::convert::TryFrom<&GeoboundingBox> for ::windows::core::InParam<IGeoshape> {
     type Error = ::windows::core::Error;
     fn try_from(value: &GeoboundingBox) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1082,7 +1082,7 @@ impl ::core::convert::TryFrom<&Geocircle> for IGeoshape {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&Geocircle> for ::windows::core::InParam<'a, IGeoshape> {
+impl ::core::convert::TryFrom<&Geocircle> for ::windows::core::InParam<IGeoshape> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Geocircle) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1458,9 +1458,9 @@ impl Geolocator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDefaultGeoposition<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
+    pub fn SetDefaultGeoposition<P0, E0>(value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<BasicGeoposition>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<BasicGeoposition>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGeolocatorStatics2(|this| unsafe { (::windows::core::Vtable::vtable(this).SetDefaultGeoposition)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
@@ -1484,9 +1484,9 @@ impl Geolocator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDesiredAccuracyInMeters<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDesiredAccuracyInMeters<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
@@ -1553,9 +1553,9 @@ impl Geopath {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, P0, E0>(positions: P0) -> ::windows::core::Result<Geopath>
+    pub fn Create<P0, E0>(positions: P0) -> ::windows::core::Result<Geopath>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGeopathFactory(|this| unsafe {
@@ -1565,9 +1565,9 @@ impl Geopath {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithAltitudeReference<'a, P0, E0>(positions: P0, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<Geopath>
+    pub fn CreateWithAltitudeReference<P0, E0>(positions: P0, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<Geopath>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGeopathFactory(|this| unsafe {
@@ -1577,9 +1577,9 @@ impl Geopath {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithAltitudeReferenceAndSpatialReference<'a, P0, E0>(positions: P0, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<Geopath>
+    pub fn CreateWithAltitudeReferenceAndSpatialReference<P0, E0>(positions: P0, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<Geopath>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGeopathFactory(|this| unsafe {
@@ -1659,7 +1659,7 @@ impl ::core::convert::TryFrom<&Geopath> for IGeoshape {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&Geopath> for ::windows::core::InParam<'a, IGeoshape> {
+impl ::core::convert::TryFrom<&Geopath> for ::windows::core::InParam<IGeoshape> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Geopath) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1769,7 +1769,7 @@ impl ::core::convert::TryFrom<&Geopoint> for IGeoshape {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&Geopoint> for ::windows::core::InParam<'a, IGeoshape> {
+impl ::core::convert::TryFrom<&Geopoint> for ::windows::core::InParam<IGeoshape> {
     type Error = ::windows::core::Error;
     fn try_from(value: &Geopoint) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

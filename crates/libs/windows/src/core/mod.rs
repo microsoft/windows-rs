@@ -3,7 +3,6 @@ mod agile_reference;
 mod array;
 mod as_impl;
 pub(crate) mod bindings;
-mod borrowed;
 mod delay_load;
 mod error;
 mod event;
@@ -34,7 +33,6 @@ pub use agile_reference::*;
 pub use array::*;
 #[doc(hidden)]
 pub use as_impl::*;
-pub use borrowed::*;
 pub use delay_load::*;
 pub use error::*;
 pub use event::*;

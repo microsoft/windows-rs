@@ -1722,7 +1722,7 @@ impl ::core::convert::TryFrom<&AttachableInputObject> for super::super::Foundati
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&AttachableInputObject> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&AttachableInputObject> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AttachableInputObject) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2224,9 +2224,9 @@ impl GestureRecognizer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ProcessMoveEvents<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn ProcessMoveEvents<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<PointerPoint>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<PointerPoint>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2667,7 +2667,7 @@ impl ::core::convert::TryFrom<&InputActivationListener> for super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&InputActivationListener> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&InputActivationListener> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InputActivationListener) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2684,7 +2684,7 @@ impl ::core::convert::From<&InputActivationListener> for AttachableInputObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&InputActivationListener> for ::windows::core::InParam<'a, AttachableInputObject> {
+impl ::core::convert::From<&InputActivationListener> for ::windows::core::InParam<AttachableInputObject> {
     fn from(value: &InputActivationListener) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -3347,9 +3347,9 @@ impl PointerPoint {
             (::windows::core::Vtable::vtable(this).GetIntermediatePoints)(::windows::core::Vtable::as_raw(this), pointerid, result__.as_mut_ptr()).from_abi(result__)
         })
     }
-    pub fn GetCurrentPointTransformed<'a, P0, E0>(pointerid: u32, transform: P0) -> ::windows::core::Result<PointerPoint>
+    pub fn GetCurrentPointTransformed<P0, E0>(pointerid: u32, transform: P0) -> ::windows::core::Result<PointerPoint>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPointerPointTransform>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IPointerPointTransform>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPointerPointStatics(|this| unsafe {
@@ -3359,9 +3359,9 @@ impl PointerPoint {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetIntermediatePointsTransformed<'a, P0, E0>(pointerid: u32, transform: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<PointerPoint>>
+    pub fn GetIntermediatePointsTransformed<P0, E0>(pointerid: u32, transform: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<PointerPoint>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPointerPointTransform>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<IPointerPointTransform>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPointerPointStatics(|this| unsafe {
@@ -4166,9 +4166,9 @@ pub struct RadialControllerConfiguration(::windows::core::IUnknown);
 impl RadialControllerConfiguration {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetDefaultMenuItems<'a, P0, E0>(&self, buttons: P0) -> ::windows::core::Result<()>
+    pub fn SetDefaultMenuItems<P0, E0>(&self, buttons: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4436,9 +4436,9 @@ impl RadialControllerMenuItem {
             (::windows::core::Vtable::vtable(this).Tag)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetTag<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetTag<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetTag)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -5037,7 +5037,7 @@ impl ::core::convert::TryFrom<&SystemButtonEventController> for super::super::Fo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SystemButtonEventController> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&SystemButtonEventController> for ::windows::core::InParam<super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SystemButtonEventController) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -5054,7 +5054,7 @@ impl ::core::convert::From<&SystemButtonEventController> for AttachableInputObje
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&SystemButtonEventController> for ::windows::core::InParam<'a, AttachableInputObject> {
+impl ::core::convert::From<&SystemButtonEventController> for ::windows::core::InParam<AttachableInputObject> {
     fn from(value: &SystemButtonEventController) -> Self {
         ::windows::core::InParam::owned(value.into())
     }

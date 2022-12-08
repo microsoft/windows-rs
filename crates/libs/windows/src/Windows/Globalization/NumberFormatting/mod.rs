@@ -537,9 +537,9 @@ impl INumberRounderOption {
             (::windows::core::Vtable::vtable(this).NumberRounder)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetNumberRounder<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetNumberRounder<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INumberRounder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -823,9 +823,9 @@ impl CurrencyFormatter {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCurrencyFormatterCodeContext<'a, P0, E0>(currencycode: &::windows::core::HSTRING, languages: P0, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<CurrencyFormatter>
+    pub fn CreateCurrencyFormatterCodeContext<P0, E0>(currencycode: &::windows::core::HSTRING, languages: P0, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<CurrencyFormatter>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICurrencyFormatterFactory(|this| unsafe {
@@ -994,9 +994,9 @@ impl CurrencyFormatter {
             (::windows::core::Vtable::vtable(this).NumberRounder)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetNumberRounder<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetNumberRounder<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INumberRounder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<INumberRounderOption>(self)?;
@@ -1075,7 +1075,7 @@ impl ::core::convert::TryFrom<&CurrencyFormatter> for INumberFormatter {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InParam<'a, INumberFormatter> {
+impl ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InParam<INumberFormatter> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CurrencyFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1094,7 +1094,7 @@ impl ::core::convert::TryFrom<&CurrencyFormatter> for INumberFormatter2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InParam<'a, INumberFormatter2> {
+impl ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InParam<INumberFormatter2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CurrencyFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1113,7 +1113,7 @@ impl ::core::convert::TryFrom<&CurrencyFormatter> for INumberFormatterOptions {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InParam<'a, INumberFormatterOptions> {
+impl ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InParam<INumberFormatterOptions> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CurrencyFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1132,7 +1132,7 @@ impl ::core::convert::TryFrom<&CurrencyFormatter> for INumberParser {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InParam<'a, INumberParser> {
+impl ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InParam<INumberParser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CurrencyFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1151,7 +1151,7 @@ impl ::core::convert::TryFrom<&CurrencyFormatter> for INumberRounderOption {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InParam<'a, INumberRounderOption> {
+impl ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InParam<INumberRounderOption> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CurrencyFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1170,7 +1170,7 @@ impl ::core::convert::TryFrom<&CurrencyFormatter> for ISignedZeroOption {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InParam<'a, ISignedZeroOption> {
+impl ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InParam<ISignedZeroOption> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CurrencyFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1189,7 +1189,7 @@ impl ::core::convert::TryFrom<&CurrencyFormatter> for ISignificantDigitsOption {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InParam<'a, ISignificantDigitsOption> {
+impl ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InParam<ISignificantDigitsOption> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CurrencyFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1211,9 +1211,9 @@ impl DecimalFormatter {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateDecimalFormatter<'a, P0, E0>(languages: P0, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<DecimalFormatter>
+    pub fn CreateDecimalFormatter<P0, E0>(languages: P0, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<DecimalFormatter>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IDecimalFormatterFactory(|this| unsafe {
@@ -1382,9 +1382,9 @@ impl DecimalFormatter {
             (::windows::core::Vtable::vtable(this).NumberRounder)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetNumberRounder<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetNumberRounder<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INumberRounder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<INumberRounderOption>(self)?;
@@ -1463,7 +1463,7 @@ impl ::core::convert::TryFrom<&DecimalFormatter> for INumberFormatter {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DecimalFormatter> for ::windows::core::InParam<'a, INumberFormatter> {
+impl ::core::convert::TryFrom<&DecimalFormatter> for ::windows::core::InParam<INumberFormatter> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DecimalFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1482,7 +1482,7 @@ impl ::core::convert::TryFrom<&DecimalFormatter> for INumberFormatter2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DecimalFormatter> for ::windows::core::InParam<'a, INumberFormatter2> {
+impl ::core::convert::TryFrom<&DecimalFormatter> for ::windows::core::InParam<INumberFormatter2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DecimalFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1501,7 +1501,7 @@ impl ::core::convert::TryFrom<&DecimalFormatter> for INumberFormatterOptions {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DecimalFormatter> for ::windows::core::InParam<'a, INumberFormatterOptions> {
+impl ::core::convert::TryFrom<&DecimalFormatter> for ::windows::core::InParam<INumberFormatterOptions> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DecimalFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1520,7 +1520,7 @@ impl ::core::convert::TryFrom<&DecimalFormatter> for INumberParser {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DecimalFormatter> for ::windows::core::InParam<'a, INumberParser> {
+impl ::core::convert::TryFrom<&DecimalFormatter> for ::windows::core::InParam<INumberParser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DecimalFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1539,7 +1539,7 @@ impl ::core::convert::TryFrom<&DecimalFormatter> for INumberRounderOption {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DecimalFormatter> for ::windows::core::InParam<'a, INumberRounderOption> {
+impl ::core::convert::TryFrom<&DecimalFormatter> for ::windows::core::InParam<INumberRounderOption> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DecimalFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1558,7 +1558,7 @@ impl ::core::convert::TryFrom<&DecimalFormatter> for ISignedZeroOption {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DecimalFormatter> for ::windows::core::InParam<'a, ISignedZeroOption> {
+impl ::core::convert::TryFrom<&DecimalFormatter> for ::windows::core::InParam<ISignedZeroOption> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DecimalFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1577,7 +1577,7 @@ impl ::core::convert::TryFrom<&DecimalFormatter> for ISignificantDigitsOption {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DecimalFormatter> for ::windows::core::InParam<'a, ISignificantDigitsOption> {
+impl ::core::convert::TryFrom<&DecimalFormatter> for ::windows::core::InParam<ISignificantDigitsOption> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DecimalFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1707,7 +1707,7 @@ impl ::core::convert::TryFrom<&IncrementNumberRounder> for INumberRounder {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IncrementNumberRounder> for ::windows::core::InParam<'a, INumberRounder> {
+impl ::core::convert::TryFrom<&IncrementNumberRounder> for ::windows::core::InParam<INumberRounder> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IncrementNumberRounder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1763,9 +1763,9 @@ impl NumeralSystemTranslator {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, P0, E0>(languages: P0) -> ::windows::core::Result<NumeralSystemTranslator>
+    pub fn Create<P0, E0>(languages: P0) -> ::windows::core::Result<NumeralSystemTranslator>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::INumeralSystemTranslatorFactory(|this| unsafe {
@@ -1986,9 +1986,9 @@ impl PercentFormatter {
             (::windows::core::Vtable::vtable(this).NumberRounder)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetNumberRounder<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetNumberRounder<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INumberRounder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<INumberRounderOption>(self)?;
@@ -1996,9 +1996,9 @@ impl PercentFormatter {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreatePercentFormatter<'a, P0, E0>(languages: P0, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<PercentFormatter>
+    pub fn CreatePercentFormatter<P0, E0>(languages: P0, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<PercentFormatter>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPercentFormatterFactory(|this| unsafe {
@@ -2079,7 +2079,7 @@ impl ::core::convert::TryFrom<&PercentFormatter> for INumberFormatter {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InParam<'a, INumberFormatter> {
+impl ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InParam<INumberFormatter> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PercentFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2098,7 +2098,7 @@ impl ::core::convert::TryFrom<&PercentFormatter> for INumberFormatter2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InParam<'a, INumberFormatter2> {
+impl ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InParam<INumberFormatter2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PercentFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2117,7 +2117,7 @@ impl ::core::convert::TryFrom<&PercentFormatter> for INumberFormatterOptions {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InParam<'a, INumberFormatterOptions> {
+impl ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InParam<INumberFormatterOptions> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PercentFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2136,7 +2136,7 @@ impl ::core::convert::TryFrom<&PercentFormatter> for INumberParser {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InParam<'a, INumberParser> {
+impl ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InParam<INumberParser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PercentFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2155,7 +2155,7 @@ impl ::core::convert::TryFrom<&PercentFormatter> for INumberRounderOption {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InParam<'a, INumberRounderOption> {
+impl ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InParam<INumberRounderOption> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PercentFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2174,7 +2174,7 @@ impl ::core::convert::TryFrom<&PercentFormatter> for ISignedZeroOption {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InParam<'a, ISignedZeroOption> {
+impl ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InParam<ISignedZeroOption> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PercentFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2193,7 +2193,7 @@ impl ::core::convert::TryFrom<&PercentFormatter> for ISignificantDigitsOption {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InParam<'a, ISignificantDigitsOption> {
+impl ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InParam<ISignificantDigitsOption> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PercentFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2374,9 +2374,9 @@ impl PermilleFormatter {
             (::windows::core::Vtable::vtable(this).NumberRounder)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetNumberRounder<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetNumberRounder<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<INumberRounder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<INumberRounderOption>(self)?;
@@ -2384,9 +2384,9 @@ impl PermilleFormatter {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreatePermilleFormatter<'a, P0, E0>(languages: P0, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<PermilleFormatter>
+    pub fn CreatePermilleFormatter<P0, E0>(languages: P0, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<PermilleFormatter>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPermilleFormatterFactory(|this| unsafe {
@@ -2467,7 +2467,7 @@ impl ::core::convert::TryFrom<&PermilleFormatter> for INumberFormatter {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InParam<'a, INumberFormatter> {
+impl ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InParam<INumberFormatter> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PermilleFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2486,7 +2486,7 @@ impl ::core::convert::TryFrom<&PermilleFormatter> for INumberFormatter2 {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InParam<'a, INumberFormatter2> {
+impl ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InParam<INumberFormatter2> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PermilleFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2505,7 +2505,7 @@ impl ::core::convert::TryFrom<&PermilleFormatter> for INumberFormatterOptions {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InParam<'a, INumberFormatterOptions> {
+impl ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InParam<INumberFormatterOptions> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PermilleFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2524,7 +2524,7 @@ impl ::core::convert::TryFrom<&PermilleFormatter> for INumberParser {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InParam<'a, INumberParser> {
+impl ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InParam<INumberParser> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PermilleFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2543,7 +2543,7 @@ impl ::core::convert::TryFrom<&PermilleFormatter> for INumberRounderOption {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InParam<'a, INumberRounderOption> {
+impl ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InParam<INumberRounderOption> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PermilleFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2562,7 +2562,7 @@ impl ::core::convert::TryFrom<&PermilleFormatter> for ISignedZeroOption {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InParam<'a, ISignedZeroOption> {
+impl ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InParam<ISignedZeroOption> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PermilleFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2581,7 +2581,7 @@ impl ::core::convert::TryFrom<&PermilleFormatter> for ISignificantDigitsOption {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InParam<'a, ISignificantDigitsOption> {
+impl ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InParam<ISignificantDigitsOption> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PermilleFormatter) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2711,7 +2711,7 @@ impl ::core::convert::TryFrom<&SignificantDigitsNumberRounder> for INumberRounde
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&SignificantDigitsNumberRounder> for ::windows::core::InParam<'a, INumberRounder> {
+impl ::core::convert::TryFrom<&SignificantDigitsNumberRounder> for ::windows::core::InParam<INumberRounder> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SignificantDigitsNumberRounder) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

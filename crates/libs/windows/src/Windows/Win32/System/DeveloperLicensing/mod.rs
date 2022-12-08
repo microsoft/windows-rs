@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_System_DeveloperLicensing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AcquireDeveloperLicense<'a, P0>(hwndparent: P0) -> ::windows::core::Result<super::super::Foundation::FILETIME>
+pub unsafe fn AcquireDeveloperLicense<P0>(hwndparent: P0) -> ::windows::core::Result<super::super::Foundation::FILETIME>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
@@ -20,7 +20,7 @@ pub unsafe fn CheckDeveloperLicense() -> ::windows::core::Result<super::super::F
 #[doc = "*Required features: `\"Win32_System_DeveloperLicensing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveDeveloperLicense<'a, P0>(hwndparent: P0) -> ::windows::core::Result<()>
+pub unsafe fn RemoveDeveloperLicense<P0>(hwndparent: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {

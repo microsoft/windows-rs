@@ -80,9 +80,9 @@ impl CommunicationBlockingAccessManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ShowBlockNumbersUI<'a, P0, E0>(phonenumbers: P0) -> ::windows::core::Result<bool>
+    pub fn ShowBlockNumbersUI<P0, E0>(phonenumbers: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
@@ -92,9 +92,9 @@ impl CommunicationBlockingAccessManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ShowUnblockNumbersUI<'a, P0, E0>(phonenumbers: P0) -> ::windows::core::Result<bool>
+    pub fn ShowUnblockNumbersUI<P0, E0>(phonenumbers: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {

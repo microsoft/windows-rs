@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HtmlHelpA<'a, P0, P1>(hwndcaller: P0, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
+pub unsafe fn HtmlHelpA<P0, P1>(hwndcaller: P0, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -12,7 +12,7 @@ where
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HtmlHelpW<'a, P0, P1>(hwndcaller: P0, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
+pub unsafe fn HtmlHelpW<P0, P1>(hwndcaller: P0, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -24,7 +24,7 @@ where
 #[repr(transparent)]
 pub struct IITDatabase(::windows::core::IUnknown);
 impl IITDatabase {
-    pub unsafe fn Open<'a, P0, P1>(&self, lpszhost: P0, lpszmoniker: P1, dwflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Open<P0, P1>(&self, lpszhost: P0, lpszmoniker: P1, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -42,7 +42,7 @@ impl IITDatabase {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObjectPersistence<'a, P0, P1>(&self, lpwszobject: P0, dwobjinstance: u32, ppvpersistence: *mut *mut ::core::ffi::c_void, fstream: P1) -> ::windows::core::Result<()>
+    pub unsafe fn GetObjectPersistence<P0, P1>(&self, lpwszobject: P0, dwobjinstance: u32, ppvpersistence: *mut *mut ::core::ffi::c_void, fstream: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -105,17 +105,17 @@ impl IITPropList {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Load<'a, P0>(&self, pstm: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Load<P0>(&self, pstm: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).base__.Load)(::windows::core::Vtable::as_raw(self), pstm.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Save<'a, P0, P1>(&self, pstm: P0, fcleardirty: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Save<P0, P1>(&self, pstm: P0, fcleardirty: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).base__.Save)(::windows::core::Vtable::as_raw(self), pstm.into().abi(), fcleardirty.into()).ok()
@@ -131,7 +131,7 @@ impl IITPropList {
     pub unsafe fn InitNew(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.InitNew)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn Set<'a, P0>(&self, propid: u32, lpszwstring: P0, dwoperation: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Set<P0>(&self, propid: u32, lpszwstring: P0, dwoperation: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -158,7 +158,7 @@ impl IITPropList {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPersist<'a, P0>(&self, fpersist: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPersist<P0>(&self, fpersist: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -166,7 +166,7 @@ impl IITPropList {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPersist2<'a, P0>(&self, propid: u32, fpersist: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPersist2<P0>(&self, propid: u32, fpersist: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -199,9 +199,9 @@ impl IITPropList {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SaveDataToStream<'a, P0>(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, pstream: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SaveDataToStream<P0>(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, pstream: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).SaveDataToStream)(::windows::core::Vtable::as_raw(self), lpvheader, dwhdrsize, pstream.into().abi()).ok()
     }
@@ -303,7 +303,7 @@ impl IITResultSet {
     pub unsafe fn Add(&self, propid: u32, dwdefaultdata: u32, priority: PRIORITY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), propid, dwdefaultdata, priority).ok()
     }
-    pub unsafe fn Add2<'a, P0>(&self, propid: u32, lpszwdefault: P0, priority: PRIORITY) -> ::windows::core::Result<()>
+    pub unsafe fn Add2<P0>(&self, propid: u32, lpszwdefault: P0, priority: PRIORITY) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -321,7 +321,7 @@ impl IITResultSet {
     pub unsafe fn Set(&self, lrowindex: i32, lcolumnindex: i32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Set)(::windows::core::Vtable::as_raw(self), lrowindex, lcolumnindex, lpvdata, cbdata).ok()
     }
-    pub unsafe fn Set2<'a, P0>(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Set2<P0>(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -333,15 +333,15 @@ impl IITResultSet {
     pub unsafe fn Set4(&self, lrowindex: i32, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Set4)(::windows::core::Vtable::as_raw(self), lrowindex, lpvhdr, lpvdata).ok()
     }
-    pub unsafe fn Copy<'a, P0>(&self, prscopy: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Copy<P0>(&self, prscopy: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IITResultSet>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IITResultSet>>,
     {
         (::windows::core::Vtable::vtable(self).Copy)(::windows::core::Vtable::as_raw(self), prscopy.into().abi()).ok()
     }
-    pub unsafe fn AppendRows<'a, P0>(&self, pressrc: P0, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn AppendRows<P0>(&self, pressrc: P0, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IITResultSet>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IITResultSet>>,
     {
         (::windows::core::Vtable::vtable(self).AppendRows)(::windows::core::Vtable::as_raw(self), pressrc.into().abi(), lrowsrcfirst, csrcrows, lrowfirstdest).ok()
     }
@@ -388,7 +388,7 @@ impl IITResultSet {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Pause<'a, P0>(&self, fpause: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Pause<P0>(&self, fpause: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -469,9 +469,9 @@ pub struct IITResultSet_Vtbl {
 #[repr(transparent)]
 pub struct IITWordWheel(::windows::core::IUnknown);
 impl IITWordWheel {
-    pub unsafe fn Open<'a, P0, P1>(&self, lpitdb: P0, lpszmoniker: P1, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::Result<()>
+    pub unsafe fn Open<P0, P1>(&self, lpitdb: P0, lpszmoniker: P1, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IITDatabase>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IITDatabase>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), lpitdb.into().abi(), lpszmoniker.into(), dwflags).ok()
@@ -490,15 +490,15 @@ impl IITWordWheel {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Lookup<'a, P0>(&self, lpcvprefix: *const ::core::ffi::c_void, fexactmatch: P0, plentry: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn Lookup<P0>(&self, lpcvprefix: *const ::core::ffi::c_void, fexactmatch: P0, plentry: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).Lookup)(::windows::core::Vtable::as_raw(self), lpcvprefix, fexactmatch.into(), plentry).ok()
     }
-    pub unsafe fn Lookup2<'a, P0>(&self, lentry: i32, lpitresult: P0, centries: i32) -> ::windows::core::Result<()>
+    pub unsafe fn Lookup2<P0>(&self, lentry: i32, lpitresult: P0, centries: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IITResultSet>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IITResultSet>>,
     {
         (::windows::core::Vtable::vtable(self).Lookup2)(::windows::core::Vtable::as_raw(self), lentry, lpitresult.into().abi(), centries).ok()
     }
@@ -514,15 +514,15 @@ impl IITWordWheel {
     pub unsafe fn GetDataCount(&self, lentry: i32, pdwcount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetDataCount)(::windows::core::Vtable::as_raw(self), lentry, pdwcount).ok()
     }
-    pub unsafe fn GetData<'a, P0>(&self, lentry: i32, lpitresult: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetData<P0>(&self, lentry: i32, lpitresult: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IITResultSet>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IITResultSet>>,
     {
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), lentry, lpitresult.into().abi()).ok()
     }
-    pub unsafe fn GetDataColumns<'a, P0>(&self, prs: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetDataColumns<P0>(&self, prs: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IITResultSet>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IITResultSet>>,
     {
         (::windows::core::Vtable::vtable(self).GetDataColumns)(::windows::core::Vtable::as_raw(self), prs.into().abi()).ok()
     }
@@ -575,13 +575,13 @@ pub struct IITWordWheel_Vtbl {
 #[repr(transparent)]
 pub struct IStemSink(::windows::core::IUnknown);
 impl IStemSink {
-    pub unsafe fn PutAltWord<'a, P0>(&self, pwcinbuf: P0, cwc: u32) -> ::windows::core::Result<()>
+    pub unsafe fn PutAltWord<P0>(&self, pwcinbuf: P0, cwc: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).PutAltWord)(::windows::core::Vtable::as_raw(self), pwcinbuf.into(), cwc).ok()
     }
-    pub unsafe fn PutWord<'a, P0>(&self, pwcinbuf: P0, cwc: u32) -> ::windows::core::Result<()>
+    pub unsafe fn PutWord<P0>(&self, pwcinbuf: P0, cwc: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -636,9 +636,9 @@ impl IStemmerConfig {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadExternalStemmerData<'a, P0>(&self, pstream: P0, dwextdatatype: u32) -> ::windows::core::Result<()>
+    pub unsafe fn LoadExternalStemmerData<P0>(&self, pstream: P0, dwextdatatype: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).LoadExternalStemmerData)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), dwextdatatype).ok()
     }
@@ -703,17 +703,17 @@ impl IWordBreakerConfig {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadExternalBreakerData<'a, P0>(&self, pstream: P0, dwextdatatype: u32) -> ::windows::core::Result<()>
+    pub unsafe fn LoadExternalBreakerData<P0>(&self, pstream: P0, dwextdatatype: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
         (::windows::core::Vtable::vtable(self).LoadExternalBreakerData)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), dwextdatatype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     #[cfg(feature = "Win32_System_Search")]
-    pub unsafe fn SetWordStemmer<'a, P0>(&self, rclsid: *const ::windows::core::GUID, pstemmer: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWordStemmer<P0>(&self, rclsid: *const ::windows::core::GUID, pstemmer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Search::IStemmer>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Search::IStemmer>>,
     {
         (::windows::core::Vtable::vtable(self).SetWordStemmer)(::windows::core::Vtable::as_raw(self), rclsid, pstemmer.into().abi()).ok()
     }

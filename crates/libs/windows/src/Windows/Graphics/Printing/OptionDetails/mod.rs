@@ -214,9 +214,9 @@ impl IPrintCustomOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -238,7 +238,7 @@ impl ::core::convert::TryFrom<&IPrintCustomOptionDetails> for IPrintOptionDetail
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPrintCustomOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&IPrintCustomOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPrintCustomOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -425,9 +425,9 @@ impl IPrintItemListOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -449,7 +449,7 @@ impl ::core::convert::TryFrom<&IPrintItemListOptionDetails> for IPrintOptionDeta
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPrintItemListOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&IPrintItemListOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPrintItemListOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -591,9 +591,9 @@ impl IPrintNumberOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -615,7 +615,7 @@ impl ::core::convert::TryFrom<&IPrintNumberOptionDetails> for IPrintOptionDetail
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPrintNumberOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&IPrintNumberOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPrintNumberOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -705,9 +705,9 @@ impl IPrintOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -966,9 +966,9 @@ impl IPrintTextOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -990,7 +990,7 @@ impl ::core::convert::TryFrom<&IPrintTextOptionDetails> for IPrintOptionDetails 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&IPrintTextOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&IPrintTextOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPrintTextOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1110,9 +1110,9 @@ impl PrintBindingOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -1166,7 +1166,7 @@ impl ::core::convert::TryFrom<&PrintBindingOptionDetails> for IPrintItemListOpti
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintBindingOptionDetails> for ::windows::core::InParam<'a, IPrintItemListOptionDetails> {
+impl ::core::convert::TryFrom<&PrintBindingOptionDetails> for ::windows::core::InParam<IPrintItemListOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintBindingOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1185,7 +1185,7 @@ impl ::core::convert::TryFrom<&PrintBindingOptionDetails> for IPrintOptionDetail
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintBindingOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintBindingOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintBindingOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1272,9 +1272,9 @@ impl PrintBorderingOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -1328,7 +1328,7 @@ impl ::core::convert::TryFrom<&PrintBorderingOptionDetails> for IPrintItemListOp
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintBorderingOptionDetails> for ::windows::core::InParam<'a, IPrintItemListOptionDetails> {
+impl ::core::convert::TryFrom<&PrintBorderingOptionDetails> for ::windows::core::InParam<IPrintItemListOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintBorderingOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1347,7 +1347,7 @@ impl ::core::convert::TryFrom<&PrintBorderingOptionDetails> for IPrintOptionDeta
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintBorderingOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintBorderingOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintBorderingOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1434,9 +1434,9 @@ impl PrintCollationOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -1490,7 +1490,7 @@ impl ::core::convert::TryFrom<&PrintCollationOptionDetails> for IPrintItemListOp
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintCollationOptionDetails> for ::windows::core::InParam<'a, IPrintItemListOptionDetails> {
+impl ::core::convert::TryFrom<&PrintCollationOptionDetails> for ::windows::core::InParam<IPrintItemListOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintCollationOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1509,7 +1509,7 @@ impl ::core::convert::TryFrom<&PrintCollationOptionDetails> for IPrintOptionDeta
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintCollationOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintCollationOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintCollationOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1596,9 +1596,9 @@ impl PrintColorModeOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -1652,7 +1652,7 @@ impl ::core::convert::TryFrom<&PrintColorModeOptionDetails> for IPrintItemListOp
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintColorModeOptionDetails> for ::windows::core::InParam<'a, IPrintItemListOptionDetails> {
+impl ::core::convert::TryFrom<&PrintColorModeOptionDetails> for ::windows::core::InParam<IPrintItemListOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintColorModeOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1671,7 +1671,7 @@ impl ::core::convert::TryFrom<&PrintColorModeOptionDetails> for IPrintOptionDeta
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintColorModeOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintColorModeOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintColorModeOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1763,9 +1763,9 @@ impl PrintCopiesOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -1819,7 +1819,7 @@ impl ::core::convert::TryFrom<&PrintCopiesOptionDetails> for IPrintNumberOptionD
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintCopiesOptionDetails> for ::windows::core::InParam<'a, IPrintNumberOptionDetails> {
+impl ::core::convert::TryFrom<&PrintCopiesOptionDetails> for ::windows::core::InParam<IPrintNumberOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintCopiesOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1838,7 +1838,7 @@ impl ::core::convert::TryFrom<&PrintCopiesOptionDetails> for IPrintOptionDetails
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintCopiesOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintCopiesOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintCopiesOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1915,9 +1915,9 @@ impl PrintCustomItemListOptionDetails {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn AddItem2<'a, P0, E0>(&self, itemid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, description: &::windows::core::HSTRING, icon: P0) -> ::windows::core::Result<()>
+    pub fn AddItem2<P0, E0>(&self, itemid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, description: &::windows::core::HSTRING, icon: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IPrintCustomItemListOptionDetails2>(self)?;
@@ -2008,9 +2008,9 @@ impl PrintCustomItemListOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -2064,7 +2064,7 @@ impl ::core::convert::TryFrom<&PrintCustomItemListOptionDetails> for IPrintCusto
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintCustomItemListOptionDetails> for ::windows::core::InParam<'a, IPrintCustomOptionDetails> {
+impl ::core::convert::TryFrom<&PrintCustomItemListOptionDetails> for ::windows::core::InParam<IPrintCustomOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintCustomItemListOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2083,7 +2083,7 @@ impl ::core::convert::TryFrom<&PrintCustomItemListOptionDetails> for IPrintItemL
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintCustomItemListOptionDetails> for ::windows::core::InParam<'a, IPrintItemListOptionDetails> {
+impl ::core::convert::TryFrom<&PrintCustomItemListOptionDetails> for ::windows::core::InParam<IPrintItemListOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintCustomItemListOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2102,7 +2102,7 @@ impl ::core::convert::TryFrom<&PrintCustomItemListOptionDetails> for IPrintOptio
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintCustomItemListOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintCustomItemListOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintCustomItemListOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2202,9 +2202,9 @@ impl PrintCustomTextOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -2258,7 +2258,7 @@ impl ::core::convert::TryFrom<&PrintCustomTextOptionDetails> for IPrintCustomOpt
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintCustomTextOptionDetails> for ::windows::core::InParam<'a, IPrintCustomOptionDetails> {
+impl ::core::convert::TryFrom<&PrintCustomTextOptionDetails> for ::windows::core::InParam<IPrintCustomOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintCustomTextOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2277,7 +2277,7 @@ impl ::core::convert::TryFrom<&PrintCustomTextOptionDetails> for IPrintOptionDet
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintCustomTextOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintCustomTextOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintCustomTextOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2366,9 +2366,9 @@ impl PrintCustomToggleOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -2422,7 +2422,7 @@ impl ::core::convert::TryFrom<&PrintCustomToggleOptionDetails> for IPrintCustomO
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintCustomToggleOptionDetails> for ::windows::core::InParam<'a, IPrintCustomOptionDetails> {
+impl ::core::convert::TryFrom<&PrintCustomToggleOptionDetails> for ::windows::core::InParam<IPrintCustomOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintCustomToggleOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2441,7 +2441,7 @@ impl ::core::convert::TryFrom<&PrintCustomToggleOptionDetails> for IPrintOptionD
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintCustomToggleOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintCustomToggleOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintCustomToggleOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2528,9 +2528,9 @@ impl PrintDuplexOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -2584,7 +2584,7 @@ impl ::core::convert::TryFrom<&PrintDuplexOptionDetails> for IPrintItemListOptio
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintDuplexOptionDetails> for ::windows::core::InParam<'a, IPrintItemListOptionDetails> {
+impl ::core::convert::TryFrom<&PrintDuplexOptionDetails> for ::windows::core::InParam<IPrintItemListOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintDuplexOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2603,7 +2603,7 @@ impl ::core::convert::TryFrom<&PrintDuplexOptionDetails> for IPrintOptionDetails
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintDuplexOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintDuplexOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintDuplexOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2690,9 +2690,9 @@ impl PrintHolePunchOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -2746,7 +2746,7 @@ impl ::core::convert::TryFrom<&PrintHolePunchOptionDetails> for IPrintItemListOp
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintHolePunchOptionDetails> for ::windows::core::InParam<'a, IPrintItemListOptionDetails> {
+impl ::core::convert::TryFrom<&PrintHolePunchOptionDetails> for ::windows::core::InParam<IPrintItemListOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintHolePunchOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2765,7 +2765,7 @@ impl ::core::convert::TryFrom<&PrintHolePunchOptionDetails> for IPrintOptionDeta
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintHolePunchOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintHolePunchOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintHolePunchOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2852,9 +2852,9 @@ impl PrintMediaSizeOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -2908,7 +2908,7 @@ impl ::core::convert::TryFrom<&PrintMediaSizeOptionDetails> for IPrintItemListOp
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintMediaSizeOptionDetails> for ::windows::core::InParam<'a, IPrintItemListOptionDetails> {
+impl ::core::convert::TryFrom<&PrintMediaSizeOptionDetails> for ::windows::core::InParam<IPrintItemListOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintMediaSizeOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2927,7 +2927,7 @@ impl ::core::convert::TryFrom<&PrintMediaSizeOptionDetails> for IPrintOptionDeta
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintMediaSizeOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintMediaSizeOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintMediaSizeOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3014,9 +3014,9 @@ impl PrintMediaTypeOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -3070,7 +3070,7 @@ impl ::core::convert::TryFrom<&PrintMediaTypeOptionDetails> for IPrintItemListOp
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintMediaTypeOptionDetails> for ::windows::core::InParam<'a, IPrintItemListOptionDetails> {
+impl ::core::convert::TryFrom<&PrintMediaTypeOptionDetails> for ::windows::core::InParam<IPrintItemListOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintMediaTypeOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3089,7 +3089,7 @@ impl ::core::convert::TryFrom<&PrintMediaTypeOptionDetails> for IPrintOptionDeta
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintMediaTypeOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintMediaTypeOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintMediaTypeOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3154,9 +3154,9 @@ impl PrintOrientationOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -3232,7 +3232,7 @@ impl ::core::convert::TryFrom<&PrintOrientationOptionDetails> for IPrintItemList
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintOrientationOptionDetails> for ::windows::core::InParam<'a, IPrintItemListOptionDetails> {
+impl ::core::convert::TryFrom<&PrintOrientationOptionDetails> for ::windows::core::InParam<IPrintItemListOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintOrientationOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3251,7 +3251,7 @@ impl ::core::convert::TryFrom<&PrintOrientationOptionDetails> for IPrintOptionDe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintOrientationOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintOrientationOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintOrientationOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3307,9 +3307,9 @@ impl PrintPageRangeOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -3385,7 +3385,7 @@ impl ::core::convert::TryFrom<&PrintPageRangeOptionDetails> for IPrintOptionDeta
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintPageRangeOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintPageRangeOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintPageRangeOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3450,9 +3450,9 @@ impl PrintQualityOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -3528,7 +3528,7 @@ impl ::core::convert::TryFrom<&PrintQualityOptionDetails> for IPrintItemListOpti
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintQualityOptionDetails> for ::windows::core::InParam<'a, IPrintItemListOptionDetails> {
+impl ::core::convert::TryFrom<&PrintQualityOptionDetails> for ::windows::core::InParam<IPrintItemListOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintQualityOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3547,7 +3547,7 @@ impl ::core::convert::TryFrom<&PrintQualityOptionDetails> for IPrintOptionDetail
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintQualityOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintQualityOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintQualityOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3612,9 +3612,9 @@ impl PrintStapleOptionDetails {
             (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetValue<P0>(&self, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -3690,7 +3690,7 @@ impl ::core::convert::TryFrom<&PrintStapleOptionDetails> for IPrintItemListOptio
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintStapleOptionDetails> for ::windows::core::InParam<'a, IPrintItemListOptionDetails> {
+impl ::core::convert::TryFrom<&PrintStapleOptionDetails> for ::windows::core::InParam<IPrintItemListOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintStapleOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3709,7 +3709,7 @@ impl ::core::convert::TryFrom<&PrintStapleOptionDetails> for IPrintOptionDetails
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintStapleOptionDetails> for ::windows::core::InParam<'a, IPrintOptionDetails> {
+impl ::core::convert::TryFrom<&PrintStapleOptionDetails> for ::windows::core::InParam<IPrintOptionDetails> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintStapleOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3904,7 +3904,7 @@ impl ::core::convert::TryFrom<&PrintTaskOptionDetails> for super::IPrintTaskOpti
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintTaskOptionDetails> for ::windows::core::InParam<'a, super::IPrintTaskOptionsCore> {
+impl ::core::convert::TryFrom<&PrintTaskOptionDetails> for ::windows::core::InParam<super::IPrintTaskOptionsCore> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintTaskOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3923,7 +3923,7 @@ impl ::core::convert::TryFrom<&PrintTaskOptionDetails> for super::IPrintTaskOpti
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&PrintTaskOptionDetails> for ::windows::core::InParam<'a, super::IPrintTaskOptionsCoreUIConfiguration> {
+impl ::core::convert::TryFrom<&PrintTaskOptionDetails> for ::windows::core::InParam<super::IPrintTaskOptionsCoreUIConfiguration> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PrintTaskOptionDetails) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -1,9 +1,9 @@
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DCompositionAttachMouseDragToHwnd<'a, P0, P1, P2>(visual: P0, hwnd: P1, enable: P2) -> ::windows::core::Result<()>
+pub unsafe fn DCompositionAttachMouseDragToHwnd<P0, P1, P2>(visual: P0, hwnd: P1, enable: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+    P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
@@ -13,9 +13,9 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DCompositionAttachMouseWheelToHwnd<'a, P0, P1, P2>(visual: P0, hwnd: P1, enable: P2) -> ::windows::core::Result<()>
+pub unsafe fn DCompositionAttachMouseWheelToHwnd<P0, P1, P2>(visual: P0, hwnd: P1, enable: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+    P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
@@ -25,7 +25,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DCompositionBoostCompositorClock<'a, P0>(enable: P0) -> ::windows::core::Result<()>
+pub unsafe fn DCompositionBoostCompositorClock<P0>(enable: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
@@ -35,9 +35,9 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
-pub unsafe fn DCompositionCreateDevice<'a, P0, T>(dxgidevice: P0) -> ::windows::core::Result<T>
+pub unsafe fn DCompositionCreateDevice<P0, T>(dxgidevice: P0) -> ::windows::core::Result<T>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::Dxgi::IDXGIDevice>>,
+    P0: ::std::convert::Into<::windows::core::InParam<super::Dxgi::IDXGIDevice>>,
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice ( dxgidevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
@@ -46,9 +46,9 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[inline]
-pub unsafe fn DCompositionCreateDevice2<'a, P0, T>(renderingdevice: P0) -> ::windows::core::Result<T>
+pub unsafe fn DCompositionCreateDevice2<P0, T>(renderingdevice: P0) -> ::windows::core::Result<T>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice2 ( renderingdevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
@@ -57,9 +57,9 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[inline]
-pub unsafe fn DCompositionCreateDevice3<'a, P0, T>(renderingdevice: P0) -> ::windows::core::Result<T>
+pub unsafe fn DCompositionCreateDevice3<P0, T>(renderingdevice: P0) -> ::windows::core::Result<T>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice3 ( renderingdevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
@@ -107,9 +107,9 @@ pub unsafe fn DCompositionWaitForCompositorClock(handles: ::core::option::Option
 #[repr(transparent)]
 pub struct IDCompositionAffineTransform2DEffect(::windows::core::IUnknown);
 impl IDCompositionAffineTransform2DEffect {
-    pub unsafe fn SetInput<'a, P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
@@ -128,18 +128,18 @@ impl IDCompositionAffineTransform2DEffect {
     pub unsafe fn SetTransformMatrix(&self, transformmatrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetTransformMatrix)(::windows::core::Vtable::as_raw(self), transformmatrix).ok()
     }
-    pub unsafe fn SetTransformMatrixElement<'a, P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTransformMatrixElement<P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetTransformMatrixElement)(::windows::core::Vtable::as_raw(self), row, column, animation.into().abi()).ok()
     }
     pub unsafe fn SetTransformMatrixElement2(&self, row: i32, column: i32, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetTransformMatrixElement2)(::windows::core::Vtable::as_raw(self), row, column, value).ok()
     }
-    pub unsafe fn SetSharpness<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSharpness<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetSharpness)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -252,9 +252,9 @@ pub struct IDCompositionAnimation_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionArithmeticCompositeEffect(::windows::core::IUnknown);
 impl IDCompositionArithmeticCompositeEffect {
-    pub unsafe fn SetInput<'a, P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
@@ -265,42 +265,42 @@ impl IDCompositionArithmeticCompositeEffect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClampOutput<'a, P0>(&self, clampoutput: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetClampOutput<P0>(&self, clampoutput: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).SetClampOutput)(::windows::core::Vtable::as_raw(self), clampoutput.into()).ok()
     }
-    pub unsafe fn SetCoefficient1<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCoefficient1<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCoefficient1)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetCoefficient12(&self, coeffcient1: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCoefficient12)(::windows::core::Vtable::as_raw(self), coeffcient1).ok()
     }
-    pub unsafe fn SetCoefficient2<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCoefficient2<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCoefficient2)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetCoefficient22(&self, coefficient2: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCoefficient22)(::windows::core::Vtable::as_raw(self), coefficient2).ok()
     }
-    pub unsafe fn SetCoefficient3<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCoefficient3<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCoefficient3)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetCoefficient32(&self, coefficient3: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCoefficient32)(::windows::core::Vtable::as_raw(self), coefficient3).ok()
     }
-    pub unsafe fn SetCoefficient4<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCoefficient4<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCoefficient4)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -356,9 +356,9 @@ pub struct IDCompositionArithmeticCompositeEffect_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionBlendEffect(::windows::core::IUnknown);
 impl IDCompositionBlendEffect {
-    pub unsafe fn SetInput<'a, P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
@@ -404,9 +404,9 @@ pub struct IDCompositionBlendEffect_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionBrightnessEffect(::windows::core::IUnknown);
 impl IDCompositionBrightnessEffect {
-    pub unsafe fn SetInput<'a, P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
@@ -420,36 +420,36 @@ impl IDCompositionBrightnessEffect {
     pub unsafe fn SetBlackPoint(&self, blackpoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBlackPoint)(::windows::core::Vtable::as_raw(self), blackpoint).ok()
     }
-    pub unsafe fn SetWhitePointX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWhitePointX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetWhitePointX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetWhitePointX2(&self, whitepointx: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetWhitePointX2)(::windows::core::Vtable::as_raw(self), whitepointx).ok()
     }
-    pub unsafe fn SetWhitePointY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWhitePointY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetWhitePointY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetWhitePointY2(&self, whitepointy: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetWhitePointY2)(::windows::core::Vtable::as_raw(self), whitepointy).ok()
     }
-    pub unsafe fn SetBlackPointX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBlackPointX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetBlackPointX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetBlackPointX2(&self, blackpointx: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBlackPointX2)(::windows::core::Vtable::as_raw(self), blackpointx).ok()
     }
-    pub unsafe fn SetBlackPointY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBlackPointY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetBlackPointY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -537,9 +537,9 @@ pub struct IDCompositionClip_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionColorMatrixEffect(::windows::core::IUnknown);
 impl IDCompositionColorMatrixEffect {
-    pub unsafe fn SetInput<'a, P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
@@ -548,9 +548,9 @@ impl IDCompositionColorMatrixEffect {
     pub unsafe fn SetMatrix(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_5X4_F) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetMatrix)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
-    pub unsafe fn SetMatrixElement<'a, P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMatrixElement<P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetMatrixElement)(::windows::core::Vtable::as_raw(self), row, column, animation.into().abi()).ok()
     }
@@ -564,7 +564,7 @@ impl IDCompositionColorMatrixEffect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClampOutput<'a, P0>(&self, clamp: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetClampOutput<P0>(&self, clamp: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -617,9 +617,9 @@ pub struct IDCompositionColorMatrixEffect_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionCompositeEffect(::windows::core::IUnknown);
 impl IDCompositionCompositeEffect {
-    pub unsafe fn SetInput<'a, P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
@@ -737,9 +737,9 @@ impl IDCompositionDesktopDevice {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateVisual)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateSurfaceFactory<'a, P0>(&self, renderingdevice: P0) -> ::windows::core::Result<IDCompositionSurfaceFactory>
+    pub unsafe fn CreateSurfaceFactory<P0>(&self, renderingdevice: P0) -> ::windows::core::Result<IDCompositionSurfaceFactory>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateSurfaceFactory)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -814,7 +814,7 @@ impl IDCompositionDesktopDevice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTargetForHwnd<'a, P0, P1>(&self, hwnd: P0, topmost: P1) -> ::windows::core::Result<IDCompositionTarget>
+    pub unsafe fn CreateTargetForHwnd<P0, P1>(&self, hwnd: P0, topmost: P1) -> ::windows::core::Result<IDCompositionTarget>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -824,7 +824,7 @@ impl IDCompositionDesktopDevice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSurfaceFromHandle<'a, P0>(&self, handle: P0) -> ::windows::core::Result<::windows::core::IUnknown>
+    pub unsafe fn CreateSurfaceFromHandle<P0>(&self, handle: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -833,7 +833,7 @@ impl IDCompositionDesktopDevice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSurfaceFromHwnd<'a, P0>(&self, hwnd: P0) -> ::windows::core::Result<::windows::core::IUnknown>
+    pub unsafe fn CreateSurfaceFromHwnd<P0>(&self, hwnd: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -899,7 +899,7 @@ impl IDCompositionDevice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTargetForHwnd<'a, P0, P1>(&self, hwnd: P0, topmost: P1) -> ::windows::core::Result<IDCompositionTarget>
+    pub unsafe fn CreateTargetForHwnd<P0, P1>(&self, hwnd: P0, topmost: P1) -> ::windows::core::Result<IDCompositionTarget>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -925,7 +925,7 @@ impl IDCompositionDevice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSurfaceFromHandle<'a, P0>(&self, handle: P0) -> ::windows::core::Result<::windows::core::IUnknown>
+    pub unsafe fn CreateSurfaceFromHandle<P0>(&self, handle: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
@@ -934,7 +934,7 @@ impl IDCompositionDevice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSurfaceFromHwnd<'a, P0>(&self, hwnd: P0) -> ::windows::core::Result<::windows::core::IUnknown>
+    pub unsafe fn CreateSurfaceFromHwnd<P0>(&self, hwnd: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
@@ -1097,9 +1097,9 @@ impl IDCompositionDevice2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateVisual)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateSurfaceFactory<'a, P0>(&self, renderingdevice: P0) -> ::windows::core::Result<IDCompositionSurfaceFactory>
+    pub unsafe fn CreateSurfaceFactory<P0>(&self, renderingdevice: P0) -> ::windows::core::Result<IDCompositionSurfaceFactory>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateSurfaceFactory)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1251,9 +1251,9 @@ impl IDCompositionDevice3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateVisual)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateSurfaceFactory<'a, P0>(&self, renderingdevice: P0) -> ::windows::core::Result<IDCompositionSurfaceFactory>
+    pub unsafe fn CreateSurfaceFactory<P0>(&self, renderingdevice: P0) -> ::windows::core::Result<IDCompositionSurfaceFactory>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateSurfaceFactory)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1497,18 +1497,18 @@ pub struct IDCompositionEffect_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionEffectGroup(::windows::core::IUnknown);
 impl IDCompositionEffectGroup {
-    pub unsafe fn SetOpacity<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOpacity<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetOpacity)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetOpacity2(&self, opacity: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetOpacity2)(::windows::core::Vtable::as_raw(self), opacity).ok()
     }
-    pub unsafe fn SetTransform3D<'a, P0>(&self, transform3d: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTransform3D<P0>(&self, transform3d: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionTransform3D>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionTransform3D>>,
     {
         (::windows::core::Vtable::vtable(self).SetTransform3D)(::windows::core::Vtable::as_raw(self), transform3d.into().abi()).ok()
     }
@@ -1548,9 +1548,9 @@ pub struct IDCompositionEffectGroup_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionFilterEffect(::windows::core::IUnknown);
 impl IDCompositionFilterEffect {
-    pub unsafe fn SetInput<'a, P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
@@ -1588,15 +1588,15 @@ pub struct IDCompositionFilterEffect_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionGaussianBlurEffect(::windows::core::IUnknown);
 impl IDCompositionGaussianBlurEffect {
-    pub unsafe fn SetInput<'a, P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
-    pub unsafe fn SetStandardDeviation<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetStandardDeviation<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetStandardDeviation)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -1647,15 +1647,15 @@ pub struct IDCompositionGaussianBlurEffect_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionHueRotationEffect(::windows::core::IUnknown);
 impl IDCompositionHueRotationEffect {
-    pub unsafe fn SetInput<'a, P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
-    pub unsafe fn SetAngle<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAngle<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetAngle)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -1701,9 +1701,9 @@ impl IDCompositionInkTrailDevice {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateDelegatedInkTrail)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateDelegatedInkTrailForSwapChain<'a, P0>(&self, swapchain: P0) -> ::windows::core::Result<IDCompositionDelegatedInkTrail>
+    pub unsafe fn CreateDelegatedInkTrailForSwapChain<P0>(&self, swapchain: P0) -> ::windows::core::Result<IDCompositionDelegatedInkTrail>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateDelegatedInkTrailForSwapChain)(::windows::core::Vtable::as_raw(self), swapchain.into().abi(), result__.as_mut_ptr()).from_abi(result__)
@@ -1743,24 +1743,24 @@ pub struct IDCompositionInkTrailDevice_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionLinearTransferEffect(::windows::core::IUnknown);
 impl IDCompositionLinearTransferEffect {
-    pub unsafe fn SetInput<'a, P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
-    pub unsafe fn SetRedYIntercept<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRedYIntercept<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetRedYIntercept)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetRedYIntercept2(&self, redyintercept: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetRedYIntercept2)(::windows::core::Vtable::as_raw(self), redyintercept).ok()
     }
-    pub unsafe fn SetRedSlope<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRedSlope<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetRedSlope)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -1769,24 +1769,24 @@ impl IDCompositionLinearTransferEffect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRedDisable<'a, P0>(&self, reddisable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRedDisable<P0>(&self, reddisable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).SetRedDisable)(::windows::core::Vtable::as_raw(self), reddisable.into()).ok()
     }
-    pub unsafe fn SetGreenYIntercept<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetGreenYIntercept<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetGreenYIntercept)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetGreenYIntercept2(&self, greenyintercept: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetGreenYIntercept2)(::windows::core::Vtable::as_raw(self), greenyintercept).ok()
     }
-    pub unsafe fn SetGreenSlope<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetGreenSlope<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetGreenSlope)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -1795,24 +1795,24 @@ impl IDCompositionLinearTransferEffect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGreenDisable<'a, P0>(&self, greendisable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetGreenDisable<P0>(&self, greendisable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).SetGreenDisable)(::windows::core::Vtable::as_raw(self), greendisable.into()).ok()
     }
-    pub unsafe fn SetBlueYIntercept<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBlueYIntercept<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetBlueYIntercept)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetBlueYIntercept2(&self, blueyintercept: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBlueYIntercept2)(::windows::core::Vtable::as_raw(self), blueyintercept).ok()
     }
-    pub unsafe fn SetBlueSlope<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBlueSlope<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetBlueSlope)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -1821,24 +1821,24 @@ impl IDCompositionLinearTransferEffect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBlueDisable<'a, P0>(&self, bluedisable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBlueDisable<P0>(&self, bluedisable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).SetBlueDisable)(::windows::core::Vtable::as_raw(self), bluedisable.into()).ok()
     }
-    pub unsafe fn SetAlphaYIntercept<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAlphaYIntercept<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetAlphaYIntercept)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetAlphaYIntercept2(&self, alphayintercept: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetAlphaYIntercept2)(::windows::core::Vtable::as_raw(self), alphayintercept).ok()
     }
-    pub unsafe fn SetAlphaSlope<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAlphaSlope<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetAlphaSlope)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -1847,7 +1847,7 @@ impl IDCompositionLinearTransferEffect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAlphaDisable<'a, P0>(&self, alphadisable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAlphaDisable<P0>(&self, alphadisable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1855,7 +1855,7 @@ impl IDCompositionLinearTransferEffect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClampOutput<'a, P0>(&self, clampoutput: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetClampOutput<P0>(&self, clampoutput: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -1935,9 +1935,9 @@ impl IDCompositionMatrixTransform {
     pub unsafe fn SetMatrix(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetMatrix)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
-    pub unsafe fn SetMatrixElement<'a, P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMatrixElement<P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetMatrixElement)(::windows::core::Vtable::as_raw(self), row, column, animation.into().abi()).ok()
     }
@@ -1988,9 +1988,9 @@ impl IDCompositionMatrixTransform3D {
     pub unsafe fn SetMatrix(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetMatrix)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
-    pub unsafe fn SetMatrixElement<'a, P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMatrixElement<P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetMatrixElement)(::windows::core::Vtable::as_raw(self), row, column, animation.into().abi()).ok()
     }
@@ -2036,108 +2036,108 @@ pub struct IDCompositionMatrixTransform3D_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionRectangleClip(::windows::core::IUnknown);
 impl IDCompositionRectangleClip {
-    pub unsafe fn SetLeft<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLeft<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetLeft)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetLeft2(&self, left: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetLeft2)(::windows::core::Vtable::as_raw(self), left).ok()
     }
-    pub unsafe fn SetTop<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTop<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetTop)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetTop2(&self, top: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetTop2)(::windows::core::Vtable::as_raw(self), top).ok()
     }
-    pub unsafe fn SetRight<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRight<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetRight)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetRight2(&self, right: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetRight2)(::windows::core::Vtable::as_raw(self), right).ok()
     }
-    pub unsafe fn SetBottom<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBottom<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetBottom)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetBottom2(&self, bottom: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBottom2)(::windows::core::Vtable::as_raw(self), bottom).ok()
     }
-    pub unsafe fn SetTopLeftRadiusX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTopLeftRadiusX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetTopLeftRadiusX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetTopLeftRadiusX2(&self, radius: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetTopLeftRadiusX2)(::windows::core::Vtable::as_raw(self), radius).ok()
     }
-    pub unsafe fn SetTopLeftRadiusY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTopLeftRadiusY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetTopLeftRadiusY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetTopLeftRadiusY2(&self, radius: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetTopLeftRadiusY2)(::windows::core::Vtable::as_raw(self), radius).ok()
     }
-    pub unsafe fn SetTopRightRadiusX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTopRightRadiusX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetTopRightRadiusX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetTopRightRadiusX2(&self, radius: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetTopRightRadiusX2)(::windows::core::Vtable::as_raw(self), radius).ok()
     }
-    pub unsafe fn SetTopRightRadiusY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTopRightRadiusY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetTopRightRadiusY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetTopRightRadiusY2(&self, radius: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetTopRightRadiusY2)(::windows::core::Vtable::as_raw(self), radius).ok()
     }
-    pub unsafe fn SetBottomLeftRadiusX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBottomLeftRadiusX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetBottomLeftRadiusX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetBottomLeftRadiusX2(&self, radius: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBottomLeftRadiusX2)(::windows::core::Vtable::as_raw(self), radius).ok()
     }
-    pub unsafe fn SetBottomLeftRadiusY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBottomLeftRadiusY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetBottomLeftRadiusY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetBottomLeftRadiusY2(&self, radius: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBottomLeftRadiusY2)(::windows::core::Vtable::as_raw(self), radius).ok()
     }
-    pub unsafe fn SetBottomRightRadiusX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBottomRightRadiusX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetBottomRightRadiusX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetBottomRightRadiusX2(&self, radius: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBottomRightRadiusX2)(::windows::core::Vtable::as_raw(self), radius).ok()
     }
-    pub unsafe fn SetBottomRightRadiusY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBottomRightRadiusY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetBottomRightRadiusY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -2201,27 +2201,27 @@ pub struct IDCompositionRectangleClip_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionRotateTransform(::windows::core::IUnknown);
 impl IDCompositionRotateTransform {
-    pub unsafe fn SetAngle<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAngle<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetAngle)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetAngle2(&self, angle: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetAngle2)(::windows::core::Vtable::as_raw(self), angle).ok()
     }
-    pub unsafe fn SetCenterX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCenterX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetCenterX2(&self, centerx: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCenterX2)(::windows::core::Vtable::as_raw(self), centerx).ok()
     }
-    pub unsafe fn SetCenterY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCenterY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -2267,63 +2267,63 @@ pub struct IDCompositionRotateTransform_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionRotateTransform3D(::windows::core::IUnknown);
 impl IDCompositionRotateTransform3D {
-    pub unsafe fn SetAngle<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAngle<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetAngle)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetAngle2(&self, angle: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetAngle2)(::windows::core::Vtable::as_raw(self), angle).ok()
     }
-    pub unsafe fn SetAxisX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAxisX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetAxisX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetAxisX2(&self, axisx: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetAxisX2)(::windows::core::Vtable::as_raw(self), axisx).ok()
     }
-    pub unsafe fn SetAxisY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAxisY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetAxisY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetAxisY2(&self, axisy: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetAxisY2)(::windows::core::Vtable::as_raw(self), axisy).ok()
     }
-    pub unsafe fn SetAxisZ<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAxisZ<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetAxisZ)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetAxisZ2(&self, axisz: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetAxisZ2)(::windows::core::Vtable::as_raw(self), axisz).ok()
     }
-    pub unsafe fn SetCenterX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCenterX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetCenterX2(&self, centerx: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCenterX2)(::windows::core::Vtable::as_raw(self), centerx).ok()
     }
-    pub unsafe fn SetCenterY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCenterY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetCenterY2(&self, centery: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCenterY2)(::windows::core::Vtable::as_raw(self), centery).ok()
     }
-    pub unsafe fn SetCenterZ<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCenterZ<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCenterZ)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -2377,15 +2377,15 @@ pub struct IDCompositionRotateTransform3D_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionSaturationEffect(::windows::core::IUnknown);
 impl IDCompositionSaturationEffect {
-    pub unsafe fn SetInput<'a, P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
-    pub unsafe fn SetSaturation<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSaturation<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetSaturation)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -2427,36 +2427,36 @@ pub struct IDCompositionSaturationEffect_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionScaleTransform(::windows::core::IUnknown);
 impl IDCompositionScaleTransform {
-    pub unsafe fn SetScaleX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetScaleX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetScaleX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetScaleX2(&self, scalex: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetScaleX2)(::windows::core::Vtable::as_raw(self), scalex).ok()
     }
-    pub unsafe fn SetScaleY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetScaleY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetScaleY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetScaleY2(&self, scaley: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetScaleY2)(::windows::core::Vtable::as_raw(self), scaley).ok()
     }
-    pub unsafe fn SetCenterX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCenterX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetCenterX2(&self, centerx: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCenterX2)(::windows::core::Vtable::as_raw(self), centerx).ok()
     }
-    pub unsafe fn SetCenterY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCenterY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -2504,54 +2504,54 @@ pub struct IDCompositionScaleTransform_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionScaleTransform3D(::windows::core::IUnknown);
 impl IDCompositionScaleTransform3D {
-    pub unsafe fn SetScaleX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetScaleX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetScaleX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetScaleX2(&self, scalex: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetScaleX2)(::windows::core::Vtable::as_raw(self), scalex).ok()
     }
-    pub unsafe fn SetScaleY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetScaleY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetScaleY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetScaleY2(&self, scaley: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetScaleY2)(::windows::core::Vtable::as_raw(self), scaley).ok()
     }
-    pub unsafe fn SetScaleZ<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetScaleZ<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetScaleZ)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetScaleZ2(&self, scalez: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetScaleZ2)(::windows::core::Vtable::as_raw(self), scalez).ok()
     }
-    pub unsafe fn SetCenterX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCenterX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetCenterX2(&self, centerx: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCenterX2)(::windows::core::Vtable::as_raw(self), centerx).ok()
     }
-    pub unsafe fn SetCenterY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCenterY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetCenterY2(&self, centery: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCenterY2)(::windows::core::Vtable::as_raw(self), centery).ok()
     }
-    pub unsafe fn SetCenterZ<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCenterZ<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCenterZ)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -2603,15 +2603,15 @@ pub struct IDCompositionScaleTransform3D_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionShadowEffect(::windows::core::IUnknown);
 impl IDCompositionShadowEffect {
-    pub unsafe fn SetInput<'a, P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
-    pub unsafe fn SetStandardDeviation<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetStandardDeviation<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetStandardDeviation)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -2623,36 +2623,36 @@ impl IDCompositionShadowEffect {
     pub unsafe fn SetColor(&self, color: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetColor)(::windows::core::Vtable::as_raw(self), color).ok()
     }
-    pub unsafe fn SetRed<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRed<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetRed)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetRed2(&self, amount: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetRed2)(::windows::core::Vtable::as_raw(self), amount).ok()
     }
-    pub unsafe fn SetGreen<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetGreen<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetGreen)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetGreen2(&self, amount: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetGreen2)(::windows::core::Vtable::as_raw(self), amount).ok()
     }
-    pub unsafe fn SetBlue<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBlue<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetBlue)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetBlue2(&self, amount: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBlue2)(::windows::core::Vtable::as_raw(self), amount).ok()
     }
-    pub unsafe fn SetAlpha<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAlpha<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetAlpha)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -2706,36 +2706,36 @@ pub struct IDCompositionShadowEffect_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionSkewTransform(::windows::core::IUnknown);
 impl IDCompositionSkewTransform {
-    pub unsafe fn SetAngleX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAngleX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetAngleX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetAngleX2(&self, anglex: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetAngleX2)(::windows::core::Vtable::as_raw(self), anglex).ok()
     }
-    pub unsafe fn SetAngleY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAngleY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetAngleY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetAngleY2(&self, angley: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetAngleY2)(::windows::core::Vtable::as_raw(self), angley).ok()
     }
-    pub unsafe fn SetCenterX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCenterX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetCenterX2(&self, centerx: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCenterX2)(::windows::core::Vtable::as_raw(self), centerx).ok()
     }
-    pub unsafe fn SetCenterY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetCenterY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -2903,9 +2903,9 @@ pub struct IDCompositionSurfaceFactory_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionTableTransferEffect(::windows::core::IUnknown);
 impl IDCompositionTableTransferEffect {
-    pub unsafe fn SetInput<'a, P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
@@ -2923,7 +2923,7 @@ impl IDCompositionTableTransferEffect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRedDisable<'a, P0>(&self, reddisable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRedDisable<P0>(&self, reddisable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2931,7 +2931,7 @@ impl IDCompositionTableTransferEffect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGreenDisable<'a, P0>(&self, greendisable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetGreenDisable<P0>(&self, greendisable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2939,7 +2939,7 @@ impl IDCompositionTableTransferEffect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBlueDisable<'a, P0>(&self, bluedisable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBlueDisable<P0>(&self, bluedisable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2947,7 +2947,7 @@ impl IDCompositionTableTransferEffect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAlphaDisable<'a, P0>(&self, alphadisable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAlphaDisable<P0>(&self, alphadisable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -2955,42 +2955,42 @@ impl IDCompositionTableTransferEffect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClampOutput<'a, P0>(&self, clampoutput: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetClampOutput<P0>(&self, clampoutput: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         (::windows::core::Vtable::vtable(self).SetClampOutput)(::windows::core::Vtable::as_raw(self), clampoutput.into()).ok()
     }
-    pub unsafe fn SetRedTableValue<'a, P0>(&self, index: u32, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRedTableValue<P0>(&self, index: u32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetRedTableValue)(::windows::core::Vtable::as_raw(self), index, animation.into().abi()).ok()
     }
     pub unsafe fn SetRedTableValue2(&self, index: u32, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetRedTableValue2)(::windows::core::Vtable::as_raw(self), index, value).ok()
     }
-    pub unsafe fn SetGreenTableValue<'a, P0>(&self, index: u32, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetGreenTableValue<P0>(&self, index: u32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetGreenTableValue)(::windows::core::Vtable::as_raw(self), index, animation.into().abi()).ok()
     }
     pub unsafe fn SetGreenTableValue2(&self, index: u32, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetGreenTableValue2)(::windows::core::Vtable::as_raw(self), index, value).ok()
     }
-    pub unsafe fn SetBlueTableValue<'a, P0>(&self, index: u32, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetBlueTableValue<P0>(&self, index: u32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetBlueTableValue)(::windows::core::Vtable::as_raw(self), index, animation.into().abi()).ok()
     }
     pub unsafe fn SetBlueTableValue2(&self, index: u32, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBlueTableValue2)(::windows::core::Vtable::as_raw(self), index, value).ok()
     }
-    pub unsafe fn SetAlphaTableValue<'a, P0>(&self, index: u32, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAlphaTableValue<P0>(&self, index: u32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetAlphaTableValue)(::windows::core::Vtable::as_raw(self), index, animation.into().abi()).ok()
     }
@@ -3062,9 +3062,9 @@ pub struct IDCompositionTableTransferEffect_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionTarget(::windows::core::IUnknown);
 impl IDCompositionTarget {
-    pub unsafe fn SetRoot<'a, P0>(&self, visual: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetRoot<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     {
         (::windows::core::Vtable::vtable(self).SetRoot)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
     }
@@ -3166,18 +3166,18 @@ pub struct IDCompositionTransform3D_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionTranslateTransform(::windows::core::IUnknown);
 impl IDCompositionTranslateTransform {
-    pub unsafe fn SetOffsetX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetOffsetX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetOffsetX2)(::windows::core::Vtable::as_raw(self), offsetx).ok()
     }
-    pub unsafe fn SetOffsetY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetOffsetY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -3221,27 +3221,27 @@ pub struct IDCompositionTranslateTransform_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionTranslateTransform3D(::windows::core::IUnknown);
 impl IDCompositionTranslateTransform3D {
-    pub unsafe fn SetOffsetX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetOffsetX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetOffsetX2)(::windows::core::Vtable::as_raw(self), offsetx).ok()
     }
-    pub unsafe fn SetOffsetY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetOffsetY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetOffsetY2(&self, offsety: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetOffsetY2)(::windows::core::Vtable::as_raw(self), offsety).ok()
     }
-    pub unsafe fn SetOffsetZ<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOffsetZ<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetOffsetZ)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
@@ -3287,9 +3287,9 @@ pub struct IDCompositionTranslateTransform3D_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionTurbulenceEffect(::windows::core::IUnknown);
 impl IDCompositionTurbulenceEffect {
-    pub unsafe fn SetInput<'a, P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
@@ -3321,7 +3321,7 @@ impl IDCompositionTurbulenceEffect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStitchable<'a, P0>(&self, stitchable: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetStitchable<P0>(&self, stitchable: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -3451,27 +3451,27 @@ pub struct IDCompositionVirtualSurface_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionVisual(::windows::core::IUnknown);
 impl IDCompositionVisual {
-    pub unsafe fn SetOffsetX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetOffsetX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetOffsetX2)(::windows::core::Vtable::as_raw(self), offsetx).ok()
     }
-    pub unsafe fn SetOffsetY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetOffsetY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetOffsetY2(&self, offsety: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetOffsetY2)(::windows::core::Vtable::as_raw(self), offsety).ok()
     }
-    pub unsafe fn SetTransform<'a, P0>(&self, transform: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTransform<P0>(&self, transform: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionTransform>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionTransform>>,
     {
         (::windows::core::Vtable::vtable(self).SetTransform)(::windows::core::Vtable::as_raw(self), transform.into().abi()).ok()
     }
@@ -3480,15 +3480,15 @@ impl IDCompositionVisual {
     pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetTransform2)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
-    pub unsafe fn SetTransformParent<'a, P0>(&self, visual: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTransformParent<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     {
         (::windows::core::Vtable::vtable(self).SetTransformParent)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
     }
-    pub unsafe fn SetEffect<'a, P0>(&self, effect: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEffect<P0>(&self, effect: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionEffect>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionEffect>>,
     {
         (::windows::core::Vtable::vtable(self).SetEffect)(::windows::core::Vtable::as_raw(self), effect.into().abi()).ok()
     }
@@ -3498,9 +3498,9 @@ impl IDCompositionVisual {
     pub unsafe fn SetBorderMode(&self, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBorderMode)(::windows::core::Vtable::as_raw(self), bordermode).ok()
     }
-    pub unsafe fn SetClip<'a, P0>(&self, clip: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetClip<P0>(&self, clip: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionClip>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionClip>>,
     {
         (::windows::core::Vtable::vtable(self).SetClip)(::windows::core::Vtable::as_raw(self), clip.into().abi()).ok()
     }
@@ -3509,25 +3509,25 @@ impl IDCompositionVisual {
     pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetClip2)(::windows::core::Vtable::as_raw(self), rect).ok()
     }
-    pub unsafe fn SetContent<'a, P0>(&self, content: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetContent<P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).SetContent)(::windows::core::Vtable::as_raw(self), content.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddVisual<'a, P0, P1, P2>(&self, visual: P0, insertabove: P1, referencevisual: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddVisual<P0, P1, P2>(&self, visual: P0, insertabove: P1, referencevisual: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     {
         (::windows::core::Vtable::vtable(self).AddVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi(), insertabove.into(), referencevisual.into().abi()).ok()
     }
-    pub unsafe fn RemoveVisual<'a, P0>(&self, visual: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveVisual<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     {
         (::windows::core::Vtable::vtable(self).RemoveVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
     }
@@ -3596,27 +3596,27 @@ pub struct IDCompositionVisual_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionVisual2(::windows::core::IUnknown);
 impl IDCompositionVisual2 {
-    pub unsafe fn SetOffsetX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetOffsetX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetOffsetX2)(::windows::core::Vtable::as_raw(self), offsetx).ok()
     }
-    pub unsafe fn SetOffsetY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetOffsetY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetOffsetY2(&self, offsety: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetOffsetY2)(::windows::core::Vtable::as_raw(self), offsety).ok()
     }
-    pub unsafe fn SetTransform<'a, P0>(&self, transform: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTransform<P0>(&self, transform: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionTransform>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionTransform>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetTransform)(::windows::core::Vtable::as_raw(self), transform.into().abi()).ok()
     }
@@ -3625,15 +3625,15 @@ impl IDCompositionVisual2 {
     pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetTransform2)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
-    pub unsafe fn SetTransformParent<'a, P0>(&self, visual: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTransformParent<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetTransformParent)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
     }
-    pub unsafe fn SetEffect<'a, P0>(&self, effect: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEffect<P0>(&self, effect: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionEffect>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionEffect>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetEffect)(::windows::core::Vtable::as_raw(self), effect.into().abi()).ok()
     }
@@ -3643,9 +3643,9 @@ impl IDCompositionVisual2 {
     pub unsafe fn SetBorderMode(&self, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetBorderMode)(::windows::core::Vtable::as_raw(self), bordermode).ok()
     }
-    pub unsafe fn SetClip<'a, P0>(&self, clip: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetClip<P0>(&self, clip: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionClip>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionClip>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetClip)(::windows::core::Vtable::as_raw(self), clip.into().abi()).ok()
     }
@@ -3654,25 +3654,25 @@ impl IDCompositionVisual2 {
     pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetClip2)(::windows::core::Vtable::as_raw(self), rect).ok()
     }
-    pub unsafe fn SetContent<'a, P0>(&self, content: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetContent<P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.SetContent)(::windows::core::Vtable::as_raw(self), content.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddVisual<'a, P0, P1, P2>(&self, visual: P0, insertabove: P1, referencevisual: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddVisual<P0, P1, P2>(&self, visual: P0, insertabove: P1, referencevisual: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     {
         (::windows::core::Vtable::vtable(self).base__.AddVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi(), insertabove.into(), referencevisual.into().abi()).ok()
     }
-    pub unsafe fn RemoveVisual<'a, P0>(&self, visual: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveVisual<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     {
         (::windows::core::Vtable::vtable(self).base__.RemoveVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
     }
@@ -3723,27 +3723,27 @@ pub struct IDCompositionVisual2_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionVisual3(::windows::core::IUnknown);
 impl IDCompositionVisual3 {
-    pub unsafe fn SetOffsetX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetOffsetX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetOffsetX2)(::windows::core::Vtable::as_raw(self), offsetx).ok()
     }
-    pub unsafe fn SetOffsetY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetOffsetY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetOffsetY2(&self, offsety: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetOffsetY2)(::windows::core::Vtable::as_raw(self), offsety).ok()
     }
-    pub unsafe fn SetTransform<'a, P0>(&self, transform: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTransform<P0>(&self, transform: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionTransform>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionTransform>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetTransform)(::windows::core::Vtable::as_raw(self), transform.into().abi()).ok()
     }
@@ -3752,15 +3752,15 @@ impl IDCompositionVisual3 {
     pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetTransform2)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
-    pub unsafe fn SetTransformParent<'a, P0>(&self, visual: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTransformParent<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetTransformParent)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
     }
-    pub unsafe fn SetEffect<'a, P0>(&self, effect: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEffect<P0>(&self, effect: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionEffect>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionEffect>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetEffect)(::windows::core::Vtable::as_raw(self), effect.into().abi()).ok()
     }
@@ -3770,9 +3770,9 @@ impl IDCompositionVisual3 {
     pub unsafe fn SetBorderMode(&self, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetBorderMode)(::windows::core::Vtable::as_raw(self), bordermode).ok()
     }
-    pub unsafe fn SetClip<'a, P0>(&self, clip: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetClip<P0>(&self, clip: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionClip>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionClip>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetClip)(::windows::core::Vtable::as_raw(self), clip.into().abi()).ok()
     }
@@ -3781,25 +3781,25 @@ impl IDCompositionVisual3 {
     pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetClip2)(::windows::core::Vtable::as_raw(self), rect).ok()
     }
-    pub unsafe fn SetContent<'a, P0>(&self, content: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetContent<P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetContent)(::windows::core::Vtable::as_raw(self), content.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddVisual<'a, P0, P1, P2>(&self, visual: P0, insertabove: P1, referencevisual: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddVisual<P0, P1, P2>(&self, visual: P0, insertabove: P1, referencevisual: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.AddVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi(), insertabove.into(), referencevisual.into().abi()).ok()
     }
-    pub unsafe fn RemoveVisual<'a, P0>(&self, visual: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveVisual<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.RemoveVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
     }
@@ -3832,27 +3832,27 @@ impl IDCompositionVisual3 {
     pub unsafe fn SetDepthMode(&self, mode: DCOMPOSITION_DEPTH_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetDepthMode)(::windows::core::Vtable::as_raw(self), mode).ok()
     }
-    pub unsafe fn SetOffsetZ<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOffsetZ<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetOffsetZ)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetOffsetZ2(&self, offsetz: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetOffsetZ2)(::windows::core::Vtable::as_raw(self), offsetz).ok()
     }
-    pub unsafe fn SetOpacity<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOpacity<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).SetOpacity)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetOpacity2(&self, opacity: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetOpacity2)(::windows::core::Vtable::as_raw(self), opacity).ok()
     }
-    pub unsafe fn SetTransform3<'a, P0>(&self, transform: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTransform3<P0>(&self, transform: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionTransform3D>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionTransform3D>>,
     {
         (::windows::core::Vtable::vtable(self).SetTransform3)(::windows::core::Vtable::as_raw(self), transform.into().abi()).ok()
     }
@@ -3863,7 +3863,7 @@ impl IDCompositionVisual3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVisible<'a, P0>(&self, visible: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetVisible<P0>(&self, visible: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -3916,27 +3916,27 @@ pub struct IDCompositionVisual3_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionVisualDebug(::windows::core::IUnknown);
 impl IDCompositionVisualDebug {
-    pub unsafe fn SetOffsetX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetOffsetX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetOffsetX2)(::windows::core::Vtable::as_raw(self), offsetx).ok()
     }
-    pub unsafe fn SetOffsetY<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetOffsetY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
     }
     pub unsafe fn SetOffsetY2(&self, offsety: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetOffsetY2)(::windows::core::Vtable::as_raw(self), offsety).ok()
     }
-    pub unsafe fn SetTransform<'a, P0>(&self, transform: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTransform<P0>(&self, transform: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionTransform>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionTransform>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetTransform)(::windows::core::Vtable::as_raw(self), transform.into().abi()).ok()
     }
@@ -3945,15 +3945,15 @@ impl IDCompositionVisualDebug {
     pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetTransform2)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
-    pub unsafe fn SetTransformParent<'a, P0>(&self, visual: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTransformParent<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetTransformParent)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
     }
-    pub unsafe fn SetEffect<'a, P0>(&self, effect: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetEffect<P0>(&self, effect: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionEffect>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionEffect>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetEffect)(::windows::core::Vtable::as_raw(self), effect.into().abi()).ok()
     }
@@ -3963,9 +3963,9 @@ impl IDCompositionVisualDebug {
     pub unsafe fn SetBorderMode(&self, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetBorderMode)(::windows::core::Vtable::as_raw(self), bordermode).ok()
     }
-    pub unsafe fn SetClip<'a, P0>(&self, clip: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetClip<P0>(&self, clip: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionClip>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionClip>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetClip)(::windows::core::Vtable::as_raw(self), clip.into().abi()).ok()
     }
@@ -3974,25 +3974,25 @@ impl IDCompositionVisualDebug {
     pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetClip2)(::windows::core::Vtable::as_raw(self), rect).ok()
     }
-    pub unsafe fn SetContent<'a, P0>(&self, content: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetContent<P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetContent)(::windows::core::Vtable::as_raw(self), content.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddVisual<'a, P0, P1, P2>(&self, visual: P0, insertabove: P1, referencevisual: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddVisual<P0, P1, P2>(&self, visual: P0, insertabove: P1, referencevisual: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P2: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.AddVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi(), insertabove.into(), referencevisual.into().abi()).ok()
     }
-    pub unsafe fn RemoveVisual<'a, P0>(&self, visual: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveVisual<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IDCompositionVisual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.RemoveVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
     }

@@ -205,7 +205,7 @@ impl ::core::convert::TryFrom<&DnssdRegistrationResult> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&DnssdRegistrationResult> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&DnssdRegistrationResult> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DnssdRegistrationResult) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -387,7 +387,7 @@ impl ::core::convert::TryFrom<&DnssdServiceInstance> for super::super::super::Fo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&DnssdServiceInstance> for ::windows::core::InParam<'a, super::super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&DnssdServiceInstance> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DnssdServiceInstance) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -521,7 +521,7 @@ impl ::core::convert::TryFrom<&DnssdServiceInstanceCollection> for super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&DnssdServiceInstanceCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>> {
+impl ::core::convert::TryFrom<&DnssdServiceInstanceCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DnssdServiceInstanceCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -543,7 +543,7 @@ impl ::core::convert::TryFrom<&DnssdServiceInstanceCollection> for super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&DnssdServiceInstanceCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>> {
+impl ::core::convert::TryFrom<&DnssdServiceInstanceCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DnssdServiceInstanceCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

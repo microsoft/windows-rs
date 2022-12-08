@@ -420,9 +420,9 @@ impl KeyCredential {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn RequestSignAsync<'a, P0, E0>(&self, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialOperationResult>>
+    pub fn RequestSignAsync<P0, E0>(&self, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialOperationResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -867,9 +867,9 @@ impl PasswordCredentialPropertyStore {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
+    pub fn Insert<P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -978,7 +978,7 @@ impl ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+impl ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PasswordCredentialPropertyStore) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1000,7 +1000,7 @@ impl ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for ::windows::core::InParam<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PasswordCredentialPropertyStore) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1022,7 +1022,7 @@ impl ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+impl ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for ::windows::core::InParam<super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PasswordCredentialPropertyStore) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1044,7 +1044,7 @@ impl ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet> {
+impl ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for ::windows::core::InParam<super::super::Foundation::Collections::IPropertySet> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PasswordCredentialPropertyStore) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1269,7 +1269,7 @@ impl ::core::convert::TryFrom<&WebAccount> for IWebAccount {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&WebAccount> for ::windows::core::InParam<'a, IWebAccount> {
+impl ::core::convert::TryFrom<&WebAccount> for ::windows::core::InParam<IWebAccount> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebAccount) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

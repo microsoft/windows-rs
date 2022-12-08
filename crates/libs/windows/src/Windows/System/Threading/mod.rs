@@ -495,9 +495,9 @@ impl WorkItemHandler {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Invoke<'a, P0, E0>(&self, operation: P0) -> ::windows::core::Result<()>
+    pub fn Invoke<P0, E0>(&self, operation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IAsyncAction>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IAsyncAction>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

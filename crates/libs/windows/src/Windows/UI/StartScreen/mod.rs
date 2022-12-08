@@ -1565,9 +1565,9 @@ impl TileMixedRealityModel {
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetBoundingBox<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetBoundingBox<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

@@ -45,9 +45,9 @@ pub struct ISoftwareBitmapNativeFactory(::windows::core::IUnknown);
 impl ISoftwareBitmapNativeFactory {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
-    pub unsafe fn CreateFromWICBitmap<'a, P0, P1, T>(&self, data: P0, forcereadonly: P1) -> ::windows::core::Result<T>
+    pub unsafe fn CreateFromWICBitmap<P0, P1, T>(&self, data: P0, forcereadonly: P1) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Graphics::Imaging::IWICBitmap>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::super::Graphics::Imaging::IWICBitmap>>,
         P1: ::std::convert::Into<super::super::super::super::Foundation::BOOL>,
         T: ::windows::core::Interface,
     {
@@ -56,9 +56,9 @@ impl ISoftwareBitmapNativeFactory {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn CreateFromMF2DBuffer2<'a, P0, P1, T>(&self, data: P0, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: P1, mindisplayaperture: ::core::option::Option<*const super::super::super::super::Media::MediaFoundation::MFVideoArea>) -> ::windows::core::Result<T>
+    pub unsafe fn CreateFromMF2DBuffer2<P0, P1, T>(&self, data: P0, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: P1, mindisplayaperture: ::core::option::Option<*const super::super::super::super::Media::MediaFoundation::MFVideoArea>) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>>,
         P1: ::std::convert::Into<super::super::super::super::Foundation::BOOL>,
         T: ::windows::core::Interface,
     {

@@ -137,7 +137,7 @@ impl ::core::convert::TryFrom<&InstalledDesktopApp> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&InstalledDesktopApp> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+impl ::core::convert::TryFrom<&InstalledDesktopApp> for ::windows::core::InParam<super::super::Foundation::IStringable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InstalledDesktopApp) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

@@ -21,9 +21,9 @@ pub struct CorePerceptionAutomation;
 impl CorePerceptionAutomation {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetActivationFactoryProvider<'a, P0, E0>(provider: P0) -> ::windows::core::Result<()>
+    pub fn SetActivationFactoryProvider<P0, E0>(provider: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IGetActivationFactory>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IGetActivationFactory>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICorePerceptionAutomationStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).SetActivationFactoryProvider)(::windows::core::Vtable::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi()).ok() })

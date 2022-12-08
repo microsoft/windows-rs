@@ -50,9 +50,9 @@ impl DesktopWindowTarget {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
@@ -83,17 +83,17 @@ impl DesktopWindowTarget {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StartAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationGroup)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn StopAnimationGroup<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::ICompositionAnimationBase>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
@@ -115,9 +115,9 @@ impl DesktopWindowTarget {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::CompositionAnimation>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
@@ -129,9 +129,9 @@ impl DesktopWindowTarget {
             (::windows::core::Vtable::vtable(this).Root)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetRoot<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetRoot<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
+        P0: ::std::convert::Into<::windows::core::InParam<super::Visual>>,
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionTarget>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetRoot)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
@@ -189,7 +189,7 @@ impl ::core::convert::TryFrom<&DesktopWindowTarget> for super::IAnimationObject 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DesktopWindowTarget> for ::windows::core::InParam<'a, super::IAnimationObject> {
+impl ::core::convert::TryFrom<&DesktopWindowTarget> for ::windows::core::InParam<super::IAnimationObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DesktopWindowTarget) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -211,7 +211,7 @@ impl ::core::convert::TryFrom<&DesktopWindowTarget> for super::super::super::Fou
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&DesktopWindowTarget> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+impl ::core::convert::TryFrom<&DesktopWindowTarget> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DesktopWindowTarget) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -228,7 +228,7 @@ impl ::core::convert::From<&DesktopWindowTarget> for super::CompositionTarget {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&DesktopWindowTarget> for ::windows::core::InParam<'a, super::CompositionTarget> {
+impl ::core::convert::From<&DesktopWindowTarget> for ::windows::core::InParam<super::CompositionTarget> {
     fn from(value: &DesktopWindowTarget) -> Self {
         ::windows::core::InParam::owned(value.into())
     }
@@ -243,7 +243,7 @@ impl ::core::convert::From<&DesktopWindowTarget> for super::CompositionObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::core::convert::From<&DesktopWindowTarget> for ::windows::core::InParam<'a, super::CompositionObject> {
+impl ::core::convert::From<&DesktopWindowTarget> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &DesktopWindowTarget) -> Self {
         ::windows::core::InParam::owned(value.into())
     }

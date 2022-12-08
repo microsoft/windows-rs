@@ -1116,9 +1116,9 @@ impl IMediaDeviceController {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<'a, P0, E0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<P0, E0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1761,9 +1761,9 @@ impl AudioDeviceController {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<'a, P0, E0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<P0, E0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
@@ -1818,7 +1818,7 @@ impl ::core::convert::TryFrom<&AudioDeviceController> for IMediaDeviceController
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&AudioDeviceController> for ::windows::core::InParam<'a, IMediaDeviceController> {
+impl ::core::convert::TryFrom<&AudioDeviceController> for ::windows::core::InParam<IMediaDeviceController> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AudioDeviceController) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -1866,9 +1866,9 @@ impl AudioDeviceModule {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendCommandAsync<'a, P0, E0>(&self, command: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ModuleCommandResult>>
+    pub fn SendCommandAsync<P0, E0>(&self, command: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ModuleCommandResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2461,7 +2461,7 @@ impl ::core::convert::TryFrom<&DefaultAudioCaptureDeviceChangedEventArgs> for ID
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DefaultAudioCaptureDeviceChangedEventArgs> for ::windows::core::InParam<'a, IDefaultAudioDeviceChangedEventArgs> {
+impl ::core::convert::TryFrom<&DefaultAudioCaptureDeviceChangedEventArgs> for ::windows::core::InParam<IDefaultAudioDeviceChangedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -2534,7 +2534,7 @@ impl ::core::convert::TryFrom<&DefaultAudioRenderDeviceChangedEventArgs> for IDe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&DefaultAudioRenderDeviceChangedEventArgs> for ::windows::core::InParam<'a, IDefaultAudioDeviceChangedEventArgs> {
+impl ::core::convert::TryFrom<&DefaultAudioRenderDeviceChangedEventArgs> for ::windows::core::InParam<IDefaultAudioDeviceChangedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -3463,9 +3463,9 @@ impl FocusSettings {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetValue<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3482,9 +3482,9 @@ impl FocusSettings {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDistance<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDistance<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<ManualFocusDistance>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<ManualFocusDistance>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -3892,9 +3892,9 @@ pub struct LowLagPhotoControl(::windows::core::IUnknown);
 impl LowLagPhotoControl {
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetHighestConcurrentFrameRate<'a, P0, E0>(&self, captureproperties: P0) -> ::windows::core::Result<super::MediaProperties::MediaRatio>
+    pub fn GetHighestConcurrentFrameRate<P0, E0>(&self, captureproperties: P0) -> ::windows::core::Result<super::MediaProperties::MediaRatio>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4039,9 +4039,9 @@ impl LowLagPhotoSequenceControl {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetHighestConcurrentFrameRate<'a, P0, E0>(&self, captureproperties: P0) -> ::windows::core::Result<super::MediaProperties::MediaRatio>
+    pub fn GetHighestConcurrentFrameRate<P0, E0>(&self, captureproperties: P0) -> ::windows::core::Result<super::MediaProperties::MediaRatio>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4797,9 +4797,9 @@ impl RegionsOfInterestControl {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetRegionsAsync<'a, P0, E0>(&self, regions: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetRegionsAsync<P0, E0>(&self, regions: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<RegionOfInterest>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<RegionOfInterest>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -4810,9 +4810,9 @@ impl RegionsOfInterestControl {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetRegionsWithLockAsync<'a, P0, E0>(&self, regions: P0, lockvalues: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetRegionsWithLockAsync<P0, E0>(&self, regions: P0, lockvalues: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<RegionOfInterest>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<RegionOfInterest>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -5026,9 +5026,9 @@ impl ::windows::core::RuntimeName for TorchControl {
 #[repr(transparent)]
 pub struct VideoDeviceController(::windows::core::IUnknown);
 impl VideoDeviceController {
-    pub fn SetDeviceProperty<'a, P0>(&self, propertyid: &::windows::core::HSTRING, propertyvalue: P0) -> ::windows::core::Result<()>
+    pub fn SetDeviceProperty<P0>(&self, propertyid: &::windows::core::HSTRING, propertyvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetDeviceProperty)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyid), propertyvalue.into().abi()).ok() }
@@ -5215,9 +5215,9 @@ impl VideoDeviceController {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDevicePropertyById<'a, P0, E0>(&self, propertyid: &::windows::core::HSTRING, maxpropertyvaluesize: P0) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyResult>
+    pub fn GetDevicePropertyById<P0, E0>(&self, propertyid: &::windows::core::HSTRING, maxpropertyvaluesize: P0) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyResult>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
@@ -5226,9 +5226,9 @@ impl VideoDeviceController {
             (::windows::core::Vtable::vtable(this).GetDevicePropertyById)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyid), maxpropertyvaluesize.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
-    pub fn SetDevicePropertyById<'a, P0>(&self, propertyid: &::windows::core::HSTRING, propertyvalue: P0) -> ::windows::core::Result<VideoDeviceControllerSetDevicePropertyStatus>
+    pub fn SetDevicePropertyById<P0>(&self, propertyid: &::windows::core::HSTRING, propertyvalue: P0) -> ::windows::core::Result<VideoDeviceControllerSetDevicePropertyStatus>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
@@ -5238,9 +5238,9 @@ impl VideoDeviceController {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDevicePropertyByExtendedId<'a, P0, E0>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: P0) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyResult>
+    pub fn GetDevicePropertyByExtendedId<P0, E0>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: P0) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyResult>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<u32>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
@@ -5304,9 +5304,9 @@ impl VideoDeviceController {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<'a, P0, E0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<P0, E0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
@@ -5456,7 +5456,7 @@ impl ::core::convert::TryFrom<&VideoDeviceController> for IMediaDeviceController
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::core::convert::TryFrom<&VideoDeviceController> for ::windows::core::InParam<'a, IMediaDeviceController> {
+impl ::core::convert::TryFrom<&VideoDeviceController> for ::windows::core::InParam<IMediaDeviceController> {
     type Error = ::windows::core::Error;
     fn try_from(value: &VideoDeviceController) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

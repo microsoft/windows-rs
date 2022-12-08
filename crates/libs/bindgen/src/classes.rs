@@ -163,7 +163,7 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
                 }
             }
             #features
-            impl<'a> ::core::convert::TryFrom<&#name> for ::windows::core::InParam<'a, #into> {
+            impl ::core::convert::TryFrom<&#name> for ::windows::core::InParam<#into> {
                 type Error = ::windows::core::Error;
                 fn try_from(value: &#name) -> ::windows::core::Result<Self> {
                     let item = ::std::convert::TryInto::try_into(value)?;
@@ -193,7 +193,7 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
                 }
             }
             #features
-            impl <'a> ::core::convert::From<&#name> for ::windows::core::InParam<'a, #into> {
+            impl ::core::convert::From<&#name> for ::windows::core::InParam<#into> {
                 fn from(value: &#name) -> Self {
                     ::windows::core::InParam::owned(value.into())
                 }

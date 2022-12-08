@@ -200,9 +200,9 @@ impl OnlineIdAuthenticator {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AuthenticateUserAsyncAdvanced<'a, P0, E0>(&self, requests: P0, credentialprompttype: CredentialPromptType) -> ::windows::core::Result<UserAuthenticationOperation>
+    pub fn AuthenticateUserAsyncAdvanced<P0, E0>(&self, requests: P0, credentialprompttype: CredentialPromptType) -> ::windows::core::Result<UserAuthenticationOperation>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -778,7 +778,7 @@ impl ::core::convert::TryFrom<&SignOutUserOperation> for super::super::super::Fo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SignOutUserOperation> for ::windows::core::InParam<'a, super::super::super::Foundation::IAsyncAction> {
+impl ::core::convert::TryFrom<&SignOutUserOperation> for ::windows::core::InParam<super::super::super::Foundation::IAsyncAction> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SignOutUserOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -800,7 +800,7 @@ impl ::core::convert::TryFrom<&SignOutUserOperation> for super::super::super::Fo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&SignOutUserOperation> for ::windows::core::InParam<'a, super::super::super::Foundation::IAsyncInfo> {
+impl ::core::convert::TryFrom<&SignOutUserOperation> for ::windows::core::InParam<super::super::super::Foundation::IAsyncInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SignOutUserOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -969,7 +969,7 @@ impl ::core::convert::TryFrom<&UserAuthenticationOperation> for super::super::su
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&UserAuthenticationOperation> for ::windows::core::InParam<'a, super::super::super::Foundation::IAsyncInfo> {
+impl ::core::convert::TryFrom<&UserAuthenticationOperation> for ::windows::core::InParam<super::super::super::Foundation::IAsyncInfo> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UserAuthenticationOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
@@ -991,7 +991,7 @@ impl ::core::convert::TryFrom<&UserAuthenticationOperation> for super::super::su
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&UserAuthenticationOperation> for ::windows::core::InParam<'a, super::super::super::Foundation::IAsyncOperation<UserIdentity>> {
+impl ::core::convert::TryFrom<&UserAuthenticationOperation> for ::windows::core::InParam<super::super::super::Foundation::IAsyncOperation<UserIdentity>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UserAuthenticationOperation) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;

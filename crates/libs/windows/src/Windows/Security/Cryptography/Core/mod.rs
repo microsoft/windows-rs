@@ -867,9 +867,9 @@ impl AsymmetricKeyAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportDefaultPrivateKeyBlob<'a, P0, E0>(&self, keyblob: P0) -> ::windows::core::Result<CryptographicKey>
+    pub fn ImportDefaultPrivateKeyBlob<P0, E0>(&self, keyblob: P0) -> ::windows::core::Result<CryptographicKey>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -880,9 +880,9 @@ impl AsymmetricKeyAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportKeyPairWithBlobType<'a, P0, E0>(&self, keyblob: P0, blobtype: CryptographicPrivateKeyBlobType) -> ::windows::core::Result<CryptographicKey>
+    pub fn ImportKeyPairWithBlobType<P0, E0>(&self, keyblob: P0, blobtype: CryptographicPrivateKeyBlobType) -> ::windows::core::Result<CryptographicKey>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -893,9 +893,9 @@ impl AsymmetricKeyAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportDefaultPublicKeyBlob<'a, P0, E0>(&self, keyblob: P0) -> ::windows::core::Result<CryptographicKey>
+    pub fn ImportDefaultPublicKeyBlob<P0, E0>(&self, keyblob: P0) -> ::windows::core::Result<CryptographicKey>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -906,9 +906,9 @@ impl AsymmetricKeyAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportPublicKeyWithBlobType<'a, P0, E0>(&self, keyblob: P0, blobtype: CryptographicPublicKeyBlobType) -> ::windows::core::Result<CryptographicKey>
+    pub fn ImportPublicKeyWithBlobType<P0, E0>(&self, keyblob: P0, blobtype: CryptographicPublicKeyBlobType) -> ::windows::core::Result<CryptographicKey>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -983,11 +983,11 @@ pub struct CryptographicEngine;
 impl CryptographicEngine {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Encrypt<'a, P0, E0, P1, E1>(key: &CryptographicKey, data: P0, iv: P1) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn Encrypt<P0, E0, P1, E1>(key: &CryptographicKey, data: P0, iv: P1) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
@@ -997,11 +997,11 @@ impl CryptographicEngine {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Decrypt<'a, P0, E0, P1, E1>(key: &CryptographicKey, data: P0, iv: P1) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn Decrypt<P0, E0, P1, E1>(key: &CryptographicKey, data: P0, iv: P1) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
@@ -1011,13 +1011,13 @@ impl CryptographicEngine {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn EncryptAndAuthenticate<'a, P0, E0, P1, E1, P2, E2>(key: &CryptographicKey, data: P0, nonce: P1, authenticateddata: P2) -> ::windows::core::Result<EncryptedAndAuthenticatedData>
+    pub fn EncryptAndAuthenticate<P0, E0, P1, E1, P2, E2>(key: &CryptographicKey, data: P0, nonce: P1, authenticateddata: P2) -> ::windows::core::Result<EncryptedAndAuthenticatedData>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
@@ -1027,15 +1027,15 @@ impl CryptographicEngine {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn DecryptAndAuthenticate<'a, P0, E0, P1, E1, P2, E2, P3, E3>(key: &CryptographicKey, data: P0, nonce: P1, authenticationtag: P2, authenticateddata: P3) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn DecryptAndAuthenticate<P0, E0, P1, E1, P2, E2, P3, E3>(key: &CryptographicKey, data: P0, nonce: P1, authenticationtag: P2, authenticateddata: P3) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
-        P3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E3>,
+        P3: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E3>,
         E3: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
@@ -1045,9 +1045,9 @@ impl CryptographicEngine {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Sign<'a, P0, E0>(key: &CryptographicKey, data: P0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn Sign<P0, E0>(key: &CryptographicKey, data: P0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
@@ -1057,11 +1057,11 @@ impl CryptographicEngine {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn VerifySignature<'a, P0, E0, P1, E1>(key: &CryptographicKey, data: P0, signature: P1) -> ::windows::core::Result<bool>
+    pub fn VerifySignature<P0, E0, P1, E1>(key: &CryptographicKey, data: P0, signature: P1) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
@@ -1079,9 +1079,9 @@ impl CryptographicEngine {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SignHashedData<'a, P0, E0>(key: &CryptographicKey, data: P0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn SignHashedData<P0, E0>(key: &CryptographicKey, data: P0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
@@ -1091,11 +1091,11 @@ impl CryptographicEngine {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn VerifySignatureWithHashInput<'a, P0, E0, P1, E1>(key: &CryptographicKey, data: P0, signature: P1) -> ::windows::core::Result<bool>
+    pub fn VerifySignatureWithHashInput<P0, E0, P1, E1>(key: &CryptographicKey, data: P0, signature: P1) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
@@ -1105,11 +1105,11 @@ impl CryptographicEngine {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn DecryptAsync<'a, P0, E0, P1, E1>(key: &CryptographicKey, data: P0, iv: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn DecryptAsync<P0, E0, P1, E1>(key: &CryptographicKey, data: P0, iv: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
@@ -1119,9 +1119,9 @@ impl CryptographicEngine {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SignAsync<'a, P0, E0>(key: &CryptographicKey, data: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn SignAsync<P0, E0>(key: &CryptographicKey, data: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
@@ -1131,9 +1131,9 @@ impl CryptographicEngine {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SignHashedDataAsync<'a, P0, E0>(key: &CryptographicKey, data: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn SignHashedDataAsync<P0, E0>(key: &CryptographicKey, data: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
@@ -1161,9 +1161,9 @@ pub struct CryptographicHash(::windows::core::IUnknown);
 impl CryptographicHash {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Append<'a, P0, E0>(&self, data: P0) -> ::windows::core::Result<()>
+    pub fn Append<P0, E0>(&self, data: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1707,9 +1707,9 @@ impl HashAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn HashData<'a, P0, E0>(&self, data: P0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn HashData<P0, E0>(&self, data: P0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1922,9 +1922,9 @@ impl KeyDerivationAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateKey<'a, P0, E0>(&self, keymaterial: P0) -> ::windows::core::Result<CryptographicKey>
+    pub fn CreateKey<P0, E0>(&self, keymaterial: P0) -> ::windows::core::Result<CryptographicKey>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -1995,9 +1995,9 @@ impl KeyDerivationParameters {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetKdfGenericBinary<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetKdfGenericBinary<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2023,9 +2023,9 @@ impl KeyDerivationParameters {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn BuildForPbkdf2<'a, P0, E0>(pbkdf2salt: P0, iterationcount: u32) -> ::windows::core::Result<KeyDerivationParameters>
+    pub fn BuildForPbkdf2<P0, E0>(pbkdf2salt: P0, iterationcount: u32) -> ::windows::core::Result<KeyDerivationParameters>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IKeyDerivationParametersStatics(|this| unsafe {
@@ -2035,11 +2035,11 @@ impl KeyDerivationParameters {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn BuildForSP800108<'a, P0, E0, P1, E1>(label: P0, context: P1) -> ::windows::core::Result<KeyDerivationParameters>
+    pub fn BuildForSP800108<P0, E0, P1, E1>(label: P0, context: P1) -> ::windows::core::Result<KeyDerivationParameters>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IKeyDerivationParametersStatics(|this| unsafe {
@@ -2049,17 +2049,17 @@ impl KeyDerivationParameters {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn BuildForSP80056a<'a, P0, E0, P1, E1, P2, E2, P3, E3, P4, E4>(algorithmid: P0, partyuinfo: P1, partyvinfo: P2, supppubinfo: P3, suppprivinfo: P4) -> ::windows::core::Result<KeyDerivationParameters>
+    pub fn BuildForSP80056a<P0, E0, P1, E1, P2, E2, P3, E3, P4, E4>(algorithmid: P0, partyuinfo: P1, partyvinfo: P2, supppubinfo: P3, suppprivinfo: P4) -> ::windows::core::Result<KeyDerivationParameters>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E2>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
-        P3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E3>,
+        P3: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E3>,
         E3: ::std::convert::Into<::windows::core::Error>,
-        P4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E4>,
+        P4: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E4>,
         E4: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IKeyDerivationParametersStatics(|this| unsafe {
@@ -2187,9 +2187,9 @@ impl MacAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateKey<'a, P0, E0>(&self, keymaterial: P0) -> ::windows::core::Result<CryptographicKey>
+    pub fn CreateKey<P0, E0>(&self, keymaterial: P0) -> ::windows::core::Result<CryptographicKey>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
@@ -2200,9 +2200,9 @@ impl MacAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateHash<'a, P0, E0>(&self, keymaterial: P0) -> ::windows::core::Result<CryptographicHash>
+    pub fn CreateHash<P0, E0>(&self, keymaterial: P0) -> ::windows::core::Result<CryptographicHash>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMacAlgorithmProvider2>(self)?;
@@ -2432,9 +2432,9 @@ impl SymmetricKeyAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateSymmetricKey<'a, P0, E0>(&self, keymaterial: P0) -> ::windows::core::Result<CryptographicKey>
+    pub fn CreateSymmetricKey<P0, E0>(&self, keymaterial: P0) -> ::windows::core::Result<CryptographicKey>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;

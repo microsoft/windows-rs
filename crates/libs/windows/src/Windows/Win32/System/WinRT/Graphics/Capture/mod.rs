@@ -4,7 +4,7 @@ pub struct IGraphicsCaptureItemInterop(::windows::core::IUnknown);
 impl IGraphicsCaptureItemInterop {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateForWindow<'a, P0, T>(&self, window: P0) -> ::windows::core::Result<T>
+    pub unsafe fn CreateForWindow<P0, T>(&self, window: P0) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<super::super::super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
@@ -14,7 +14,7 @@ impl IGraphicsCaptureItemInterop {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreateForMonitor<'a, P0, T>(&self, monitor: P0) -> ::windows::core::Result<T>
+    pub unsafe fn CreateForMonitor<P0, T>(&self, monitor: P0) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<super::super::super::super::Graphics::Gdi::HMONITOR>,
         T: ::windows::core::Interface,
