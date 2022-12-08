@@ -2125,9 +2125,8 @@ impl ICameraUIControl {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCurrentViewType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetActiveItem(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetActiveItem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetActiveItem(&self, pbstractiveitempath: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetActiveItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstractiveitempath.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

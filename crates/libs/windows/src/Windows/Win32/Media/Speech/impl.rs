@@ -1583,7 +1583,7 @@ pub trait ISpRecoGrammar_Impl: Sized + ISpGrammarBuilder_Impl {
     fn SetTextSelection(&self, pinfo: *const SPTEXTSELECTIONINFO) -> ::windows::core::Result<()>;
     fn IsPronounceable(&self, pszword: &::windows::core::PCWSTR, pwordpronounceable: *mut SPWORDPRONOUNCEABLE) -> ::windows::core::Result<()>;
     fn SetGrammarState(&self, egrammarstate: SPGRAMMARSTATE) -> ::windows::core::Result<()>;
-    fn SaveCmd(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SaveCmd(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>, ppszcomemerrortext: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn GetGrammarState(&self, pegrammarstate: *mut SPGRAMMARSTATE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1680,13 +1680,7 @@ impl ISpRecoGrammar_Vtbl {
         unsafe extern "system" fn SaveCmd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void, ppszcomemerrortext: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SaveCmd(::core::mem::transmute(&pstream)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppszcomemerrortext, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.SaveCmd(::core::mem::transmute(&pstream), ::core::mem::transmute_copy(&ppszcomemerrortext)).into()
         }
         unsafe extern "system" fn GetGrammarState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pegrammarstate: *mut SPGRAMMARSTATE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2452,8 +2446,8 @@ pub trait ISpVoice_Impl: Sized + ISpEventSource_Impl {
     fn Resume(&self) -> ::windows::core::Result<()>;
     fn SetVoice(&self, ptoken: &::core::option::Option<ISpObjectToken>) -> ::windows::core::Result<()>;
     fn GetVoice(&self) -> ::windows::core::Result<ISpObjectToken>;
-    fn Speak(&self, pwcs: &::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<u32>;
-    fn SpeakStream(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>, dwflags: u32) -> ::windows::core::Result<u32>;
+    fn Speak(&self, pwcs: &::windows::core::PCWSTR, dwflags: u32, pulstreamnumber: *mut u32) -> ::windows::core::Result<()>;
+    fn SpeakStream(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>, dwflags: u32, pulstreamnumber: *mut u32) -> ::windows::core::Result<()>;
     fn GetStatus(&self, pstatus: *mut SPVOICESTATUS, ppszlastbookmark: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn Skip(&self, pitemtype: &::windows::core::PCWSTR, lnumitems: i32, pulnumskipped: *mut u32) -> ::windows::core::Result<()>;
     fn SetPriority(&self, epriority: SPVPRIORITY) -> ::windows::core::Result<()>;
@@ -2532,24 +2526,12 @@ impl ISpVoice_Vtbl {
         unsafe extern "system" fn Speak<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpVoice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcs: ::windows::core::PCWSTR, dwflags: u32, pulstreamnumber: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Speak(::core::mem::transmute(&pwcs), ::core::mem::transmute_copy(&dwflags)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pulstreamnumber, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Speak(::core::mem::transmute(&pwcs), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pulstreamnumber)).into()
         }
         unsafe extern "system" fn SpeakStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpVoice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void, dwflags: u32, pulstreamnumber: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SpeakStream(::core::mem::transmute(&pstream), ::core::mem::transmute_copy(&dwflags)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pulstreamnumber, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.SpeakStream(::core::mem::transmute(&pstream), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pulstreamnumber)).into()
         }
         unsafe extern "system" fn GetStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpVoice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut SPVOICESTATUS, ppszlastbookmark: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

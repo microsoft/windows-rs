@@ -305,13 +305,12 @@ pub unsafe fn NetFreeAadJoinInformation(pjoininfo: ::core::option::Option<*const
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn NetGetAadJoinInformation<P0>(pcsztenantid: P0) -> ::windows::core::Result<*mut DSREG_JOIN_INFO>
+pub unsafe fn NetGetAadJoinInformation<P0>(pcsztenantid: P0, ppjoininfo: ::core::option::Option<*mut *mut DSREG_JOIN_INFO>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGetAadJoinInformation ( pcsztenantid : :: windows::core::PCWSTR , ppjoininfo : *mut *mut DSREG_JOIN_INFO ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    NetGetAadJoinInformation(pcsztenantid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    NetGetAadJoinInformation(pcsztenantid.into().abi(), ::core::mem::transmute(ppjoininfo.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -1810,16 +1809,14 @@ impl INetCfg {
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn EnumComponents(&self, pguidclass: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumNetCfgComponent> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumComponents)(::windows::core::Vtable::as_raw(self), pguidclass, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn EnumComponents(&self, pguidclass: *const ::windows::core::GUID, ppenumcomponent: ::core::option::Option<*mut ::core::option::Option<IEnumNetCfgComponent>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).EnumComponents)(::windows::core::Vtable::as_raw(self), pguidclass, ::core::mem::transmute(ppenumcomponent.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn FindComponent<P0>(&self, pszwinfid: P0) -> ::windows::core::Result<INetCfgComponent>
+    pub unsafe fn FindComponent<P0>(&self, pszwinfid: P0, pcomponent: ::core::option::Option<*mut ::core::option::Option<INetCfgComponent>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindComponent)(::windows::core::Vtable::as_raw(self), pszwinfid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindComponent)(::windows::core::Vtable::as_raw(self), pszwinfid.into().abi(), ::core::mem::transmute(pcomponent.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn QueryNetCfgClass(&self, pguidclass: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).QueryNetCfgClass)(::windows::core::Vtable::as_raw(self), pguidclass, riid, ::core::mem::transmute(ppvobject.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -1864,17 +1861,14 @@ pub struct INetCfg_Vtbl {
 #[repr(transparent)]
 pub struct INetCfgBindingInterface(::windows::core::IUnknown);
 impl INetCfgBindingInterface {
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetName(&self, ppszwinterfacename: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszwinterfacename.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetUpperComponent(&self) -> ::windows::core::Result<INetCfgComponent> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUpperComponent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetUpperComponent(&self, ppnccitem: ::core::option::Option<*mut ::core::option::Option<INetCfgComponent>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetUpperComponent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppnccitem.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetLowerComponent(&self) -> ::windows::core::Result<INetCfgComponent> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLowerComponent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetLowerComponent(&self, ppnccitem: ::core::option::Option<*mut ::core::option::Option<INetCfgComponent>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetLowerComponent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppnccitem.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgBindingInterface, ::windows::core::IUnknown);
@@ -1935,21 +1929,18 @@ impl INetCfgBindingPath {
     {
         (::windows::core::Vtable::vtable(self).Enable)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
-    pub unsafe fn GetPathToken(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPathToken)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetPathToken(&self, ppszwpathtoken: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetPathToken)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszwpathtoken.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<INetCfgComponent> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOwner)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetOwner(&self, ppcomponent: ::core::option::Option<*mut ::core::option::Option<INetCfgComponent>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetOwner)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppcomponent.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetDepth(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetDepth)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn EnumBindingInterfaces(&self) -> ::windows::core::Result<IEnumNetCfgBindingInterface> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumBindingInterfaces)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn EnumBindingInterfaces(&self, ppenuminterface: ::core::option::Option<*mut ::core::option::Option<IEnumNetCfgBindingInterface>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).EnumBindingInterfaces)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenuminterface.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgBindingPath, ::windows::core::IUnknown);
@@ -1995,16 +1986,14 @@ pub struct INetCfgBindingPath_Vtbl {
 #[repr(transparent)]
 pub struct INetCfgClass(::windows::core::IUnknown);
 impl INetCfgClass {
-    pub unsafe fn FindComponent<P0>(&self, pszwinfid: P0) -> ::windows::core::Result<INetCfgComponent>
+    pub unsafe fn FindComponent<P0>(&self, pszwinfid: P0, ppnccitem: ::core::option::Option<*mut ::core::option::Option<INetCfgComponent>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindComponent)(::windows::core::Vtable::as_raw(self), pszwinfid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindComponent)(::windows::core::Vtable::as_raw(self), pszwinfid.into().abi(), ::core::mem::transmute(ppnccitem.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn EnumComponents(&self) -> ::windows::core::Result<IEnumNetCfgComponent> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumComponents)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn EnumComponents(&self, ppenumcomponent: ::core::option::Option<*mut ::core::option::Option<IEnumNetCfgComponent>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).EnumComponents)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenumcomponent.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgClass, ::windows::core::IUnknown);
@@ -2043,23 +2032,21 @@ pub struct INetCfgClassSetup(::windows::core::IUnknown);
 impl INetCfgClassSetup {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SelectAndInstall<P0>(&self, hwndparent: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>) -> ::windows::core::Result<INetCfgComponent>
+    pub unsafe fn SelectAndInstall<P0>(&self, hwndparent: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>, ppnccitem: ::core::option::Option<*mut ::core::option::Option<INetCfgComponent>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SelectAndInstall)(::windows::core::Vtable::as_raw(self), hwndparent.into(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).SelectAndInstall)(::windows::core::Vtable::as_raw(self), hwndparent.into(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppnccitem.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Install<P0, P1, P2>(&self, pszwinfid: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: P1, pszwanswersections: P2) -> ::windows::core::Result<INetCfgComponent>
+    pub unsafe fn Install<P0, P1, P2>(&self, pszwinfid: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: P1, pszwanswersections: P2, ppnccitem: ::core::option::Option<*mut ::core::option::Option<INetCfgComponent>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Install)(::windows::core::Vtable::as_raw(self), pszwinfid.into().abi(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), dwsetupflags, dwupgradefrombuildno, pszwanswerfile.into().abi(), pszwanswersections.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Install)(::windows::core::Vtable::as_raw(self), pszwinfid.into().abi(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), dwsetupflags, dwupgradefrombuildno, pszwanswerfile.into().abi(), pszwanswersections.into().abi(), ::core::mem::transmute(ppnccitem.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2116,23 +2103,21 @@ pub struct INetCfgClassSetup2(::windows::core::IUnknown);
 impl INetCfgClassSetup2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SelectAndInstall<P0>(&self, hwndparent: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>) -> ::windows::core::Result<INetCfgComponent>
+    pub unsafe fn SelectAndInstall<P0>(&self, hwndparent: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>, ppnccitem: ::core::option::Option<*mut ::core::option::Option<INetCfgComponent>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.SelectAndInstall)(::windows::core::Vtable::as_raw(self), hwndparent.into(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.SelectAndInstall)(::windows::core::Vtable::as_raw(self), hwndparent.into(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppnccitem.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Install<P0, P1, P2>(&self, pszwinfid: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: P1, pszwanswersections: P2) -> ::windows::core::Result<INetCfgComponent>
+    pub unsafe fn Install<P0, P1, P2>(&self, pszwinfid: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: P1, pszwanswersections: P2, ppnccitem: ::core::option::Option<*mut ::core::option::Option<INetCfgComponent>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Install)(::windows::core::Vtable::as_raw(self), pszwinfid.into().abi(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), dwsetupflags, dwupgradefrombuildno, pszwanswerfile.into().abi(), pszwanswersections.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.Install)(::windows::core::Vtable::as_raw(self), pszwinfid.into().abi(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), dwsetupflags, dwupgradefrombuildno, pszwanswerfile.into().abi(), pszwanswersections.into().abi(), ::core::mem::transmute(ppnccitem.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2182,9 +2167,8 @@ pub struct INetCfgClassSetup2_Vtbl {
 #[repr(transparent)]
 pub struct INetCfgComponent(::windows::core::IUnknown);
 impl INetCfgComponent {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetDisplayName(&self, ppszwdisplayname: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetDisplayName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszwdisplayname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetDisplayName<P0>(&self, pszwdisplayname: P0) -> ::windows::core::Result<()>
     where
@@ -2192,33 +2176,27 @@ impl INetCfgComponent {
     {
         (::windows::core::Vtable::vtable(self).SetDisplayName)(::windows::core::Vtable::as_raw(self), pszwdisplayname.into().abi()).ok()
     }
-    pub unsafe fn GetHelpText(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHelpText)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetHelpText(&self, pszwhelptext: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetHelpText)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszwhelptext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetId(&self, ppszwid: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszwid.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCharacteristics(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCharacteristics)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetInstanceGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInstanceGuid)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetInstanceGuid(&self, pguid: ::core::option::Option<*mut ::windows::core::GUID>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetInstanceGuid)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguid.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetPnpDevNodeId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPnpDevNodeId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetPnpDevNodeId(&self, ppszwdevnodeid: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetPnpDevNodeId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszwdevnodeid.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetClassGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClassGuid)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetClassGuid(&self, pguid: ::core::option::Option<*mut ::windows::core::GUID>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetClassGuid)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguid.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetBindName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBindName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetBindName(&self, ppszwbindname: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetBindName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszwbindname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetDeviceStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2226,9 +2204,8 @@ impl INetCfgComponent {
     }
     #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn OpenParamKey(&self) -> ::windows::core::Result<super::super::System::Registry::HKEY> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenParamKey)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn OpenParamKey(&self, phkey: ::core::option::Option<*mut super::super::System::Registry::HKEY>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).OpenParamKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phkey.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2320,9 +2297,8 @@ impl INetCfgComponentBindings {
     {
         (::windows::core::Vtable::vtable(self).IsBindableTo)(::windows::core::Vtable::as_raw(self), pnccitem.into().abi()).ok()
     }
-    pub unsafe fn EnumBindingPaths(&self, dwflags: u32) -> ::windows::core::Result<IEnumNetCfgBindingPath> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumBindingPaths)(::windows::core::Vtable::as_raw(self), dwflags, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn EnumBindingPaths(&self, dwflags: u32, ppienum: ::core::option::Option<*mut ::core::option::Option<IEnumNetCfgBindingPath>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).EnumBindingPaths)(::windows::core::Vtable::as_raw(self), dwflags, ::core::mem::transmute(ppienum.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn MoveBefore<P0, P1>(&self, pncbitemsrc: P0, pncbitemdest: P1) -> ::windows::core::Result<()>
     where
@@ -2782,19 +2758,17 @@ pub struct INetCfgComponentUpperEdge_Vtbl {
 #[repr(transparent)]
 pub struct INetCfgLock(::windows::core::IUnknown);
 impl INetCfgLock {
-    pub unsafe fn AcquireWriteLock<P0>(&self, cmstimeout: u32, pszwclientdescription: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn AcquireWriteLock<P0>(&self, cmstimeout: u32, pszwclientdescription: P0, ppszwclientdescription: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AcquireWriteLock)(::windows::core::Vtable::as_raw(self), cmstimeout, pszwclientdescription.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AcquireWriteLock)(::windows::core::Vtable::as_raw(self), cmstimeout, pszwclientdescription.into().abi(), ::core::mem::transmute(ppszwclientdescription.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReleaseWriteLock(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReleaseWriteLock)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn IsWriteLocked(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsWriteLocked)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn IsWriteLocked(&self, ppszwclientdescription: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).IsWriteLocked)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszwclientdescription.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgLock, ::windows::core::IUnknown);

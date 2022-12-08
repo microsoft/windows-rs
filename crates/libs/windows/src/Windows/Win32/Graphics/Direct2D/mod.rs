@@ -306,9 +306,8 @@ impl ID2D1Bitmap1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn GetSurface(&self) -> ::windows::core::Result<super::Dxgi::IDXGISurface> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSurface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSurface(&self, dxgisurface: ::core::option::Option<*mut ::core::option::Option<super::Dxgi::IDXGISurface>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSurface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(dxgisurface.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Map(&self, options: D2D1_MAP_OPTIONS) -> ::windows::core::Result<D2D1_MAPPED_RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9217,9 +9216,8 @@ impl ID2D1Effect {
     pub unsafe fn GetValueSize(&self, index: u32) -> u32 {
         (::windows::core::Vtable::vtable(self).base__.GetValueSize)(::windows::core::Vtable::as_raw(self), index)
     }
-    pub unsafe fn GetSubProperties(&self, index: u32) -> ::windows::core::Result<ID2D1Properties> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSubProperties)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSubProperties(&self, index: u32, subproperties: ::core::option::Option<*mut ::core::option::Option<ID2D1Properties>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetSubProperties)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(subproperties.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14147,9 +14145,8 @@ impl ID2D1Properties {
     pub unsafe fn GetValueSize(&self, index: u32) -> u32 {
         (::windows::core::Vtable::vtable(self).GetValueSize)(::windows::core::Vtable::as_raw(self), index)
     }
-    pub unsafe fn GetSubProperties(&self, index: u32) -> ::windows::core::Result<ID2D1Properties> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSubProperties)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSubProperties(&self, index: u32, subproperties: ::core::option::Option<*mut ::core::option::Option<ID2D1Properties>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSubProperties)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(subproperties.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ID2D1Properties, ::windows::core::IUnknown);
@@ -15684,12 +15681,11 @@ impl ID2D1SvgDocument {
     pub unsafe fn GetRoot(&self, root: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) {
         (::windows::core::Vtable::vtable(self).GetRoot)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(root.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn FindElementById<P0>(&self, id: P0) -> ::windows::core::Result<ID2D1SvgElement>
+    pub unsafe fn FindElementById<P0>(&self, id: P0, svgelement: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindElementById)(::windows::core::Vtable::as_raw(self), id.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindElementById)(::windows::core::Vtable::as_raw(self), id.into().abi(), ::core::mem::transmute(svgelement.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -15827,19 +15823,17 @@ impl ID2D1SvgElement {
     pub unsafe fn GetLastChild(&self, child: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) {
         (::windows::core::Vtable::vtable(self).GetLastChild)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(child.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn GetPreviousChild<P0>(&self, referencechild: P0) -> ::windows::core::Result<ID2D1SvgElement>
+    pub unsafe fn GetPreviousChild<P0>(&self, referencechild: P0, previouschild: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID2D1SvgElement>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPreviousChild)(::windows::core::Vtable::as_raw(self), referencechild.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetPreviousChild)(::windows::core::Vtable::as_raw(self), referencechild.into().abi(), ::core::mem::transmute(previouschild.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetNextChild<P0>(&self, referencechild: P0) -> ::windows::core::Result<ID2D1SvgElement>
+    pub unsafe fn GetNextChild<P0>(&self, referencechild: P0, nextchild: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID2D1SvgElement>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNextChild)(::windows::core::Vtable::as_raw(self), referencechild.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetNextChild)(::windows::core::Vtable::as_raw(self), referencechild.into().abi(), ::core::mem::transmute(nextchild.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn InsertChildBefore<P0, P1>(&self, newchild: P0, referencechild: P1) -> ::windows::core::Result<()>
     where

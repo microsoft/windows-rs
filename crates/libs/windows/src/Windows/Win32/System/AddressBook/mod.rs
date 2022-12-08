@@ -2442,14 +2442,13 @@ impl IWABObject {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LDAPUrl<P0, P1, P2>(&self, lpiab: P0, hwnd: P1, ulflags: u32, lpszurl: P2) -> ::windows::core::Result<IMailUser>
+    pub unsafe fn LDAPUrl<P0, P1, P2>(&self, lpiab: P0, hwnd: P1, ulflags: u32, lpszurl: P2, lppmailuser: ::core::option::Option<*mut ::core::option::Option<IMailUser>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IAddrBook>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LDAPUrl)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), hwnd.into(), ulflags, lpszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).LDAPUrl)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), hwnd.into(), ulflags, lpszurl.into().abi(), ::core::mem::transmute(lppmailuser.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn VCardCreate<P0, P1, P2>(&self, lpiab: P0, ulflags: u32, lpszvcard: P1, lpmailuser: P2) -> ::windows::core::Result<()>
     where

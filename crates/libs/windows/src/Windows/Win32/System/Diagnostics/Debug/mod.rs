@@ -14954,12 +14954,11 @@ impl IDebugControl3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetNumberEvents)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEventIndexDescription)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetEventIndexDescription)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -15648,12 +15647,11 @@ impl IDebugControl4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetNumberEvents)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEventIndexDescription)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetEventIndexDescription)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -15900,12 +15898,11 @@ impl IDebugControl4 {
         )
         .ok()
     }
-    pub unsafe fn GetEventIndexDescriptionWide<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn GetEventIndexDescriptionWide<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEventIndexDescriptionWide)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetEventIndexDescriptionWide)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetLogFile2(&self, buffer: ::core::option::Option<&mut [u8]>, filesize: ::core::option::Option<*mut u32>, flags: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetLogFile2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), flags).ok()
@@ -16706,12 +16703,11 @@ impl IDebugControl5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetNumberEvents)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEventIndexDescription)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetEventIndexDescription)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -16958,12 +16954,11 @@ impl IDebugControl5 {
         )
         .ok()
     }
-    pub unsafe fn GetEventIndexDescriptionWide<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn GetEventIndexDescriptionWide<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEventIndexDescriptionWide)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetEventIndexDescriptionWide)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetLogFile2(&self, buffer: ::core::option::Option<&mut [u8]>, filesize: ::core::option::Option<*mut u32>, flags: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetLogFile2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), flags).ok()
@@ -17805,12 +17800,11 @@ impl IDebugControl6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetNumberEvents)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEventIndexDescription)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetEventIndexDescription)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -18057,12 +18051,11 @@ impl IDebugControl6 {
         )
         .ok()
     }
-    pub unsafe fn GetEventIndexDescriptionWide<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn GetEventIndexDescriptionWide<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEventIndexDescriptionWide)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetEventIndexDescriptionWide)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetLogFile2(&self, buffer: ::core::option::Option<&mut [u8]>, filesize: ::core::option::Option<*mut u32>, flags: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetLogFile2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), flags).ok()
@@ -18913,12 +18906,11 @@ impl IDebugControl7 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetNumberEvents)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEventIndexDescription)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetEventIndexDescription)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -19165,12 +19157,11 @@ impl IDebugControl7 {
         )
         .ok()
     }
-    pub unsafe fn GetEventIndexDescriptionWide<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn GetEventIndexDescriptionWide<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEventIndexDescriptionWide)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetEventIndexDescriptionWide)(::windows::core::Vtable::as_raw(self), index, which, buffer.into().abi(), buffersize, ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetLogFile2(&self, buffer: ::core::option::Option<&mut [u8]>, filesize: ::core::option::Option<*mut u32>, flags: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetLogFile2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filesize.unwrap_or(::std::ptr::null_mut())), flags).ok()
@@ -19562,9 +19553,8 @@ impl IDebugDataSpaces {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadVirtual)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteVirtual(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteVirtual)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteVirtual(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteVirtual)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const ::core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -19573,9 +19563,8 @@ impl IDebugDataSpaces {
     pub unsafe fn ReadVirtualUncached(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadVirtualUncached)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteVirtualUncached(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteVirtualUncached)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteVirtualUncached(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteVirtualUncached)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadPointersVirtual(&self, offset: u64, ptrs: &mut [u64]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadPointersVirtual)(::windows::core::Vtable::as_raw(self), ptrs.len() as _, offset, ::core::mem::transmute(ptrs.as_ptr())).ok()
@@ -19586,23 +19575,20 @@ impl IDebugDataSpaces {
     pub unsafe fn ReadPhysical(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadPhysical)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WritePhysical(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WritePhysical)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WritePhysical(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WritePhysical)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadControl(&self, processor: u32, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadControl)(::windows::core::Vtable::as_raw(self), processor, offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteControl(&self, processor: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteControl)(::windows::core::Vtable::as_raw(self), processor, offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteControl(&self, processor: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteControl)(::windows::core::Vtable::as_raw(self), processor, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadIo)(::windows::core::Vtable::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteIo)(::windows::core::Vtable::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteIo)(::windows::core::Vtable::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadMsr(&self, msr: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -19614,9 +19600,8 @@ impl IDebugDataSpaces {
     pub unsafe fn ReadBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadBusData)(::windows::core::Vtable::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteBusData)(::windows::core::Vtable::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteBusData)(::windows::core::Vtable::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CheckLowMemory(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CheckLowMemory)(::windows::core::Vtable::as_raw(self)).ok()
@@ -19683,9 +19668,8 @@ impl IDebugDataSpaces2 {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadVirtual)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteVirtual(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteVirtual)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteVirtual(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteVirtual)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const ::core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -19694,9 +19678,8 @@ impl IDebugDataSpaces2 {
     pub unsafe fn ReadVirtualUncached(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadVirtualUncached)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteVirtualUncached(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteVirtualUncached)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteVirtualUncached(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteVirtualUncached)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadPointersVirtual(&self, offset: u64, ptrs: &mut [u64]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadPointersVirtual)(::windows::core::Vtable::as_raw(self), ptrs.len() as _, offset, ::core::mem::transmute(ptrs.as_ptr())).ok()
@@ -19707,23 +19690,20 @@ impl IDebugDataSpaces2 {
     pub unsafe fn ReadPhysical(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadPhysical)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WritePhysical(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WritePhysical)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WritePhysical(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WritePhysical)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadControl(&self, processor: u32, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadControl)(::windows::core::Vtable::as_raw(self), processor, offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteControl(&self, processor: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteControl)(::windows::core::Vtable::as_raw(self), processor, offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteControl(&self, processor: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteControl)(::windows::core::Vtable::as_raw(self), processor, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadIo)(::windows::core::Vtable::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteIo)(::windows::core::Vtable::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteIo)(::windows::core::Vtable::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadMsr(&self, msr: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -19735,9 +19715,8 @@ impl IDebugDataSpaces2 {
     pub unsafe fn ReadBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadBusData)(::windows::core::Vtable::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteBusData)(::windows::core::Vtable::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteBusData)(::windows::core::Vtable::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CheckLowMemory(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CheckLowMemory)(::windows::core::Vtable::as_raw(self)).ok()
@@ -19758,13 +19737,11 @@ impl IDebugDataSpaces2 {
     pub unsafe fn ReadHandleData(&self, handle: u64, datatype: u32, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, buffersize: u32, datasize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadHandleData)(::windows::core::Vtable::as_raw(self), handle, datatype, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize, ::core::mem::transmute(datasize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn FillVirtual(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FillVirtual)(::windows::core::Vtable::as_raw(self), start, size, pattern, patternsize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn FillVirtual(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32, filled: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).FillVirtual)(::windows::core::Vtable::as_raw(self), start, size, pattern, patternsize, ::core::mem::transmute(filled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FillPhysical)(::windows::core::Vtable::as_raw(self), start, size, pattern, patternsize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32, filled: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).FillPhysical)(::windows::core::Vtable::as_raw(self), start, size, pattern, patternsize, ::core::mem::transmute(filled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
     #[cfg(feature = "Win32_System_Memory")]
@@ -19837,9 +19814,8 @@ impl IDebugDataSpaces3 {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadVirtual)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteVirtual(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteVirtual)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteVirtual(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteVirtual)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const ::core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -19848,9 +19824,8 @@ impl IDebugDataSpaces3 {
     pub unsafe fn ReadVirtualUncached(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadVirtualUncached)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteVirtualUncached(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteVirtualUncached)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteVirtualUncached(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteVirtualUncached)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadPointersVirtual(&self, offset: u64, ptrs: &mut [u64]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadPointersVirtual)(::windows::core::Vtable::as_raw(self), ptrs.len() as _, offset, ::core::mem::transmute(ptrs.as_ptr())).ok()
@@ -19861,23 +19836,20 @@ impl IDebugDataSpaces3 {
     pub unsafe fn ReadPhysical(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadPhysical)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WritePhysical(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WritePhysical)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WritePhysical(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WritePhysical)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadControl(&self, processor: u32, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadControl)(::windows::core::Vtable::as_raw(self), processor, offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteControl(&self, processor: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteControl)(::windows::core::Vtable::as_raw(self), processor, offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteControl(&self, processor: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteControl)(::windows::core::Vtable::as_raw(self), processor, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadIo)(::windows::core::Vtable::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteIo)(::windows::core::Vtable::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteIo)(::windows::core::Vtable::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadMsr(&self, msr: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -19889,9 +19861,8 @@ impl IDebugDataSpaces3 {
     pub unsafe fn ReadBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadBusData)(::windows::core::Vtable::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteBusData)(::windows::core::Vtable::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteBusData)(::windows::core::Vtable::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CheckLowMemory(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CheckLowMemory)(::windows::core::Vtable::as_raw(self)).ok()
@@ -19912,13 +19883,11 @@ impl IDebugDataSpaces3 {
     pub unsafe fn ReadHandleData(&self, handle: u64, datatype: u32, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, buffersize: u32, datasize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadHandleData)(::windows::core::Vtable::as_raw(self), handle, datatype, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize, ::core::mem::transmute(datasize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn FillVirtual(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FillVirtual)(::windows::core::Vtable::as_raw(self), start, size, pattern, patternsize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn FillVirtual(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32, filled: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).FillVirtual)(::windows::core::Vtable::as_raw(self), start, size, pattern, patternsize, ::core::mem::transmute(filled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FillPhysical)(::windows::core::Vtable::as_raw(self), start, size, pattern, patternsize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32, filled: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).FillPhysical)(::windows::core::Vtable::as_raw(self), start, size, pattern, patternsize, ::core::mem::transmute(filled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
     #[cfg(feature = "Win32_System_Memory")]
@@ -20018,9 +19987,8 @@ impl IDebugDataSpaces4 {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadVirtual)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteVirtual(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteVirtual)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteVirtual(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteVirtual)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const ::core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -20029,9 +19997,8 @@ impl IDebugDataSpaces4 {
     pub unsafe fn ReadVirtualUncached(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadVirtualUncached)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteVirtualUncached(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteVirtualUncached)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteVirtualUncached(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteVirtualUncached)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadPointersVirtual(&self, offset: u64, ptrs: &mut [u64]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadPointersVirtual)(::windows::core::Vtable::as_raw(self), ptrs.len() as _, offset, ::core::mem::transmute(ptrs.as_ptr())).ok()
@@ -20042,23 +20009,20 @@ impl IDebugDataSpaces4 {
     pub unsafe fn ReadPhysical(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadPhysical)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WritePhysical(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WritePhysical)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WritePhysical(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WritePhysical)(::windows::core::Vtable::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadControl(&self, processor: u32, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadControl)(::windows::core::Vtable::as_raw(self), processor, offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteControl(&self, processor: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteControl)(::windows::core::Vtable::as_raw(self), processor, offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteControl(&self, processor: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteControl)(::windows::core::Vtable::as_raw(self), processor, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadIo)(::windows::core::Vtable::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteIo)(::windows::core::Vtable::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteIo)(::windows::core::Vtable::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadMsr(&self, msr: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -20070,9 +20034,8 @@ impl IDebugDataSpaces4 {
     pub unsafe fn ReadBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadBusData)(::windows::core::Vtable::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteBusData)(::windows::core::Vtable::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteBusData)(::windows::core::Vtable::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CheckLowMemory(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CheckLowMemory)(::windows::core::Vtable::as_raw(self)).ok()
@@ -20093,13 +20056,11 @@ impl IDebugDataSpaces4 {
     pub unsafe fn ReadHandleData(&self, handle: u64, datatype: u32, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, buffersize: u32, datasize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadHandleData)(::windows::core::Vtable::as_raw(self), handle, datatype, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize, ::core::mem::transmute(datasize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn FillVirtual(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FillVirtual)(::windows::core::Vtable::as_raw(self), start, size, pattern, patternsize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn FillVirtual(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32, filled: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).FillVirtual)(::windows::core::Vtable::as_raw(self), start, size, pattern, patternsize, ::core::mem::transmute(filled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FillPhysical)(::windows::core::Vtable::as_raw(self), start, size, pattern, patternsize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32, filled: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).FillPhysical)(::windows::core::Vtable::as_raw(self), start, size, pattern, patternsize, ::core::mem::transmute(filled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
     #[cfg(feature = "Win32_System_Memory")]
@@ -20155,9 +20116,8 @@ impl IDebugDataSpaces4 {
     pub unsafe fn ReadPhysical2(&self, offset: u64, flags: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadPhysical2)(::windows::core::Vtable::as_raw(self), offset, flags, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WritePhysical2(&self, offset: u64, flags: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WritePhysical2)(::windows::core::Vtable::as_raw(self), offset, flags, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WritePhysical2(&self, offset: u64, flags: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WritePhysical2)(::windows::core::Vtable::as_raw(self), offset, flags, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDebugDataSpaces4, ::windows::core::IUnknown);
@@ -22326,12 +22286,11 @@ impl IDebugHostMemory {
     {
         (::windows::core::Vtable::vtable(self).ReadBytes)(::windows::core::Vtable::as_raw(self), context.into().abi(), ::core::mem::transmute(location), buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteBytes<P0>(&self, context: P0, location: Location, buffer: *const ::core::ffi::c_void, buffersize: u64) -> ::windows::core::Result<u64>
+    pub unsafe fn WriteBytes<P0>(&self, context: P0, location: Location, buffer: *const ::core::ffi::c_void, buffersize: u64, byteswritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDebugHostContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteBytes)(::windows::core::Vtable::as_raw(self), context.into().abi(), ::core::mem::transmute(location), buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).WriteBytes)(::windows::core::Vtable::as_raw(self), context.into().abi(), ::core::mem::transmute(location), buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadPointers<P0>(&self, context: P0, location: Location, pointers: &mut [u64]) -> ::windows::core::Result<()>
     where
@@ -22396,12 +22355,11 @@ impl IDebugHostMemory2 {
     {
         (::windows::core::Vtable::vtable(self).base__.ReadBytes)(::windows::core::Vtable::as_raw(self), context.into().abi(), ::core::mem::transmute(location), buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteBytes<P0>(&self, context: P0, location: Location, buffer: *const ::core::ffi::c_void, buffersize: u64) -> ::windows::core::Result<u64>
+    pub unsafe fn WriteBytes<P0>(&self, context: P0, location: Location, buffer: *const ::core::ffi::c_void, buffersize: u64, byteswritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDebugHostContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.WriteBytes)(::windows::core::Vtable::as_raw(self), context.into().abi(), ::core::mem::transmute(location), buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.WriteBytes)(::windows::core::Vtable::as_raw(self), context.into().abi(), ::core::mem::transmute(location), buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadPointers<P0>(&self, context: P0, location: Location, pointers: &mut [u64]) -> ::windows::core::Result<()>
     where
@@ -25180,9 +25138,8 @@ impl IDebugSymbols {
     pub unsafe fn ReadTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputTypedDataVirtual(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OutputTypedDataVirtual)(::windows::core::Vtable::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
@@ -25190,9 +25147,8 @@ impl IDebugSymbols {
     pub unsafe fn ReadTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputTypedDataPhysical(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OutputTypedDataPhysical)(::windows::core::Vtable::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
@@ -25500,9 +25456,8 @@ impl IDebugSymbols2 {
     pub unsafe fn ReadTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputTypedDataVirtual(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OutputTypedDataVirtual)(::windows::core::Vtable::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
@@ -25510,9 +25465,8 @@ impl IDebugSymbols2 {
     pub unsafe fn ReadTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputTypedDataPhysical(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OutputTypedDataPhysical)(::windows::core::Vtable::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
@@ -25856,9 +25810,8 @@ impl IDebugSymbols3 {
     pub unsafe fn ReadTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputTypedDataVirtual(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OutputTypedDataVirtual)(::windows::core::Vtable::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
@@ -25866,9 +25819,8 @@ impl IDebugSymbols3 {
     pub unsafe fn ReadTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputTypedDataPhysical(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OutputTypedDataPhysical)(::windows::core::Vtable::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
@@ -26231,19 +26183,17 @@ impl IDebugSymbols3 {
     {
         (::windows::core::Vtable::vtable(self).GetFieldTypeAndOffsetWide)(::windows::core::Vtable::as_raw(self), module, containertypeid, field.into().abi(), ::core::mem::transmute(fieldtypeid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(offset.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn AddSyntheticSymbol<P0>(&self, offset: u64, size: u32, name: P0, flags: u32) -> ::windows::core::Result<DEBUG_MODULE_AND_ID>
+    pub unsafe fn AddSyntheticSymbol<P0>(&self, offset: u64, size: u32, name: P0, flags: u32, id: ::core::option::Option<*mut DEBUG_MODULE_AND_ID>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddSyntheticSymbol)(::windows::core::Vtable::as_raw(self), offset, size, name.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddSyntheticSymbol)(::windows::core::Vtable::as_raw(self), offset, size, name.into().abi(), flags, ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn AddSyntheticSymbolWide<P0>(&self, offset: u64, size: u32, name: P0, flags: u32) -> ::windows::core::Result<DEBUG_MODULE_AND_ID>
+    pub unsafe fn AddSyntheticSymbolWide<P0>(&self, offset: u64, size: u32, name: P0, flags: u32, id: ::core::option::Option<*mut DEBUG_MODULE_AND_ID>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddSyntheticSymbolWide)(::windows::core::Vtable::as_raw(self), offset, size, name.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddSyntheticSymbolWide)(::windows::core::Vtable::as_raw(self), offset, size, name.into().abi(), flags, ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn RemoveSyntheticSymbol(&self, id: *const DEBUG_MODULE_AND_ID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveSyntheticSymbol)(::windows::core::Vtable::as_raw(self), id).ok()
@@ -26586,9 +26536,8 @@ impl IDebugSymbols4 {
     pub unsafe fn ReadTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputTypedDataVirtual(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OutputTypedDataVirtual)(::windows::core::Vtable::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
@@ -26596,9 +26545,8 @@ impl IDebugSymbols4 {
     pub unsafe fn ReadTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputTypedDataPhysical(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OutputTypedDataPhysical)(::windows::core::Vtable::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
@@ -26961,19 +26909,17 @@ impl IDebugSymbols4 {
     {
         (::windows::core::Vtable::vtable(self).GetFieldTypeAndOffsetWide)(::windows::core::Vtable::as_raw(self), module, containertypeid, field.into().abi(), ::core::mem::transmute(fieldtypeid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(offset.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn AddSyntheticSymbol<P0>(&self, offset: u64, size: u32, name: P0, flags: u32) -> ::windows::core::Result<DEBUG_MODULE_AND_ID>
+    pub unsafe fn AddSyntheticSymbol<P0>(&self, offset: u64, size: u32, name: P0, flags: u32, id: ::core::option::Option<*mut DEBUG_MODULE_AND_ID>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddSyntheticSymbol)(::windows::core::Vtable::as_raw(self), offset, size, name.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddSyntheticSymbol)(::windows::core::Vtable::as_raw(self), offset, size, name.into().abi(), flags, ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn AddSyntheticSymbolWide<P0>(&self, offset: u64, size: u32, name: P0, flags: u32) -> ::windows::core::Result<DEBUG_MODULE_AND_ID>
+    pub unsafe fn AddSyntheticSymbolWide<P0>(&self, offset: u64, size: u32, name: P0, flags: u32, id: ::core::option::Option<*mut DEBUG_MODULE_AND_ID>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddSyntheticSymbolWide)(::windows::core::Vtable::as_raw(self), offset, size, name.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddSyntheticSymbolWide)(::windows::core::Vtable::as_raw(self), offset, size, name.into().abi(), flags, ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn RemoveSyntheticSymbol(&self, id: *const DEBUG_MODULE_AND_ID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveSyntheticSymbol)(::windows::core::Vtable::as_raw(self), id).ok()
@@ -27354,9 +27300,8 @@ impl IDebugSymbols5 {
     pub unsafe fn ReadTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteTypedDataVirtual)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputTypedDataVirtual(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OutputTypedDataVirtual)(::windows::core::Vtable::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
@@ -27364,9 +27309,8 @@ impl IDebugSymbols5 {
     pub unsafe fn ReadTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn WriteTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).WriteTypedDataPhysical)(::windows::core::Vtable::as_raw(self), offset, module, typeid, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputTypedDataPhysical(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OutputTypedDataPhysical)(::windows::core::Vtable::as_raw(self), outputcontrol, offset, module, typeid, flags).ok()
@@ -27729,19 +27673,17 @@ impl IDebugSymbols5 {
     {
         (::windows::core::Vtable::vtable(self).GetFieldTypeAndOffsetWide)(::windows::core::Vtable::as_raw(self), module, containertypeid, field.into().abi(), ::core::mem::transmute(fieldtypeid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(offset.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn AddSyntheticSymbol<P0>(&self, offset: u64, size: u32, name: P0, flags: u32) -> ::windows::core::Result<DEBUG_MODULE_AND_ID>
+    pub unsafe fn AddSyntheticSymbol<P0>(&self, offset: u64, size: u32, name: P0, flags: u32, id: ::core::option::Option<*mut DEBUG_MODULE_AND_ID>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddSyntheticSymbol)(::windows::core::Vtable::as_raw(self), offset, size, name.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddSyntheticSymbol)(::windows::core::Vtable::as_raw(self), offset, size, name.into().abi(), flags, ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn AddSyntheticSymbolWide<P0>(&self, offset: u64, size: u32, name: P0, flags: u32) -> ::windows::core::Result<DEBUG_MODULE_AND_ID>
+    pub unsafe fn AddSyntheticSymbolWide<P0>(&self, offset: u64, size: u32, name: P0, flags: u32, id: ::core::option::Option<*mut DEBUG_MODULE_AND_ID>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddSyntheticSymbolWide)(::windows::core::Vtable::as_raw(self), offset, size, name.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddSyntheticSymbolWide)(::windows::core::Vtable::as_raw(self), offset, size, name.into().abi(), flags, ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn RemoveSyntheticSymbol(&self, id: *const DEBUG_MODULE_AND_ID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveSyntheticSymbol)(::windows::core::Vtable::as_raw(self), id).ok()
@@ -30718,9 +30660,8 @@ pub struct IModelMethod_Vtbl {
 #[repr(transparent)]
 pub struct IModelObject(::windows::core::IUnknown);
 impl IModelObject {
-    pub unsafe fn GetContext(&self) -> ::windows::core::Result<IDebugHostContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetContext(&self, context: ::core::option::Option<*mut ::core::option::Option<IDebugHostContext>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(context.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetKind(&self) -> ::windows::core::Result<ModelObjectKind> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -30874,12 +30815,11 @@ impl IModelObject {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetContextForDataModel)(::windows::core::Vtable::as_raw(self), datamodelobject.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Compare<P0>(&self, other: P0) -> ::windows::core::Result<IModelObject>
+    pub unsafe fn Compare<P0>(&self, other: P0, ppresult: ::core::option::Option<*mut ::core::option::Option<IModelObject>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IModelObject>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Compare)(::windows::core::Vtable::as_raw(self), other.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Compare)(::windows::core::Vtable::as_raw(self), other.into().abi(), ::core::mem::transmute(ppresult.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn IsEqualTo<P0>(&self, other: P0) -> ::windows::core::Result<bool>
     where

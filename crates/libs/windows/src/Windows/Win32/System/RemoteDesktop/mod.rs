@@ -1873,9 +1873,8 @@ impl ITsSbClientConnection {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutContext(&self, contextid: &::windows::core::BSTR, context: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).PutContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(contextid), ::core::mem::transmute(context), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn PutContext(&self, contextid: &::windows::core::BSTR, context: super::Com::VARIANT, existingcontext: ::core::option::Option<*mut super::Com::VARIANT>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).PutContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(contextid), ::core::mem::transmute(context), ::core::mem::transmute(existingcontext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

@@ -1336,7 +1336,7 @@ pub trait IWABObject_Impl: Sized {
     fn Import(&self, lpwip: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
     fn Find(&self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn VCardDisplay(&self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND, lpszfilename: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
-    fn LDAPUrl(&self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: &::windows::core::PCSTR) -> ::windows::core::Result<IMailUser>;
+    fn LDAPUrl(&self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: &::windows::core::PCSTR, lppmailuser: *mut ::core::option::Option<IMailUser>) -> ::windows::core::Result<()>;
     fn VCardCreate(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpszvcard: &::windows::core::PCSTR, lpmailuser: &::core::option::Option<IMailUser>) -> ::windows::core::Result<()>;
     fn VCardRetrieve(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpszvcard: &::windows::core::PCSTR) -> ::windows::core::Result<IMailUser>;
     fn GetMe(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
@@ -1390,13 +1390,7 @@ impl IWABObject_Vtbl {
         unsafe extern "system" fn LDAPUrl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWABObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: ::windows::core::PCSTR, lppmailuser: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LDAPUrl(::core::mem::transmute(&lpiab), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&ulflags), ::core::mem::transmute(&lpszurl)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(lppmailuser, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.LDAPUrl(::core::mem::transmute(&lpiab), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&ulflags), ::core::mem::transmute(&lpszurl), ::core::mem::transmute_copy(&lppmailuser)).into()
         }
         unsafe extern "system" fn VCardCreate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWABObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, ulflags: u32, lpszvcard: ::windows::core::PCSTR, lpmailuser: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

@@ -326,8 +326,8 @@ impl IMLangConvertCharset_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IMLangFontLink_Impl: Sized + IMLangCodePages_Impl {
-    fn GetFontCodePages(&self, hdc: super::Graphics::Gdi::HDC, hfont: super::Graphics::Gdi::HFONT) -> ::windows::core::Result<u32>;
-    fn MapFont(&self, hdc: super::Graphics::Gdi::HDC, dwcodepages: u32, hsrcfont: super::Graphics::Gdi::HFONT) -> ::windows::core::Result<super::Graphics::Gdi::HFONT>;
+    fn GetFontCodePages(&self, hdc: super::Graphics::Gdi::HDC, hfont: super::Graphics::Gdi::HFONT, pdwcodepages: *mut u32) -> ::windows::core::Result<()>;
+    fn MapFont(&self, hdc: super::Graphics::Gdi::HDC, dwcodepages: u32, hsrcfont: super::Graphics::Gdi::HFONT, phdestfont: *mut super::Graphics::Gdi::HFONT) -> ::windows::core::Result<()>;
     fn ReleaseFont(&self, hfont: super::Graphics::Gdi::HFONT) -> ::windows::core::Result<()>;
     fn ResetFontMapping(&self) -> ::windows::core::Result<()>;
 }
@@ -339,24 +339,12 @@ impl IMLangFontLink_Vtbl {
         unsafe extern "system" fn GetFontCodePages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangFontLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdc: super::Graphics::Gdi::HDC, hfont: super::Graphics::Gdi::HFONT, pdwcodepages: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFontCodePages(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&hfont)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdwcodepages, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetFontCodePages(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&hfont), ::core::mem::transmute_copy(&pdwcodepages)).into()
         }
         unsafe extern "system" fn MapFont<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangFontLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdc: super::Graphics::Gdi::HDC, dwcodepages: u32, hsrcfont: super::Graphics::Gdi::HFONT, phdestfont: *mut super::Graphics::Gdi::HFONT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MapFont(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&dwcodepages), ::core::mem::transmute_copy(&hsrcfont)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(phdestfont, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.MapFont(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&dwcodepages), ::core::mem::transmute_copy(&hsrcfont), ::core::mem::transmute_copy(&phdestfont)).into()
         }
         unsafe extern "system" fn ReleaseFont<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangFontLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hfont: super::Graphics::Gdi::HFONT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -382,11 +370,11 @@ impl IMLangFontLink_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IMLangFontLink2_Impl: Sized + IMLangCodePages_Impl {
-    fn GetFontCodePages(&self, hdc: super::Graphics::Gdi::HDC, hfont: super::Graphics::Gdi::HFONT) -> ::windows::core::Result<u32>;
+    fn GetFontCodePages(&self, hdc: super::Graphics::Gdi::HDC, hfont: super::Graphics::Gdi::HFONT, pdwcodepages: *mut u32) -> ::windows::core::Result<()>;
     fn ReleaseFont(&self, hfont: super::Graphics::Gdi::HFONT) -> ::windows::core::Result<()>;
     fn ResetFontMapping(&self) -> ::windows::core::Result<()>;
-    fn MapFont(&self, hdc: super::Graphics::Gdi::HDC, dwcodepages: u32, chsrc: u16) -> ::windows::core::Result<super::Graphics::Gdi::HFONT>;
-    fn GetFontUnicodeRanges(&self, hdc: super::Graphics::Gdi::HDC, puiranges: *const u32) -> ::windows::core::Result<UNICODERANGE>;
+    fn MapFont(&self, hdc: super::Graphics::Gdi::HDC, dwcodepages: u32, chsrc: u16, pfont: *mut super::Graphics::Gdi::HFONT) -> ::windows::core::Result<()>;
+    fn GetFontUnicodeRanges(&self, hdc: super::Graphics::Gdi::HDC, puiranges: *const u32, puranges: *mut UNICODERANGE) -> ::windows::core::Result<()>;
     fn GetScriptFontInfo(&self, sid: u8, dwflags: u32, puifonts: *mut u32, pscriptfont: *mut SCRIPTFONTINFO) -> ::windows::core::Result<()>;
     fn CodePageToScriptID(&self, uicodepage: u32) -> ::windows::core::Result<u8>;
 }
@@ -398,13 +386,7 @@ impl IMLangFontLink2_Vtbl {
         unsafe extern "system" fn GetFontCodePages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdc: super::Graphics::Gdi::HDC, hfont: super::Graphics::Gdi::HFONT, pdwcodepages: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFontCodePages(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&hfont)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdwcodepages, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetFontCodePages(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&hfont), ::core::mem::transmute_copy(&pdwcodepages)).into()
         }
         unsafe extern "system" fn ReleaseFont<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hfont: super::Graphics::Gdi::HFONT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -419,24 +401,12 @@ impl IMLangFontLink2_Vtbl {
         unsafe extern "system" fn MapFont<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdc: super::Graphics::Gdi::HDC, dwcodepages: u32, chsrc: u16, pfont: *mut super::Graphics::Gdi::HFONT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MapFont(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&dwcodepages), ::core::mem::transmute_copy(&chsrc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pfont, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.MapFont(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&dwcodepages), ::core::mem::transmute_copy(&chsrc), ::core::mem::transmute_copy(&pfont)).into()
         }
         unsafe extern "system" fn GetFontUnicodeRanges<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdc: super::Graphics::Gdi::HDC, puiranges: *const u32, puranges: *mut UNICODERANGE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFontUnicodeRanges(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&puiranges)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(puranges, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetFontUnicodeRanges(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&puiranges), ::core::mem::transmute_copy(&puranges)).into()
         }
         unsafe extern "system" fn GetScriptFontInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sid: u8, dwflags: u32, puifonts: *mut u32, pscriptfont: *mut SCRIPTFONTINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -506,7 +476,7 @@ impl IMLangLineBreakConsole_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLangString_Impl: Sized {
     fn Sync(&self, fnoaccess: super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetLength(&self) -> ::windows::core::Result<i32>;
+    fn GetLength(&self, pllen: *mut i32) -> ::windows::core::Result<()>;
     fn SetMLStr(&self, ldestpos: i32, ldestlen: i32, psrcmlstr: &::core::option::Option<::windows::core::IUnknown>, lsrcpos: i32, lsrclen: i32) -> ::windows::core::Result<()>;
     fn GetMLStr(&self, lsrcpos: i32, lsrclen: i32, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclscontext: u32, piid: *const ::windows::core::GUID, ppdestmlstr: *mut ::core::option::Option<::windows::core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()>;
 }
@@ -523,13 +493,7 @@ impl IMLangString_Vtbl {
         unsafe extern "system" fn GetLength<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllen: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetLength() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pllen, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetLength(::core::mem::transmute_copy(&pllen)).into()
         }
         unsafe extern "system" fn SetMLStr<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ldestpos: i32, ldestlen: i32, psrcmlstr: *mut ::core::ffi::c_void, lsrcpos: i32, lsrclen: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -630,7 +594,7 @@ pub trait IMLangStringBufA_Impl: Sized {
     fn GetStatus(&self, plflags: *mut i32, pcchbuf: *mut i32) -> ::windows::core::Result<()>;
     fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut super::Foundation::CHAR, pcchbuf: *mut i32) -> ::windows::core::Result<()>;
     fn UnlockBuf(&self, pszbuf: &::windows::core::PCSTR, cchoffset: i32, cchwrite: i32) -> ::windows::core::Result<()>;
-    fn Insert(&self, cchoffset: i32, cchmaxinsert: i32) -> ::windows::core::Result<i32>;
+    fn Insert(&self, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> ::windows::core::Result<()>;
     fn Delete(&self, cchoffset: i32, cchdelete: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -656,13 +620,7 @@ impl IMLangStringBufA_Vtbl {
         unsafe extern "system" fn Insert<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangStringBufA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Insert(::core::mem::transmute_copy(&cchoffset), ::core::mem::transmute_copy(&cchmaxinsert)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pcchactual, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Insert(::core::mem::transmute_copy(&cchoffset), ::core::mem::transmute_copy(&cchmaxinsert), ::core::mem::transmute_copy(&pcchactual)).into()
         }
         unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangStringBufA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchoffset: i32, cchdelete: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -686,7 +644,7 @@ pub trait IMLangStringBufW_Impl: Sized {
     fn GetStatus(&self, plflags: *mut i32, pcchbuf: *mut i32) -> ::windows::core::Result<()>;
     fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut u16, pcchbuf: *mut i32) -> ::windows::core::Result<()>;
     fn UnlockBuf(&self, pszbuf: &::windows::core::PCWSTR, cchoffset: i32, cchwrite: i32) -> ::windows::core::Result<()>;
-    fn Insert(&self, cchoffset: i32, cchmaxinsert: i32) -> ::windows::core::Result<i32>;
+    fn Insert(&self, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> ::windows::core::Result<()>;
     fn Delete(&self, cchoffset: i32, cchdelete: i32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IMLangStringBufW {}
@@ -710,13 +668,7 @@ impl IMLangStringBufW_Vtbl {
         unsafe extern "system" fn Insert<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangStringBufW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Insert(::core::mem::transmute_copy(&cchoffset), ::core::mem::transmute_copy(&cchmaxinsert)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pcchactual, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Insert(::core::mem::transmute_copy(&cchoffset), ::core::mem::transmute_copy(&cchmaxinsert), ::core::mem::transmute_copy(&pcchactual)).into()
         }
         unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangStringBufW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchoffset: i32, cchdelete: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

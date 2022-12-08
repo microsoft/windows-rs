@@ -127,10 +127,9 @@ pub unsafe fn GetActiveObject(rclsid: *const ::windows::core::GUID, pvreserved: 
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
-pub unsafe fn GetAltMonthNames(lcid: u32) -> ::windows::core::Result<*mut ::windows::core::PWSTR> {
+pub unsafe fn GetAltMonthNames(lcid: u32, prgp: ::core::option::Option<*mut *mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn GetAltMonthNames ( lcid : u32 , prgp : *mut *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetAltMonthNames(lcid, result__.as_mut_ptr()).from_abi(result__)
+    GetAltMonthNames(lcid, ::core::mem::transmute(prgp.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]

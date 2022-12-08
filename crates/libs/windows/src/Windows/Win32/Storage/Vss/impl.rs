@@ -423,11 +423,11 @@ impl IVssComponent_Vtbl {
 pub trait IVssComponentEx_Impl: Sized + IVssComponent_Impl {
     fn SetPrepareForBackupFailureMsg(&self, wszfailuremsg: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetPostSnapshotFailureMsg(&self, wszfailuremsg: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn GetPrepareForBackupFailureMsg(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn GetPostSnapshotFailureMsg(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetPrepareForBackupFailureMsg(&self, pbstrfailuremsg: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn GetPostSnapshotFailureMsg(&self, pbstrfailuremsg: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetAuthoritativeRestore(&self) -> ::windows::core::Result<bool>;
     fn GetRollForward(&self, prolltype: *mut VSS_ROLLFORWARD_TYPE, pbstrpoint: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn GetRestoreName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetRestoreName(&self, pbstrname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IVssComponentEx {}
@@ -447,24 +447,12 @@ impl IVssComponentEx_Vtbl {
         unsafe extern "system" fn GetPrepareForBackupFailureMsg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfailuremsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPrepareForBackupFailureMsg() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pbstrfailuremsg, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetPrepareForBackupFailureMsg(::core::mem::transmute_copy(&pbstrfailuremsg)).into()
         }
         unsafe extern "system" fn GetPostSnapshotFailureMsg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfailuremsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPostSnapshotFailureMsg() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pbstrfailuremsg, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetPostSnapshotFailureMsg(::core::mem::transmute_copy(&pbstrfailuremsg)).into()
         }
         unsafe extern "system" fn GetAuthoritativeRestore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbauth: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -485,13 +473,7 @@ impl IVssComponentEx_Vtbl {
         unsafe extern "system" fn GetRestoreName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRestoreName() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetRestoreName(::core::mem::transmute_copy(&pbstrname)).into()
         }
         Self {
             base__: IVssComponent_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1681,7 +1663,7 @@ pub trait IVssWriterImpl_Impl: Sized {
     fn Uninitialize(&self);
     fn GetCurrentVolumeArray(&self) -> *mut ::windows::core::PWSTR;
     fn GetCurrentVolumeCount(&self) -> u32;
-    fn GetSnapshotDeviceName(&self, wszoriginalvolume: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetSnapshotDeviceName(&self, wszoriginalvolume: &::windows::core::PCWSTR, ppwszsnapshotdevice: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn GetCurrentSnapshotSetId(&self) -> ::windows::core::GUID;
     fn GetContext(&self) -> i32;
     fn GetCurrentLevel(&self) -> VSS_APPLICATION_LEVEL;
@@ -1734,13 +1716,7 @@ impl IVssWriterImpl_Vtbl {
         unsafe extern "system" fn GetSnapshotDeviceName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszoriginalvolume: ::windows::core::PCWSTR, ppwszsnapshotdevice: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSnapshotDeviceName(::core::mem::transmute(&wszoriginalvolume)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppwszsnapshotdevice, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetSnapshotDeviceName(::core::mem::transmute(&wszoriginalvolume), ::core::mem::transmute_copy(&ppwszsnapshotdevice)).into()
         }
         unsafe extern "system" fn GetCurrentSnapshotSetId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

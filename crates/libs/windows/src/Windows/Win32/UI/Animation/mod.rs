@@ -202,9 +202,8 @@ impl IUIAnimationManager {
     pub unsafe fn AbandonAllStoryboards(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AbandonAllStoryboards)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn Update(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self), timenow, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Update(&self, timenow: f64, updateresult: ::core::option::Option<*mut UI_ANIMATION_UPDATE_RESULT>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self), timenow, ::core::mem::transmute(updateresult.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetVariableFromTag<P0>(&self, object: P0, id: u32) -> ::windows::core::Result<IUIAnimationVariable>
     where
@@ -346,9 +345,8 @@ impl IUIAnimationManager2 {
     pub unsafe fn AbandonAllStoryboards(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AbandonAllStoryboards)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn Update(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self), timenow, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Update(&self, timenow: f64, updateresult: ::core::option::Option<*mut UI_ANIMATION_UPDATE_RESULT>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self), timenow, ::core::mem::transmute(updateresult.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetVariableFromTag<P0>(&self, object: P0, id: u32) -> ::windows::core::Result<IUIAnimationVariable2>
     where
@@ -728,9 +726,8 @@ impl IUIAnimationStoryboard {
     pub unsafe fn SetLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetLongestAcceptableDelay)(::windows::core::Vtable::as_raw(self), delay).ok()
     }
-    pub unsafe fn Schedule(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_SCHEDULING_RESULT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Schedule)(::windows::core::Vtable::as_raw(self), timenow, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Schedule(&self, timenow: f64, schedulingresult: ::core::option::Option<*mut UI_ANIMATION_SCHEDULING_RESULT>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Schedule)(::windows::core::Vtable::as_raw(self), timenow, ::core::mem::transmute(schedulingresult.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Conclude(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Conclude)(::windows::core::Vtable::as_raw(self)).ok()
@@ -875,9 +872,8 @@ impl IUIAnimationStoryboard2 {
     pub unsafe fn SetSkipDuration(&self, secondsduration: f64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetSkipDuration)(::windows::core::Vtable::as_raw(self), secondsduration).ok()
     }
-    pub unsafe fn Schedule(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_SCHEDULING_RESULT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Schedule)(::windows::core::Vtable::as_raw(self), timenow, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Schedule(&self, timenow: f64, schedulingresult: ::core::option::Option<*mut UI_ANIMATION_SCHEDULING_RESULT>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Schedule)(::windows::core::Vtable::as_raw(self), timenow, ::core::mem::transmute(schedulingresult.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Conclude(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Conclude)(::windows::core::Vtable::as_raw(self)).ok()

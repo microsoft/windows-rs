@@ -1962,7 +1962,7 @@ impl IPrintPreviewDxgiPackageTarget_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPrintReadStream_Impl: Sized {
-    fn Seek(&self, dlibmove: i64, dworigin: u32) -> ::windows::core::Result<u64>;
+    fn Seek(&self, dlibmove: i64, dworigin: u32, plibnewposition: *mut u64) -> ::windows::core::Result<()>;
     fn ReadBytes(&self, pvbuffer: *mut ::core::ffi::c_void, cbrequested: u32, pcbread: *mut u32, pbendoffile: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1973,13 +1973,7 @@ impl IPrintReadStream_Vtbl {
         unsafe extern "system" fn Seek<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintReadStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dlibmove: i64, dworigin: u32, plibnewposition: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Seek(::core::mem::transmute_copy(&dlibmove), ::core::mem::transmute_copy(&dworigin)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(plibnewposition, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Seek(::core::mem::transmute_copy(&dlibmove), ::core::mem::transmute_copy(&dworigin), ::core::mem::transmute_copy(&plibnewposition)).into()
         }
         unsafe extern "system" fn ReadBytes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintReadStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbrequested: u32, pcbread: *mut u32, pbendoffile: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

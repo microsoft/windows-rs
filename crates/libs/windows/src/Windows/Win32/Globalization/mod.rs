@@ -8680,23 +8680,21 @@ impl IMLangFontLink {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetFontCodePages<P0, P1>(&self, hdc: P0, hfont: P1) -> ::windows::core::Result<u32>
+    pub unsafe fn GetFontCodePages<P0, P1>(&self, hdc: P0, hfont: P1, pdwcodepages: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::Graphics::Gdi::HFONT>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFontCodePages)(::windows::core::Vtable::as_raw(self), hdc.into(), hfont.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetFontCodePages)(::windows::core::Vtable::as_raw(self), hdc.into(), hfont.into(), ::core::mem::transmute(pdwcodepages.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn MapFont<P0, P1>(&self, hdc: P0, dwcodepages: u32, hsrcfont: P1) -> ::windows::core::Result<super::Graphics::Gdi::HFONT>
+    pub unsafe fn MapFont<P0, P1>(&self, hdc: P0, dwcodepages: u32, hsrcfont: P1, phdestfont: ::core::option::Option<*mut super::Graphics::Gdi::HFONT>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::Graphics::Gdi::HFONT>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MapFont)(::windows::core::Vtable::as_raw(self), hdc.into(), dwcodepages, hsrcfont.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).MapFont)(::windows::core::Vtable::as_raw(self), hdc.into(), dwcodepages, hsrcfont.into(), ::core::mem::transmute(phdestfont.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -8772,13 +8770,12 @@ impl IMLangFontLink2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetFontCodePages<P0, P1>(&self, hdc: P0, hfont: P1) -> ::windows::core::Result<u32>
+    pub unsafe fn GetFontCodePages<P0, P1>(&self, hdc: P0, hfont: P1, pdwcodepages: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::Graphics::Gdi::HFONT>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFontCodePages)(::windows::core::Vtable::as_raw(self), hdc.into(), hfont.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetFontCodePages)(::windows::core::Vtable::as_raw(self), hdc.into(), hfont.into(), ::core::mem::transmute(pdwcodepages.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -8793,21 +8790,19 @@ impl IMLangFontLink2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn MapFont<P0>(&self, hdc: P0, dwcodepages: u32, chsrc: u16) -> ::windows::core::Result<super::Graphics::Gdi::HFONT>
+    pub unsafe fn MapFont<P0>(&self, hdc: P0, dwcodepages: u32, chsrc: u16, pfont: ::core::option::Option<*mut super::Graphics::Gdi::HFONT>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MapFont)(::windows::core::Vtable::as_raw(self), hdc.into(), dwcodepages, chsrc, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).MapFont)(::windows::core::Vtable::as_raw(self), hdc.into(), dwcodepages, chsrc, ::core::mem::transmute(pfont.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetFontUnicodeRanges<P0>(&self, hdc: P0, puiranges: *const u32) -> ::windows::core::Result<UNICODERANGE>
+    pub unsafe fn GetFontUnicodeRanges<P0>(&self, hdc: P0, puiranges: *const u32, puranges: ::core::option::Option<*mut UNICODERANGE>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFontUnicodeRanges)(::windows::core::Vtable::as_raw(self), hdc.into(), puiranges, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetFontUnicodeRanges)(::windows::core::Vtable::as_raw(self), hdc.into(), puiranges, ::core::mem::transmute(puranges.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetScriptFontInfo(&self, sid: u8, dwflags: u32, puifonts: *mut u32, pscriptfont: ::core::option::Option<*mut SCRIPTFONTINFO>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetScriptFontInfo)(::windows::core::Vtable::as_raw(self), sid, dwflags, puifonts, ::core::mem::transmute(pscriptfont.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8924,9 +8919,8 @@ impl IMLangString {
     {
         (::windows::core::Vtable::vtable(self).Sync)(::windows::core::Vtable::as_raw(self), fnoaccess.into()).ok()
     }
-    pub unsafe fn GetLength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLength)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetLength(&self, pllen: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pllen.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetMLStr<P0>(&self, ldestpos: i32, ldestlen: i32, psrcmlstr: P0, lsrcpos: i32, lsrclen: i32) -> ::windows::core::Result<()>
     where
@@ -8988,9 +8982,8 @@ impl IMLangStringAStr {
     {
         (::windows::core::Vtable::vtable(self).base__.Sync)(::windows::core::Vtable::as_raw(self), fnoaccess.into()).ok()
     }
-    pub unsafe fn GetLength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetLength)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetLength(&self, pllen: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pllen.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetMLStr<P0>(&self, ldestpos: i32, ldestlen: i32, psrcmlstr: P0, lsrcpos: i32, lsrclen: i32) -> ::windows::core::Result<()>
     where
@@ -9086,9 +9079,8 @@ impl IMLangStringBufA {
     {
         (::windows::core::Vtable::vtable(self).UnlockBuf)(::windows::core::Vtable::as_raw(self), pszbuf.into().abi(), cchoffset, cchwrite).ok()
     }
-    pub unsafe fn Insert(&self, cchoffset: i32, cchmaxinsert: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Insert)(::windows::core::Vtable::as_raw(self), cchoffset, cchmaxinsert, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Insert(&self, cchoffset: i32, cchmaxinsert: i32, pcchactual: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Insert)(::windows::core::Vtable::as_raw(self), cchoffset, cchmaxinsert, ::core::mem::transmute(pcchactual.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Delete(&self, cchoffset: i32, cchdelete: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), cchoffset, cchdelete).ok()
@@ -9146,9 +9138,8 @@ impl IMLangStringBufW {
     {
         (::windows::core::Vtable::vtable(self).UnlockBuf)(::windows::core::Vtable::as_raw(self), pszbuf.into().abi(), cchoffset, cchwrite).ok()
     }
-    pub unsafe fn Insert(&self, cchoffset: i32, cchmaxinsert: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Insert)(::windows::core::Vtable::as_raw(self), cchoffset, cchmaxinsert, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Insert(&self, cchoffset: i32, cchmaxinsert: i32, pcchactual: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Insert)(::windows::core::Vtable::as_raw(self), cchoffset, cchmaxinsert, ::core::mem::transmute(pcchactual.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Delete(&self, cchoffset: i32, cchdelete: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), cchoffset, cchdelete).ok()
@@ -9199,9 +9190,8 @@ impl IMLangStringWStr {
     {
         (::windows::core::Vtable::vtable(self).base__.Sync)(::windows::core::Vtable::as_raw(self), fnoaccess.into()).ok()
     }
-    pub unsafe fn GetLength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetLength)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetLength(&self, pllen: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pllen.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetMLStr<P0>(&self, ldestpos: i32, ldestlen: i32, psrcmlstr: P0, lsrcpos: i32, lsrclen: i32) -> ::windows::core::Result<()>
     where

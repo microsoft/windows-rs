@@ -198,13 +198,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
-pub unsafe fn WerReportSubmit<P0>(hreporthandle: P0, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS) -> ::windows::core::Result<WER_SUBMIT_RESULT>
+pub unsafe fn WerReportSubmit<P0>(hreporthandle: P0, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS, psubmitresult: ::core::option::Option<*mut WER_SUBMIT_RESULT>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HREPORT>,
 {
     ::windows::core::link ! ( "wer.dll""system" fn WerReportSubmit ( hreporthandle : HREPORT , consent : WER_CONSENT , dwflags : WER_SUBMIT_FLAGS , psubmitresult : *mut WER_SUBMIT_RESULT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerReportSubmit(hreporthandle.into(), consent, dwflags, result__.as_mut_ptr()).from_abi(result__)
+    WerReportSubmit(hreporthandle.into(), consent, dwflags, ::core::mem::transmute(psubmitresult.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
@@ -223,23 +222,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
-pub unsafe fn WerStoreGetFirstReportKey<P0>(hreportstore: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn WerStoreGetFirstReportKey<P0>(hreportstore: P0, ppszreportkey: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HREPORTSTORE>,
 {
     ::windows::core::link ! ( "wer.dll""system" fn WerStoreGetFirstReportKey ( hreportstore : HREPORTSTORE , ppszreportkey : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreGetFirstReportKey(hreportstore.into(), result__.as_mut_ptr()).from_abi(result__)
+    WerStoreGetFirstReportKey(hreportstore.into(), ::core::mem::transmute(ppszreportkey.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
-pub unsafe fn WerStoreGetNextReportKey<P0>(hreportstore: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn WerStoreGetNextReportKey<P0>(hreportstore: P0, ppszreportkey: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HREPORTSTORE>,
 {
     ::windows::core::link ! ( "wer.dll""system" fn WerStoreGetNextReportKey ( hreportstore : HREPORTSTORE , ppszreportkey : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreGetNextReportKey(hreportstore.into(), result__.as_mut_ptr()).from_abi(result__)
+    WerStoreGetNextReportKey(hreportstore.into(), ::core::mem::transmute(ppszreportkey.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
@@ -312,14 +309,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
-pub unsafe fn WerStoreUploadReport<P0, P1>(hreportstore: P0, pszreportkey: P1, dwflags: u32) -> ::windows::core::Result<WER_SUBMIT_RESULT>
+pub unsafe fn WerStoreUploadReport<P0, P1>(hreportstore: P0, pszreportkey: P1, dwflags: u32, psubmitresult: ::core::option::Option<*mut WER_SUBMIT_RESULT>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HREPORTSTORE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wer.dll""system" fn WerStoreUploadReport ( hreportstore : HREPORTSTORE , pszreportkey : :: windows::core::PCWSTR , dwflags : u32 , psubmitresult : *mut WER_SUBMIT_RESULT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreUploadReport(hreportstore.into(), pszreportkey.into().abi(), dwflags, result__.as_mut_ptr()).from_abi(result__)
+    WerStoreUploadReport(hreportstore.into(), pszreportkey.into().abi(), dwflags, ::core::mem::transmute(psubmitresult.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]

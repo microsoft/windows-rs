@@ -426,31 +426,31 @@ impl ID3D11DepthStencilView_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device_Impl: Sized {
-    fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Buffer>;
-    fn CreateTexture1D(&self, pdesc: *const D3D11_TEXTURE1D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture1D>;
-    fn CreateTexture2D(&self, pdesc: *const D3D11_TEXTURE2D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture2D>;
-    fn CreateTexture3D(&self, pdesc: *const D3D11_TEXTURE3D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture3D>;
-    fn CreateShaderResourceView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_SHADER_RESOURCE_VIEW_DESC) -> ::windows::core::Result<ID3D11ShaderResourceView>;
-    fn CreateUnorderedAccessView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_UNORDERED_ACCESS_VIEW_DESC) -> ::windows::core::Result<ID3D11UnorderedAccessView>;
-    fn CreateRenderTargetView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_RENDER_TARGET_VIEW_DESC) -> ::windows::core::Result<ID3D11RenderTargetView>;
-    fn CreateDepthStencilView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_DEPTH_STENCIL_VIEW_DESC) -> ::windows::core::Result<ID3D11DepthStencilView>;
-    fn CreateInputLayout(&self, pinputelementdescs: *const D3D11_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<ID3D11InputLayout>;
-    fn CreateVertexShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11VertexShader>;
-    fn CreateGeometryShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11GeometryShader>;
-    fn CreateGeometryShaderWithStreamOutput(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, psodeclaration: *const D3D11_SO_DECLARATION_ENTRY, numentries: u32, pbufferstrides: *const u32, numstrides: u32, rasterizedstream: u32, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11GeometryShader>;
-    fn CreatePixelShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11PixelShader>;
-    fn CreateHullShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11HullShader>;
-    fn CreateDomainShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11DomainShader>;
-    fn CreateComputeShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11ComputeShader>;
+    fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA, ppbuffer: *mut ::core::option::Option<ID3D11Buffer>) -> ::windows::core::Result<()>;
+    fn CreateTexture1D(&self, pdesc: *const D3D11_TEXTURE1D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture1d: *mut ::core::option::Option<ID3D11Texture1D>) -> ::windows::core::Result<()>;
+    fn CreateTexture2D(&self, pdesc: *const D3D11_TEXTURE2D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture2d: *mut ::core::option::Option<ID3D11Texture2D>) -> ::windows::core::Result<()>;
+    fn CreateTexture3D(&self, pdesc: *const D3D11_TEXTURE3D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture3d: *mut ::core::option::Option<ID3D11Texture3D>) -> ::windows::core::Result<()>;
+    fn CreateShaderResourceView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_SHADER_RESOURCE_VIEW_DESC, ppsrview: *mut ::core::option::Option<ID3D11ShaderResourceView>) -> ::windows::core::Result<()>;
+    fn CreateUnorderedAccessView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_UNORDERED_ACCESS_VIEW_DESC, ppuaview: *mut ::core::option::Option<ID3D11UnorderedAccessView>) -> ::windows::core::Result<()>;
+    fn CreateRenderTargetView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_RENDER_TARGET_VIEW_DESC, pprtview: *mut ::core::option::Option<ID3D11RenderTargetView>) -> ::windows::core::Result<()>;
+    fn CreateDepthStencilView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_DEPTH_STENCIL_VIEW_DESC, ppdepthstencilview: *mut ::core::option::Option<ID3D11DepthStencilView>) -> ::windows::core::Result<()>;
+    fn CreateInputLayout(&self, pinputelementdescs: *const D3D11_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const ::core::ffi::c_void, bytecodelength: usize, ppinputlayout: *mut ::core::option::Option<ID3D11InputLayout>) -> ::windows::core::Result<()>;
+    fn CreateVertexShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>, ppvertexshader: *mut ::core::option::Option<ID3D11VertexShader>) -> ::windows::core::Result<()>;
+    fn CreateGeometryShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>, ppgeometryshader: *mut ::core::option::Option<ID3D11GeometryShader>) -> ::windows::core::Result<()>;
+    fn CreateGeometryShaderWithStreamOutput(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, psodeclaration: *const D3D11_SO_DECLARATION_ENTRY, numentries: u32, pbufferstrides: *const u32, numstrides: u32, rasterizedstream: u32, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>, ppgeometryshader: *mut ::core::option::Option<ID3D11GeometryShader>) -> ::windows::core::Result<()>;
+    fn CreatePixelShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>, pppixelshader: *mut ::core::option::Option<ID3D11PixelShader>) -> ::windows::core::Result<()>;
+    fn CreateHullShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>, pphullshader: *mut ::core::option::Option<ID3D11HullShader>) -> ::windows::core::Result<()>;
+    fn CreateDomainShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>, ppdomainshader: *mut ::core::option::Option<ID3D11DomainShader>) -> ::windows::core::Result<()>;
+    fn CreateComputeShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>, ppcomputeshader: *mut ::core::option::Option<ID3D11ComputeShader>) -> ::windows::core::Result<()>;
     fn CreateClassLinkage(&self) -> ::windows::core::Result<ID3D11ClassLinkage>;
-    fn CreateBlendState(&self, pblendstatedesc: *const D3D11_BLEND_DESC) -> ::windows::core::Result<ID3D11BlendState>;
-    fn CreateDepthStencilState(&self, pdepthstencildesc: *const D3D11_DEPTH_STENCIL_DESC) -> ::windows::core::Result<ID3D11DepthStencilState>;
-    fn CreateRasterizerState(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC) -> ::windows::core::Result<ID3D11RasterizerState>;
-    fn CreateSamplerState(&self, psamplerdesc: *const D3D11_SAMPLER_DESC) -> ::windows::core::Result<ID3D11SamplerState>;
-    fn CreateQuery(&self, pquerydesc: *const D3D11_QUERY_DESC) -> ::windows::core::Result<ID3D11Query>;
-    fn CreatePredicate(&self, ppredicatedesc: *const D3D11_QUERY_DESC) -> ::windows::core::Result<ID3D11Predicate>;
-    fn CreateCounter(&self, pcounterdesc: *const D3D11_COUNTER_DESC) -> ::windows::core::Result<ID3D11Counter>;
-    fn CreateDeferredContext(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext>;
+    fn CreateBlendState(&self, pblendstatedesc: *const D3D11_BLEND_DESC, ppblendstate: *mut ::core::option::Option<ID3D11BlendState>) -> ::windows::core::Result<()>;
+    fn CreateDepthStencilState(&self, pdepthstencildesc: *const D3D11_DEPTH_STENCIL_DESC, ppdepthstencilstate: *mut ::core::option::Option<ID3D11DepthStencilState>) -> ::windows::core::Result<()>;
+    fn CreateRasterizerState(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC, pprasterizerstate: *mut ::core::option::Option<ID3D11RasterizerState>) -> ::windows::core::Result<()>;
+    fn CreateSamplerState(&self, psamplerdesc: *const D3D11_SAMPLER_DESC, ppsamplerstate: *mut ::core::option::Option<ID3D11SamplerState>) -> ::windows::core::Result<()>;
+    fn CreateQuery(&self, pquerydesc: *const D3D11_QUERY_DESC, ppquery: *mut ::core::option::Option<ID3D11Query>) -> ::windows::core::Result<()>;
+    fn CreatePredicate(&self, ppredicatedesc: *const D3D11_QUERY_DESC, pppredicate: *mut ::core::option::Option<ID3D11Predicate>) -> ::windows::core::Result<()>;
+    fn CreateCounter(&self, pcounterdesc: *const D3D11_COUNTER_DESC, ppcounter: *mut ::core::option::Option<ID3D11Counter>) -> ::windows::core::Result<()>;
+    fn CreateDeferredContext(&self, contextflags: u32, ppdeferredcontext: *mut ::core::option::Option<ID3D11DeviceContext>) -> ::windows::core::Result<()>;
     fn OpenSharedResource(&self, hresource: super::super::Foundation::HANDLE, returnedinterface: *const ::windows::core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CheckFormatSupport(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32>;
     fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows::core::Result<u32>;
@@ -475,178 +475,82 @@ impl ID3D11Device_Vtbl {
         unsafe extern "system" fn CreateBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateBuffer(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pinitialdata)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppbuffer, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateBuffer(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pinitialdata), ::core::mem::transmute_copy(&ppbuffer)).into()
         }
         unsafe extern "system" fn CreateTexture1D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D11_TEXTURE1D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture1d: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTexture1D(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pinitialdata)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pptexture1d, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateTexture1D(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pinitialdata), ::core::mem::transmute_copy(&pptexture1d)).into()
         }
         unsafe extern "system" fn CreateTexture2D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D11_TEXTURE2D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture2d: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTexture2D(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pinitialdata)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pptexture2d, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateTexture2D(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pinitialdata), ::core::mem::transmute_copy(&pptexture2d)).into()
         }
         unsafe extern "system" fn CreateTexture3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D11_TEXTURE3D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture3d: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTexture3D(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pinitialdata)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pptexture3d, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateTexture3D(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pinitialdata), ::core::mem::transmute_copy(&pptexture3d)).into()
         }
         unsafe extern "system" fn CreateShaderResourceView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D11_SHADER_RESOURCE_VIEW_DESC, ppsrview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateShaderResourceView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppsrview, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateShaderResourceView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ppsrview)).into()
         }
         unsafe extern "system" fn CreateUnorderedAccessView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D11_UNORDERED_ACCESS_VIEW_DESC, ppuaview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateUnorderedAccessView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppuaview, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateUnorderedAccessView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ppuaview)).into()
         }
         unsafe extern "system" fn CreateRenderTargetView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D11_RENDER_TARGET_VIEW_DESC, pprtview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRenderTargetView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pprtview, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateRenderTargetView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pprtview)).into()
         }
         unsafe extern "system" fn CreateDepthStencilView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D11_DEPTH_STENCIL_VIEW_DESC, ppdepthstencilview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDepthStencilView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppdepthstencilview, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateDepthStencilView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ppdepthstencilview)).into()
         }
         unsafe extern "system" fn CreateInputLayout<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinputelementdescs: *const D3D11_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const ::core::ffi::c_void, bytecodelength: usize, ppinputlayout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateInputLayout(::core::mem::transmute_copy(&pinputelementdescs), ::core::mem::transmute_copy(&numelements), ::core::mem::transmute_copy(&pshaderbytecodewithinputsignature), ::core::mem::transmute_copy(&bytecodelength)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppinputlayout, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateInputLayout(::core::mem::transmute_copy(&pinputelementdescs), ::core::mem::transmute_copy(&numelements), ::core::mem::transmute_copy(&pshaderbytecodewithinputsignature), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute_copy(&ppinputlayout)).into()
         }
         unsafe extern "system" fn CreateVertexShader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: *mut ::core::ffi::c_void, ppvertexshader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateVertexShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppvertexshader, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateVertexShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage), ::core::mem::transmute_copy(&ppvertexshader)).into()
         }
         unsafe extern "system" fn CreateGeometryShader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: *mut ::core::ffi::c_void, ppgeometryshader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateGeometryShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppgeometryshader, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateGeometryShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage), ::core::mem::transmute_copy(&ppgeometryshader)).into()
         }
         unsafe extern "system" fn CreateGeometryShaderWithStreamOutput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, psodeclaration: *const D3D11_SO_DECLARATION_ENTRY, numentries: u32, pbufferstrides: *const u32, numstrides: u32, rasterizedstream: u32, pclasslinkage: *mut ::core::ffi::c_void, ppgeometryshader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateGeometryShaderWithStreamOutput(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute_copy(&psodeclaration), ::core::mem::transmute_copy(&numentries), ::core::mem::transmute_copy(&pbufferstrides), ::core::mem::transmute_copy(&numstrides), ::core::mem::transmute_copy(&rasterizedstream), ::core::mem::transmute(&pclasslinkage)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppgeometryshader, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateGeometryShaderWithStreamOutput(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute_copy(&psodeclaration), ::core::mem::transmute_copy(&numentries), ::core::mem::transmute_copy(&pbufferstrides), ::core::mem::transmute_copy(&numstrides), ::core::mem::transmute_copy(&rasterizedstream), ::core::mem::transmute(&pclasslinkage), ::core::mem::transmute_copy(&ppgeometryshader)).into()
         }
         unsafe extern "system" fn CreatePixelShader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: *mut ::core::ffi::c_void, pppixelshader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePixelShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pppixelshader, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreatePixelShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage), ::core::mem::transmute_copy(&pppixelshader)).into()
         }
         unsafe extern "system" fn CreateHullShader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: *mut ::core::ffi::c_void, pphullshader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateHullShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pphullshader, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateHullShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage), ::core::mem::transmute_copy(&pphullshader)).into()
         }
         unsafe extern "system" fn CreateDomainShader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: *mut ::core::ffi::c_void, ppdomainshader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDomainShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppdomainshader, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateDomainShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage), ::core::mem::transmute_copy(&ppdomainshader)).into()
         }
         unsafe extern "system" fn CreateComputeShader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: *mut ::core::ffi::c_void, ppcomputeshader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateComputeShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppcomputeshader, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateComputeShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage), ::core::mem::transmute_copy(&ppcomputeshader)).into()
         }
         unsafe extern "system" fn CreateClassLinkage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pplinkage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -662,90 +566,42 @@ impl ID3D11Device_Vtbl {
         unsafe extern "system" fn CreateBlendState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pblendstatedesc: *const D3D11_BLEND_DESC, ppblendstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateBlendState(::core::mem::transmute_copy(&pblendstatedesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppblendstate, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateBlendState(::core::mem::transmute_copy(&pblendstatedesc), ::core::mem::transmute_copy(&ppblendstate)).into()
         }
         unsafe extern "system" fn CreateDepthStencilState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdepthstencildesc: *const D3D11_DEPTH_STENCIL_DESC, ppdepthstencilstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDepthStencilState(::core::mem::transmute_copy(&pdepthstencildesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppdepthstencilstate, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateDepthStencilState(::core::mem::transmute_copy(&pdepthstencildesc), ::core::mem::transmute_copy(&ppdepthstencilstate)).into()
         }
         unsafe extern "system" fn CreateRasterizerState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prasterizerdesc: *const D3D11_RASTERIZER_DESC, pprasterizerstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRasterizerState(::core::mem::transmute_copy(&prasterizerdesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pprasterizerstate, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateRasterizerState(::core::mem::transmute_copy(&prasterizerdesc), ::core::mem::transmute_copy(&pprasterizerstate)).into()
         }
         unsafe extern "system" fn CreateSamplerState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psamplerdesc: *const D3D11_SAMPLER_DESC, ppsamplerstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSamplerState(::core::mem::transmute_copy(&psamplerdesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppsamplerstate, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateSamplerState(::core::mem::transmute_copy(&psamplerdesc), ::core::mem::transmute_copy(&ppsamplerstate)).into()
         }
         unsafe extern "system" fn CreateQuery<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pquerydesc: *const D3D11_QUERY_DESC, ppquery: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateQuery(::core::mem::transmute_copy(&pquerydesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppquery, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateQuery(::core::mem::transmute_copy(&pquerydesc), ::core::mem::transmute_copy(&ppquery)).into()
         }
         unsafe extern "system" fn CreatePredicate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppredicatedesc: *const D3D11_QUERY_DESC, pppredicate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePredicate(::core::mem::transmute_copy(&ppredicatedesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pppredicate, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreatePredicate(::core::mem::transmute_copy(&ppredicatedesc), ::core::mem::transmute_copy(&pppredicate)).into()
         }
         unsafe extern "system" fn CreateCounter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcounterdesc: *const D3D11_COUNTER_DESC, ppcounter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateCounter(::core::mem::transmute_copy(&pcounterdesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppcounter, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateCounter(::core::mem::transmute_copy(&pcounterdesc), ::core::mem::transmute_copy(&ppcounter)).into()
         }
         unsafe extern "system" fn CreateDeferredContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contextflags: u32, ppdeferredcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDeferredContext(::core::mem::transmute_copy(&contextflags)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppdeferredcontext, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateDeferredContext(::core::mem::transmute_copy(&contextflags), ::core::mem::transmute_copy(&ppdeferredcontext)).into()
         }
         unsafe extern "system" fn OpenSharedResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresource: super::super::Foundation::HANDLE, returnedinterface: *const ::windows::core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -885,9 +741,9 @@ impl ID3D11Device_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device1_Impl: Sized + ID3D11Device_Impl {
     fn GetImmediateContext1(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext1>);
-    fn CreateDeferredContext1(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext1>;
-    fn CreateBlendState1(&self, pblendstatedesc: *const D3D11_BLEND_DESC1) -> ::windows::core::Result<ID3D11BlendState1>;
-    fn CreateRasterizerState1(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC1) -> ::windows::core::Result<ID3D11RasterizerState1>;
+    fn CreateDeferredContext1(&self, contextflags: u32, ppdeferredcontext: *mut ::core::option::Option<ID3D11DeviceContext1>) -> ::windows::core::Result<()>;
+    fn CreateBlendState1(&self, pblendstatedesc: *const D3D11_BLEND_DESC1, ppblendstate: *mut ::core::option::Option<ID3D11BlendState1>) -> ::windows::core::Result<()>;
+    fn CreateRasterizerState1(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC1, pprasterizerstate: *mut ::core::option::Option<ID3D11RasterizerState1>) -> ::windows::core::Result<()>;
     fn CreateDeviceContextState(&self, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows::core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut ::core::option::Option<ID3DDeviceContextState>) -> ::windows::core::Result<()>;
     fn OpenSharedResource1(&self, hresource: super::super::Foundation::HANDLE, returnedinterface: *const ::windows::core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn OpenSharedResourceByName(&self, lpname: &::windows::core::PCWSTR, dwdesiredaccess: u32, returnedinterface: *const ::windows::core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -905,35 +761,17 @@ impl ID3D11Device1_Vtbl {
         unsafe extern "system" fn CreateDeferredContext1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contextflags: u32, ppdeferredcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDeferredContext1(::core::mem::transmute_copy(&contextflags)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppdeferredcontext, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateDeferredContext1(::core::mem::transmute_copy(&contextflags), ::core::mem::transmute_copy(&ppdeferredcontext)).into()
         }
         unsafe extern "system" fn CreateBlendState1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pblendstatedesc: *const D3D11_BLEND_DESC1, ppblendstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateBlendState1(::core::mem::transmute_copy(&pblendstatedesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppblendstate, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateBlendState1(::core::mem::transmute_copy(&pblendstatedesc), ::core::mem::transmute_copy(&ppblendstate)).into()
         }
         unsafe extern "system" fn CreateRasterizerState1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prasterizerdesc: *const D3D11_RASTERIZER_DESC1, pprasterizerstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRasterizerState1(::core::mem::transmute_copy(&prasterizerdesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pprasterizerstate, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateRasterizerState1(::core::mem::transmute_copy(&prasterizerdesc), ::core::mem::transmute_copy(&pprasterizerstate)).into()
         }
         unsafe extern "system" fn CreateDeviceContextState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows::core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -968,7 +806,7 @@ impl ID3D11Device1_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device2_Impl: Sized + ID3D11Device1_Impl {
     fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>);
-    fn CreateDeferredContext2(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext2>;
+    fn CreateDeferredContext2(&self, contextflags: u32, ppdeferredcontext: *mut ::core::option::Option<ID3D11DeviceContext2>) -> ::windows::core::Result<()>;
     fn GetResourceTiling(&self, ptiledresource: &::core::option::Option<ID3D11Resource>, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D11_PACKED_MIP_DESC, pstandardtileshapefornonpackedmips: *mut D3D11_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D11_SUBRESOURCE_TILING);
     fn CheckMultisampleQualityLevels1(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32>;
 }
@@ -985,13 +823,7 @@ impl ID3D11Device2_Vtbl {
         unsafe extern "system" fn CreateDeferredContext2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contextflags: u32, ppdeferredcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDeferredContext2(::core::mem::transmute_copy(&contextflags)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppdeferredcontext, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateDeferredContext2(::core::mem::transmute_copy(&contextflags), ::core::mem::transmute_copy(&ppdeferredcontext)).into()
         }
         unsafe extern "system" fn GetResourceTiling<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptiledresource: *mut ::core::ffi::c_void, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D11_PACKED_MIP_DESC, pstandardtileshapefornonpackedmips: *mut D3D11_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D11_SUBRESOURCE_TILING) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1023,15 +855,15 @@ impl ID3D11Device2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device3_Impl: Sized + ID3D11Device2_Impl {
-    fn CreateTexture2D1(&self, pdesc1: *const D3D11_TEXTURE2D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture2D1>;
-    fn CreateTexture3D1(&self, pdesc1: *const D3D11_TEXTURE3D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture3D1>;
-    fn CreateRasterizerState2(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC2) -> ::windows::core::Result<ID3D11RasterizerState2>;
-    fn CreateShaderResourceView1(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1) -> ::windows::core::Result<ID3D11ShaderResourceView1>;
-    fn CreateUnorderedAccessView1(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1) -> ::windows::core::Result<ID3D11UnorderedAccessView1>;
-    fn CreateRenderTargetView1(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1) -> ::windows::core::Result<ID3D11RenderTargetView1>;
-    fn CreateQuery1(&self, pquerydesc1: *const D3D11_QUERY_DESC1) -> ::windows::core::Result<ID3D11Query1>;
+    fn CreateTexture2D1(&self, pdesc1: *const D3D11_TEXTURE2D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture2d: *mut ::core::option::Option<ID3D11Texture2D1>) -> ::windows::core::Result<()>;
+    fn CreateTexture3D1(&self, pdesc1: *const D3D11_TEXTURE3D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture3d: *mut ::core::option::Option<ID3D11Texture3D1>) -> ::windows::core::Result<()>;
+    fn CreateRasterizerState2(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC2, pprasterizerstate: *mut ::core::option::Option<ID3D11RasterizerState2>) -> ::windows::core::Result<()>;
+    fn CreateShaderResourceView1(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1, ppsrview1: *mut ::core::option::Option<ID3D11ShaderResourceView1>) -> ::windows::core::Result<()>;
+    fn CreateUnorderedAccessView1(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1, ppuaview1: *mut ::core::option::Option<ID3D11UnorderedAccessView1>) -> ::windows::core::Result<()>;
+    fn CreateRenderTargetView1(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1, pprtview1: *mut ::core::option::Option<ID3D11RenderTargetView1>) -> ::windows::core::Result<()>;
+    fn CreateQuery1(&self, pquerydesc1: *const D3D11_QUERY_DESC1, ppquery1: *mut ::core::option::Option<ID3D11Query1>) -> ::windows::core::Result<()>;
     fn GetImmediateContext3(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext3>);
-    fn CreateDeferredContext3(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext3>;
+    fn CreateDeferredContext3(&self, contextflags: u32, ppdeferredcontext: *mut ::core::option::Option<ID3D11DeviceContext3>) -> ::windows::core::Result<()>;
     fn WriteToSubresource(&self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32);
     fn ReadFromSubresource(&self, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, psrcresource: &::core::option::Option<ID3D11Resource>, srcsubresource: u32, psrcbox: *const D3D11_BOX);
 }
@@ -1043,79 +875,37 @@ impl ID3D11Device3_Vtbl {
         unsafe extern "system" fn CreateTexture2D1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc1: *const D3D11_TEXTURE2D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture2d: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTexture2D1(::core::mem::transmute_copy(&pdesc1), ::core::mem::transmute_copy(&pinitialdata)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pptexture2d, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateTexture2D1(::core::mem::transmute_copy(&pdesc1), ::core::mem::transmute_copy(&pinitialdata), ::core::mem::transmute_copy(&pptexture2d)).into()
         }
         unsafe extern "system" fn CreateTexture3D1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc1: *const D3D11_TEXTURE3D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture3d: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTexture3D1(::core::mem::transmute_copy(&pdesc1), ::core::mem::transmute_copy(&pinitialdata)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pptexture3d, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateTexture3D1(::core::mem::transmute_copy(&pdesc1), ::core::mem::transmute_copy(&pinitialdata), ::core::mem::transmute_copy(&pptexture3d)).into()
         }
         unsafe extern "system" fn CreateRasterizerState2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prasterizerdesc: *const D3D11_RASTERIZER_DESC2, pprasterizerstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRasterizerState2(::core::mem::transmute_copy(&prasterizerdesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pprasterizerstate, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateRasterizerState2(::core::mem::transmute_copy(&prasterizerdesc), ::core::mem::transmute_copy(&pprasterizerstate)).into()
         }
         unsafe extern "system" fn CreateShaderResourceView1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1, ppsrview1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateShaderResourceView1(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc1)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppsrview1, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateShaderResourceView1(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc1), ::core::mem::transmute_copy(&ppsrview1)).into()
         }
         unsafe extern "system" fn CreateUnorderedAccessView1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1, ppuaview1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateUnorderedAccessView1(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc1)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppuaview1, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateUnorderedAccessView1(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc1), ::core::mem::transmute_copy(&ppuaview1)).into()
         }
         unsafe extern "system" fn CreateRenderTargetView1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1, pprtview1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRenderTargetView1(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc1)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pprtview1, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateRenderTargetView1(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc1), ::core::mem::transmute_copy(&pprtview1)).into()
         }
         unsafe extern "system" fn CreateQuery1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pquerydesc1: *const D3D11_QUERY_DESC1, ppquery1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateQuery1(::core::mem::transmute_copy(&pquerydesc1)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppquery1, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateQuery1(::core::mem::transmute_copy(&pquerydesc1), ::core::mem::transmute_copy(&ppquery1)).into()
         }
         unsafe extern "system" fn GetImmediateContext3<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppimmediatecontext: *mut *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1125,13 +915,7 @@ impl ID3D11Device3_Vtbl {
         unsafe extern "system" fn CreateDeferredContext3<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contextflags: u32, ppdeferredcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDeferredContext3(::core::mem::transmute_copy(&contextflags)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppdeferredcontext, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateDeferredContext3(::core::mem::transmute_copy(&contextflags), ::core::mem::transmute_copy(&ppdeferredcontext)).into()
         }
         unsafe extern "system" fn WriteToSubresource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Device3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1278,7 +1062,7 @@ pub trait ID3D11DeviceContext_Impl: Sized + ID3D11DeviceChild_Impl {
     fn VSSetShader(&self, pvertexshader: &::core::option::Option<ID3D11VertexShader>, ppclassinstances: *const ::core::option::Option<ID3D11ClassInstance>, numclassinstances: u32);
     fn DrawIndexed(&self, indexcount: u32, startindexlocation: u32, basevertexlocation: i32);
     fn Draw(&self, vertexcount: u32, startvertexlocation: u32);
-    fn Map(&self, presource: &::core::option::Option<ID3D11Resource>, subresource: u32, maptype: D3D11_MAP, mapflags: u32) -> ::windows::core::Result<D3D11_MAPPED_SUBRESOURCE>;
+    fn Map(&self, presource: &::core::option::Option<ID3D11Resource>, subresource: u32, maptype: D3D11_MAP, mapflags: u32, pmappedresource: *mut D3D11_MAPPED_SUBRESOURCE) -> ::windows::core::Result<()>;
     fn Unmap(&self, presource: &::core::option::Option<ID3D11Resource>, subresource: u32);
     fn PSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>);
     fn IASetInputLayout(&self, pinputlayout: &::core::option::Option<ID3D11InputLayout>);
@@ -1378,7 +1162,7 @@ pub trait ID3D11DeviceContext_Impl: Sized + ID3D11DeviceChild_Impl {
     fn Flush(&self);
     fn GetType(&self) -> D3D11_DEVICE_CONTEXT_TYPE;
     fn GetContextFlags(&self) -> u32;
-    fn FinishCommandList(&self, restoredeferredcontextstate: super::super::Foundation::BOOL) -> ::windows::core::Result<ID3D11CommandList>;
+    fn FinishCommandList(&self, restoredeferredcontextstate: super::super::Foundation::BOOL, ppcommandlist: *mut ::core::option::Option<ID3D11CommandList>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows::core::RuntimeName for ID3D11DeviceContext {}
@@ -1423,13 +1207,7 @@ impl ID3D11DeviceContext_Vtbl {
         unsafe extern "system" fn Map<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, subresource: u32, maptype: D3D11_MAP, mapflags: u32, pmappedresource: *mut D3D11_MAPPED_SUBRESOURCE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Map(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&subresource), ::core::mem::transmute_copy(&maptype), ::core::mem::transmute_copy(&mapflags)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pmappedresource, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Map(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&subresource), ::core::mem::transmute_copy(&maptype), ::core::mem::transmute_copy(&mapflags), ::core::mem::transmute_copy(&pmappedresource)).into()
         }
         unsafe extern "system" fn Unmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, subresource: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1929,13 +1707,7 @@ impl ID3D11DeviceContext_Vtbl {
         unsafe extern "system" fn FinishCommandList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, restoredeferredcontextstate: super::super::Foundation::BOOL, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FinishCommandList(::core::mem::transmute_copy(&restoredeferredcontextstate)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppcommandlist, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.FinishCommandList(::core::mem::transmute_copy(&restoredeferredcontextstate), ::core::mem::transmute_copy(&ppcommandlist)).into()
         }
         Self {
             base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2417,7 +2189,7 @@ pub trait ID3D11FunctionLinkingGraph_Impl: Sized {
     fn CallFunction(&self, pmoduleinstancenamespace: &::windows::core::PCSTR, pmodulewithfunctionprototype: &::core::option::Option<ID3D11Module>, pfunctionname: &::windows::core::PCSTR) -> ::windows::core::Result<ID3D11LinkingNode>;
     fn PassValue(&self, psrcnode: &::core::option::Option<ID3D11LinkingNode>, srcparameterindex: i32, pdstnode: &::core::option::Option<ID3D11LinkingNode>, dstparameterindex: i32) -> ::windows::core::Result<()>;
     fn PassValueWithSwizzle(&self, psrcnode: &::core::option::Option<ID3D11LinkingNode>, srcparameterindex: i32, psrcswizzle: &::windows::core::PCSTR, pdstnode: &::core::option::Option<ID3D11LinkingNode>, dstparameterindex: i32, pdstswizzle: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
-    fn GetLastError(&self) -> ::windows::core::Result<super::Direct3D::ID3DBlob>;
+    fn GetLastError(&self, pperrorbuffer: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()>;
     fn GenerateHlsl(&self, uflags: u32) -> ::windows::core::Result<super::Direct3D::ID3DBlob>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -2476,13 +2248,7 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
         unsafe extern "system" fn GetLastError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11FunctionLinkingGraph_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pperrorbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetLastError() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pperrorbuffer, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetLastError(::core::mem::transmute_copy(&pperrorbuffer)).into()
         }
         unsafe extern "system" fn GenerateHlsl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11FunctionLinkingGraph_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uflags: u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3831,7 +3597,7 @@ impl ID3D11ShaderResourceView1_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11ShaderTrace_Impl: Sized {
-    fn TraceReady(&self) -> ::windows::core::Result<u64>;
+    fn TraceReady(&self, ptestcount: *mut u64) -> ::windows::core::Result<()>;
     fn ResetTrace(&self);
     fn GetTraceStats(&self) -> ::windows::core::Result<D3D11_TRACE_STATS>;
     fn PSSelectStamp(&self, stampindex: u32) -> ::windows::core::Result<()>;
@@ -3848,13 +3614,7 @@ impl ID3D11ShaderTrace_Vtbl {
         unsafe extern "system" fn TraceReady<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderTrace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptestcount: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TraceReady() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ptestcount, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.TraceReady(::core::mem::transmute_copy(&ptestcount)).into()
         }
         unsafe extern "system" fn ResetTrace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderTrace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4848,9 +4608,9 @@ pub trait ID3D11VideoDevice_Impl: Sized {
     fn CreateVideoProcessor(&self, penum: &::core::option::Option<ID3D11VideoProcessorEnumerator>, rateconversionindex: u32) -> ::windows::core::Result<ID3D11VideoProcessor>;
     fn CreateAuthenticatedChannel(&self, channeltype: D3D11_AUTHENTICATED_CHANNEL_TYPE) -> ::windows::core::Result<ID3D11AuthenticatedChannel>;
     fn CreateCryptoSession(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: *const ::windows::core::GUID, pkeyexchangetype: *const ::windows::core::GUID) -> ::windows::core::Result<ID3D11CryptoSession>;
-    fn CreateVideoDecoderOutputView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC) -> ::windows::core::Result<ID3D11VideoDecoderOutputView>;
-    fn CreateVideoProcessorInputView(&self, presource: &::core::option::Option<ID3D11Resource>, penum: &::core::option::Option<ID3D11VideoProcessorEnumerator>, pdesc: *const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC) -> ::windows::core::Result<ID3D11VideoProcessorInputView>;
-    fn CreateVideoProcessorOutputView(&self, presource: &::core::option::Option<ID3D11Resource>, penum: &::core::option::Option<ID3D11VideoProcessorEnumerator>, pdesc: *const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC) -> ::windows::core::Result<ID3D11VideoProcessorOutputView>;
+    fn CreateVideoDecoderOutputView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, ppvdovview: *mut ::core::option::Option<ID3D11VideoDecoderOutputView>) -> ::windows::core::Result<()>;
+    fn CreateVideoProcessorInputView(&self, presource: &::core::option::Option<ID3D11Resource>, penum: &::core::option::Option<ID3D11VideoProcessorEnumerator>, pdesc: *const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC, ppvpiview: *mut ::core::option::Option<ID3D11VideoProcessorInputView>) -> ::windows::core::Result<()>;
+    fn CreateVideoProcessorOutputView(&self, presource: &::core::option::Option<ID3D11Resource>, penum: &::core::option::Option<ID3D11VideoProcessorEnumerator>, pdesc: *const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC, ppvpoview: *mut ::core::option::Option<ID3D11VideoProcessorOutputView>) -> ::windows::core::Result<()>;
     fn CreateVideoProcessorEnumerator(&self, pdesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC) -> ::windows::core::Result<ID3D11VideoProcessorEnumerator>;
     fn GetVideoDecoderProfileCount(&self) -> u32;
     fn GetVideoDecoderProfile(&self, index: u32) -> ::windows::core::Result<::windows::core::GUID>;
@@ -4914,35 +4674,17 @@ impl ID3D11VideoDevice_Vtbl {
         unsafe extern "system" fn CreateVideoDecoderOutputView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11VideoDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, ppvdovview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateVideoDecoderOutputView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppvdovview, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateVideoDecoderOutputView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ppvdovview)).into()
         }
         unsafe extern "system" fn CreateVideoProcessorInputView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11VideoDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, penum: *mut ::core::ffi::c_void, pdesc: *const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC, ppvpiview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateVideoProcessorInputView(::core::mem::transmute(&presource), ::core::mem::transmute(&penum), ::core::mem::transmute_copy(&pdesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppvpiview, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateVideoProcessorInputView(::core::mem::transmute(&presource), ::core::mem::transmute(&penum), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ppvpiview)).into()
         }
         unsafe extern "system" fn CreateVideoProcessorOutputView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11VideoDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, penum: *mut ::core::ffi::c_void, pdesc: *const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC, ppvpoview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateVideoProcessorOutputView(::core::mem::transmute(&presource), ::core::mem::transmute(&penum), ::core::mem::transmute_copy(&pdesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppvpoview, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateVideoProcessorOutputView(::core::mem::transmute(&presource), ::core::mem::transmute(&penum), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ppvpoview)).into()
         }
         unsafe extern "system" fn CreateVideoProcessorEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11VideoDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

@@ -195,7 +195,7 @@ pub trait IUIAnimationManager_Impl: Sized {
     fn CreateStoryboard(&self) -> ::windows::core::Result<IUIAnimationStoryboard>;
     fn FinishAllStoryboards(&self, completiondeadline: f64) -> ::windows::core::Result<()>;
     fn AbandonAllStoryboards(&self) -> ::windows::core::Result<()>;
-    fn Update(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT>;
+    fn Update(&self, timenow: f64, updateresult: *mut UI_ANIMATION_UPDATE_RESULT) -> ::windows::core::Result<()>;
     fn GetVariableFromTag(&self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationVariable>;
     fn GetStoryboardFromTag(&self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationStoryboard>;
     fn GetStatus(&self) -> ::windows::core::Result<UI_ANIMATION_MANAGER_STATUS>;
@@ -253,13 +253,7 @@ impl IUIAnimationManager_Vtbl {
         unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAnimationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timenow: f64, updateresult: *mut UI_ANIMATION_UPDATE_RESULT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Update(::core::mem::transmute_copy(&timenow)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(updateresult, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Update(::core::mem::transmute_copy(&timenow), ::core::mem::transmute_copy(&updateresult)).into()
         }
         unsafe extern "system" fn GetVariableFromTag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAnimationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32, variable: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -379,7 +373,7 @@ pub trait IUIAnimationManager2_Impl: Sized {
     fn CreateStoryboard(&self) -> ::windows::core::Result<IUIAnimationStoryboard2>;
     fn FinishAllStoryboards(&self, completiondeadline: f64) -> ::windows::core::Result<()>;
     fn AbandonAllStoryboards(&self) -> ::windows::core::Result<()>;
-    fn Update(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT>;
+    fn Update(&self, timenow: f64, updateresult: *mut UI_ANIMATION_UPDATE_RESULT) -> ::windows::core::Result<()>;
     fn GetVariableFromTag(&self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationVariable2>;
     fn GetStoryboardFromTag(&self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationStoryboard2>;
     fn EstimateNextEventTime(&self) -> ::windows::core::Result<f64>;
@@ -451,13 +445,7 @@ impl IUIAnimationManager2_Vtbl {
         unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAnimationManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timenow: f64, updateresult: *mut UI_ANIMATION_UPDATE_RESULT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Update(::core::mem::transmute_copy(&timenow)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(updateresult, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Update(::core::mem::transmute_copy(&timenow), ::core::mem::transmute_copy(&updateresult)).into()
         }
         unsafe extern "system" fn GetVariableFromTag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAnimationManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32, variable: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -686,7 +674,7 @@ pub trait IUIAnimationStoryboard_Impl: Sized {
     fn RepeatBetweenKeyframes(&self, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, repetitioncount: i32) -> ::windows::core::Result<()>;
     fn HoldVariable(&self, variable: &::core::option::Option<IUIAnimationVariable>) -> ::windows::core::Result<()>;
     fn SetLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()>;
-    fn Schedule(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_SCHEDULING_RESULT>;
+    fn Schedule(&self, timenow: f64, schedulingresult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> ::windows::core::Result<()>;
     fn Conclude(&self) -> ::windows::core::Result<()>;
     fn Finish(&self, completiondeadline: f64) -> ::windows::core::Result<()>;
     fn Abandon(&self) -> ::windows::core::Result<()>;
@@ -754,13 +742,7 @@ impl IUIAnimationStoryboard_Vtbl {
         unsafe extern "system" fn Schedule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAnimationStoryboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timenow: f64, schedulingresult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Schedule(::core::mem::transmute_copy(&timenow)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(schedulingresult, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Schedule(::core::mem::transmute_copy(&timenow), ::core::mem::transmute_copy(&schedulingresult)).into()
         }
         unsafe extern "system" fn Conclude<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAnimationStoryboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -850,7 +832,7 @@ pub trait IUIAnimationStoryboard2_Impl: Sized {
     fn HoldVariable(&self, variable: &::core::option::Option<IUIAnimationVariable2>) -> ::windows::core::Result<()>;
     fn SetLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()>;
     fn SetSkipDuration(&self, secondsduration: f64) -> ::windows::core::Result<()>;
-    fn Schedule(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_SCHEDULING_RESULT>;
+    fn Schedule(&self, timenow: f64, schedulingresult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> ::windows::core::Result<()>;
     fn Conclude(&self) -> ::windows::core::Result<()>;
     fn Finish(&self, completiondeadline: f64) -> ::windows::core::Result<()>;
     fn Abandon(&self) -> ::windows::core::Result<()>;
@@ -925,13 +907,7 @@ impl IUIAnimationStoryboard2_Vtbl {
         unsafe extern "system" fn Schedule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAnimationStoryboard2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timenow: f64, schedulingresult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Schedule(::core::mem::transmute_copy(&timenow)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(schedulingresult, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Schedule(::core::mem::transmute_copy(&timenow), ::core::mem::transmute_copy(&schedulingresult)).into()
         }
         unsafe extern "system" fn Conclude<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAnimationStoryboard2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

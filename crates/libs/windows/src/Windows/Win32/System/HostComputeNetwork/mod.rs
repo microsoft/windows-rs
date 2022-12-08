@@ -75,38 +75,33 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
-pub unsafe fn HcnDeleteEndpoint(id: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn HcnDeleteEndpoint(id: *const ::windows::core::GUID, errorrecord: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "computenetwork.dll""system" fn HcnDeleteEndpoint ( id : *const :: windows::core::GUID , errorrecord : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcnDeleteEndpoint(id, result__.as_mut_ptr()).from_abi(result__)
+    HcnDeleteEndpoint(id, ::core::mem::transmute(errorrecord.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
-pub unsafe fn HcnDeleteGuestNetworkService(id: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn HcnDeleteGuestNetworkService(id: *const ::windows::core::GUID, errorrecord: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "computenetwork.dll""system" fn HcnDeleteGuestNetworkService ( id : *const :: windows::core::GUID , errorrecord : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcnDeleteGuestNetworkService(id, result__.as_mut_ptr()).from_abi(result__)
+    HcnDeleteGuestNetworkService(id, ::core::mem::transmute(errorrecord.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
-pub unsafe fn HcnDeleteLoadBalancer(id: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn HcnDeleteLoadBalancer(id: *const ::windows::core::GUID, errorrecord: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "computenetwork.dll""system" fn HcnDeleteLoadBalancer ( id : *const :: windows::core::GUID , errorrecord : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcnDeleteLoadBalancer(id, result__.as_mut_ptr()).from_abi(result__)
+    HcnDeleteLoadBalancer(id, ::core::mem::transmute(errorrecord.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
-pub unsafe fn HcnDeleteNamespace(id: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn HcnDeleteNamespace(id: *const ::windows::core::GUID, errorrecord: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "computenetwork.dll""system" fn HcnDeleteNamespace ( id : *const :: windows::core::GUID , errorrecord : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcnDeleteNamespace(id, result__.as_mut_ptr()).from_abi(result__)
+    HcnDeleteNamespace(id, ::core::mem::transmute(errorrecord.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
-pub unsafe fn HcnDeleteNetwork(id: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn HcnDeleteNetwork(id: *const ::windows::core::GUID, errorrecord: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "computenetwork.dll""system" fn HcnDeleteNetwork ( id : *const :: windows::core::GUID , errorrecord : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcnDeleteNetwork(id, result__.as_mut_ptr()).from_abi(result__)
+    HcnDeleteNetwork(id, ::core::mem::transmute(errorrecord.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
@@ -158,53 +153,48 @@ pub unsafe fn HcnFreeGuestNetworkPortReservations(portentries: ::core::option::O
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
-pub unsafe fn HcnModifyEndpoint<P0>(endpoint: *const ::core::ffi::c_void, settings: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcnModifyEndpoint<P0>(endpoint: *const ::core::ffi::c_void, settings: P0, errorrecord: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "computenetwork.dll""system" fn HcnModifyEndpoint ( endpoint : *const ::core::ffi::c_void , settings : :: windows::core::PCWSTR , errorrecord : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcnModifyEndpoint(endpoint, settings.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    HcnModifyEndpoint(endpoint, settings.into().abi(), ::core::mem::transmute(errorrecord.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
-pub unsafe fn HcnModifyGuestNetworkService<P0>(guestnetworkservice: *const ::core::ffi::c_void, settings: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcnModifyGuestNetworkService<P0>(guestnetworkservice: *const ::core::ffi::c_void, settings: P0, errorrecord: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "computenetwork.dll""system" fn HcnModifyGuestNetworkService ( guestnetworkservice : *const ::core::ffi::c_void , settings : :: windows::core::PCWSTR , errorrecord : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcnModifyGuestNetworkService(guestnetworkservice, settings.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    HcnModifyGuestNetworkService(guestnetworkservice, settings.into().abi(), ::core::mem::transmute(errorrecord.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
-pub unsafe fn HcnModifyLoadBalancer<P0>(loadbalancer: *const ::core::ffi::c_void, settings: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcnModifyLoadBalancer<P0>(loadbalancer: *const ::core::ffi::c_void, settings: P0, errorrecord: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "computenetwork.dll""system" fn HcnModifyLoadBalancer ( loadbalancer : *const ::core::ffi::c_void , settings : :: windows::core::PCWSTR , errorrecord : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcnModifyLoadBalancer(loadbalancer, settings.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    HcnModifyLoadBalancer(loadbalancer, settings.into().abi(), ::core::mem::transmute(errorrecord.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
-pub unsafe fn HcnModifyNamespace<P0>(namespace: *const ::core::ffi::c_void, settings: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcnModifyNamespace<P0>(namespace: *const ::core::ffi::c_void, settings: P0, errorrecord: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "computenetwork.dll""system" fn HcnModifyNamespace ( namespace : *const ::core::ffi::c_void , settings : :: windows::core::PCWSTR , errorrecord : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcnModifyNamespace(namespace, settings.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    HcnModifyNamespace(namespace, settings.into().abi(), ::core::mem::transmute(errorrecord.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
-pub unsafe fn HcnModifyNetwork<P0>(network: *const ::core::ffi::c_void, settings: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcnModifyNetwork<P0>(network: *const ::core::ffi::c_void, settings: P0, errorrecord: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "computenetwork.dll""system" fn HcnModifyNetwork ( network : *const ::core::ffi::c_void , settings : :: windows::core::PCWSTR , errorrecord : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcnModifyNetwork(network, settings.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    HcnModifyNetwork(network, settings.into().abi(), ::core::mem::transmute(errorrecord.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]

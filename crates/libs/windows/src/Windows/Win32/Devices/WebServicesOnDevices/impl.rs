@@ -968,7 +968,7 @@ pub trait IWSDServiceProxy_Impl: Sized + IWSDMetadataExchange_Impl {
     fn BeginGetMetadata(&self) -> ::windows::core::Result<IWSDAsyncResult>;
     fn EndGetMetadata(&self, presult: &::core::option::Option<IWSDAsyncResult>) -> ::windows::core::Result<*mut WSD_METADATA_SECTION_LIST>;
     fn GetServiceMetadata(&self) -> ::windows::core::Result<*mut WSD_SERVICE_METADATA>;
-    fn SubscribeToOperation(&self, poperation: *const WSD_OPERATION, punknown: &::core::option::Option<::windows::core::IUnknown>, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<*mut WSDXML_ELEMENT>;
+    fn SubscribeToOperation(&self, poperation: *const WSD_OPERATION, punknown: &::core::option::Option<::windows::core::IUnknown>, pany: *const WSDXML_ELEMENT, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
     fn UnsubscribeToOperation(&self, poperation: *const WSD_OPERATION) -> ::windows::core::Result<()>;
     fn SetEventingStatusCallback(&self, pstatus: &::core::option::Option<IWSDEventingStatus>) -> ::windows::core::Result<()>;
     fn GetEndpointProxy(&self) -> ::windows::core::Result<IWSDEndpointProxy>;
@@ -1012,13 +1012,7 @@ impl IWSDServiceProxy_Vtbl {
         unsafe extern "system" fn SubscribeToOperation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperation: *const WSD_OPERATION, punknown: *mut ::core::ffi::c_void, pany: *const WSDXML_ELEMENT, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SubscribeToOperation(::core::mem::transmute_copy(&poperation), ::core::mem::transmute(&punknown), ::core::mem::transmute_copy(&pany)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppany, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.SubscribeToOperation(::core::mem::transmute_copy(&poperation), ::core::mem::transmute(&punknown), ::core::mem::transmute_copy(&pany), ::core::mem::transmute_copy(&ppany)).into()
         }
         unsafe extern "system" fn UnsubscribeToOperation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1456,8 +1450,8 @@ impl IWSDUdpMessageParameters_Vtbl {
     }
 }
 pub trait IWSDXMLContext_Impl: Sized {
-    fn AddNamespace(&self, pszuri: &::windows::core::PCWSTR, pszsuggestedprefix: &::windows::core::PCWSTR) -> ::windows::core::Result<*mut WSDXML_NAMESPACE>;
-    fn AddNameToNamespace(&self, pszuri: &::windows::core::PCWSTR, pszname: &::windows::core::PCWSTR) -> ::windows::core::Result<*mut WSDXML_NAME>;
+    fn AddNamespace(&self, pszuri: &::windows::core::PCWSTR, pszsuggestedprefix: &::windows::core::PCWSTR, ppnamespace: *mut *mut WSDXML_NAMESPACE) -> ::windows::core::Result<()>;
+    fn AddNameToNamespace(&self, pszuri: &::windows::core::PCWSTR, pszname: &::windows::core::PCWSTR, ppname: *mut *mut WSDXML_NAME) -> ::windows::core::Result<()>;
     fn SetNamespaces(&self, pnamespaces: *const *const WSDXML_NAMESPACE, wnamespacescount: u16, blayernumber: u8) -> ::windows::core::Result<()>;
     fn SetTypes(&self, ptypes: *const *const WSDXML_TYPE, dwtypescount: u32, blayernumber: u8) -> ::windows::core::Result<()>;
 }
@@ -1467,24 +1461,12 @@ impl IWSDXMLContext_Vtbl {
         unsafe extern "system" fn AddNamespace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDXMLContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszuri: ::windows::core::PCWSTR, pszsuggestedprefix: ::windows::core::PCWSTR, ppnamespace: *mut *mut WSDXML_NAMESPACE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AddNamespace(::core::mem::transmute(&pszuri), ::core::mem::transmute(&pszsuggestedprefix)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppnamespace, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.AddNamespace(::core::mem::transmute(&pszuri), ::core::mem::transmute(&pszsuggestedprefix), ::core::mem::transmute_copy(&ppnamespace)).into()
         }
         unsafe extern "system" fn AddNameToNamespace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDXMLContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszuri: ::windows::core::PCWSTR, pszname: ::windows::core::PCWSTR, ppname: *mut *mut WSDXML_NAME) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AddNameToNamespace(::core::mem::transmute(&pszuri), ::core::mem::transmute(&pszname)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppname, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.AddNameToNamespace(::core::mem::transmute(&pszuri), ::core::mem::transmute(&pszname), ::core::mem::transmute_copy(&ppname)).into()
         }
         unsafe extern "system" fn SetNamespaces<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDXMLContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnamespaces: *const *const WSDXML_NAMESPACE, wnamespacescount: u16, blayernumber: u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

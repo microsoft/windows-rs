@@ -3775,7 +3775,7 @@ impl IStdMarshalInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IStream_Impl: Sized + ISequentialStream_Impl {
-    fn Seek(&self, dlibmove: i64, dworigin: STREAM_SEEK) -> ::windows::core::Result<u64>;
+    fn Seek(&self, dlibmove: i64, dworigin: STREAM_SEEK, plibnewposition: *mut u64) -> ::windows::core::Result<()>;
     fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()>;
     fn CopyTo(&self, pstm: &::core::option::Option<IStream>, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()>;
     fn Commit(&self, grfcommitflags: STGC) -> ::windows::core::Result<()>;
@@ -3793,13 +3793,7 @@ impl IStream_Vtbl {
         unsafe extern "system" fn Seek<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dlibmove: i64, dworigin: STREAM_SEEK, plibnewposition: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Seek(::core::mem::transmute_copy(&dlibmove), ::core::mem::transmute_copy(&dworigin)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(plibnewposition, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Seek(::core::mem::transmute_copy(&dlibmove), ::core::mem::transmute_copy(&dworigin), ::core::mem::transmute_copy(&plibnewposition)).into()
         }
         unsafe extern "system" fn SetSize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, libnewsize: u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5187,7 +5181,7 @@ pub trait IUriBuilder_Impl: Sized {
     fn CreateUriSimple(&self, dwallowencodingpropertymask: u32, dwreserved: usize) -> ::windows::core::Result<IUri>;
     fn CreateUri(&self, dwcreateflags: u32, dwallowencodingpropertymask: u32, dwreserved: usize) -> ::windows::core::Result<IUri>;
     fn CreateUriWithFlags(&self, dwcreateflags: u32, dwuribuilderflags: u32, dwallowencodingpropertymask: u32, dwreserved: usize) -> ::windows::core::Result<IUri>;
-    fn GetIUri(&self) -> ::windows::core::Result<IUri>;
+    fn GetIUri(&self, ppiuri: *mut ::core::option::Option<IUri>) -> ::windows::core::Result<()>;
     fn SetIUri(&self, piuri: &::core::option::Option<IUri>) -> ::windows::core::Result<()>;
     fn GetFragment(&self, pcchfragment: *mut u32, ppwzfragment: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn GetHost(&self, pcchhost: *mut u32, ppwzhost: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
@@ -5249,13 +5243,7 @@ impl IUriBuilder_Vtbl {
         unsafe extern "system" fn GetIUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUriBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppiuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIUri() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppiuri, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetIUri(::core::mem::transmute_copy(&ppiuri)).into()
         }
         unsafe extern "system" fn SetIUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUriBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piuri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

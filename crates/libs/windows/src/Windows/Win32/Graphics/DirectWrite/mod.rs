@@ -62,13 +62,12 @@ pub struct IDWriteBitmapRenderTarget(::windows::core::IUnknown);
 impl IDWriteBitmapRenderTarget {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DrawGlyphRun<P0, P1>(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: P0, textcolor: P1) -> ::windows::core::Result<super::super::Foundation::RECT>
+    pub unsafe fn DrawGlyphRun<P0, P1>(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: P0, textcolor: P1, blackboxrect: ::core::option::Option<*mut super::super::Foundation::RECT>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDWriteRenderingParams>>,
         P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DrawGlyphRun)(::windows::core::Vtable::as_raw(self), baselineoriginx, baselineoriginy, measuringmode, glyphrun, renderingparams.into().abi(), textcolor.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).DrawGlyphRun)(::windows::core::Vtable::as_raw(self), baselineoriginx, baselineoriginy, measuringmode, glyphrun, renderingparams.into().abi(), textcolor.into(), ::core::mem::transmute(blackboxrect.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -151,13 +150,12 @@ pub struct IDWriteBitmapRenderTarget1(::windows::core::IUnknown);
 impl IDWriteBitmapRenderTarget1 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DrawGlyphRun<P0, P1>(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: P0, textcolor: P1) -> ::windows::core::Result<super::super::Foundation::RECT>
+    pub unsafe fn DrawGlyphRun<P0, P1>(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: P0, textcolor: P1, blackboxrect: ::core::option::Option<*mut super::super::Foundation::RECT>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDWriteRenderingParams>>,
         P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), baselineoriginx, baselineoriginy, measuringmode, glyphrun, renderingparams.into().abi(), textcolor.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), baselineoriginx, baselineoriginy, measuringmode, glyphrun, renderingparams.into().abi(), textcolor.into(), ::core::mem::transmute(blackboxrect.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7826,9 +7824,8 @@ impl IDWriteRemoteFontFileStream {
     pub unsafe fn GetLocality(&self) -> DWRITE_LOCALITY {
         (::windows::core::Vtable::vtable(self).GetLocality)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn BeginDownload(&self, downloadoperationid: *const ::windows::core::GUID, filefragments: &[DWRITE_FILE_FRAGMENT]) -> ::windows::core::Result<IDWriteAsyncResult> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).BeginDownload)(::windows::core::Vtable::as_raw(self), downloadoperationid, ::core::mem::transmute(filefragments.as_ptr()), filefragments.len() as _, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn BeginDownload(&self, downloadoperationid: *const ::windows::core::GUID, filefragments: &[DWRITE_FILE_FRAGMENT], asyncresult: ::core::option::Option<*mut ::core::option::Option<IDWriteAsyncResult>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).BeginDownload)(::windows::core::Vtable::as_raw(self), downloadoperationid, ::core::mem::transmute(filefragments.as_ptr()), filefragments.len() as _, ::core::mem::transmute(asyncresult.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDWriteRemoteFontFileStream, ::windows::core::IUnknown, IDWriteFontFileStream);

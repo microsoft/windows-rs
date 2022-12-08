@@ -661,14 +661,13 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawThemeEdge<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: super::super::Graphics::Gdi::DRAWEDGE_FLAGS, uflags: super::super::Graphics::Gdi::DRAW_EDGE_FLAGS) -> ::windows::core::Result<super::super::Foundation::RECT>
+pub unsafe fn DrawThemeEdge<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: super::super::Graphics::Gdi::DRAWEDGE_FLAGS, uflags: super::super::Graphics::Gdi::DRAW_EDGE_FLAGS, pcontentrect: ::core::option::Option<*mut super::super::Foundation::RECT>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HTHEME>,
     P1: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
     ::windows::core::link ! ( "uxtheme.dll""system" fn DrawThemeEdge ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , pdestrect : *const super::super::Foundation:: RECT , uedge : super::super::Graphics::Gdi:: DRAWEDGE_FLAGS , uflags : super::super::Graphics::Gdi:: DRAW_EDGE_FLAGS , pcontentrect : *mut super::super::Foundation:: RECT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DrawThemeEdge(htheme.into(), hdc.into(), ipartid, istateid, pdestrect, uedge, uflags, result__.as_mut_ptr()).from_abi(result__)
+    DrawThemeEdge(htheme.into(), hdc.into(), ipartid, istateid, pdestrect, uedge, uflags, ::core::mem::transmute(pcontentrect.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2069,7 +2068,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TaskDialog<P0, P1, P2, P3, P4, P5>(hwndowner: P0, hinstance: P1, pszwindowtitle: P2, pszmaininstruction: P3, pszcontent: P4, dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon: P5) -> ::windows::core::Result<i32>
+pub unsafe fn TaskDialog<P0, P1, P2, P3, P4, P5>(hwndowner: P0, hinstance: P1, pszwindowtitle: P2, pszmaininstruction: P3, pszcontent: P4, dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon: P5, pnbutton: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
@@ -2079,8 +2078,7 @@ where
     P5: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn TaskDialog ( hwndowner : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HINSTANCE , pszwindowtitle : :: windows::core::PCWSTR , pszmaininstruction : :: windows::core::PCWSTR , pszcontent : :: windows::core::PCWSTR , dwcommonbuttons : TASKDIALOG_COMMON_BUTTON_FLAGS , pszicon : :: windows::core::PCWSTR , pnbutton : *mut i32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    TaskDialog(hwndowner.into(), hinstance.into(), pszwindowtitle.into().abi(), pszmaininstruction.into().abi(), pszcontent.into().abi(), dwcommonbuttons, pszicon.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    TaskDialog(hwndowner.into(), hinstance.into(), pszwindowtitle.into().abi(), pszmaininstruction.into().abi(), pszcontent.into().abi(), dwcommonbuttons, pszicon.into().abi(), ::core::mem::transmute(pnbutton.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
