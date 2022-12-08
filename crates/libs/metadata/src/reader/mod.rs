@@ -1333,7 +1333,7 @@ impl<'a> Reader<'a> {
             return false;
         }
         let flags = self.param_flags(param.def);
-        if flags.input() || !flags.output() || param.kind.is_array() {
+        if flags.input() || !flags.output() || flags.optional() || param.kind.is_array() {
             return false;
         }
         if self.param_kind(param.def).is_array() {
