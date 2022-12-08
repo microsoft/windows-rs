@@ -1915,22 +1915,22 @@ pub struct IRecoverableErrorData(::windows::core::IUnknown);
 impl IRecoverableErrorData {
     pub unsafe fn Initialize<P0, P1>(&self, pcszitemdisplayname: P0, pcszerrordescription: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pcszitemdisplayname.into(), pcszerrordescription.into()).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pcszitemdisplayname.into().abi(), pcszerrordescription.into().abi()).ok()
     }
     pub unsafe fn GetItemDisplayName<P0>(&self, pszitemdisplayname: P0, pcchitemdisplayname: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetItemDisplayName)(::windows::core::Vtable::as_raw(self), pszitemdisplayname.into(), pcchitemdisplayname).ok()
+        (::windows::core::Vtable::vtable(self).GetItemDisplayName)(::windows::core::Vtable::as_raw(self), pszitemdisplayname.into().abi(), pcchitemdisplayname).ok()
     }
     pub unsafe fn GetErrorDescription<P0>(&self, pszerrordescription: P0, pccherrordescription: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetErrorDescription)(::windows::core::Vtable::as_raw(self), pszerrordescription.into(), pccherrordescription).ok()
+        (::windows::core::Vtable::vtable(self).GetErrorDescription)(::windows::core::Vtable::as_raw(self), pszerrordescription.into().abi(), pccherrordescription).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IRecoverableErrorData, ::windows::core::IUnknown);

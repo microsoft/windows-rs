@@ -382,9 +382,9 @@ impl ISideShowNotification {
     }
     pub unsafe fn SetTitle<P0>(&self, in_pwsztitle: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetTitle)(::windows::core::Vtable::as_raw(self), in_pwsztitle.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetTitle)(::windows::core::Vtable::as_raw(self), in_pwsztitle.into().abi()).ok()
     }
     pub unsafe fn Message(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -392,9 +392,9 @@ impl ISideShowNotification {
     }
     pub unsafe fn SetMessage<P0>(&self, in_pwszmessage: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetMessage)(::windows::core::Vtable::as_raw(self), in_pwszmessage.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetMessage)(::windows::core::Vtable::as_raw(self), in_pwszmessage.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]

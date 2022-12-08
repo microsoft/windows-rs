@@ -72,20 +72,20 @@ pub unsafe fn AvRtCreateThreadOrderingGroup(context: *mut super::super::Foundati
 #[inline]
 pub unsafe fn AvRtCreateThreadOrderingGroupExA<P0>(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: ::core::option::Option<*const i64>, taskname: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "avrt.dll""system" fn AvRtCreateThreadOrderingGroupExA ( context : *mut super::super::Foundation:: HANDLE , period : *const i64 , threadorderingguid : *mut :: windows::core::GUID , timeout : *const i64 , taskname : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
-    AvRtCreateThreadOrderingGroupExA(context, period, threadorderingguid, ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), taskname.into())
+    AvRtCreateThreadOrderingGroupExA(context, period, threadorderingguid, ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), taskname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvRtCreateThreadOrderingGroupExW<P0>(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: ::core::option::Option<*const i64>, taskname: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "avrt.dll""system" fn AvRtCreateThreadOrderingGroupExW ( context : *mut super::super::Foundation:: HANDLE , period : *const i64 , threadorderingguid : *mut :: windows::core::GUID , timeout : *const i64 , taskname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    AvRtCreateThreadOrderingGroupExW(context, period, threadorderingguid, ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), taskname.into())
+    AvRtCreateThreadOrderingGroupExW(context, period, threadorderingguid, ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), taskname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -132,11 +132,11 @@ where
 #[inline]
 pub unsafe fn AvSetMmMaxThreadCharacteristicsA<P0, P1>(firsttask: P0, secondtask: P1, taskindex: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "avrt.dll""system" fn AvSetMmMaxThreadCharacteristicsA ( firsttask : :: windows::core::PCSTR , secondtask : :: windows::core::PCSTR , taskindex : *mut u32 ) -> super::super::Foundation:: HANDLE );
-    let result__ = AvSetMmMaxThreadCharacteristicsA(firsttask.into(), secondtask.into(), taskindex);
+    let result__ = AvSetMmMaxThreadCharacteristicsA(firsttask.into().abi(), secondtask.into().abi(), taskindex);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -144,11 +144,11 @@ where
 #[inline]
 pub unsafe fn AvSetMmMaxThreadCharacteristicsW<P0, P1>(firsttask: P0, secondtask: P1, taskindex: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "avrt.dll""system" fn AvSetMmMaxThreadCharacteristicsW ( firsttask : :: windows::core::PCWSTR , secondtask : :: windows::core::PCWSTR , taskindex : *mut u32 ) -> super::super::Foundation:: HANDLE );
-    let result__ = AvSetMmMaxThreadCharacteristicsW(firsttask.into(), secondtask.into(), taskindex);
+    let result__ = AvSetMmMaxThreadCharacteristicsW(firsttask.into().abi(), secondtask.into().abi(), taskindex);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -156,10 +156,10 @@ where
 #[inline]
 pub unsafe fn AvSetMmThreadCharacteristicsA<P0>(taskname: P0, taskindex: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "avrt.dll""system" fn AvSetMmThreadCharacteristicsA ( taskname : :: windows::core::PCSTR , taskindex : *mut u32 ) -> super::super::Foundation:: HANDLE );
-    let result__ = AvSetMmThreadCharacteristicsA(taskname.into(), taskindex);
+    let result__ = AvSetMmThreadCharacteristicsA(taskname.into().abi(), taskindex);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -167,10 +167,10 @@ where
 #[inline]
 pub unsafe fn AvSetMmThreadCharacteristicsW<P0>(taskname: P0, taskindex: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "avrt.dll""system" fn AvSetMmThreadCharacteristicsW ( taskname : :: windows::core::PCWSTR , taskindex : *mut u32 ) -> super::super::Foundation:: HANDLE );
-    let result__ = AvSetMmThreadCharacteristicsW(taskname.into(), taskindex);
+    let result__ = AvSetMmThreadCharacteristicsW(taskname.into().abi(), taskindex);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -299,20 +299,20 @@ pub unsafe fn ConvertThreadToFiberEx(lpparameter: ::core::option::Option<*const 
 #[inline]
 pub unsafe fn CreateBoundaryDescriptorA<P0>(name: P0, flags: u32) -> ::windows::core::Result<BoundaryDescriptorHandle>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateBoundaryDescriptorA ( name : :: windows::core::PCSTR , flags : u32 ) -> BoundaryDescriptorHandle );
-    let result__ = CreateBoundaryDescriptorA(name.into(), flags);
+    let result__ = CreateBoundaryDescriptorA(name.into().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CreateBoundaryDescriptorW<P0>(name: P0, flags: u32) -> BoundaryDescriptorHandle
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateBoundaryDescriptorW ( name : :: windows::core::PCWSTR , flags : u32 ) -> BoundaryDescriptorHandle );
-    CreateBoundaryDescriptorW(name.into(), flags)
+    CreateBoundaryDescriptorW(name.into().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -321,10 +321,10 @@ pub unsafe fn CreateEventA<P0, P1, P2>(lpeventattributes: ::core::option::Option
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateEventA ( lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , bmanualreset : super::super::Foundation:: BOOL , binitialstate : super::super::Foundation:: BOOL , lpname : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateEventA(::core::mem::transmute(lpeventattributes.unwrap_or(::std::ptr::null())), bmanualreset.into(), binitialstate.into(), lpname.into());
+    let result__ = CreateEventA(::core::mem::transmute(lpeventattributes.unwrap_or(::std::ptr::null())), bmanualreset.into(), binitialstate.into(), lpname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -332,10 +332,10 @@ where
 #[inline]
 pub unsafe fn CreateEventExA<P0>(lpeventattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: P0, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateEventExA ( lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : :: windows::core::PCSTR , dwflags : CREATE_EVENT , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateEventExA(::core::mem::transmute(lpeventattributes.unwrap_or(::std::ptr::null())), lpname.into(), dwflags, dwdesiredaccess);
+    let result__ = CreateEventExA(::core::mem::transmute(lpeventattributes.unwrap_or(::std::ptr::null())), lpname.into().abi(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -343,10 +343,10 @@ where
 #[inline]
 pub unsafe fn CreateEventExW<P0>(lpeventattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: P0, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateEventExW ( lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : :: windows::core::PCWSTR , dwflags : CREATE_EVENT , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateEventExW(::core::mem::transmute(lpeventattributes.unwrap_or(::std::ptr::null())), lpname.into(), dwflags, dwdesiredaccess);
+    let result__ = CreateEventExW(::core::mem::transmute(lpeventattributes.unwrap_or(::std::ptr::null())), lpname.into().abi(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -356,10 +356,10 @@ pub unsafe fn CreateEventW<P0, P1, P2>(lpeventattributes: ::core::option::Option
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateEventW ( lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , bmanualreset : super::super::Foundation:: BOOL , binitialstate : super::super::Foundation:: BOOL , lpname : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateEventW(::core::mem::transmute(lpeventattributes.unwrap_or(::std::ptr::null())), bmanualreset.into(), binitialstate.into(), lpname.into());
+    let result__ = CreateEventW(::core::mem::transmute(lpeventattributes.unwrap_or(::std::ptr::null())), bmanualreset.into(), binitialstate.into(), lpname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -380,10 +380,10 @@ pub unsafe fn CreateFiberEx(dwstackcommitsize: usize, dwstackreservesize: usize,
 pub unsafe fn CreateMutexA<P0, P1>(lpmutexattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, binitialowner: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateMutexA ( lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binitialowner : super::super::Foundation:: BOOL , lpname : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateMutexA(::core::mem::transmute(lpmutexattributes.unwrap_or(::std::ptr::null())), binitialowner.into(), lpname.into());
+    let result__ = CreateMutexA(::core::mem::transmute(lpmutexattributes.unwrap_or(::std::ptr::null())), binitialowner.into(), lpname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -391,10 +391,10 @@ where
 #[inline]
 pub unsafe fn CreateMutexExA<P0>(lpmutexattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: P0, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateMutexExA ( lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : :: windows::core::PCSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateMutexExA(::core::mem::transmute(lpmutexattributes.unwrap_or(::std::ptr::null())), lpname.into(), dwflags, dwdesiredaccess);
+    let result__ = CreateMutexExA(::core::mem::transmute(lpmutexattributes.unwrap_or(::std::ptr::null())), lpname.into().abi(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -402,10 +402,10 @@ where
 #[inline]
 pub unsafe fn CreateMutexExW<P0>(lpmutexattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: P0, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateMutexExW ( lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : :: windows::core::PCWSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateMutexExW(::core::mem::transmute(lpmutexattributes.unwrap_or(::std::ptr::null())), lpname.into(), dwflags, dwdesiredaccess);
+    let result__ = CreateMutexExW(::core::mem::transmute(lpmutexattributes.unwrap_or(::std::ptr::null())), lpname.into().abi(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -414,10 +414,10 @@ where
 pub unsafe fn CreateMutexW<P0, P1>(lpmutexattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, binitialowner: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateMutexW ( lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binitialowner : super::super::Foundation:: BOOL , lpname : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateMutexW(::core::mem::transmute(lpmutexattributes.unwrap_or(::std::ptr::null())), binitialowner.into(), lpname.into());
+    let result__ = CreateMutexW(::core::mem::transmute(lpmutexattributes.unwrap_or(::std::ptr::null())), binitialowner.into(), lpname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -425,10 +425,10 @@ where
 #[inline]
 pub unsafe fn CreatePrivateNamespaceA<P0>(lpprivatenamespaceattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: P0) -> ::windows::core::Result<NamespaceHandle>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreatePrivateNamespaceA ( lpprivatenamespaceattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpboundarydescriptor : *const ::core::ffi::c_void , lpaliasprefix : :: windows::core::PCSTR ) -> NamespaceHandle );
-    let result__ = CreatePrivateNamespaceA(::core::mem::transmute(lpprivatenamespaceattributes.unwrap_or(::std::ptr::null())), lpboundarydescriptor, lpaliasprefix.into());
+    let result__ = CreatePrivateNamespaceA(::core::mem::transmute(lpprivatenamespaceattributes.unwrap_or(::std::ptr::null())), lpboundarydescriptor, lpaliasprefix.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -436,22 +436,22 @@ where
 #[inline]
 pub unsafe fn CreatePrivateNamespaceW<P0>(lpprivatenamespaceattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: P0) -> NamespaceHandle
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreatePrivateNamespaceW ( lpprivatenamespaceattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpboundarydescriptor : *const ::core::ffi::c_void , lpaliasprefix : :: windows::core::PCWSTR ) -> NamespaceHandle );
-    CreatePrivateNamespaceW(::core::mem::transmute(lpprivatenamespaceattributes.unwrap_or(::std::ptr::null())), lpboundarydescriptor, lpaliasprefix.into())
+    CreatePrivateNamespaceW(::core::mem::transmute(lpprivatenamespaceattributes.unwrap_or(::std::ptr::null())), lpboundarydescriptor, lpaliasprefix.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateProcessA<P0, P1, P2>(lpapplicationname: P0, lpcommandline: ::windows::core::PSTR, lpprocessattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpthreadattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, binherithandles: P1, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: ::core::option::Option<*const ::core::ffi::c_void>, lpcurrentdirectory: P2, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateProcessA ( lpapplicationname : :: windows::core::PCSTR , lpcommandline : :: windows::core::PSTR , lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binherithandles : super::super::Foundation:: BOOL , dwcreationflags : PROCESS_CREATION_FLAGS , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : :: windows::core::PCSTR , lpstartupinfo : *const STARTUPINFOA , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
-    CreateProcessA(lpapplicationname.into(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpthreadattributes.unwrap_or(::std::ptr::null())), binherithandles.into(), dwcreationflags, ::core::mem::transmute(lpenvironment.unwrap_or(::std::ptr::null())), lpcurrentdirectory.into(), lpstartupinfo, lpprocessinformation)
+    CreateProcessA(lpapplicationname.into().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpthreadattributes.unwrap_or(::std::ptr::null())), binherithandles.into(), dwcreationflags, ::core::mem::transmute(lpenvironment.unwrap_or(::std::ptr::null())), lpcurrentdirectory.into().abi(), lpstartupinfo, lpprocessinformation)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -459,12 +459,12 @@ where
 pub unsafe fn CreateProcessAsUserA<P0, P1, P2, P3>(htoken: P0, lpapplicationname: P1, lpcommandline: ::windows::core::PSTR, lpprocessattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpthreadattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, binherithandles: P2, dwcreationflags: u32, lpenvironment: ::core::option::Option<*const ::core::ffi::c_void>, lpcurrentdirectory: P3, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P3: ::std::convert::Into<::windows::core::PCSTR>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn CreateProcessAsUserA ( htoken : super::super::Foundation:: HANDLE , lpapplicationname : :: windows::core::PCSTR , lpcommandline : :: windows::core::PSTR , lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binherithandles : super::super::Foundation:: BOOL , dwcreationflags : u32 , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : :: windows::core::PCSTR , lpstartupinfo : *const STARTUPINFOA , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
-    CreateProcessAsUserA(htoken.into(), lpapplicationname.into(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpthreadattributes.unwrap_or(::std::ptr::null())), binherithandles.into(), dwcreationflags, ::core::mem::transmute(lpenvironment.unwrap_or(::std::ptr::null())), lpcurrentdirectory.into(), lpstartupinfo, lpprocessinformation)
+    CreateProcessAsUserA(htoken.into(), lpapplicationname.into().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpthreadattributes.unwrap_or(::std::ptr::null())), binherithandles.into(), dwcreationflags, ::core::mem::transmute(lpenvironment.unwrap_or(::std::ptr::null())), lpcurrentdirectory.into().abi(), lpstartupinfo, lpprocessinformation)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -472,38 +472,38 @@ where
 pub unsafe fn CreateProcessAsUserW<P0, P1, P2, P3>(htoken: P0, lpapplicationname: P1, lpcommandline: ::windows::core::PWSTR, lpprocessattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpthreadattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, binherithandles: P2, dwcreationflags: u32, lpenvironment: ::core::option::Option<*const ::core::ffi::c_void>, lpcurrentdirectory: P3, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn CreateProcessAsUserW ( htoken : super::super::Foundation:: HANDLE , lpapplicationname : :: windows::core::PCWSTR , lpcommandline : :: windows::core::PWSTR , lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binherithandles : super::super::Foundation:: BOOL , dwcreationflags : u32 , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : :: windows::core::PCWSTR , lpstartupinfo : *const STARTUPINFOW , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
-    CreateProcessAsUserW(htoken.into(), lpapplicationname.into(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpthreadattributes.unwrap_or(::std::ptr::null())), binherithandles.into(), dwcreationflags, ::core::mem::transmute(lpenvironment.unwrap_or(::std::ptr::null())), lpcurrentdirectory.into(), lpstartupinfo, lpprocessinformation)
+    CreateProcessAsUserW(htoken.into(), lpapplicationname.into().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpthreadattributes.unwrap_or(::std::ptr::null())), binherithandles.into(), dwcreationflags, ::core::mem::transmute(lpenvironment.unwrap_or(::std::ptr::null())), lpcurrentdirectory.into().abi(), lpstartupinfo, lpprocessinformation)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateProcessW<P0, P1, P2>(lpapplicationname: P0, lpcommandline: ::windows::core::PWSTR, lpprocessattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpthreadattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, binherithandles: P1, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: ::core::option::Option<*const ::core::ffi::c_void>, lpcurrentdirectory: P2, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateProcessW ( lpapplicationname : :: windows::core::PCWSTR , lpcommandline : :: windows::core::PWSTR , lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binherithandles : super::super::Foundation:: BOOL , dwcreationflags : PROCESS_CREATION_FLAGS , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : :: windows::core::PCWSTR , lpstartupinfo : *const STARTUPINFOW , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
-    CreateProcessW(lpapplicationname.into(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpthreadattributes.unwrap_or(::std::ptr::null())), binherithandles.into(), dwcreationflags, ::core::mem::transmute(lpenvironment.unwrap_or(::std::ptr::null())), lpcurrentdirectory.into(), lpstartupinfo, lpprocessinformation)
+    CreateProcessW(lpapplicationname.into().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpthreadattributes.unwrap_or(::std::ptr::null())), binherithandles.into(), dwcreationflags, ::core::mem::transmute(lpenvironment.unwrap_or(::std::ptr::null())), lpcurrentdirectory.into().abi(), lpstartupinfo, lpprocessinformation)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateProcessWithLogonW<P0, P1, P2, P3, P4>(lpusername: P0, lpdomain: P1, lppassword: P2, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: P3, lpcommandline: ::windows::core::PWSTR, dwcreationflags: u32, lpenvironment: ::core::option::Option<*const ::core::ffi::c_void>, lpcurrentdirectory: P4, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-    P4: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn CreateProcessWithLogonW ( lpusername : :: windows::core::PCWSTR , lpdomain : :: windows::core::PCWSTR , lppassword : :: windows::core::PCWSTR , dwlogonflags : CREATE_PROCESS_LOGON_FLAGS , lpapplicationname : :: windows::core::PCWSTR , lpcommandline : :: windows::core::PWSTR , dwcreationflags : u32 , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : :: windows::core::PCWSTR , lpstartupinfo : *const STARTUPINFOW , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
-    CreateProcessWithLogonW(lpusername.into(), lpdomain.into(), lppassword.into(), dwlogonflags, lpapplicationname.into(), ::core::mem::transmute(lpcommandline), dwcreationflags, ::core::mem::transmute(lpenvironment.unwrap_or(::std::ptr::null())), lpcurrentdirectory.into(), lpstartupinfo, lpprocessinformation)
+    CreateProcessWithLogonW(lpusername.into().abi(), lpdomain.into().abi(), lppassword.into().abi(), dwlogonflags, lpapplicationname.into().abi(), ::core::mem::transmute(lpcommandline), dwcreationflags, ::core::mem::transmute(lpenvironment.unwrap_or(::std::ptr::null())), lpcurrentdirectory.into().abi(), lpstartupinfo, lpprocessinformation)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -511,11 +511,11 @@ where
 pub unsafe fn CreateProcessWithTokenW<P0, P1, P2>(htoken: P0, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: P1, lpcommandline: ::windows::core::PWSTR, dwcreationflags: u32, lpenvironment: ::core::option::Option<*const ::core::ffi::c_void>, lpcurrentdirectory: P2, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn CreateProcessWithTokenW ( htoken : super::super::Foundation:: HANDLE , dwlogonflags : CREATE_PROCESS_LOGON_FLAGS , lpapplicationname : :: windows::core::PCWSTR , lpcommandline : :: windows::core::PWSTR , dwcreationflags : u32 , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : :: windows::core::PCWSTR , lpstartupinfo : *const STARTUPINFOW , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
-    CreateProcessWithTokenW(htoken.into(), dwlogonflags, lpapplicationname.into(), ::core::mem::transmute(lpcommandline), dwcreationflags, ::core::mem::transmute(lpenvironment.unwrap_or(::std::ptr::null())), lpcurrentdirectory.into(), lpstartupinfo, lpprocessinformation)
+    CreateProcessWithTokenW(htoken.into(), dwlogonflags, lpapplicationname.into().abi(), ::core::mem::transmute(lpcommandline), dwcreationflags, ::core::mem::transmute(lpenvironment.unwrap_or(::std::ptr::null())), lpcurrentdirectory.into().abi(), lpstartupinfo, lpprocessinformation)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -545,10 +545,10 @@ where
 #[inline]
 pub unsafe fn CreateSemaphoreA<P0>(lpsemaphoreattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, linitialcount: i32, lmaximumcount: i32, lpname: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateSemaphoreA ( lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , linitialcount : i32 , lmaximumcount : i32 , lpname : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateSemaphoreA(::core::mem::transmute(lpsemaphoreattributes.unwrap_or(::std::ptr::null())), linitialcount, lmaximumcount, lpname.into());
+    let result__ = CreateSemaphoreA(::core::mem::transmute(lpsemaphoreattributes.unwrap_or(::std::ptr::null())), linitialcount, lmaximumcount, lpname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -556,10 +556,10 @@ where
 #[inline]
 pub unsafe fn CreateSemaphoreExA<P0>(lpsemaphoreattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, linitialcount: i32, lmaximumcount: i32, lpname: P0, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateSemaphoreExA ( lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , linitialcount : i32 , lmaximumcount : i32 , lpname : :: windows::core::PCSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateSemaphoreExA(::core::mem::transmute(lpsemaphoreattributes.unwrap_or(::std::ptr::null())), linitialcount, lmaximumcount, lpname.into(), dwflags, dwdesiredaccess);
+    let result__ = CreateSemaphoreExA(::core::mem::transmute(lpsemaphoreattributes.unwrap_or(::std::ptr::null())), linitialcount, lmaximumcount, lpname.into().abi(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -567,10 +567,10 @@ where
 #[inline]
 pub unsafe fn CreateSemaphoreExW<P0>(lpsemaphoreattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, linitialcount: i32, lmaximumcount: i32, lpname: P0, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateSemaphoreExW ( lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , linitialcount : i32 , lmaximumcount : i32 , lpname : :: windows::core::PCWSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateSemaphoreExW(::core::mem::transmute(lpsemaphoreattributes.unwrap_or(::std::ptr::null())), linitialcount, lmaximumcount, lpname.into(), dwflags, dwdesiredaccess);
+    let result__ = CreateSemaphoreExW(::core::mem::transmute(lpsemaphoreattributes.unwrap_or(::std::ptr::null())), linitialcount, lmaximumcount, lpname.into().abi(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -578,10 +578,10 @@ where
 #[inline]
 pub unsafe fn CreateSemaphoreW<P0>(lpsemaphoreattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, linitialcount: i32, lmaximumcount: i32, lpname: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateSemaphoreW ( lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , linitialcount : i32 , lmaximumcount : i32 , lpname : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateSemaphoreW(::core::mem::transmute(lpsemaphoreattributes.unwrap_or(::std::ptr::null())), linitialcount, lmaximumcount, lpname.into());
+    let result__ = CreateSemaphoreW(::core::mem::transmute(lpsemaphoreattributes.unwrap_or(::std::ptr::null())), linitialcount, lmaximumcount, lpname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -669,10 +669,10 @@ pub unsafe fn CreateUmsThreadContext(lpumsthread: *mut *mut ::core::ffi::c_void)
 #[inline]
 pub unsafe fn CreateWaitableTimerExW<P0>(lptimerattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lptimername: P0, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateWaitableTimerExW ( lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lptimername : :: windows::core::PCWSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateWaitableTimerExW(::core::mem::transmute(lptimerattributes.unwrap_or(::std::ptr::null())), lptimername.into(), dwflags, dwdesiredaccess);
+    let result__ = CreateWaitableTimerExW(::core::mem::transmute(lptimerattributes.unwrap_or(::std::ptr::null())), lptimername.into().abi(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -681,10 +681,10 @@ where
 pub unsafe fn CreateWaitableTimerW<P0, P1>(lptimerattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, bmanualreset: P0, lptimername: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateWaitableTimerW ( lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , bmanualreset : super::super::Foundation:: BOOL , lptimername : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateWaitableTimerW(::core::mem::transmute(lptimerattributes.unwrap_or(::std::ptr::null())), bmanualreset.into(), lptimername.into());
+    let result__ = CreateWaitableTimerW(::core::mem::transmute(lptimerattributes.unwrap_or(::std::ptr::null())), bmanualreset.into(), lptimername.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -1594,10 +1594,10 @@ where
 pub unsafe fn OpenEventA<P0, P1>(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn OpenEventA ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = OpenEventA(dwdesiredaccess, binherithandle.into(), lpname.into());
+    let result__ = OpenEventA(dwdesiredaccess, binherithandle.into(), lpname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -1606,10 +1606,10 @@ where
 pub unsafe fn OpenEventW<P0, P1>(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn OpenEventW ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = OpenEventW(dwdesiredaccess, binherithandle.into(), lpname.into());
+    let result__ = OpenEventW(dwdesiredaccess, binherithandle.into(), lpname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -1618,29 +1618,29 @@ where
 pub unsafe fn OpenMutexW<P0, P1>(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn OpenMutexW ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = OpenMutexW(dwdesiredaccess, binherithandle.into(), lpname.into());
+    let result__ = OpenMutexW(dwdesiredaccess, binherithandle.into(), lpname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn OpenPrivateNamespaceA<P0>(lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: P0) -> NamespaceHandle
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn OpenPrivateNamespaceA ( lpboundarydescriptor : *const ::core::ffi::c_void , lpaliasprefix : :: windows::core::PCSTR ) -> NamespaceHandle );
-    OpenPrivateNamespaceA(lpboundarydescriptor, lpaliasprefix.into())
+    OpenPrivateNamespaceA(lpboundarydescriptor, lpaliasprefix.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn OpenPrivateNamespaceW<P0>(lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: P0) -> NamespaceHandle
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn OpenPrivateNamespaceW ( lpboundarydescriptor : *const ::core::ffi::c_void , lpaliasprefix : :: windows::core::PCWSTR ) -> NamespaceHandle );
-    OpenPrivateNamespaceW(lpboundarydescriptor, lpaliasprefix.into())
+    OpenPrivateNamespaceW(lpboundarydescriptor, lpaliasprefix.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1669,10 +1669,10 @@ where
 pub unsafe fn OpenSemaphoreW<P0, P1>(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn OpenSemaphoreW ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = OpenSemaphoreW(dwdesiredaccess, binherithandle.into(), lpname.into());
+    let result__ = OpenSemaphoreW(dwdesiredaccess, binherithandle.into(), lpname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -1703,10 +1703,10 @@ where
 pub unsafe fn OpenWaitableTimerW<P0, P1>(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: P0, lptimername: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn OpenWaitableTimerW ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lptimername : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = OpenWaitableTimerW(dwdesiredaccess, binherithandle.into(), lptimername.into());
+    let result__ = OpenWaitableTimerW(dwdesiredaccess, binherithandle.into(), lptimername.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -2071,10 +2071,10 @@ where
 pub unsafe fn SetThreadDescription<P0, P1>(hthread: P0, lpthreaddescription: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetThreadDescription ( hthread : super::super::Foundation:: HANDLE , lpthreaddescription : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    SetThreadDescription(hthread.into(), lpthreaddescription.into()).ok()
+    SetThreadDescription(hthread.into(), lpthreaddescription.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
@@ -2577,10 +2577,10 @@ pub unsafe fn WakeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIAB
 #[inline]
 pub unsafe fn WinExec<P0>(lpcmdline: P0, ucmdshow: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn WinExec ( lpcmdline : :: windows::core::PCSTR , ucmdshow : u32 ) -> u32 );
-    WinExec(lpcmdline.into(), ucmdshow)
+    WinExec(lpcmdline.into().abi(), ucmdshow)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]

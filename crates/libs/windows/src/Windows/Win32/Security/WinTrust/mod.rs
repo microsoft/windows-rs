@@ -98,20 +98,20 @@ pub unsafe fn WintrustAddActionID(pgactionid: *const ::windows::core::GUID, fdwf
 #[inline]
 pub unsafe fn WintrustAddDefaultForUsage<P0>(pszusageoid: P0, psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wintrust.dll""system" fn WintrustAddDefaultForUsage ( pszusageoid : :: windows::core::PCSTR , psdefusage : *const CRYPT_PROVIDER_REGDEFUSAGE ) -> super::super::Foundation:: BOOL );
-    WintrustAddDefaultForUsage(pszusageoid.into(), psdefusage)
+    WintrustAddDefaultForUsage(pszusageoid.into().abi(), psdefusage)
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WintrustGetDefaultForUsage<P0>(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: P0, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wintrust.dll""system" fn WintrustGetDefaultForUsage ( dwaction : WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION , pszusageoid : :: windows::core::PCSTR , psusage : *mut CRYPT_PROVIDER_DEFUSAGE ) -> super::super::Foundation:: BOOL );
-    WintrustGetDefaultForUsage(dwaction, pszusageoid.into(), psusage)
+    WintrustGetDefaultForUsage(dwaction, pszusageoid.into().abi(), psusage)
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 #[inline]

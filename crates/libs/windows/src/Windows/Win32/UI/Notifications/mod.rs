@@ -4,10 +4,10 @@ pub struct INotificationActivationCallback(::windows::core::IUnknown);
 impl INotificationActivationCallback {
     pub unsafe fn Activate<P0, P1>(&self, appusermodelid: P0, invokedargs: P1, data: &[NOTIFICATION_USER_INPUT_DATA]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), appusermodelid.into(), invokedargs.into(), ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), appusermodelid.into().abi(), invokedargs.into().abi(), ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INotificationActivationCallback, ::windows::core::IUnknown);

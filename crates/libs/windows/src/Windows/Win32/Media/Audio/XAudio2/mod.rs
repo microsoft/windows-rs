@@ -238,9 +238,9 @@ impl IXAudio2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateMasteringVoice<P0>(&self, ppmasteringvoice: *mut ::core::option::Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: P0, peffectchain: ::core::option::Option<*const XAUDIO2_EFFECT_CHAIN>, streamcategory: super::AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateMasteringVoice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppmasteringvoice), inputchannels, inputsamplerate, flags, szdeviceid.into(), ::core::mem::transmute(peffectchain.unwrap_or(::std::ptr::null())), streamcategory).ok()
+        (::windows::core::Vtable::vtable(self).CreateMasteringVoice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppmasteringvoice), inputchannels, inputsamplerate, flags, szdeviceid.into().abi(), ::core::mem::transmute(peffectchain.unwrap_or(::std::ptr::null())), streamcategory).ok()
     }
     pub unsafe fn StartEngine(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).StartEngine)(::windows::core::Vtable::as_raw(self)).ok()

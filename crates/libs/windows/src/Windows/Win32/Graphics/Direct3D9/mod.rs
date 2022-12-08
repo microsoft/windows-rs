@@ -2,10 +2,10 @@
 #[inline]
 pub unsafe fn D3DPERF_BeginEvent<P0>(col: u32, wszname: P0) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "d3d9.dll""system" fn D3DPERF_BeginEvent ( col : u32 , wszname : :: windows::core::PCWSTR ) -> i32 );
-    D3DPERF_BeginEvent(col, wszname.into())
+    D3DPERF_BeginEvent(col, wszname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
@@ -30,10 +30,10 @@ pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
 #[inline]
 pub unsafe fn D3DPERF_SetMarker<P0>(col: u32, wszname: P0)
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "d3d9.dll""system" fn D3DPERF_SetMarker ( col : u32 , wszname : :: windows::core::PCWSTR ) -> ( ) );
-    D3DPERF_SetMarker(col, wszname.into())
+    D3DPERF_SetMarker(col, wszname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
@@ -45,10 +45,10 @@ pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
 #[inline]
 pub unsafe fn D3DPERF_SetRegion<P0>(col: u32, wszname: P0)
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "d3d9.dll""system" fn D3DPERF_SetRegion ( col : u32 , wszname : :: windows::core::PCWSTR ) -> ( ) );
-    D3DPERF_SetRegion(col, wszname.into())
+    D3DPERF_SetRegion(col, wszname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]

@@ -353,9 +353,9 @@ impl IUIFramework {
     pub unsafe fn LoadUI<P0, P1>(&self, instance: P0, resourcename: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).LoadUI)(::windows::core::Vtable::as_raw(self), instance.into(), resourcename.into()).ok()
+        (::windows::core::Vtable::vtable(self).LoadUI)(::windows::core::Vtable::as_raw(self), instance.into(), resourcename.into().abi()).ok()
     }
     pub unsafe fn GetView(&self, viewid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetView)(::windows::core::Vtable::as_raw(self), viewid, riid, ppv).ok()

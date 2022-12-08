@@ -362,10 +362,10 @@ pub unsafe fn BluetoothSelectDevicesFree(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PA
 pub unsafe fn BluetoothSendAuthenticationResponse<P0, P1>(hradio: P0, pbtdi: *const BLUETOOTH_DEVICE_INFO, pszpasskey: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "bluetoothapis.dll""system" fn BluetoothSendAuthenticationResponse ( hradio : super::super::Foundation:: HANDLE , pbtdi : *const BLUETOOTH_DEVICE_INFO , pszpasskey : :: windows::core::PCWSTR ) -> u32 );
-    BluetoothSendAuthenticationResponse(hradio.into(), pbtdi, pszpasskey.into())
+    BluetoothSendAuthenticationResponse(hradio.into(), pbtdi, pszpasskey.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -66,22 +66,22 @@ pub unsafe fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dw
 #[inline]
 pub unsafe fn CryptSIPRetrieveSubjectGuid<P0, P1>(filename: P0, hfilein: P1, pgsubject: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "crypt32.dll""system" fn CryptSIPRetrieveSubjectGuid ( filename : :: windows::core::PCWSTR , hfilein : super::super::super::Foundation:: HANDLE , pgsubject : *mut :: windows::core::GUID ) -> super::super::super::Foundation:: BOOL );
-    CryptSIPRetrieveSubjectGuid(filename.into(), hfilein.into(), pgsubject)
+    CryptSIPRetrieveSubjectGuid(filename.into().abi(), hfilein.into(), pgsubject)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<P0, P1>(filename: P0, hfilein: P1, pgsubject: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "crypt32.dll""system" fn CryptSIPRetrieveSubjectGuidForCatalogFile ( filename : :: windows::core::PCWSTR , hfilein : super::super::super::Foundation:: HANDLE , pgsubject : *mut :: windows::core::GUID ) -> super::super::super::Foundation:: BOOL );
-    CryptSIPRetrieveSubjectGuidForCatalogFile(filename.into(), hfilein.into(), pgsubject)
+    CryptSIPRetrieveSubjectGuidForCatalogFile(filename.into().abi(), hfilein.into(), pgsubject)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]

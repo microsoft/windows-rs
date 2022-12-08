@@ -67,9 +67,9 @@ impl IWCNDevice {
     }
     pub unsafe fn SetNetworkProfile<P0>(&self, pszprofilexml: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetNetworkProfile)(::windows::core::Vtable::as_raw(self), pszprofilexml.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetNetworkProfile)(::windows::core::Vtable::as_raw(self), pszprofilexml.into().abi()).ok()
     }
     pub unsafe fn GetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetVendorExtension)(::windows::core::Vtable::as_raw(self), pvendorextspec, dwmaxbuffersize, pbbuffer, pdwbufferused).ok()

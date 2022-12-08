@@ -3,24 +3,24 @@
 #[inline]
 pub unsafe fn D3D10CompileEffectFromMemory<P0, P1>(pdata: *const ::core::ffi::c_void, datalength: usize, psrcfilename: P0, pdefines: ::core::option::Option<*const super::Direct3D::D3D_SHADER_MACRO>, pinclude: P1, hlslflags: u32, fxflags: u32, ppcompiledeffect: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrors: ::core::option::Option<*mut ::core::option::Option<super::Direct3D::ID3DBlob>>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::Direct3D::ID3DInclude>>,
 {
     ::windows::core::link ! ( "d3d10.dll""system" fn D3D10CompileEffectFromMemory ( pdata : *const ::core::ffi::c_void , datalength : usize , psrcfilename : :: windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , hlslflags : u32 , fxflags : u32 , ppcompiledeffect : *mut * mut::core::ffi::c_void , pperrors : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    D3D10CompileEffectFromMemory(pdata, datalength, psrcfilename.into(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), hlslflags, fxflags, ::core::mem::transmute(ppcompiledeffect), ::core::mem::transmute(pperrors.unwrap_or(::std::ptr::null_mut()))).ok()
+    D3D10CompileEffectFromMemory(pdata, datalength, psrcfilename.into().abi(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), hlslflags, fxflags, ::core::mem::transmute(ppcompiledeffect), ::core::mem::transmute(pperrors.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10CompileShader<P0, P1, P2, P3>(psrcdata: &[u8], pfilename: P0, pdefines: ::core::option::Option<*const super::Direct3D::D3D_SHADER_MACRO>, pinclude: P1, pfunctionname: P2, pprofile: P3, flags: u32, ppshader: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrormsgs: ::core::option::Option<*mut ::core::option::Option<super::Direct3D::ID3DBlob>>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::Direct3D::ID3DInclude>>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "d3d10.dll""system" fn D3D10CompileShader ( psrcdata : :: windows::core::PCSTR , srcdatasize : usize , pfilename : :: windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , pfunctionname : :: windows::core::PCSTR , pprofile : :: windows::core::PCSTR , flags : u32 , ppshader : *mut * mut::core::ffi::c_void , pperrormsgs : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    D3D10CompileShader(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, pfilename.into(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), pfunctionname.into(), pprofile.into(), flags, ::core::mem::transmute(ppshader), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
+    D3D10CompileShader(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, pfilename.into().abi(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), pfunctionname.into().abi(), pprofile.into().abi(), flags, ::core::mem::transmute(ppshader), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -125,11 +125,11 @@ where
 pub unsafe fn D3D10DisassembleShader<P0, P1>(pshader: *const ::core::ffi::c_void, bytecodelength: usize, enablecolorcode: P0, pcomments: P1) -> ::windows::core::Result<super::Direct3D::ID3DBlob>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "d3d10.dll""system" fn D3D10DisassembleShader ( pshader : *const ::core::ffi::c_void , bytecodelength : usize , enablecolorcode : super::super::Foundation:: BOOL , pcomments : :: windows::core::PCSTR , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    D3D10DisassembleShader(pshader, bytecodelength, enablecolorcode.into(), pcomments.into(), result__.as_mut_ptr()).from_abi(result__)
+    D3D10DisassembleShader(pshader, bytecodelength, enablecolorcode.into(), pcomments.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
@@ -195,11 +195,11 @@ where
 #[inline]
 pub unsafe fn D3D10PreprocessShader<P0, P1>(psrcdata: &[u8], pfilename: P0, pdefines: ::core::option::Option<*const super::Direct3D::D3D_SHADER_MACRO>, pinclude: P1, ppshadertext: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrormsgs: ::core::option::Option<*mut ::core::option::Option<super::Direct3D::ID3DBlob>>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::Direct3D::ID3DInclude>>,
 {
     ::windows::core::link ! ( "d3d10.dll""system" fn D3D10PreprocessShader ( psrcdata : :: windows::core::PCSTR , srcdatasize : usize , pfilename : :: windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , ppshadertext : *mut * mut::core::ffi::c_void , pperrormsgs : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    D3D10PreprocessShader(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, pfilename.into(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), ::core::mem::transmute(ppshadertext), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
+    D3D10PreprocessShader(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, pfilename.into().abi(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), ::core::mem::transmute(ppshadertext), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
@@ -1967,33 +1967,33 @@ impl ID3D10Effect {
     }
     pub unsafe fn GetConstantBufferByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectConstantBuffer>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetConstantBufferByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetConstantBufferByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetVariableByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).GetVariableByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetVariableByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetVariableByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetVariableByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetVariableBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetVariableBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).GetVariableBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetTechniqueByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectTechnique> {
         (::windows::core::Vtable::vtable(self).GetTechniqueByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetTechniqueByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectTechnique>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetTechniqueByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetTechniqueByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn Optimize(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Optimize)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2080,24 +2080,24 @@ impl ID3D10EffectBlendVariable {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetMemberByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), index)
@@ -2213,24 +2213,24 @@ impl ID3D10EffectConstantBuffer {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetMemberByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), index)
@@ -2356,24 +2356,24 @@ impl ID3D10EffectDepthStencilVariable {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetMemberByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), index)
@@ -2490,24 +2490,24 @@ impl ID3D10EffectDepthStencilViewVariable {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetMemberByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), index)
@@ -2629,24 +2629,24 @@ impl ID3D10EffectMatrixVariable {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetMemberByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), index)
@@ -2785,9 +2785,9 @@ impl ID3D10EffectPass {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn Apply(&self, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Apply)(::windows::core::Vtable::as_raw(self), flags).ok()
@@ -2894,24 +2894,24 @@ impl ID3D10EffectRasterizerVariable {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetMemberByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), index)
@@ -3028,24 +3028,24 @@ impl ID3D10EffectRenderTargetViewVariable {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetMemberByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), index)
@@ -3167,24 +3167,24 @@ impl ID3D10EffectSamplerVariable {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetMemberByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), index)
@@ -3296,24 +3296,24 @@ impl ID3D10EffectScalarVariable {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetMemberByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), index)
@@ -3489,24 +3489,24 @@ impl ID3D10EffectShaderResourceVariable {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetMemberByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), index)
@@ -3628,24 +3628,24 @@ impl ID3D10EffectShaderVariable {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetMemberByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), index)
@@ -3792,24 +3792,24 @@ impl ID3D10EffectStringVariable {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetMemberByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), index)
@@ -3916,18 +3916,18 @@ impl ID3D10EffectTechnique {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetPassByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectPass> {
         (::windows::core::Vtable::vtable(self).GetPassByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetPassByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectPass>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetPassByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetPassByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn ComputeStateBlockMask(&self) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3988,15 +3988,15 @@ impl ID3D10EffectType {
     }
     pub unsafe fn GetMemberTypeByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectType>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetMemberTypeByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetMemberTypeByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberTypeBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectType>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetMemberTypeBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).GetMemberTypeBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetMemberName(&self, index: u32) -> ::windows::core::PSTR {
         (::windows::core::Vtable::vtable(self).GetMemberName)(::windows::core::Vtable::as_raw(self), index)
@@ -4064,24 +4064,24 @@ impl ID3D10EffectVariable {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).GetMemberByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).GetElement)(::windows::core::Vtable::as_raw(self), index)
@@ -4209,24 +4209,24 @@ impl ID3D10EffectVectorVariable {
     }
     pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetAnnotationByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetMemberByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> ::core::option::Option<ID3D10EffectVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into())
+        (::windows::core::Vtable::vtable(self).base__.GetMemberBySemantic)(::windows::core::Vtable::as_raw(self), semantic.into().abi())
     }
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), index)
@@ -4506,15 +4506,15 @@ impl ID3D10InfoQueue {
     }
     pub unsafe fn AddMessage<P0>(&self, category: D3D10_MESSAGE_CATEGORY, severity: D3D10_MESSAGE_SEVERITY, id: D3D10_MESSAGE_ID, pdescription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddMessage)(::windows::core::Vtable::as_raw(self), category, severity, id, pdescription.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddMessage)(::windows::core::Vtable::as_raw(self), category, severity, id, pdescription.into().abi()).ok()
     }
     pub unsafe fn AddApplicationMessage<P0>(&self, severity: D3D10_MESSAGE_SEVERITY, pdescription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddApplicationMessage)(::windows::core::Vtable::as_raw(self), severity, pdescription.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddApplicationMessage)(::windows::core::Vtable::as_raw(self), severity, pdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5205,9 +5205,9 @@ impl ID3D10ShaderReflection {
     }
     pub unsafe fn GetConstantBufferByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetConstantBufferByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetConstantBufferByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -5291,9 +5291,9 @@ impl ID3D10ShaderReflection1 {
     }
     pub unsafe fn GetConstantBufferByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetConstantBufferByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetConstantBufferByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -5315,18 +5315,18 @@ impl ID3D10ShaderReflection1 {
     }
     pub unsafe fn GetVariableByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10ShaderReflectionVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetVariableByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetVariableByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetResourceBindingDescByName<P0>(&self, name: P0) -> ::windows::core::Result<D3D10_SHADER_INPUT_BIND_DESC>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResourceBindingDescByName)(::windows::core::Vtable::as_raw(self), name.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetResourceBindingDescByName)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetMovInstructionCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5447,9 +5447,9 @@ impl ID3D10ShaderReflectionConstantBuffer {
     }
     pub unsafe fn GetVariableByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10ShaderReflectionVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetVariableByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetVariableByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
 }
 impl ::core::clone::Clone for ID3D10ShaderReflectionConstantBuffer {
@@ -5497,9 +5497,9 @@ impl ID3D10ShaderReflectionType {
     }
     pub unsafe fn GetMemberTypeByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D10ShaderReflectionType>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetMemberTypeByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetMemberTypeByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR {
         (::windows::core::Vtable::vtable(self).GetMemberTypeName)(::windows::core::Vtable::as_raw(self), index)

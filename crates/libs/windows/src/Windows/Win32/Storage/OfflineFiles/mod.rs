@@ -156,11 +156,11 @@ impl IOfflineFilesCache {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteItemsForUser<P0, P1, P2>(&self, pszuser: P0, rgpszpaths: &[::windows::core::PCWSTR], dwflags: u32, basync: P1, piprogress: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<::windows::core::InParam<IOfflineFilesSimpleProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteItemsForUser)(::windows::core::Vtable::as_raw(self), pszuser.into(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len() as _, dwflags, basync.into(), piprogress.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).DeleteItemsForUser)(::windows::core::Vtable::as_raw(self), pszuser.into().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len() as _, dwflags, basync.into(), piprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -202,31 +202,31 @@ impl IOfflineFilesCache {
     }
     pub unsafe fn FindItem<P0>(&self, pszpath: P0, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindItem)(::windows::core::Vtable::as_raw(self), pszpath.into(), dwqueryflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindItem)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), dwqueryflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn FindItemEx<P0, P1, P2, P3, P4>(&self, pszpath: P0, pincludefilefilter: P1, pincludedirfilter: P2, pexcludefilefilter: P3, pexcludedirfilter: P4, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IOfflineFilesItemFilter>>,
         P2: ::std::convert::Into<::windows::core::InParam<IOfflineFilesItemFilter>>,
         P3: ::std::convert::Into<::windows::core::InParam<IOfflineFilesItemFilter>>,
         P4: ::std::convert::Into<::windows::core::InParam<IOfflineFilesItemFilter>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindItemEx)(::windows::core::Vtable::as_raw(self), pszpath.into(), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), dwqueryflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindItemEx)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), dwqueryflags, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RenameItem<P0, P1, P2>(&self, pszpathoriginal: P0, pszpathnew: P1, breplaceifexists: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).RenameItem)(::windows::core::Vtable::as_raw(self), pszpathoriginal.into(), pszpathnew.into(), breplaceifexists.into()).ok()
+        (::windows::core::Vtable::vtable(self).RenameItem)(::windows::core::Vtable::as_raw(self), pszpathoriginal.into().abi(), pszpathnew.into().abi(), breplaceifexists.into()).ok()
     }
     pub unsafe fn GetLocation(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -247,10 +247,10 @@ impl IOfflineFilesCache {
     }
     pub unsafe fn GetSettingObject<P0>(&self, pszsettingname: P0) -> ::windows::core::Result<IOfflineFilesSetting>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSettingObject)(::windows::core::Vtable::as_raw(self), pszsettingname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetSettingObject)(::windows::core::Vtable::as_raw(self), pszsettingname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumSettingObjects(&self) -> ::windows::core::Result<IEnumOfflineFilesSettings> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -260,9 +260,9 @@ impl IOfflineFilesCache {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPathCacheable<P0>(&self, pszpath: P0, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).IsPathCacheable)(::windows::core::Vtable::as_raw(self), pszpath.into(), pbcacheable, psharecachingmode).ok()
+        (::windows::core::Vtable::vtable(self).IsPathCacheable)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), pbcacheable, psharecachingmode).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesCache, ::windows::core::IUnknown);
@@ -365,11 +365,11 @@ impl IOfflineFilesCache2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteItemsForUser<P0, P1, P2>(&self, pszuser: P0, rgpszpaths: &[::windows::core::PCWSTR], dwflags: u32, basync: P1, piprogress: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<::windows::core::InParam<IOfflineFilesSimpleProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItemsForUser)(::windows::core::Vtable::as_raw(self), pszuser.into(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len() as _, dwflags, basync.into(), piprogress.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItemsForUser)(::windows::core::Vtable::as_raw(self), pszuser.into().abi(), ::core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len() as _, dwflags, basync.into(), piprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -411,31 +411,31 @@ impl IOfflineFilesCache2 {
     }
     pub unsafe fn FindItem<P0>(&self, pszpath: P0, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.FindItem)(::windows::core::Vtable::as_raw(self), pszpath.into(), dwqueryflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.FindItem)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), dwqueryflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn FindItemEx<P0, P1, P2, P3, P4>(&self, pszpath: P0, pincludefilefilter: P1, pincludedirfilter: P2, pexcludefilefilter: P3, pexcludedirfilter: P4, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IOfflineFilesItemFilter>>,
         P2: ::std::convert::Into<::windows::core::InParam<IOfflineFilesItemFilter>>,
         P3: ::std::convert::Into<::windows::core::InParam<IOfflineFilesItemFilter>>,
         P4: ::std::convert::Into<::windows::core::InParam<IOfflineFilesItemFilter>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.FindItemEx)(::windows::core::Vtable::as_raw(self), pszpath.into(), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), dwqueryflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.FindItemEx)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), dwqueryflags, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RenameItem<P0, P1, P2>(&self, pszpathoriginal: P0, pszpathnew: P1, breplaceifexists: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.RenameItem)(::windows::core::Vtable::as_raw(self), pszpathoriginal.into(), pszpathnew.into(), breplaceifexists.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.RenameItem)(::windows::core::Vtable::as_raw(self), pszpathoriginal.into().abi(), pszpathnew.into().abi(), breplaceifexists.into()).ok()
     }
     pub unsafe fn GetLocation(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -456,10 +456,10 @@ impl IOfflineFilesCache2 {
     }
     pub unsafe fn GetSettingObject<P0>(&self, pszsettingname: P0) -> ::windows::core::Result<IOfflineFilesSetting>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSettingObject)(::windows::core::Vtable::as_raw(self), pszsettingname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetSettingObject)(::windows::core::Vtable::as_raw(self), pszsettingname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumSettingObjects(&self) -> ::windows::core::Result<IEnumOfflineFilesSettings> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -469,19 +469,19 @@ impl IOfflineFilesCache2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPathCacheable<P0>(&self, pszpath: P0, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.IsPathCacheable)(::windows::core::Vtable::as_raw(self), pszpath.into(), pbcacheable, psharecachingmode).ok()
+        (::windows::core::Vtable::vtable(self).base__.IsPathCacheable)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), pbcacheable, psharecachingmode).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RenameItemEx<P0, P1, P2>(&self, pszpathoriginal: P0, pszpathnew: P1, breplaceifexists: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).RenameItemEx)(::windows::core::Vtable::as_raw(self), pszpathoriginal.into(), pszpathnew.into(), breplaceifexists.into()).ok()
+        (::windows::core::Vtable::vtable(self).RenameItemEx)(::windows::core::Vtable::as_raw(self), pszpathoriginal.into().abi(), pszpathnew.into().abi(), breplaceifexists.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesCache2, ::windows::core::IUnknown, IOfflineFilesCache);
@@ -834,10 +834,10 @@ pub struct IOfflineFilesEvents(::windows::core::IUnknown);
 impl IOfflineFilesEvents {
     pub unsafe fn CacheMoved<P0, P1>(&self, pszoldpath: P0, psznewpath: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CacheMoved)(::windows::core::Vtable::as_raw(self), pszoldpath.into(), psznewpath.into()).ok()
+        (::windows::core::Vtable::vtable(self).CacheMoved)(::windows::core::Vtable::as_raw(self), pszoldpath.into().abi(), psznewpath.into().abi()).ok()
     }
     pub unsafe fn CacheIsFull(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CacheIsFull)(::windows::core::Vtable::as_raw(self)).ok()
@@ -869,33 +869,33 @@ impl IOfflineFilesEvents {
     }
     pub unsafe fn SyncFileResult<P0>(&self, rsyncid: *const ::windows::core::GUID, pszfile: P0, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SyncFileResult)(::windows::core::Vtable::as_raw(self), rsyncid, pszfile.into(), hrresult).ok()
+        (::windows::core::Vtable::vtable(self).SyncFileResult)(::windows::core::Vtable::as_raw(self), rsyncid, pszfile.into().abi(), hrresult).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SyncConflictRecAdded<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SyncConflictRecAdded)(::windows::core::Vtable::as_raw(self), pszconflictpath.into(), pftconflictdatetime, conflictsyncstate).ok()
+        (::windows::core::Vtable::vtable(self).SyncConflictRecAdded)(::windows::core::Vtable::as_raw(self), pszconflictpath.into().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SyncConflictRecUpdated<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SyncConflictRecUpdated)(::windows::core::Vtable::as_raw(self), pszconflictpath.into(), pftconflictdatetime, conflictsyncstate).ok()
+        (::windows::core::Vtable::vtable(self).SyncConflictRecUpdated)(::windows::core::Vtable::as_raw(self), pszconflictpath.into().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SyncConflictRecRemoved<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SyncConflictRecRemoved)(::windows::core::Vtable::as_raw(self), pszconflictpath.into(), pftconflictdatetime, conflictsyncstate).ok()
+        (::windows::core::Vtable::vtable(self).SyncConflictRecRemoved)(::windows::core::Vtable::as_raw(self), pszconflictpath.into().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncEnd(&self, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SyncEnd)(::windows::core::Vtable::as_raw(self), rsyncid, hrresult).ok()
@@ -908,68 +908,68 @@ impl IOfflineFilesEvents {
     }
     pub unsafe fn ItemDisconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ItemDisconnected)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).ItemDisconnected)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemReconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ItemReconnected)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).ItemReconnected)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ItemAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).ItemAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ItemNotAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).ItemNotAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ItemPinned)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).ItemPinned)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ItemNotPinned)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).ItemNotPinned)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ItemModified<P0, P1, P2>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).ItemModified)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype, bmodifieddata.into(), bmodifiedattributes.into()).ok()
+        (::windows::core::Vtable::vtable(self).ItemModified)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype, bmodifieddata.into(), bmodifiedattributes.into()).ok()
     }
     pub unsafe fn ItemAddedToCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ItemAddedToCache)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).ItemAddedToCache)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemDeletedFromCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ItemDeletedFromCache)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).ItemDeletedFromCache)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemRenamed<P0, P1>(&self, pszoldpath: P0, psznewpath: P1, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ItemRenamed)(::windows::core::Vtable::as_raw(self), pszoldpath.into(), psznewpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).ItemRenamed)(::windows::core::Vtable::as_raw(self), pszoldpath.into().abi(), psznewpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn DataLost(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DataLost)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1055,10 +1055,10 @@ pub struct IOfflineFilesEvents2(::windows::core::IUnknown);
 impl IOfflineFilesEvents2 {
     pub unsafe fn CacheMoved<P0, P1>(&self, pszoldpath: P0, psznewpath: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CacheMoved)(::windows::core::Vtable::as_raw(self), pszoldpath.into(), psznewpath.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.CacheMoved)(::windows::core::Vtable::as_raw(self), pszoldpath.into().abi(), psznewpath.into().abi()).ok()
     }
     pub unsafe fn CacheIsFull(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CacheIsFull)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1090,33 +1090,33 @@ impl IOfflineFilesEvents2 {
     }
     pub unsafe fn SyncFileResult<P0>(&self, rsyncid: *const ::windows::core::GUID, pszfile: P0, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SyncFileResult)(::windows::core::Vtable::as_raw(self), rsyncid, pszfile.into(), hrresult).ok()
+        (::windows::core::Vtable::vtable(self).base__.SyncFileResult)(::windows::core::Vtable::as_raw(self), rsyncid, pszfile.into().abi(), hrresult).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SyncConflictRecAdded<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SyncConflictRecAdded)(::windows::core::Vtable::as_raw(self), pszconflictpath.into(), pftconflictdatetime, conflictsyncstate).ok()
+        (::windows::core::Vtable::vtable(self).base__.SyncConflictRecAdded)(::windows::core::Vtable::as_raw(self), pszconflictpath.into().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SyncConflictRecUpdated<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SyncConflictRecUpdated)(::windows::core::Vtable::as_raw(self), pszconflictpath.into(), pftconflictdatetime, conflictsyncstate).ok()
+        (::windows::core::Vtable::vtable(self).base__.SyncConflictRecUpdated)(::windows::core::Vtable::as_raw(self), pszconflictpath.into().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SyncConflictRecRemoved<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SyncConflictRecRemoved)(::windows::core::Vtable::as_raw(self), pszconflictpath.into(), pftconflictdatetime, conflictsyncstate).ok()
+        (::windows::core::Vtable::vtable(self).base__.SyncConflictRecRemoved)(::windows::core::Vtable::as_raw(self), pszconflictpath.into().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncEnd(&self, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SyncEnd)(::windows::core::Vtable::as_raw(self), rsyncid, hrresult).ok()
@@ -1129,68 +1129,68 @@ impl IOfflineFilesEvents2 {
     }
     pub unsafe fn ItemDisconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ItemDisconnected)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.ItemDisconnected)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemReconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ItemReconnected)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.ItemReconnected)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ItemAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.ItemAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ItemNotAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.ItemNotAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ItemPinned)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.ItemPinned)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ItemNotPinned)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.ItemNotPinned)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ItemModified<P0, P1, P2>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ItemModified)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype, bmodifieddata.into(), bmodifiedattributes.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.ItemModified)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype, bmodifieddata.into(), bmodifiedattributes.into()).ok()
     }
     pub unsafe fn ItemAddedToCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ItemAddedToCache)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.ItemAddedToCache)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemDeletedFromCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ItemDeletedFromCache)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.ItemDeletedFromCache)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemRenamed<P0, P1>(&self, pszoldpath: P0, psznewpath: P1, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ItemRenamed)(::windows::core::Vtable::as_raw(self), pszoldpath.into(), psznewpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.ItemRenamed)(::windows::core::Vtable::as_raw(self), pszoldpath.into().abi(), psznewpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn DataLost(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DataLost)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1269,10 +1269,10 @@ pub struct IOfflineFilesEvents3(::windows::core::IUnknown);
 impl IOfflineFilesEvents3 {
     pub unsafe fn CacheMoved<P0, P1>(&self, pszoldpath: P0, psznewpath: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.CacheMoved)(::windows::core::Vtable::as_raw(self), pszoldpath.into(), psznewpath.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.CacheMoved)(::windows::core::Vtable::as_raw(self), pszoldpath.into().abi(), psznewpath.into().abi()).ok()
     }
     pub unsafe fn CacheIsFull(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.CacheIsFull)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1304,33 +1304,33 @@ impl IOfflineFilesEvents3 {
     }
     pub unsafe fn SyncFileResult<P0>(&self, rsyncid: *const ::windows::core::GUID, pszfile: P0, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SyncFileResult)(::windows::core::Vtable::as_raw(self), rsyncid, pszfile.into(), hrresult).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SyncFileResult)(::windows::core::Vtable::as_raw(self), rsyncid, pszfile.into().abi(), hrresult).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SyncConflictRecAdded<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SyncConflictRecAdded)(::windows::core::Vtable::as_raw(self), pszconflictpath.into(), pftconflictdatetime, conflictsyncstate).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SyncConflictRecAdded)(::windows::core::Vtable::as_raw(self), pszconflictpath.into().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SyncConflictRecUpdated<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SyncConflictRecUpdated)(::windows::core::Vtable::as_raw(self), pszconflictpath.into(), pftconflictdatetime, conflictsyncstate).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SyncConflictRecUpdated)(::windows::core::Vtable::as_raw(self), pszconflictpath.into().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SyncConflictRecRemoved<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SyncConflictRecRemoved)(::windows::core::Vtable::as_raw(self), pszconflictpath.into(), pftconflictdatetime, conflictsyncstate).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SyncConflictRecRemoved)(::windows::core::Vtable::as_raw(self), pszconflictpath.into().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncEnd(&self, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SyncEnd)(::windows::core::Vtable::as_raw(self), rsyncid, hrresult).ok()
@@ -1343,68 +1343,68 @@ impl IOfflineFilesEvents3 {
     }
     pub unsafe fn ItemDisconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.ItemDisconnected)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.ItemDisconnected)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemReconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.ItemReconnected)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.ItemReconnected)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.ItemAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.ItemAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.ItemNotAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.ItemNotAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.ItemPinned)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.ItemPinned)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.ItemNotPinned)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.ItemNotPinned)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ItemModified<P0, P1, P2>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.ItemModified)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype, bmodifieddata.into(), bmodifiedattributes.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.ItemModified)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype, bmodifieddata.into(), bmodifiedattributes.into()).ok()
     }
     pub unsafe fn ItemAddedToCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.ItemAddedToCache)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.ItemAddedToCache)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemDeletedFromCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.ItemDeletedFromCache)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.ItemDeletedFromCache)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemRenamed<P0, P1>(&self, pszoldpath: P0, psznewpath: P1, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.ItemRenamed)(::windows::core::Vtable::as_raw(self), pszoldpath.into(), psznewpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.ItemRenamed)(::windows::core::Vtable::as_raw(self), pszoldpath.into().abi(), psznewpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn DataLost(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.DataLost)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1443,24 +1443,24 @@ impl IOfflineFilesEvents3 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransparentCacheItemNotify<P0, P1, P2, P3>(&self, pszpath: P0, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2, pzsoldpath: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P3: ::std::convert::Into<::windows::core::PCWSTR>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).TransparentCacheItemNotify)(::windows::core::Vtable::as_raw(self), pszpath.into(), eventtype, itemtype, bmodifieddata.into(), bmodifiedattributes.into(), pzsoldpath.into()).ok()
+        (::windows::core::Vtable::vtable(self).TransparentCacheItemNotify)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), eventtype, itemtype, bmodifieddata.into(), bmodifiedattributes.into(), pzsoldpath.into().abi()).ok()
     }
     pub unsafe fn PrefetchFileBegin<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).PrefetchFileBegin)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
+        (::windows::core::Vtable::vtable(self).PrefetchFileBegin)(::windows::core::Vtable::as_raw(self), pszpath.into().abi()).ok()
     }
     pub unsafe fn PrefetchFileEnd<P0>(&self, pszpath: P0, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).PrefetchFileEnd)(::windows::core::Vtable::as_raw(self), pszpath.into(), hrresult).ok()
+        (::windows::core::Vtable::vtable(self).PrefetchFileEnd)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), hrresult).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesEvents3, ::windows::core::IUnknown, IOfflineFilesEvents, IOfflineFilesEvents2);
@@ -1503,10 +1503,10 @@ pub struct IOfflineFilesEvents4(::windows::core::IUnknown);
 impl IOfflineFilesEvents4 {
     pub unsafe fn CacheMoved<P0, P1>(&self, pszoldpath: P0, psznewpath: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CacheMoved)(::windows::core::Vtable::as_raw(self), pszoldpath.into(), psznewpath.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CacheMoved)(::windows::core::Vtable::as_raw(self), pszoldpath.into().abi(), psznewpath.into().abi()).ok()
     }
     pub unsafe fn CacheIsFull(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CacheIsFull)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1538,33 +1538,33 @@ impl IOfflineFilesEvents4 {
     }
     pub unsafe fn SyncFileResult<P0>(&self, rsyncid: *const ::windows::core::GUID, pszfile: P0, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SyncFileResult)(::windows::core::Vtable::as_raw(self), rsyncid, pszfile.into(), hrresult).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SyncFileResult)(::windows::core::Vtable::as_raw(self), rsyncid, pszfile.into().abi(), hrresult).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SyncConflictRecAdded<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SyncConflictRecAdded)(::windows::core::Vtable::as_raw(self), pszconflictpath.into(), pftconflictdatetime, conflictsyncstate).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SyncConflictRecAdded)(::windows::core::Vtable::as_raw(self), pszconflictpath.into().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SyncConflictRecUpdated<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SyncConflictRecUpdated)(::windows::core::Vtable::as_raw(self), pszconflictpath.into(), pftconflictdatetime, conflictsyncstate).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SyncConflictRecUpdated)(::windows::core::Vtable::as_raw(self), pszconflictpath.into().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SyncConflictRecRemoved<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SyncConflictRecRemoved)(::windows::core::Vtable::as_raw(self), pszconflictpath.into(), pftconflictdatetime, conflictsyncstate).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SyncConflictRecRemoved)(::windows::core::Vtable::as_raw(self), pszconflictpath.into().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncEnd(&self, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SyncEnd)(::windows::core::Vtable::as_raw(self), rsyncid, hrresult).ok()
@@ -1577,68 +1577,68 @@ impl IOfflineFilesEvents4 {
     }
     pub unsafe fn ItemDisconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemDisconnected)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemDisconnected)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemReconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemReconnected)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemReconnected)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemNotAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemNotAvailableOffline)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemPinned)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemPinned)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemNotPinned)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemNotPinned)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ItemModified<P0, P1, P2>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemModified)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype, bmodifieddata.into(), bmodifiedattributes.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemModified)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype, bmodifieddata.into(), bmodifiedattributes.into()).ok()
     }
     pub unsafe fn ItemAddedToCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemAddedToCache)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemAddedToCache)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemDeletedFromCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemDeletedFromCache)(::windows::core::Vtable::as_raw(self), pszpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemDeletedFromCache)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn ItemRenamed<P0, P1>(&self, pszoldpath: P0, psznewpath: P1, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemRenamed)(::windows::core::Vtable::as_raw(self), pszoldpath.into(), psznewpath.into(), itemtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ItemRenamed)(::windows::core::Vtable::as_raw(self), pszoldpath.into().abi(), psznewpath.into().abi(), itemtype).ok()
     }
     pub unsafe fn DataLost(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.DataLost)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1677,24 +1677,24 @@ impl IOfflineFilesEvents4 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransparentCacheItemNotify<P0, P1, P2, P3>(&self, pszpath: P0, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2, pzsoldpath: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P3: ::std::convert::Into<::windows::core::PCWSTR>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.TransparentCacheItemNotify)(::windows::core::Vtable::as_raw(self), pszpath.into(), eventtype, itemtype, bmodifieddata.into(), bmodifiedattributes.into(), pzsoldpath.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.TransparentCacheItemNotify)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), eventtype, itemtype, bmodifieddata.into(), bmodifiedattributes.into(), pzsoldpath.into().abi()).ok()
     }
     pub unsafe fn PrefetchFileBegin<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.PrefetchFileBegin)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.PrefetchFileBegin)(::windows::core::Vtable::as_raw(self), pszpath.into().abi()).ok()
     }
     pub unsafe fn PrefetchFileEnd<P0>(&self, pszpath: P0, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.PrefetchFileEnd)(::windows::core::Vtable::as_raw(self), pszpath.into(), hrresult).ok()
+        (::windows::core::Vtable::vtable(self).base__.PrefetchFileEnd)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), hrresult).ok()
     }
     pub unsafe fn PrefetchCloseHandleBegin(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).PrefetchCloseHandleBegin)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2588,17 +2588,17 @@ impl IOfflineFilesSimpleProgress {
     }
     pub unsafe fn ItemBegin<P0>(&self, pszfile: P0) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ItemBegin)(::windows::core::Vtable::as_raw(self), pszfile.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).ItemBegin)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn ItemResult<P0>(&self, pszfile: P0, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ItemResult)(::windows::core::Vtable::as_raw(self), pszfile.into(), hrresult, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).ItemResult)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), hrresult, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesSimpleProgress, ::windows::core::IUnknown, IOfflineFilesProgress);
@@ -2724,9 +2724,9 @@ pub struct IOfflineFilesSyncConflictHandler(::windows::core::IUnknown);
 impl IOfflineFilesSyncConflictHandler {
     pub unsafe fn ResolveConflict<P0>(&self, pszpath: P0, fstateknown: u32, state: OFFLINEFILES_SYNC_STATE, fchangedetails: u32, pconflictresolution: *mut OFFLINEFILES_SYNC_CONFLICT_RESOLVE, ppsznewname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ResolveConflict)(::windows::core::Vtable::as_raw(self), pszpath.into(), fstateknown, state, fchangedetails, pconflictresolution, ppsznewname).ok()
+        (::windows::core::Vtable::vtable(self).ResolveConflict)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), fstateknown, state, fchangedetails, pconflictresolution, ppsznewname).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesSyncConflictHandler, ::windows::core::IUnknown);
@@ -2917,18 +2917,18 @@ impl IOfflineFilesSyncProgress {
     }
     pub unsafe fn SyncItemBegin<P0>(&self, pszfile: P0) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SyncItemBegin)(::windows::core::Vtable::as_raw(self), pszfile.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).SyncItemBegin)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SyncItemResult<P0, P1>(&self, pszfile: P0, hrresult: ::windows::core::HRESULT, perrorinfo: P1) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IOfflineFilesSyncErrorInfo>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SyncItemResult)(::windows::core::Vtable::as_raw(self), pszfile.into(), hrresult, perrorinfo.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).SyncItemResult)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), hrresult, perrorinfo.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesSyncProgress, ::windows::core::IUnknown, IOfflineFilesProgress);

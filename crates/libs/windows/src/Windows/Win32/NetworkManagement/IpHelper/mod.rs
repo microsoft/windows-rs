@@ -47,10 +47,10 @@ pub unsafe fn ConvertCompartmentIdToGuid(compartmentid: u32, compartmentguid: *m
 #[inline]
 pub unsafe fn ConvertInterfaceAliasToLuid<P0>(interfacealias: P0, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iphlpapi.dll""system" fn ConvertInterfaceAliasToLuid ( interfacealias : :: windows::core::PCWSTR , interfaceluid : *mut super::Ndis:: NET_LUID_LH ) -> super::super::Foundation:: NTSTATUS );
-    ConvertInterfaceAliasToLuid(interfacealias.into(), interfaceluid).ok()
+    ConvertInterfaceAliasToLuid(interfacealias.into().abi(), interfaceluid).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -106,20 +106,20 @@ pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const super::Ndis::NET
 #[inline]
 pub unsafe fn ConvertInterfaceNameToLuidA<P0>(interfacename: P0, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iphlpapi.dll""system" fn ConvertInterfaceNameToLuidA ( interfacename : :: windows::core::PCSTR , interfaceluid : *mut super::Ndis:: NET_LUID_LH ) -> super::super::Foundation:: NTSTATUS );
-    ConvertInterfaceNameToLuidA(interfacename.into(), interfaceluid).ok()
+    ConvertInterfaceNameToLuidA(interfacename.into().abi(), interfaceluid).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceNameToLuidW<P0>(interfacename: P0, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iphlpapi.dll""system" fn ConvertInterfaceNameToLuidW ( interfacename : :: windows::core::PCWSTR , interfaceluid : *mut super::Ndis:: NET_LUID_LH ) -> super::super::Foundation:: NTSTATUS );
-    ConvertInterfaceNameToLuidW(interfacename.into(), interfaceluid).ok()
+    ConvertInterfaceNameToLuidW(interfacename.into().abi(), interfaceluid).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -322,10 +322,10 @@ pub unsafe fn FreeMibTable(memory: *const ::core::ffi::c_void) {
 #[inline]
 pub unsafe fn GetAdapterIndex<P0>(adaptername: P0, ifindex: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iphlpapi.dll""system" fn GetAdapterIndex ( adaptername : :: windows::core::PCWSTR , ifindex : *mut u32 ) -> u32 );
-    GetAdapterIndex(adaptername.into(), ifindex)
+    GetAdapterIndex(adaptername.into().abi(), ifindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1344,10 +1344,10 @@ where
 #[inline]
 pub unsafe fn SetNetworkInformation<P0>(networkguid: *const ::windows::core::GUID, compartmentid: u32, networkname: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iphlpapi.dll""system" fn SetNetworkInformation ( networkguid : *const :: windows::core::GUID , compartmentid : u32 , networkname : :: windows::core::PCWSTR ) -> super::super::Foundation:: NTSTATUS );
-    SetNetworkInformation(networkguid, compartmentid, networkname.into()).ok()
+    SetNetworkInformation(networkguid, compartmentid, networkname.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1408,10 +1408,10 @@ pub unsafe fn if_indextoname(interfaceindex: u32, interfacename: &mut [u8; 256])
 #[inline]
 pub unsafe fn if_nametoindex<P0>(interfacename: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iphlpapi.dll""system" fn if_nametoindex ( interfacename : :: windows::core::PCSTR ) -> u32 );
-    if_nametoindex(interfacename.into())
+    if_nametoindex(interfacename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const ANY_SIZE: u32 = 1u32;

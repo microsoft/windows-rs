@@ -62,13 +62,13 @@ where
 pub unsafe fn PTGetPrintDeviceResources<P0, P1, P2, P3>(hprovider: P0, pszlocalename: P1, pprintticket: P2, pdeviceresources: P3) -> ::windows::core::Result<::windows::core::BSTR>
 where
     P0: ::std::convert::Into<super::super::super::Storage::Xps::HPTPROVIDER>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     P3: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
 {
     ::windows::core::link ! ( "prntvpt.dll""system" fn PTGetPrintDeviceResources ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pszlocalename : :: windows::core::PCWSTR , pprintticket : * mut::core::ffi::c_void , pdeviceresources : * mut::core::ffi::c_void , pbstrerrormessage : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PTGetPrintDeviceResources(hprovider.into(), pszlocalename.into(), pprintticket.into().abi(), pdeviceresources.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    PTGetPrintDeviceResources(hprovider.into(), pszlocalename.into().abi(), pprintticket.into().abi(), pdeviceresources.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
@@ -89,31 +89,31 @@ where
 #[inline]
 pub unsafe fn PTOpenProvider<P0>(pszprintername: P0, dwversion: u32) -> ::windows::core::Result<super::super::super::Storage::Xps::HPTPROVIDER>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "prntvpt.dll""system" fn PTOpenProvider ( pszprintername : :: windows::core::PCWSTR , dwversion : u32 , phprovider : *mut super::super::super::Storage::Xps:: HPTPROVIDER ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PTOpenProvider(pszprintername.into(), dwversion, result__.as_mut_ptr()).from_abi(result__)
+    PTOpenProvider(pszprintername.into().abi(), dwversion, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`*"]
 #[cfg(feature = "Win32_Storage_Xps")]
 #[inline]
 pub unsafe fn PTOpenProviderEx<P0>(pszprintername: P0, dwmaxversion: u32, dwprefversion: u32, phprovider: *mut super::super::super::Storage::Xps::HPTPROVIDER, pusedversion: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "prntvpt.dll""system" fn PTOpenProviderEx ( pszprintername : :: windows::core::PCWSTR , dwmaxversion : u32 , dwprefversion : u32 , phprovider : *mut super::super::super::Storage::Xps:: HPTPROVIDER , pusedversion : *mut u32 ) -> :: windows::core::HRESULT );
-    PTOpenProviderEx(pszprintername.into(), dwmaxversion, dwprefversion, phprovider, pusedversion).ok()
+    PTOpenProviderEx(pszprintername.into().abi(), dwmaxversion, dwprefversion, phprovider, pusedversion).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 #[inline]
 pub unsafe fn PTQuerySchemaVersionSupport<P0>(pszprintername: P0) -> ::windows::core::Result<u32>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "prntvpt.dll""system" fn PTQuerySchemaVersionSupport ( pszprintername : :: windows::core::PCWSTR , pmaxversion : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PTQuerySchemaVersionSupport(pszprintername.into(), result__.as_mut_ptr()).from_abi(result__)
+    PTQuerySchemaVersionSupport(pszprintername.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 #[inline]

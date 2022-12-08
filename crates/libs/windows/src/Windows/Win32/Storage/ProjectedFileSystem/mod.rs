@@ -31,53 +31,53 @@ where
 pub unsafe fn PrjDeleteFile<P0, P1>(namespacevirtualizationcontext: P0, destinationfilename: P1, updateflags: PRJ_UPDATE_TYPES) -> ::windows::core::Result<PRJ_UPDATE_FAILURE_CAUSES>
 where
     P0: ::std::convert::Into<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjDeleteFile ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT , destinationfilename : :: windows::core::PCWSTR , updateflags : PRJ_UPDATE_TYPES , failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PrjDeleteFile(namespacevirtualizationcontext.into(), destinationfilename.into(), updateflags, result__.as_mut_ptr()).from_abi(result__)
+    PrjDeleteFile(namespacevirtualizationcontext.into(), destinationfilename.into().abi(), updateflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjDoesNameContainWildCards<P0>(filename: P0) -> super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjDoesNameContainWildCards ( filename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOLEAN );
-    PrjDoesNameContainWildCards(filename.into())
+    PrjDoesNameContainWildCards(filename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[inline]
 pub unsafe fn PrjFileNameCompare<P0, P1>(filename1: P0, filename2: P1) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjFileNameCompare ( filename1 : :: windows::core::PCWSTR , filename2 : :: windows::core::PCWSTR ) -> i32 );
-    PrjFileNameCompare(filename1.into(), filename2.into())
+    PrjFileNameCompare(filename1.into().abi(), filename2.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjFileNameMatch<P0, P1>(filenametocheck: P0, pattern: P1) -> super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjFileNameMatch ( filenametocheck : :: windows::core::PCWSTR , pattern : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOLEAN );
-    PrjFileNameMatch(filenametocheck.into(), pattern.into())
+    PrjFileNameMatch(filenametocheck.into().abi(), pattern.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjFillDirEntryBuffer<P0, P1>(filename: P0, filebasicinfo: ::core::option::Option<*const PRJ_FILE_BASIC_INFO>, direntrybufferhandle: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<PRJ_DIR_ENTRY_BUFFER_HANDLE>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjFillDirEntryBuffer ( filename : :: windows::core::PCWSTR , filebasicinfo : *const PRJ_FILE_BASIC_INFO , direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE ) -> :: windows::core::HRESULT );
-    PrjFillDirEntryBuffer(filename.into(), ::core::mem::transmute(filebasicinfo.unwrap_or(::std::ptr::null())), direntrybufferhandle.into()).ok()
+    PrjFillDirEntryBuffer(filename.into().abi(), ::core::mem::transmute(filebasicinfo.unwrap_or(::std::ptr::null())), direntrybufferhandle.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -85,10 +85,10 @@ where
 pub unsafe fn PrjFillDirEntryBuffer2<P0, P1>(direntrybufferhandle: P0, filename: P1, filebasicinfo: ::core::option::Option<*const PRJ_FILE_BASIC_INFO>, extendedinfo: ::core::option::Option<*const PRJ_EXTENDED_INFO>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<PRJ_DIR_ENTRY_BUFFER_HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjFillDirEntryBuffer2 ( direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE , filename : :: windows::core::PCWSTR , filebasicinfo : *const PRJ_FILE_BASIC_INFO , extendedinfo : *const PRJ_EXTENDED_INFO ) -> :: windows::core::HRESULT );
-    PrjFillDirEntryBuffer2(direntrybufferhandle.into(), filename.into(), ::core::mem::transmute(filebasicinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(extendedinfo.unwrap_or(::std::ptr::null()))).ok()
+    PrjFillDirEntryBuffer2(direntrybufferhandle.into(), filename.into().abi(), ::core::mem::transmute(filebasicinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(extendedinfo.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[inline]
@@ -100,11 +100,11 @@ pub unsafe fn PrjFreeAlignedBuffer(buffer: *const ::core::ffi::c_void) {
 #[inline]
 pub unsafe fn PrjGetOnDiskFileState<P0>(destinationfilename: P0) -> ::windows::core::Result<PRJ_FILE_STATE>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjGetOnDiskFileState ( destinationfilename : :: windows::core::PCWSTR , filestate : *mut PRJ_FILE_STATE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PrjGetOnDiskFileState(destinationfilename.into(), result__.as_mut_ptr()).from_abi(result__)
+    PrjGetOnDiskFileState(destinationfilename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[inline]
@@ -120,22 +120,22 @@ where
 #[inline]
 pub unsafe fn PrjMarkDirectoryAsPlaceholder<P0, P1>(rootpathname: P0, targetpathname: P1, versioninfo: ::core::option::Option<*const PRJ_PLACEHOLDER_VERSION_INFO>, virtualizationinstanceid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjMarkDirectoryAsPlaceholder ( rootpathname : :: windows::core::PCWSTR , targetpathname : :: windows::core::PCWSTR , versioninfo : *const PRJ_PLACEHOLDER_VERSION_INFO , virtualizationinstanceid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    PrjMarkDirectoryAsPlaceholder(rootpathname.into(), targetpathname.into(), ::core::mem::transmute(versioninfo.unwrap_or(::std::ptr::null())), virtualizationinstanceid).ok()
+    PrjMarkDirectoryAsPlaceholder(rootpathname.into().abi(), targetpathname.into().abi(), ::core::mem::transmute(versioninfo.unwrap_or(::std::ptr::null())), virtualizationinstanceid).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjStartVirtualizing<P0>(virtualizationrootpath: P0, callbacks: *const PRJ_CALLBACKS, instancecontext: ::core::option::Option<*const ::core::ffi::c_void>, options: ::core::option::Option<*const PRJ_STARTVIRTUALIZING_OPTIONS>) -> ::windows::core::Result<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjStartVirtualizing ( virtualizationrootpath : :: windows::core::PCWSTR , callbacks : *const PRJ_CALLBACKS , instancecontext : *const ::core::ffi::c_void , options : *const PRJ_STARTVIRTUALIZING_OPTIONS , namespacevirtualizationcontext : *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PrjStartVirtualizing(virtualizationrootpath.into(), callbacks, ::core::mem::transmute(instancecontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    PrjStartVirtualizing(virtualizationrootpath.into().abi(), callbacks, ::core::mem::transmute(instancecontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[inline]
@@ -152,11 +152,11 @@ where
 pub unsafe fn PrjUpdateFileIfNeeded<P0, P1>(namespacevirtualizationcontext: P0, destinationfilename: P1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES) -> ::windows::core::Result<PRJ_UPDATE_FAILURE_CAUSES>
 where
     P0: ::std::convert::Into<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjUpdateFileIfNeeded ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT , destinationfilename : :: windows::core::PCWSTR , placeholderinfo : *const PRJ_PLACEHOLDER_INFO , placeholderinfosize : u32 , updateflags : PRJ_UPDATE_TYPES , failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PrjUpdateFileIfNeeded(namespacevirtualizationcontext.into(), destinationfilename.into(), placeholderinfo, placeholderinfosize, updateflags, result__.as_mut_ptr()).from_abi(result__)
+    PrjUpdateFileIfNeeded(namespacevirtualizationcontext.into(), destinationfilename.into().abi(), placeholderinfo, placeholderinfosize, updateflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[inline]
@@ -173,10 +173,10 @@ where
 pub unsafe fn PrjWritePlaceholderInfo<P0, P1>(namespacevirtualizationcontext: P0, destinationfilename: P1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjWritePlaceholderInfo ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT , destinationfilename : :: windows::core::PCWSTR , placeholderinfo : *const PRJ_PLACEHOLDER_INFO , placeholderinfosize : u32 ) -> :: windows::core::HRESULT );
-    PrjWritePlaceholderInfo(namespacevirtualizationcontext.into(), destinationfilename.into(), placeholderinfo, placeholderinfosize).ok()
+    PrjWritePlaceholderInfo(namespacevirtualizationcontext.into(), destinationfilename.into().abi(), placeholderinfo, placeholderinfosize).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -184,10 +184,10 @@ where
 pub unsafe fn PrjWritePlaceholderInfo2<P0, P1>(namespacevirtualizationcontext: P0, destinationfilename: P1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, extendedinfo: ::core::option::Option<*const PRJ_EXTENDED_INFO>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjWritePlaceholderInfo2 ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT , destinationfilename : :: windows::core::PCWSTR , placeholderinfo : *const PRJ_PLACEHOLDER_INFO , placeholderinfosize : u32 , extendedinfo : *const PRJ_EXTENDED_INFO ) -> :: windows::core::HRESULT );
-    PrjWritePlaceholderInfo2(namespacevirtualizationcontext.into(), destinationfilename.into(), placeholderinfo, placeholderinfosize, ::core::mem::transmute(extendedinfo.unwrap_or(::std::ptr::null()))).ok()
+    PrjWritePlaceholderInfo2(namespacevirtualizationcontext.into(), destinationfilename.into().abi(), placeholderinfo, placeholderinfosize, ::core::mem::transmute(extendedinfo.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]

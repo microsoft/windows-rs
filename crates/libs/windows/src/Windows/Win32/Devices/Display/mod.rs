@@ -318,10 +318,10 @@ pub unsafe fn EngLineTo(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ
 #[inline]
 pub unsafe fn EngLoadModule<P0>(pwsz: P0) -> super::super::Foundation::HANDLE
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EngLoadModule ( pwsz : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    EngLoadModule(pwsz.into())
+    EngLoadModule(pwsz.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -440,10 +440,10 @@ pub unsafe fn EngTransparentBlt(psodst: *const SURFOBJ, psosrc: *const SURFOBJ, 
 #[inline]
 pub unsafe fn EngUnicodeToMultiByteN<P0>(multibytestring: &mut [u8], bytesinmultibytestring: ::core::option::Option<*mut u32>, unicodestring: P0, bytesinunicodestring: u32)
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EngUnicodeToMultiByteN ( multibytestring : :: windows::core::PSTR , maxbytesinmultibytestring : u32 , bytesinmultibytestring : *mut u32 , unicodestring : :: windows::core::PCWSTR , bytesinunicodestring : u32 ) -> ( ) );
-    EngUnicodeToMultiByteN(::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _, ::core::mem::transmute(bytesinmultibytestring.unwrap_or(::std::ptr::null_mut())), unicodestring.into(), bytesinunicodestring)
+    EngUnicodeToMultiByteN(::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _, ::core::mem::transmute(bytesinmultibytestring.unwrap_or(::std::ptr::null_mut())), unicodestring.into().abi(), bytesinunicodestring)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -456,10 +456,10 @@ pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
 #[inline]
 pub unsafe fn EngWideCharToMultiByte<P0>(codepage: u32, widecharstring: P0, bytesinwidecharstring: i32, multibytestring: ::core::option::Option<&mut [u8]>) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EngWideCharToMultiByte ( codepage : u32 , widecharstring : :: windows::core::PCWSTR , bytesinwidecharstring : i32 , multibytestring : :: windows::core::PSTR , bytesinmultibytestring : i32 ) -> i32 );
-    EngWideCharToMultiByte(codepage, widecharstring.into(), bytesinwidecharstring, ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len() as _))
+    EngWideCharToMultiByte(codepage, widecharstring.into().abi(), bytesinwidecharstring, ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -968,21 +968,21 @@ pub struct ICloneViewHelper(::windows::core::IUnknown);
 impl ICloneViewHelper {
     pub unsafe fn GetConnectedIDs<P0>(&self, wszadaptorname: P0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetConnectedIDs)(::windows::core::Vtable::as_raw(self), wszadaptorname.into(), pulcount, pulid, ulflags).ok()
+        (::windows::core::Vtable::vtable(self).GetConnectedIDs)(::windows::core::Vtable::as_raw(self), wszadaptorname.into().abi(), pulcount, pulid, ulflags).ok()
     }
     pub unsafe fn GetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into(), ulsourceid, pulcount, pultargetid).ok()
+        (::windows::core::Vtable::vtable(self).GetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into().abi(), ulsourceid, pulcount, pultargetid).ok()
     }
     pub unsafe fn SetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into(), ulsourceid, ulcount, pultargetid).ok()
+        (::windows::core::Vtable::vtable(self).SetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into().abi(), ulsourceid, ulcount, pultargetid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1034,21 +1034,21 @@ pub struct IViewHelper(::windows::core::IUnknown);
 impl IViewHelper {
     pub unsafe fn GetConnectedIDs<P0>(&self, wszadaptorname: P0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetConnectedIDs)(::windows::core::Vtable::as_raw(self), wszadaptorname.into(), pulcount, pulid, ulflags).ok()
+        (::windows::core::Vtable::vtable(self).GetConnectedIDs)(::windows::core::Vtable::as_raw(self), wszadaptorname.into().abi(), pulcount, pulid, ulflags).ok()
     }
     pub unsafe fn GetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into(), ulsourceid, pulcount, pultargetid).ok()
+        (::windows::core::Vtable::vtable(self).GetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into().abi(), ulsourceid, pulcount, pultargetid).ok()
     }
     pub unsafe fn SetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into(), ulsourceid, ulcount, pultargetid).ok()
+        (::windows::core::Vtable::vtable(self).SetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into().abi(), ulsourceid, ulcount, pultargetid).ok()
     }
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()

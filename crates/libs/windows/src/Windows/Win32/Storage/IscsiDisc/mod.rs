@@ -2,19 +2,19 @@
 #[inline]
 pub unsafe fn AddISNSServerA<P0>(address: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn AddISNSServerA ( address : :: windows::core::PCSTR ) -> u32 );
-    AddISNSServerA(address.into())
+    AddISNSServerA(address.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn AddISNSServerW<P0>(address: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn AddISNSServerW ( address : :: windows::core::PCWSTR ) -> u32 );
-    AddISNSServerW(address.into())
+    AddISNSServerW(address.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -34,79 +34,79 @@ pub unsafe fn AddIScsiConnectionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
 #[inline]
 pub unsafe fn AddIScsiSendTargetPortalA<P0>(initiatorinstance: P0, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALA) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn AddIScsiSendTargetPortalA ( initiatorinstance : :: windows::core::PCSTR , initiatorportnumber : u32 , loginoptions : *mut ISCSI_LOGIN_OPTIONS , securityflags : u64 , portal : *mut ISCSI_TARGET_PORTALA ) -> u32 );
-    AddIScsiSendTargetPortalA(initiatorinstance.into(), initiatorportnumber, loginoptions, securityflags, portal)
+    AddIScsiSendTargetPortalA(initiatorinstance.into().abi(), initiatorportnumber, loginoptions, securityflags, portal)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn AddIScsiSendTargetPortalW<P0>(initiatorinstance: P0, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALW) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn AddIScsiSendTargetPortalW ( initiatorinstance : :: windows::core::PCWSTR , initiatorportnumber : u32 , loginoptions : *mut ISCSI_LOGIN_OPTIONS , securityflags : u64 , portal : *mut ISCSI_TARGET_PORTALW ) -> u32 );
-    AddIScsiSendTargetPortalW(initiatorinstance.into(), initiatorportnumber, loginoptions, securityflags, portal)
+    AddIScsiSendTargetPortalW(initiatorinstance.into().abi(), initiatorportnumber, loginoptions, securityflags, portal)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddIScsiStaticTargetA<P0, P1, P2>(targetname: P0, targetalias: P1, targetflags: u32, persist: P2, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn AddIScsiStaticTargetA ( targetname : :: windows::core::PCSTR , targetalias : :: windows::core::PCSTR , targetflags : u32 , persist : super::super::Foundation:: BOOLEAN , mappings : *mut ISCSI_TARGET_MAPPINGA , loginoptions : *mut ISCSI_LOGIN_OPTIONS , portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPA ) -> u32 );
-    AddIScsiStaticTargetA(targetname.into(), targetalias.into(), targetflags, persist.into(), mappings, loginoptions, portalgroup)
+    AddIScsiStaticTargetA(targetname.into().abi(), targetalias.into().abi(), targetflags, persist.into(), mappings, loginoptions, portalgroup)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddIScsiStaticTargetW<P0, P1, P2>(targetname: P0, targetalias: P1, targetflags: u32, persist: P2, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn AddIScsiStaticTargetW ( targetname : :: windows::core::PCWSTR , targetalias : :: windows::core::PCWSTR , targetflags : u32 , persist : super::super::Foundation:: BOOLEAN , mappings : *mut ISCSI_TARGET_MAPPINGW , loginoptions : *mut ISCSI_LOGIN_OPTIONS , portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPW ) -> u32 );
-    AddIScsiStaticTargetW(targetname.into(), targetalias.into(), targetflags, persist.into(), mappings, loginoptions, portalgroup)
+    AddIScsiStaticTargetW(targetname.into().abi(), targetalias.into().abi(), targetflags, persist.into(), mappings, loginoptions, portalgroup)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn AddPersistentIScsiDeviceA<P0>(devicepath: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn AddPersistentIScsiDeviceA ( devicepath : :: windows::core::PCSTR ) -> u32 );
-    AddPersistentIScsiDeviceA(devicepath.into())
+    AddPersistentIScsiDeviceA(devicepath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn AddPersistentIScsiDeviceW<P0>(devicepath: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn AddPersistentIScsiDeviceW ( devicepath : :: windows::core::PCWSTR ) -> u32 );
-    AddPersistentIScsiDeviceW(devicepath.into())
+    AddPersistentIScsiDeviceW(devicepath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn AddRadiusServerA<P0>(address: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn AddRadiusServerA ( address : :: windows::core::PCSTR ) -> u32 );
-    AddRadiusServerA(address.into())
+    AddRadiusServerA(address.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn AddRadiusServerW<P0>(address: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn AddRadiusServerW ( address : :: windows::core::PCWSTR ) -> u32 );
-    AddRadiusServerW(address.into())
+    AddRadiusServerW(address.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -132,19 +132,19 @@ pub unsafe fn GetDevicesForIScsiSessionW(uniquesessionid: *mut ISCSI_UNIQUE_SESS
 #[inline]
 pub unsafe fn GetIScsiIKEInfoA<P0>(initiatorname: P0, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn GetIScsiIKEInfoA ( initiatorname : :: windows::core::PCSTR , initiatorportnumber : u32 , reserved : *mut u32 , authinfo : *mut IKE_AUTHENTICATION_INFORMATION ) -> u32 );
-    GetIScsiIKEInfoA(initiatorname.into(), initiatorportnumber, reserved, authinfo)
+    GetIScsiIKEInfoA(initiatorname.into().abi(), initiatorportnumber, reserved, authinfo)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn GetIScsiIKEInfoW<P0>(initiatorname: P0, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn GetIScsiIKEInfoW ( initiatorname : :: windows::core::PCWSTR , initiatorportnumber : u32 , reserved : *mut u32 , authinfo : *mut IKE_AUTHENTICATION_INFORMATION ) -> u32 );
-    GetIScsiIKEInfoW(initiatorname.into(), initiatorportnumber, reserved, authinfo)
+    GetIScsiIKEInfoW(initiatorname.into().abi(), initiatorportnumber, reserved, authinfo)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -181,21 +181,21 @@ pub unsafe fn GetIScsiSessionListW(buffersize: *mut u32, sessioncount: *mut u32,
 #[inline]
 pub unsafe fn GetIScsiTargetInformationA<P0, P1>(targetname: P0, discoverymechanism: P1, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn GetIScsiTargetInformationA ( targetname : :: windows::core::PCSTR , discoverymechanism : :: windows::core::PCSTR , infoclass : TARGET_INFORMATION_CLASS , buffersize : *mut u32 , buffer : *mut ::core::ffi::c_void ) -> u32 );
-    GetIScsiTargetInformationA(targetname.into(), discoverymechanism.into(), infoclass, buffersize, buffer)
+    GetIScsiTargetInformationA(targetname.into().abi(), discoverymechanism.into().abi(), infoclass, buffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn GetIScsiTargetInformationW<P0, P1>(targetname: P0, discoverymechanism: P1, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn GetIScsiTargetInformationW ( targetname : :: windows::core::PCWSTR , discoverymechanism : :: windows::core::PCWSTR , infoclass : TARGET_INFORMATION_CLASS , buffersize : *mut u32 , buffer : *mut ::core::ffi::c_void ) -> u32 );
-    GetIScsiTargetInformationW(targetname.into(), discoverymechanism.into(), infoclass, buffersize, buffer)
+    GetIScsiTargetInformationW(targetname.into().abi(), discoverymechanism.into().abi(), infoclass, buffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -208,26 +208,26 @@ pub unsafe fn GetIScsiVersionInformation(versioninfo: *mut ISCSI_VERSION_INFO) -
 #[inline]
 pub unsafe fn LoginIScsiTargetA<P0, P1, P2, P3>(targetname: P0, isinformationalsession: P1, initiatorinstance: P2, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, key: ::core::option::Option<&[u8]>, ispersistent: P3, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P3: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn LoginIScsiTargetA ( targetname : :: windows::core::PCSTR , isinformationalsession : super::super::Foundation:: BOOLEAN , initiatorinstance : :: windows::core::PCSTR , initiatorportnumber : u32 , targetportal : *mut ISCSI_TARGET_PORTALA , securityflags : u64 , mappings : *mut ISCSI_TARGET_MAPPINGA , loginoptions : *mut ISCSI_LOGIN_OPTIONS , keysize : u32 , key : :: windows::core::PCSTR , ispersistent : super::super::Foundation:: BOOLEAN , uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID , uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID ) -> u32 );
-    LoginIScsiTargetA(targetname.into(), isinformationalsession.into(), initiatorinstance.into(), initiatorportnumber, targetportal, securityflags, mappings, loginoptions, key.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(key.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ispersistent.into(), uniquesessionid, uniqueconnectionid)
+    LoginIScsiTargetA(targetname.into().abi(), isinformationalsession.into(), initiatorinstance.into().abi(), initiatorportnumber, targetportal, securityflags, mappings, loginoptions, key.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(key.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ispersistent.into(), uniquesessionid, uniqueconnectionid)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoginIScsiTargetW<P0, P1, P2, P3>(targetname: P0, isinformationalsession: P1, initiatorinstance: P2, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, key: ::core::option::Option<&[u8]>, ispersistent: P3, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn LoginIScsiTargetW ( targetname : :: windows::core::PCWSTR , isinformationalsession : super::super::Foundation:: BOOLEAN , initiatorinstance : :: windows::core::PCWSTR , initiatorportnumber : u32 , targetportal : *mut ISCSI_TARGET_PORTALW , securityflags : u64 , mappings : *mut ISCSI_TARGET_MAPPINGW , loginoptions : *mut ISCSI_LOGIN_OPTIONS , keysize : u32 , key : :: windows::core::PCSTR , ispersistent : super::super::Foundation:: BOOLEAN , uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID , uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID ) -> u32 );
-    LoginIScsiTargetW(targetname.into(), isinformationalsession.into(), initiatorinstance.into(), initiatorportnumber, targetportal, securityflags, mappings, loginoptions, key.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(key.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ispersistent.into(), uniquesessionid, uniqueconnectionid)
+    LoginIScsiTargetW(targetname.into().abi(), isinformationalsession.into(), initiatorinstance.into().abi(), initiatorportnumber, targetportal, securityflags, mappings, loginoptions, key.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(key.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ispersistent.into(), uniquesessionid, uniqueconnectionid)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -239,56 +239,56 @@ pub unsafe fn LogoutIScsiTarget(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID) -
 #[inline]
 pub unsafe fn RefreshISNSServerA<P0>(address: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RefreshISNSServerA ( address : :: windows::core::PCSTR ) -> u32 );
-    RefreshISNSServerA(address.into())
+    RefreshISNSServerA(address.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RefreshISNSServerW<P0>(address: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RefreshISNSServerW ( address : :: windows::core::PCWSTR ) -> u32 );
-    RefreshISNSServerW(address.into())
+    RefreshISNSServerW(address.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RefreshIScsiSendTargetPortalA<P0>(initiatorinstance: P0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RefreshIScsiSendTargetPortalA ( initiatorinstance : :: windows::core::PCSTR , initiatorportnumber : u32 , portal : *mut ISCSI_TARGET_PORTALA ) -> u32 );
-    RefreshIScsiSendTargetPortalA(initiatorinstance.into(), initiatorportnumber, portal)
+    RefreshIScsiSendTargetPortalA(initiatorinstance.into().abi(), initiatorportnumber, portal)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RefreshIScsiSendTargetPortalW<P0>(initiatorinstance: P0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RefreshIScsiSendTargetPortalW ( initiatorinstance : :: windows::core::PCWSTR , initiatorportnumber : u32 , portal : *mut ISCSI_TARGET_PORTALW ) -> u32 );
-    RefreshIScsiSendTargetPortalW(initiatorinstance.into(), initiatorportnumber, portal)
+    RefreshIScsiSendTargetPortalW(initiatorinstance.into().abi(), initiatorportnumber, portal)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RemoveISNSServerA<P0>(address: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RemoveISNSServerA ( address : :: windows::core::PCSTR ) -> u32 );
-    RemoveISNSServerA(address.into())
+    RemoveISNSServerA(address.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RemoveISNSServerW<P0>(address: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RemoveISNSServerW ( address : :: windows::core::PCWSTR ) -> u32 );
-    RemoveISNSServerW(address.into())
+    RemoveISNSServerW(address.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -301,94 +301,94 @@ pub unsafe fn RemoveIScsiConnection(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_I
 #[inline]
 pub unsafe fn RemoveIScsiPersistentTargetA<P0, P1>(initiatorinstance: P0, initiatorportnumber: u32, targetname: P1, portal: *mut ISCSI_TARGET_PORTALA) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RemoveIScsiPersistentTargetA ( initiatorinstance : :: windows::core::PCSTR , initiatorportnumber : u32 , targetname : :: windows::core::PCSTR , portal : *mut ISCSI_TARGET_PORTALA ) -> u32 );
-    RemoveIScsiPersistentTargetA(initiatorinstance.into(), initiatorportnumber, targetname.into(), portal)
+    RemoveIScsiPersistentTargetA(initiatorinstance.into().abi(), initiatorportnumber, targetname.into().abi(), portal)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RemoveIScsiPersistentTargetW<P0, P1>(initiatorinstance: P0, initiatorportnumber: u32, targetname: P1, portal: *mut ISCSI_TARGET_PORTALW) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RemoveIScsiPersistentTargetW ( initiatorinstance : :: windows::core::PCWSTR , initiatorportnumber : u32 , targetname : :: windows::core::PCWSTR , portal : *mut ISCSI_TARGET_PORTALW ) -> u32 );
-    RemoveIScsiPersistentTargetW(initiatorinstance.into(), initiatorportnumber, targetname.into(), portal)
+    RemoveIScsiPersistentTargetW(initiatorinstance.into().abi(), initiatorportnumber, targetname.into().abi(), portal)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveIScsiSendTargetPortalA<P0>(initiatorinstance: P0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RemoveIScsiSendTargetPortalA ( initiatorinstance : :: windows::core::PCSTR , initiatorportnumber : u32 , portal : *mut ISCSI_TARGET_PORTALA ) -> u32 );
-    RemoveIScsiSendTargetPortalA(initiatorinstance.into(), initiatorportnumber, portal)
+    RemoveIScsiSendTargetPortalA(initiatorinstance.into().abi(), initiatorportnumber, portal)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RemoveIScsiSendTargetPortalW<P0>(initiatorinstance: P0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RemoveIScsiSendTargetPortalW ( initiatorinstance : :: windows::core::PCWSTR , initiatorportnumber : u32 , portal : *mut ISCSI_TARGET_PORTALW ) -> u32 );
-    RemoveIScsiSendTargetPortalW(initiatorinstance.into(), initiatorportnumber, portal)
+    RemoveIScsiSendTargetPortalW(initiatorinstance.into().abi(), initiatorportnumber, portal)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RemoveIScsiStaticTargetA<P0>(targetname: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RemoveIScsiStaticTargetA ( targetname : :: windows::core::PCSTR ) -> u32 );
-    RemoveIScsiStaticTargetA(targetname.into())
+    RemoveIScsiStaticTargetA(targetname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RemoveIScsiStaticTargetW<P0>(targetname: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RemoveIScsiStaticTargetW ( targetname : :: windows::core::PCWSTR ) -> u32 );
-    RemoveIScsiStaticTargetW(targetname.into())
+    RemoveIScsiStaticTargetW(targetname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RemovePersistentIScsiDeviceA<P0>(devicepath: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RemovePersistentIScsiDeviceA ( devicepath : :: windows::core::PCSTR ) -> u32 );
-    RemovePersistentIScsiDeviceA(devicepath.into())
+    RemovePersistentIScsiDeviceA(devicepath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RemovePersistentIScsiDeviceW<P0>(devicepath: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RemovePersistentIScsiDeviceW ( devicepath : :: windows::core::PCWSTR ) -> u32 );
-    RemovePersistentIScsiDeviceW(devicepath.into())
+    RemovePersistentIScsiDeviceW(devicepath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RemoveRadiusServerA<P0>(address: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RemoveRadiusServerA ( address : :: windows::core::PCSTR ) -> u32 );
-    RemoveRadiusServerA(address.into())
+    RemoveRadiusServerA(address.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RemoveRadiusServerW<P0>(address: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn RemoveRadiusServerW ( address : :: windows::core::PCWSTR ) -> u32 );
-    RemoveRadiusServerW(address.into())
+    RemoveRadiusServerW(address.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -472,21 +472,21 @@ pub unsafe fn ReportIScsiSendTargetPortalsW(portalcount: *mut u32, portalinfo: *
 #[inline]
 pub unsafe fn ReportIScsiTargetPortalsA<P0, P1>(initiatorname: P0, targetname: P1, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALA) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn ReportIScsiTargetPortalsA ( initiatorname : :: windows::core::PCSTR , targetname : :: windows::core::PCSTR , targetportaltag : *mut u16 , elementcount : *mut u32 , portals : *mut ISCSI_TARGET_PORTALA ) -> u32 );
-    ReportIScsiTargetPortalsA(initiatorname.into(), targetname.into(), targetportaltag, elementcount, portals)
+    ReportIScsiTargetPortalsA(initiatorname.into().abi(), targetname.into().abi(), targetportaltag, elementcount, portals)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn ReportIScsiTargetPortalsW<P0, P1>(initiatorname: P0, targetname: P1, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALW) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn ReportIScsiTargetPortalsW ( initiatorname : :: windows::core::PCWSTR , targetname : :: windows::core::PCWSTR , targetportaltag : *mut u16 , elementcount : *mut u32 , portals : *mut ISCSI_TARGET_PORTALW ) -> u32 );
-    ReportIScsiTargetPortalsW(initiatorname.into(), targetname.into(), targetportaltag, elementcount, portals)
+    ReportIScsiTargetPortalsW(initiatorname.into().abi(), targetname.into().abi(), targetportaltag, elementcount, portals)
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -565,22 +565,22 @@ where
 #[inline]
 pub unsafe fn SetIScsiIKEInfoA<P0, P1>(initiatorname: P0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn SetIScsiIKEInfoA ( initiatorname : :: windows::core::PCSTR , initiatorportnumber : u32 , authinfo : *mut IKE_AUTHENTICATION_INFORMATION , persist : super::super::Foundation:: BOOLEAN ) -> u32 );
-    SetIScsiIKEInfoA(initiatorname.into(), initiatorportnumber, authinfo, persist.into())
+    SetIScsiIKEInfoA(initiatorname.into().abi(), initiatorportnumber, authinfo, persist.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetIScsiIKEInfoW<P0, P1>(initiatorname: P0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn SetIScsiIKEInfoW ( initiatorname : :: windows::core::PCWSTR , initiatorportnumber : u32 , authinfo : *mut IKE_AUTHENTICATION_INFORMATION , persist : super::super::Foundation:: BOOLEAN ) -> u32 );
-    SetIScsiIKEInfoW(initiatorname.into(), initiatorportnumber, authinfo, persist.into())
+    SetIScsiIKEInfoW(initiatorname.into().abi(), initiatorportnumber, authinfo, persist.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -592,19 +592,19 @@ pub unsafe fn SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength: u32, shareds
 #[inline]
 pub unsafe fn SetIScsiInitiatorNodeNameA<P0>(initiatornodename: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn SetIScsiInitiatorNodeNameA ( initiatornodename : :: windows::core::PCSTR ) -> u32 );
-    SetIScsiInitiatorNodeNameA(initiatornodename.into())
+    SetIScsiInitiatorNodeNameA(initiatornodename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn SetIScsiInitiatorNodeNameW<P0>(initiatornodename: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn SetIScsiInitiatorNodeNameW ( initiatornodename : :: windows::core::PCWSTR ) -> u32 );
-    SetIScsiInitiatorNodeNameW(initiatornodename.into())
+    SetIScsiInitiatorNodeNameW(initiatornodename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -617,26 +617,26 @@ pub unsafe fn SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: u32, share
 #[inline]
 pub unsafe fn SetIScsiTunnelModeOuterAddressA<P0, P1, P2, P3>(initiatorname: P0, initiatorportnumber: u32, destinationaddress: P1, outermodeaddress: P2, persist: P3) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P3: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn SetIScsiTunnelModeOuterAddressA ( initiatorname : :: windows::core::PCSTR , initiatorportnumber : u32 , destinationaddress : :: windows::core::PCSTR , outermodeaddress : :: windows::core::PCSTR , persist : super::super::Foundation:: BOOLEAN ) -> u32 );
-    SetIScsiTunnelModeOuterAddressA(initiatorname.into(), initiatorportnumber, destinationaddress.into(), outermodeaddress.into(), persist.into())
+    SetIScsiTunnelModeOuterAddressA(initiatorname.into().abi(), initiatorportnumber, destinationaddress.into().abi(), outermodeaddress.into().abi(), persist.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetIScsiTunnelModeOuterAddressW<P0, P1, P2, P3>(initiatorname: P0, initiatorportnumber: u32, destinationaddress: P1, outermodeaddress: P2, persist: P3) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     ::windows::core::link ! ( "iscsidsc.dll""system" fn SetIScsiTunnelModeOuterAddressW ( initiatorname : :: windows::core::PCWSTR , initiatorportnumber : u32 , destinationaddress : :: windows::core::PCWSTR , outermodeaddress : :: windows::core::PCWSTR , persist : super::super::Foundation:: BOOLEAN ) -> u32 );
-    SetIScsiTunnelModeOuterAddressW(initiatorname.into(), initiatorportnumber, destinationaddress.into(), outermodeaddress.into(), persist.into())
+    SetIScsiTunnelModeOuterAddressW(initiatorname.into().abi(), initiatorportnumber, destinationaddress.into().abi(), outermodeaddress.into().abi(), persist.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]

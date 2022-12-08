@@ -189,10 +189,10 @@ where
 pub unsafe fn OpenThemeDataForDpi<P0, P1>(hwnd: P0, pszclasslist: P1, dpi: u32) -> super::Controls::HTHEME
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "uxtheme.dll""system" fn OpenThemeDataForDpi ( hwnd : super::super::Foundation:: HWND , pszclasslist : :: windows::core::PCWSTR , dpi : u32 ) -> super::Controls:: HTHEME );
-    OpenThemeDataForDpi(hwnd.into(), pszclasslist.into(), dpi)
+    OpenThemeDataForDpi(hwnd.into(), pszclasslist.into().abi(), dpi)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

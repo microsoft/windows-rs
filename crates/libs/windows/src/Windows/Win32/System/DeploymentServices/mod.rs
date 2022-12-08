@@ -172,22 +172,22 @@ pub unsafe fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32 {
 #[inline]
 pub unsafe fn PxeProviderQueryIndex<P0>(pszprovidername: P0, puindex: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wdspxe.dll""system" fn PxeProviderQueryIndex ( pszprovidername : :: windows::core::PCWSTR , puindex : *mut u32 ) -> u32 );
-    PxeProviderQueryIndex(pszprovidername.into(), puindex)
+    PxeProviderQueryIndex(pszprovidername.into().abi(), puindex)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn PxeProviderRegister<P0, P1, P2>(pszprovidername: P0, pszmodulepath: P1, index: u32, biscritical: P2, phproviderkey: ::core::option::Option<*mut super::Registry::HKEY>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "wdspxe.dll""system" fn PxeProviderRegister ( pszprovidername : :: windows::core::PCWSTR , pszmodulepath : :: windows::core::PCWSTR , index : u32 , biscritical : super::super::Foundation:: BOOL , phproviderkey : *mut super::Registry:: HKEY ) -> u32 );
-    PxeProviderRegister(pszprovidername.into(), pszmodulepath.into(), index, biscritical.into(), ::core::mem::transmute(phproviderkey.unwrap_or(::std::ptr::null_mut())))
+    PxeProviderRegister(pszprovidername.into().abi(), pszmodulepath.into().abi(), index, biscritical.into(), ::core::mem::transmute(phproviderkey.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -203,10 +203,10 @@ where
 #[inline]
 pub unsafe fn PxeProviderUnRegister<P0>(pszprovidername: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wdspxe.dll""system" fn PxeProviderUnRegister ( pszprovidername : :: windows::core::PCWSTR ) -> u32 );
-    PxeProviderUnRegister(pszprovidername.into())
+    PxeProviderUnRegister(pszprovidername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -234,10 +234,10 @@ where
 pub unsafe fn PxeTrace<P0, P1>(hprovider: P0, severity: u32, pszformat: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wdspxe.dll""cdecl" fn PxeTrace ( hprovider : super::super::Foundation:: HANDLE , severity : u32 , pszformat : :: windows::core::PCWSTR ) -> u32 );
-    PxeTrace(hprovider.into(), severity, pszformat.into())
+    PxeTrace(hprovider.into(), severity, pszformat.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -245,10 +245,10 @@ where
 pub unsafe fn PxeTraceV<P0, P1>(hprovider: P0, severity: u32, pszformat: P1, params: *const i8) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wdspxe.dll""system" fn PxeTraceV ( hprovider : super::super::Foundation:: HANDLE , severity : u32 , pszformat : :: windows::core::PCWSTR , params : *const i8 ) -> u32 );
-    PxeTraceV(hprovider.into(), severity, pszformat.into(), params)
+    PxeTraceV(hprovider.into(), severity, pszformat.into().abi(), params)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -346,11 +346,11 @@ where
 #[inline]
 pub unsafe fn WdsCliCreateSession<P0>(pwszserver: P0, pcred: ::core::option::Option<*const WDS_CLI_CRED>) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wdsclientapi.dll""system" fn WdsCliCreateSession ( pwszserver : :: windows::core::PCWSTR , pcred : *const WDS_CLI_CRED , phsession : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WdsCliCreateSession(pwszserver.into(), ::core::mem::transmute(pcred.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    WdsCliCreateSession(pwszserver.into().abi(), ::core::mem::transmute(pcred.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -383,11 +383,11 @@ pub unsafe fn WdsCliFreeStringArray(ppwszarray: ::core::option::Option<&mut [::w
 #[inline]
 pub unsafe fn WdsCliGetDriverQueryXml<P0>(pwszwindirpath: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wdsclientapi.dll""system" fn WdsCliGetDriverQueryXml ( pwszwindirpath : :: windows::core::PCWSTR , ppwszdriverquery : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WdsCliGetDriverQueryXml(pwszwindirpath.into(), result__.as_mut_ptr()).from_abi(result__)
+    WdsCliGetDriverQueryXml(pwszwindirpath.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -612,11 +612,11 @@ where
 pub unsafe fn WdsCliInitializeLog<P0, P1, P2>(hsession: P0, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: P1, pwszclientaddress: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wdsclientapi.dll""system" fn WdsCliInitializeLog ( hsession : super::super::Foundation:: HANDLE , ulclientarchitecture : CPU_ARCHITECTURE , pwszclientid : :: windows::core::PCWSTR , pwszclientaddress : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    WdsCliInitializeLog(hsession.into(), ulclientarchitecture, pwszclientid.into(), pwszclientaddress.into()).ok()
+    WdsCliInitializeLog(hsession.into(), ulclientarchitecture, pwszclientid.into().abi(), pwszclientaddress.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -644,10 +644,10 @@ where
 pub unsafe fn WdsCliObtainDriverPackagesEx<P0, P1>(hsession: P0, pwszmachineinfo: P1, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wdsclientapi.dll""system" fn WdsCliObtainDriverPackagesEx ( hsession : super::super::Foundation:: HANDLE , pwszmachineinfo : :: windows::core::PCWSTR , ppwszservername : *mut :: windows::core::PWSTR , pppwszdriverpackages : *mut *mut :: windows::core::PWSTR , pulcount : *mut u32 ) -> :: windows::core::HRESULT );
-    WdsCliObtainDriverPackagesEx(hsession.into(), pwszmachineinfo.into(), ppwszservername, pppwszdriverpackages, pulcount).ok()
+    WdsCliObtainDriverPackagesEx(hsession.into(), pwszmachineinfo.into().abi(), ppwszservername, pppwszdriverpackages, pulcount).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -666,14 +666,14 @@ pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
 #[inline]
 pub unsafe fn WdsCliTransferFile<P0, P1, P2, P3>(pwszserver: P0, pwsznamespace: P1, pwszremotefilepath: P2, pwszlocalfilepath: P3, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wdsclientapi.dll""system" fn WdsCliTransferFile ( pwszserver : :: windows::core::PCWSTR , pwsznamespace : :: windows::core::PCWSTR , pwszremotefilepath : :: windows::core::PCWSTR , pwszlocalfilepath : :: windows::core::PCWSTR , dwflags : u32 , dwreserved : u32 , pfnwdsclicallback : PFN_WdsCliCallback , pvuserdata : *const ::core::ffi::c_void , phtransfer : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WdsCliTransferFile(pwszserver.into(), pwsznamespace.into(), pwszremotefilepath.into(), pwszlocalfilepath.into(), dwflags, dwreserved, pfnwdsclicallback, ::core::mem::transmute(pvuserdata.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    WdsCliTransferFile(pwszserver.into().abi(), pwsznamespace.into().abi(), pwszremotefilepath.into().abi(), pwszlocalfilepath.into().abi(), dwflags, dwreserved, pfnwdsclicallback, ::core::mem::transmute(pvuserdata.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -681,11 +681,11 @@ where
 pub unsafe fn WdsCliTransferImage<P0, P1>(himage: P0, pwszlocalpath: P1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wdsclientapi.dll""system" fn WdsCliTransferImage ( himage : super::super::Foundation:: HANDLE , pwszlocalpath : :: windows::core::PCWSTR , dwflags : u32 , dwreserved : u32 , pfnwdsclicallback : PFN_WdsCliCallback , pvuserdata : *const ::core::ffi::c_void , phtransfer : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WdsCliTransferImage(himage.into(), pwszlocalpath.into(), dwflags, dwreserved, pfnwdsclicallback, ::core::mem::transmute(pvuserdata.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    WdsCliTransferImage(himage.into(), pwszlocalpath.into().abi(), dwflags, dwreserved, pfnwdsclicallback, ::core::mem::transmute(pvuserdata.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -854,10 +854,10 @@ where
 pub unsafe fn WdsTransportServerTrace<P0, P1>(hprovider: P0, severity: u32, pwszformat: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wdsmc.dll""cdecl" fn WdsTransportServerTrace ( hprovider : super::super::Foundation:: HANDLE , severity : u32 , pwszformat : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    WdsTransportServerTrace(hprovider.into(), severity, pwszformat.into()).ok()
+    WdsTransportServerTrace(hprovider.into(), severity, pwszformat.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -865,10 +865,10 @@ where
 pub unsafe fn WdsTransportServerTraceV<P0, P1>(hprovider: P0, severity: u32, pwszformat: P1, params: *const i8) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wdsmc.dll""system" fn WdsTransportServerTraceV ( hprovider : super::super::Foundation:: HANDLE , severity : u32 , pwszformat : :: windows::core::PCWSTR , params : *const i8 ) -> :: windows::core::HRESULT );
-    WdsTransportServerTraceV(hprovider.into(), severity, pwszformat.into(), params).ok()
+    WdsTransportServerTraceV(hprovider.into(), severity, pwszformat.into().abi(), params).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]

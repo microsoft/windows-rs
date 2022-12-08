@@ -4,21 +4,21 @@
 pub unsafe fn MatchEnumTag<P0, P1>(hmodule: P0, pwcarg: P1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netsh.dll""system" fn MatchEnumTag ( hmodule : super::super::Foundation:: HANDLE , pwcarg : :: windows::core::PCWSTR , dwnumarg : u32 , penumtable : *const TOKEN_VALUE , pdwvalue : *mut u32 ) -> u32 );
-    MatchEnumTag(hmodule.into(), pwcarg.into(), dwnumarg, penumtable, pdwvalue)
+    MatchEnumTag(hmodule.into(), pwcarg.into().abi(), dwnumarg, penumtable, pdwvalue)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MatchToken<P0, P1>(pwszusertoken: P0, pwszcmdtoken: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netsh.dll""system" fn MatchToken ( pwszusertoken : :: windows::core::PCWSTR , pwszcmdtoken : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    MatchToken(pwszusertoken.into(), pwszcmdtoken.into())
+    MatchToken(pwszusertoken.into().abi(), pwszcmdtoken.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -44,10 +44,10 @@ where
 #[inline]
 pub unsafe fn PrintMessage<P0>(pwszformat: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netsh.dll""cdecl" fn PrintMessage ( pwszformat : :: windows::core::PCWSTR ) -> u32 );
-    PrintMessage(pwszformat.into())
+    PrintMessage(pwszformat.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

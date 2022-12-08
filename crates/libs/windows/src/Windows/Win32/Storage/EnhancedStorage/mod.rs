@@ -332,10 +332,10 @@ impl IEnumEnhancedStorageACT {
     }
     pub unsafe fn GetMatchingACT<P0>(&self, szvolume: P0) -> ::windows::core::Result<IEnhancedStorageACT>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMatchingACT)(::windows::core::Vtable::as_raw(self), szvolume.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetMatchingACT)(::windows::core::Vtable::as_raw(self), szvolume.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumEnhancedStorageACT, ::windows::core::IUnknown);

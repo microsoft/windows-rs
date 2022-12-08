@@ -337,9 +337,9 @@ pub struct IAudioProcessingObjectLoggingService(::windows::core::IUnknown);
 impl IAudioProcessingObjectLoggingService {
     pub unsafe fn ApoLog<P0>(&self, level: APO_LOG_LEVEL, format: P0)
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ApoLog)(::windows::core::Vtable::as_raw(self), level, format.into())
+        (::windows::core::Vtable::vtable(self).ApoLog)(::windows::core::Vtable::as_raw(self), level, format.into().abi())
     }
 }
 ::windows::core::interface_hierarchy!(IAudioProcessingObjectLoggingService, ::windows::core::IUnknown);

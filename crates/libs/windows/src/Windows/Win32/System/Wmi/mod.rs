@@ -67,30 +67,30 @@ pub struct IMofCompiler(::windows::core::IUnknown);
 impl IMofCompiler {
     pub unsafe fn CompileFile<P0, P1, P2, P3, P4>(&self, filename: P0, serverandnamespace: P1, user: P2, authority: P3, password: P4, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
-        P3: ::std::convert::Into<::windows::core::PCWSTR>,
-        P4: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CompileFile)(::windows::core::Vtable::as_raw(self), filename.into(), serverandnamespace.into(), user.into(), authority.into(), password.into(), loptionflags, lclassflags, linstanceflags, pinfo).ok()
+        (::windows::core::Vtable::vtable(self).CompileFile)(::windows::core::Vtable::as_raw(self), filename.into().abi(), serverandnamespace.into().abi(), user.into().abi(), authority.into().abi(), password.into().abi(), loptionflags, lclassflags, linstanceflags, pinfo).ok()
     }
     pub unsafe fn CompileBuffer<P0, P1, P2, P3>(&self, pbuffer: &[u8], serverandnamespace: P0, user: P1, authority: P2, password: P3, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
-        P3: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CompileBuffer)(::windows::core::Vtable::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr()), serverandnamespace.into(), user.into(), authority.into(), password.into(), loptionflags, lclassflags, linstanceflags, pinfo).ok()
+        (::windows::core::Vtable::vtable(self).CompileBuffer)(::windows::core::Vtable::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr()), serverandnamespace.into().abi(), user.into().abi(), authority.into().abi(), password.into().abi(), loptionflags, lclassflags, linstanceflags, pinfo).ok()
     }
     pub unsafe fn CreateBMOF<P0, P1, P2>(&self, textfilename: P0, bmoffilename: P1, serverandnamespace: P2, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateBMOF)(::windows::core::Vtable::as_raw(self), textfilename.into(), bmoffilename.into(), serverandnamespace.into(), loptionflags, lclassflags, linstanceflags, pinfo).ok()
+        (::windows::core::Vtable::vtable(self).CreateBMOF)(::windows::core::Vtable::as_raw(self), textfilename.into().abi(), bmoffilename.into().abi(), serverandnamespace.into().abi(), loptionflags, lclassflags, linstanceflags, pinfo).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMofCompiler, ::windows::core::IUnknown);
@@ -3658,9 +3658,9 @@ pub struct IWbemAddressResolution(::windows::core::IUnknown);
 impl IWbemAddressResolution {
     pub unsafe fn Resolve<P0>(&self, wsznamespacepath: P0, wszaddresstype: ::windows::core::PWSTR, pdwaddresslength: *mut u32, pabbinaryaddress: *mut *mut u8) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Resolve)(::windows::core::Vtable::as_raw(self), wsznamespacepath.into(), ::core::mem::transmute(wszaddresstype), pdwaddresslength, pabbinaryaddress).ok()
+        (::windows::core::Vtable::vtable(self).Resolve)(::windows::core::Vtable::as_raw(self), wsznamespacepath.into().abi(), ::core::mem::transmute(wszaddresstype), pdwaddresslength, pabbinaryaddress).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWbemAddressResolution, ::windows::core::IUnknown);
@@ -3698,15 +3698,15 @@ pub struct IWbemBackupRestore(::windows::core::IUnknown);
 impl IWbemBackupRestore {
     pub unsafe fn Backup<P0>(&self, strbackuptofile: P0, lflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Backup)(::windows::core::Vtable::as_raw(self), strbackuptofile.into(), lflags).ok()
+        (::windows::core::Vtable::vtable(self).Backup)(::windows::core::Vtable::as_raw(self), strbackuptofile.into().abi(), lflags).ok()
     }
     pub unsafe fn Restore<P0>(&self, strrestorefromfile: P0, lflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Restore)(::windows::core::Vtable::as_raw(self), strrestorefromfile.into(), lflags).ok()
+        (::windows::core::Vtable::vtable(self).Restore)(::windows::core::Vtable::as_raw(self), strrestorefromfile.into().abi(), lflags).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWbemBackupRestore, ::windows::core::IUnknown);
@@ -3745,15 +3745,15 @@ pub struct IWbemBackupRestoreEx(::windows::core::IUnknown);
 impl IWbemBackupRestoreEx {
     pub unsafe fn Backup<P0>(&self, strbackuptofile: P0, lflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Backup)(::windows::core::Vtable::as_raw(self), strbackuptofile.into(), lflags).ok()
+        (::windows::core::Vtable::vtable(self).base__.Backup)(::windows::core::Vtable::as_raw(self), strbackuptofile.into().abi(), lflags).ok()
     }
     pub unsafe fn Restore<P0>(&self, strrestorefromfile: P0, lflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Restore)(::windows::core::Vtable::as_raw(self), strrestorefromfile.into(), lflags).ok()
+        (::windows::core::Vtable::vtable(self).base__.Restore)(::windows::core::Vtable::as_raw(self), strrestorefromfile.into().abi(), lflags).ok()
     }
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Pause)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3857,32 +3857,32 @@ impl IWbemClassObject {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<P0>(&self, wszname: P0, lflags: i32, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), wszname.into(), lflags, pval, ptype, plflavor).ok()
+        (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), lflags, pval, ptype, plflavor).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<P0>(&self, wszname: P0, lflags: i32, pval: *const super::Com::VARIANT, r#type: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Put)(::windows::core::Vtable::as_raw(self), wszname.into(), lflags, pval, r#type).ok()
+        (::windows::core::Vtable::vtable(self).Put)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), lflags, pval, r#type).ok()
     }
     pub unsafe fn Delete<P0>(&self, wszname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), wszname.into()).ok()
+        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), wszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetNames<P0>(&self, wszqualifiername: P0, lflags: i32, pqualifierval: *const super::Com::VARIANT) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNames)(::windows::core::Vtable::as_raw(self), wszqualifiername.into(), lflags, pqualifierval, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetNames)(::windows::core::Vtable::as_raw(self), wszqualifiername.into().abi(), lflags, pqualifierval, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn BeginEnumeration(&self, lenumflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).BeginEnumeration)(::windows::core::Vtable::as_raw(self), lenumflags).ok()
@@ -3897,10 +3897,10 @@ impl IWbemClassObject {
     }
     pub unsafe fn GetPropertyQualifierSet<P0>(&self, wszproperty: P0) -> ::windows::core::Result<IWbemQualifierSet>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPropertyQualifierSet)(::windows::core::Vtable::as_raw(self), wszproperty.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetPropertyQualifierSet)(::windows::core::Vtable::as_raw(self), wszproperty.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWbemClassObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3926,36 +3926,36 @@ impl IWbemClassObject {
     }
     pub unsafe fn GetPropertyOrigin<P0>(&self, wszname: P0) -> ::windows::core::Result<::windows::core::BSTR>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPropertyOrigin)(::windows::core::Vtable::as_raw(self), wszname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetPropertyOrigin)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn InheritsFrom<P0>(&self, strancestor: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).InheritsFrom)(::windows::core::Vtable::as_raw(self), strancestor.into()).ok()
+        (::windows::core::Vtable::vtable(self).InheritsFrom)(::windows::core::Vtable::as_raw(self), strancestor.into().abi()).ok()
     }
     pub unsafe fn GetMethod<P0>(&self, wszname: P0, lflags: i32, ppinsignature: *mut ::core::option::Option<IWbemClassObject>, ppoutsignature: *mut ::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetMethod)(::windows::core::Vtable::as_raw(self), wszname.into(), lflags, ::core::mem::transmute(ppinsignature), ::core::mem::transmute(ppoutsignature)).ok()
+        (::windows::core::Vtable::vtable(self).GetMethod)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), lflags, ::core::mem::transmute(ppinsignature), ::core::mem::transmute(ppoutsignature)).ok()
     }
     pub unsafe fn PutMethod<P0, P1, P2>(&self, wszname: P0, lflags: i32, pinsignature: P1, poutsignature: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IWbemClassObject>>,
         P2: ::std::convert::Into<::windows::core::InParam<IWbemClassObject>>,
     {
-        (::windows::core::Vtable::vtable(self).PutMethod)(::windows::core::Vtable::as_raw(self), wszname.into(), lflags, pinsignature.into().abi(), poutsignature.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).PutMethod)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), lflags, pinsignature.into().abi(), poutsignature.into().abi()).ok()
     }
     pub unsafe fn DeleteMethod<P0>(&self, wszname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteMethod)(::windows::core::Vtable::as_raw(self), wszname.into()).ok()
+        (::windows::core::Vtable::vtable(self).DeleteMethod)(::windows::core::Vtable::as_raw(self), wszname.into().abi()).ok()
     }
     pub unsafe fn BeginMethodEnumeration(&self, lenumflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).BeginMethodEnumeration)(::windows::core::Vtable::as_raw(self), lenumflags).ok()
@@ -3968,17 +3968,17 @@ impl IWbemClassObject {
     }
     pub unsafe fn GetMethodQualifierSet<P0>(&self, wszmethod: P0) -> ::windows::core::Result<IWbemQualifierSet>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMethodQualifierSet)(::windows::core::Vtable::as_raw(self), wszmethod.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetMethodQualifierSet)(::windows::core::Vtable::as_raw(self), wszmethod.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetMethodOrigin<P0>(&self, wszmethodname: P0) -> ::windows::core::Result<::windows::core::BSTR>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMethodOrigin)(::windows::core::Vtable::as_raw(self), wszmethodname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetMethodOrigin)(::windows::core::Vtable::as_raw(self), wszmethodname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWbemClassObject, ::windows::core::IUnknown);
@@ -4150,10 +4150,10 @@ impl IWbemConfigureRefresher {
     pub unsafe fn AddObjectByPath<P0, P1, P2>(&self, pnamespace: P0, wszpath: P1, lflags: i32, pcontext: P2, pprefreshable: *mut ::core::option::Option<IWbemClassObject>, plid: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IWbemServices>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IWbemContext>>,
     {
-        (::windows::core::Vtable::vtable(self).AddObjectByPath)(::windows::core::Vtable::as_raw(self), pnamespace.into().abi(), wszpath.into(), lflags, pcontext.into().abi(), ::core::mem::transmute(pprefreshable), plid).ok()
+        (::windows::core::Vtable::vtable(self).AddObjectByPath)(::windows::core::Vtable::as_raw(self), pnamespace.into().abi(), wszpath.into().abi(), lflags, pcontext.into().abi(), ::core::mem::transmute(pprefreshable), plid).ok()
     }
     pub unsafe fn AddObjectByTemplate<P0, P1, P2>(&self, pnamespace: P0, ptemplate: P1, lflags: i32, pcontext: P2, pprefreshable: *mut ::core::option::Option<IWbemClassObject>, plid: *mut i32) -> ::windows::core::Result<()>
     where
@@ -4175,10 +4175,10 @@ impl IWbemConfigureRefresher {
     pub unsafe fn AddEnum<P0, P1, P2>(&self, pnamespace: P0, wszclassname: P1, lflags: i32, pcontext: P2, ppenum: *mut ::core::option::Option<IWbemHiPerfEnum>, plid: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IWbemServices>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IWbemContext>>,
     {
-        (::windows::core::Vtable::vtable(self).AddEnum)(::windows::core::Vtable::as_raw(self), pnamespace.into().abi(), wszclassname.into(), lflags, pcontext.into().abi(), ::core::mem::transmute(ppenum), plid).ok()
+        (::windows::core::Vtable::vtable(self).AddEnum)(::windows::core::Vtable::as_raw(self), pnamespace.into().abi(), wszclassname.into().abi(), lflags, pcontext.into().abi(), ::core::mem::transmute(ppenum), plid).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWbemConfigureRefresher, ::windows::core::IUnknown);
@@ -4220,13 +4220,13 @@ pub struct IWbemConnectorLogin(::windows::core::IUnknown);
 impl IWbemConnectorLogin {
     pub unsafe fn ConnectorLogin<P0, P1, P2, T>(&self, wsznetworkresource: P0, wszpreferredlocale: P1, lflags: i32, pctx: P2) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IWbemContext>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ConnectorLogin)(::windows::core::Vtable::as_raw(self), wsznetworkresource.into(), wszpreferredlocale.into(), lflags, pctx.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).ConnectorLogin)(::windows::core::Vtable::as_raw(self), wsznetworkresource.into().abi(), wszpreferredlocale.into().abi(), lflags, pctx.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWbemConnectorLogin, ::windows::core::IUnknown);
@@ -4267,22 +4267,22 @@ impl IWbemConstructClassObject {
     }
     pub unsafe fn SetPropertyOrigin<P0>(&self, wszpropertyname: P0, loriginindex: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetPropertyOrigin)(::windows::core::Vtable::as_raw(self), wszpropertyname.into(), loriginindex).ok()
+        (::windows::core::Vtable::vtable(self).SetPropertyOrigin)(::windows::core::Vtable::as_raw(self), wszpropertyname.into().abi(), loriginindex).ok()
     }
     pub unsafe fn SetMethodOrigin<P0>(&self, wszmethodname: P0, loriginindex: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetMethodOrigin)(::windows::core::Vtable::as_raw(self), wszmethodname.into(), loriginindex).ok()
+        (::windows::core::Vtable::vtable(self).SetMethodOrigin)(::windows::core::Vtable::as_raw(self), wszmethodname.into().abi(), loriginindex).ok()
     }
     pub unsafe fn SetServerNamespace<P0, P1>(&self, wszserver: P0, wsznamespace: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetServerNamespace)(::windows::core::Vtable::as_raw(self), wszserver.into(), wsznamespace.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetServerNamespace)(::windows::core::Vtable::as_raw(self), wszserver.into().abi(), wsznamespace.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWbemConstructClassObject, ::windows::core::IUnknown);
@@ -4346,24 +4346,24 @@ impl IWbemContext {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValue<P0>(&self, wszname: P0, lflags: i32, pvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), wszname.into(), lflags, pvalue).ok()
+        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), lflags, pvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetValue<P0>(&self, wszname: P0, lflags: i32) -> ::windows::core::Result<super::Com::VARIANT>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), wszname.into(), lflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn DeleteValue<P0>(&self, wszname: P0, lflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteValue)(::windows::core::Vtable::as_raw(self), wszname.into(), lflags).ok()
+        (::windows::core::Vtable::vtable(self).DeleteValue)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), lflags).ok()
     }
     pub unsafe fn DeleteAll(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteAll)(::windows::core::Vtable::as_raw(self)).ok()
@@ -4425,13 +4425,13 @@ impl IWbemDecoupledBasicEventProvider {
     pub unsafe fn Register<P0, P1, P2, P3, P4, P5>(&self, a_flags: i32, a_context: P0, a_user: P1, a_locale: P2, a_scope: P3, a_registration: P4, piunknown: P5) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IWbemContext>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
-        P3: ::std::convert::Into<::windows::core::PCWSTR>,
-        P4: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P5: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Register)(::windows::core::Vtable::as_raw(self), a_flags, a_context.into().abi(), a_user.into(), a_locale.into(), a_scope.into(), a_registration.into(), piunknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.Register)(::windows::core::Vtable::as_raw(self), a_flags, a_context.into().abi(), a_user.into().abi(), a_locale.into().abi(), a_scope.into().abi(), a_registration.into().abi(), piunknown.into().abi()).ok()
     }
     pub unsafe fn UnRegister(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.UnRegister)(::windows::core::Vtable::as_raw(self)).ok()
@@ -4488,13 +4488,13 @@ impl IWbemDecoupledRegistrar {
     pub unsafe fn Register<P0, P1, P2, P3, P4, P5>(&self, a_flags: i32, a_context: P0, a_user: P1, a_locale: P2, a_scope: P3, a_registration: P4, piunknown: P5) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IWbemContext>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
-        P3: ::std::convert::Into<::windows::core::PCWSTR>,
-        P4: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P5: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).Register)(::windows::core::Vtable::as_raw(self), a_flags, a_context.into().abi(), a_user.into(), a_locale.into(), a_scope.into(), a_registration.into(), piunknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Register)(::windows::core::Vtable::as_raw(self), a_flags, a_context.into().abi(), a_user.into().abi(), a_locale.into().abi(), a_scope.into().abi(), a_registration.into().abi(), piunknown.into().abi()).ok()
     }
     pub unsafe fn UnRegister(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnRegister)(::windows::core::Vtable::as_raw(self)).ok()
@@ -4807,11 +4807,11 @@ impl IWbemHiPerfProvider {
     pub unsafe fn QueryInstances<P0, P1, P2, P3>(&self, pnamespace: P0, wszclass: P1, lflags: i32, pctx: P2, psink: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IWbemServices>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IWbemContext>>,
         P3: ::std::convert::Into<::windows::core::InParam<IWbemObjectSink>>,
     {
-        (::windows::core::Vtable::vtable(self).QueryInstances)(::windows::core::Vtable::as_raw(self), pnamespace.into().abi(), wszclass.into(), lflags, pctx.into().abi(), psink.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).QueryInstances)(::windows::core::Vtable::as_raw(self), pnamespace.into().abi(), wszclass.into().abi(), lflags, pctx.into().abi(), psink.into().abi()).ok()
     }
     pub unsafe fn CreateRefresher<P0>(&self, pnamespace: P0, lflags: i32) -> ::windows::core::Result<IWbemRefresher>
     where
@@ -4838,13 +4838,13 @@ impl IWbemHiPerfProvider {
     pub unsafe fn CreateRefreshableEnum<P0, P1, P2, P3, P4>(&self, pnamespace: P0, wszclass: P1, prefresher: P2, lflags: i32, pcontext: P3, phiperfenum: P4) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IWbemServices>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IWbemRefresher>>,
         P3: ::std::convert::Into<::windows::core::InParam<IWbemContext>>,
         P4: ::std::convert::Into<::windows::core::InParam<IWbemHiPerfEnum>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateRefreshableEnum)(::windows::core::Vtable::as_raw(self), pnamespace.into().abi(), wszclass.into(), prefresher.into().abi(), lflags, pcontext.into().abi(), phiperfenum.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateRefreshableEnum)(::windows::core::Vtable::as_raw(self), pnamespace.into().abi(), wszclass.into().abi(), prefresher.into().abi(), lflags, pcontext.into().abi(), phiperfenum.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetObjects<P0, P1>(&self, pnamespace: P0, apobj: &mut [::core::option::Option<IWbemObjectAccess>], lflags: i32, pcontext: P1) -> ::windows::core::Result<()>
     where
@@ -4894,35 +4894,35 @@ pub struct IWbemLevel1Login(::windows::core::IUnknown);
 impl IWbemLevel1Login {
     pub unsafe fn EstablishPosition<P0>(&self, wszlocalelist: P0, dwnumlocales: u32) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EstablishPosition)(::windows::core::Vtable::as_raw(self), wszlocalelist.into(), dwnumlocales, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).EstablishPosition)(::windows::core::Vtable::as_raw(self), wszlocalelist.into().abi(), dwnumlocales, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RequestChallenge<P0, P1>(&self, wsznetworkresource: P0, wszuser: P1) -> ::windows::core::Result<u8>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RequestChallenge)(::windows::core::Vtable::as_raw(self), wsznetworkresource.into(), wszuser.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RequestChallenge)(::windows::core::Vtable::as_raw(self), wsznetworkresource.into().abi(), wszuser.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn WBEMLogin<P0, P1>(&self, wszpreferredlocale: P0, accesstoken: *const u8, lflags: i32, pctx: P1) -> ::windows::core::Result<IWbemServices>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IWbemContext>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WBEMLogin)(::windows::core::Vtable::as_raw(self), wszpreferredlocale.into(), accesstoken, lflags, pctx.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).WBEMLogin)(::windows::core::Vtable::as_raw(self), wszpreferredlocale.into().abi(), accesstoken, lflags, pctx.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn NTLMLogin<P0, P1, P2>(&self, wsznetworkresource: P0, wszpreferredlocale: P1, lflags: i32, pctx: P2) -> ::windows::core::Result<IWbemServices>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IWbemContext>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).NTLMLogin)(::windows::core::Vtable::as_raw(self), wsznetworkresource.into(), wszpreferredlocale.into(), lflags, pctx.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).NTLMLogin)(::windows::core::Vtable::as_raw(self), wsznetworkresource.into().abi(), wszpreferredlocale.into().abi(), lflags, pctx.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWbemLevel1Login, ::windows::core::IUnknown);
@@ -5010,32 +5010,32 @@ impl IWbemObjectAccess {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<P0>(&self, wszname: P0, lflags: i32, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Get)(::windows::core::Vtable::as_raw(self), wszname.into(), lflags, pval, ptype, plflavor).ok()
+        (::windows::core::Vtable::vtable(self).base__.Get)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), lflags, pval, ptype, plflavor).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<P0>(&self, wszname: P0, lflags: i32, pval: *const super::Com::VARIANT, r#type: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Put)(::windows::core::Vtable::as_raw(self), wszname.into(), lflags, pval, r#type).ok()
+        (::windows::core::Vtable::vtable(self).base__.Put)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), lflags, pval, r#type).ok()
     }
     pub unsafe fn Delete<P0>(&self, wszname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Delete)(::windows::core::Vtable::as_raw(self), wszname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.Delete)(::windows::core::Vtable::as_raw(self), wszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetNames<P0>(&self, wszqualifiername: P0, lflags: i32, pqualifierval: *const super::Com::VARIANT) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetNames)(::windows::core::Vtable::as_raw(self), wszqualifiername.into(), lflags, pqualifierval, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetNames)(::windows::core::Vtable::as_raw(self), wszqualifiername.into().abi(), lflags, pqualifierval, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn BeginEnumeration(&self, lenumflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.BeginEnumeration)(::windows::core::Vtable::as_raw(self), lenumflags).ok()
@@ -5050,10 +5050,10 @@ impl IWbemObjectAccess {
     }
     pub unsafe fn GetPropertyQualifierSet<P0>(&self, wszproperty: P0) -> ::windows::core::Result<IWbemQualifierSet>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPropertyQualifierSet)(::windows::core::Vtable::as_raw(self), wszproperty.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetPropertyQualifierSet)(::windows::core::Vtable::as_raw(self), wszproperty.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWbemClassObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5079,36 +5079,36 @@ impl IWbemObjectAccess {
     }
     pub unsafe fn GetPropertyOrigin<P0>(&self, wszname: P0) -> ::windows::core::Result<::windows::core::BSTR>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPropertyOrigin)(::windows::core::Vtable::as_raw(self), wszname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetPropertyOrigin)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn InheritsFrom<P0>(&self, strancestor: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.InheritsFrom)(::windows::core::Vtable::as_raw(self), strancestor.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.InheritsFrom)(::windows::core::Vtable::as_raw(self), strancestor.into().abi()).ok()
     }
     pub unsafe fn GetMethod<P0>(&self, wszname: P0, lflags: i32, ppinsignature: *mut ::core::option::Option<IWbemClassObject>, ppoutsignature: *mut ::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMethod)(::windows::core::Vtable::as_raw(self), wszname.into(), lflags, ::core::mem::transmute(ppinsignature), ::core::mem::transmute(ppoutsignature)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetMethod)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), lflags, ::core::mem::transmute(ppinsignature), ::core::mem::transmute(ppoutsignature)).ok()
     }
     pub unsafe fn PutMethod<P0, P1, P2>(&self, wszname: P0, lflags: i32, pinsignature: P1, poutsignature: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IWbemClassObject>>,
         P2: ::std::convert::Into<::windows::core::InParam<IWbemClassObject>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.PutMethod)(::windows::core::Vtable::as_raw(self), wszname.into(), lflags, pinsignature.into().abi(), poutsignature.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.PutMethod)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), lflags, pinsignature.into().abi(), poutsignature.into().abi()).ok()
     }
     pub unsafe fn DeleteMethod<P0>(&self, wszname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.DeleteMethod)(::windows::core::Vtable::as_raw(self), wszname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteMethod)(::windows::core::Vtable::as_raw(self), wszname.into().abi()).ok()
     }
     pub unsafe fn BeginMethodEnumeration(&self, lenumflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.BeginMethodEnumeration)(::windows::core::Vtable::as_raw(self), lenumflags).ok()
@@ -5121,23 +5121,23 @@ impl IWbemObjectAccess {
     }
     pub unsafe fn GetMethodQualifierSet<P0>(&self, wszmethod: P0) -> ::windows::core::Result<IWbemQualifierSet>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetMethodQualifierSet)(::windows::core::Vtable::as_raw(self), wszmethod.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetMethodQualifierSet)(::windows::core::Vtable::as_raw(self), wszmethod.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetMethodOrigin<P0>(&self, wszmethodname: P0) -> ::windows::core::Result<::windows::core::BSTR>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetMethodOrigin)(::windows::core::Vtable::as_raw(self), wszmethodname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetMethodOrigin)(::windows::core::Vtable::as_raw(self), wszmethodname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPropertyHandle<P0>(&self, wszpropertyname: P0, ptype: *mut i32, plhandle: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetPropertyHandle)(::windows::core::Vtable::as_raw(self), wszpropertyname.into(), ptype, plhandle).ok()
+        (::windows::core::Vtable::vtable(self).GetPropertyHandle)(::windows::core::Vtable::as_raw(self), wszpropertyname.into().abi(), ptype, plhandle).ok()
     }
     pub unsafe fn WritePropertyValue(&self, lhandle: i32, adata: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).WritePropertyValue)(::windows::core::Vtable::as_raw(self), lhandle, adata.len() as _, ::core::mem::transmute(adata.as_ptr())).ok()
@@ -5379,9 +5379,9 @@ pub struct IWbemPath(::windows::core::IUnknown);
 impl IWbemPath {
     pub unsafe fn SetText<P0>(&self, umode: u32, pszpath: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetText)(::windows::core::Vtable::as_raw(self), umode, pszpath.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetText)(::windows::core::Vtable::as_raw(self), umode, pszpath.into().abi()).ok()
     }
     pub unsafe fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetText)(::windows::core::Vtable::as_raw(self), lflags, pubufflength, ::core::mem::transmute(psztext)).ok()
@@ -5392,9 +5392,9 @@ impl IWbemPath {
     }
     pub unsafe fn SetServer<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetServer)(::windows::core::Vtable::as_raw(self), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetServer)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
     pub unsafe fn GetServer(&self, punamebuflength: *mut u32, pname: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetServer)(::windows::core::Vtable::as_raw(self), punamebuflength, ::core::mem::transmute(pname)).ok()
@@ -5405,9 +5405,9 @@ impl IWbemPath {
     }
     pub unsafe fn SetNamespaceAt<P0>(&self, uindex: u32, pszname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetNamespaceAt)(::windows::core::Vtable::as_raw(self), uindex, pszname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetNamespaceAt)(::windows::core::Vtable::as_raw(self), uindex, pszname.into().abi()).ok()
     }
     pub unsafe fn GetNamespaceAt(&self, uindex: u32, punamebuflength: *mut u32, pname: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetNamespaceAt)(::windows::core::Vtable::as_raw(self), uindex, punamebuflength, ::core::mem::transmute(pname)).ok()
@@ -5424,15 +5424,15 @@ impl IWbemPath {
     }
     pub unsafe fn SetScope<P0>(&self, uindex: u32, pszclass: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetScope)(::windows::core::Vtable::as_raw(self), uindex, pszclass.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetScope)(::windows::core::Vtable::as_raw(self), uindex, pszclass.into().abi()).ok()
     }
     pub unsafe fn SetScopeFromText<P0>(&self, uindex: u32, psztext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetScopeFromText)(::windows::core::Vtable::as_raw(self), uindex, psztext.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetScopeFromText)(::windows::core::Vtable::as_raw(self), uindex, psztext.into().abi()).ok()
     }
     pub unsafe fn GetScope(&self, uindex: u32, puclassnamebufsize: *mut u32, pszclass: ::windows::core::PWSTR, pkeylist: *mut ::core::option::Option<IWbemPathKeyList>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetScope)(::windows::core::Vtable::as_raw(self), uindex, puclassnamebufsize, ::core::mem::transmute(pszclass), ::core::mem::transmute(pkeylist)).ok()
@@ -5448,9 +5448,9 @@ impl IWbemPath {
     }
     pub unsafe fn SetClassName<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetClassName)(::windows::core::Vtable::as_raw(self), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetClassName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
     pub unsafe fn GetClassName(&self, pubufflength: *mut u32, pszname: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetClassName)(::windows::core::Vtable::as_raw(self), pubufflength, ::core::mem::transmute(pszname)).ok()
@@ -5461,9 +5461,9 @@ impl IWbemPath {
     }
     pub unsafe fn CreateClassPart<P0>(&self, lflags: i32, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateClassPart)(::windows::core::Vtable::as_raw(self), lflags, name.into()).ok()
+        (::windows::core::Vtable::vtable(self).CreateClassPart)(::windows::core::Vtable::as_raw(self), lflags, name.into().abi()).ok()
     }
     pub unsafe fn DeleteClassPart(&self, lflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteClassPart)(::windows::core::Vtable::as_raw(self), lflags).ok()
@@ -5472,35 +5472,35 @@ impl IWbemPath {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRelative<P0, P1>(&self, wszmachine: P0, wsznamespace: P1) -> super::super::Foundation::BOOL
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).IsRelative)(::windows::core::Vtable::as_raw(self), wszmachine.into(), wsznamespace.into())
+        (::windows::core::Vtable::vtable(self).IsRelative)(::windows::core::Vtable::as_raw(self), wszmachine.into().abi(), wsznamespace.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRelativeOrChild<P0, P1>(&self, wszmachine: P0, wsznamespace: P1, lflags: i32) -> super::super::Foundation::BOOL
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).IsRelativeOrChild)(::windows::core::Vtable::as_raw(self), wszmachine.into(), wsznamespace.into(), lflags)
+        (::windows::core::Vtable::vtable(self).IsRelativeOrChild)(::windows::core::Vtable::as_raw(self), wszmachine.into().abi(), wsznamespace.into().abi(), lflags)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLocal<P0>(&self, wszmachine: P0) -> super::super::Foundation::BOOL
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).IsLocal)(::windows::core::Vtable::as_raw(self), wszmachine.into())
+        (::windows::core::Vtable::vtable(self).IsLocal)(::windows::core::Vtable::as_raw(self), wszmachine.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSameClassName<P0>(&self, wszclass: P0) -> super::super::Foundation::BOOL
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).IsSameClassName)(::windows::core::Vtable::as_raw(self), wszclass.into())
+        (::windows::core::Vtable::vtable(self).IsSameClassName)(::windows::core::Vtable::as_raw(self), wszclass.into().abi())
     }
 }
 ::windows::core::interface_hierarchy!(IWbemPath, ::windows::core::IUnknown);
@@ -5579,17 +5579,17 @@ impl IWbemPathKeyList {
     }
     pub unsafe fn SetKey<P0>(&self, wszname: P0, uflags: u32, ucimtype: u32, pkeyval: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetKey)(::windows::core::Vtable::as_raw(self), wszname.into(), uflags, ucimtype, pkeyval).ok()
+        (::windows::core::Vtable::vtable(self).SetKey)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), uflags, ucimtype, pkeyval).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetKey2<P0>(&self, wszname: P0, uflags: u32, ucimtype: u32, pkeyval: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetKey2)(::windows::core::Vtable::as_raw(self), wszname.into(), uflags, ucimtype, pkeyval).ok()
+        (::windows::core::Vtable::vtable(self).SetKey2)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), uflags, ucimtype, pkeyval).ok()
     }
     pub unsafe fn GetKey(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: ::windows::core::PWSTR, pukeyvalbufsize: *mut u32, pkeyval: *mut ::core::ffi::c_void, puapparentcimtype: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetKey)(::windows::core::Vtable::as_raw(self), ukeyix, uflags, punamebufsize, ::core::mem::transmute(pszkeyname), pukeyvalbufsize, pkeyval, puapparentcimtype).ok()
@@ -5601,9 +5601,9 @@ impl IWbemPathKeyList {
     }
     pub unsafe fn RemoveKey<P0>(&self, wszname: P0, uflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RemoveKey)(::windows::core::Vtable::as_raw(self), wszname.into(), uflags).ok()
+        (::windows::core::Vtable::vtable(self).RemoveKey)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), uflags).ok()
     }
     pub unsafe fn RemoveAllKeys(&self, uflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveAllKeys)(::windows::core::Vtable::as_raw(self), uflags).ok()
@@ -5761,14 +5761,14 @@ pub struct IWbemProviderInit(::windows::core::IUnknown);
 impl IWbemProviderInit {
     pub unsafe fn Initialize<P0, P1, P2, P3, P4, P5>(&self, wszuser: P0, lflags: i32, wsznamespace: P1, wszlocale: P2, pnamespace: P3, pctx: P4, pinitsink: P5) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P3: ::std::convert::Into<::windows::core::InParam<IWbemServices>>,
         P4: ::std::convert::Into<::windows::core::InParam<IWbemContext>>,
         P5: ::std::convert::Into<::windows::core::InParam<IWbemProviderInitSink>>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), wszuser.into(), lflags, wsznamespace.into(), wszlocale.into(), pnamespace.into().abi(), pctx.into().abi(), pinitsink.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), wszuser.into().abi(), lflags, wsznamespace.into().abi(), wszlocale.into().abi(), pnamespace.into().abi(), pctx.into().abi(), pinitsink.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWbemProviderInit, ::windows::core::IUnknown);
@@ -5845,23 +5845,23 @@ impl IWbemQualifierSet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<P0>(&self, wszname: P0, lflags: i32, pval: *mut super::Com::VARIANT, plflavor: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), wszname.into(), lflags, pval, plflavor).ok()
+        (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), lflags, pval, plflavor).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<P0>(&self, wszname: P0, pval: *const super::Com::VARIANT, lflavor: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Put)(::windows::core::Vtable::as_raw(self), wszname.into(), pval, lflavor).ok()
+        (::windows::core::Vtable::vtable(self).Put)(::windows::core::Vtable::as_raw(self), wszname.into().abi(), pval, lflavor).ok()
     }
     pub unsafe fn Delete<P0>(&self, wszname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), wszname.into()).ok()
+        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), wszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5943,10 +5943,10 @@ impl IWbemQuery {
     }
     pub unsafe fn Parse<P0, P1>(&self, pszlang: P0, pszquery: P1, uflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Parse)(::windows::core::Vtable::as_raw(self), pszlang.into(), pszquery.into(), uflags).ok()
+        (::windows::core::Vtable::vtable(self).Parse)(::windows::core::Vtable::as_raw(self), pszlang.into().abi(), pszquery.into().abi(), uflags).ok()
     }
     pub unsafe fn GetAnalysis(&self, uanalysistype: u32, uflags: u32, panalysis: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetAnalysis)(::windows::core::Vtable::as_raw(self), uanalysistype, uflags, panalysis).ok()
@@ -6416,10 +6416,10 @@ impl IWbemUnsecuredApartment {
     pub unsafe fn CreateSinkStub<P0, P1>(&self, psink: P0, dwflags: u32, wszreserved: P1) -> ::windows::core::Result<IWbemObjectSink>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IWbemObjectSink>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSinkStub)(::windows::core::Vtable::as_raw(self), psink.into().abi(), dwflags, wszreserved.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateSinkStub)(::windows::core::Vtable::as_raw(self), psink.into().abi(), dwflags, wszreserved.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWbemUnsecuredApartment, ::windows::core::IUnknown, IUnsecuredApartment);

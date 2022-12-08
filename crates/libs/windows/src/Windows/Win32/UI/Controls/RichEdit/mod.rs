@@ -26,19 +26,19 @@ impl IRichEditOle {
     }
     pub unsafe fn ConvertObject<P0>(&self, iob: i32, rclsidnew: *const ::windows::core::GUID, lpstrusertypenew: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ConvertObject)(::windows::core::Vtable::as_raw(self), iob, rclsidnew, lpstrusertypenew.into()).ok()
+        (::windows::core::Vtable::vtable(self).ConvertObject)(::windows::core::Vtable::as_raw(self), iob, rclsidnew, lpstrusertypenew.into().abi()).ok()
     }
     pub unsafe fn ActivateAs(&self, rclsid: *const ::windows::core::GUID, rclsidas: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ActivateAs)(::windows::core::Vtable::as_raw(self), rclsid, rclsidas).ok()
     }
     pub unsafe fn SetHostNames<P0, P1>(&self, lpstrcontainerapp: P0, lpstrcontainerobj: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetHostNames)(::windows::core::Vtable::as_raw(self), lpstrcontainerapp.into(), lpstrcontainerobj.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetHostNames)(::windows::core::Vtable::as_raw(self), lpstrcontainerapp.into().abi(), lpstrcontainerobj.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5383,9 +5383,9 @@ impl ITextServices {
     }
     pub unsafe fn TxSetText<P0>(&self, psztext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).TxSetText)(::windows::core::Vtable::as_raw(self), psztext.into()).ok()
+        (::windows::core::Vtable::vtable(self).TxSetText)(::windows::core::Vtable::as_raw(self), psztext.into().abi()).ok()
     }
     pub unsafe fn TxGetCurTargetX(&self, param0: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).TxGetCurTargetX)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -5557,9 +5557,9 @@ impl ITextServices2 {
     }
     pub unsafe fn TxSetText<P0>(&self, psztext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.TxSetText)(::windows::core::Vtable::as_raw(self), psztext.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxSetText)(::windows::core::Vtable::as_raw(self), psztext.into().abi()).ok()
     }
     pub unsafe fn TxGetCurTargetX(&self, param0: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.TxGetCurTargetX)(::windows::core::Vtable::as_raw(self), param0).ok()

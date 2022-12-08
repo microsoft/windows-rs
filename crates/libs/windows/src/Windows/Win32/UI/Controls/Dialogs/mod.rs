@@ -50,19 +50,19 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
 #[inline]
 pub unsafe fn GetFileTitleA<P0>(param0: P0, buf: &mut [u8]) -> i16
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "comdlg32.dll""system" fn GetFileTitleA ( param0 : :: windows::core::PCSTR , buf : :: windows::core::PSTR , cchsize : u16 ) -> i16 );
-    GetFileTitleA(param0.into(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
+    GetFileTitleA(param0.into().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[inline]
 pub unsafe fn GetFileTitleW<P0>(param0: P0, buf: &mut [u16]) -> i16
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "comdlg32.dll""system" fn GetFileTitleW ( param0 : :: windows::core::PCWSTR , buf : :: windows::core::PWSTR , cchsize : u16 ) -> i16 );
-    GetFileTitleW(param0.into(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
+    GetFileTitleW(param0.into().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

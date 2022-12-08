@@ -2467,10 +2467,10 @@ where
 #[inline]
 pub unsafe fn wglGetProcAddress<P0>(param0: P0) -> super::super::Foundation::PROC
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "opengl32.dll""system" fn wglGetProcAddress ( param0 : :: windows::core::PCSTR ) -> super::super::Foundation:: PROC );
-    wglGetProcAddress(param0.into())
+    wglGetProcAddress(param0.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

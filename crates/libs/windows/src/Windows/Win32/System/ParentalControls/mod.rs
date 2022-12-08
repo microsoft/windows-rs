@@ -280,10 +280,10 @@ impl IWPCWebSettings {
     pub unsafe fn RequestURLOverride<P0, P1>(&self, hwnd: P0, pcszurl: P1, ppcszsuburls: ::core::option::Option<&[::windows::core::PCWSTR]>) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RequestURLOverride)(::windows::core::Vtable::as_raw(self), hwnd.into(), pcszurl.into(), ppcszsuburls.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppcszsuburls.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RequestURLOverride)(::windows::core::Vtable::as_raw(self), hwnd.into(), pcszurl.into().abi(), ppcszsuburls.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppcszsuburls.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWPCWebSettings, ::windows::core::IUnknown, IWPCSettings);
@@ -329,27 +329,27 @@ impl IWindowsParentalControls {
     }
     pub unsafe fn GetUserSettings<P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCSettings>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUserSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUserSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetWebSettings<P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCWebSettings>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetWebSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetWebSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetWebFilterInfo(&self, pguidid: *mut ::windows::core::GUID, ppszname: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetWebFilterInfo)(::windows::core::Vtable::as_raw(self), pguidid, ::core::mem::transmute(ppszname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetGamesSettings<P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCGamesSettings>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGamesSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetGamesSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWindowsParentalControls, ::windows::core::IUnknown, IWindowsParentalControlsCore);
@@ -391,17 +391,17 @@ impl IWindowsParentalControlsCore {
     }
     pub unsafe fn GetUserSettings<P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCSettings>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUserSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetUserSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetWebSettings<P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCWebSettings>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetWebSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetWebSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetWebFilterInfo(&self, pguidid: *mut ::windows::core::GUID, ppszname: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetWebFilterInfo)(::windows::core::Vtable::as_raw(self), pguidid, ::core::mem::transmute(ppszname.unwrap_or(::std::ptr::null_mut()))).ok()

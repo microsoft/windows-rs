@@ -4,10 +4,10 @@ pub struct IPhotoAcquire(::windows::core::IUnknown);
 impl IPhotoAcquire {
     pub unsafe fn CreatePhotoSource<P0>(&self, pszdevice: P0) -> ::windows::core::Result<IPhotoAcquireSource>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePhotoSource)(::windows::core::Vtable::as_raw(self), pszdevice.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreatePhotoSource)(::windows::core::Vtable::as_raw(self), pszdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16,10 +16,10 @@ impl IPhotoAcquire {
         P0: ::std::convert::Into<::windows::core::InParam<IPhotoAcquireSource>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::HWND>,
-        P3: ::std::convert::Into<::windows::core::PCWSTR>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P4: ::std::convert::Into<::windows::core::InParam<IPhotoAcquireProgressCB>>,
     {
-        (::windows::core::Vtable::vtable(self).Acquire)(::windows::core::Vtable::as_raw(self), pphotoacquiresource.into().abi(), fshowprogress.into(), hwndparent.into(), pszapplicationname.into(), pphotoacquireprogresscb.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Acquire)(::windows::core::Vtable::as_raw(self), pphotoacquiresource.into().abi(), fshowprogress.into(), hwndparent.into(), pszapplicationname.into().abi(), pphotoacquireprogresscb.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -71,15 +71,15 @@ pub struct IPhotoAcquireDeviceSelectionDialog(::windows::core::IUnknown);
 impl IPhotoAcquireDeviceSelectionDialog {
     pub unsafe fn SetTitle<P0>(&self, psztitle: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetTitle)(::windows::core::Vtable::as_raw(self), psztitle.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetTitle)(::windows::core::Vtable::as_raw(self), psztitle.into().abi()).ok()
     }
     pub unsafe fn SetSubmitButtonText<P0>(&self, pszsubmitbuttontext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetSubmitButtonText)(::windows::core::Vtable::as_raw(self), pszsubmitbuttontext.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetSubmitButtonText)(::windows::core::Vtable::as_raw(self), pszsubmitbuttontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -231,9 +231,9 @@ pub struct IPhotoAcquireOptionsDialog(::windows::core::IUnknown);
 impl IPhotoAcquireOptionsDialog {
     pub unsafe fn Initialize<P0>(&self, pszregistryroot: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pszregistryroot.into()).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pszregistryroot.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -315,10 +315,10 @@ impl IPhotoAcquirePlugin {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IPhotoAcquireItem>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P3: ::std::convert::Into<::windows::core::InParam<super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
     {
-        (::windows::core::Vtable::vtable(self).ProcessItem)(::windows::core::Vtable::as_raw(self), dwacquirestage, pphotoacquireitem.into().abi(), poriginalitemstream.into().abi(), pszfinalfilename.into(), ppropertystore.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).ProcessItem)(::windows::core::Vtable::as_raw(self), dwacquirestage, pphotoacquireitem.into().abi(), poriginalitemstream.into().abi(), pszfinalfilename.into().abi(), ppropertystore.into().abi()).ok()
     }
     pub unsafe fn TransferComplete(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).TransferComplete)(::windows::core::Vtable::as_raw(self), hr).ok()
@@ -409,9 +409,9 @@ impl IPhotoAcquireProgressCB {
     }
     pub unsafe fn DirectoryCreated<P0>(&self, pszdirectory: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DirectoryCreated)(::windows::core::Vtable::as_raw(self), pszdirectory.into()).ok()
+        (::windows::core::Vtable::vtable(self).DirectoryCreated)(::windows::core::Vtable::as_raw(self), pszdirectory.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -465,10 +465,10 @@ impl IPhotoAcquireProgressCB {
     }
     pub unsafe fn ErrorAdvise<P0>(&self, hr: ::windows::core::HRESULT, pszerrormessage: P0, nmessagetype: ERROR_ADVISE_MESSAGE_TYPE) -> ::windows::core::Result<ERROR_ADVISE_RESULT>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ErrorAdvise)(::windows::core::Vtable::as_raw(self), hr, pszerrormessage.into(), nmessagetype, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).ErrorAdvise)(::windows::core::Vtable::as_raw(self), hr, pszerrormessage.into().abi(), nmessagetype, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -544,18 +544,18 @@ pub struct IPhotoAcquireSettings(::windows::core::IUnknown);
 impl IPhotoAcquireSettings {
     pub unsafe fn InitializeFromRegistry<P0>(&self, pszregistrykey: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeFromRegistry)(::windows::core::Vtable::as_raw(self), pszregistrykey.into()).ok()
+        (::windows::core::Vtable::vtable(self).InitializeFromRegistry)(::windows::core::Vtable::as_raw(self), pszregistrykey.into().abi()).ok()
     }
     pub unsafe fn SetFlags(&self, dwphotoacquireflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetFlags)(::windows::core::Vtable::as_raw(self), dwphotoacquireflags).ok()
     }
     pub unsafe fn SetOutputFilenameTemplate<P0>(&self, psztemplate: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetOutputFilenameTemplate)(::windows::core::Vtable::as_raw(self), psztemplate.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetOutputFilenameTemplate)(::windows::core::Vtable::as_raw(self), psztemplate.into().abi()).ok()
     }
     pub unsafe fn SetSequencePaddingWidth(&self, dwwidth: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetSequencePaddingWidth)(::windows::core::Vtable::as_raw(self), dwwidth).ok()
@@ -570,9 +570,9 @@ impl IPhotoAcquireSettings {
     }
     pub unsafe fn SetGroupTag<P0>(&self, pszgrouptag: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetGroupTag)(::windows::core::Vtable::as_raw(self), pszgrouptag.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetGroupTag)(::windows::core::Vtable::as_raw(self), pszgrouptag.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -813,9 +813,9 @@ impl IPhotoProgressDialog {
     }
     pub unsafe fn SetTitle<P0>(&self, psztitle: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetTitle)(::windows::core::Vtable::as_raw(self), psztitle.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetTitle)(::windows::core::Vtable::as_raw(self), psztitle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -827,9 +827,9 @@ impl IPhotoProgressDialog {
     }
     pub unsafe fn SetCheckboxText<P0>(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, pszcheckboxtext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetCheckboxText)(::windows::core::Vtable::as_raw(self), ncheckboxid, pszcheckboxtext.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetCheckboxText)(::windows::core::Vtable::as_raw(self), ncheckboxid, pszcheckboxtext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -841,9 +841,9 @@ impl IPhotoProgressDialog {
     }
     pub unsafe fn SetCheckboxTooltip<P0>(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, pszcheckboxtooltiptext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetCheckboxTooltip)(::windows::core::Vtable::as_raw(self), ncheckboxid, pszcheckboxtooltiptext.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetCheckboxTooltip)(::windows::core::Vtable::as_raw(self), ncheckboxid, pszcheckboxtooltiptext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -853,9 +853,9 @@ impl IPhotoProgressDialog {
     }
     pub unsafe fn SetCaption<P0>(&self, psztitle: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetCaption)(::windows::core::Vtable::as_raw(self), psztitle.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetCaption)(::windows::core::Vtable::as_raw(self), psztitle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -871,9 +871,9 @@ impl IPhotoProgressDialog {
     }
     pub unsafe fn SetProgressText<P0>(&self, pszprogresstext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetProgressText)(::windows::core::Vtable::as_raw(self), pszprogresstext.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetProgressText)(::windows::core::Vtable::as_raw(self), pszprogresstext.into().abi()).ok()
     }
     pub unsafe fn SetActionLinkCallback<P0>(&self, pphotoprogressactioncb: P0) -> ::windows::core::Result<()>
     where
@@ -883,9 +883,9 @@ impl IPhotoProgressDialog {
     }
     pub unsafe fn SetActionLinkText<P0>(&self, pszcaption: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetActionLinkText)(::windows::core::Vtable::as_raw(self), pszcaption.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetActionLinkText)(::windows::core::Vtable::as_raw(self), pszcaption.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

@@ -6,16 +6,16 @@ impl IDDEInitializer {
     #[cfg(feature = "Win32_UI_Shell")]
     pub unsafe fn Initialize<P0, P1, P2, P3, P4, P5, P6, P7>(&self, fileextensionorprotocol: P0, method: CreateProcessMethod, currentdirectory: P1, exectarget: P2, site: P3, application: P4, targetfile: P5, arguments: P6, verb: P7) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<super::super::super::UI::Shell::IShellItem>>,
         P3: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P4: ::std::convert::Into<::windows::core::PCWSTR>,
-        P5: ::std::convert::Into<::windows::core::PCWSTR>,
-        P6: ::std::convert::Into<::windows::core::PCWSTR>,
-        P7: ::std::convert::Into<::windows::core::PCWSTR>,
+        P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P5: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P6: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P7: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), fileextensionorprotocol.into(), method, currentdirectory.into(), exectarget.into().abi(), site.into().abi(), application.into(), targetfile.into(), arguments.into(), verb.into()).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), fileextensionorprotocol.into().abi(), method, currentdirectory.into().abi(), exectarget.into().abi(), site.into().abi(), application.into().abi(), targetfile.into().abi(), arguments.into().abi(), verb.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDDEInitializer, ::windows::core::IUnknown);

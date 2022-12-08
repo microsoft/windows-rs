@@ -2,11 +2,11 @@
 #[inline]
 pub unsafe fn ProtectFileToEnterpriseIdentity<P0, P1>(fileorfolderpath: P0, identity: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "efswrt.dll""system" fn ProtectFileToEnterpriseIdentity ( fileorfolderpath : :: windows::core::PCWSTR , identity : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    ProtectFileToEnterpriseIdentity(fileorfolderpath.into(), identity.into()).ok()
+    ProtectFileToEnterpriseIdentity(fileorfolderpath.into().abi(), identity.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -20,11 +20,11 @@ pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NE
 #[inline]
 pub unsafe fn SrpCreateThreadNetworkContext<P0>(enterpriseid: P0) -> ::windows::core::Result<HTHREAD_NETWORK_CONTEXT>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "srpapi.dll""system" fn SrpCreateThreadNetworkContext ( enterpriseid : :: windows::core::PCWSTR , threadnetworkcontext : *mut HTHREAD_NETWORK_CONTEXT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SrpCreateThreadNetworkContext(enterpriseid.into(), result__.as_mut_ptr()).from_abi(result__)
+    SrpCreateThreadNetworkContext(enterpriseid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[inline]
@@ -44,10 +44,10 @@ pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Sto
 #[inline]
 pub unsafe fn SrpEnablePermissiveModeFileEncryption<P0>(enterpriseid: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "srpapi.dll""system" fn SrpEnablePermissiveModeFileEncryption ( enterpriseid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    SrpEnablePermissiveModeFileEncryption(enterpriseid.into()).ok()
+    SrpEnablePermissiveModeFileEncryption(enterpriseid.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -98,19 +98,19 @@ where
 pub unsafe fn SrpSetTokenEnterpriseId<P0, P1>(tokenhandle: P0, enterpriseid: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "srpapi.dll""system" fn SrpSetTokenEnterpriseId ( tokenhandle : super::super::Foundation:: HANDLE , enterpriseid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    SrpSetTokenEnterpriseId(tokenhandle.into(), enterpriseid.into()).ok()
+    SrpSetTokenEnterpriseId(tokenhandle.into(), enterpriseid.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[inline]
 pub unsafe fn UnprotectFile<P0>(fileorfolderpath: P0, options: ::core::option::Option<*const FILE_UNPROTECT_OPTIONS>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "efswrt.dll""system" fn UnprotectFile ( fileorfolderpath : :: windows::core::PCWSTR , options : *const FILE_UNPROTECT_OPTIONS ) -> :: windows::core::HRESULT );
-    UnprotectFile(fileorfolderpath.into(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null()))).ok()
+    UnprotectFile(fileorfolderpath.into().abi(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[repr(transparent)]

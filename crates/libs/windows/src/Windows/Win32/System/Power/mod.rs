@@ -44,10 +44,10 @@ pub unsafe fn DevicePowerOpen(debugmask: u32) -> super::super::Foundation::BOOLE
 #[inline]
 pub unsafe fn DevicePowerSetDeviceState<P0>(devicedescription: P0, setflags: u32, setdata: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "powrprof.dll""system" fn DevicePowerSetDeviceState ( devicedescription : :: windows::core::PCWSTR , setflags : u32 , setdata : *const ::core::ffi::c_void ) -> u32 );
-    DevicePowerSetDeviceState(devicedescription.into(), setflags, ::core::mem::transmute(setdata.unwrap_or(::std::ptr::null())))
+    DevicePowerSetDeviceState(devicedescription.into().abi(), setflags, ::core::mem::transmute(setdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -242,10 +242,10 @@ where
 pub unsafe fn PowerImportPowerScheme<P0, P1>(rootpowerkey: P0, importfilenamepath: P1, destinationschemeguid: *mut *mut ::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "powrprof.dll""system" fn PowerImportPowerScheme ( rootpowerkey : super::Registry:: HKEY , importfilenamepath : :: windows::core::PCWSTR , destinationschemeguid : *mut *mut :: windows::core::GUID ) -> super::super::Foundation:: WIN32_ERROR );
-    PowerImportPowerScheme(rootpowerkey.into(), importfilenamepath.into(), destinationschemeguid)
+    PowerImportPowerScheme(rootpowerkey.into(), importfilenamepath.into().abi(), destinationschemeguid)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -839,11 +839,11 @@ pub unsafe fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *
 #[inline]
 pub unsafe fn WritePwrScheme<P0, P1>(puiid: *const u32, lpszschemename: P0, lpszdescription: P1, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "powrprof.dll""system" fn WritePwrScheme ( puiid : *const u32 , lpszschemename : :: windows::core::PCWSTR , lpszdescription : :: windows::core::PCWSTR , lpscheme : *const POWER_POLICY ) -> super::super::Foundation:: BOOLEAN );
-    WritePwrScheme(puiid, lpszschemename.into(), lpszdescription.into(), lpscheme)
+    WritePwrScheme(puiid, lpszschemename.into().abi(), lpszdescription.into().abi(), lpscheme)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const ACPI_TIME_ADJUST_DAYLIGHT: u32 = 1u32;

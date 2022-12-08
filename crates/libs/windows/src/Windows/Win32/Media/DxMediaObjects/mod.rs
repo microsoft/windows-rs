@@ -21,10 +21,10 @@ pub unsafe fn DMOGetTypes(clsiddmo: *const ::windows::core::GUID, ulinputtypesre
 #[inline]
 pub unsafe fn DMORegister<P0>(szname: P0, clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "msdmo.dll""system" fn DMORegister ( szname : :: windows::core::PCWSTR , clsiddmo : *const :: windows::core::GUID , guidcategory : *const :: windows::core::GUID , dwflags : u32 , cintypes : u32 , pintypes : *const DMO_PARTIAL_MEDIATYPE , couttypes : u32 , pouttypes : *const DMO_PARTIAL_MEDIATYPE ) -> :: windows::core::HRESULT );
-    DMORegister(szname.into(), clsiddmo, guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes).ok()
+    DMORegister(szname.into().abi(), clsiddmo, guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]

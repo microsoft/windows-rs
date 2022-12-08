@@ -3,10 +3,10 @@
 #[inline]
 pub unsafe fn DnsHostnameToComputerNameExW<P0>(hostname: P0, computername: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn DnsHostnameToComputerNameExW ( hostname : :: windows::core::PCWSTR , computername : :: windows::core::PWSTR , nsize : *mut u32 ) -> super::super::Foundation:: BOOL );
-    DnsHostnameToComputerNameExW(hostname.into(), ::core::mem::transmute(computername), nsize)
+    DnsHostnameToComputerNameExW(hostname.into().abi(), ::core::mem::transmute(computername), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
@@ -341,50 +341,50 @@ pub unsafe fn RtlSwitchedVVI(versioninfo: *const OSVERSIONINFOEXW, typemask: u32
 #[inline]
 pub unsafe fn SetComputerNameA<P0>(lpcomputername: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetComputerNameA ( lpcomputername : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
-    SetComputerNameA(lpcomputername.into())
+    SetComputerNameA(lpcomputername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameEx2W<P0>(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetComputerNameEx2W ( nametype : COMPUTER_NAME_FORMAT , flags : u32 , lpbuffer : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    SetComputerNameEx2W(nametype, flags, lpbuffer.into())
+    SetComputerNameEx2W(nametype, flags, lpbuffer.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameExA<P0>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetComputerNameExA ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
-    SetComputerNameExA(nametype, lpbuffer.into())
+    SetComputerNameExA(nametype, lpbuffer.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameExW<P0>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetComputerNameExW ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    SetComputerNameExW(nametype, lpbuffer.into())
+    SetComputerNameExW(nametype, lpbuffer.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameW<P0>(lpcomputername: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetComputerNameW ( lpcomputername : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    SetComputerNameW(lpcomputername.into())
+    SetComputerNameW(lpcomputername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

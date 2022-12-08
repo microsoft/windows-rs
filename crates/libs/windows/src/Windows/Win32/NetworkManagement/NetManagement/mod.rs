@@ -2,19 +2,19 @@
 #[inline]
 pub unsafe fn GetNetScheduleAccountInformation<P0>(pwszservername: P0, wszaccount: &mut [u16]) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "mstask.dll""system" fn GetNetScheduleAccountInformation ( pwszservername : :: windows::core::PCWSTR , ccaccount : u32 , wszaccount : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    GetNetScheduleAccountInformation(pwszservername.into(), wszaccount.len() as _, ::core::mem::transmute(wszaccount.as_ptr())).ok()
+    GetNetScheduleAccountInformation(pwszservername.into().abi(), wszaccount.len() as _, ::core::mem::transmute(wszaccount.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn I_NetLogonControl2<P0>(servername: P0, functioncode: u32, querylevel: u32, data: *const u8, buffer: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn I_NetLogonControl2 ( servername : :: windows::core::PCWSTR , functioncode : u32 , querylevel : u32 , data : *const u8 , buffer : *mut *mut u8 ) -> u32 );
-    I_NetLogonControl2(servername.into(), functioncode, querylevel, data, buffer)
+    I_NetLogonControl2(servername.into().abi(), functioncode, querylevel, data, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -56,104 +56,104 @@ pub unsafe fn MprSetupProtocolFree(lpbuffer: *mut ::core::ffi::c_void) -> u32 {
 #[inline]
 pub unsafe fn NetAccessAdd<P0>(servername: P0, level: u32, buf: *const u8, parm_err: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetAccessAdd ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetAccessAdd(servername.into(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
+    NetAccessAdd(servername.into().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetAccessDel<P0, P1>(servername: P0, resource: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetAccessDel ( servername : :: windows::core::PCWSTR , resource : :: windows::core::PCWSTR ) -> u32 );
-    NetAccessDel(servername.into(), resource.into())
+    NetAccessDel(servername.into().abi(), resource.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetAccessEnum<P0, P1>(servername: P0, basepath: P1, recursive: u32, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetAccessEnum ( servername : :: windows::core::PCWSTR , basepath : :: windows::core::PCWSTR , recursive : u32 , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
-    NetAccessEnum(servername.into(), basepath.into(), recursive, level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
+    NetAccessEnum(servername.into().abi(), basepath.into().abi(), recursive, level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetAccessGetInfo<P0, P1>(servername: P0, resource: P1, level: u32, bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetAccessGetInfo ( servername : :: windows::core::PCWSTR , resource : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
-    NetAccessGetInfo(servername.into(), resource.into(), level, bufptr)
+    NetAccessGetInfo(servername.into().abi(), resource.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetAccessGetUserPerms<P0, P1, P2>(servername: P0, ugname: P1, resource: P2, perms: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetAccessGetUserPerms ( servername : :: windows::core::PCWSTR , ugname : :: windows::core::PCWSTR , resource : :: windows::core::PCWSTR , perms : *mut u32 ) -> u32 );
-    NetAccessGetUserPerms(servername.into(), ugname.into(), resource.into(), perms)
+    NetAccessGetUserPerms(servername.into().abi(), ugname.into().abi(), resource.into().abi(), perms)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetAccessSetInfo<P0, P1>(servername: P0, resource: P1, level: u32, buf: *const u8, parm_err: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetAccessSetInfo ( servername : :: windows::core::PCWSTR , resource : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetAccessSetInfo(servername.into(), resource.into(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
+    NetAccessSetInfo(servername.into().abi(), resource.into().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetAddAlternateComputerName<P0, P1, P2, P3>(server: P0, alternatename: P1, domainaccount: P2, domainaccountpassword: P3, reserved: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetAddAlternateComputerName ( server : :: windows::core::PCWSTR , alternatename : :: windows::core::PCWSTR , domainaccount : :: windows::core::PCWSTR , domainaccountpassword : :: windows::core::PCWSTR , reserved : u32 ) -> u32 );
-    NetAddAlternateComputerName(server.into(), alternatename.into(), domainaccount.into(), domainaccountpassword.into(), reserved)
+    NetAddAlternateComputerName(server.into().abi(), alternatename.into().abi(), domainaccount.into().abi(), domainaccountpassword.into().abi(), reserved)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAddServiceAccount<P0, P1, P2>(servername: P0, accountname: P1, password: P2, flags: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetAddServiceAccount ( servername : :: windows::core::PCWSTR , accountname : :: windows::core::PCWSTR , password : :: windows::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: NTSTATUS );
-    NetAddServiceAccount(servername.into(), accountname.into(), password.into(), flags).ok()
+    NetAddServiceAccount(servername.into().abi(), accountname.into().abi(), password.into().abi(), flags).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetAlertRaise<P0>(alerttype: P0, buffer: *const ::core::ffi::c_void, buffersize: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetAlertRaise ( alerttype : :: windows::core::PCWSTR , buffer : *const ::core::ffi::c_void , buffersize : u32 ) -> u32 );
-    NetAlertRaise(alerttype.into(), buffer, buffersize)
+    NetAlertRaise(alerttype.into().abi(), buffer, buffersize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetAlertRaiseEx<P0, P1>(alerttype: P0, variableinfo: *const ::core::ffi::c_void, variableinfosize: u32, servicename: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetAlertRaiseEx ( alerttype : :: windows::core::PCWSTR , variableinfo : *const ::core::ffi::c_void , variableinfosize : u32 , servicename : :: windows::core::PCWSTR ) -> u32 );
-    NetAlertRaiseEx(alerttype.into(), variableinfo, variableinfosize, servicename.into())
+    NetAlertRaiseEx(alerttype.into().abi(), variableinfo, variableinfosize, servicename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -183,63 +183,63 @@ pub unsafe fn NetApiBufferSize(buffer: *const ::core::ffi::c_void, bytecount: *m
 #[inline]
 pub unsafe fn NetAuditClear<P0, P1, P2>(server: P0, backupfile: P1, service: P2) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetAuditClear ( server : :: windows::core::PCWSTR , backupfile : :: windows::core::PCWSTR , service : :: windows::core::PCWSTR ) -> u32 );
-    NetAuditClear(server.into(), backupfile.into(), service.into())
+    NetAuditClear(server.into().abi(), backupfile.into().abi(), service.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetAuditRead<P0, P1>(server: P0, service: P1, auditloghandle: *mut HLOG, offset: u32, reserved1: *mut u32, reserved2: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxlen: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetAuditRead ( server : :: windows::core::PCWSTR , service : :: windows::core::PCWSTR , auditloghandle : *mut HLOG , offset : u32 , reserved1 : *mut u32 , reserved2 : u32 , offsetflag : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , bytesread : *mut u32 , totalavailable : *mut u32 ) -> u32 );
-    NetAuditRead(server.into(), service.into(), auditloghandle, offset, reserved1, reserved2, offsetflag, bufptr, prefmaxlen, bytesread, totalavailable)
+    NetAuditRead(server.into().abi(), service.into().abi(), auditloghandle, offset, reserved1, reserved2, offsetflag, bufptr, prefmaxlen, bytesread, totalavailable)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetAuditWrite<P0>(r#type: u32, buf: *mut u8, numbytes: u32, service: P0, reserved: *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetAuditWrite ( r#type : u32 , buf : *mut u8 , numbytes : u32 , service : :: windows::core::PCWSTR , reserved : *mut u8 ) -> u32 );
-    NetAuditWrite(r#type, buf, numbytes, service.into(), reserved)
+    NetAuditWrite(r#type, buf, numbytes, service.into().abi(), reserved)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetConfigGet<P0, P1, P2>(server: P0, component: P1, parameter: P2, bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetConfigGet ( server : :: windows::core::PCWSTR , component : :: windows::core::PCWSTR , parameter : :: windows::core::PCWSTR , bufptr : *mut *mut u8 ) -> u32 );
-    NetConfigGet(server.into(), component.into(), parameter.into(), bufptr)
+    NetConfigGet(server.into().abi(), component.into().abi(), parameter.into().abi(), bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetConfigGetAll<P0, P1>(server: P0, component: P1, bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetConfigGetAll ( server : :: windows::core::PCWSTR , component : :: windows::core::PCWSTR , bufptr : *mut *mut u8 ) -> u32 );
-    NetConfigGetAll(server.into(), component.into(), bufptr)
+    NetConfigGetAll(server.into().abi(), component.into().abi(), bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetConfigSet<P0, P1, P2>(server: P0, reserved1: P1, component: P2, level: u32, reserved2: u32, buf: *mut u8, reserved3: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetConfigSet ( server : :: windows::core::PCWSTR , reserved1 : :: windows::core::PCWSTR , component : :: windows::core::PCWSTR , level : u32 , reserved2 : u32 , buf : *mut u8 , reserved3 : u32 ) -> u32 );
-    NetConfigSet(server.into(), reserved1.into(), component.into(), level, reserved2, buf, reserved3)
+    NetConfigSet(server.into().abi(), reserved1.into().abi(), component.into().abi(), level, reserved2, buf, reserved3)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -251,49 +251,49 @@ pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_
 #[inline]
 pub unsafe fn NetEnumerateComputerNames<P0>(server: P0, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut ::windows::core::PWSTR) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetEnumerateComputerNames ( server : :: windows::core::PCWSTR , nametype : NET_COMPUTER_NAME_TYPE , reserved : u32 , entrycount : *mut u32 , computernames : *mut *mut :: windows::core::PWSTR ) -> u32 );
-    NetEnumerateComputerNames(server.into(), nametype, reserved, entrycount, computernames)
+    NetEnumerateComputerNames(server.into().abi(), nametype, reserved, entrycount, computernames)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetEnumerateServiceAccounts<P0>(servername: P0, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetEnumerateServiceAccounts ( servername : :: windows::core::PCWSTR , flags : u32 , accountscount : *mut u32 , accounts : *mut *mut *mut u16 ) -> super::super::Foundation:: NTSTATUS );
-    NetEnumerateServiceAccounts(servername.into(), flags, accountscount, accounts).ok()
+    NetEnumerateServiceAccounts(servername.into().abi(), flags, accountscount, accounts).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetErrorLogClear<P0, P1>(uncservername: P0, backupfile: P1, reserved: ::core::option::Option<*const u8>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetErrorLogClear ( uncservername : :: windows::core::PCWSTR , backupfile : :: windows::core::PCWSTR , reserved : *const u8 ) -> u32 );
-    NetErrorLogClear(uncservername.into(), backupfile.into(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())))
+    NetErrorLogClear(uncservername.into().abi(), backupfile.into().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetErrorLogRead<P0, P1>(uncservername: P0, reserved1: P1, errorloghandle: *const HLOG, offset: u32, reserved2: ::core::option::Option<*const u32>, reserved3: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxsize: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetErrorLogRead ( uncservername : :: windows::core::PCWSTR , reserved1 : :: windows::core::PCWSTR , errorloghandle : *const HLOG , offset : u32 , reserved2 : *const u32 , reserved3 : u32 , offsetflag : u32 , bufptr : *mut *mut u8 , prefmaxsize : u32 , bytesread : *mut u32 , totalavailable : *mut u32 ) -> u32 );
-    NetErrorLogRead(uncservername.into(), reserved1.into(), errorloghandle, offset, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())), reserved3, offsetflag, bufptr, prefmaxsize, bytesread, totalavailable)
+    NetErrorLogRead(uncservername.into().abi(), reserved1.into().abi(), errorloghandle, offset, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())), reserved3, offsetflag, bufptr, prefmaxsize, bytesread, totalavailable)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetErrorLogWrite<P0>(reserved1: ::core::option::Option<*const u8>, code: u32, component: P0, buffer: *const u8, numbytes: u32, msgbuf: *const u8, strcount: u32, reserved2: ::core::option::Option<*const u8>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetErrorLogWrite ( reserved1 : *const u8 , code : u32 , component : :: windows::core::PCWSTR , buffer : *const u8 , numbytes : u32 , msgbuf : *const u8 , strcount : u32 , reserved2 : *const u8 ) -> u32 );
-    NetErrorLogWrite(::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), code, component.into(), buffer, numbytes, msgbuf, strcount, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())))
+    NetErrorLogWrite(::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), code, component.into().abi(), buffer, numbytes, msgbuf, strcount, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -307,777 +307,777 @@ pub unsafe fn NetFreeAadJoinInformation(pjoininfo: ::core::option::Option<*const
 #[inline]
 pub unsafe fn NetGetAadJoinInformation<P0>(pcsztenantid: P0) -> ::windows::core::Result<*mut DSREG_JOIN_INFO>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGetAadJoinInformation ( pcsztenantid : :: windows::core::PCWSTR , ppjoininfo : *mut *mut DSREG_JOIN_INFO ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    NetGetAadJoinInformation(pcsztenantid.into(), result__.as_mut_ptr()).from_abi(result__)
+    NetGetAadJoinInformation(pcsztenantid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetGetAnyDCName<P0, P1>(servername: P0, domainname: P1, buffer: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGetAnyDCName ( servername : :: windows::core::PCWSTR , domainname : :: windows::core::PCWSTR , buffer : *mut *mut u8 ) -> u32 );
-    NetGetAnyDCName(servername.into(), domainname.into(), buffer)
+    NetGetAnyDCName(servername.into().abi(), domainname.into().abi(), buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetGetDCName<P0, P1>(servername: P0, domainname: P1, buffer: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGetDCName ( servername : :: windows::core::PCWSTR , domainname : :: windows::core::PCWSTR , buffer : *mut *mut u8 ) -> u32 );
-    NetGetDCName(servername.into(), domainname.into(), buffer)
+    NetGetDCName(servername.into().abi(), domainname.into().abi(), buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetGetDisplayInformationIndex<P0, P1>(servername: P0, level: u32, prefix: P1, index: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGetDisplayInformationIndex ( servername : :: windows::core::PCWSTR , level : u32 , prefix : :: windows::core::PCWSTR , index : *mut u32 ) -> u32 );
-    NetGetDisplayInformationIndex(servername.into(), level, prefix.into(), index)
+    NetGetDisplayInformationIndex(servername.into().abi(), level, prefix.into().abi(), index)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetGetJoinInformation<P0>(lpserver: P0, lpnamebuffer: *mut ::windows::core::PWSTR, buffertype: *mut NETSETUP_JOIN_STATUS) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGetJoinInformation ( lpserver : :: windows::core::PCWSTR , lpnamebuffer : *mut :: windows::core::PWSTR , buffertype : *mut NETSETUP_JOIN_STATUS ) -> u32 );
-    NetGetJoinInformation(lpserver.into(), lpnamebuffer, buffertype)
+    NetGetJoinInformation(lpserver.into().abi(), lpnamebuffer, buffertype)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetGetJoinableOUs<P0, P1, P2, P3>(lpserver: P0, lpdomain: P1, lpaccount: P2, lppassword: P3, oucount: *mut u32, ous: *mut *mut ::windows::core::PWSTR) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGetJoinableOUs ( lpserver : :: windows::core::PCWSTR , lpdomain : :: windows::core::PCWSTR , lpaccount : :: windows::core::PCWSTR , lppassword : :: windows::core::PCWSTR , oucount : *mut u32 , ous : *mut *mut :: windows::core::PWSTR ) -> u32 );
-    NetGetJoinableOUs(lpserver.into(), lpdomain.into(), lpaccount.into(), lppassword.into(), oucount, ous)
+    NetGetJoinableOUs(lpserver.into().abi(), lpdomain.into().abi(), lpaccount.into().abi(), lppassword.into().abi(), oucount, ous)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetGroupAdd<P0>(servername: P0, level: u32, buf: *const u8, parm_err: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGroupAdd ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetGroupAdd(servername.into(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
+    NetGroupAdd(servername.into().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetGroupAddUser<P0, P1, P2>(servername: P0, groupname: P1, username: P2) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGroupAddUser ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR ) -> u32 );
-    NetGroupAddUser(servername.into(), groupname.into(), username.into())
+    NetGroupAddUser(servername.into().abi(), groupname.into().abi(), username.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetGroupDel<P0, P1>(servername: P0, groupname: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGroupDel ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR ) -> u32 );
-    NetGroupDel(servername.into(), groupname.into())
+    NetGroupDel(servername.into().abi(), groupname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetGroupDelUser<P0, P1, P2>(servername: P0, groupname: P1, username: P2) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGroupDelUser ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR ) -> u32 );
-    NetGroupDelUser(servername.into(), groupname.into(), username.into())
+    NetGroupDelUser(servername.into().abi(), groupname.into().abi(), username.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetGroupEnum<P0>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: ::core::option::Option<*mut usize>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGroupEnum ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut usize ) -> u32 );
-    NetGroupEnum(servername.into(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
+    NetGroupEnum(servername.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetGroupGetInfo<P0, P1>(servername: P0, groupname: P1, level: u32, bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGroupGetInfo ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
-    NetGroupGetInfo(servername.into(), groupname.into(), level, bufptr)
+    NetGroupGetInfo(servername.into().abi(), groupname.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetGroupGetUsers<P0, P1>(servername: P0, groupname: P1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: ::core::option::Option<*mut usize>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGroupGetUsers ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut usize ) -> u32 );
-    NetGroupGetUsers(servername.into(), groupname.into(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
+    NetGroupGetUsers(servername.into().abi(), groupname.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetGroupSetInfo<P0, P1>(servername: P0, groupname: P1, level: u32, buf: *const u8, parm_err: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGroupSetInfo ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetGroupSetInfo(servername.into(), groupname.into(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
+    NetGroupSetInfo(servername.into().abi(), groupname.into().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetGroupSetUsers<P0, P1>(servername: P0, groupname: P1, level: u32, buf: *const u8, totalentries: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGroupSetUsers ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , totalentries : u32 ) -> u32 );
-    NetGroupSetUsers(servername.into(), groupname.into(), level, buf, totalentries)
+    NetGroupSetUsers(servername.into().abi(), groupname.into().abi(), level, buf, totalentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetIsServiceAccount<P0, P1>(servername: P0, accountname: P1, isservice: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetIsServiceAccount ( servername : :: windows::core::PCWSTR , accountname : :: windows::core::PCWSTR , isservice : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: NTSTATUS );
-    NetIsServiceAccount(servername.into(), accountname.into(), isservice).ok()
+    NetIsServiceAccount(servername.into().abi(), accountname.into().abi(), isservice).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetJoinDomain<P0, P1, P2, P3, P4>(lpserver: P0, lpdomain: P1, lpmachineaccountou: P2, lpaccount: P3, lppassword: P4, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-    P4: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetJoinDomain ( lpserver : :: windows::core::PCWSTR , lpdomain : :: windows::core::PCWSTR , lpmachineaccountou : :: windows::core::PCWSTR , lpaccount : :: windows::core::PCWSTR , lppassword : :: windows::core::PCWSTR , fjoinoptions : NET_JOIN_DOMAIN_JOIN_OPTIONS ) -> u32 );
-    NetJoinDomain(lpserver.into(), lpdomain.into(), lpmachineaccountou.into(), lpaccount.into(), lppassword.into(), fjoinoptions)
+    NetJoinDomain(lpserver.into().abi(), lpdomain.into().abi(), lpmachineaccountou.into().abi(), lpaccount.into().abi(), lppassword.into().abi(), fjoinoptions)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetLocalGroupAdd<P0>(servername: P0, level: u32, buf: *const u8, parm_err: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetLocalGroupAdd ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetLocalGroupAdd(servername.into(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
+    NetLocalGroupAdd(servername.into().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupAddMember<P0, P1, P2>(servername: P0, groupname: P1, membersid: P2) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::PSID>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetLocalGroupAddMember ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR , membersid : super::super::Foundation:: PSID ) -> u32 );
-    NetLocalGroupAddMember(servername.into(), groupname.into(), membersid.into())
+    NetLocalGroupAddMember(servername.into().abi(), groupname.into().abi(), membersid.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetLocalGroupAddMembers<P0, P1>(servername: P0, groupname: P1, level: u32, buf: *const u8, totalentries: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetLocalGroupAddMembers ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , totalentries : u32 ) -> u32 );
-    NetLocalGroupAddMembers(servername.into(), groupname.into(), level, buf, totalentries)
+    NetLocalGroupAddMembers(servername.into().abi(), groupname.into().abi(), level, buf, totalentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetLocalGroupDel<P0, P1>(servername: P0, groupname: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetLocalGroupDel ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR ) -> u32 );
-    NetLocalGroupDel(servername.into(), groupname.into())
+    NetLocalGroupDel(servername.into().abi(), groupname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupDelMember<P0, P1, P2>(servername: P0, groupname: P1, membersid: P2) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::PSID>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetLocalGroupDelMember ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR , membersid : super::super::Foundation:: PSID ) -> u32 );
-    NetLocalGroupDelMember(servername.into(), groupname.into(), membersid.into())
+    NetLocalGroupDelMember(servername.into().abi(), groupname.into().abi(), membersid.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetLocalGroupDelMembers<P0, P1>(servername: P0, groupname: P1, level: u32, buf: *const u8, totalentries: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetLocalGroupDelMembers ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , totalentries : u32 ) -> u32 );
-    NetLocalGroupDelMembers(servername.into(), groupname.into(), level, buf, totalentries)
+    NetLocalGroupDelMembers(servername.into().abi(), groupname.into().abi(), level, buf, totalentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetLocalGroupEnum<P0>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: ::core::option::Option<*mut usize>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetLocalGroupEnum ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut usize ) -> u32 );
-    NetLocalGroupEnum(servername.into(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
+    NetLocalGroupEnum(servername.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetLocalGroupGetInfo<P0, P1>(servername: P0, groupname: P1, level: u32, bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetLocalGroupGetInfo ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
-    NetLocalGroupGetInfo(servername.into(), groupname.into(), level, bufptr)
+    NetLocalGroupGetInfo(servername.into().abi(), groupname.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetLocalGroupGetMembers<P0, P1>(servername: P0, localgroupname: P1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: ::core::option::Option<*mut usize>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetLocalGroupGetMembers ( servername : :: windows::core::PCWSTR , localgroupname : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut usize ) -> u32 );
-    NetLocalGroupGetMembers(servername.into(), localgroupname.into(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
+    NetLocalGroupGetMembers(servername.into().abi(), localgroupname.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetLocalGroupSetInfo<P0, P1>(servername: P0, groupname: P1, level: u32, buf: *const u8, parm_err: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetLocalGroupSetInfo ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetLocalGroupSetInfo(servername.into(), groupname.into(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
+    NetLocalGroupSetInfo(servername.into().abi(), groupname.into().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetLocalGroupSetMembers<P0, P1>(servername: P0, groupname: P1, level: u32, buf: *const u8, totalentries: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetLocalGroupSetMembers ( servername : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , totalentries : u32 ) -> u32 );
-    NetLocalGroupSetMembers(servername.into(), groupname.into(), level, buf, totalentries)
+    NetLocalGroupSetMembers(servername.into().abi(), groupname.into().abi(), level, buf, totalentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetMessageBufferSend<P0, P1, P2>(servername: P0, msgname: P1, fromname: P2, buf: *const u8, buflen: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetMessageBufferSend ( servername : :: windows::core::PCWSTR , msgname : :: windows::core::PCWSTR , fromname : :: windows::core::PCWSTR , buf : *const u8 , buflen : u32 ) -> u32 );
-    NetMessageBufferSend(servername.into(), msgname.into(), fromname.into(), buf, buflen)
+    NetMessageBufferSend(servername.into().abi(), msgname.into().abi(), fromname.into().abi(), buf, buflen)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetMessageNameAdd<P0, P1>(servername: P0, msgname: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetMessageNameAdd ( servername : :: windows::core::PCWSTR , msgname : :: windows::core::PCWSTR ) -> u32 );
-    NetMessageNameAdd(servername.into(), msgname.into())
+    NetMessageNameAdd(servername.into().abi(), msgname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetMessageNameDel<P0, P1>(servername: P0, msgname: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetMessageNameDel ( servername : :: windows::core::PCWSTR , msgname : :: windows::core::PCWSTR ) -> u32 );
-    NetMessageNameDel(servername.into(), msgname.into())
+    NetMessageNameDel(servername.into().abi(), msgname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetMessageNameEnum<P0>(servername: P0, level: u32, bufptr: *const *const u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetMessageNameEnum ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *const *const u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
-    NetMessageNameEnum(servername.into(), level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle)
+    NetMessageNameEnum(servername.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetMessageNameGetInfo<P0, P1>(servername: P0, msgname: P1, level: u32, bufptr: *const *const u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetMessageNameGetInfo ( servername : :: windows::core::PCWSTR , msgname : :: windows::core::PCWSTR , level : u32 , bufptr : *const *const u8 ) -> u32 );
-    NetMessageNameGetInfo(servername.into(), msgname.into(), level, bufptr)
+    NetMessageNameGetInfo(servername.into().abi(), msgname.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetProvisionComputerAccount<P0, P1, P2, P3>(lpdomain: P0, lpmachinename: P1, lpmachineaccountou: P2, lpdcname: P3, dwoptions: NETSETUP_PROVISION, pprovisionbindata: ::core::option::Option<*mut *mut u8>, pdwprovisionbindatasize: ::core::option::Option<*mut u32>, pprovisiontextdata: ::core::option::Option<*mut ::windows::core::PWSTR>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetProvisionComputerAccount ( lpdomain : :: windows::core::PCWSTR , lpmachinename : :: windows::core::PCWSTR , lpmachineaccountou : :: windows::core::PCWSTR , lpdcname : :: windows::core::PCWSTR , dwoptions : NETSETUP_PROVISION , pprovisionbindata : *mut *mut u8 , pdwprovisionbindatasize : *mut u32 , pprovisiontextdata : *mut :: windows::core::PWSTR ) -> u32 );
-    NetProvisionComputerAccount(lpdomain.into(), lpmachinename.into(), lpmachineaccountou.into(), lpdcname.into(), dwoptions, ::core::mem::transmute(pprovisionbindata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwprovisionbindatasize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pprovisiontextdata.unwrap_or(::std::ptr::null_mut())))
+    NetProvisionComputerAccount(lpdomain.into().abi(), lpmachinename.into().abi(), lpmachineaccountou.into().abi(), lpdcname.into().abi(), dwoptions, ::core::mem::transmute(pprovisionbindata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwprovisionbindatasize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pprovisiontextdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetQueryDisplayInformation<P0>(servername: P0, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::core::ffi::c_void) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetQueryDisplayInformation ( servername : :: windows::core::PCWSTR , level : u32 , index : u32 , entriesrequested : u32 , preferredmaximumlength : u32 , returnedentrycount : *mut u32 , sortedbuffer : *mut *mut ::core::ffi::c_void ) -> u32 );
-    NetQueryDisplayInformation(servername.into(), level, index, entriesrequested, preferredmaximumlength, returnedentrycount, sortedbuffer)
+    NetQueryDisplayInformation(servername.into().abi(), level, index, entriesrequested, preferredmaximumlength, returnedentrycount, sortedbuffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetQueryServiceAccount<P0, P1>(servername: P0, accountname: P1, infolevel: u32, buffer: *mut *mut u8) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetQueryServiceAccount ( servername : :: windows::core::PCWSTR , accountname : :: windows::core::PCWSTR , infolevel : u32 , buffer : *mut *mut u8 ) -> super::super::Foundation:: NTSTATUS );
-    NetQueryServiceAccount(servername.into(), accountname.into(), infolevel, buffer).ok()
+    NetQueryServiceAccount(servername.into().abi(), accountname.into().abi(), infolevel, buffer).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetRemoteComputerSupports<P0>(uncservername: P0, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetRemoteComputerSupports ( uncservername : :: windows::core::PCWSTR , optionswanted : NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS , optionssupported : *mut u32 ) -> u32 );
-    NetRemoteComputerSupports(uncservername.into(), optionswanted, optionssupported)
+    NetRemoteComputerSupports(uncservername.into().abi(), optionswanted, optionssupported)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetRemoteTOD<P0>(uncservername: P0, bufferptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetRemoteTOD ( uncservername : :: windows::core::PCWSTR , bufferptr : *mut *mut u8 ) -> u32 );
-    NetRemoteTOD(uncservername.into(), bufferptr)
+    NetRemoteTOD(uncservername.into().abi(), bufferptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetRemoveAlternateComputerName<P0, P1, P2, P3>(server: P0, alternatename: P1, domainaccount: P2, domainaccountpassword: P3, reserved: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetRemoveAlternateComputerName ( server : :: windows::core::PCWSTR , alternatename : :: windows::core::PCWSTR , domainaccount : :: windows::core::PCWSTR , domainaccountpassword : :: windows::core::PCWSTR , reserved : u32 ) -> u32 );
-    NetRemoveAlternateComputerName(server.into(), alternatename.into(), domainaccount.into(), domainaccountpassword.into(), reserved)
+    NetRemoveAlternateComputerName(server.into().abi(), alternatename.into().abi(), domainaccount.into().abi(), domainaccountpassword.into().abi(), reserved)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRemoveServiceAccount<P0, P1>(servername: P0, accountname: P1, flags: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetRemoveServiceAccount ( servername : :: windows::core::PCWSTR , accountname : :: windows::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: NTSTATUS );
-    NetRemoveServiceAccount(servername.into(), accountname.into(), flags).ok()
+    NetRemoveServiceAccount(servername.into().abi(), accountname.into().abi(), flags).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetRenameMachineInDomain<P0, P1, P2, P3>(lpserver: P0, lpnewmachinename: P1, lpaccount: P2, lppassword: P3, frenameoptions: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetRenameMachineInDomain ( lpserver : :: windows::core::PCWSTR , lpnewmachinename : :: windows::core::PCWSTR , lpaccount : :: windows::core::PCWSTR , lppassword : :: windows::core::PCWSTR , frenameoptions : u32 ) -> u32 );
-    NetRenameMachineInDomain(lpserver.into(), lpnewmachinename.into(), lpaccount.into(), lppassword.into(), frenameoptions)
+    NetRenameMachineInDomain(lpserver.into().abi(), lpnewmachinename.into().abi(), lpaccount.into().abi(), lppassword.into().abi(), frenameoptions)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplExportDirAdd<P0>(servername: P0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplExportDirAdd ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetReplExportDirAdd(servername.into(), level, buf, parm_err)
+    NetReplExportDirAdd(servername.into().abi(), level, buf, parm_err)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplExportDirDel<P0, P1>(servername: P0, dirname: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplExportDirDel ( servername : :: windows::core::PCWSTR , dirname : :: windows::core::PCWSTR ) -> u32 );
-    NetReplExportDirDel(servername.into(), dirname.into())
+    NetReplExportDirDel(servername.into().abi(), dirname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplExportDirEnum<P0>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplExportDirEnum ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut u32 ) -> u32 );
-    NetReplExportDirEnum(servername.into(), level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle)
+    NetReplExportDirEnum(servername.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplExportDirGetInfo<P0, P1>(servername: P0, dirname: P1, level: u32, bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplExportDirGetInfo ( servername : :: windows::core::PCWSTR , dirname : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
-    NetReplExportDirGetInfo(servername.into(), dirname.into(), level, bufptr)
+    NetReplExportDirGetInfo(servername.into().abi(), dirname.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplExportDirLock<P0, P1>(servername: P0, dirname: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplExportDirLock ( servername : :: windows::core::PCWSTR , dirname : :: windows::core::PCWSTR ) -> u32 );
-    NetReplExportDirLock(servername.into(), dirname.into())
+    NetReplExportDirLock(servername.into().abi(), dirname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplExportDirSetInfo<P0, P1>(servername: P0, dirname: P1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplExportDirSetInfo ( servername : :: windows::core::PCWSTR , dirname : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetReplExportDirSetInfo(servername.into(), dirname.into(), level, buf, parm_err)
+    NetReplExportDirSetInfo(servername.into().abi(), dirname.into().abi(), level, buf, parm_err)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplExportDirUnlock<P0, P1>(servername: P0, dirname: P1, unlockforce: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplExportDirUnlock ( servername : :: windows::core::PCWSTR , dirname : :: windows::core::PCWSTR , unlockforce : u32 ) -> u32 );
-    NetReplExportDirUnlock(servername.into(), dirname.into(), unlockforce)
+    NetReplExportDirUnlock(servername.into().abi(), dirname.into().abi(), unlockforce)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplGetInfo<P0>(servername: P0, level: u32, bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplGetInfo ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
-    NetReplGetInfo(servername.into(), level, bufptr)
+    NetReplGetInfo(servername.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplImportDirAdd<P0>(servername: P0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplImportDirAdd ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetReplImportDirAdd(servername.into(), level, buf, parm_err)
+    NetReplImportDirAdd(servername.into().abi(), level, buf, parm_err)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplImportDirDel<P0, P1>(servername: P0, dirname: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplImportDirDel ( servername : :: windows::core::PCWSTR , dirname : :: windows::core::PCWSTR ) -> u32 );
-    NetReplImportDirDel(servername.into(), dirname.into())
+    NetReplImportDirDel(servername.into().abi(), dirname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplImportDirEnum<P0>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplImportDirEnum ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut u32 ) -> u32 );
-    NetReplImportDirEnum(servername.into(), level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle)
+    NetReplImportDirEnum(servername.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplImportDirGetInfo<P0, P1>(servername: P0, dirname: P1, level: u32, bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplImportDirGetInfo ( servername : :: windows::core::PCWSTR , dirname : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
-    NetReplImportDirGetInfo(servername.into(), dirname.into(), level, bufptr)
+    NetReplImportDirGetInfo(servername.into().abi(), dirname.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplImportDirLock<P0, P1>(servername: P0, dirname: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplImportDirLock ( servername : :: windows::core::PCWSTR , dirname : :: windows::core::PCWSTR ) -> u32 );
-    NetReplImportDirLock(servername.into(), dirname.into())
+    NetReplImportDirLock(servername.into().abi(), dirname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplImportDirUnlock<P0, P1>(servername: P0, dirname: P1, unlockforce: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplImportDirUnlock ( servername : :: windows::core::PCWSTR , dirname : :: windows::core::PCWSTR , unlockforce : u32 ) -> u32 );
-    NetReplImportDirUnlock(servername.into(), dirname.into(), unlockforce)
+    NetReplImportDirUnlock(servername.into().abi(), dirname.into().abi(), unlockforce)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetReplSetInfo<P0>(servername: P0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetReplSetInfo ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetReplSetInfo(servername.into(), level, buf, parm_err)
+    NetReplSetInfo(servername.into().abi(), level, buf, parm_err)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetRequestOfflineDomainJoin<P0>(pprovisionbindata: &[u8], dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetRequestOfflineDomainJoin ( pprovisionbindata : *const u8 , cbprovisionbindatasize : u32 , dwoptions : NET_REQUEST_PROVISION_OPTIONS , lpwindowspath : :: windows::core::PCWSTR ) -> u32 );
-    NetRequestOfflineDomainJoin(::core::mem::transmute(pprovisionbindata.as_ptr()), pprovisionbindata.len() as _, dwoptions, lpwindowspath.into())
+    NetRequestOfflineDomainJoin(::core::mem::transmute(pprovisionbindata.as_ptr()), pprovisionbindata.len() as _, dwoptions, lpwindowspath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetRequestProvisioningPackageInstall<P0>(ppackagebindata: &[u8], dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: P0, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetRequestProvisioningPackageInstall ( ppackagebindata : *const u8 , dwpackagebindatasize : u32 , dwprovisionoptions : NET_REQUEST_PROVISION_OPTIONS , lpwindowspath : :: windows::core::PCWSTR , pvreserved : *mut ::core::ffi::c_void ) -> u32 );
-    NetRequestProvisioningPackageInstall(::core::mem::transmute(ppackagebindata.as_ptr()), ppackagebindata.len() as _, dwprovisionoptions, lpwindowspath.into(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut())))
+    NetRequestProvisioningPackageInstall(::core::mem::transmute(ppackagebindata.as_ptr()), ppackagebindata.len() as _, dwprovisionoptions, lpwindowspath.into().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetScheduleJobAdd<P0>(servername: P0, buffer: *mut u8, jobid: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetScheduleJobAdd ( servername : :: windows::core::PCWSTR , buffer : *mut u8 , jobid : *mut u32 ) -> u32 );
-    NetScheduleJobAdd(servername.into(), buffer, jobid)
+    NetScheduleJobAdd(servername.into().abi(), buffer, jobid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetScheduleJobDel<P0>(servername: P0, minjobid: u32, maxjobid: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetScheduleJobDel ( servername : :: windows::core::PCWSTR , minjobid : u32 , maxjobid : u32 ) -> u32 );
-    NetScheduleJobDel(servername.into(), minjobid, maxjobid)
+    NetScheduleJobDel(servername.into().abi(), minjobid, maxjobid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetScheduleJobEnum<P0>(servername: P0, pointertobuffer: *mut *mut u8, prefferedmaximumlength: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetScheduleJobEnum ( servername : :: windows::core::PCWSTR , pointertobuffer : *mut *mut u8 , prefferedmaximumlength : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut u32 ) -> u32 );
-    NetScheduleJobEnum(servername.into(), pointertobuffer, prefferedmaximumlength, entriesread, totalentries, resumehandle)
+    NetScheduleJobEnum(servername.into().abi(), pointertobuffer, prefferedmaximumlength, entriesread, totalentries, resumehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetScheduleJobGetInfo<P0>(servername: P0, jobid: u32, pointertobuffer: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetScheduleJobGetInfo ( servername : :: windows::core::PCWSTR , jobid : u32 , pointertobuffer : *mut *mut u8 ) -> u32 );
-    NetScheduleJobGetInfo(servername.into(), jobid, pointertobuffer)
+    NetScheduleJobGetInfo(servername.into().abi(), jobid, pointertobuffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetServerComputerNameAdd<P0, P1, P2>(servername: P0, emulateddomainname: P1, emulatedservername: P2) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetServerComputerNameAdd ( servername : :: windows::core::PCWSTR , emulateddomainname : :: windows::core::PCWSTR , emulatedservername : :: windows::core::PCWSTR ) -> u32 );
-    NetServerComputerNameAdd(servername.into(), emulateddomainname.into(), emulatedservername.into())
+    NetServerComputerNameAdd(servername.into().abi(), emulateddomainname.into().abi(), emulatedservername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetServerComputerNameDel<P0, P1>(servername: P0, emulatedservername: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetServerComputerNameDel ( servername : :: windows::core::PCWSTR , emulatedservername : :: windows::core::PCWSTR ) -> u32 );
-    NetServerComputerNameDel(servername.into(), emulatedservername.into())
+    NetServerComputerNameDel(servername.into().abi(), emulatedservername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetServerDiskEnum<P0>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetServerDiskEnum ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
-    NetServerDiskEnum(servername.into(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
+    NetServerDiskEnum(servername.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetServerEnum<P0, P1>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: NET_SERVER_TYPE, domain: P1, resume_handle: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetServerEnum ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , servertype : NET_SERVER_TYPE , domain : :: windows::core::PCWSTR , resume_handle : *mut u32 ) -> u32 );
-    NetServerEnum(servername.into(), level, bufptr, prefmaxlen, entriesread, totalentries, servertype, domain.into(), ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
+    NetServerEnum(servername.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, servertype, domain.into().abi(), ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetServerGetInfo<P0>(servername: P0, level: u32, bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetServerGetInfo ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
-    NetServerGetInfo(servername.into(), level, bufptr)
+    NetServerGetInfo(servername.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetServerSetInfo<P0>(servername: P0, level: u32, buf: *const u8, parmerror: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetServerSetInfo ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parmerror : *mut u32 ) -> u32 );
-    NetServerSetInfo(servername.into(), level, buf, ::core::mem::transmute(parmerror.unwrap_or(::std::ptr::null_mut())))
+    NetServerSetInfo(servername.into().abi(), level, buf, ::core::mem::transmute(parmerror.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetServerTransportAdd<P0>(servername: P0, level: u32, bufptr: *const u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetServerTransportAdd ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *const u8 ) -> u32 );
-    NetServerTransportAdd(servername.into(), level, bufptr)
+    NetServerTransportAdd(servername.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetServerTransportAddEx<P0>(servername: P0, level: u32, bufptr: *const u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetServerTransportAddEx ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *const u8 ) -> u32 );
-    NetServerTransportAddEx(servername.into(), level, bufptr)
+    NetServerTransportAddEx(servername.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetServerTransportDel<P0>(servername: P0, level: u32, bufptr: *const u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetServerTransportDel ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *const u8 ) -> u32 );
-    NetServerTransportDel(servername.into(), level, bufptr)
+    NetServerTransportDel(servername.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetServerTransportEnum<P0>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetServerTransportEnum ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
-    NetServerTransportEnum(servername.into(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
+    NetServerTransportEnum(servername.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetServiceControl<P0, P1>(servername: P0, service: P1, opcode: u32, arg: u32, bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetServiceControl ( servername : :: windows::core::PCWSTR , service : :: windows::core::PCWSTR , opcode : u32 , arg : u32 , bufptr : *mut *mut u8 ) -> u32 );
-    NetServiceControl(servername.into(), service.into(), opcode, arg, bufptr)
+    NetServiceControl(servername.into().abi(), service.into().abi(), opcode, arg, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetServiceEnum<P0>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetServiceEnum ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
-    NetServiceEnum(servername.into(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
+    NetServiceEnum(servername.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetServiceGetInfo<P0, P1>(servername: P0, service: P1, level: u32, bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetServiceGetInfo ( servername : :: windows::core::PCWSTR , service : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
-    NetServiceGetInfo(servername.into(), service.into(), level, bufptr)
+    NetServiceGetInfo(servername.into().abi(), service.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetServiceInstall<P0, P1>(servername: P0, service: P1, argv: &[::windows::core::PCWSTR], bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetServiceInstall ( servername : :: windows::core::PCWSTR , service : :: windows::core::PCWSTR , argc : u32 , argv : *const :: windows::core::PCWSTR , bufptr : *mut *mut u8 ) -> u32 );
-    NetServiceInstall(servername.into(), service.into(), argv.len() as _, ::core::mem::transmute(argv.as_ptr()), bufptr)
+    NetServiceInstall(servername.into().abi(), service.into().abi(), argv.len() as _, ::core::mem::transmute(argv.as_ptr()), bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetSetPrimaryComputerName<P0, P1, P2, P3>(server: P0, primaryname: P1, domainaccount: P2, domainaccountpassword: P3, reserved: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetSetPrimaryComputerName ( server : :: windows::core::PCWSTR , primaryname : :: windows::core::PCWSTR , domainaccount : :: windows::core::PCWSTR , domainaccountpassword : :: windows::core::PCWSTR , reserved : u32 ) -> u32 );
-    NetSetPrimaryComputerName(server.into(), primaryname.into(), domainaccount.into(), domainaccountpassword.into(), reserved)
+    NetSetPrimaryComputerName(server.into().abi(), primaryname.into().abi(), domainaccount.into().abi(), domainaccountpassword.into().abi(), reserved)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUnjoinDomain<P0, P1, P2>(lpserver: P0, lpaccount: P1, lppassword: P2, funjoinoptions: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUnjoinDomain ( lpserver : :: windows::core::PCWSTR , lpaccount : :: windows::core::PCWSTR , lppassword : :: windows::core::PCWSTR , funjoinoptions : u32 ) -> u32 );
-    NetUnjoinDomain(lpserver.into(), lpaccount.into(), lppassword.into(), funjoinoptions)
+    NetUnjoinDomain(lpserver.into().abi(), lpaccount.into().abi(), lppassword.into().abi(), funjoinoptions)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -1089,159 +1089,159 @@ pub unsafe fn NetUseAdd(servername: ::core::option::Option<*const i8>, levelflag
 #[inline]
 pub unsafe fn NetUseDel<P0, P1>(uncservername: P0, usename: P1, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUseDel ( uncservername : :: windows::core::PCWSTR , usename : :: windows::core::PCWSTR , forcelevelflags : FORCE_LEVEL_FLAGS ) -> u32 );
-    NetUseDel(uncservername.into(), usename.into(), forcelevelflags)
+    NetUseDel(uncservername.into().abi(), usename.into().abi(), forcelevelflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUseEnum<P0>(uncservername: P0, levelflags: u32, bufptr: ::core::option::Option<*mut *mut u8>, preferedmaximumsize: u32, entriesread: ::core::option::Option<*mut u32>, totalentries: *mut u32, resumehandle: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUseEnum ( uncservername : :: windows::core::PCWSTR , levelflags : u32 , bufptr : *mut *mut u8 , preferedmaximumsize : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut u32 ) -> u32 );
-    NetUseEnum(uncservername.into(), levelflags, ::core::mem::transmute(bufptr.unwrap_or(::std::ptr::null_mut())), preferedmaximumsize, ::core::mem::transmute(entriesread.unwrap_or(::std::ptr::null_mut())), totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
+    NetUseEnum(uncservername.into().abi(), levelflags, ::core::mem::transmute(bufptr.unwrap_or(::std::ptr::null_mut())), preferedmaximumsize, ::core::mem::transmute(entriesread.unwrap_or(::std::ptr::null_mut())), totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUseGetInfo<P0, P1>(uncservername: P0, usename: P1, levelflags: u32, bufptr: ::core::option::Option<*mut *mut u8>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUseGetInfo ( uncservername : :: windows::core::PCWSTR , usename : :: windows::core::PCWSTR , levelflags : u32 , bufptr : *mut *mut u8 ) -> u32 );
-    NetUseGetInfo(uncservername.into(), usename.into(), levelflags, ::core::mem::transmute(bufptr.unwrap_or(::std::ptr::null_mut())))
+    NetUseGetInfo(uncservername.into().abi(), usename.into().abi(), levelflags, ::core::mem::transmute(bufptr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUserAdd<P0>(servername: P0, level: u32, buf: *const u8, parm_err: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUserAdd ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetUserAdd(servername.into(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
+    NetUserAdd(servername.into().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUserChangePassword<P0, P1, P2, P3>(domainname: P0, username: P1, oldpassword: P2, newpassword: P3) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUserChangePassword ( domainname : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , oldpassword : :: windows::core::PCWSTR , newpassword : :: windows::core::PCWSTR ) -> u32 );
-    NetUserChangePassword(domainname.into(), username.into(), oldpassword.into(), newpassword.into())
+    NetUserChangePassword(domainname.into().abi(), username.into().abi(), oldpassword.into().abi(), newpassword.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUserDel<P0, P1>(servername: P0, username: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUserDel ( servername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR ) -> u32 );
-    NetUserDel(servername.into(), username.into())
+    NetUserDel(servername.into().abi(), username.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUserEnum<P0>(servername: P0, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUserEnum ( servername : :: windows::core::PCWSTR , level : u32 , filter : NET_USER_ENUM_FILTER_FLAGS , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
-    NetUserEnum(servername.into(), level, filter, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
+    NetUserEnum(servername.into().abi(), level, filter, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUserGetGroups<P0, P1>(servername: P0, username: P1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUserGetGroups ( servername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 ) -> u32 );
-    NetUserGetGroups(servername.into(), username.into(), level, bufptr, prefmaxlen, entriesread, totalentries)
+    NetUserGetGroups(servername.into().abi(), username.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUserGetInfo<P0, P1>(servername: P0, username: P1, level: u32, bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUserGetInfo ( servername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
-    NetUserGetInfo(servername.into(), username.into(), level, bufptr)
+    NetUserGetInfo(servername.into().abi(), username.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUserGetLocalGroups<P0, P1>(servername: P0, username: P1, level: u32, flags: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUserGetLocalGroups ( servername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , level : u32 , flags : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 ) -> u32 );
-    NetUserGetLocalGroups(servername.into(), username.into(), level, flags, bufptr, prefmaxlen, entriesread, totalentries)
+    NetUserGetLocalGroups(servername.into().abi(), username.into().abi(), level, flags, bufptr, prefmaxlen, entriesread, totalentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUserModalsGet<P0>(servername: P0, level: u32, bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUserModalsGet ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
-    NetUserModalsGet(servername.into(), level, bufptr)
+    NetUserModalsGet(servername.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUserModalsSet<P0>(servername: P0, level: u32, buf: *const u8, parm_err: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUserModalsSet ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetUserModalsSet(servername.into(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
+    NetUserModalsSet(servername.into().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUserSetGroups<P0, P1>(servername: P0, username: P1, level: u32, buf: *const u8, num_entries: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUserSetGroups ( servername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , num_entries : u32 ) -> u32 );
-    NetUserSetGroups(servername.into(), username.into(), level, buf, num_entries)
+    NetUserSetGroups(servername.into().abi(), username.into().abi(), level, buf, num_entries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUserSetInfo<P0, P1>(servername: P0, username: P1, level: u32, buf: *const u8, parm_err: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetUserSetInfo ( servername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetUserSetInfo(servername.into(), username.into(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
+    NetUserSetInfo(servername.into().abi(), username.into().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetValidateName<P0, P1, P2, P3>(lpserver: P0, lpname: P1, lpaccount: P2, lppassword: P3, nametype: NETSETUP_NAME_TYPE) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetValidateName ( lpserver : :: windows::core::PCWSTR , lpname : :: windows::core::PCWSTR , lpaccount : :: windows::core::PCWSTR , lppassword : :: windows::core::PCWSTR , nametype : NETSETUP_NAME_TYPE ) -> u32 );
-    NetValidateName(lpserver.into(), lpname.into(), lpaccount.into(), lppassword.into(), nametype)
+    NetValidateName(lpserver.into().abi(), lpname.into().abi(), lpaccount.into().abi(), lppassword.into().abi(), nametype)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetValidatePasswordPolicy<P0>(servername: P0, qualifier: *mut ::core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetValidatePasswordPolicy ( servername : :: windows::core::PCWSTR , qualifier : *mut ::core::ffi::c_void , validationtype : NET_VALIDATE_PASSWORD_TYPE , inputarg : *mut ::core::ffi::c_void , outputarg : *mut *mut ::core::ffi::c_void ) -> u32 );
-    NetValidatePasswordPolicy(servername.into(), qualifier, validationtype, inputarg, outputarg)
+    NetValidatePasswordPolicy(servername.into().abi(), qualifier, validationtype, inputarg, outputarg)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -1253,19 +1253,19 @@ pub unsafe fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::core::ffi::c_
 #[inline]
 pub unsafe fn NetWkstaGetInfo<P0>(servername: P0, level: u32, bufptr: ::core::option::Option<*mut *mut u8>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetWkstaGetInfo ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
-    NetWkstaGetInfo(servername.into(), level, ::core::mem::transmute(bufptr.unwrap_or(::std::ptr::null_mut())))
+    NetWkstaGetInfo(servername.into().abi(), level, ::core::mem::transmute(bufptr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetWkstaSetInfo<P0>(servername: P0, level: u32, buffer: *const u8, parm_err: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetWkstaSetInfo ( servername : :: windows::core::PCWSTR , level : u32 , buffer : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetWkstaSetInfo(servername.into(), level, buffer, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
+    NetWkstaSetInfo(servername.into().abi(), level, buffer, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -1277,11 +1277,11 @@ pub unsafe fn NetWkstaTransportAdd(servername: ::core::option::Option<*const i8>
 #[inline]
 pub unsafe fn NetWkstaTransportDel<P0, P1>(servername: P0, transportname: P1, ucond: FORCE_LEVEL_FLAGS) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetWkstaTransportDel ( servername : :: windows::core::PCWSTR , transportname : :: windows::core::PCWSTR , ucond : FORCE_LEVEL_FLAGS ) -> u32 );
-    NetWkstaTransportDel(servername.into(), transportname.into(), ucond)
+    NetWkstaTransportDel(servername.into().abi(), transportname.into().abi(), ucond)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -1293,39 +1293,39 @@ pub unsafe fn NetWkstaTransportEnum(servername: ::core::option::Option<*const i8
 #[inline]
 pub unsafe fn NetWkstaUserEnum<P0>(servername: P0, level: u32, bufptr: ::core::option::Option<*mut *mut u8>, prefmaxlen: u32, entriesread: ::core::option::Option<*mut u32>, totalentries: *mut u32, resumehandle: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetWkstaUserEnum ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut u32 ) -> u32 );
-    NetWkstaUserEnum(servername.into(), level, ::core::mem::transmute(bufptr.unwrap_or(::std::ptr::null_mut())), prefmaxlen, ::core::mem::transmute(entriesread.unwrap_or(::std::ptr::null_mut())), totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
+    NetWkstaUserEnum(servername.into().abi(), level, ::core::mem::transmute(bufptr.unwrap_or(::std::ptr::null_mut())), prefmaxlen, ::core::mem::transmute(entriesread.unwrap_or(::std::ptr::null_mut())), totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetWkstaUserGetInfo<P0>(reserved: P0, level: u32, bufptr: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetWkstaUserGetInfo ( reserved : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
-    NetWkstaUserGetInfo(reserved.into(), level, bufptr)
+    NetWkstaUserGetInfo(reserved.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetWkstaUserSetInfo<P0>(reserved: P0, level: u32, buf: *const u8, parm_err: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetWkstaUserSetInfo ( reserved : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
-    NetWkstaUserSetInfo(reserved.into(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
+    NetWkstaUserSetInfo(reserved.into().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn RouterAssert<P0, P1, P2>(pszfailedassertion: P0, pszfilename: P1, dwlinenumber: u32, pszmessage: P2)
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""system" fn RouterAssert ( pszfailedassertion : :: windows::core::PCSTR , pszfilename : :: windows::core::PCSTR , dwlinenumber : u32 , pszmessage : :: windows::core::PCSTR ) -> ( ) );
-    RouterAssert(pszfailedassertion.into(), pszfilename.into(), dwlinenumber, pszmessage.into())
+    RouterAssert(pszfailedassertion.into().abi(), pszfilename.into().abi(), dwlinenumber, pszmessage.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -1395,10 +1395,10 @@ where
 pub unsafe fn RouterLogEventExA<P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""cdecl" fn RouterLogEventExA ( hloghandle : super::super::Foundation:: HANDLE , dweventtype : u32 , dwerrorcode : u32 , dwmessageid : u32 , ptszformat : :: windows::core::PCSTR ) -> ( ) );
-    RouterLogEventExA(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into())
+    RouterLogEventExA(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1406,10 +1406,10 @@ where
 pub unsafe fn RouterLogEventExW<P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""cdecl" fn RouterLogEventExW ( hloghandle : super::super::Foundation:: HANDLE , dweventtype : u32 , dwerrorcode : u32 , dwmessageid : u32 , ptszformat : :: windows::core::PCWSTR ) -> ( ) );
-    RouterLogEventExW(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into())
+    RouterLogEventExW(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1437,10 +1437,10 @@ where
 pub unsafe fn RouterLogEventValistExA<P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1, arglist: *mut i8)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""system" fn RouterLogEventValistExA ( hloghandle : super::super::Foundation:: HANDLE , dweventtype : u32 , dwerrorcode : u32 , dwmessageid : u32 , ptszformat : :: windows::core::PCSTR , arglist : *mut i8 ) -> ( ) );
-    RouterLogEventValistExA(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into(), arglist)
+    RouterLogEventValistExA(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into().abi(), arglist)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1448,10 +1448,10 @@ where
 pub unsafe fn RouterLogEventValistExW<P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1, arglist: *mut i8)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""system" fn RouterLogEventValistExW ( hloghandle : super::super::Foundation:: HANDLE , dweventtype : u32 , dwerrorcode : u32 , dwmessageid : u32 , ptszformat : :: windows::core::PCWSTR , arglist : *mut i8 ) -> ( ) );
-    RouterLogEventValistExW(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into(), arglist)
+    RouterLogEventValistExW(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into().abi(), arglist)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1468,31 +1468,31 @@ where
 #[inline]
 pub unsafe fn RouterLogRegisterA<P0>(lpszsource: P0) -> super::super::Foundation::HANDLE
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""system" fn RouterLogRegisterA ( lpszsource : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
-    RouterLogRegisterA(lpszsource.into())
+    RouterLogRegisterA(lpszsource.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogRegisterW<P0>(lpszsource: P0) -> super::super::Foundation::HANDLE
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""system" fn RouterLogRegisterW ( lpszsource : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    RouterLogRegisterW(lpszsource.into())
+    RouterLogRegisterW(lpszsource.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn SetNetScheduleAccountInformation<P0, P1, P2>(pwszservername: P0, pwszaccount: P1, pwszpassword: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "mstask.dll""system" fn SetNetScheduleAccountInformation ( pwszservername : :: windows::core::PCWSTR , pwszaccount : :: windows::core::PCWSTR , pwszpassword : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    SetNetScheduleAccountInformation(pwszservername.into(), pwszaccount.into(), pwszpassword.into()).ok()
+    SetNetScheduleAccountInformation(pwszservername.into().abi(), pwszaccount.into().abi(), pwszpassword.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -1524,10 +1524,10 @@ pub unsafe fn TraceDeregisterW(dwtraceid: u32) -> u32 {
 pub unsafe fn TraceDumpExA<P0, P1>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: P0, lpszprefix: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""system" fn TraceDumpExA ( dwtraceid : u32 , dwflags : u32 , lpbbytes : *mut u8 , dwbytecount : u32 , dwgroupsize : u32 , baddressprefix : super::super::Foundation:: BOOL , lpszprefix : :: windows::core::PCSTR ) -> u32 );
-    TraceDumpExA(dwtraceid, dwflags, lpbbytes, dwbytecount, dwgroupsize, baddressprefix.into(), lpszprefix.into())
+    TraceDumpExA(dwtraceid, dwflags, lpbbytes, dwbytecount, dwgroupsize, baddressprefix.into(), lpszprefix.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1535,10 +1535,10 @@ where
 pub unsafe fn TraceDumpExW<P0, P1>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: P0, lpszprefix: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""system" fn TraceDumpExW ( dwtraceid : u32 , dwflags : u32 , lpbbytes : *mut u8 , dwbytecount : u32 , dwgroupsize : u32 , baddressprefix : super::super::Foundation:: BOOL , lpszprefix : :: windows::core::PCWSTR ) -> u32 );
-    TraceDumpExW(dwtraceid, dwflags, lpbbytes, dwbytecount, dwgroupsize, baddressprefix.into(), lpszprefix.into())
+    TraceDumpExW(dwtraceid, dwflags, lpbbytes, dwbytecount, dwgroupsize, baddressprefix.into(), lpszprefix.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1558,91 +1558,91 @@ pub unsafe fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Fo
 #[inline]
 pub unsafe fn TracePrintfA<P0>(dwtraceid: u32, lpszformat: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""cdecl" fn TracePrintfA ( dwtraceid : u32 , lpszformat : :: windows::core::PCSTR ) -> u32 );
-    TracePrintfA(dwtraceid, lpszformat.into())
+    TracePrintfA(dwtraceid, lpszformat.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn TracePrintfExA<P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""cdecl" fn TracePrintfExA ( dwtraceid : u32 , dwflags : u32 , lpszformat : :: windows::core::PCSTR ) -> u32 );
-    TracePrintfExA(dwtraceid, dwflags, lpszformat.into())
+    TracePrintfExA(dwtraceid, dwflags, lpszformat.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn TracePrintfExW<P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""cdecl" fn TracePrintfExW ( dwtraceid : u32 , dwflags : u32 , lpszformat : :: windows::core::PCWSTR ) -> u32 );
-    TracePrintfExW(dwtraceid, dwflags, lpszformat.into())
+    TracePrintfExW(dwtraceid, dwflags, lpszformat.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn TracePrintfW<P0>(dwtraceid: u32, lpszformat: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""cdecl" fn TracePrintfW ( dwtraceid : u32 , lpszformat : :: windows::core::PCWSTR ) -> u32 );
-    TracePrintfW(dwtraceid, lpszformat.into())
+    TracePrintfW(dwtraceid, lpszformat.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn TracePutsExA<P0>(dwtraceid: u32, dwflags: u32, lpszstring: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""system" fn TracePutsExA ( dwtraceid : u32 , dwflags : u32 , lpszstring : :: windows::core::PCSTR ) -> u32 );
-    TracePutsExA(dwtraceid, dwflags, lpszstring.into())
+    TracePutsExA(dwtraceid, dwflags, lpszstring.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn TracePutsExW<P0>(dwtraceid: u32, dwflags: u32, lpszstring: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""system" fn TracePutsExW ( dwtraceid : u32 , dwflags : u32 , lpszstring : :: windows::core::PCWSTR ) -> u32 );
-    TracePutsExW(dwtraceid, dwflags, lpszstring.into())
+    TracePutsExW(dwtraceid, dwflags, lpszstring.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn TraceRegisterExA<P0>(lpszcallername: P0, dwflags: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""system" fn TraceRegisterExA ( lpszcallername : :: windows::core::PCSTR , dwflags : u32 ) -> u32 );
-    TraceRegisterExA(lpszcallername.into(), dwflags)
+    TraceRegisterExA(lpszcallername.into().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn TraceRegisterExW<P0>(lpszcallername: P0, dwflags: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""system" fn TraceRegisterExW ( lpszcallername : :: windows::core::PCWSTR , dwflags : u32 ) -> u32 );
-    TraceRegisterExW(lpszcallername.into(), dwflags)
+    TraceRegisterExW(lpszcallername.into().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn TraceVprintfExA<P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0, arglist: *mut i8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""system" fn TraceVprintfExA ( dwtraceid : u32 , dwflags : u32 , lpszformat : :: windows::core::PCSTR , arglist : *mut i8 ) -> u32 );
-    TraceVprintfExA(dwtraceid, dwflags, lpszformat.into(), arglist)
+    TraceVprintfExA(dwtraceid, dwflags, lpszformat.into().abi(), arglist)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn TraceVprintfExW<P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0, arglist: *mut i8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "rtutils.dll""system" fn TraceVprintfExW ( dwtraceid : u32 , dwflags : u32 , lpszformat : :: windows::core::PCWSTR , arglist : *mut i8 ) -> u32 );
-    TraceVprintfExW(dwtraceid, dwflags, lpszformat.into(), arglist)
+    TraceVprintfExW(dwtraceid, dwflags, lpszformat.into().abi(), arglist)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
@@ -1816,10 +1816,10 @@ impl INetCfg {
     }
     pub unsafe fn FindComponent<P0>(&self, pszwinfid: P0) -> ::windows::core::Result<INetCfgComponent>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindComponent)(::windows::core::Vtable::as_raw(self), pszwinfid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindComponent)(::windows::core::Vtable::as_raw(self), pszwinfid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn QueryNetCfgClass(&self, pguidclass: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).QueryNetCfgClass)(::windows::core::Vtable::as_raw(self), pguidclass, riid, ::core::mem::transmute(ppvobject.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -1997,10 +1997,10 @@ pub struct INetCfgClass(::windows::core::IUnknown);
 impl INetCfgClass {
     pub unsafe fn FindComponent<P0>(&self, pszwinfid: P0) -> ::windows::core::Result<INetCfgComponent>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindComponent)(::windows::core::Vtable::as_raw(self), pszwinfid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindComponent)(::windows::core::Vtable::as_raw(self), pszwinfid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumComponents(&self) -> ::windows::core::Result<IEnumNetCfgComponent> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2054,12 +2054,12 @@ impl INetCfgClassSetup {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Install<P0, P1, P2>(&self, pszwinfid: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: P1, pszwanswersections: P2) -> ::windows::core::Result<INetCfgComponent>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Install)(::windows::core::Vtable::as_raw(self), pszwinfid.into(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), dwsetupflags, dwupgradefrombuildno, pszwanswerfile.into(), pszwanswersections.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Install)(::windows::core::Vtable::as_raw(self), pszwinfid.into().abi(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), dwsetupflags, dwupgradefrombuildno, pszwanswerfile.into().abi(), pszwanswersections.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2127,12 +2127,12 @@ impl INetCfgClassSetup2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Install<P0, P1, P2>(&self, pszwinfid: P0, pobotoken: ::core::option::Option<*const OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: P1, pszwanswersections: P2) -> ::windows::core::Result<INetCfgComponent>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Install)(::windows::core::Vtable::as_raw(self), pszwinfid.into(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), dwsetupflags, dwupgradefrombuildno, pszwanswerfile.into(), pszwanswersections.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.Install)(::windows::core::Vtable::as_raw(self), pszwinfid.into().abi(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), dwsetupflags, dwupgradefrombuildno, pszwanswerfile.into().abi(), pszwanswersections.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2188,9 +2188,9 @@ impl INetCfgComponent {
     }
     pub unsafe fn SetDisplayName<P0>(&self, pszwdisplayname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetDisplayName)(::windows::core::Vtable::as_raw(self), pszwdisplayname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetDisplayName)(::windows::core::Vtable::as_raw(self), pszwdisplayname.into().abi()).ok()
     }
     pub unsafe fn GetHelpText(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2304,9 +2304,9 @@ impl INetCfgComponentBindings {
     }
     pub unsafe fn SupportsBindingInterface<P0>(&self, dwflags: u32, pszwinterfacename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SupportsBindingInterface)(::windows::core::Vtable::as_raw(self), dwflags, pszwinterfacename.into()).ok()
+        (::windows::core::Vtable::vtable(self).SupportsBindingInterface)(::windows::core::Vtable::as_raw(self), dwflags, pszwinterfacename.into().abi()).ok()
     }
     pub unsafe fn IsBoundTo<P0>(&self, pnccitem: P0) -> ::windows::core::Result<()>
     where
@@ -2634,10 +2634,10 @@ impl INetCfgComponentSetup {
     }
     pub unsafe fn ReadAnswerFile<P0, P1>(&self, pszwanswerfile: P0, pszwanswersections: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ReadAnswerFile)(::windows::core::Vtable::as_raw(self), pszwanswerfile.into(), pszwanswersections.into()).ok()
+        (::windows::core::Vtable::vtable(self).ReadAnswerFile)(::windows::core::Vtable::as_raw(self), pszwanswerfile.into().abi(), pszwanswersections.into().abi()).ok()
     }
     pub unsafe fn Removing(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Removing)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2682,16 +2682,16 @@ impl INetCfgComponentSysPrep {
     pub unsafe fn SaveAdapterParameters<P0, P1>(&self, pncsp: P0, pszwanswersections: P1, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<INetCfgSysPrep>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SaveAdapterParameters)(::windows::core::Vtable::as_raw(self), pncsp.into().abi(), pszwanswersections.into(), padapterinstanceguid).ok()
+        (::windows::core::Vtable::vtable(self).SaveAdapterParameters)(::windows::core::Vtable::as_raw(self), pncsp.into().abi(), pszwanswersections.into().abi(), padapterinstanceguid).ok()
     }
     pub unsafe fn RestoreAdapterParameters<P0, P1>(&self, pszwanswerfile: P0, pszwanswersection: P1, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RestoreAdapterParameters)(::windows::core::Vtable::as_raw(self), pszwanswerfile.into(), pszwanswersection.into(), padapterinstanceguid).ok()
+        (::windows::core::Vtable::vtable(self).RestoreAdapterParameters)(::windows::core::Vtable::as_raw(self), pszwanswerfile.into().abi(), pszwanswersection.into().abi(), padapterinstanceguid).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgComponentSysPrep, ::windows::core::IUnknown);
@@ -2784,10 +2784,10 @@ pub struct INetCfgLock(::windows::core::IUnknown);
 impl INetCfgLock {
     pub unsafe fn AcquireWriteLock<P0>(&self, cmstimeout: u32, pszwclientdescription: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AcquireWriteLock)(::windows::core::Vtable::as_raw(self), cmstimeout, pszwclientdescription.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AcquireWriteLock)(::windows::core::Vtable::as_raw(self), cmstimeout, pszwclientdescription.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn ReleaseWriteLock(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReleaseWriteLock)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2834,10 +2834,10 @@ pub struct INetCfgPnpReconfigCallback(::windows::core::IUnknown);
 impl INetCfgPnpReconfigCallback {
     pub unsafe fn SendPnpReconfig<P0, P1>(&self, layer: NCPNP_RECONFIG_LAYER, pszwupper: P0, pszwlower: P1, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SendPnpReconfig)(::windows::core::Vtable::as_raw(self), layer, pszwupper.into(), pszwlower.into(), pvdata, dwsizeofdata).ok()
+        (::windows::core::Vtable::vtable(self).SendPnpReconfig)(::windows::core::Vtable::as_raw(self), layer, pszwupper.into().abi(), pszwlower.into().abi(), pvdata, dwsizeofdata).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgPnpReconfigCallback, ::windows::core::IUnknown);
@@ -2875,36 +2875,36 @@ pub struct INetCfgSysPrep(::windows::core::IUnknown);
 impl INetCfgSysPrep {
     pub unsafe fn HrSetupSetFirstDword<P0, P1>(&self, pwszsection: P0, pwszkey: P1, dwvalue: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).HrSetupSetFirstDword)(::windows::core::Vtable::as_raw(self), pwszsection.into(), pwszkey.into(), dwvalue).ok()
+        (::windows::core::Vtable::vtable(self).HrSetupSetFirstDword)(::windows::core::Vtable::as_raw(self), pwszsection.into().abi(), pwszkey.into().abi(), dwvalue).ok()
     }
     pub unsafe fn HrSetupSetFirstString<P0, P1, P2>(&self, pwszsection: P0, pwszkey: P1, pwszvalue: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).HrSetupSetFirstString)(::windows::core::Vtable::as_raw(self), pwszsection.into(), pwszkey.into(), pwszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).HrSetupSetFirstString)(::windows::core::Vtable::as_raw(self), pwszsection.into().abi(), pwszkey.into().abi(), pwszvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HrSetupSetFirstStringAsBool<P0, P1, P2>(&self, pwszsection: P0, pwszkey: P1, fvalue: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).HrSetupSetFirstStringAsBool)(::windows::core::Vtable::as_raw(self), pwszsection.into(), pwszkey.into(), fvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).HrSetupSetFirstStringAsBool)(::windows::core::Vtable::as_raw(self), pwszsection.into().abi(), pwszkey.into().abi(), fvalue.into()).ok()
     }
     pub unsafe fn HrSetupSetFirstMultiSzField<P0, P1, P2>(&self, pwszsection: P0, pwszkey: P1, pmszvalue: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).HrSetupSetFirstMultiSzField)(::windows::core::Vtable::as_raw(self), pwszsection.into(), pwszkey.into(), pmszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).HrSetupSetFirstMultiSzField)(::windows::core::Vtable::as_raw(self), pwszsection.into().abi(), pwszkey.into().abi(), pmszvalue.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgSysPrep, ::windows::core::IUnknown);
@@ -3029,20 +3029,20 @@ pub struct IProvisioningDomain(::windows::core::IUnknown);
 impl IProvisioningDomain {
     pub unsafe fn Add<P0>(&self, pszwpathtofolder: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pszwpathtofolder.into()).ok()
+        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), pszwpathtofolder.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn Query<P0, P1, P2>(&self, pszwdomain: P0, pszwlanguage: P1, pszwxpathquery: P2) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), pszwdomain.into(), pszwlanguage.into(), pszwxpathquery.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), pszwdomain.into().abi(), pszwlanguage.into().abi(), pszwxpathquery.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IProvisioningDomain, ::windows::core::IUnknown);

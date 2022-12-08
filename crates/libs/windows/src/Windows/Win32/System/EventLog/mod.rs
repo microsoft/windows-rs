@@ -4,10 +4,10 @@
 pub unsafe fn BackupEventLogA<P0, P1>(heventlog: P0, lpbackupfilename: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<EventLogHandle>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn BackupEventLogA ( heventlog : EventLogHandle , lpbackupfilename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
-    BackupEventLogA(heventlog.into(), lpbackupfilename.into())
+    BackupEventLogA(heventlog.into(), lpbackupfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15,10 +15,10 @@ where
 pub unsafe fn BackupEventLogW<P0, P1>(heventlog: P0, lpbackupfilename: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<EventLogHandle>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn BackupEventLogW ( heventlog : EventLogHandle , lpbackupfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    BackupEventLogW(heventlog.into(), lpbackupfilename.into())
+    BackupEventLogW(heventlog.into(), lpbackupfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -26,10 +26,10 @@ where
 pub unsafe fn ClearEventLogA<P0, P1>(heventlog: P0, lpbackupfilename: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<EventLogHandle>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn ClearEventLogA ( heventlog : EventLogHandle , lpbackupfilename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
-    ClearEventLogA(heventlog.into(), lpbackupfilename.into())
+    ClearEventLogA(heventlog.into(), lpbackupfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -37,10 +37,10 @@ where
 pub unsafe fn ClearEventLogW<P0, P1>(heventlog: P0, lpbackupfilename: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<EventLogHandle>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn ClearEventLogW ( heventlog : EventLogHandle , lpbackupfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    ClearEventLogW(heventlog.into(), lpbackupfilename.into())
+    ClearEventLogW(heventlog.into(), lpbackupfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -68,10 +68,10 @@ where
 pub unsafe fn EvtArchiveExportedLog<P0, P1>(session: P0, logfilepath: P1, locale: u32, flags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<EVT_HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtArchiveExportedLog ( session : EVT_HANDLE , logfilepath : :: windows::core::PCWSTR , locale : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
-    EvtArchiveExportedLog(session.into(), logfilepath.into(), locale, flags)
+    EvtArchiveExportedLog(session.into(), logfilepath.into().abi(), locale, flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -89,11 +89,11 @@ where
 pub unsafe fn EvtClearLog<P0, P1, P2>(session: P0, channelpath: P1, targetfilepath: P2, flags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<EVT_HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtClearLog ( session : EVT_HANDLE , channelpath : :: windows::core::PCWSTR , targetfilepath : :: windows::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
-    EvtClearLog(session.into(), channelpath.into(), targetfilepath.into(), flags)
+    EvtClearLog(session.into(), channelpath.into().abi(), targetfilepath.into().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -109,10 +109,10 @@ where
 #[inline]
 pub unsafe fn EvtCreateBookmark<P0>(bookmarkxml: P0) -> ::windows::core::Result<EVT_HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtCreateBookmark ( bookmarkxml : :: windows::core::PCWSTR ) -> EVT_HANDLE );
-    let result__ = EvtCreateBookmark(bookmarkxml.into());
+    let result__ = EvtCreateBookmark(bookmarkxml.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
@@ -128,12 +128,12 @@ pub unsafe fn EvtCreateRenderContext(valuepaths: ::core::option::Option<&[::wind
 pub unsafe fn EvtExportLog<P0, P1, P2, P3>(session: P0, path: P1, query: P2, targetfilepath: P3, flags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<EVT_HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtExportLog ( session : EVT_HANDLE , path : :: windows::core::PCWSTR , query : :: windows::core::PCWSTR , targetfilepath : :: windows::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
-    EvtExportLog(session.into(), path.into(), query.into(), targetfilepath.into(), flags)
+    EvtExportLog(session.into(), path.into().abi(), query.into().abi(), targetfilepath.into().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -271,10 +271,10 @@ where
 pub unsafe fn EvtOpenChannelConfig<P0, P1>(session: P0, channelpath: P1, flags: u32) -> ::windows::core::Result<EVT_HANDLE>
 where
     P0: ::std::convert::Into<EVT_HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtOpenChannelConfig ( session : EVT_HANDLE , channelpath : :: windows::core::PCWSTR , flags : u32 ) -> EVT_HANDLE );
-    let result__ = EvtOpenChannelConfig(session.into(), channelpath.into(), flags);
+    let result__ = EvtOpenChannelConfig(session.into(), channelpath.into().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
@@ -302,10 +302,10 @@ where
 pub unsafe fn EvtOpenLog<P0, P1>(session: P0, path: P1, flags: u32) -> ::windows::core::Result<EVT_HANDLE>
 where
     P0: ::std::convert::Into<EVT_HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtOpenLog ( session : EVT_HANDLE , path : :: windows::core::PCWSTR , flags : u32 ) -> EVT_HANDLE );
-    let result__ = EvtOpenLog(session.into(), path.into(), flags);
+    let result__ = EvtOpenLog(session.into(), path.into().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
@@ -323,11 +323,11 @@ where
 pub unsafe fn EvtOpenPublisherMetadata<P0, P1, P2>(session: P0, publisherid: P1, logfilepath: P2, locale: u32, flags: u32) -> ::windows::core::Result<EVT_HANDLE>
 where
     P0: ::std::convert::Into<EVT_HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtOpenPublisherMetadata ( session : EVT_HANDLE , publisherid : :: windows::core::PCWSTR , logfilepath : :: windows::core::PCWSTR , locale : u32 , flags : u32 ) -> EVT_HANDLE );
-    let result__ = EvtOpenPublisherMetadata(session.into(), publisherid.into(), logfilepath.into(), locale, flags);
+    let result__ = EvtOpenPublisherMetadata(session.into(), publisherid.into().abi(), logfilepath.into().abi(), locale, flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
@@ -342,11 +342,11 @@ pub unsafe fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::core::
 pub unsafe fn EvtQuery<P0, P1, P2>(session: P0, path: P1, query: P2, flags: u32) -> ::windows::core::Result<EVT_HANDLE>
 where
     P0: ::std::convert::Into<EVT_HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtQuery ( session : EVT_HANDLE , path : :: windows::core::PCWSTR , query : :: windows::core::PCWSTR , flags : u32 ) -> EVT_HANDLE );
-    let result__ = EvtQuery(session.into(), path.into(), query.into(), flags);
+    let result__ = EvtQuery(session.into(), path.into().abi(), query.into().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
@@ -398,12 +398,12 @@ pub unsafe fn EvtSubscribe<P0, P1, P2, P3, P4>(session: P0, signalevent: P1, cha
 where
     P0: ::std::convert::Into<EVT_HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P4: ::std::convert::Into<EVT_HANDLE>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtSubscribe ( session : EVT_HANDLE , signalevent : super::super::Foundation:: HANDLE , channelpath : :: windows::core::PCWSTR , query : :: windows::core::PCWSTR , bookmark : EVT_HANDLE , context : *const ::core::ffi::c_void , callback : EVT_SUBSCRIBE_CALLBACK , flags : u32 ) -> EVT_HANDLE );
-    let result__ = EvtSubscribe(session.into(), signalevent.into(), channelpath.into(), query.into(), bookmark.into(), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), callback, flags);
+    let result__ = EvtSubscribe(session.into(), signalevent.into(), channelpath.into().abi(), query.into().abi(), bookmark.into(), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), callback, flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
@@ -462,44 +462,44 @@ where
 #[inline]
 pub unsafe fn OpenBackupEventLogA<P0, P1>(lpuncservername: P0, lpfilename: P1) -> ::windows::core::Result<EventLogHandle>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn OpenBackupEventLogA ( lpuncservername : :: windows::core::PCSTR , lpfilename : :: windows::core::PCSTR ) -> EventLogHandle );
-    let result__ = OpenBackupEventLogA(lpuncservername.into(), lpfilename.into());
+    let result__ = OpenBackupEventLogA(lpuncservername.into().abi(), lpfilename.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn OpenBackupEventLogW<P0, P1>(lpuncservername: P0, lpfilename: P1) -> ::windows::core::Result<EventLogHandle>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn OpenBackupEventLogW ( lpuncservername : :: windows::core::PCWSTR , lpfilename : :: windows::core::PCWSTR ) -> EventLogHandle );
-    let result__ = OpenBackupEventLogW(lpuncservername.into(), lpfilename.into());
+    let result__ = OpenBackupEventLogW(lpuncservername.into().abi(), lpfilename.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn OpenEventLogA<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows::core::Result<EventLogHandle>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn OpenEventLogA ( lpuncservername : :: windows::core::PCSTR , lpsourcename : :: windows::core::PCSTR ) -> EventLogHandle );
-    let result__ = OpenEventLogA(lpuncservername.into(), lpsourcename.into());
+    let result__ = OpenEventLogA(lpuncservername.into().abi(), lpsourcename.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn OpenEventLogW<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows::core::Result<EventLogHandle>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn OpenEventLogW ( lpuncservername : :: windows::core::PCWSTR , lpsourcename : :: windows::core::PCWSTR ) -> EventLogHandle );
-    let result__ = OpenEventLogW(lpuncservername.into(), lpsourcename.into());
+    let result__ = OpenEventLogW(lpuncservername.into().abi(), lpsourcename.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
@@ -526,22 +526,22 @@ where
 #[inline]
 pub unsafe fn RegisterEventSourceA<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows::core::Result<EventSourceHandle>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn RegisterEventSourceA ( lpuncservername : :: windows::core::PCSTR , lpsourcename : :: windows::core::PCSTR ) -> EventSourceHandle );
-    let result__ = RegisterEventSourceA(lpuncservername.into(), lpsourcename.into());
+    let result__ = RegisterEventSourceA(lpuncservername.into().abi(), lpsourcename.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn RegisterEventSourceW<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows::core::Result<EventSourceHandle>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn RegisterEventSourceW ( lpuncservername : :: windows::core::PCWSTR , lpsourcename : :: windows::core::PCWSTR ) -> EventSourceHandle );
-    let result__ = RegisterEventSourceW(lpuncservername.into(), lpsourcename.into());
+    let result__ = RegisterEventSourceW(lpuncservername.into().abi(), lpsourcename.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]

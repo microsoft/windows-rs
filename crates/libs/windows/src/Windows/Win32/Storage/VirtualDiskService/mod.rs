@@ -54,11 +54,11 @@ pub struct IVdsAdmin(::windows::core::IUnknown);
 impl IVdsAdmin {
     pub unsafe fn RegisterProvider<P0, P1, P2>(&self, providerid: ::windows::core::GUID, providerclsid: ::windows::core::GUID, pwszname: P0, r#type: VDS_PROVIDER_TYPE, pwszmachinename: P1, pwszversion: P2, guidversionid: ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(providerid), ::core::mem::transmute(providerclsid), pwszname.into(), r#type, pwszmachinename.into(), pwszversion.into(), ::core::mem::transmute(guidversionid)).ok()
+        (::windows::core::Vtable::vtable(self).RegisterProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(providerid), ::core::mem::transmute(providerclsid), pwszname.into().abi(), r#type, pwszmachinename.into().abi(), pwszversion.into().abi(), ::core::mem::transmute(guidversionid)).ok()
     }
     pub unsafe fn UnregisterProvider(&self, providerid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnregisterProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(providerid)).ok()
@@ -495,10 +495,10 @@ impl IVdsHwProviderPrivate {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryIfCreatedLun<P0>(&self, pwszdevicepath: P0, pvdsluninformation: *const VDS_LUN_INFORMATION) -> ::windows::core::Result<::windows::core::GUID>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryIfCreatedLun)(::windows::core::Vtable::as_raw(self), pwszdevicepath.into(), pvdsluninformation, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).QueryIfCreatedLun)(::windows::core::Vtable::as_raw(self), pwszdevicepath.into().abi(), pvdsluninformation, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsHwProviderPrivate, ::windows::core::IUnknown);
@@ -584,10 +584,10 @@ impl IVdsHwProviderStoragePools {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateLunInStoragePool<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: ::windows::core::GUID, pwszunmaskinglist: P0, phints2: ::core::option::Option<*const VDS_HINTS2>) -> ::windows::core::Result<IVdsAsync>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateLunInStoragePool)(::windows::core::Vtable::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(storagepoolid), pwszunmaskinglist.into(), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateLunInStoragePool)(::windows::core::Vtable::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(storagepoolid), pwszunmaskinglist.into().abi(), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -872,21 +872,21 @@ impl IVdsIscsiTarget {
     }
     pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetFriendlyName)(::windows::core::Vtable::as_raw(self), pwszfriendlyname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetFriendlyName)(::windows::core::Vtable::as_raw(self), pwszfriendlyname.into().abi()).ok()
     }
     pub unsafe fn SetSharedSecret<P0>(&self, ptargetsharedsecret: ::core::option::Option<*const VDS_ISCSI_SHARED_SECRET>, pwszinitiatorname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetSharedSecret)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptargetsharedsecret.unwrap_or(::std::ptr::null())), pwszinitiatorname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetSharedSecret)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptargetsharedsecret.unwrap_or(::std::ptr::null())), pwszinitiatorname.into().abi()).ok()
     }
     pub unsafe fn RememberInitiatorSharedSecret<P0>(&self, pwszinitiatorname: P0, pinitiatorsharedsecret: ::core::option::Option<*const VDS_ISCSI_SHARED_SECRET>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RememberInitiatorSharedSecret)(::windows::core::Vtable::as_raw(self), pwszinitiatorname.into(), ::core::mem::transmute(pinitiatorsharedsecret.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).RememberInitiatorSharedSecret)(::windows::core::Vtable::as_raw(self), pwszinitiatorname.into().abi(), ::core::mem::transmute(pinitiatorsharedsecret.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut ::windows::core::PWSTR, plnumberofinitiators: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetConnectedInitiators)(::windows::core::Vtable::as_raw(self), pppwszinitiatorlist, plnumberofinitiators).ok()
@@ -981,9 +981,9 @@ impl IVdsLun {
     }
     pub unsafe fn SetMask<P0>(&self, pwszunmaskinglist: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetMask)(::windows::core::Vtable::as_raw(self), pwszunmaskinglist.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetMask)(::windows::core::Vtable::as_raw(self), pwszunmaskinglist.into().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1266,9 +1266,9 @@ pub struct IVdsLunNaming(::windows::core::IUnknown);
 impl IVdsLunNaming {
     pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetFriendlyName)(::windows::core::Vtable::as_raw(self), pwszfriendlyname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetFriendlyName)(::windows::core::Vtable::as_raw(self), pwszfriendlyname.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVdsLunNaming, ::windows::core::IUnknown);
@@ -1502,10 +1502,10 @@ impl IVdsProviderPrivate {
     }
     pub unsafe fn OnLoad<P0, P1>(&self, pwszmachinename: P0, pcallbackobject: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).OnLoad)(::windows::core::Vtable::as_raw(self), pwszmachinename.into(), pcallbackobject.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).OnLoad)(::windows::core::Vtable::as_raw(self), pwszmachinename.into().abi(), pcallbackobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1698,10 +1698,10 @@ impl IVdsSubSystem {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateLun<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: ::core::option::Option<&[::windows::core::GUID]>, pwszunmaskinglist: P0, phints: ::core::option::Option<*const VDS_HINTS>) -> ::windows::core::Result<IVdsAsync>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateLun)(::windows::core::Vtable::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), pwszunmaskinglist.into(), ::core::mem::transmute(phints.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateLun)(::windows::core::Vtable::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), pwszunmaskinglist.into().abi(), ::core::mem::transmute(phints.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn ReplaceDrive(&self, drivetobereplaced: ::windows::core::GUID, replacementdrive: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReplaceDrive)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(drivetobereplaced), ::core::mem::transmute(replacementdrive)).ok()
@@ -1778,10 +1778,10 @@ impl IVdsSubSystem2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateLun2<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: ::core::option::Option<&[::windows::core::GUID]>, pwszunmaskinglist: P0, phints2: ::core::option::Option<*const VDS_HINTS2>) -> ::windows::core::Result<IVdsAsync>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateLun2)(::windows::core::Vtable::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), pwszunmaskinglist.into(), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateLun2)(::windows::core::Vtable::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), pwszunmaskinglist.into().abi(), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1880,11 +1880,11 @@ impl IVdsSubSystemIscsi {
     }
     pub unsafe fn CreateTarget<P0, P1>(&self, pwsziscsiname: P0, pwszfriendlyname: P1) -> ::windows::core::Result<IVdsAsync>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTarget)(::windows::core::Vtable::as_raw(self), pwsziscsiname.into(), pwszfriendlyname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateTarget)(::windows::core::Vtable::as_raw(self), pwsziscsiname.into().abi(), pwszfriendlyname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: ::core::option::Option<*const VDS_ISCSI_IPSEC_KEY>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetIpsecGroupPresharedKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pipseckey.unwrap_or(::std::ptr::null()))).ok()
@@ -1928,9 +1928,9 @@ pub struct IVdsSubSystemNaming(::windows::core::IUnknown);
 impl IVdsSubSystemNaming {
     pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetFriendlyName)(::windows::core::Vtable::as_raw(self), pwszfriendlyname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetFriendlyName)(::windows::core::Vtable::as_raw(self), pwszfriendlyname.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVdsSubSystemNaming, ::windows::core::IUnknown);

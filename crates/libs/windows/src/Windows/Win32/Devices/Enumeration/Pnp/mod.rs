@@ -12,12 +12,12 @@ where
 #[inline]
 pub unsafe fn SwDeviceCreate<P0, P1>(pszenumeratorname: P0, pszparentdeviceinstance: P1, pcreateinfo: *const SW_DEVICE_CREATE_INFO, pproperties: ::core::option::Option<&[super::super::Properties::DEVPROPERTY]>, pcallback: SW_DEVICE_CREATE_CALLBACK, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<isize>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "cfgmgr32.dll""system" fn SwDeviceCreate ( pszenumeratorname : :: windows::core::PCWSTR , pszparentdeviceinstance : :: windows::core::PCWSTR , pcreateinfo : *const SW_DEVICE_CREATE_INFO , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , pcallback : SW_DEVICE_CREATE_CALLBACK , pcontext : *const ::core::ffi::c_void , phswdevice : *mut isize ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SwDeviceCreate(pszenumeratorname.into(), pszparentdeviceinstance.into(), pcreateinfo, pproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    SwDeviceCreate(pszenumeratorname.into().abi(), pszparentdeviceinstance.into().abi(), pcreateinfo, pproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 #[inline]
@@ -35,10 +35,10 @@ where
 pub unsafe fn SwDeviceInterfacePropertySet<P0, P1>(hswdevice: P0, pszdeviceinterfaceid: P1, pproperties: &[super::super::Properties::DEVPROPERTY]) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HSWDEVICE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "cfgmgr32.dll""system" fn SwDeviceInterfacePropertySet ( hswdevice : HSWDEVICE , pszdeviceinterfaceid : :: windows::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY ) -> :: windows::core::HRESULT );
-    SwDeviceInterfacePropertySet(hswdevice.into(), pszdeviceinterfaceid.into(), pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr())).ok()
+    SwDeviceInterfacePropertySet(hswdevice.into(), pszdeviceinterfaceid.into().abi(), pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
@@ -46,12 +46,12 @@ where
 pub unsafe fn SwDeviceInterfaceRegister<P0, P1, P2>(hswdevice: P0, pinterfaceclassguid: *const ::windows::core::GUID, pszreferencestring: P1, pproperties: ::core::option::Option<&[super::super::Properties::DEVPROPERTY]>, fenabled: P2) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<HSWDEVICE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "cfgmgr32.dll""system" fn SwDeviceInterfaceRegister ( hswdevice : HSWDEVICE , pinterfaceclassguid : *const :: windows::core::GUID , pszreferencestring : :: windows::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , fenabled : super::super::super::Foundation:: BOOL , ppszdeviceinterfaceid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SwDeviceInterfaceRegister(hswdevice.into(), pinterfaceclassguid, pszreferencestring.into(), pproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), fenabled.into(), result__.as_mut_ptr()).from_abi(result__)
+    SwDeviceInterfaceRegister(hswdevice.into(), pinterfaceclassguid, pszreferencestring.into().abi(), pproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), fenabled.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -59,11 +59,11 @@ where
 pub unsafe fn SwDeviceInterfaceSetState<P0, P1, P2>(hswdevice: P0, pszdeviceinterfaceid: P1, fenabled: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HSWDEVICE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "cfgmgr32.dll""system" fn SwDeviceInterfaceSetState ( hswdevice : HSWDEVICE , pszdeviceinterfaceid : :: windows::core::PCWSTR , fenabled : super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    SwDeviceInterfaceSetState(hswdevice.into(), pszdeviceinterfaceid.into(), fenabled.into()).ok()
+    SwDeviceInterfaceSetState(hswdevice.into(), pszdeviceinterfaceid.into().abi(), fenabled.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -1392,9 +1392,9 @@ impl IUPnPServiceCallback {
     pub unsafe fn StateVariableChanged<P0, P1>(&self, pus: P0, pcwszstatevarname: P1, vavalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IUPnPService>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).StateVariableChanged)(::windows::core::Vtable::as_raw(self), pus.into().abi(), pcwszstatevarname.into(), ::core::mem::transmute(vavalue)).ok()
+        (::windows::core::Vtable::vtable(self).StateVariableChanged)(::windows::core::Vtable::as_raw(self), pus.into().abi(), pcwszstatevarname.into().abi(), ::core::mem::transmute(vavalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

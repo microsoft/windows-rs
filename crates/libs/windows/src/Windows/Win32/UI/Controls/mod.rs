@@ -139,22 +139,22 @@ pub unsafe fn CreatePropertySheetPageW(constpropsheetpagepointer: *mut PROPSHEET
 #[inline]
 pub unsafe fn CreateStatusWindowA<P0, P1>(style: i32, lpsztext: P0, hwndparent: P1, wid: u32) -> super::super::Foundation::HWND
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn CreateStatusWindowA ( style : i32 , lpsztext : :: windows::core::PCSTR , hwndparent : super::super::Foundation:: HWND , wid : u32 ) -> super::super::Foundation:: HWND );
-    CreateStatusWindowA(style, lpsztext.into(), hwndparent.into(), wid)
+    CreateStatusWindowA(style, lpsztext.into().abi(), hwndparent.into(), wid)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateStatusWindowW<P0, P1>(style: i32, lpsztext: P0, hwndparent: P1, wid: u32) -> super::super::Foundation::HWND
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn CreateStatusWindowW ( style : i32 , lpsztext : :: windows::core::PCWSTR , hwndparent : super::super::Foundation:: HWND , wid : u32 ) -> super::super::Foundation:: HWND );
-    CreateStatusWindowW(style, lpsztext.into(), hwndparent.into(), wid)
+    CreateStatusWindowW(style, lpsztext.into().abi(), hwndparent.into(), wid)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -620,10 +620,10 @@ where
 pub unsafe fn DrawStatusTextA<P0, P1>(hdc: P0, lprc: *mut super::super::Foundation::RECT, psztext: P1, uflags: u32)
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn DrawStatusTextA ( hdc : super::super::Graphics::Gdi:: HDC , lprc : *mut super::super::Foundation:: RECT , psztext : :: windows::core::PCSTR , uflags : u32 ) -> ( ) );
-    DrawStatusTextA(hdc.into(), lprc, psztext.into(), uflags)
+    DrawStatusTextA(hdc.into(), lprc, psztext.into().abi(), uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -631,10 +631,10 @@ where
 pub unsafe fn DrawStatusTextW<P0, P1>(hdc: P0, lprc: *mut super::super::Foundation::RECT, psztext: P1, uflags: u32)
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn DrawStatusTextW ( hdc : super::super::Graphics::Gdi:: HDC , lprc : *mut super::super::Foundation:: RECT , psztext : :: windows::core::PCWSTR , uflags : u32 ) -> ( ) );
-    DrawStatusTextW(hdc.into(), lprc, psztext.into(), uflags)
+    DrawStatusTextW(hdc.into(), lprc, psztext.into().abi(), uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1074,11 +1074,11 @@ where
 #[inline]
 pub unsafe fn GetThemeDocumentationProperty<P0, P1>(pszthemename: P0, pszpropertyname: P1, pszvaluebuff: &mut [u16]) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "uxtheme.dll""system" fn GetThemeDocumentationProperty ( pszthemename : :: windows::core::PCWSTR , pszpropertyname : :: windows::core::PCWSTR , pszvaluebuff : :: windows::core::PWSTR , cchmaxvalchars : i32 ) -> :: windows::core::HRESULT );
-    GetThemeDocumentationProperty(pszthemename.into(), pszpropertyname.into(), ::core::mem::transmute(pszvaluebuff.as_ptr()), pszvaluebuff.len() as _).ok()
+    GetThemeDocumentationProperty(pszthemename.into().abi(), pszpropertyname.into().abi(), ::core::mem::transmute(pszvaluebuff.as_ptr()), pszvaluebuff.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -1590,11 +1590,11 @@ where
 pub unsafe fn ImageList_LoadImageA<P0, P1, P2>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: P2, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn ImageList_LoadImageA ( hi : super::super::Foundation:: HINSTANCE , lpbmp : :: windows::core::PCSTR , cx : i32 , cgrow : i32 , crmask : super::super::Foundation:: COLORREF , utype : u32 , uflags : super::WindowsAndMessaging:: IMAGE_FLAGS ) -> HIMAGELIST );
-    ImageList_LoadImageA(hi.into(), lpbmp.into(), cx, cgrow, crmask.into(), utype, uflags)
+    ImageList_LoadImageA(hi.into(), lpbmp.into().abi(), cx, cgrow, crmask.into(), utype, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1602,11 +1602,11 @@ where
 pub unsafe fn ImageList_LoadImageW<P0, P1, P2>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: P2, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn ImageList_LoadImageW ( hi : super::super::Foundation:: HINSTANCE , lpbmp : :: windows::core::PCWSTR , cx : i32 , cgrow : i32 , crmask : super::super::Foundation:: COLORREF , utype : u32 , uflags : super::WindowsAndMessaging:: IMAGE_FLAGS ) -> HIMAGELIST );
-    ImageList_LoadImageW(hi.into(), lpbmp.into(), cx, cgrow, crmask.into(), utype, uflags)
+    ImageList_LoadImageW(hi.into(), lpbmp.into().abi(), cx, cgrow, crmask.into(), utype, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -1858,11 +1858,11 @@ where
 pub unsafe fn LoadIconMetric<P0, P1>(hinst: P0, pszname: P1, lims: _LI_METRIC) -> ::windows::core::Result<super::WindowsAndMessaging::HICON>
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn LoadIconMetric ( hinst : super::super::Foundation:: HINSTANCE , pszname : :: windows::core::PCWSTR , lims : _LI_METRIC , phico : *mut super::WindowsAndMessaging:: HICON ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    LoadIconMetric(hinst.into(), pszname.into(), lims, result__.as_mut_ptr()).from_abi(result__)
+    LoadIconMetric(hinst.into(), pszname.into().abi(), lims, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1870,11 +1870,11 @@ where
 pub unsafe fn LoadIconWithScaleDown<P0, P1>(hinst: P0, pszname: P1, cx: i32, cy: i32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON>
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn LoadIconWithScaleDown ( hinst : super::super::Foundation:: HINSTANCE , pszname : :: windows::core::PCWSTR , cx : i32 , cy : i32 , phico : *mut super::WindowsAndMessaging:: HICON ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    LoadIconWithScaleDown(hinst.into(), pszname.into(), cx, cy, result__.as_mut_ptr()).from_abi(result__)
+    LoadIconWithScaleDown(hinst.into(), pszname.into().abi(), cx, cy, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1906,10 +1906,10 @@ where
 pub unsafe fn OpenThemeData<P0, P1>(hwnd: P0, pszclasslist: P1) -> HTHEME
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "uxtheme.dll""system" fn OpenThemeData ( hwnd : super::super::Foundation:: HWND , pszclasslist : :: windows::core::PCWSTR ) -> HTHEME );
-    OpenThemeData(hwnd.into(), pszclasslist.into())
+    OpenThemeData(hwnd.into(), pszclasslist.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1917,10 +1917,10 @@ where
 pub unsafe fn OpenThemeDataEx<P0, P1>(hwnd: P0, pszclasslist: P1, dwflags: OPEN_THEME_DATA_FLAGS) -> HTHEME
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "uxtheme.dll""system" fn OpenThemeDataEx ( hwnd : super::super::Foundation:: HWND , pszclasslist : :: windows::core::PCWSTR , dwflags : OPEN_THEME_DATA_FLAGS ) -> HTHEME );
-    OpenThemeDataEx(hwnd.into(), pszclasslist.into(), dwflags)
+    OpenThemeDataEx(hwnd.into(), pszclasslist.into().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2019,11 +2019,11 @@ where
 pub unsafe fn SetWindowTheme<P0, P1, P2>(hwnd: P0, pszsubappname: P1, pszsubidlist: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "uxtheme.dll""system" fn SetWindowTheme ( hwnd : super::super::Foundation:: HWND , pszsubappname : :: windows::core::PCWSTR , pszsubidlist : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    SetWindowTheme(hwnd.into(), pszsubappname.into(), pszsubidlist.into()).ok()
+    SetWindowTheme(hwnd.into(), pszsubappname.into().abi(), pszsubidlist.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2061,10 +2061,10 @@ where
 #[inline]
 pub unsafe fn Str_SetPtrW<P0>(ppsz: *mut ::windows::core::PWSTR, psz: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn Str_SetPtrW ( ppsz : *mut :: windows::core::PWSTR , psz : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    Str_SetPtrW(ppsz, psz.into())
+    Str_SetPtrW(ppsz, psz.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2073,14 +2073,14 @@ pub unsafe fn TaskDialog<P0, P1, P2, P3, P4, P5>(hwndowner: P0, hinstance: P1, p
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-    P4: ::std::convert::Into<::windows::core::PCWSTR>,
-    P5: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P5: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn TaskDialog ( hwndowner : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HINSTANCE , pszwindowtitle : :: windows::core::PCWSTR , pszmaininstruction : :: windows::core::PCWSTR , pszcontent : :: windows::core::PCWSTR , dwcommonbuttons : TASKDIALOG_COMMON_BUTTON_FLAGS , pszicon : :: windows::core::PCWSTR , pnbutton : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    TaskDialog(hwndowner.into(), hinstance.into(), pszwindowtitle.into(), pszmaininstruction.into(), pszcontent.into(), dwcommonbuttons, pszicon.into(), result__.as_mut_ptr()).from_abi(result__)
+    TaskDialog(hwndowner.into(), hinstance.into(), pszwindowtitle.into().abi(), pszmaininstruction.into().abi(), pszcontent.into().abi(), dwcommonbuttons, pszicon.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
