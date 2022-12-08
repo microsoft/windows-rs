@@ -1,5 +1,4 @@
 mod bindings;
-use std::mem::*;
 use std::sync::*;
 use windows::{core::*, Win32::Foundation::*, Win32::System::WinRT::*};
 
@@ -46,13 +45,13 @@ impl IActivationFactory_Impl for ClassFactory {
 
 #[no_mangle]
 unsafe extern "stdcall" fn DllGetActivationFactory(name: ManuallyDrop<HSTRING>, result: *mut *mut std::ffi::c_void) -> HRESULT {
-    let factory: Option<IActivationFactory> = match name.to_string().as_str() {
+    let factory: Option<IActivationFactory> = match name.unwrap().to_string().as_str() {
         "test_component.Class" => Some(ClassFactory.into()),
         _ => None,
     };
 
     if let Some(factory) = factory {
-        *result = transmute(factory);
+        *result = std::mem::transmute(factory);
         S_OK
     } else {
         *result = std::ptr::null_mut();

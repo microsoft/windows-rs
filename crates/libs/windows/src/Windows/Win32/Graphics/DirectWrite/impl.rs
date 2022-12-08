@@ -44,7 +44,7 @@ impl ::windows::core::RuntimeName for IDWriteBitmapRenderTarget {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDWriteBitmapRenderTarget_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteBitmapRenderTarget_Impl, const OFFSET: isize>() -> IDWriteBitmapRenderTarget_Vtbl {
-        unsafe extern "system" fn DrawGlyphRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteBitmapRenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, renderingparams: *mut ::core::ffi::c_void, textcolor: super::super::Foundation::COLORREF, blackboxrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DrawGlyphRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteBitmapRenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: *mut ::core::ffi::c_void, textcolor: super::super::Foundation::COLORREF, blackboxrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DrawGlyphRun(::core::mem::transmute_copy(&baselineoriginx), ::core::mem::transmute_copy(&baselineoriginy), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute(&renderingparams), ::core::mem::transmute_copy(&textcolor)) {
@@ -435,7 +435,7 @@ impl IDWriteFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateGlyphRunAnalysis<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, pixelsperdip: f32, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, baselineoriginx: f32, baselineoriginy: f32, glyphrunanalysis: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateGlyphRunAnalysis<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphrun: *const DWRITE_GLYPH_RUN, pixelsperdip: f32, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, baselineoriginx: f32, baselineoriginy: f32, glyphrunanalysis: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateGlyphRunAnalysis(::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&pixelsperdip), ::core::mem::transmute_copy(&transform), ::core::mem::transmute_copy(&renderingmode), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&baselineoriginx), ::core::mem::transmute_copy(&baselineoriginy)) {
@@ -546,7 +546,7 @@ impl IDWriteFactory2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TranslateColorGlyphRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, measuringmode: DWRITE_MEASURING_MODE, worldtodevicetransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorlayers: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TranslateColorGlyphRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, measuringmode: DWRITE_MEASURING_MODE, worldtodevicetransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorlayers: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TranslateColorGlyphRun(::core::mem::transmute_copy(&baselineoriginx), ::core::mem::transmute_copy(&baselineoriginy), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&glyphrundescription), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&worldtodevicetransform), ::core::mem::transmute_copy(&colorpaletteindex)) {
@@ -568,7 +568,7 @@ impl IDWriteFactory2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateGlyphRunAnalysis2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32, glyphrunanalysis: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateGlyphRunAnalysis2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32, glyphrunanalysis: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateGlyphRunAnalysis2(::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&transform), ::core::mem::transmute_copy(&renderingmode), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&gridfitmode), ::core::mem::transmute_copy(&antialiasmode), ::core::mem::transmute_copy(&baselineoriginx), ::core::mem::transmute_copy(&baselineoriginy)) {
@@ -609,7 +609,7 @@ impl ::windows::core::RuntimeName for IDWriteFactory3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDWriteFactory3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory3_Impl, const OFFSET: isize>() -> IDWriteFactory3_Vtbl {
-        unsafe extern "system" fn CreateGlyphRunAnalysis3<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE1, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32, glyphrunanalysis: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateGlyphRunAnalysis3<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE1, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32, glyphrunanalysis: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateGlyphRunAnalysis3(::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&transform), ::core::mem::transmute_copy(&renderingmode), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&gridfitmode), ::core::mem::transmute_copy(&antialiasmode), ::core::mem::transmute_copy(&baselineoriginx), ::core::mem::transmute_copy(&baselineoriginy)) {
@@ -730,7 +730,7 @@ impl ::windows::core::RuntimeName for IDWriteFactory4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDWriteFactory4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory4_Impl, const OFFSET: isize>() -> IDWriteFactory4_Vtbl {
-        unsafe extern "system" fn TranslateColorGlyphRun2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorlayers: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TranslateColorGlyphRun2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorlayers: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TranslateColorGlyphRun2(::core::mem::transmute(&baselineorigin), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&glyphrundescription), ::core::mem::transmute_copy(&desiredglyphimageformats), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&worldanddpitransform), ::core::mem::transmute_copy(&colorpaletteindex)) {
@@ -741,7 +741,7 @@ impl IDWriteFactory4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ComputeGlyphOrigins<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphorigins: *mut super::Direct2D::Common::D2D_POINT_2F) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComputeGlyphOrigins<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphrun: *const DWRITE_GLYPH_RUN, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphorigins: *mut super::Direct2D::Common::D2D_POINT_2F) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ComputeGlyphOrigins(::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute(&baselineorigin)) {
@@ -752,7 +752,7 @@ impl IDWriteFactory4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ComputeGlyphOrigins2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, measuringmode: DWRITE_MEASURING_MODE, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, worldanddpitransform: *const DWRITE_MATRIX, glyphorigins: *mut super::Direct2D::Common::D2D_POINT_2F) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComputeGlyphOrigins2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphrun: *const DWRITE_GLYPH_RUN, measuringmode: DWRITE_MEASURING_MODE, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, worldanddpitransform: *const DWRITE_MATRIX, glyphorigins: *mut super::Direct2D::Common::D2D_POINT_2F) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ComputeGlyphOrigins2(::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute(&baselineorigin), ::core::mem::transmute_copy(&worldanddpitransform)) {
@@ -5483,7 +5483,7 @@ impl ::windows::core::RuntimeName for IDWriteTextRenderer {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDWriteTextRenderer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteTextRenderer_Impl, const OFFSET: isize>() -> IDWriteTextRenderer_Vtbl {
-        unsafe extern "system" fn DrawGlyphRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteTextRenderer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clientdrawingcontext: *const ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DrawGlyphRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteTextRenderer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clientdrawingcontext: *const ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DrawGlyphRun(::core::mem::transmute_copy(&clientdrawingcontext), ::core::mem::transmute_copy(&baselineoriginx), ::core::mem::transmute_copy(&baselineoriginy), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&glyphrundescription), ::core::mem::transmute(&clientdrawingeffect)).into()
@@ -5527,7 +5527,7 @@ impl ::windows::core::RuntimeName for IDWriteTextRenderer1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDWriteTextRenderer1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteTextRenderer1_Impl, const OFFSET: isize>() -> IDWriteTextRenderer1_Vtbl {
-        unsafe extern "system" fn DrawGlyphRun2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteTextRenderer1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clientdrawingcontext: *const ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DrawGlyphRun2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteTextRenderer1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clientdrawingcontext: *const ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DrawGlyphRun2(::core::mem::transmute_copy(&clientdrawingcontext), ::core::mem::transmute_copy(&baselineoriginx), ::core::mem::transmute_copy(&baselineoriginy), ::core::mem::transmute_copy(&orientationangle), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&glyphrundescription), ::core::mem::transmute(&clientdrawingeffect)).into()

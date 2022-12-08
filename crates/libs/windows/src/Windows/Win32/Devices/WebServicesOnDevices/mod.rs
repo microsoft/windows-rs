@@ -436,7 +436,7 @@ pub struct IWSDAsyncResult_Vtbl {
     pub HasCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAsyncState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppasyncstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: *mut ::core::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::core::HRESULT,
+    pub GetEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: *mut WSD_EVENT) -> ::windows::core::HRESULT,
     pub GetEndpointProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppendpoint: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
@@ -788,7 +788,7 @@ pub struct IWSDEndpointProxy_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub SendOneWayRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub SendTwoWayRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, presponsecontext: *const ::core::mem::ManuallyDrop<WSD_SYNCHRONOUS_RESPONSE_CONTEXT>) -> ::windows::core::HRESULT,
+    pub SendTwoWayRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, presponsecontext: *const WSD_SYNCHRONOUS_RESPONSE_CONTEXT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SendTwoWayRequest: usize,
     pub SendTwoWayRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pasyncstate: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, presult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3850,19 +3850,11 @@ pub struct WSD_EVENT {
     pub HandlerContext: WSD_HANDLER_CONTEXT,
     pub Soap: *mut WSD_SOAP_MESSAGE,
     pub Operation: *mut WSD_OPERATION,
-    pub MessageParameters: ::core::option::Option<IWSDMessageParameters>,
+    pub MessageParameters: ::windows::core::ManuallyDrop<IWSDMessageParameters>,
 }
 impl ::core::clone::Clone for WSD_EVENT {
     fn clone(&self) -> Self {
-        Self {
-            Hr: self.Hr,
-            EventType: self.EventType,
-            DispatchTag: self.DispatchTag,
-            HandlerContext: self.HandlerContext.clone(),
-            Soap: self.Soap,
-            Operation: self.Operation,
-            MessageParameters: self.MessageParameters.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for WSD_EVENT {
@@ -3871,7 +3863,7 @@ impl ::core::fmt::Debug for WSD_EVENT {
     }
 }
 unsafe impl ::windows::core::Abi for WSD_EVENT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for WSD_EVENT {
     fn default() -> Self {
@@ -4046,11 +4038,11 @@ impl ::core::default::Default for WSD_EVENTING_FILTER_ACTION {
 pub struct WSD_HANDLER_CONTEXT {
     pub Handler: PWSD_SOAP_MESSAGE_HANDLER,
     pub PVoid: *mut ::core::ffi::c_void,
-    pub Unknown: ::core::option::Option<::windows::core::IUnknown>,
+    pub Unknown: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 impl ::core::clone::Clone for WSD_HANDLER_CONTEXT {
     fn clone(&self) -> Self {
-        Self { Handler: self.Handler, PVoid: self.PVoid, Unknown: self.Unknown.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for WSD_HANDLER_CONTEXT {
@@ -4059,7 +4051,7 @@ impl ::core::fmt::Debug for WSD_HANDLER_CONTEXT {
     }
 }
 unsafe impl ::windows::core::Abi for WSD_HANDLER_CONTEXT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for WSD_HANDLER_CONTEXT {
     fn default() -> Self {
@@ -5124,13 +5116,13 @@ impl ::core::default::Default for WSD_SOAP_MESSAGE {
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub hr: ::windows::core::HRESULT,
     pub eventHandle: super::super::Foundation::HANDLE,
-    pub messageParameters: ::core::option::Option<IWSDMessageParameters>,
+    pub messageParameters: ::windows::core::ManuallyDrop<IWSDMessageParameters>,
     pub results: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     fn clone(&self) -> Self {
-        Self { hr: self.hr, eventHandle: self.eventHandle, messageParameters: self.messageParameters.clone(), results: self.results }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5141,7 +5133,7 @@ impl ::core::fmt::Debug for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {

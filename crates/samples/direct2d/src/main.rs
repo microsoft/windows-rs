@@ -313,7 +313,7 @@ impl Window {
             dpiX: self.dpi,
             dpiY: self.dpi,
             bitmapOptions: D2D1_BITMAP_OPTIONS_TARGET,
-            colorContext: None,
+            ..Default::default()
         };
 
         unsafe { target.CreateBitmap2(size_u, None, 0, &properties) }
@@ -598,7 +598,7 @@ fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceCont
         dpiX: 96.0,
         dpiY: 96.0,
         bitmapOptions: D2D1_BITMAP_OPTIONS_TARGET | D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
-        colorContext: None,
+        ..Default::default()
     };
 
     unsafe {

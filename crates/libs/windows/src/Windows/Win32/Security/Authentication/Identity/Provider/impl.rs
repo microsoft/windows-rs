@@ -121,7 +121,7 @@ impl AsyncIConnectedIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             this.Begin_GetUrl(::core::mem::transmute_copy(&identifier), ::core::mem::transmute(&context)).into()
         }
-        unsafe extern "system" fn Finish_GetUrl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, postdata: *mut ::core::mem::ManuallyDrop<super::super::super::super::System::Com::VARIANT>, url: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Finish_GetUrl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Finish_GetUrl(::core::mem::transmute_copy(&postdata), ::core::mem::transmute_copy(&url)).into()
@@ -255,7 +255,7 @@ impl ::windows::core::RuntimeName for AsyncIIdentityProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl AsyncIIdentityProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIIdentityProvider_Impl, const OFFSET: isize>() -> AsyncIIdentityProvider_Vtbl {
-        unsafe extern "system" fn Begin_GetIdentityEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const ::core::mem::ManuallyDrop<super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Begin_GetIdentityEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Begin_GetIdentityEnum(::core::mem::transmute_copy(&eidentitytype), ::core::mem::transmute_copy(&pfilterkey), ::core::mem::transmute_copy(&pfilterpropvarvalue)).into()
@@ -271,7 +271,7 @@ impl AsyncIIdentityProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Begin_Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszusername: ::windows::core::PCWSTR, pkeywordstoadd: *const ::core::mem::ManuallyDrop<super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Begin_Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszusername: ::windows::core::PCWSTR, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Begin_Create(::core::mem::transmute(&lpszusername), ::core::mem::transmute_copy(&pkeywordstoadd)).into()
@@ -297,7 +297,7 @@ impl AsyncIIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             this.Finish_Import().into()
         }
-        unsafe extern "system" fn Begin_Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszuniqueid: ::windows::core::PCWSTR, pkeywordstodelete: *const ::core::mem::ManuallyDrop<super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Begin_Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszuniqueid: ::windows::core::PCWSTR, pkeywordstodelete: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Begin_Delete(::core::mem::transmute(&lpszuniqueid), ::core::mem::transmute_copy(&pkeywordstodelete)).into()
@@ -455,7 +455,7 @@ impl AsyncIIdentityStore_Vtbl {
             let this = (*this).get_impl();
             this.Finish_ConvertToSid(::core::mem::transmute_copy(&psid), ::core::mem::transmute_copy(&pcbrequiredsid)).into()
         }
-        unsafe extern "system" fn Begin_EnumerateIdentities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const ::core::mem::ManuallyDrop<super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Begin_EnumerateIdentities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Begin_EnumerateIdentities(::core::mem::transmute_copy(&eidentitytype), ::core::mem::transmute_copy(&pfilterkey), ::core::mem::transmute_copy(&pfilterpropvarvalue)).into()
@@ -619,7 +619,7 @@ impl IConnectedIdentityProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUrl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifier: IDENTITY_URL, context: *mut ::core::ffi::c_void, postdata: *mut ::core::mem::ManuallyDrop<super::super::super::super::System::Com::VARIANT>, url: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetUrl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifier: IDENTITY_URL, context: *mut ::core::ffi::c_void, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetUrl(::core::mem::transmute_copy(&identifier), ::core::mem::transmute(&context), ::core::mem::transmute_copy(&postdata), ::core::mem::transmute_copy(&url)).into()
@@ -711,7 +711,7 @@ impl ::windows::core::RuntimeName for IIdentityProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IIdentityProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdentityProvider_Impl, const OFFSET: isize>() -> IIdentityProvider_Vtbl {
-        unsafe extern "system" fn GetIdentityEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const ::core::mem::ManuallyDrop<super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ppidentityenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIdentityEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppidentityenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetIdentityEnum(::core::mem::transmute_copy(&eidentitytype), ::core::mem::transmute_copy(&pfilterkey), ::core::mem::transmute_copy(&pfilterpropvarvalue)) {
@@ -722,7 +722,7 @@ impl IIdentityProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszusername: ::windows::core::PCWSTR, pppropertystore: *mut *mut ::core::ffi::c_void, pkeywordstoadd: *const ::core::mem::ManuallyDrop<super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszusername: ::windows::core::PCWSTR, pppropertystore: *mut *mut ::core::ffi::c_void, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Create(::core::mem::transmute(&lpszusername), ::core::mem::transmute_copy(&pppropertystore), ::core::mem::transmute_copy(&pkeywordstoadd)).into()
@@ -732,7 +732,7 @@ impl IIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             this.Import(::core::mem::transmute(&ppropertystore)).into()
         }
-        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszuniqueid: ::windows::core::PCWSTR, pkeywordstodelete: *const ::core::mem::ManuallyDrop<super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszuniqueid: ::windows::core::PCWSTR, pkeywordstodelete: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Delete(::core::mem::transmute(&lpszuniqueid), ::core::mem::transmute_copy(&pkeywordstodelete)).into()
@@ -831,7 +831,7 @@ impl IIdentityStore_Vtbl {
             let this = (*this).get_impl();
             this.ConvertToSid(::core::mem::transmute(&lpszuniqueid), ::core::mem::transmute_copy(&providerguid), ::core::mem::transmute_copy(&cbsid), ::core::mem::transmute_copy(&psid), ::core::mem::transmute_copy(&pcbrequiredsid)).into()
         }
-        unsafe extern "system" fn EnumerateIdentities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdentityStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const ::core::mem::ManuallyDrop<super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ppidentityenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumerateIdentities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdentityStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppidentityenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EnumerateIdentities(::core::mem::transmute_copy(&eidentitytype), ::core::mem::transmute_copy(&pfilterkey), ::core::mem::transmute_copy(&pfilterpropvarvalue)) {

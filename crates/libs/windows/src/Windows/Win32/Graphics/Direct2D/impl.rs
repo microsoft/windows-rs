@@ -602,7 +602,7 @@ impl ID2D1CommandSink_Vtbl {
             let this = (*this).get_impl();
             this.Clear(::core::mem::transmute_copy(&color)).into()
         }
-        unsafe extern "system" fn DrawGlyphRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DrawGlyphRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DrawGlyphRun(::core::mem::transmute(&baselineorigin), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&glyphrundescription), ::core::mem::transmute(&foregroundbrush), ::core::mem::transmute_copy(&measuringmode)).into()
@@ -662,7 +662,7 @@ impl ID2D1CommandSink_Vtbl {
             let this = (*this).get_impl();
             this.PushAxisAlignedClip(::core::mem::transmute_copy(&cliprect), ::core::mem::transmute_copy(&antialiasmode)).into()
         }
-        unsafe extern "system" fn PushLayer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PushLayer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, layerparameters1: *const D2D1_LAYER_PARAMETERS1, layer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PushLayer(::core::mem::transmute_copy(&layerparameters1), ::core::mem::transmute(&layer)).into()
@@ -1263,7 +1263,7 @@ impl ::windows::core::RuntimeName for ID2D1DeviceContext {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1DeviceContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>() -> ID2D1DeviceContext_Vtbl {
-        unsafe extern "system" fn CreateBitmap2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: Common::D2D_SIZE_U, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const ::core::mem::ManuallyDrop<D2D1_BITMAP_PROPERTIES1>, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBitmap2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: Common::D2D_SIZE_U, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateBitmap2(::core::mem::transmute(&size), ::core::mem::transmute_copy(&sourcedata), ::core::mem::transmute_copy(&pitch), ::core::mem::transmute_copy(&bitmapproperties)) {
@@ -1274,7 +1274,7 @@ impl ID2D1DeviceContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBitmapFromWicBitmap2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wicbitmapsource: *mut ::core::ffi::c_void, bitmapproperties: *const ::core::mem::ManuallyDrop<D2D1_BITMAP_PROPERTIES1>, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBitmapFromWicBitmap2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wicbitmapsource: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateBitmapFromWicBitmap2(::core::mem::transmute(&wicbitmapsource), ::core::mem::transmute_copy(&bitmapproperties)) {
@@ -1318,7 +1318,7 @@ impl ID2D1DeviceContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBitmapFromDxgiSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, surface: *mut ::core::ffi::c_void, bitmapproperties: *const ::core::mem::ManuallyDrop<D2D1_BITMAP_PROPERTIES1>, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBitmapFromDxgiSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, surface: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateBitmapFromDxgiSurface(::core::mem::transmute(&surface), ::core::mem::transmute_copy(&bitmapproperties)) {
@@ -1416,7 +1416,7 @@ impl ID2D1DeviceContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGlyphRunWorldBounds<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bounds: *mut Common::D2D_RECT_F) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGlyphRunWorldBounds<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bounds: *mut Common::D2D_RECT_F) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetGlyphRunWorldBounds(::core::mem::transmute(&baselineorigin), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&measuringmode)) {
@@ -1472,7 +1472,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             this.GetUnitMode()
         }
-        unsafe extern "system" fn DrawGlyphRun2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
+        unsafe extern "system" fn DrawGlyphRun2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DrawGlyphRun2(::core::mem::transmute(&baselineorigin), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&glyphrundescription), ::core::mem::transmute(&foregroundbrush), ::core::mem::transmute_copy(&measuringmode))
@@ -1492,7 +1492,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             this.DrawBitmap2(::core::mem::transmute(&bitmap), ::core::mem::transmute_copy(&destinationrectangle), ::core::mem::transmute_copy(&opacity), ::core::mem::transmute_copy(&interpolationmode), ::core::mem::transmute_copy(&sourcerectangle), ::core::mem::transmute_copy(&perspectivetransform))
         }
-        unsafe extern "system" fn PushLayer2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: *mut ::core::ffi::c_void) {
+        unsafe extern "system" fn PushLayer2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PushLayer2(::core::mem::transmute_copy(&layerparameters), ::core::mem::transmute(&layer))
@@ -1518,7 +1518,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             this.GetEffectInvalidRectangles(::core::mem::transmute(&effect), ::core::mem::transmute_copy(&rectangles), ::core::mem::transmute_copy(&rectanglescount)).into()
         }
-        unsafe extern "system" fn GetEffectRequiredInputRectangles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rendereffect: *mut ::core::ffi::c_void, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: *const ::core::mem::ManuallyDrop<D2D1_EFFECT_INPUT_DESCRIPTION>, requiredinputrects: *mut Common::D2D_RECT_F, inputcount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEffectRequiredInputRectangles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rendereffect: *mut ::core::ffi::c_void, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: *const D2D1_EFFECT_INPUT_DESCRIPTION, requiredinputrects: *mut Common::D2D_RECT_F, inputcount: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetEffectRequiredInputRectangles(::core::mem::transmute(&rendereffect), ::core::mem::transmute_copy(&renderimagerectangle), ::core::mem::transmute_copy(&inputdescriptions), ::core::mem::transmute_copy(&requiredinputrects), ::core::mem::transmute_copy(&inputcount)).into()
@@ -1833,12 +1833,12 @@ impl ID2D1DeviceContext4_Vtbl {
             let this = (*this).get_impl();
             this.DrawTextLayout2(::core::mem::transmute(&origin), ::core::mem::transmute(&textlayout), ::core::mem::transmute(&defaultfillbrush), ::core::mem::transmute(&svgglyphstyle), ::core::mem::transmute_copy(&colorpaletteindex), ::core::mem::transmute_copy(&options))
         }
-        unsafe extern "system" fn DrawColorBitmapGlyphRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION) {
+        unsafe extern "system" fn DrawColorBitmapGlyphRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DrawColorBitmapGlyphRun(::core::mem::transmute_copy(&glyphimageformat), ::core::mem::transmute(&baselineorigin), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&bitmapsnapoption))
         }
-        unsafe extern "system" fn DrawSvgGlyphRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, defaultfillbrush: *mut ::core::ffi::c_void, svgglyphstyle: *mut ::core::ffi::c_void, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
+        unsafe extern "system" fn DrawSvgGlyphRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: *mut ::core::ffi::c_void, svgglyphstyle: *mut ::core::ffi::c_void, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DrawSvgGlyphRun(::core::mem::transmute(&baselineorigin), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute(&defaultfillbrush), ::core::mem::transmute(&svgglyphstyle), ::core::mem::transmute_copy(&colorpaletteindex), ::core::mem::transmute_copy(&measuringmode))
@@ -4614,7 +4614,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             this.DrawTextLayout(::core::mem::transmute(&origin), ::core::mem::transmute(&textlayout), ::core::mem::transmute(&defaultfillbrush), ::core::mem::transmute_copy(&options))
         }
-        unsafe extern "system" fn DrawGlyphRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
+        unsafe extern "system" fn DrawGlyphRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DrawGlyphRun(::core::mem::transmute(&baselineorigin), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute(&foregroundbrush), ::core::mem::transmute_copy(&measuringmode))
@@ -4669,7 +4669,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             this.GetTags(::core::mem::transmute_copy(&tag1), ::core::mem::transmute_copy(&tag2))
         }
-        unsafe extern "system" fn PushLayer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: *mut ::core::ffi::c_void) {
+        unsafe extern "system" fn PushLayer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PushLayer(::core::mem::transmute_copy(&layerparameters), ::core::mem::transmute(&layer))

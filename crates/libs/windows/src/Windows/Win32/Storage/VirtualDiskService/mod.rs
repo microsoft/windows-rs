@@ -139,7 +139,7 @@ impl IVdsAsync {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Wait(&self, phrresult: *mut ::windows::core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Wait)(::windows::core::Vtable::as_raw(self), phrresult, ::core::mem::transmute(pasyncout)).ok()
+        (::windows::core::Vtable::vtable(self).Wait)(::windows::core::Vtable::as_raw(self), phrresult, pasyncout).ok()
     }
     pub unsafe fn QueryStatus(&self, phrresult: *mut ::windows::core::HRESULT, pulpercentcompleted: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).QueryStatus)(::windows::core::Vtable::as_raw(self), phrresult, pulpercentcompleted).ok()
@@ -173,7 +173,7 @@ unsafe impl ::windows::core::Interface for IVdsAsync {
 pub struct IVdsAsync_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Wait: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, pasyncout: *mut ::core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT>) -> ::windows::core::HRESULT,
+    pub Wait: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> ::windows::core::HRESULT,
     pub QueryStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, pulpercentcompleted: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
@@ -4942,11 +4942,11 @@ pub struct VDS_ASYNC_OUTPUT {
 }
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT {
     fn clone(&self) -> Self {
-        Self { r#type: self.r#type, Anonymous: self.Anonymous.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for VDS_ASYNC_OUTPUT {
     fn default() -> Self {
@@ -4957,13 +4957,13 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT {
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub union VDS_ASYNC_OUTPUT_0 {
     pub cp: VDS_ASYNC_OUTPUT_0_2,
-    pub cv: ::core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_5>,
-    pub bvp: ::core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_0>,
+    pub cv: ::std::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_5>,
+    pub bvp: ::std::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_0>,
     pub sv: VDS_ASYNC_OUTPUT_0_7,
-    pub cl: ::core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_1>,
-    pub ct: ::core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_4>,
-    pub cpg: ::core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_3>,
-    pub cvd: ::core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_6>,
+    pub cl: ::std::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_1>,
+    pub ct: ::std::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_4>,
+    pub cpg: ::std::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_3>,
+    pub cvd: ::std::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_6>,
 }
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0 {
     fn clone(&self) -> Self {
@@ -4971,7 +4971,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0 {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for VDS_ASYNC_OUTPUT_0 {
     fn default() -> Self {
@@ -4981,11 +4981,11 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub struct VDS_ASYNC_OUTPUT_0_0 {
-    pub pVolumeUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub pVolumeUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_0 {
     fn clone(&self) -> Self {
-        Self { pVolumeUnk: self.pVolumeUnk.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_0 {
@@ -4994,7 +4994,7 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_0 {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5010,11 +5010,11 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT_0_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub struct VDS_ASYNC_OUTPUT_0_1 {
-    pub pLunUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub pLunUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_1 {
     fn clone(&self) -> Self {
-        Self { pLunUnk: self.pLunUnk.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_1 {
@@ -5023,7 +5023,7 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_1 {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -5070,11 +5070,11 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT_0_2 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub struct VDS_ASYNC_OUTPUT_0_3 {
-    pub pPortalGroupUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub pPortalGroupUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_3 {
     fn clone(&self) -> Self {
-        Self { pPortalGroupUnk: self.pPortalGroupUnk.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_3 {
@@ -5083,7 +5083,7 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_3 {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_3 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -5099,11 +5099,11 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT_0_3 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub struct VDS_ASYNC_OUTPUT_0_4 {
-    pub pTargetUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub pTargetUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_4 {
     fn clone(&self) -> Self {
-        Self { pTargetUnk: self.pTargetUnk.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_4 {
@@ -5112,7 +5112,7 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_4 {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_4 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_4 {
     fn eq(&self, other: &Self) -> bool {
@@ -5128,11 +5128,11 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT_0_4 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub struct VDS_ASYNC_OUTPUT_0_5 {
-    pub pVolumeUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub pVolumeUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_5 {
     fn clone(&self) -> Self {
-        Self { pVolumeUnk: self.pVolumeUnk.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_5 {
@@ -5141,7 +5141,7 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_5 {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_5 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_5 {
     fn eq(&self, other: &Self) -> bool {
@@ -5157,11 +5157,11 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT_0_5 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub struct VDS_ASYNC_OUTPUT_0_6 {
-    pub pVDiskUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub pVDiskUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_6 {
     fn clone(&self) -> Self {
-        Self { pVDiskUnk: self.pVDiskUnk.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_6 {
@@ -5170,7 +5170,7 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_6 {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_6 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_6 {
     fn eq(&self, other: &Self) -> bool {

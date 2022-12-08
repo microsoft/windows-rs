@@ -1120,7 +1120,7 @@ impl ::windows::core::RuntimeName for IFsrmClassifierModuleImplementation {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsrmClassifierModuleImplementation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>() -> IFsrmClassifierModuleImplementation_Vtbl {
-        unsafe extern "system" fn LastModified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastmodified: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LastModified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastmodified: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LastModified() {
@@ -1196,7 +1196,7 @@ impl IFsrmCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, item: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, item: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
@@ -1245,7 +1245,7 @@ impl IFsrmCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetById<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::windows::core::GUID, entry: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetById<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::windows::core::GUID, entry: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetById(::core::mem::transmute(&id)) {
@@ -1353,12 +1353,12 @@ impl ::windows::core::RuntimeName for IFsrmExportImport {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsrmExportImport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>() -> IFsrmExportImport_Vtbl {
-        unsafe extern "system" fn ExportFileGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, filegroupnamessafearray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, remotehost: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExportFileGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, filegroupnamessafearray: *const super::super::System::Com::VARIANT, remotehost: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ExportFileGroups(::core::mem::transmute(&filepath), ::core::mem::transmute_copy(&filegroupnamessafearray), ::core::mem::transmute(&remotehost)).into()
         }
-        unsafe extern "system" fn ImportFileGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, filegroupnamessafearray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, remotehost: *mut ::core::ffi::c_void, filegroups: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportFileGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, filegroupnamessafearray: *const super::super::System::Com::VARIANT, remotehost: *mut ::core::ffi::c_void, filegroups: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ImportFileGroups(::core::mem::transmute(&filepath), ::core::mem::transmute_copy(&filegroupnamessafearray), ::core::mem::transmute(&remotehost)) {
@@ -1369,12 +1369,12 @@ impl IFsrmExportImport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportFileScreenTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, templatenamessafearray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, remotehost: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExportFileScreenTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ExportFileScreenTemplates(::core::mem::transmute(&filepath), ::core::mem::transmute_copy(&templatenamessafearray), ::core::mem::transmute(&remotehost)).into()
         }
-        unsafe extern "system" fn ImportFileScreenTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, templatenamessafearray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, remotehost: *mut ::core::ffi::c_void, templates: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportFileScreenTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: *mut ::core::ffi::c_void, templates: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ImportFileScreenTemplates(::core::mem::transmute(&filepath), ::core::mem::transmute_copy(&templatenamessafearray), ::core::mem::transmute(&remotehost)) {
@@ -1385,12 +1385,12 @@ impl IFsrmExportImport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportQuotaTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, templatenamessafearray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, remotehost: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExportQuotaTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ExportQuotaTemplates(::core::mem::transmute(&filepath), ::core::mem::transmute_copy(&templatenamessafearray), ::core::mem::transmute(&remotehost)).into()
         }
-        unsafe extern "system" fn ImportQuotaTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, templatenamessafearray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, remotehost: *mut ::core::ffi::c_void, templates: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportQuotaTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: *mut ::core::ffi::c_void, templates: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ImportQuotaTemplates(::core::mem::transmute(&filepath), ::core::mem::transmute_copy(&templatenamessafearray), ::core::mem::transmute(&remotehost)) {
@@ -1533,7 +1533,7 @@ impl IFsrmFileConditionProperty_Vtbl {
             let this = (*this).get_impl();
             this.SetValueType(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -1544,7 +1544,7 @@ impl IFsrmFileConditionProperty_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute(&newval)).into()
@@ -1725,7 +1725,7 @@ impl IFsrmFileGroupManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportFileGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroupManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filegroupnamesarray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, serializedfilegroups: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExportFileGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroupManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filegroupnamesarray: *const super::super::System::Com::VARIANT, serializedfilegroups: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExportFileGroups(::core::mem::transmute_copy(&filegroupnamesarray)) {
@@ -1736,7 +1736,7 @@ impl IFsrmFileGroupManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportFileGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroupManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serializedfilegroups: *mut ::core::ffi::c_void, filegroupnamesarray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, filegroups: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportFileGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroupManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serializedfilegroups: *mut ::core::ffi::c_void, filegroupnamesarray: *const super::super::System::Com::VARIANT, filegroups: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ImportFileGroups(::core::mem::transmute(&serializedfilegroups), ::core::mem::transmute_copy(&filegroupnamesarray)) {
@@ -2858,7 +2858,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filescreentemplatenamesarray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, serializedfilescreentemplates: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExportTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filescreentemplatenamesarray: *const super::super::System::Com::VARIANT, serializedfilescreentemplates: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExportTemplates(::core::mem::transmute_copy(&filescreentemplatenamesarray)) {
@@ -2869,7 +2869,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serializedfilescreentemplates: *mut ::core::ffi::c_void, filescreentemplatenamesarray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, filescreentemplates: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serializedfilescreentemplates: *mut ::core::ffi::c_void, filescreentemplatenamesarray: *const super::super::System::Com::VARIANT, filescreentemplates: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ImportTemplates(::core::mem::transmute(&serializedfilescreentemplates), ::core::mem::transmute_copy(&filescreentemplatenamesarray)) {
@@ -2905,7 +2905,7 @@ impl ::windows::core::RuntimeName for IFsrmMutableCollection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsrmMutableCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmMutableCollection_Impl, const OFFSET: isize>() -> IFsrmMutableCollection_Vtbl {
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&item)).into()
@@ -3507,7 +3507,7 @@ impl IFsrmPropertyBag_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FileId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fileid: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FileId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fileid: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FileId() {
@@ -3518,7 +3518,7 @@ impl IFsrmPropertyBag_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParentDirectoryId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parentdirectoryid: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ParentDirectoryId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parentdirectoryid: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ParentDirectoryId() {
@@ -3529,7 +3529,7 @@ impl IFsrmPropertyBag_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Size<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Size<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Size() {
@@ -3540,7 +3540,7 @@ impl IFsrmPropertyBag_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SizeAllocated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizeallocated: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SizeAllocated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizeallocated: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SizeAllocated() {
@@ -3551,7 +3551,7 @@ impl IFsrmPropertyBag_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreationTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, creationtime: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreationTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, creationtime: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreationTime() {
@@ -3562,7 +3562,7 @@ impl IFsrmPropertyBag_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastAccessTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastaccesstime: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LastAccessTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastaccesstime: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LastAccessTime() {
@@ -3573,7 +3573,7 @@ impl IFsrmPropertyBag_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastModificationTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastmodificationtime: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LastModificationTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastmodificationtime: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LastModificationTime() {
@@ -3660,7 +3660,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             this.AddMessage(::core::mem::transmute(&message)).into()
         }
-        unsafe extern "system" fn GetFileStreamInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType, pstreaminterface: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFileStreamInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType, pstreaminterface: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFileStreamInterface(::core::mem::transmute_copy(&accessmode), ::core::mem::transmute_copy(&interfacetype)) {
@@ -3710,7 +3710,7 @@ impl ::windows::core::RuntimeName for IFsrmPropertyBag2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsrmPropertyBag2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag2_Impl, const OFFSET: isize>() -> IFsrmPropertyBag2_Vtbl {
-        unsafe extern "system" fn GetFieldValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, field: FsrmPropertyBagField, value: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFieldValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, field: FsrmPropertyBagField, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFieldValue(::core::mem::transmute_copy(&field)) {
@@ -4097,7 +4097,7 @@ impl ::windows::core::RuntimeName for IFsrmQuota {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsrmQuota_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuota_Impl, const OFFSET: isize>() -> IFsrmQuota_Vtbl {
-        unsafe extern "system" fn QuotaUsed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuota_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, used: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QuotaUsed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuota_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, used: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.QuotaUsed() {
@@ -4108,7 +4108,7 @@ impl IFsrmQuota_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QuotaPeakUsage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuota_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peakusage: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QuotaPeakUsage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuota_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peakusage: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.QuotaPeakUsage() {
@@ -4171,7 +4171,7 @@ impl ::windows::core::RuntimeName for IFsrmQuotaBase {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsrmQuotaBase_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>() -> IFsrmQuotaBase_Vtbl {
-        unsafe extern "system" fn QuotaLimit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, quotalimit: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QuotaLimit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, quotalimit: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.QuotaLimit() {
@@ -4182,7 +4182,7 @@ impl IFsrmQuotaBase_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetQuotaLimit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, quotalimit: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetQuotaLimit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, quotalimit: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetQuotaLimit(::core::mem::transmute(&quotalimit)).into()
@@ -4687,7 +4687,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, quotatemplatenamesarray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, serializedquotatemplates: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExportTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, quotatemplatenamesarray: *const super::super::System::Com::VARIANT, serializedquotatemplates: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExportTemplates(::core::mem::transmute_copy(&quotatemplatenamesarray)) {
@@ -4698,7 +4698,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serializedquotatemplates: *mut ::core::ffi::c_void, quotatemplatenamesarray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, quotatemplates: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serializedquotatemplates: *mut ::core::ffi::c_void, quotatemplatenamesarray: *const super::super::System::Com::VARIANT, quotatemplates: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ImportTemplates(::core::mem::transmute(&serializedquotatemplates), ::core::mem::transmute_copy(&quotatemplatenamesarray)) {
@@ -4793,7 +4793,7 @@ impl IFsrmReport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filter: FsrmReportFilter, filtervalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filter: FsrmReportFilter, filtervalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFilter(::core::mem::transmute_copy(&filter)) {
@@ -4804,7 +4804,7 @@ impl IFsrmReport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filter: FsrmReportFilter, filtervalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filter: FsrmReportFilter, filtervalue: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFilter(::core::mem::transmute_copy(&filter), ::core::mem::transmute(&filtervalue)).into()
@@ -5110,7 +5110,7 @@ impl IFsrmReportManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDefaultFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDefaultFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDefaultFilter(::core::mem::transmute_copy(&reporttype), ::core::mem::transmute_copy(&filter)) {
@@ -5121,12 +5121,12 @@ impl IFsrmReportManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDefaultFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDefaultFilter(::core::mem::transmute_copy(&reporttype), ::core::mem::transmute_copy(&filter), ::core::mem::transmute(&filtervalue)).into()
         }
-        unsafe extern "system" fn GetReportSizeLimit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, limit: FsrmReportLimit, limitvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetReportSizeLimit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, limit: FsrmReportLimit, limitvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetReportSizeLimit(::core::mem::transmute_copy(&limit)) {
@@ -5137,7 +5137,7 @@ impl IFsrmReportManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReportSizeLimit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, limit: FsrmReportLimit, limitvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReportSizeLimit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, limit: FsrmReportLimit, limitvalue: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetReportSizeLimit(::core::mem::transmute_copy(&limit), ::core::mem::transmute(&limitvalue)).into()
@@ -5172,17 +5172,17 @@ impl ::windows::core::RuntimeName for IFsrmReportScheduler {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsrmReportScheduler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportScheduler_Impl, const OFFSET: isize>() -> IFsrmReportScheduler_Vtbl {
-        unsafe extern "system" fn VerifyNamespaces<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespacessafearray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerifyNamespaces<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespacessafearray: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.VerifyNamespaces(::core::mem::transmute_copy(&namespacessafearray)).into()
         }
-        unsafe extern "system" fn CreateScheduleTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskname: *mut ::core::ffi::c_void, namespacessafearray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, serializedtask: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateScheduleTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskname: *mut ::core::ffi::c_void, namespacessafearray: *const super::super::System::Com::VARIANT, serializedtask: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CreateScheduleTask(::core::mem::transmute(&taskname), ::core::mem::transmute_copy(&namespacessafearray), ::core::mem::transmute(&serializedtask)).into()
         }
-        unsafe extern "system" fn ModifyScheduleTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskname: *mut ::core::ffi::c_void, namespacessafearray: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, serializedtask: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModifyScheduleTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskname: *mut ::core::ffi::c_void, namespacessafearray: *const super::super::System::Com::VARIANT, serializedtask: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ModifyScheduleTask(::core::mem::transmute(&taskname), ::core::mem::transmute_copy(&namespacessafearray), ::core::mem::transmute(&serializedtask)).into()
@@ -5315,7 +5315,7 @@ impl IFsrmRule_Vtbl {
             let this = (*this).get_impl();
             this.SetParameters(::core::mem::transmute_copy(&parameters)).into()
         }
-        unsafe extern "system" fn LastModified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastmodified: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LastModified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsrmRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastmodified: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LastModified() {

@@ -16,7 +16,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, IActivateAudioInterfaceCompletionHandler>>,
 {
-    ::windows::core::link ! ( "mmdevapi.dll""system" fn ActivateAudioInterfaceAsync ( deviceinterfacepath : :: windows::core::PCWSTR , riid : *const :: windows::core::GUID , activationparams : *const ::core::mem::ManuallyDrop < super::super::System::Com::StructuredStorage:: PROPVARIANT > , completionhandler : * mut::core::ffi::c_void , activationoperation : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mmdevapi.dll""system" fn ActivateAudioInterfaceAsync ( deviceinterfacepath : :: windows::core::PCWSTR , riid : *const :: windows::core::GUID , activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT , completionhandler : * mut::core::ffi::c_void , activationoperation : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     ActivateAudioInterfaceAsync(deviceinterfacepath.into(), riid, ::core::mem::transmute(activationparams.unwrap_or(::std::ptr::null())), completionhandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
@@ -3885,7 +3885,7 @@ unsafe impl ::windows::core::Interface for IMMDevice {
 pub struct IMMDevice_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     Activate: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -3936,7 +3936,7 @@ unsafe impl ::windows::core::Interface for IMMDeviceActivator {
 pub struct IMMDeviceActivator_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, pdevice: *mut ::core::ffi::c_void, pactivationparams: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, pdevice: *mut ::core::ffi::c_void, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     Activate: usize,
 }
@@ -4212,7 +4212,7 @@ unsafe impl ::windows::core::Interface for IMessageFilter {
 pub struct IMessageFilter_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub HandleInComingCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcalltype: u32, htaskcaller: super::HTASK, dwtickcount: u32, lpinterfaceinfo: *const ::core::mem::ManuallyDrop<super::super::System::Com::INTERFACEINFO>) -> u32,
+    pub HandleInComingCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcalltype: u32, htaskcaller: super::HTASK, dwtickcount: u32, lpinterfaceinfo: *const super::super::System::Com::INTERFACEINFO) -> u32,
     #[cfg(not(feature = "Win32_System_Com"))]
     HandleInComingCall: usize,
     pub RetryRejectedCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htaskcallee: super::HTASK, dwtickcount: u32, dwrejecttype: u32) -> u32,
@@ -4523,7 +4523,7 @@ impl ISpatialAudioClient {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ActivateSpatialAudioStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(activationparams), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).ActivateSpatialAudioStream)(::windows::core::Vtable::as_raw(self), activationparams, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISpatialAudioClient, ::windows::core::IUnknown);
@@ -4560,11 +4560,11 @@ pub struct ISpatialAudioClient_Vtbl {
     pub GetMaxFrameCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectformat: *const WAVEFORMATEX, framecountperbuffer: *mut u32) -> ::windows::core::HRESULT,
     pub IsAudioObjectFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectformat: *const WAVEFORMATEX) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub IsSpatialAudioStreamAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamuuid: *const ::windows::core::GUID, auxiliaryinfo: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
+    pub IsSpatialAudioStreamAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamuuid: *const ::windows::core::GUID, auxiliaryinfo: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     IsSpatialAudioStreamAvailable: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub ActivateSpatialAudioStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activationparams: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, riid: *const ::windows::core::GUID, stream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ActivateSpatialAudioStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, stream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     ActivateSpatialAudioStream: usize,
 }
@@ -4606,7 +4606,7 @@ impl ISpatialAudioClient2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.ActivateSpatialAudioStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(activationparams), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.ActivateSpatialAudioStream)(::windows::core::Vtable::as_raw(self), activationparams, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8817,19 +8817,14 @@ impl ::core::default::Default for AudioClientProperties {
 #[cfg(feature = "Win32_Foundation")]
 pub struct AudioExtensionParams {
     pub AddPageParam: super::super::Foundation::LPARAM,
-    pub pEndpoint: ::core::option::Option<IMMDevice>,
-    pub pPnpInterface: ::core::option::Option<IMMDevice>,
-    pub pPnpDevnode: ::core::option::Option<IMMDevice>,
+    pub pEndpoint: ::windows::core::ManuallyDrop<IMMDevice>,
+    pub pPnpInterface: ::windows::core::ManuallyDrop<IMMDevice>,
+    pub pPnpDevnode: ::windows::core::ManuallyDrop<IMMDevice>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AudioExtensionParams {
     fn clone(&self) -> Self {
-        Self {
-            AddPageParam: self.AddPageParam,
-            pEndpoint: self.pEndpoint.clone(),
-            pPnpInterface: self.pPnpInterface.clone(),
-            pPnpDevnode: self.pPnpDevnode.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8840,7 +8835,7 @@ impl ::core::fmt::Debug for AudioExtensionParams {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AudioExtensionParams {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AudioExtensionParams {
@@ -10463,7 +10458,7 @@ pub struct SpatialAudioHrtfActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ::windows::core::ManuallyDrop<ISpatialAudioObjectRenderStreamNotify>,
     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
@@ -10471,7 +10466,7 @@ pub struct SpatialAudioHrtfActivationParams {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SpatialAudioHrtfActivationParams {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SpatialAudioHrtfActivationParams {
@@ -10489,7 +10484,7 @@ pub struct SpatialAudioHrtfActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ::windows::core::ManuallyDrop<ISpatialAudioObjectRenderStreamNotify>,
     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
@@ -10498,7 +10493,7 @@ pub struct SpatialAudioHrtfActivationParams2 {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SpatialAudioHrtfActivationParams2 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SpatialAudioHrtfActivationParams2 {
@@ -10643,11 +10638,11 @@ pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ::windows::core::ManuallyDrop<ISpatialAudioObjectRenderStreamNotify>,
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SpatialAudioObjectRenderStreamActivationParams {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SpatialAudioObjectRenderStreamActivationParams {
@@ -10665,12 +10660,12 @@ pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ::windows::core::ManuallyDrop<ISpatialAudioObjectRenderStreamNotify>,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SpatialAudioObjectRenderStreamActivationParams2 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SpatialAudioObjectRenderStreamActivationParams2 {
@@ -10691,11 +10686,11 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub MetadataFormatId: ::windows::core::GUID,
     pub MaxMetadataItemCount: u16,
     pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ::windows::core::ManuallyDrop<ISpatialAudioObjectRenderStreamNotify>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for SpatialAudioObjectRenderStreamForMetadataActivationParams {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for SpatialAudioObjectRenderStreamForMetadataActivationParams {
@@ -10716,12 +10711,12 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub MetadataFormatId: ::windows::core::GUID,
     pub MaxMetadataItemCount: u32,
     pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ::windows::core::ManuallyDrop<ISpatialAudioObjectRenderStreamNotify>,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {

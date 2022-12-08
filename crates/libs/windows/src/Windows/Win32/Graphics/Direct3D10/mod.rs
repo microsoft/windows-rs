@@ -2772,13 +2772,13 @@ impl ID3D10EffectPass {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc).ok()
     }
     pub unsafe fn GetVertexShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetVertexShaderDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc)).ok()
+        (::windows::core::Vtable::vtable(self).GetVertexShaderDesc)(::windows::core::Vtable::as_raw(self), pdesc).ok()
     }
     pub unsafe fn GetGeometryShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetGeometryShaderDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc)).ok()
+        (::windows::core::Vtable::vtable(self).GetGeometryShaderDesc)(::windows::core::Vtable::as_raw(self), pdesc).ok()
     }
     pub unsafe fn GetPixelShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPixelShaderDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc)).ok()
+        (::windows::core::Vtable::vtable(self).GetPixelShaderDesc)(::windows::core::Vtable::as_raw(self), pdesc).ok()
     }
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         (::windows::core::Vtable::vtable(self).GetAnnotationByIndex)(::windows::core::Vtable::as_raw(self), index)
@@ -2826,9 +2826,9 @@ pub struct ID3D10EffectPass_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsValid: usize,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_DESC) -> ::windows::core::HRESULT,
-    pub GetVertexShaderDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut ::core::mem::ManuallyDrop<D3D10_PASS_SHADER_DESC>) -> ::windows::core::HRESULT,
-    pub GetGeometryShaderDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut ::core::mem::ManuallyDrop<D3D10_PASS_SHADER_DESC>) -> ::windows::core::HRESULT,
-    pub GetPixelShaderDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut ::core::mem::ManuallyDrop<D3D10_PASS_SHADER_DESC>) -> ::windows::core::HRESULT,
+    pub GetVertexShaderDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::HRESULT,
+    pub GetGeometryShaderDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::HRESULT,
+    pub GetPixelShaderDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::HRESULT,
     pub GetAnnotationByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectVariable>,
     pub GetAnnotationByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable>,
     pub Apply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
@@ -10144,12 +10144,12 @@ impl ::core::default::Default for D3D10_PASS_DESC {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub struct D3D10_PASS_SHADER_DESC {
-    pub pShaderVariable: ::core::option::Option<ID3D10EffectShaderVariable>,
+    pub pShaderVariable: ::windows::core::ManuallyDrop<ID3D10EffectShaderVariable>,
     pub ShaderIndex: u32,
 }
 impl ::core::clone::Clone for D3D10_PASS_SHADER_DESC {
     fn clone(&self) -> Self {
-        Self { pShaderVariable: self.pShaderVariable.clone(), ShaderIndex: self.ShaderIndex }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for D3D10_PASS_SHADER_DESC {
@@ -10158,7 +10158,7 @@ impl ::core::fmt::Debug for D3D10_PASS_SHADER_DESC {
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_PASS_SHADER_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D10_PASS_SHADER_DESC {
     fn eq(&self, other: &Self) -> bool {

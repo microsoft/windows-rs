@@ -35,7 +35,7 @@ pub struct IApoAcousticEchoCancellation_Vtbl {
 pub struct IApoAuxiliaryInputConfiguration(::windows::core::IUnknown);
 impl IApoAuxiliaryInputConfiguration {
     pub unsafe fn AddAuxiliaryInput(&self, dwinputid: u32, pbydata: &[u8], pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AddAuxiliaryInput)(::windows::core::Vtable::as_raw(self), dwinputid, pbydata.len() as _, ::core::mem::transmute(pbydata.as_ptr()), ::core::mem::transmute(pinputconnection)).ok()
+        (::windows::core::Vtable::vtable(self).AddAuxiliaryInput)(::windows::core::Vtable::as_raw(self), dwinputid, pbydata.len() as _, ::core::mem::transmute(pbydata.as_ptr()), pinputconnection).ok()
     }
     pub unsafe fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveAuxiliaryInput)(::windows::core::Vtable::as_raw(self), dwinputid).ok()
@@ -75,7 +75,7 @@ unsafe impl ::windows::core::Interface for IApoAuxiliaryInputConfiguration {
 #[doc(hidden)]
 pub struct IApoAuxiliaryInputConfiguration_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub AddAuxiliaryInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const ::core::mem::ManuallyDrop<APO_CONNECTION_DESCRIPTOR>) -> ::windows::core::HRESULT,
+    pub AddAuxiliaryInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::HRESULT,
     pub RemoveAuxiliaryInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputid: u32) -> ::windows::core::HRESULT,
     pub IsInputFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prequestedinputformat: *mut ::core::ffi::c_void, ppsupportedinputformat: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -381,7 +381,7 @@ impl IAudioProcessingObjectNotifications {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn HandleNotification(&self, aponotification: *const APO_NOTIFICATION) {
-        (::windows::core::Vtable::vtable(self).HandleNotification)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(aponotification))
+        (::windows::core::Vtable::vtable(self).HandleNotification)(::windows::core::Vtable::as_raw(self), aponotification)
     }
 }
 ::windows::core::interface_hierarchy!(IAudioProcessingObjectNotifications, ::windows::core::IUnknown);
@@ -413,7 +413,7 @@ pub struct IAudioProcessingObjectNotifications_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetApoNotificationRegistrationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub HandleNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aponotification: *const ::core::mem::ManuallyDrop<APO_NOTIFICATION>),
+    pub HandleNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aponotification: *const APO_NOTIFICATION),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))]
     HandleNotification: usize,
 }
@@ -1143,21 +1143,15 @@ impl ::core::default::Default for APOInitBaseStruct {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct APOInitSystemEffects {
     pub APOInit: APOInitBaseStruct,
-    pub pAPOEndpointProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
-    pub pAPOSystemEffectsProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pAPOEndpointProperties: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pAPOSystemEffectsProperties: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
     pub pReserved: *mut ::core::ffi::c_void,
-    pub pDeviceCollection: ::core::option::Option<super::IMMDeviceCollection>,
+    pub pDeviceCollection: ::windows::core::ManuallyDrop<super::IMMDeviceCollection>,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::clone::Clone for APOInitSystemEffects {
     fn clone(&self) -> Self {
-        Self {
-            APOInit: self.APOInit,
-            pAPOEndpointProperties: self.pAPOEndpointProperties.clone(),
-            pAPOSystemEffectsProperties: self.pAPOSystemEffectsProperties.clone(),
-            pReserved: self.pReserved,
-            pDeviceCollection: self.pDeviceCollection.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1168,7 +1162,7 @@ impl ::core::fmt::Debug for APOInitSystemEffects {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 unsafe impl ::windows::core::Abi for APOInitSystemEffects {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::cmp::PartialEq for APOInitSystemEffects {
@@ -1189,10 +1183,10 @@ impl ::core::default::Default for APOInitSystemEffects {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct APOInitSystemEffects2 {
     pub APOInit: APOInitBaseStruct,
-    pub pAPOEndpointProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
-    pub pAPOSystemEffectsProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pAPOEndpointProperties: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pAPOSystemEffectsProperties: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
     pub pReserved: *mut ::core::ffi::c_void,
-    pub pDeviceCollection: ::core::option::Option<super::IMMDeviceCollection>,
+    pub pDeviceCollection: ::windows::core::ManuallyDrop<super::IMMDeviceCollection>,
     pub nSoftwareIoDeviceInCollection: u32,
     pub nSoftwareIoConnectorIndex: u32,
     pub AudioProcessingMode: ::windows::core::GUID,
@@ -1201,17 +1195,7 @@ pub struct APOInitSystemEffects2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::clone::Clone for APOInitSystemEffects2 {
     fn clone(&self) -> Self {
-        Self {
-            APOInit: self.APOInit,
-            pAPOEndpointProperties: self.pAPOEndpointProperties.clone(),
-            pAPOSystemEffectsProperties: self.pAPOSystemEffectsProperties.clone(),
-            pReserved: self.pReserved,
-            pDeviceCollection: self.pDeviceCollection.clone(),
-            nSoftwareIoDeviceInCollection: self.nSoftwareIoDeviceInCollection,
-            nSoftwareIoConnectorIndex: self.nSoftwareIoConnectorIndex,
-            AudioProcessingMode: self.AudioProcessingMode,
-            InitializeForDiscoveryOnly: self.InitializeForDiscoveryOnly,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -1232,7 +1216,7 @@ impl ::core::fmt::Debug for APOInitSystemEffects2 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 unsafe impl ::windows::core::Abi for APOInitSystemEffects2 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::cmp::PartialEq for APOInitSystemEffects2 {
@@ -1253,9 +1237,9 @@ impl ::core::default::Default for APOInitSystemEffects2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct APOInitSystemEffects3 {
     pub APOInit: APOInitBaseStruct,
-    pub pAPOEndpointProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
-    pub pServiceProvider: ::core::option::Option<super::super::super::System::Com::IServiceProvider>,
-    pub pDeviceCollection: ::core::option::Option<super::IMMDeviceCollection>,
+    pub pAPOEndpointProperties: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pServiceProvider: ::windows::core::ManuallyDrop<super::super::super::System::Com::IServiceProvider>,
+    pub pDeviceCollection: ::windows::core::ManuallyDrop<super::IMMDeviceCollection>,
     pub nSoftwareIoDeviceInCollection: u32,
     pub nSoftwareIoConnectorIndex: u32,
     pub AudioProcessingMode: ::windows::core::GUID,
@@ -1264,16 +1248,7 @@ pub struct APOInitSystemEffects3 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::clone::Clone for APOInitSystemEffects3 {
     fn clone(&self) -> Self {
-        Self {
-            APOInit: self.APOInit,
-            pAPOEndpointProperties: self.pAPOEndpointProperties.clone(),
-            pServiceProvider: self.pServiceProvider.clone(),
-            pDeviceCollection: self.pDeviceCollection.clone(),
-            nSoftwareIoDeviceInCollection: self.nSoftwareIoDeviceInCollection,
-            nSoftwareIoConnectorIndex: self.nSoftwareIoConnectorIndex,
-            AudioProcessingMode: self.AudioProcessingMode,
-            InitializeForDiscoveryOnly: self.InitializeForDiscoveryOnly,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -1293,7 +1268,7 @@ impl ::core::fmt::Debug for APOInitSystemEffects3 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 unsafe impl ::windows::core::Abi for APOInitSystemEffects3 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::cmp::PartialEq for APOInitSystemEffects3 {
@@ -1315,12 +1290,12 @@ pub struct APO_CONNECTION_DESCRIPTOR {
     pub Type: APO_CONNECTION_BUFFER_TYPE,
     pub pBuffer: usize,
     pub u32MaxFrameCount: u32,
-    pub pFormat: ::core::option::Option<IAudioMediaType>,
+    pub pFormat: ::windows::core::ManuallyDrop<IAudioMediaType>,
     pub u32Signature: u32,
 }
 impl ::core::clone::Clone for APO_CONNECTION_DESCRIPTOR {
     fn clone(&self) -> Self {
-        Self { Type: self.Type, pBuffer: self.pBuffer, u32MaxFrameCount: self.u32MaxFrameCount, pFormat: self.pFormat.clone(), u32Signature: self.u32Signature }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for APO_CONNECTION_DESCRIPTOR {
@@ -1329,7 +1304,7 @@ impl ::core::fmt::Debug for APO_CONNECTION_DESCRIPTOR {
     }
 }
 unsafe impl ::windows::core::Abi for APO_CONNECTION_DESCRIPTOR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for APO_CONNECTION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -1416,12 +1391,12 @@ pub struct APO_NOTIFICATION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::clone::Clone for APO_NOTIFICATION {
     fn clone(&self) -> Self {
-        Self { r#type: self.r#type, Anonymous: self.Anonymous.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 unsafe impl ::windows::core::Abi for APO_NOTIFICATION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::default::Default for APO_NOTIFICATION {
@@ -1433,9 +1408,9 @@ impl ::core::default::Default for APO_NOTIFICATION {
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub union APO_NOTIFICATION_0 {
-    pub audioEndpointVolumeChange: ::core::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION>,
-    pub audioEndpointPropertyChange: ::core::mem::ManuallyDrop<AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION>,
-    pub audioSystemEffectsPropertyChange: ::core::mem::ManuallyDrop<AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION>,
+    pub audioEndpointVolumeChange: ::std::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION>,
+    pub audioEndpointPropertyChange: ::std::mem::ManuallyDrop<AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION>,
+    pub audioSystemEffectsPropertyChange: ::std::mem::ManuallyDrop<AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::clone::Clone for APO_NOTIFICATION_0 {
@@ -1445,7 +1420,7 @@ impl ::core::clone::Clone for APO_NOTIFICATION_0 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 unsafe impl ::windows::core::Abi for APO_NOTIFICATION_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::default::Default for APO_NOTIFICATION_0 {
@@ -1461,11 +1436,11 @@ pub struct APO_NOTIFICATION_DESCRIPTOR {
 }
 impl ::core::clone::Clone for APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
-        Self { r#type: self.r#type, Anonymous: self.Anonymous.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 unsafe impl ::windows::core::Abi for APO_NOTIFICATION_DESCRIPTOR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for APO_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {
@@ -1475,9 +1450,9 @@ impl ::core::default::Default for APO_NOTIFICATION_DESCRIPTOR {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub union APO_NOTIFICATION_DESCRIPTOR_0 {
-    pub audioEndpointVolume: ::core::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR>,
-    pub audioEndpointPropertyChange: ::core::mem::ManuallyDrop<AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR>,
-    pub audioSystemEffectsPropertyChange: ::core::mem::ManuallyDrop<AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR>,
+    pub audioEndpointVolume: ::std::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR>,
+    pub audioEndpointPropertyChange: ::std::mem::ManuallyDrop<AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR>,
+    pub audioSystemEffectsPropertyChange: ::std::mem::ManuallyDrop<AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR>,
 }
 impl ::core::clone::Clone for APO_NOTIFICATION_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
@@ -1485,7 +1460,7 @@ impl ::core::clone::Clone for APO_NOTIFICATION_DESCRIPTOR_0 {
     }
 }
 unsafe impl ::windows::core::Abi for APO_NOTIFICATION_DESCRIPTOR_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for APO_NOTIFICATION_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -1551,11 +1526,11 @@ impl ::core::default::Default for APO_REG_PROPERTIES {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    pub device: ::core::option::Option<super::IMMDevice>,
+    pub device: ::windows::core::ManuallyDrop<super::IMMDevice>,
 }
 impl ::core::clone::Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
-        Self { device: self.device.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
@@ -1564,7 +1539,7 @@ impl ::core::fmt::Debug for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESC
     }
 }
 unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -1581,14 +1556,14 @@ impl ::core::default::Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATIO
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
-    pub endpoint: ::core::option::Option<super::IMMDevice>,
-    pub propertyStore: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub endpoint: ::windows::core::ManuallyDrop<super::IMMDevice>,
+    pub propertyStore: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
     pub propertyKey: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::clone::Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     fn clone(&self) -> Self {
-        Self { endpoint: self.endpoint.clone(), propertyStore: self.propertyStore.clone(), propertyKey: self.propertyKey }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1599,7 +1574,7 @@ impl ::core::fmt::Debug for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::cmp::PartialEq for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
@@ -1618,11 +1593,11 @@ impl ::core::default::Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
-    pub device: ::core::option::Option<super::IMMDevice>,
+    pub device: ::windows::core::ManuallyDrop<super::IMMDevice>,
 }
 impl ::core::clone::Clone for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
-        Self { device: self.device.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
@@ -1631,7 +1606,7 @@ impl ::core::fmt::Debug for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     }
 }
 unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -1648,13 +1623,13 @@ impl ::core::default::Default for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIP
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
-    pub endpoint: ::core::option::Option<super::IMMDevice>,
+    pub endpoint: ::windows::core::ManuallyDrop<super::IMMDevice>,
     pub volume: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
     fn clone(&self) -> Self {
-        Self { endpoint: self.endpoint.clone(), volume: self.volume }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1665,7 +1640,7 @@ impl ::core::fmt::Debug for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
@@ -1724,12 +1699,12 @@ impl ::core::default::Default for AUDIO_SYSTEMEFFECT {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    pub device: ::core::option::Option<super::IMMDevice>,
+    pub device: ::windows::core::ManuallyDrop<super::IMMDevice>,
     pub propertyStoreContext: ::windows::core::GUID,
 }
 impl ::core::clone::Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
-        Self { device: self.device.clone(), propertyStoreContext: self.propertyStoreContext }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
@@ -1738,7 +1713,7 @@ impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION
     }
 }
 unsafe impl ::windows::core::Abi for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -1755,22 +1730,16 @@ impl ::core::default::Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFI
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
-    pub endpoint: ::core::option::Option<super::IMMDevice>,
+    pub endpoint: ::windows::core::ManuallyDrop<super::IMMDevice>,
     pub propertyStoreContext: ::windows::core::GUID,
     pub propertyStoreType: super::AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE,
-    pub propertyStore: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub propertyStore: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
     pub propertyKey: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::clone::Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     fn clone(&self) -> Self {
-        Self {
-            endpoint: self.endpoint.clone(),
-            propertyStoreContext: self.propertyStoreContext,
-            propertyStoreType: self.propertyStoreType,
-            propertyStore: self.propertyStore.clone(),
-            propertyKey: self.propertyKey,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1781,7 +1750,7 @@ impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 unsafe impl ::windows::core::Abi for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::cmp::PartialEq for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
@@ -1803,12 +1772,12 @@ impl ::core::default::Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATI
 pub struct AudioFXExtensionParams {
     pub AddPageParam: super::super::super::Foundation::LPARAM,
     pub pwstrEndpointID: ::windows::core::PWSTR,
-    pub pFxProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pFxProperties: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::clone::Clone for AudioFXExtensionParams {
     fn clone(&self) -> Self {
-        Self { AddPageParam: self.AddPageParam, pwstrEndpointID: self.pwstrEndpointID, pFxProperties: self.pFxProperties.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -1819,7 +1788,7 @@ impl ::core::fmt::Debug for AudioFXExtensionParams {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 unsafe impl ::windows::core::Abi for AudioFXExtensionParams {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::cmp::PartialEq for AudioFXExtensionParams {

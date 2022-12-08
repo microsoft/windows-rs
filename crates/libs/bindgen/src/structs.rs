@@ -35,13 +35,23 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
     let fields = gen.reader.type_def_fields(def).map(|f| {
         let name = to_ident(gen.reader.field_name(f));
         let ty = gen.reader.field_type(f, Some(def));
-        let ty = gen.type_default_name(&ty);
 
         if gen.reader.field_flags(f).literal() {
             quote! {}
-        } else if !gen.sys && flags.explicit_layout() && !gen.reader.field_is_blittable(f, def) {
-            quote! { pub #name: ::core::mem::ManuallyDrop<#ty>, }
+        } else if !gen.sys && flags.explicit_layout() && !gen.reader.field_is_copyable(f, def) {
+            // Rust can't tell that the type is copyable and won't accept windows::core::ManuallyDrop
+            let ty = gen.type_default_name(&ty);
+            quote! { pub #name: ::std::mem::ManuallyDrop<#ty>, }
+        } else if !gen.sys && !flags.winrt() && !gen.reader.field_is_blittable(f, def) {
+            if let Type::Win32Array((ty, len)) = ty {
+                let ty = gen.type_name(&ty);
+                quote! { pub #name: [::windows::core::ManuallyDrop<#ty>; #len], }
+            } else {
+                let ty = gen.type_name(&ty);
+                quote! { pub #name: ::windows::core::ManuallyDrop<#ty>, }
+            }
         } else {
+            let ty = gen.type_default_name(&ty);
             quote! { pub #name: #ty, }
         }
     });
@@ -96,7 +106,7 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
         let abi = if gen.reader.type_def_is_blittable(def) {
             quote! { Self }
         } else {
-            quote! { ::core::mem::ManuallyDrop<Self> }
+            quote! { ::std::mem::ManuallyDrop<Self> }
         };
 
         let features = gen.cfg_features(cfg);
@@ -197,7 +207,7 @@ fn gen_debug(gen: &Gen, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> TokenSt
 fn gen_copy_clone(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
     let features = gen.cfg_features(cfg);
 
-    if gen.sys || gen.reader.type_def_is_blittable(def) {
+    if gen.sys || gen.reader.type_def_is_copyable(def) {
         quote! {
             #features
             impl ::core::marker::Copy for #name {}
@@ -208,7 +218,10 @@ fn gen_copy_clone(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> Tok
                 }
             }
         }
-    } else if gen.reader.type_def_flags(def).explicit_layout() {
+    } else if gen.reader.type_def_class_layout(def).is_some() {
+        // Don't support copy/clone of packed structs: https://github.com/rust-lang/rust/issues/82523
+        quote! {}
+    } else if !gen.reader.type_def_flags(def).winrt() {
         quote! {
             #features
             impl ::core::clone::Clone for #name {
@@ -217,9 +230,6 @@ fn gen_copy_clone(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> Tok
                 }
             }
         }
-    } else if gen.reader.type_def_class_layout(def).is_some() {
-        // Don't support copy/clone of packed structs: https://github.com/rust-lang/rust/issues/82523
-        quote! {}
     } else {
         let fields = gen.reader.type_def_fields(def).map(|f| {
             let name = to_ident(gen.reader.field_name(f));

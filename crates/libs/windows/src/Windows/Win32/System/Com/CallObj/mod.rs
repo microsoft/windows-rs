@@ -54,7 +54,7 @@ impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn SetParam(&self, iparam: u32, pvar: *const super::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetParam)(::windows::core::Vtable::as_raw(self), iparam, ::core::mem::transmute(pvar)).ok()
+        (::windows::core::Vtable::vtable(self).SetParam)(::windows::core::Vtable::as_raw(self), iparam, pvar).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -94,23 +94,23 @@ impl ICallFrame {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMarshalSizeMax(&self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMarshalSizeMax)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmshlcontext), mshlflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetMarshalSizeMax)(::windows::core::Vtable::as_raw(self), pmshlcontext, mshlflags, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Marshal(&self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS, pbuffer: &[u8], pcbbufferused: *mut u32, pdatarep: *mut u32, prpcflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Marshal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmshlcontext), mshlflags, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, pcbbufferused, pdatarep, prpcflags).ok()
+        (::windows::core::Vtable::vtable(self).Marshal)(::windows::core::Vtable::as_raw(self), pmshlcontext, mshlflags, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, pcbbufferused, pdatarep, prpcflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unmarshal(&self, pbuffer: &[u8], datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Unmarshal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, datarep, ::core::mem::transmute(pcontext), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Unmarshal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, datarep, pcontext, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReleaseMarshalData(&self, pbuffer: &[u8], ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ReleaseMarshalData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, ibfirstrelease, datarep, ::core::mem::transmute(pcontext)).ok()
+        (::windows::core::Vtable::vtable(self).ReleaseMarshalData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, ibfirstrelease, datarep, pcontext).ok()
     }
     pub unsafe fn Invoke(&self, pvreceiver: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), pvreceiver).ok()
@@ -158,11 +158,11 @@ pub struct ICallFrame_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetParamInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub SetParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *const ::core::mem::ManuallyDrop<super::VARIANT>) -> ::windows::core::HRESULT,
+    pub SetParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *const super::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
     SetParam: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub GetParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *mut ::core::mem::ManuallyDrop<super::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *mut super::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
     GetParam: usize,
     pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copycontrol: CALLFRAME_COPY, pwalker: *mut ::core::ffi::c_void, ppframe: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -170,19 +170,19 @@ pub struct ICallFrame_Vtbl {
     pub FreeParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, freeflags: u32, pwalkerfree: *mut ::core::ffi::c_void, nullflags: u32) -> ::windows::core::HRESULT,
     pub WalkFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, walkwhat: u32, pwalker: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetMarshalSizeMax: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmshlcontext: *const ::core::mem::ManuallyDrop<CALLFRAME_MARSHALCONTEXT>, mshlflags: super::MSHLFLAGS, pcbbufferneeded: *mut u32) -> ::windows::core::HRESULT,
+    pub GetMarshalSizeMax: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS, pcbbufferneeded: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetMarshalSizeMax: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Marshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmshlcontext: *const ::core::mem::ManuallyDrop<CALLFRAME_MARSHALCONTEXT>, mshlflags: super::MSHLFLAGS, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, pcbbufferused: *mut u32, pdatarep: *mut u32, prpcflags: *mut u32) -> ::windows::core::HRESULT,
+    pub Marshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, pcbbufferused: *mut u32, pdatarep: *mut u32, prpcflags: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Marshal: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Unmarshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, datarep: u32, pcontext: *const ::core::mem::ManuallyDrop<CALLFRAME_MARSHALCONTEXT>, pcbunmarshalled: *mut u32) -> ::windows::core::HRESULT,
+    pub Unmarshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Unmarshal: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub ReleaseMarshalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const ::core::mem::ManuallyDrop<CALLFRAME_MARSHALCONTEXT>) -> ::windows::core::HRESULT,
+    pub ReleaseMarshalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     ReleaseMarshalData: usize,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvreceiver: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -405,12 +405,12 @@ impl ICallUnmarshal {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Unmarshal)(::windows::core::Vtable::as_raw(self), imethod, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, fforcebuffercopy.into(), datarep, ::core::mem::transmute(pcontext), pcbunmarshalled, ::core::mem::transmute(ppframe)).ok()
+        (::windows::core::Vtable::vtable(self).Unmarshal)(::windows::core::Vtable::as_raw(self), imethod, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, fforcebuffercopy.into(), datarep, pcontext, pcbunmarshalled, ::core::mem::transmute(ppframe)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReleaseMarshalData(&self, imethod: u32, pbuffer: &[u8], ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ReleaseMarshalData)(::windows::core::Vtable::as_raw(self), imethod, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, ibfirstrelease, datarep, ::core::mem::transmute(pcontext)).ok()
+        (::windows::core::Vtable::vtable(self).ReleaseMarshalData)(::windows::core::Vtable::as_raw(self), imethod, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, ibfirstrelease, datarep, pcontext).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICallUnmarshal, ::windows::core::IUnknown);
@@ -441,11 +441,11 @@ unsafe impl ::windows::core::Interface for ICallUnmarshal {
 pub struct ICallUnmarshal_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Unmarshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, fforcebuffercopy: super::super::super::Foundation::BOOL, datarep: u32, pcontext: *const ::core::mem::ManuallyDrop<CALLFRAME_MARSHALCONTEXT>, pcbunmarshalled: *mut u32, ppframe: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Unmarshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, fforcebuffercopy: super::super::super::Foundation::BOOL, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Unmarshal: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub ReleaseMarshalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const ::core::mem::ManuallyDrop<CALLFRAME_MARSHALCONTEXT>) -> ::windows::core::HRESULT,
+    pub ReleaseMarshalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     ReleaseMarshalData: usize,
 }
@@ -725,19 +725,13 @@ pub struct CALLFRAME_MARSHALCONTEXT {
     pub fIn: super::super::super::Foundation::BOOLEAN,
     pub dwDestContext: u32,
     pub pvDestContext: *mut ::core::ffi::c_void,
-    pub punkReserved: ::core::option::Option<::windows::core::IUnknown>,
+    pub punkReserved: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub guidTransferSyntax: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CALLFRAME_MARSHALCONTEXT {
     fn clone(&self) -> Self {
-        Self {
-            fIn: self.fIn,
-            dwDestContext: self.dwDestContext,
-            pvDestContext: self.pvDestContext,
-            punkReserved: self.punkReserved.clone(),
-            guidTransferSyntax: self.guidTransferSyntax,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -748,7 +742,7 @@ impl ::core::fmt::Debug for CALLFRAME_MARSHALCONTEXT {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CALLFRAME_MARSHALCONTEXT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CALLFRAME_MARSHALCONTEXT {

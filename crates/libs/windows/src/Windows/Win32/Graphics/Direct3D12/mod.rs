@@ -1209,14 +1209,14 @@ impl ID3D12Device {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateCommandList<'a, P0, P1, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P0, pinitialstate: P1) -> ::windows::core::Result<T>
     where
@@ -1452,10 +1452,10 @@ pub struct ID3D12Device_Vtbl {
     pub CreateCommandQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::core::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateCommandAllocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::core::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub CreateGraphicsPipelineState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateGraphicsPipelineState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
     CreateGraphicsPipelineState: usize,
-    pub CreateComputePipelineState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateComputePipelineState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateCommandList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: *mut ::core::ffi::c_void, pinitialstate: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CheckFeatureSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::HRESULT,
     pub CreateDescriptorHeap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescriptorheapdesc: *const D3D12_DESCRIPTOR_HEAP_DESC, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1577,14 +1577,14 @@ impl ID3D12Device1 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateCommandList<'a, P0, P1, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P0, pinitialstate: P1) -> ::windows::core::Result<T>
     where
@@ -1887,14 +1887,14 @@ impl ID3D12Device2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateCommandList<'a, P0, P1, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P0, pinitialstate: P1) -> ::windows::core::Result<T>
     where
@@ -2199,14 +2199,14 @@ impl ID3D12Device3 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateCommandList<'a, P0, P1, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P0, pinitialstate: P1) -> ::windows::core::Result<T>
     where
@@ -2539,14 +2539,14 @@ impl ID3D12Device4 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateCommandList<'a, P0, P1, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P0, pinitialstate: P1) -> ::windows::core::Result<T>
     where
@@ -2934,14 +2934,14 @@ impl ID3D12Device5 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateCommandList<'a, P0, P1, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P0, pinitialstate: P1) -> ::windows::core::Result<T>
     where
@@ -3364,14 +3364,14 @@ impl ID3D12Device6 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateCommandList<'a, P0, P1, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P0, pinitialstate: P1) -> ::windows::core::Result<T>
     where
@@ -3796,14 +3796,14 @@ impl ID3D12Device7 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateCommandList<'a, P0, P1, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P0, pinitialstate: P1) -> ::windows::core::Result<T>
     where
@@ -4241,14 +4241,14 @@ impl ID3D12Device8 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateCommandList<'a, P0, P1, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P0, pinitialstate: P1) -> ::windows::core::Result<T>
     where
@@ -4738,14 +4738,14 @@ impl ID3D12Device9 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.CreateGraphicsPipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.CreateComputePipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateCommandList<'a, P0, P1, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P0, pinitialstate: P1) -> ::windows::core::Result<T>
     where
@@ -5851,7 +5851,7 @@ impl ID3D12GraphicsCommandList {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: ::core::option::Option<*const D3D12_BOX>) {
-        (::windows::core::Vtable::vtable(self).CopyTextureRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdst), dstx, dsty, dstz, ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).CopyTextureRegion)(::windows::core::Vtable::as_raw(self), pdst, dstx, dsty, dstz, psrc, ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
     }
     pub unsafe fn CopyResource<'a, P0, P1>(&self, pdstresource: P0, psrcresource: P1)
     where
@@ -6096,7 +6096,7 @@ pub struct ID3D12GraphicsCommandList_Vtbl {
     pub Dispatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32),
     pub CopyBufferRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstbuffer: *mut ::core::ffi::c_void, dstoffset: u64, psrcbuffer: *mut ::core::ffi::c_void, srcoffset: u64, numbytes: u64),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CopyTextureRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
+    pub CopyTextureRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CopyTextureRegion: usize,
     pub CopyResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, psrcresource: *mut ::core::ffi::c_void),
@@ -6120,7 +6120,7 @@ pub struct ID3D12GraphicsCommandList_Vtbl {
     pub OMSetBlendFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blendfactor: *const f32),
     pub OMSetStencilRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stencilref: u32),
     pub SetPipelineState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppipelinestate: *mut ::core::ffi::c_void),
-    pub ResourceBarrier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const ::core::mem::ManuallyDrop<D3D12_RESOURCE_BARRIER>),
+    pub ResourceBarrier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER),
     pub ExecuteBundle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommandlist: *mut ::core::ffi::c_void),
     pub SetDescriptorHeaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numdescriptorheaps: u32, ppdescriptorheaps: *const *mut ::core::ffi::c_void),
     pub SetComputeRootSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prootsignature: *mut ::core::ffi::c_void),
@@ -6242,7 +6242,7 @@ impl ID3D12GraphicsCommandList1 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: ::core::option::Option<*const D3D12_BOX>) {
-        (::windows::core::Vtable::vtable(self).base__.CopyTextureRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdst), dstx, dsty, dstz, ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).base__.CopyTextureRegion)(::windows::core::Vtable::as_raw(self), pdst, dstx, dsty, dstz, psrc, ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
     }
     pub unsafe fn CopyResource<'a, P0, P1>(&self, pdstresource: P0, psrcresource: P1)
     where
@@ -6587,7 +6587,7 @@ impl ID3D12GraphicsCommandList2 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: ::core::option::Option<*const D3D12_BOX>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.CopyTextureRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdst), dstx, dsty, dstz, ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).base__.base__.CopyTextureRegion)(::windows::core::Vtable::as_raw(self), pdst, dstx, dsty, dstz, psrc, ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
     }
     pub unsafe fn CopyResource<'a, P0, P1>(&self, pdstresource: P0, psrcresource: P1)
     where
@@ -6927,7 +6927,7 @@ impl ID3D12GraphicsCommandList3 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: ::core::option::Option<*const D3D12_BOX>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CopyTextureRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdst), dstx, dsty, dstz, ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CopyTextureRegion)(::windows::core::Vtable::as_raw(self), pdst, dstx, dsty, dstz, psrc, ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
     }
     pub unsafe fn CopyResource<'a, P0, P1>(&self, pdstresource: P0, psrcresource: P1)
     where
@@ -7273,7 +7273,7 @@ impl ID3D12GraphicsCommandList4 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: ::core::option::Option<*const D3D12_BOX>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CopyTextureRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdst), dstx, dsty, dstz, ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CopyTextureRegion)(::windows::core::Vtable::as_raw(self), pdst, dstx, dsty, dstz, psrc, ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
     }
     pub unsafe fn CopyResource<'a, P0, P1>(&self, pdstresource: P0, psrcresource: P1)
     where
@@ -7592,7 +7592,7 @@ unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList4 {
 pub struct ID3D12GraphicsCommandList4_Vtbl {
     pub base__: ID3D12GraphicsCommandList3_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub BeginRenderPass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numrendertargets: u32, prendertargets: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_RENDER_TARGET_DESC>, pdepthstencil: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_DEPTH_STENCIL_DESC>, flags: D3D12_RENDER_PASS_FLAGS),
+    pub BeginRenderPass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
     BeginRenderPass: usize,
     pub EndRenderPass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
@@ -7673,7 +7673,7 @@ impl ID3D12GraphicsCommandList5 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: ::core::option::Option<*const D3D12_BOX>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CopyTextureRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdst), dstx, dsty, dstz, ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CopyTextureRegion)(::windows::core::Vtable::as_raw(self), pdst, dstx, dsty, dstz, psrc, ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
     }
     pub unsafe fn CopyResource<'a, P0, P1>(&self, pdstresource: P0, psrcresource: P1)
     where
@@ -8069,7 +8069,7 @@ impl ID3D12GraphicsCommandList6 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: ::core::option::Option<*const D3D12_BOX>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CopyTextureRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdst), dstx, dsty, dstz, ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CopyTextureRegion)(::windows::core::Vtable::as_raw(self), pdst, dstx, dsty, dstz, psrc, ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
     }
     pub unsafe fn CopyResource<'a, P0, P1>(&self, pdstresource: P0, psrcresource: P1)
     where
@@ -9323,7 +9323,7 @@ impl ID3D12PipelineLibrary {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LoadGraphicsPipeline)(::windows::core::Vtable::as_raw(self), pname.into(), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).LoadGraphicsPipeline)(::windows::core::Vtable::as_raw(self), pname.into(), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn LoadComputePipeline<'a, P0, T>(&self, pname: P0, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T>
     where
@@ -9331,7 +9331,7 @@ impl ID3D12PipelineLibrary {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LoadComputePipeline)(::windows::core::Vtable::as_raw(self), pname.into(), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).LoadComputePipeline)(::windows::core::Vtable::as_raw(self), pname.into(), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetSerializedSize(&self) -> usize {
         (::windows::core::Vtable::vtable(self).GetSerializedSize)(::windows::core::Vtable::as_raw(self))
@@ -9371,10 +9371,10 @@ pub struct ID3D12PipelineLibrary_Vtbl {
     pub base__: ID3D12DeviceChild_Vtbl,
     pub StorePipeline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, ppipeline: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub LoadGraphicsPipeline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LoadGraphicsPipeline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
     LoadGraphicsPipeline: usize,
-    pub LoadComputePipeline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LoadComputePipeline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSerializedSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize,
     pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut ::core::ffi::c_void, datasizeinbytes: usize) -> ::windows::core::HRESULT,
 }
@@ -9421,7 +9421,7 @@ impl ID3D12PipelineLibrary1 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.LoadGraphicsPipeline)(::windows::core::Vtable::as_raw(self), pname.into(), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.LoadGraphicsPipeline)(::windows::core::Vtable::as_raw(self), pname.into(), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn LoadComputePipeline<'a, P0, T>(&self, pname: P0, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T>
     where
@@ -9429,7 +9429,7 @@ impl ID3D12PipelineLibrary1 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.LoadComputePipeline)(::windows::core::Vtable::as_raw(self), pname.into(), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.LoadComputePipeline)(::windows::core::Vtable::as_raw(self), pname.into(), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetSerializedSize(&self) -> usize {
         (::windows::core::Vtable::vtable(self).base__.GetSerializedSize)(::windows::core::Vtable::as_raw(self))
@@ -20187,8 +20187,8 @@ pub struct D3D12_AUTO_BREADCRUMB_NODE {
     pub pCommandListDebugNameW: ::windows::core::PCWSTR,
     pub pCommandQueueDebugNameA: *const u8,
     pub pCommandQueueDebugNameW: ::windows::core::PCWSTR,
-    pub pCommandList: ::core::option::Option<ID3D12GraphicsCommandList>,
-    pub pCommandQueue: ::core::option::Option<ID3D12CommandQueue>,
+    pub pCommandList: ::windows::core::ManuallyDrop<ID3D12GraphicsCommandList>,
+    pub pCommandQueue: ::windows::core::ManuallyDrop<ID3D12CommandQueue>,
     pub BreadcrumbCount: u32,
     pub pLastBreadcrumbValue: *const u32,
     pub pCommandHistory: *const D3D12_AUTO_BREADCRUMB_OP,
@@ -20196,18 +20196,7 @@ pub struct D3D12_AUTO_BREADCRUMB_NODE {
 }
 impl ::core::clone::Clone for D3D12_AUTO_BREADCRUMB_NODE {
     fn clone(&self) -> Self {
-        Self {
-            pCommandListDebugNameA: self.pCommandListDebugNameA,
-            pCommandListDebugNameW: self.pCommandListDebugNameW,
-            pCommandQueueDebugNameA: self.pCommandQueueDebugNameA,
-            pCommandQueueDebugNameW: self.pCommandQueueDebugNameW,
-            pCommandList: self.pCommandList.clone(),
-            pCommandQueue: self.pCommandQueue.clone(),
-            BreadcrumbCount: self.BreadcrumbCount,
-            pLastBreadcrumbValue: self.pLastBreadcrumbValue,
-            pCommandHistory: self.pCommandHistory,
-            pNext: self.pNext,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for D3D12_AUTO_BREADCRUMB_NODE {
@@ -20227,7 +20216,7 @@ impl ::core::fmt::Debug for D3D12_AUTO_BREADCRUMB_NODE {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_AUTO_BREADCRUMB_NODE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_AUTO_BREADCRUMB_NODE {
     fn eq(&self, other: &Self) -> bool {
@@ -20247,8 +20236,8 @@ pub struct D3D12_AUTO_BREADCRUMB_NODE1 {
     pub pCommandListDebugNameW: ::windows::core::PCWSTR,
     pub pCommandQueueDebugNameA: *const u8,
     pub pCommandQueueDebugNameW: ::windows::core::PCWSTR,
-    pub pCommandList: ::core::option::Option<ID3D12GraphicsCommandList>,
-    pub pCommandQueue: ::core::option::Option<ID3D12CommandQueue>,
+    pub pCommandList: ::windows::core::ManuallyDrop<ID3D12GraphicsCommandList>,
+    pub pCommandQueue: ::windows::core::ManuallyDrop<ID3D12CommandQueue>,
     pub BreadcrumbCount: u32,
     pub pLastBreadcrumbValue: *const u32,
     pub pCommandHistory: *const D3D12_AUTO_BREADCRUMB_OP,
@@ -20258,20 +20247,7 @@ pub struct D3D12_AUTO_BREADCRUMB_NODE1 {
 }
 impl ::core::clone::Clone for D3D12_AUTO_BREADCRUMB_NODE1 {
     fn clone(&self) -> Self {
-        Self {
-            pCommandListDebugNameA: self.pCommandListDebugNameA,
-            pCommandListDebugNameW: self.pCommandListDebugNameW,
-            pCommandQueueDebugNameA: self.pCommandQueueDebugNameA,
-            pCommandQueueDebugNameW: self.pCommandQueueDebugNameW,
-            pCommandList: self.pCommandList.clone(),
-            pCommandQueue: self.pCommandQueue.clone(),
-            BreadcrumbCount: self.BreadcrumbCount,
-            pLastBreadcrumbValue: self.pLastBreadcrumbValue,
-            pCommandHistory: self.pCommandHistory,
-            pNext: self.pNext,
-            BreadcrumbContextsCount: self.BreadcrumbContextsCount,
-            pBreadcrumbContexts: self.pBreadcrumbContexts,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for D3D12_AUTO_BREADCRUMB_NODE1 {
@@ -20293,7 +20269,7 @@ impl ::core::fmt::Debug for D3D12_AUTO_BREADCRUMB_NODE1 {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_AUTO_BREADCRUMB_NODE1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_AUTO_BREADCRUMB_NODE1 {
     fn eq(&self, other: &Self) -> bool {
@@ -20741,7 +20717,7 @@ impl ::core::default::Default for D3D12_COMMAND_SIGNATURE_DESC {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub struct D3D12_COMPUTE_PIPELINE_STATE_DESC {
-    pub pRootSignature: ::core::option::Option<ID3D12RootSignature>,
+    pub pRootSignature: ::windows::core::ManuallyDrop<ID3D12RootSignature>,
     pub CS: D3D12_SHADER_BYTECODE,
     pub NodeMask: u32,
     pub CachedPSO: D3D12_CACHED_PIPELINE_STATE,
@@ -20749,7 +20725,7 @@ pub struct D3D12_COMPUTE_PIPELINE_STATE_DESC {
 }
 impl ::core::clone::Clone for D3D12_COMPUTE_PIPELINE_STATE_DESC {
     fn clone(&self) -> Self {
-        Self { pRootSignature: self.pRootSignature.clone(), CS: self.CS, NodeMask: self.NodeMask, CachedPSO: self.CachedPSO, Flags: self.Flags }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for D3D12_COMPUTE_PIPELINE_STATE_DESC {
@@ -20758,7 +20734,7 @@ impl ::core::fmt::Debug for D3D12_COMPUTE_PIPELINE_STATE_DESC {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_COMPUTE_PIPELINE_STATE_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_COMPUTE_PIPELINE_STATE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -21613,17 +21589,11 @@ pub struct D3D12_DRED_ALLOCATION_NODE1 {
     pub ObjectNameW: ::windows::core::PCWSTR,
     pub AllocationType: D3D12_DRED_ALLOCATION_TYPE,
     pub pNext: *const D3D12_DRED_ALLOCATION_NODE1,
-    pub pObject: ::core::option::Option<::windows::core::IUnknown>,
+    pub pObject: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 impl ::core::clone::Clone for D3D12_DRED_ALLOCATION_NODE1 {
     fn clone(&self) -> Self {
-        Self {
-            ObjectNameA: self.ObjectNameA,
-            ObjectNameW: self.ObjectNameW,
-            AllocationType: self.AllocationType,
-            pNext: self.pNext,
-            pObject: self.pObject.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for D3D12_DRED_ALLOCATION_NODE1 {
@@ -21632,7 +21602,7 @@ impl ::core::fmt::Debug for D3D12_DRED_ALLOCATION_NODE1 {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_DRED_ALLOCATION_NODE1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_DRED_ALLOCATION_NODE1 {
     fn eq(&self, other: &Self) -> bool {
@@ -21900,13 +21870,13 @@ impl ::core::default::Default for D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub struct D3D12_EXISTING_COLLECTION_DESC {
-    pub pExistingCollection: ::core::option::Option<ID3D12StateObject>,
+    pub pExistingCollection: ::windows::core::ManuallyDrop<ID3D12StateObject>,
     pub NumExports: u32,
     pub pExports: *mut D3D12_EXPORT_DESC,
 }
 impl ::core::clone::Clone for D3D12_EXISTING_COLLECTION_DESC {
     fn clone(&self) -> Self {
-        Self { pExistingCollection: self.pExistingCollection.clone(), NumExports: self.NumExports, pExports: self.pExports }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for D3D12_EXISTING_COLLECTION_DESC {
@@ -21915,7 +21885,7 @@ impl ::core::fmt::Debug for D3D12_EXISTING_COLLECTION_DESC {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_EXISTING_COLLECTION_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_EXISTING_COLLECTION_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -23303,11 +23273,11 @@ impl ::core::default::Default for D3D12_FUNCTION_DESC {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub struct D3D12_GLOBAL_ROOT_SIGNATURE {
-    pub pGlobalRootSignature: ::core::option::Option<ID3D12RootSignature>,
+    pub pGlobalRootSignature: ::windows::core::ManuallyDrop<ID3D12RootSignature>,
 }
 impl ::core::clone::Clone for D3D12_GLOBAL_ROOT_SIGNATURE {
     fn clone(&self) -> Self {
-        Self { pGlobalRootSignature: self.pGlobalRootSignature.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for D3D12_GLOBAL_ROOT_SIGNATURE {
@@ -23316,7 +23286,7 @@ impl ::core::fmt::Debug for D3D12_GLOBAL_ROOT_SIGNATURE {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_GLOBAL_ROOT_SIGNATURE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_GLOBAL_ROOT_SIGNATURE {
     fn eq(&self, other: &Self) -> bool {
@@ -23457,7 +23427,7 @@ impl ::core::default::Default for D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_GRAPHICS_PIPELINE_STATE_DESC {
-    pub pRootSignature: ::core::option::Option<ID3D12RootSignature>,
+    pub pRootSignature: ::windows::core::ManuallyDrop<ID3D12RootSignature>,
     pub VS: D3D12_SHADER_BYTECODE,
     pub PS: D3D12_SHADER_BYTECODE,
     pub DS: D3D12_SHADER_BYTECODE,
@@ -23482,29 +23452,7 @@ pub struct D3D12_GRAPHICS_PIPELINE_STATE_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
     fn clone(&self) -> Self {
-        Self {
-            pRootSignature: self.pRootSignature.clone(),
-            VS: self.VS,
-            PS: self.PS,
-            DS: self.DS,
-            HS: self.HS,
-            GS: self.GS,
-            StreamOutput: self.StreamOutput,
-            BlendState: self.BlendState,
-            SampleMask: self.SampleMask,
-            RasterizerState: self.RasterizerState,
-            DepthStencilState: self.DepthStencilState,
-            InputLayout: self.InputLayout,
-            IBStripCutValue: self.IBStripCutValue,
-            PrimitiveTopologyType: self.PrimitiveTopologyType,
-            NumRenderTargets: self.NumRenderTargets,
-            RTVFormats: self.RTVFormats,
-            DSVFormat: self.DSVFormat,
-            SampleDesc: self.SampleDesc,
-            NodeMask: self.NodeMask,
-            CachedPSO: self.CachedPSO,
-            Flags: self.Flags,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -23537,7 +23485,7 @@ impl ::core::fmt::Debug for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
@@ -24093,11 +24041,11 @@ impl ::core::default::Default for D3D12_LIBRARY_DESC {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub struct D3D12_LOCAL_ROOT_SIGNATURE {
-    pub pLocalRootSignature: ::core::option::Option<ID3D12RootSignature>,
+    pub pLocalRootSignature: ::windows::core::ManuallyDrop<ID3D12RootSignature>,
 }
 impl ::core::clone::Clone for D3D12_LOCAL_ROOT_SIGNATURE {
     fn clone(&self) -> Self {
-        Self { pLocalRootSignature: self.pLocalRootSignature.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for D3D12_LOCAL_ROOT_SIGNATURE {
@@ -24106,7 +24054,7 @@ impl ::core::fmt::Debug for D3D12_LOCAL_ROOT_SIGNATURE {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_LOCAL_ROOT_SIGNATURE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_LOCAL_ROOT_SIGNATURE {
     fn eq(&self, other: &Self) -> bool {
@@ -25423,18 +25371,12 @@ pub struct D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     fn clone(&self) -> Self {
-        Self {
-            cpuDescriptor: self.cpuDescriptor,
-            DepthBeginningAccess: self.DepthBeginningAccess,
-            StencilBeginningAccess: self.StencilBeginningAccess,
-            DepthEndingAccess: self.DepthEndingAccess.clone(),
-            StencilEndingAccess: self.StencilEndingAccess.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
@@ -25452,12 +25394,12 @@ pub struct D3D12_RENDER_PASS_ENDING_ACCESS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS {
     fn clone(&self) -> Self {
-        Self { Type: self.Type, Anonymous: self.Anonymous.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_RENDER_PASS_ENDING_ACCESS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_RENDER_PASS_ENDING_ACCESS {
@@ -25469,7 +25411,7 @@ impl ::core::default::Default for D3D12_RENDER_PASS_ENDING_ACCESS {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub union D3D12_RENDER_PASS_ENDING_ACCESS_0 {
-    pub Resolve: ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS>,
+    pub Resolve: ::std::mem::ManuallyDrop<D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
@@ -25479,7 +25421,7 @@ impl ::core::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
@@ -25491,8 +25433,8 @@ impl ::core::default::Default for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
-    pub pSrcResource: ::core::option::Option<ID3D12Resource>,
-    pub pDstResource: ::core::option::Option<ID3D12Resource>,
+    pub pSrcResource: ::windows::core::ManuallyDrop<ID3D12Resource>,
+    pub pDstResource: ::windows::core::ManuallyDrop<ID3D12Resource>,
     pub SubresourceCount: u32,
     pub pSubresourceParameters: *const D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
@@ -25502,15 +25444,7 @@ pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     fn clone(&self) -> Self {
-        Self {
-            pSrcResource: self.pSrcResource.clone(),
-            pDstResource: self.pDstResource.clone(),
-            SubresourceCount: self.SubresourceCount,
-            pSubresourceParameters: self.pSubresourceParameters,
-            Format: self.Format,
-            ResolveMode: self.ResolveMode,
-            PreserveResolveSource: self.PreserveResolveSource,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -25521,7 +25455,7 @@ impl ::core::fmt::Debug for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
@@ -25590,12 +25524,12 @@ pub struct D3D12_RENDER_PASS_RENDER_TARGET_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     fn clone(&self) -> Self {
-        Self { cpuDescriptor: self.cpuDescriptor, BeginningAccess: self.BeginningAccess, EndingAccess: self.EndingAccess.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
@@ -25710,12 +25644,12 @@ impl ::core::default::Default for D3D12_RENDER_TARGET_VIEW_DESC_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub struct D3D12_RESOURCE_ALIASING_BARRIER {
-    pub pResourceBefore: ::core::option::Option<ID3D12Resource>,
-    pub pResourceAfter: ::core::option::Option<ID3D12Resource>,
+    pub pResourceBefore: ::windows::core::ManuallyDrop<ID3D12Resource>,
+    pub pResourceAfter: ::windows::core::ManuallyDrop<ID3D12Resource>,
 }
 impl ::core::clone::Clone for D3D12_RESOURCE_ALIASING_BARRIER {
     fn clone(&self) -> Self {
-        Self { pResourceBefore: self.pResourceBefore.clone(), pResourceAfter: self.pResourceAfter.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for D3D12_RESOURCE_ALIASING_BARRIER {
@@ -25724,7 +25658,7 @@ impl ::core::fmt::Debug for D3D12_RESOURCE_ALIASING_BARRIER {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_RESOURCE_ALIASING_BARRIER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_ALIASING_BARRIER {
     fn eq(&self, other: &Self) -> bool {
@@ -25809,11 +25743,11 @@ pub struct D3D12_RESOURCE_BARRIER {
 }
 impl ::core::clone::Clone for D3D12_RESOURCE_BARRIER {
     fn clone(&self) -> Self {
-        Self { Type: self.Type, Flags: self.Flags, Anonymous: self.Anonymous.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_RESOURCE_BARRIER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for D3D12_RESOURCE_BARRIER {
     fn default() -> Self {
@@ -25823,9 +25757,9 @@ impl ::core::default::Default for D3D12_RESOURCE_BARRIER {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub union D3D12_RESOURCE_BARRIER_0 {
-    pub Transition: ::core::mem::ManuallyDrop<D3D12_RESOURCE_TRANSITION_BARRIER>,
-    pub Aliasing: ::core::mem::ManuallyDrop<D3D12_RESOURCE_ALIASING_BARRIER>,
-    pub UAV: ::core::mem::ManuallyDrop<D3D12_RESOURCE_UAV_BARRIER>,
+    pub Transition: ::std::mem::ManuallyDrop<D3D12_RESOURCE_TRANSITION_BARRIER>,
+    pub Aliasing: ::std::mem::ManuallyDrop<D3D12_RESOURCE_ALIASING_BARRIER>,
+    pub UAV: ::std::mem::ManuallyDrop<D3D12_RESOURCE_UAV_BARRIER>,
 }
 impl ::core::clone::Clone for D3D12_RESOURCE_BARRIER_0 {
     fn clone(&self) -> Self {
@@ -25833,7 +25767,7 @@ impl ::core::clone::Clone for D3D12_RESOURCE_BARRIER_0 {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_RESOURCE_BARRIER_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for D3D12_RESOURCE_BARRIER_0 {
     fn default() -> Self {
@@ -25938,14 +25872,14 @@ impl ::core::default::Default for D3D12_RESOURCE_DESC1 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub struct D3D12_RESOURCE_TRANSITION_BARRIER {
-    pub pResource: ::core::option::Option<ID3D12Resource>,
+    pub pResource: ::windows::core::ManuallyDrop<ID3D12Resource>,
     pub Subresource: u32,
     pub StateBefore: D3D12_RESOURCE_STATES,
     pub StateAfter: D3D12_RESOURCE_STATES,
 }
 impl ::core::clone::Clone for D3D12_RESOURCE_TRANSITION_BARRIER {
     fn clone(&self) -> Self {
-        Self { pResource: self.pResource.clone(), Subresource: self.Subresource, StateBefore: self.StateBefore, StateAfter: self.StateAfter }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for D3D12_RESOURCE_TRANSITION_BARRIER {
@@ -25954,7 +25888,7 @@ impl ::core::fmt::Debug for D3D12_RESOURCE_TRANSITION_BARRIER {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_RESOURCE_TRANSITION_BARRIER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_TRANSITION_BARRIER {
     fn eq(&self, other: &Self) -> bool {
@@ -25970,11 +25904,11 @@ impl ::core::default::Default for D3D12_RESOURCE_TRANSITION_BARRIER {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub struct D3D12_RESOURCE_UAV_BARRIER {
-    pub pResource: ::core::option::Option<ID3D12Resource>,
+    pub pResource: ::windows::core::ManuallyDrop<ID3D12Resource>,
 }
 impl ::core::clone::Clone for D3D12_RESOURCE_UAV_BARRIER {
     fn clone(&self) -> Self {
-        Self { pResource: self.pResource.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for D3D12_RESOURCE_UAV_BARRIER {
@@ -25983,7 +25917,7 @@ impl ::core::fmt::Debug for D3D12_RESOURCE_UAV_BARRIER {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_RESOURCE_UAV_BARRIER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_UAV_BARRIER {
     fn eq(&self, other: &Self) -> bool {
@@ -28286,19 +28220,19 @@ impl ::core::default::Default for D3D12_TEXCUBE_SRV {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_TEXTURE_COPY_LOCATION {
-    pub pResource: ::core::option::Option<ID3D12Resource>,
+    pub pResource: ::windows::core::ManuallyDrop<ID3D12Resource>,
     pub Type: D3D12_TEXTURE_COPY_TYPE,
     pub Anonymous: D3D12_TEXTURE_COPY_LOCATION_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_TEXTURE_COPY_LOCATION {
     fn clone(&self) -> Self {
-        Self { pResource: self.pResource.clone(), Type: self.Type, Anonymous: self.Anonymous }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D12_TEXTURE_COPY_LOCATION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_TEXTURE_COPY_LOCATION {

@@ -190,17 +190,17 @@ pub unsafe fn CompatFlagsFromClsid(pclsid: *const ::windows::core::GUID, pdwcomp
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO) -> ::windows::core::Result<super::BINDINFO> {
-    ::windows::core::link ! ( "urlmon.dll""system" fn CopyBindInfo ( pcbisrc : *const ::core::mem::ManuallyDrop < super:: BINDINFO > , pbidest : *mut ::core::mem::ManuallyDrop < super:: BINDINFO > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "urlmon.dll""system" fn CopyBindInfo ( pcbisrc : *const super:: BINDINFO , pbidest : *mut super:: BINDINFO ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CopyBindInfo(::core::mem::transmute(pcbisrc), result__.as_mut_ptr()).from_abi(result__)
+    CopyBindInfo(pcbisrc, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows::core::Result<super::STGMEDIUM> {
-    ::windows::core::link ! ( "urlmon.dll""system" fn CopyStgMedium ( pcstgmedsrc : *const ::core::mem::ManuallyDrop < super:: STGMEDIUM > , pstgmeddest : *mut ::core::mem::ManuallyDrop < super:: STGMEDIUM > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "urlmon.dll""system" fn CopyStgMedium ( pcstgmedsrc : *const super:: STGMEDIUM , pstgmeddest : *mut super:: STGMEDIUM ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CopyStgMedium(::core::mem::transmute(pcstgmedsrc), result__.as_mut_ptr()).from_abi(result__)
+    CopyStgMedium(pcstgmedsrc, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
@@ -515,8 +515,8 @@ pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core:
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO) {
-    ::windows::core::link ! ( "urlmon.dll""system" fn ReleaseBindInfo ( pbindinfo : *mut ::core::mem::ManuallyDrop < super:: BINDINFO > ) -> ( ) );
-    ReleaseBindInfo(::core::mem::transmute(pbindinfo))
+    ::windows::core::link ! ( "urlmon.dll""system" fn ReleaseBindInfo ( pbindinfo : *mut super:: BINDINFO ) -> ( ) );
+    ReleaseBindInfo(pbindinfo)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
@@ -1284,7 +1284,7 @@ impl IInternetBindInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBindInfo)(::windows::core::Vtable::as_raw(self), grfbindf, ::core::mem::transmute(pbindinfo)).ok()
+        (::windows::core::Vtable::vtable(self).GetBindInfo)(::windows::core::Vtable::as_raw(self), grfbindf, pbindinfo).ok()
     }
     pub unsafe fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut ::windows::core::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetBindString)(::windows::core::Vtable::as_raw(self), ulstringtype, ppwzstr, cel, pcelfetched).ok()
@@ -1318,7 +1318,7 @@ unsafe impl ::windows::core::Interface for IInternetBindInfo {
 pub struct IInternetBindInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-    pub GetBindInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut ::core::mem::ManuallyDrop<super::BINDINFO>) -> ::windows::core::HRESULT,
+    pub GetBindInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage")))]
     GetBindInfo: usize,
     pub GetBindString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulstringtype: u32, ppwzstr: *mut ::windows::core::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -1330,7 +1330,7 @@ impl IInternetBindInfoEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBindInfo)(::windows::core::Vtable::as_raw(self), grfbindf, ::core::mem::transmute(pbindinfo)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBindInfo)(::windows::core::Vtable::as_raw(self), grfbindf, pbindinfo).ok()
     }
     pub unsafe fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut ::windows::core::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetBindString)(::windows::core::Vtable::as_raw(self), ulstringtype, ppwzstr, cel, pcelfetched).ok()
@@ -1338,7 +1338,7 @@ impl IInternetBindInfoEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBindInfoEx)(::windows::core::Vtable::as_raw(self), grfbindf, ::core::mem::transmute(pbindinfo), grfbindf2, pdwreserved).ok()
+        (::windows::core::Vtable::vtable(self).GetBindInfoEx)(::windows::core::Vtable::as_raw(self), grfbindf, pbindinfo, grfbindf2, pdwreserved).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IInternetBindInfoEx, ::windows::core::IUnknown, IInternetBindInfo);
@@ -1369,7 +1369,7 @@ unsafe impl ::windows::core::Interface for IInternetBindInfoEx {
 pub struct IInternetBindInfoEx_Vtbl {
     pub base__: IInternetBindInfo_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-    pub GetBindInfoEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut ::core::mem::ManuallyDrop<super::BINDINFO>, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
+    pub GetBindInfoEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage")))]
     GetBindInfoEx: usize,
 }
@@ -5355,12 +5355,12 @@ impl ::core::default::Default for CODEBASEHOLD {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub struct CONFIRMSAFETY {
     pub clsid: ::windows::core::GUID,
-    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub pUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub dwFlags: u32,
 }
 impl ::core::clone::Clone for CONFIRMSAFETY {
     fn clone(&self) -> Self {
-        Self { clsid: self.clsid, pUnk: self.pUnk.clone(), dwFlags: self.dwFlags }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for CONFIRMSAFETY {
@@ -5369,7 +5369,7 @@ impl ::core::fmt::Debug for CONFIRMSAFETY {
     }
 }
 unsafe impl ::windows::core::Abi for CONFIRMSAFETY {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for CONFIRMSAFETY {
     fn eq(&self, other: &Self) -> bool {
@@ -5494,20 +5494,14 @@ impl ::core::default::Default for PROTOCOLDATA {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub struct PROTOCOLFILTERDATA {
     pub cbSize: u32,
-    pub pProtocolSink: ::core::option::Option<IInternetProtocolSink>,
-    pub pProtocol: ::core::option::Option<IInternetProtocol>,
-    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub pProtocolSink: ::windows::core::ManuallyDrop<IInternetProtocolSink>,
+    pub pProtocol: ::windows::core::ManuallyDrop<IInternetProtocol>,
+    pub pUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub dwFilterFlags: u32,
 }
 impl ::core::clone::Clone for PROTOCOLFILTERDATA {
     fn clone(&self) -> Self {
-        Self {
-            cbSize: self.cbSize,
-            pProtocolSink: self.pProtocolSink.clone(),
-            pProtocol: self.pProtocol.clone(),
-            pUnk: self.pUnk.clone(),
-            dwFilterFlags: self.dwFilterFlags,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for PROTOCOLFILTERDATA {
@@ -5516,7 +5510,7 @@ impl ::core::fmt::Debug for PROTOCOLFILTERDATA {
     }
 }
 unsafe impl ::windows::core::Abi for PROTOCOLFILTERDATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for PROTOCOLFILTERDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -5615,27 +5609,13 @@ pub struct RemBINDINFO {
     pub dwCodePage: u32,
     pub securityAttributes: REMSECURITY_ATTRIBUTES,
     pub iid: ::windows::core::GUID,
-    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub pUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub dwReserved: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RemBINDINFO {
     fn clone(&self) -> Self {
-        Self {
-            cbSize: self.cbSize,
-            szExtraInfo: self.szExtraInfo,
-            grfBindInfoF: self.grfBindInfoF,
-            dwBindVerb: self.dwBindVerb,
-            szCustomVerb: self.szCustomVerb,
-            cbstgmedData: self.cbstgmedData,
-            dwOptions: self.dwOptions,
-            dwOptionsFlags: self.dwOptionsFlags,
-            dwCodePage: self.dwCodePage,
-            securityAttributes: self.securityAttributes,
-            iid: self.iid,
-            pUnk: self.pUnk.clone(),
-            dwReserved: self.dwReserved,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5660,7 +5640,7 @@ impl ::core::fmt::Debug for RemBINDINFO {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RemBINDINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RemBINDINFO {
@@ -5770,12 +5750,12 @@ impl ::core::default::Default for SOFTDISTINFO {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub struct StartParam {
     pub iid: ::windows::core::GUID,
-    pub pIBindCtx: ::core::option::Option<super::IBindCtx>,
-    pub pItf: ::core::option::Option<::windows::core::IUnknown>,
+    pub pIBindCtx: ::windows::core::ManuallyDrop<super::IBindCtx>,
+    pub pItf: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 impl ::core::clone::Clone for StartParam {
     fn clone(&self) -> Self {
-        Self { iid: self.iid, pIBindCtx: self.pIBindCtx.clone(), pItf: self.pItf.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for StartParam {
@@ -5784,7 +5764,7 @@ impl ::core::fmt::Debug for StartParam {
     }
 }
 unsafe impl ::windows::core::Abi for StartParam {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for StartParam {
     fn eq(&self, other: &Self) -> bool {

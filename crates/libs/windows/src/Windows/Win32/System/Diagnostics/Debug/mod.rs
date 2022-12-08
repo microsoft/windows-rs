@@ -3513,7 +3513,7 @@ impl IActiveScript {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InterruptScriptThread(&self, stidthread: u32, pexcepinfo: *const super::super::Com::EXCEPINFO, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InterruptScriptThread)(::windows::core::Vtable::as_raw(self), stidthread, ::core::mem::transmute(pexcepinfo), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).InterruptScriptThread)(::windows::core::Vtable::as_raw(self), stidthread, pexcepinfo, dwflags).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IActiveScript> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3562,7 +3562,7 @@ pub struct IActiveScript_Vtbl {
     pub GetScriptThreadID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwwin32threadid: u32, pstidthread: *mut u32) -> ::windows::core::HRESULT,
     pub GetScriptThreadState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stidthread: u32, pstsstate: *mut SCRIPTTHREADSTATE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub InterruptScriptThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stidthread: u32, pexcepinfo: *const ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>, dwflags: u32) -> ::windows::core::HRESULT,
+    pub InterruptScriptThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stidthread: u32, pexcepinfo: *const super::super::Com::EXCEPINFO, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     InterruptScriptThread: usize,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppscript: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3968,7 +3968,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptError {
 pub struct IActiveScriptError_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetExceptionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
+    pub GetExceptionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetExceptionInfo: usize,
     pub GetSourcePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsourcecontext: *mut u32, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> ::windows::core::HRESULT,
@@ -4210,7 +4210,7 @@ impl IActiveScriptParse32 {
         P4: ::std::convert::Into<::windows::core::PCWSTR>,
         P5: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).AddScriptlet)(::windows::core::Vtable::as_raw(self), pstrdefaultname.into(), pstrcode.into(), pstritemname.into(), pstrsubitemname.into(), pstreventname.into(), pstrdelimiter.into(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, ::core::mem::transmute(pbstrname), ::core::mem::transmute(pexcepinfo)).ok()
+        (::windows::core::Vtable::vtable(self).AddScriptlet)(::windows::core::Vtable::as_raw(self), pstrdefaultname.into(), pstrcode.into(), pstritemname.into(), pstrsubitemname.into(), pstreventname.into(), pstrdelimiter.into(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, ::core::mem::transmute(pbstrname), pexcepinfo).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4221,7 +4221,7 @@ impl IActiveScriptParse32 {
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         P3: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).ParseScriptText)(::windows::core::Vtable::as_raw(self), pstrcode.into(), pstritemname.into(), punkcontext.into().abi(), pstrdelimiter.into(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo)).ok()
+        (::windows::core::Vtable::vtable(self).ParseScriptText)(::windows::core::Vtable::as_raw(self), pstrcode.into(), pstritemname.into(), punkcontext.into().abi(), pstrdelimiter.into(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, pvarresult, pexcepinfo).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IActiveScriptParse32, ::windows::core::IUnknown);
@@ -4253,11 +4253,11 @@ pub struct IActiveScriptParse32_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows::core::PCWSTR, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, pstrsubitemname: ::windows::core::PCWSTR, pstreventname: ::windows::core::PCWSTR, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut *mut ::core::ffi::c_void, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
+    pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows::core::PCWSTR, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, pstrsubitemname: ::windows::core::PCWSTR, pstreventname: ::windows::core::PCWSTR, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut *mut ::core::ffi::c_void, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddScriptlet: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ParseScriptText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
+    pub ParseScriptText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ParseScriptText: usize,
 }
@@ -4279,7 +4279,7 @@ impl IActiveScriptParse64 {
         P4: ::std::convert::Into<::windows::core::PCWSTR>,
         P5: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).AddScriptlet)(::windows::core::Vtable::as_raw(self), pstrdefaultname.into(), pstrcode.into(), pstritemname.into(), pstrsubitemname.into(), pstreventname.into(), pstrdelimiter.into(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, ::core::mem::transmute(pbstrname), ::core::mem::transmute(pexcepinfo)).ok()
+        (::windows::core::Vtable::vtable(self).AddScriptlet)(::windows::core::Vtable::as_raw(self), pstrdefaultname.into(), pstrcode.into(), pstritemname.into(), pstrsubitemname.into(), pstreventname.into(), pstrdelimiter.into(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, ::core::mem::transmute(pbstrname), pexcepinfo).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4290,7 +4290,7 @@ impl IActiveScriptParse64 {
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         P3: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).ParseScriptText)(::windows::core::Vtable::as_raw(self), pstrcode.into(), pstritemname.into(), punkcontext.into().abi(), pstrdelimiter.into(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo)).ok()
+        (::windows::core::Vtable::vtable(self).ParseScriptText)(::windows::core::Vtable::as_raw(self), pstrcode.into(), pstritemname.into(), punkcontext.into().abi(), pstrdelimiter.into(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, pvarresult, pexcepinfo).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IActiveScriptParse64, ::windows::core::IUnknown);
@@ -4322,11 +4322,11 @@ pub struct IActiveScriptParse64_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows::core::PCWSTR, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, pstrsubitemname: ::windows::core::PCWSTR, pstreventname: ::windows::core::PCWSTR, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut *mut ::core::ffi::c_void, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
+    pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows::core::PCWSTR, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, pstrsubitemname: ::windows::core::PCWSTR, pstreventname: ::windows::core::PCWSTR, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut *mut ::core::ffi::c_void, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddScriptlet: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ParseScriptText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
+    pub ParseScriptText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ParseScriptText: usize,
 }
@@ -5160,12 +5160,12 @@ impl IActiveScriptProperty {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetProperty(&self, dwproperty: u32, pvarindex: *const super::super::Com::VARIANT) -> ::windows::core::Result<super::super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), dwproperty, ::core::mem::transmute(pvarindex), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), dwproperty, pvarindex, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetProperty(&self, dwproperty: u32, pvarindex: *const super::super::Com::VARIANT, pvarvalue: *const super::super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), dwproperty, ::core::mem::transmute(pvarindex), ::core::mem::transmute(pvarvalue)).ok()
+        (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), dwproperty, pvarindex, pvarvalue).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IActiveScriptProperty, ::windows::core::IUnknown);
@@ -5196,11 +5196,11 @@ unsafe impl ::windows::core::Interface for IActiveScriptProperty {
 pub struct IActiveScriptProperty_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarvalue: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const super::super::Com::VARIANT, pvarvalue: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetProperty: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarvalue: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const super::super::Com::VARIANT, pvarvalue: *const super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetProperty: usize,
 }
@@ -5265,7 +5265,7 @@ impl IActiveScriptSite {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn OnScriptTerminate(&self, pvarresult: *const super::super::Com::VARIANT, pexcepinfo: *const super::super::Com::EXCEPINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnScriptTerminate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo)).ok()
+        (::windows::core::Vtable::vtable(self).OnScriptTerminate)(::windows::core::Vtable::as_raw(self), pvarresult, pexcepinfo).ok()
     }
     pub unsafe fn OnStateChange(&self, ssscriptstate: SCRIPTSTATE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OnStateChange)(::windows::core::Vtable::as_raw(self), ssscriptstate).ok()
@@ -5317,7 +5317,7 @@ pub struct IActiveScriptSite_Vtbl {
     GetItemInfo: usize,
     pub GetDocVersionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrversion: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub OnScriptTerminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarresult: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *const ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
+    pub OnScriptTerminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarresult: *const super::super::Com::VARIANT, pexcepinfo: *const super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     OnScriptTerminate: usize,
     pub OnStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ssscriptstate: SCRIPTSTATE) -> ::windows::core::HRESULT,
@@ -6192,7 +6192,7 @@ impl IDataModelManager {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const super::super::Com::VARIANT) -> ::windows::core::Result<IModelObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateIntrinsicObject)(::windows::core::Vtable::as_raw(self), objectkind, ::core::mem::transmute(intrinsicdata), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateIntrinsicObject)(::windows::core::Vtable::as_raw(self), objectkind, intrinsicdata, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6201,7 +6201,7 @@ impl IDataModelManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDebugHostType>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTypedIntrinsicObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(intrinsicdata), r#type.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateTypedIntrinsicObject)(::windows::core::Vtable::as_raw(self), intrinsicdata, r#type.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetModelForTypeSignature<'a, P0>(&self, typesignature: P0) -> ::windows::core::Result<IModelObject>
     where
@@ -6311,11 +6311,11 @@ pub struct IDataModelManager_Vtbl {
     pub CreateSyntheticObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateDataModelObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datamodel: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateIntrinsicObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectkind: ModelObjectKind, intrinsicdata: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateIntrinsicObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectkind: ModelObjectKind, intrinsicdata: *const super::super::Com::VARIANT, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreateIntrinsicObject: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateTypedIntrinsicObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intrinsicdata: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, r#type: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateTypedIntrinsicObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intrinsicdata: *const super::super::Com::VARIANT, r#type: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreateTypedIntrinsicObject: usize,
     pub GetModelForTypeSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typesignature: *mut ::core::ffi::c_void, datamodel: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6382,7 +6382,7 @@ impl IDataModelManager2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const super::super::Com::VARIANT) -> ::windows::core::Result<IModelObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateIntrinsicObject)(::windows::core::Vtable::as_raw(self), objectkind, ::core::mem::transmute(intrinsicdata), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateIntrinsicObject)(::windows::core::Vtable::as_raw(self), objectkind, intrinsicdata, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6391,7 +6391,7 @@ impl IDataModelManager2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDebugHostType>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateTypedIntrinsicObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(intrinsicdata), r#type.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateTypedIntrinsicObject)(::windows::core::Vtable::as_raw(self), intrinsicdata, r#type.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetModelForTypeSignature<'a, P0>(&self, typesignature: P0) -> ::windows::core::Result<IModelObject>
     where
@@ -6483,7 +6483,7 @@ impl IDataModelManager2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IDebugHostType>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTypedIntrinsicObjectEx)(::windows::core::Vtable::as_raw(self), context.into().abi(), ::core::mem::transmute(intrinsicdata), r#type.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateTypedIntrinsicObjectEx)(::windows::core::Vtable::as_raw(self), context.into().abi(), intrinsicdata, r#type.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDataModelManager2, ::windows::core::IUnknown, IDataModelManager);
@@ -6515,7 +6515,7 @@ pub struct IDataModelManager2_Vtbl {
     pub base__: IDataModelManager_Vtbl,
     pub AcquireSubNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelname: ::windows::core::PCWSTR, subnamespacemodelname: ::windows::core::PCWSTR, accessname: ::windows::core::PCWSTR, metadata: *mut ::core::ffi::c_void, namespacemodelobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateTypedIntrinsicObjectEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, intrinsicdata: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, r#type: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateTypedIntrinsicObjectEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, intrinsicdata: *const super::super::Com::VARIANT, r#type: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreateTypedIntrinsicObjectEx: usize,
 }
@@ -21502,7 +21502,7 @@ impl IDebugExtendedProperty {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID, rgvar: *mut super::super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetExtendedInfo)(::windows::core::Vtable::as_raw(self), cinfos, rgguidextendedinfo, ::core::mem::transmute(rgvar)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetExtendedInfo)(::windows::core::Vtable::as_raw(self), cinfos, rgguidextendedinfo, rgvar).ok()
     }
     pub unsafe fn SetValueAsString<'a, P0>(&self, pszvalue: P0, nradix: u32) -> ::windows::core::Result<()>
     where
@@ -21557,7 +21557,7 @@ unsafe impl ::windows::core::Interface for IDebugExtendedProperty {
 pub struct IDebugExtendedProperty_Vtbl {
     pub base__: IDebugProperty_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub GetExtendedPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ::core::mem::ManuallyDrop<ExtendedDebugPropertyInfo>) -> ::windows::core::HRESULT,
+    pub GetExtendedPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole")))]
     GetExtendedPropertyInfo: usize,
     pub EnumExtendedMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppeepi: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -21570,7 +21570,7 @@ impl IDebugFormatter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetStringForVariant(&self, pvar: *const super::super::Com::VARIANT, nradix: u32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStringForVariant)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), nradix, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetStringForVariant)(::windows::core::Vtable::as_raw(self), pvar, nradix, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -21616,11 +21616,11 @@ unsafe impl ::windows::core::Interface for IDebugFormatter {
 pub struct IDebugFormatter_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetStringForVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, nradix: u32, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetStringForVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::Com::VARIANT, nradix: u32, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetStringForVariant: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetVariantForString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrvalue: ::windows::core::PCWSTR, pvar: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetVariantForString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrvalue: ::windows::core::PCWSTR, pvar: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetVariantForString: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -21640,7 +21640,7 @@ impl IDebugHelper {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IDebugApplicationThread>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePropertyBrowser)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), bstrname.into(), pdat.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreatePropertyBrowser)(::windows::core::Vtable::as_raw(self), pvar, bstrname.into(), pdat.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -21651,7 +21651,7 @@ impl IDebugHelper {
         P2: ::std::convert::Into<::windows::core::InParam<'a, IDebugFormatter>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePropertyBrowserEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), bstrname.into(), pdat.into().abi(), pdf.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreatePropertyBrowserEx)(::windows::core::Vtable::as_raw(self), pvar, bstrname.into(), pdat.into().abi(), pdf.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -21691,11 +21691,11 @@ unsafe impl ::windows::core::Interface for IDebugHelper {
 pub struct IDebugHelper_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreatePropertyBrowser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, bstrname: ::windows::core::PCWSTR, pdat: *mut ::core::ffi::c_void, ppdob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePropertyBrowser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::Com::VARIANT, bstrname: ::windows::core::PCWSTR, pdat: *mut ::core::ffi::c_void, ppdob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreatePropertyBrowser: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreatePropertyBrowserEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, bstrname: ::windows::core::PCWSTR, pdat: *mut ::core::ffi::c_void, pdf: *mut ::core::ffi::c_void, ppdob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePropertyBrowserEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::Com::VARIANT, bstrname: ::windows::core::PCWSTR, pdat: *mut ::core::ffi::c_void, pdf: *mut ::core::ffi::c_void, ppdob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreatePropertyBrowserEx: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -21896,7 +21896,7 @@ unsafe impl ::windows::core::Interface for IDebugHostConstant {
 pub struct IDebugHostConstant_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetValue: usize,
 }
@@ -22024,7 +22024,7 @@ pub struct IDebugHostData_Vtbl {
     pub GetLocationKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locationkind: *mut LocationKind) -> ::windows::core::HRESULT,
     pub GetLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut Location) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetValue: usize,
 }
@@ -22312,7 +22312,7 @@ pub struct IDebugHostField_Vtbl {
     pub GetOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: *mut u64) -> ::windows::core::HRESULT,
     pub GetLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut Location) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetValue: usize,
 }
@@ -23952,7 +23952,7 @@ impl IDebugProperty {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID, rgvar: *mut super::super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetExtendedInfo)(::windows::core::Vtable::as_raw(self), cinfos, rgguidextendedinfo, ::core::mem::transmute(rgvar)).ok()
+        (::windows::core::Vtable::vtable(self).GetExtendedInfo)(::windows::core::Vtable::as_raw(self), cinfos, rgguidextendedinfo, rgvar).ok()
     }
     pub unsafe fn SetValueAsString<'a, P0>(&self, pszvalue: P0, nradix: u32) -> ::windows::core::Result<()>
     where
@@ -23996,9 +23996,9 @@ unsafe impl ::windows::core::Interface for IDebugProperty {
 #[doc(hidden)]
 pub struct IDebugProperty_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut ::core::mem::ManuallyDrop<DebugPropertyInfo>) -> ::windows::core::HRESULT,
+    pub GetPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetExtendedInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID, rgvar: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetExtendedInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID, rgvar: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetExtendedInfo: usize,
     pub SetValueAsString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszvalue: ::windows::core::PCWSTR, nradix: u32) -> ::windows::core::HRESULT,
@@ -29311,7 +29311,7 @@ unsafe impl ::windows::core::Interface for IEnumDebugExtendedPropertyInfo {
 pub struct IEnumDebugExtendedPropertyInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgextendedpropertyinfo: *mut ::core::mem::ManuallyDrop<ExtendedDebugPropertyInfo>, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole")))]
     Next: usize,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -29368,7 +29368,7 @@ unsafe impl ::windows::core::Interface for IEnumDebugPropertyInfo {
 #[doc(hidden)]
 pub struct IEnumDebugPropertyInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pi: *mut ::core::mem::ManuallyDrop<DebugPropertyInfo>, pceltsfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pi: *mut DebugPropertyInfo, pceltsfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppepi: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -29381,7 +29381,7 @@ impl IEnumDebugStackFrames {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(prgdsfd), pceltfetched).ok()
+        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, prgdsfd, pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
@@ -29422,7 +29422,7 @@ unsafe impl ::windows::core::Interface for IEnumDebugStackFrames {
 pub struct IEnumDebugStackFrames_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, prgdsfd: *mut ::core::mem::ManuallyDrop<DebugStackFrameDescriptor>, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Next: usize,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -29436,7 +29436,7 @@ impl IEnumDebugStackFrames64 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(prgdsfd), pceltfetched).ok()
+        (::windows::core::Vtable::vtable(self).base__.Next)(::windows::core::Vtable::as_raw(self), celt, prgdsfd, pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
@@ -29451,7 +29451,7 @@ impl IEnumDebugStackFrames64 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next64(&self, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor64, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next64)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(prgdsfd), pceltfetched).ok()
+        (::windows::core::Vtable::vtable(self).Next64)(::windows::core::Vtable::as_raw(self), celt, prgdsfd, pceltfetched).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IEnumDebugStackFrames64, ::windows::core::IUnknown, IEnumDebugStackFrames);
@@ -29482,7 +29482,7 @@ unsafe impl ::windows::core::Interface for IEnumDebugStackFrames64 {
 pub struct IEnumDebugStackFrames64_Vtbl {
     pub base__: IEnumDebugStackFrames_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Next64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, prgdsfd: *mut ::core::mem::ManuallyDrop<DebugStackFrameDescriptor64>, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub Next64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor64, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Next64: usize,
 }
@@ -30152,7 +30152,7 @@ unsafe impl ::windows::core::Interface for IJsDebugProperty {
 #[doc(hidden)]
 pub struct IJsDebugProperty_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nradix: u32, ppropertyinfo: *mut ::core::mem::ManuallyDrop<JsDebugPropertyInfo>) -> ::windows::core::HRESULT,
+    pub GetPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nradix: u32, ppropertyinfo: *mut JsDebugPropertyInfo) -> ::windows::core::HRESULT,
     pub GetMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, members: JS_PROPERTY_MEMBERS, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -30919,11 +30919,11 @@ pub struct IModelObject_Vtbl {
     pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: *mut ModelObjectKind) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetIntrinsicValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intrinsicdata: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetIntrinsicValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intrinsicdata: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetIntrinsicValue: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetIntrinsicValueAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: super::super::Com::VARENUM, intrinsicdata: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetIntrinsicValueAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: super::super::Com::VARENUM, intrinsicdata: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetIntrinsicValueAs: usize,
     pub GetKeyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows::core::PCWSTR, object: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -32323,7 +32323,7 @@ impl ITridentEventSink {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).FireEvent)(::windows::core::Vtable::as_raw(self), pstrevent.into(), pdp, ::core::mem::transmute(pvarres), ::core::mem::transmute(pei)).ok()
+        (::windows::core::Vtable::vtable(self).FireEvent)(::windows::core::Vtable::as_raw(self), pstrevent.into(), pdp, pvarres, pei).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ITridentEventSink, ::windows::core::IUnknown);
@@ -32354,7 +32354,7 @@ unsafe impl ::windows::core::Interface for ITridentEventSink {
 pub struct ITridentEventSink_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub FireEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrevent: ::windows::core::PCWSTR, pdp: *const super::super::Com::DISPPARAMS, pvarres: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pei: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
+    pub FireEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrevent: ::windows::core::PCWSTR, pdp: *const super::super::Com::DISPPARAMS, pvarres: *mut super::super::Com::VARIANT, pei: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     FireEvent: usize,
 }
@@ -44145,24 +44145,16 @@ impl ::core::default::Default for DUMP_HEADER64_0 {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DebugPropertyInfo {
     pub m_dwValidFields: u32,
-    pub m_bstrName: ::windows::core::BSTR,
-    pub m_bstrType: ::windows::core::BSTR,
-    pub m_bstrValue: ::windows::core::BSTR,
-    pub m_bstrFullName: ::windows::core::BSTR,
+    pub m_bstrName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub m_bstrType: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub m_bstrValue: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub m_bstrFullName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub m_dwAttrib: u32,
-    pub m_pDebugProp: ::core::option::Option<IDebugProperty>,
+    pub m_pDebugProp: ::windows::core::ManuallyDrop<IDebugProperty>,
 }
 impl ::core::clone::Clone for DebugPropertyInfo {
     fn clone(&self) -> Self {
-        Self {
-            m_dwValidFields: self.m_dwValidFields,
-            m_bstrName: self.m_bstrName.clone(),
-            m_bstrType: self.m_bstrType.clone(),
-            m_bstrValue: self.m_bstrValue.clone(),
-            m_bstrFullName: self.m_bstrFullName.clone(),
-            m_dwAttrib: self.m_dwAttrib,
-            m_pDebugProp: self.m_pDebugProp.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for DebugPropertyInfo {
@@ -44171,7 +44163,7 @@ impl ::core::fmt::Debug for DebugPropertyInfo {
     }
 }
 unsafe impl ::windows::core::Abi for DebugPropertyInfo {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for DebugPropertyInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -44188,16 +44180,16 @@ impl ::core::default::Default for DebugPropertyInfo {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DebugStackFrameDescriptor {
-    pub pdsf: ::core::option::Option<IDebugStackFrame>,
+    pub pdsf: ::windows::core::ManuallyDrop<IDebugStackFrame>,
     pub dwMin: u32,
     pub dwLim: u32,
     pub fFinal: super::super::super::Foundation::BOOL,
-    pub punkFinal: ::core::option::Option<::windows::core::IUnknown>,
+    pub punkFinal: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DebugStackFrameDescriptor {
     fn clone(&self) -> Self {
-        Self { pdsf: self.pdsf.clone(), dwMin: self.dwMin, dwLim: self.dwLim, fFinal: self.fFinal, punkFinal: self.punkFinal.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -44208,7 +44200,7 @@ impl ::core::fmt::Debug for DebugStackFrameDescriptor {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DebugStackFrameDescriptor {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DebugStackFrameDescriptor {
@@ -44228,16 +44220,16 @@ impl ::core::default::Default for DebugStackFrameDescriptor {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DebugStackFrameDescriptor64 {
-    pub pdsf: ::core::option::Option<IDebugStackFrame>,
+    pub pdsf: ::windows::core::ManuallyDrop<IDebugStackFrame>,
     pub dwMin: u64,
     pub dwLim: u64,
     pub fFinal: super::super::super::Foundation::BOOL,
-    pub punkFinal: ::core::option::Option<::windows::core::IUnknown>,
+    pub punkFinal: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DebugStackFrameDescriptor64 {
     fn clone(&self) -> Self {
-        Self { pdsf: self.pdsf.clone(), dwMin: self.dwMin, dwLim: self.dwLim, fFinal: self.fFinal, punkFinal: self.punkFinal.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -44248,7 +44240,7 @@ impl ::core::fmt::Debug for DebugStackFrameDescriptor64 {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DebugStackFrameDescriptor64 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DebugStackFrameDescriptor64 {
@@ -44832,35 +44824,22 @@ pub struct ExtendedDebugPropertyInfo {
     pub pszValue: ::windows::core::PWSTR,
     pub pszFullName: ::windows::core::PWSTR,
     pub dwAttrib: u32,
-    pub pDebugProp: ::core::option::Option<IDebugProperty>,
+    pub pDebugProp: ::windows::core::ManuallyDrop<IDebugProperty>,
     pub nDISPID: u32,
     pub nType: u32,
     pub varValue: super::super::Com::VARIANT,
-    pub plbValue: ::core::option::Option<super::super::Com::StructuredStorage::ILockBytes>,
-    pub pDebugExtProp: ::core::option::Option<IDebugExtendedProperty>,
+    pub plbValue: ::windows::core::ManuallyDrop<super::super::Com::StructuredStorage::ILockBytes>,
+    pub pDebugExtProp: ::windows::core::ManuallyDrop<IDebugExtendedProperty>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for ExtendedDebugPropertyInfo {
     fn clone(&self) -> Self {
-        Self {
-            dwValidFields: self.dwValidFields,
-            pszName: self.pszName,
-            pszType: self.pszType,
-            pszValue: self.pszValue,
-            pszFullName: self.pszFullName,
-            dwAttrib: self.dwAttrib,
-            pDebugProp: self.pDebugProp.clone(),
-            nDISPID: self.nDISPID,
-            nType: self.nType,
-            varValue: self.varValue.clone(),
-            plbValue: self.plbValue.clone(),
-            pDebugExtProp: self.pDebugExtProp.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for ExtendedDebugPropertyInfo {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for ExtendedDebugPropertyInfo {
@@ -48129,15 +48108,15 @@ impl ::core::default::Default for JS_NATIVE_FRAME {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct JsDebugPropertyInfo {
-    pub name: ::windows::core::BSTR,
-    pub r#type: ::windows::core::BSTR,
-    pub value: ::windows::core::BSTR,
-    pub fullName: ::windows::core::BSTR,
+    pub name: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub r#type: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub value: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub fullName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub attr: JS_PROPERTY_ATTRIBUTES,
 }
 impl ::core::clone::Clone for JsDebugPropertyInfo {
     fn clone(&self) -> Self {
-        Self { name: self.name.clone(), r#type: self.r#type.clone(), value: self.value.clone(), fullName: self.fullName.clone(), attr: self.attr }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for JsDebugPropertyInfo {
@@ -48146,7 +48125,7 @@ impl ::core::fmt::Debug for JsDebugPropertyInfo {
     }
 }
 unsafe impl ::windows::core::Abi for JsDebugPropertyInfo {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for JsDebugPropertyInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -52429,11 +52408,11 @@ pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP {
 }
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP {
     fn clone(&self) -> Self {
-        Self { relationshipId: self.relationshipId, relationshipInfo: self.relationshipInfo, Anonymous: self.Anonymous.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 unsafe impl ::windows::core::Abi for PROFILER_HEAP_OBJECT_RELATIONSHIP {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for PROFILER_HEAP_OBJECT_RELATIONSHIP {
     fn default() -> Self {
@@ -52445,7 +52424,7 @@ impl ::core::default::Default for PROFILER_HEAP_OBJECT_RELATIONSHIP {
 pub union PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     pub numberValue: f64,
     pub stringValue: ::windows::core::PCWSTR,
-    pub bstrValue: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrValue: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub objectId: usize,
     pub externalObjectAddress: *mut ::core::ffi::c_void,
     pub subString: *mut PROFILER_PROPERTY_TYPE_SUBSTRING_INFO,
@@ -52456,7 +52435,7 @@ impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     }
 }
 unsafe impl ::windows::core::Abi for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     fn default() -> Self {
@@ -52471,11 +52450,11 @@ pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
 }
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     fn clone(&self) -> Self {
-        Self { count: self.count, elements: self.elements.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 unsafe impl ::windows::core::Abi for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     fn default() -> Self {

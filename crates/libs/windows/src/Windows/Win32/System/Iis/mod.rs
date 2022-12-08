@@ -3800,12 +3800,12 @@ impl ::core::default::Default for CERT_CONTEXT_EX {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub struct CONFIGURATION_ENTRY {
-    pub bstrKey: ::windows::core::BSTR,
-    pub bstrValue: ::windows::core::BSTR,
+    pub bstrKey: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrValue: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for CONFIGURATION_ENTRY {
     fn clone(&self) -> Self {
-        Self { bstrKey: self.bstrKey.clone(), bstrValue: self.bstrValue.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for CONFIGURATION_ENTRY {
@@ -3814,7 +3814,7 @@ impl ::core::fmt::Debug for CONFIGURATION_ENTRY {
     }
 }
 unsafe impl ::windows::core::Abi for CONFIGURATION_ENTRY {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for CONFIGURATION_ENTRY {
     fn eq(&self, other: &Self) -> bool {

@@ -71,7 +71,7 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn DispCallFunc(pvinstance: ::core::option::Option<*const ::core::ffi::c_void>, ovft: usize, cc: super::Com::CALLCONV, vtreturn: super::Com::VARENUM, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn DispCallFunc ( pvinstance : *const ::core::ffi::c_void , ovft : usize , cc : super::Com:: CALLCONV , vtreturn : super::Com:: VARENUM , cactuals : u32 , prgvt : *const u16 , prgpvarg : *const *const super::Com:: VARIANT , pvargresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn DispCallFunc ( pvinstance : *const ::core::ffi::c_void , ovft : usize , cc : super::Com:: CALLCONV , vtreturn : super::Com:: VARENUM , cactuals : u32 , prgvt : *const u16 , prgpvarg : *const *const super::Com:: VARIANT , pvargresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DispCallFunc(::core::mem::transmute(pvinstance.unwrap_or(::std::ptr::null())), ovft, cc, vtreturn, cactuals, prgvt, prgpvarg, result__.as_mut_ptr()).from_abi(result__)
 }
@@ -89,8 +89,8 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn DispGetParam(pdispparams: *const super::Com::DISPPARAMS, position: u32, vttarg: super::Com::VARENUM, pvarresult: *mut super::Com::VARIANT, puargerr: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn DispGetParam ( pdispparams : *const super::Com:: DISPPARAMS , position : u32 , vttarg : super::Com:: VARENUM , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > , puargerr : *mut u32 ) -> :: windows::core::HRESULT );
-    DispGetParam(pdispparams, position, vttarg, ::core::mem::transmute(pvarresult), ::core::mem::transmute(puargerr.unwrap_or(::std::ptr::null_mut()))).ok()
+    ::windows::core::link ! ( "oleaut32.dll""system" fn DispGetParam ( pdispparams : *const super::Com:: DISPPARAMS , position : u32 , vttarg : super::Com:: VARENUM , pvarresult : *mut super::Com:: VARIANT , puargerr : *mut u32 ) -> :: windows::core::HRESULT );
+    DispGetParam(pdispparams, position, vttarg, pvarresult, ::core::mem::transmute(puargerr.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -99,8 +99,8 @@ pub unsafe fn DispInvoke<'a, P0>(_this: *mut ::core::ffi::c_void, ptinfo: P0, di
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::ITypeInfo>>,
 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn DispInvoke ( _this : *mut ::core::ffi::c_void , ptinfo : * mut::core::ffi::c_void , dispidmember : i32 , wflags : u16 , pparams : *mut super::Com:: DISPPARAMS , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pexcepinfo : *mut ::core::mem::ManuallyDrop < super::Com:: EXCEPINFO > , puargerr : *mut u32 ) -> :: windows::core::HRESULT );
-    DispInvoke(_this, ptinfo.into().abi(), dispidmember, wflags, pparams, ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), puargerr).ok()
+    ::windows::core::link ! ( "oleaut32.dll""system" fn DispInvoke ( _this : *mut ::core::ffi::c_void , ptinfo : * mut::core::ffi::c_void , dispidmember : i32 , wflags : u16 , pparams : *mut super::Com:: DISPPARAMS , pvarresult : *mut super::Com:: VARIANT , pexcepinfo : *mut super::Com:: EXCEPINFO , puargerr : *mut u32 ) -> :: windows::core::HRESULT );
+    DispInvoke(_this, ptinfo.into().abi(), dispidmember, wflags, pparams, pvarresult, pexcepinfo, puargerr).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -682,24 +682,18 @@ where
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn OleLoadPictureFile<'a, P0>(varfilename: P0) -> ::windows::core::Result<super::Com::IDispatch>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
-{
-    ::windows::core::link ! ( "oleaut32.dll""system" fn OleLoadPictureFile ( varfilename : ::core::mem::ManuallyDrop < super::Com:: VARIANT > , lplpdisppicture : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+pub unsafe fn OleLoadPictureFile(varfilename: super::Com::VARIANT) -> ::windows::core::Result<super::Com::IDispatch> {
+    ::windows::core::link ! ( "oleaut32.dll""system" fn OleLoadPictureFile ( varfilename : super::Com:: VARIANT , lplpdisppicture : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleLoadPictureFile(varfilename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    OleLoadPictureFile(::core::mem::transmute(varfilename), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn OleLoadPictureFileEx<'a, P0>(varfilename: P0, xsizedesired: u32, ysizedesired: u32, dwflags: LOAD_PICTURE_FLAGS) -> ::windows::core::Result<super::Com::IDispatch>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
-{
-    ::windows::core::link ! ( "oleaut32.dll""system" fn OleLoadPictureFileEx ( varfilename : ::core::mem::ManuallyDrop < super::Com:: VARIANT > , xsizedesired : u32 , ysizedesired : u32 , dwflags : LOAD_PICTURE_FLAGS , lplpdisppicture : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+pub unsafe fn OleLoadPictureFileEx(varfilename: super::Com::VARIANT, xsizedesired: u32, ysizedesired: u32, dwflags: LOAD_PICTURE_FLAGS) -> ::windows::core::Result<super::Com::IDispatch> {
+    ::windows::core::link ! ( "oleaut32.dll""system" fn OleLoadPictureFileEx ( varfilename : super::Com:: VARIANT , xsizedesired : u32 , ysizedesired : u32 , dwflags : LOAD_PICTURE_FLAGS , lplpdisppicture : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleLoadPictureFileEx(varfilename.into().abi(), xsizedesired, ysizedesired, dwflags, result__.as_mut_ptr()).from_abi(result__)
+    OleLoadPictureFileEx(::core::mem::transmute(varfilename), xsizedesired, ysizedesired, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -966,15 +960,15 @@ pub unsafe fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32 {
-    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIChangeSourceA ( param0 : *const ::core::mem::ManuallyDrop < OLEUICHANGESOURCEA > ) -> u32 );
-    OleUIChangeSourceA(::core::mem::transmute(param0))
+    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIChangeSourceA ( param0 : *const OLEUICHANGESOURCEA ) -> u32 );
+    OleUIChangeSourceA(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32 {
-    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIChangeSourceW ( param0 : *const ::core::mem::ManuallyDrop < OLEUICHANGESOURCEW > ) -> u32 );
-    OleUIChangeSourceW(::core::mem::transmute(param0))
+    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIChangeSourceW ( param0 : *const OLEUICHANGESOURCEW ) -> u32 );
+    OleUIChangeSourceW(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -994,57 +988,57 @@ pub unsafe fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32 {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32 {
-    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIEditLinksA ( param0 : *const ::core::mem::ManuallyDrop < OLEUIEDITLINKSA > ) -> u32 );
-    OleUIEditLinksA(::core::mem::transmute(param0))
+    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIEditLinksA ( param0 : *const OLEUIEDITLINKSA ) -> u32 );
+    OleUIEditLinksA(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32 {
-    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIEditLinksW ( param0 : *const ::core::mem::ManuallyDrop < OLEUIEDITLINKSW > ) -> u32 );
-    OleUIEditLinksW(::core::mem::transmute(param0))
+    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIEditLinksW ( param0 : *const OLEUIEDITLINKSW ) -> u32 );
+    OleUIEditLinksW(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32 {
-    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIInsertObjectA ( param0 : *const ::core::mem::ManuallyDrop < OLEUIINSERTOBJECTA > ) -> u32 );
-    OleUIInsertObjectA(::core::mem::transmute(param0))
+    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIInsertObjectA ( param0 : *const OLEUIINSERTOBJECTA ) -> u32 );
+    OleUIInsertObjectA(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32 {
-    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIInsertObjectW ( param0 : *const ::core::mem::ManuallyDrop < OLEUIINSERTOBJECTW > ) -> u32 );
-    OleUIInsertObjectW(::core::mem::transmute(param0))
+    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIInsertObjectW ( param0 : *const OLEUIINSERTOBJECTW ) -> u32 );
+    OleUIInsertObjectW(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32 {
-    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIObjectPropertiesA ( param0 : *const ::core::mem::ManuallyDrop < OLEUIOBJECTPROPSA > ) -> u32 );
-    OleUIObjectPropertiesA(::core::mem::transmute(param0))
+    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIObjectPropertiesA ( param0 : *const OLEUIOBJECTPROPSA ) -> u32 );
+    OleUIObjectPropertiesA(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32 {
-    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIObjectPropertiesW ( param0 : *const ::core::mem::ManuallyDrop < OLEUIOBJECTPROPSW > ) -> u32 );
-    OleUIObjectPropertiesW(::core::mem::transmute(param0))
+    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIObjectPropertiesW ( param0 : *const OLEUIOBJECTPROPSW ) -> u32 );
+    OleUIObjectPropertiesW(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32 {
-    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIPasteSpecialA ( param0 : *const ::core::mem::ManuallyDrop < OLEUIPASTESPECIALA > ) -> u32 );
-    OleUIPasteSpecialA(::core::mem::transmute(param0))
+    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIPasteSpecialA ( param0 : *const OLEUIPASTESPECIALA ) -> u32 );
+    OleUIPasteSpecialA(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleUIPasteSpecialW(param0: *const OLEUIPASTESPECIALW) -> u32 {
-    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIPasteSpecialW ( param0 : *const ::core::mem::ManuallyDrop < OLEUIPASTESPECIALW > ) -> u32 );
-    OleUIPasteSpecialW(::core::mem::transmute(param0))
+    ::windows::core::link ! ( "oledlg.dll""system" fn OleUIPasteSpecialW ( param0 : *const OLEUIPASTESPECIALW ) -> u32 );
+    OleUIPasteSpecialW(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1151,8 +1145,8 @@ where
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM) {
-    ::windows::core::link ! ( "ole32.dll""system" fn ReleaseStgMedium ( param0 : *mut ::core::mem::ManuallyDrop < super::Com:: STGMEDIUM > ) -> ( ) );
-    ReleaseStgMedium(::core::mem::transmute(param0))
+    ::windows::core::link ! ( "ole32.dll""system" fn ReleaseStgMedium ( param0 : *mut super::Com:: STGMEDIUM ) -> ( ) );
+    ReleaseStgMedium(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -1429,25 +1423,25 @@ pub unsafe fn UnRegisterTypeLibForUser(libid: *const ::windows::core::GUID, wmaj
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarAbs(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarAbs ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarAbs ( pvarin : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarAbs(::core::mem::transmute(pvarin), result__.as_mut_ptr()).from_abi(result__)
+    VarAbs(pvarin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarAdd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarAdd ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarAdd ( pvarleft : *const super::Com:: VARIANT , pvarright : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarAdd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
+    VarAdd(pvarleft, pvarright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarAnd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarAnd ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarAnd ( pvarleft : *const super::Com:: VARIANT , pvarright : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarAnd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
+    VarAnd(pvarleft, pvarright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1711,16 +1705,16 @@ pub unsafe fn VarBstrFromUI8(ui64in: u64, lcid: u32, dwflags: u32) -> ::windows:
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarCat(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarCat ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarCat ( pvarleft : *const super::Com:: VARIANT , pvarright : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCat(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
+    VarCat(pvarleft, pvarright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarCmp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, lcid: u32, dwflags: u32) -> VARCMP {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarCmp ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , lcid : u32 , dwflags : u32 ) -> VARCMP );
-    VarCmp(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), lcid, dwflags)
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarCmp ( pvarleft : *const super::Com:: VARIANT , pvarright : *const super::Com:: VARIANT , lcid : u32 , dwflags : u32 ) -> VARCMP );
+    VarCmp(pvarleft, pvarright, lcid, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2299,25 +2293,25 @@ pub unsafe fn VarDecSub(pdecleft: *const super::super::Foundation::DECIMAL, pdec
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarDiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarDiv ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarDiv ( pvarleft : *const super::Com:: VARIANT , pvarright : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDiv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
+    VarDiv(pvarleft, pvarright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarEqv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarEqv ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarEqv ( pvarleft : *const super::Com:: VARIANT , pvarright : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarEqv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
+    VarEqv(pvarleft, pvarright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarFix(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarFix ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarFix ( pvarin : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarFix(::core::mem::transmute(pvarin), result__.as_mut_ptr()).from_abi(result__)
+    VarFix(pvarin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2326,25 +2320,25 @@ pub unsafe fn VarFormat<'a, P0>(pvarin: *const super::Com::VARIANT, pstrformat: 
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormat ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pstrformat : :: windows::core::PCWSTR , ifirstday : VARFORMAT_FIRST_DAY , ifirstweek : VARFORMAT_FIRST_WEEK , dwflags : u32 , pbstrout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormat ( pvarin : *const super::Com:: VARIANT , pstrformat : :: windows::core::PCWSTR , ifirstday : VARFORMAT_FIRST_DAY , ifirstweek : VARFORMAT_FIRST_WEEK , dwflags : u32 , pbstrout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarFormat(::core::mem::transmute(pvarin), pstrformat.into(), ifirstday, ifirstweek, dwflags, result__.as_mut_ptr()).from_abi(result__)
+    VarFormat(pvarin, pstrformat.into(), ifirstday, ifirstweek, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarFormatCurrency(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormatCurrency ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , inumdig : i32 , iinclead : i32 , iuseparens : i32 , igroup : i32 , dwflags : u32 , pbstrout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormatCurrency ( pvarin : *const super::Com:: VARIANT , inumdig : i32 , iinclead : i32 , iuseparens : i32 , igroup : i32 , dwflags : u32 , pbstrout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarFormatCurrency(::core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, result__.as_mut_ptr()).from_abi(result__)
+    VarFormatCurrency(pvarin, inumdig, iinclead, iuseparens, igroup, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarFormatDateTime(pvarin: *const super::Com::VARIANT, inamedformat: VARFORMAT_NAMED_FORMAT, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormatDateTime ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , inamedformat : VARFORMAT_NAMED_FORMAT , dwflags : u32 , pbstrout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormatDateTime ( pvarin : *const super::Com:: VARIANT , inamedformat : VARFORMAT_NAMED_FORMAT , dwflags : u32 , pbstrout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarFormatDateTime(::core::mem::transmute(pvarin), inamedformat, dwflags, result__.as_mut_ptr()).from_abi(result__)
+    VarFormatDateTime(pvarin, inamedformat, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2353,24 +2347,24 @@ pub unsafe fn VarFormatFromTokens<'a, P0>(pvarin: *const super::Com::VARIANT, ps
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormatFromTokens ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pstrformat : :: windows::core::PCWSTR , pbtokcur : *const u8 , dwflags : u32 , pbstrout : *mut * mut::core::ffi::c_void , lcid : u32 ) -> :: windows::core::HRESULT );
-    VarFormatFromTokens(::core::mem::transmute(pvarin), pstrformat.into(), pbtokcur, dwflags, ::core::mem::transmute(pbstrout), lcid).ok()
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormatFromTokens ( pvarin : *const super::Com:: VARIANT , pstrformat : :: windows::core::PCWSTR , pbtokcur : *const u8 , dwflags : u32 , pbstrout : *mut * mut::core::ffi::c_void , lcid : u32 ) -> :: windows::core::HRESULT );
+    VarFormatFromTokens(pvarin, pstrformat.into(), pbtokcur, dwflags, ::core::mem::transmute(pbstrout), lcid).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarFormatNumber(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormatNumber ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , inumdig : i32 , iinclead : VARFORMAT_LEADING_DIGIT , iuseparens : VARFORMAT_PARENTHESES , igroup : VARFORMAT_GROUP , dwflags : u32 , pbstrout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormatNumber ( pvarin : *const super::Com:: VARIANT , inumdig : i32 , iinclead : VARFORMAT_LEADING_DIGIT , iuseparens : VARFORMAT_PARENTHESES , igroup : VARFORMAT_GROUP , dwflags : u32 , pbstrout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarFormatNumber(::core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, result__.as_mut_ptr()).from_abi(result__)
+    VarFormatNumber(pvarin, inumdig, iinclead, iuseparens, igroup, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarFormatPercent(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormatPercent ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , inumdig : i32 , iinclead : VARFORMAT_LEADING_DIGIT , iuseparens : VARFORMAT_PARENTHESES , igroup : VARFORMAT_GROUP , dwflags : u32 , pbstrout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormatPercent ( pvarin : *const super::Com:: VARIANT , inumdig : i32 , iinclead : VARFORMAT_LEADING_DIGIT , iuseparens : VARFORMAT_PARENTHESES , igroup : VARFORMAT_GROUP , dwflags : u32 , pbstrout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarFormatPercent(::core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, result__.as_mut_ptr()).from_abi(result__)
+    VarFormatPercent(pvarin, inumdig, iinclead, iuseparens, igroup, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2825,33 +2819,33 @@ pub unsafe fn VarI8FromUI8(ui64in: u64) -> ::windows::core::Result<i64> {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarIdiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarIdiv ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarIdiv ( pvarleft : *const super::Com:: VARIANT , pvarright : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarIdiv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
+    VarIdiv(pvarleft, pvarright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarImp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarImp ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarImp ( pvarleft : *const super::Com:: VARIANT , pvarright : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarImp(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
+    VarImp(pvarleft, pvarright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarInt(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarInt ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarInt ( pvarin : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarInt(::core::mem::transmute(pvarin), result__.as_mut_ptr()).from_abi(result__)
+    VarInt(pvarin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarMod(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarMod ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarMod ( pvarleft : *const super::Com:: VARIANT , pvarright : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarMod(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
+    VarMod(pvarleft, pvarright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -2864,31 +2858,31 @@ pub unsafe fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: u32) -> ::windows
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarMul(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarMul ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarMul ( pvarleft : *const super::Com:: VARIANT , pvarright : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarMul(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
+    VarMul(pvarleft, pvarright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarNeg(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarNeg ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarNeg ( pvarin : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarNeg(::core::mem::transmute(pvarin), result__.as_mut_ptr()).from_abi(result__)
+    VarNeg(pvarin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarNot(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarNot ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarNot ( pvarin : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarNot(::core::mem::transmute(pvarin), result__.as_mut_ptr()).from_abi(result__)
+    VarNot(pvarin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dwvtbits: u32) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarNumFromParseNum ( pnumprs : *const NUMPARSE , rgbdig : *const u8 , dwvtbits : u32 , pvar : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarNumFromParseNum ( pnumprs : *const NUMPARSE , rgbdig : *const u8 , dwvtbits : u32 , pvar : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarNumFromParseNum(pnumprs, rgbdig, dwvtbits, result__.as_mut_ptr()).from_abi(result__)
 }
@@ -2896,9 +2890,9 @@ pub unsafe fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dw
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarOr(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarOr ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarOr ( pvarleft : *const super::Com:: VARIANT , pvarright : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarOr(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
+    VarOr(pvarleft, pvarright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -2913,9 +2907,9 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarPow(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarPow ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarPow ( pvarleft : *const super::Com:: VARIANT , pvarright : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarPow(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
+    VarPow(pvarleft, pvarright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -3176,17 +3170,17 @@ pub unsafe fn VarR8Round(dblin: f64, cdecimals: i32) -> ::windows::core::Result<
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarRound(pvarin: *const super::Com::VARIANT, cdecimals: i32) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarRound ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , cdecimals : i32 , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarRound ( pvarin : *const super::Com:: VARIANT , cdecimals : i32 , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarRound(::core::mem::transmute(pvarin), cdecimals, result__.as_mut_ptr()).from_abi(result__)
+    VarRound(pvarin, cdecimals, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarSub(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarSub ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarSub ( pvarleft : *const super::Com:: VARIANT , pvarright : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarSub(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
+    VarSub(pvarleft, pvarright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -3684,51 +3678,51 @@ pub unsafe fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflag
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarXor(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VarXor ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VarXor ( pvarleft : *const super::Com:: VARIANT , pvarright : *const super::Com:: VARIANT , pvarresult : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarXor(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
+    VarXor(pvarleft, pvarright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VariantChangeType(pvargdest: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, wflags: u16, vt: super::Com::VARENUM) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VariantChangeType ( pvargdest : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarsrc : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , wflags : u16 , vt : super::Com:: VARENUM ) -> :: windows::core::HRESULT );
-    VariantChangeType(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvarsrc), wflags, vt).ok()
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VariantChangeType ( pvargdest : *mut super::Com:: VARIANT , pvarsrc : *const super::Com:: VARIANT , wflags : u16 , vt : super::Com:: VARENUM ) -> :: windows::core::HRESULT );
+    VariantChangeType(pvargdest, pvarsrc, wflags, vt).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VariantChangeTypeEx(pvargdest: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, wflags: u16, vt: super::Com::VARENUM) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VariantChangeTypeEx ( pvargdest : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarsrc : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , lcid : u32 , wflags : u16 , vt : super::Com:: VARENUM ) -> :: windows::core::HRESULT );
-    VariantChangeTypeEx(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvarsrc), lcid, wflags, vt).ok()
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VariantChangeTypeEx ( pvargdest : *mut super::Com:: VARIANT , pvarsrc : *const super::Com:: VARIANT , lcid : u32 , wflags : u16 , vt : super::Com:: VARENUM ) -> :: windows::core::HRESULT );
+    VariantChangeTypeEx(pvargdest, pvarsrc, lcid, wflags, vt).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VariantClear(pvarg: *mut super::Com::VARIANT) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VariantClear ( pvarg : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
-    VariantClear(::core::mem::transmute(pvarg)).ok()
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VariantClear ( pvarg : *mut super::Com:: VARIANT ) -> :: windows::core::HRESULT );
+    VariantClear(pvarg).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VariantCopy(pvargdest: *mut super::Com::VARIANT, pvargsrc: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VariantCopy ( pvargdest : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvargsrc : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
-    VariantCopy(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvargsrc)).ok()
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VariantCopy ( pvargdest : *mut super::Com:: VARIANT , pvargsrc : *const super::Com:: VARIANT ) -> :: windows::core::HRESULT );
+    VariantCopy(pvargdest, pvargsrc).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VariantCopyInd(pvardest: *mut super::Com::VARIANT, pvargsrc: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VariantCopyInd ( pvardest : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvargsrc : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
-    VariantCopyInd(::core::mem::transmute(pvardest), ::core::mem::transmute(pvargsrc)).ok()
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VariantCopyInd ( pvardest : *mut super::Com:: VARIANT , pvargsrc : *const super::Com:: VARIANT ) -> :: windows::core::HRESULT );
+    VariantCopyInd(pvardest, pvargsrc).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VariantInit(pvarg: *mut super::Com::VARIANT) {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VariantInit ( pvarg : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> ( ) );
-    VariantInit(::core::mem::transmute(pvarg))
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VariantInit ( pvarg : *mut super::Com:: VARIANT ) -> ( ) );
+    VariantInit(pvarg)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -3760,7 +3754,7 @@ impl IAdviseSinkEx {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnDataChange(&self, pformatetc: *const super::Com::FORMATETC, pstgmed: *const super::Com::STGMEDIUM) {
-        (::windows::core::Vtable::vtable(self).base__.OnDataChange)(::windows::core::Vtable::as_raw(self), pformatetc, ::core::mem::transmute(pstgmed))
+        (::windows::core::Vtable::vtable(self).base__.OnDataChange)(::windows::core::Vtable::as_raw(self), pformatetc, pstgmed)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3833,7 +3827,7 @@ impl ICanHandleException {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CanHandleException(&self, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CanHandleException)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(pvar)).ok()
+        (::windows::core::Vtable::vtable(self).CanHandleException)(::windows::core::Vtable::as_raw(self), pexcepinfo, pvar).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICanHandleException, ::windows::core::IUnknown);
@@ -3864,7 +3858,7 @@ unsafe impl ::windows::core::Interface for ICanHandleException {
 pub struct ICanHandleException_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub CanHandleException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *const ::core::mem::ManuallyDrop<super::Com::EXCEPINFO>, pvar: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub CanHandleException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     CanHandleException: usize,
 }
@@ -4393,27 +4387,27 @@ impl ICreateTypeInfo2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetCustData(&self, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCustData)(::windows::core::Vtable::as_raw(self), guid, ::core::mem::transmute(pvarval)).ok()
+        (::windows::core::Vtable::vtable(self).SetCustData)(::windows::core::Vtable::as_raw(self), guid, pvarval).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetFuncCustData(&self, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetFuncCustData)(::windows::core::Vtable::as_raw(self), index, guid, ::core::mem::transmute(pvarval)).ok()
+        (::windows::core::Vtable::vtable(self).SetFuncCustData)(::windows::core::Vtable::as_raw(self), index, guid, pvarval).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetParamCustData)(::windows::core::Vtable::as_raw(self), indexfunc, indexparam, guid, ::core::mem::transmute(pvarval)).ok()
+        (::windows::core::Vtable::vtable(self).SetParamCustData)(::windows::core::Vtable::as_raw(self), indexfunc, indexparam, guid, pvarval).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetVarCustData(&self, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetVarCustData)(::windows::core::Vtable::as_raw(self), index, guid, ::core::mem::transmute(pvarval)).ok()
+        (::windows::core::Vtable::vtable(self).SetVarCustData)(::windows::core::Vtable::as_raw(self), index, guid, pvarval).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetImplTypeCustData(&self, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetImplTypeCustData)(::windows::core::Vtable::as_raw(self), index, guid, ::core::mem::transmute(pvarval)).ok()
+        (::windows::core::Vtable::vtable(self).SetImplTypeCustData)(::windows::core::Vtable::as_raw(self), index, guid, pvarval).ok()
     }
     pub unsafe fn SetHelpStringContext(&self, dwhelpstringcontext: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetHelpStringContext)(::windows::core::Vtable::as_raw(self), dwhelpstringcontext).ok()
@@ -4470,23 +4464,23 @@ pub struct ICreateTypeInfo2_Vtbl {
     pub DeleteVarDescByMemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memid: i32) -> ::windows::core::HRESULT,
     pub DeleteImplType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SetCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     SetCustData: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetFuncCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SetFuncCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     SetFuncCustData: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetParamCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexfunc: u32, indexparam: u32, guid: *const ::windows::core::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SetParamCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexfunc: u32, indexparam: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     SetParamCustData: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetVarCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SetVarCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     SetVarCustData: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetImplTypeCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SetImplTypeCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     SetImplTypeCustData: usize,
     pub SetHelpStringContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
@@ -4644,7 +4638,7 @@ impl ICreateTypeLib2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetCustData(&self, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCustData)(::windows::core::Vtable::as_raw(self), guid, ::core::mem::transmute(pvarval)).ok()
+        (::windows::core::Vtable::vtable(self).SetCustData)(::windows::core::Vtable::as_raw(self), guid, pvarval).ok()
     }
     pub unsafe fn SetHelpStringContext(&self, dwhelpstringcontext: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetHelpStringContext)(::windows::core::Vtable::as_raw(self), dwhelpstringcontext).ok()
@@ -4685,7 +4679,7 @@ pub struct ICreateTypeLib2_Vtbl {
     pub base__: ICreateTypeLib_Vtbl,
     pub DeleteTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SetCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     SetCustData: usize,
     pub SetHelpStringContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
@@ -4831,7 +4825,7 @@ pub struct IDispatchEx_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetDispID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, grfdex: u32, pid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub InvokeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pei: *mut ::core::mem::ManuallyDrop<super::Com::EXCEPINFO>, pspcaller: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InvokeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut super::Com::VARIANT, pei: *mut super::Com::EXCEPINFO, pspcaller: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     InvokeEx: usize,
     pub DeleteMemberByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, grfdex: u32) -> ::windows::core::HRESULT,
@@ -5262,7 +5256,7 @@ unsafe impl ::windows::core::Interface for IEnumVARIANT {
 pub struct IEnumVARIANT_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     Next: usize,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -5867,7 +5861,7 @@ impl IOleCache {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetData)(::windows::core::Vtable::as_raw(self), pformatetc, ::core::mem::transmute(pmedium), frelease.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetData)(::windows::core::Vtable::as_raw(self), pformatetc, pmedium, frelease.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IOleCache, ::windows::core::IUnknown);
@@ -5911,7 +5905,7 @@ pub struct IOleCache_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     InitCache: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatetc: *const super::Com::FORMATETC, pmedium: *const ::core::mem::ManuallyDrop<super::Com::STGMEDIUM>, frelease: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage")))]
     SetData: usize,
 }
@@ -5948,7 +5942,7 @@ impl IOleCache2 {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetData)(::windows::core::Vtable::as_raw(self), pformatetc, ::core::mem::transmute(pmedium), frelease.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetData)(::windows::core::Vtable::as_raw(self), pformatetc, pmedium, frelease.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6126,7 +6120,7 @@ impl IOleCommandTarget {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Exec(&self, pguidcmdgroup: *const ::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Com::VARIANT, pvaout: *mut super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Exec)(::windows::core::Vtable::as_raw(self), pguidcmdgroup, ncmdid, ncmdexecopt, ::core::mem::transmute(pvain), ::core::mem::transmute(pvaout)).ok()
+        (::windows::core::Vtable::vtable(self).Exec)(::windows::core::Vtable::as_raw(self), pguidcmdgroup, ncmdid, ncmdexecopt, pvain, pvaout).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IOleCommandTarget, ::windows::core::IUnknown);
@@ -6158,7 +6152,7 @@ pub struct IOleCommandTarget_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub QueryStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows::core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub Exec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvaout: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Exec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Com::VARIANT, pvaout: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     Exec: usize,
 }
@@ -8823,7 +8817,7 @@ pub struct IPerPropertyBrowsing_Vtbl {
     pub MapPropertyToPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetPredefinedStrings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pcastringsout: *mut CALPOLESTR, pcacookiesout: *mut CADWORD) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub GetPredefinedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, dwcookie: u32, pvarout: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetPredefinedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, dwcookie: u32, pvarout: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetPredefinedValue: usize,
 }
@@ -9393,7 +9387,7 @@ impl IPrint {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IContinueCallback>>,
     {
-        (::windows::core::Vtable::vtable(self).Print)(::windows::core::Vtable::as_raw(self), grfflags, pptd, pppageset, ::core::mem::transmute(pstgmoptions), pcallback.into().abi(), nfirstpage, pcpagesprinted, pnlastpage).ok()
+        (::windows::core::Vtable::vtable(self).Print)(::windows::core::Vtable::as_raw(self), grfflags, pptd, pppageset, pstgmoptions, pcallback.into().abi(), nfirstpage, pcpagesprinted, pnlastpage).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPrint, ::windows::core::IUnknown);
@@ -9426,7 +9420,7 @@ pub struct IPrint_Vtbl {
     pub SetInitialPageNum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nfirstpage: i32) -> ::windows::core::HRESULT,
     pub GetPageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnfirstpage: *mut i32, pcpages: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-    pub Print: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut ::core::mem::ManuallyDrop<super::Com::STGMEDIUM>, pcallback: *mut ::core::ffi::c_void, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> ::windows::core::HRESULT,
+    pub Print: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::Com::STGMEDIUM, pcallback: *mut ::core::ffi::c_void, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage")))]
     Print: usize,
 }
@@ -10030,7 +10024,7 @@ impl IQuickActivate {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn QuickActivate(&self, pqacontainer: *const QACONTAINER, pqacontrol: *mut QACONTROL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QuickActivate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pqacontainer), pqacontrol).ok()
+        (::windows::core::Vtable::vtable(self).QuickActivate)(::windows::core::Vtable::as_raw(self), pqacontainer, pqacontrol).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10072,7 +10066,7 @@ unsafe impl ::windows::core::Interface for IQuickActivate {
 pub struct IQuickActivate_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub QuickActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqacontainer: *const ::core::mem::ManuallyDrop<QACONTAINER>, pqacontrol: *mut QACONTROL) -> ::windows::core::HRESULT,
+    pub QuickActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqacontainer: *const QACONTAINER, pqacontrol: *mut QACONTROL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
     QuickActivate: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -10130,7 +10124,7 @@ impl IRecordInfo {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetFieldNoCopy)(::windows::core::Vtable::as_raw(self), pvdata, szfieldname.into(), ::core::mem::transmute(pvarfield), ppvdatacarray).ok()
+        (::windows::core::Vtable::vtable(self).GetFieldNoCopy)(::windows::core::Vtable::as_raw(self), pvdata, szfieldname.into(), pvarfield, ppvdatacarray).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -10138,7 +10132,7 @@ impl IRecordInfo {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).PutField)(::windows::core::Vtable::as_raw(self), wflags, pvdata, szfieldname.into(), ::core::mem::transmute(pvarfield)).ok()
+        (::windows::core::Vtable::vtable(self).PutField)(::windows::core::Vtable::as_raw(self), wflags, pvdata, szfieldname.into(), pvarfield).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -10146,7 +10140,7 @@ impl IRecordInfo {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).PutFieldNoCopy)(::windows::core::Vtable::as_raw(self), wflags, pvdata, szfieldname.into(), ::core::mem::transmute(pvarfield)).ok()
+        (::windows::core::Vtable::vtable(self).PutFieldNoCopy)(::windows::core::Vtable::as_raw(self), wflags, pvdata, szfieldname.into(), pvarfield).ok()
     }
     pub unsafe fn GetFieldNames(&self, pcnames: *mut u32, rgbstrnames: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetFieldNames)(::windows::core::Vtable::as_raw(self), pcnames, ::core::mem::transmute(rgbstrnames)).ok()
@@ -10207,19 +10201,19 @@ pub struct IRecordInfo_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetTypeInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub GetField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetField: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub GetFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppvdatacarray: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *mut super::Com::VARIANT, ppvdatacarray: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetFieldNoCopy: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub PutField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub PutField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     PutField: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub PutFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub PutFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     PutFieldNoCopy: usize,
     pub GetFieldNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnames: *mut u32, rgbstrnames: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -10493,7 +10487,7 @@ impl IVBFormat {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Format(&self, vdata: *mut super::Com::VARIANT, bstrformat: &::windows::core::BSTR, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Format)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vdata), ::core::mem::transmute_copy(bstrformat), lpbuffer, cb, lcid, sfirstdayofweek, sfirstweekofyear, rcb).ok()
+        (::windows::core::Vtable::vtable(self).Format)(::windows::core::Vtable::as_raw(self), vdata, ::core::mem::transmute_copy(bstrformat), lpbuffer, cb, lcid, sfirstdayofweek, sfirstweekofyear, rcb).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVBFormat, ::windows::core::IUnknown);
@@ -10524,7 +10518,7 @@ unsafe impl ::windows::core::Interface for IVBFormat {
 pub struct IVBFormat_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vdata: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, bstrformat: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::core::HRESULT,
+    pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vdata: *mut super::Com::VARIANT, bstrformat: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     Format: usize,
 }
@@ -10578,7 +10572,7 @@ impl IVariantChangeType {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ChangeType(&self, pvardst: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, vtnew: super::Com::VARENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ChangeType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvardst), ::core::mem::transmute(pvarsrc), lcid, vtnew).ok()
+        (::windows::core::Vtable::vtable(self).ChangeType)(::windows::core::Vtable::as_raw(self), pvardst, pvarsrc, lcid, vtnew).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVariantChangeType, ::windows::core::IUnknown);
@@ -10609,7 +10603,7 @@ unsafe impl ::windows::core::Interface for IVariantChangeType {
 pub struct IVariantChangeType_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub ChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardst: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarsrc: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, lcid: u32, vtnew: super::Com::VARENUM) -> ::windows::core::HRESULT,
+    pub ChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardst: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, vtnew: super::Com::VARENUM) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     ChangeType: usize,
 }
@@ -15536,13 +15530,13 @@ impl ::core::default::Default for CAUUID {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub struct CLEANLOCALSTORAGE {
-    pub pInterface: ::core::option::Option<::windows::core::IUnknown>,
+    pub pInterface: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub pStorage: *mut ::core::ffi::c_void,
     pub flags: u32,
 }
 impl ::core::clone::Clone for CLEANLOCALSTORAGE {
     fn clone(&self) -> Self {
-        Self { pInterface: self.pInterface.clone(), pStorage: self.pStorage, flags: self.flags }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for CLEANLOCALSTORAGE {
@@ -15551,7 +15545,7 @@ impl ::core::fmt::Debug for CLEANLOCALSTORAGE {
     }
 }
 unsafe impl ::windows::core::Abi for CLEANLOCALSTORAGE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for CLEANLOCALSTORAGE {
     fn eq(&self, other: &Self) -> bool {
@@ -16274,7 +16268,7 @@ pub struct OLEUICHANGESOURCEA {
     pub hResource: super::super::Foundation::HRSRC,
     pub lpOFN: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA,
     pub dwReserved1: [u32; 4],
-    pub lpOleUILinkContainer: ::core::option::Option<IOleUILinkContainerA>,
+    pub lpOleUILinkContainer: ::windows::core::ManuallyDrop<IOleUILinkContainerA>,
     pub dwLink: u32,
     pub lpszDisplayName: ::windows::core::PSTR,
     pub nFileLength: u32,
@@ -16284,25 +16278,7 @@ pub struct OLEUICHANGESOURCEA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 impl ::core::clone::Clone for OLEUICHANGESOURCEA {
     fn clone(&self) -> Self {
-        Self {
-            cbStruct: self.cbStruct,
-            dwFlags: self.dwFlags,
-            hWndOwner: self.hWndOwner,
-            lpszCaption: self.lpszCaption,
-            lpfnHook: self.lpfnHook,
-            lCustData: self.lCustData,
-            hInstance: self.hInstance,
-            lpszTemplate: self.lpszTemplate,
-            hResource: self.hResource,
-            lpOFN: self.lpOFN,
-            dwReserved1: self.dwReserved1,
-            lpOleUILinkContainer: self.lpOleUILinkContainer.clone(),
-            dwLink: self.dwLink,
-            lpszDisplayName: self.lpszDisplayName,
-            nFileLength: self.nFileLength,
-            lpszFrom: self.lpszFrom,
-            lpszTo: self.lpszTo,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
@@ -16330,7 +16306,7 @@ impl ::core::fmt::Debug for OLEUICHANGESOURCEA {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 unsafe impl ::windows::core::Abi for OLEUICHANGESOURCEA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 impl ::core::default::Default for OLEUICHANGESOURCEA {
@@ -16353,7 +16329,7 @@ pub struct OLEUICHANGESOURCEW {
     pub hResource: super::super::Foundation::HRSRC,
     pub lpOFN: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW,
     pub dwReserved1: [u32; 4],
-    pub lpOleUILinkContainer: ::core::option::Option<IOleUILinkContainerW>,
+    pub lpOleUILinkContainer: ::windows::core::ManuallyDrop<IOleUILinkContainerW>,
     pub dwLink: u32,
     pub lpszDisplayName: ::windows::core::PWSTR,
     pub nFileLength: u32,
@@ -16363,25 +16339,7 @@ pub struct OLEUICHANGESOURCEW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 impl ::core::clone::Clone for OLEUICHANGESOURCEW {
     fn clone(&self) -> Self {
-        Self {
-            cbStruct: self.cbStruct,
-            dwFlags: self.dwFlags,
-            hWndOwner: self.hWndOwner,
-            lpszCaption: self.lpszCaption,
-            lpfnHook: self.lpfnHook,
-            lCustData: self.lCustData,
-            hInstance: self.hInstance,
-            lpszTemplate: self.lpszTemplate,
-            hResource: self.hResource,
-            lpOFN: self.lpOFN,
-            dwReserved1: self.dwReserved1,
-            lpOleUILinkContainer: self.lpOleUILinkContainer.clone(),
-            dwLink: self.dwLink,
-            lpszDisplayName: self.lpszDisplayName,
-            nFileLength: self.nFileLength,
-            lpszFrom: self.lpszFrom,
-            lpszTo: self.lpszTo,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
@@ -16409,7 +16367,7 @@ impl ::core::fmt::Debug for OLEUICHANGESOURCEW {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 unsafe impl ::windows::core::Abi for OLEUICHANGESOURCEW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 impl ::core::default::Default for OLEUICHANGESOURCEW {
@@ -16576,23 +16534,12 @@ pub struct OLEUIEDITLINKSA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: ::windows::core::PCSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub lpOleUILinkContainer: ::core::option::Option<IOleUILinkContainerA>,
+    pub lpOleUILinkContainer: ::windows::core::ManuallyDrop<IOleUILinkContainerA>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OLEUIEDITLINKSA {
     fn clone(&self) -> Self {
-        Self {
-            cbStruct: self.cbStruct,
-            dwFlags: self.dwFlags,
-            hWndOwner: self.hWndOwner,
-            lpszCaption: self.lpszCaption,
-            lpfnHook: self.lpfnHook,
-            lCustData: self.lCustData,
-            hInstance: self.hInstance,
-            lpszTemplate: self.lpszTemplate,
-            hResource: self.hResource,
-            lpOleUILinkContainer: self.lpOleUILinkContainer.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16603,7 +16550,7 @@ impl ::core::fmt::Debug for OLEUIEDITLINKSA {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OLEUIEDITLINKSA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OLEUIEDITLINKSA {
@@ -16624,23 +16571,12 @@ pub struct OLEUIEDITLINKSW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: ::windows::core::PCWSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub lpOleUILinkContainer: ::core::option::Option<IOleUILinkContainerW>,
+    pub lpOleUILinkContainer: ::windows::core::ManuallyDrop<IOleUILinkContainerW>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OLEUIEDITLINKSW {
     fn clone(&self) -> Self {
-        Self {
-            cbStruct: self.cbStruct,
-            dwFlags: self.dwFlags,
-            hWndOwner: self.hWndOwner,
-            lpszCaption: self.lpszCaption,
-            lpfnHook: self.lpfnHook,
-            lCustData: self.lCustData,
-            hInstance: self.hInstance,
-            lpszTemplate: self.lpszTemplate,
-            hResource: self.hResource,
-            lpOleUILinkContainer: self.lpOleUILinkContainer.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16651,7 +16587,7 @@ impl ::core::fmt::Debug for OLEUIEDITLINKSW {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OLEUIEDITLINKSW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OLEUIEDITLINKSW {
@@ -16752,8 +16688,8 @@ pub struct OLEUIINSERTOBJECTA {
     pub iid: ::windows::core::GUID,
     pub oleRender: u32,
     pub lpFormatEtc: *mut super::Com::FORMATETC,
-    pub lpIOleClientSite: ::core::option::Option<IOleClientSite>,
-    pub lpIStorage: ::core::option::Option<super::Com::StructuredStorage::IStorage>,
+    pub lpIOleClientSite: ::windows::core::ManuallyDrop<IOleClientSite>,
+    pub lpIStorage: ::windows::core::ManuallyDrop<super::Com::StructuredStorage::IStorage>,
     pub ppvObj: *mut *mut ::core::ffi::c_void,
     pub sc: i32,
     pub hMetaPict: isize,
@@ -16761,30 +16697,7 @@ pub struct OLEUIINSERTOBJECTA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for OLEUIINSERTOBJECTA {
     fn clone(&self) -> Self {
-        Self {
-            cbStruct: self.cbStruct,
-            dwFlags: self.dwFlags,
-            hWndOwner: self.hWndOwner,
-            lpszCaption: self.lpszCaption,
-            lpfnHook: self.lpfnHook,
-            lCustData: self.lCustData,
-            hInstance: self.hInstance,
-            lpszTemplate: self.lpszTemplate,
-            hResource: self.hResource,
-            clsid: self.clsid,
-            lpszFile: self.lpszFile,
-            cchFile: self.cchFile,
-            cClsidExclude: self.cClsidExclude,
-            lpClsidExclude: self.lpClsidExclude,
-            iid: self.iid,
-            oleRender: self.oleRender,
-            lpFormatEtc: self.lpFormatEtc,
-            lpIOleClientSite: self.lpIOleClientSite.clone(),
-            lpIStorage: self.lpIStorage.clone(),
-            ppvObj: self.ppvObj,
-            sc: self.sc,
-            hMetaPict: self.hMetaPict,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -16817,7 +16730,7 @@ impl ::core::fmt::Debug for OLEUIINSERTOBJECTA {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for OLEUIINSERTOBJECTA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for OLEUIINSERTOBJECTA {
@@ -16846,8 +16759,8 @@ pub struct OLEUIINSERTOBJECTW {
     pub iid: ::windows::core::GUID,
     pub oleRender: u32,
     pub lpFormatEtc: *mut super::Com::FORMATETC,
-    pub lpIOleClientSite: ::core::option::Option<IOleClientSite>,
-    pub lpIStorage: ::core::option::Option<super::Com::StructuredStorage::IStorage>,
+    pub lpIOleClientSite: ::windows::core::ManuallyDrop<IOleClientSite>,
+    pub lpIStorage: ::windows::core::ManuallyDrop<super::Com::StructuredStorage::IStorage>,
     pub ppvObj: *mut *mut ::core::ffi::c_void,
     pub sc: i32,
     pub hMetaPict: isize,
@@ -16855,30 +16768,7 @@ pub struct OLEUIINSERTOBJECTW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for OLEUIINSERTOBJECTW {
     fn clone(&self) -> Self {
-        Self {
-            cbStruct: self.cbStruct,
-            dwFlags: self.dwFlags,
-            hWndOwner: self.hWndOwner,
-            lpszCaption: self.lpszCaption,
-            lpfnHook: self.lpfnHook,
-            lCustData: self.lCustData,
-            hInstance: self.hInstance,
-            lpszTemplate: self.lpszTemplate,
-            hResource: self.hResource,
-            clsid: self.clsid,
-            lpszFile: self.lpszFile,
-            cchFile: self.cchFile,
-            cClsidExclude: self.cClsidExclude,
-            lpClsidExclude: self.lpClsidExclude,
-            iid: self.iid,
-            oleRender: self.oleRender,
-            lpFormatEtc: self.lpFormatEtc,
-            lpIOleClientSite: self.lpIOleClientSite.clone(),
-            lpIStorage: self.lpIStorage.clone(),
-            ppvObj: self.ppvObj,
-            sc: self.sc,
-            hMetaPict: self.hMetaPict,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -16911,7 +16801,7 @@ impl ::core::fmt::Debug for OLEUIINSERTOBJECTW {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for OLEUIINSERTOBJECTW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for OLEUIINSERTOBJECTW {
@@ -16999,9 +16889,9 @@ pub struct OLEUIOBJECTPROPSA {
     pub dwFlags: OBJECT_PROPERTIES_FLAGS,
     pub lpPS: *mut super::super::UI::Controls::PROPSHEETHEADERA_V2,
     pub dwObject: u32,
-    pub lpObjInfo: ::core::option::Option<IOleUIObjInfoA>,
+    pub lpObjInfo: ::windows::core::ManuallyDrop<IOleUIObjInfoA>,
     pub dwLink: u32,
-    pub lpLinkInfo: ::core::option::Option<IOleUILinkInfoA>,
+    pub lpLinkInfo: ::windows::core::ManuallyDrop<IOleUILinkInfoA>,
     pub lpGP: *mut OLEUIGNRLPROPSA,
     pub lpVP: *mut OLEUIVIEWPROPSA,
     pub lpLP: *mut OLEUILINKPROPSA,
@@ -17009,18 +16899,7 @@ pub struct OLEUIOBJECTPROPSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for OLEUIOBJECTPROPSA {
     fn clone(&self) -> Self {
-        Self {
-            cbStruct: self.cbStruct,
-            dwFlags: self.dwFlags,
-            lpPS: self.lpPS,
-            dwObject: self.dwObject,
-            lpObjInfo: self.lpObjInfo.clone(),
-            dwLink: self.dwLink,
-            lpLinkInfo: self.lpLinkInfo.clone(),
-            lpGP: self.lpGP,
-            lpVP: self.lpVP,
-            lpLP: self.lpLP,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -17031,7 +16910,7 @@ impl ::core::fmt::Debug for OLEUIOBJECTPROPSA {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUIOBJECTPROPSA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for OLEUIOBJECTPROPSA {
@@ -17055,9 +16934,9 @@ pub struct OLEUIOBJECTPROPSW {
     pub dwFlags: OBJECT_PROPERTIES_FLAGS,
     pub lpPS: *mut super::super::UI::Controls::PROPSHEETHEADERW_V2,
     pub dwObject: u32,
-    pub lpObjInfo: ::core::option::Option<IOleUIObjInfoW>,
+    pub lpObjInfo: ::windows::core::ManuallyDrop<IOleUIObjInfoW>,
     pub dwLink: u32,
-    pub lpLinkInfo: ::core::option::Option<IOleUILinkInfoW>,
+    pub lpLinkInfo: ::windows::core::ManuallyDrop<IOleUILinkInfoW>,
     pub lpGP: *mut OLEUIGNRLPROPSW,
     pub lpVP: *mut OLEUIVIEWPROPSW,
     pub lpLP: *mut OLEUILINKPROPSW,
@@ -17065,18 +16944,7 @@ pub struct OLEUIOBJECTPROPSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for OLEUIOBJECTPROPSW {
     fn clone(&self) -> Self {
-        Self {
-            cbStruct: self.cbStruct,
-            dwFlags: self.dwFlags,
-            lpPS: self.lpPS,
-            dwObject: self.dwObject,
-            lpObjInfo: self.lpObjInfo.clone(),
-            dwLink: self.dwLink,
-            lpLinkInfo: self.lpLinkInfo.clone(),
-            lpGP: self.lpGP,
-            lpVP: self.lpVP,
-            lpLP: self.lpLP,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -17087,7 +16955,7 @@ impl ::core::fmt::Debug for OLEUIOBJECTPROPSW {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUIOBJECTPROPSW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for OLEUIOBJECTPROPSW {
@@ -17200,7 +17068,7 @@ pub struct OLEUIPASTESPECIALA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: ::windows::core::PCSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub lpSrcDataObj: ::core::option::Option<super::Com::IDataObject>,
+    pub lpSrcDataObj: ::windows::core::ManuallyDrop<super::Com::IDataObject>,
     pub arrPasteEntries: *mut OLEUIPASTEENTRYA,
     pub cPasteEntries: i32,
     pub arrLinkTypes: *mut u32,
@@ -17215,28 +17083,7 @@ pub struct OLEUIPASTESPECIALA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for OLEUIPASTESPECIALA {
     fn clone(&self) -> Self {
-        Self {
-            cbStruct: self.cbStruct,
-            dwFlags: self.dwFlags,
-            hWndOwner: self.hWndOwner,
-            lpszCaption: self.lpszCaption,
-            lpfnHook: self.lpfnHook,
-            lCustData: self.lCustData,
-            hInstance: self.hInstance,
-            lpszTemplate: self.lpszTemplate,
-            hResource: self.hResource,
-            lpSrcDataObj: self.lpSrcDataObj.clone(),
-            arrPasteEntries: self.arrPasteEntries,
-            cPasteEntries: self.cPasteEntries,
-            arrLinkTypes: self.arrLinkTypes,
-            cLinkTypes: self.cLinkTypes,
-            cClsidExclude: self.cClsidExclude,
-            lpClsidExclude: self.lpClsidExclude,
-            nSelectedIndex: self.nSelectedIndex,
-            fLink: self.fLink,
-            hMetaPict: self.hMetaPict,
-            sizel: self.sizel,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -17267,7 +17114,7 @@ impl ::core::fmt::Debug for OLEUIPASTESPECIALA {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for OLEUIPASTESPECIALA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for OLEUIPASTESPECIALA {
@@ -17288,7 +17135,7 @@ pub struct OLEUIPASTESPECIALW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: ::windows::core::PCWSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub lpSrcDataObj: ::core::option::Option<super::Com::IDataObject>,
+    pub lpSrcDataObj: ::windows::core::ManuallyDrop<super::Com::IDataObject>,
     pub arrPasteEntries: *mut OLEUIPASTEENTRYW,
     pub cPasteEntries: i32,
     pub arrLinkTypes: *mut u32,
@@ -17303,28 +17150,7 @@ pub struct OLEUIPASTESPECIALW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for OLEUIPASTESPECIALW {
     fn clone(&self) -> Self {
-        Self {
-            cbStruct: self.cbStruct,
-            dwFlags: self.dwFlags,
-            hWndOwner: self.hWndOwner,
-            lpszCaption: self.lpszCaption,
-            lpfnHook: self.lpfnHook,
-            lCustData: self.lCustData,
-            hInstance: self.hInstance,
-            lpszTemplate: self.lpszTemplate,
-            hResource: self.hResource,
-            lpSrcDataObj: self.lpSrcDataObj.clone(),
-            arrPasteEntries: self.arrPasteEntries,
-            cPasteEntries: self.cPasteEntries,
-            arrLinkTypes: self.arrLinkTypes,
-            cLinkTypes: self.cLinkTypes,
-            cClsidExclude: self.cClsidExclude,
-            lpClsidExclude: self.lpClsidExclude,
-            nSelectedIndex: self.nSelectedIndex,
-            fLink: self.fLink,
-            hMetaPict: self.hMetaPict,
-            sizel: self.sizel,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -17355,7 +17181,7 @@ impl ::core::fmt::Debug for OLEUIPASTESPECIALW {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for OLEUIPASTESPECIALW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for OLEUIPASTESPECIALW {
@@ -17673,12 +17499,12 @@ pub struct PARAMDESCEX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for PARAMDESCEX {
     fn clone(&self) -> Self {
-        Self { cBytes: self.cBytes, varDefaultValue: self.varDefaultValue.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for PARAMDESCEX {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for PARAMDESCEX {
@@ -17973,43 +17799,26 @@ impl ::core::default::Default for PROPPAGEINFO {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub struct QACONTAINER {
     pub cbSize: u32,
-    pub pClientSite: ::core::option::Option<IOleClientSite>,
-    pub pAdviseSink: ::core::option::Option<IAdviseSinkEx>,
-    pub pPropertyNotifySink: ::core::option::Option<IPropertyNotifySink>,
-    pub pUnkEventSink: ::core::option::Option<::windows::core::IUnknown>,
+    pub pClientSite: ::windows::core::ManuallyDrop<IOleClientSite>,
+    pub pAdviseSink: ::windows::core::ManuallyDrop<IAdviseSinkEx>,
+    pub pPropertyNotifySink: ::windows::core::ManuallyDrop<IPropertyNotifySink>,
+    pub pUnkEventSink: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub dwAmbientFlags: QACONTAINERFLAGS,
     pub colorFore: u32,
     pub colorBack: u32,
-    pub pFont: ::core::option::Option<IFont>,
-    pub pUndoMgr: ::core::option::Option<IOleUndoManager>,
+    pub pFont: ::windows::core::ManuallyDrop<IFont>,
+    pub pUndoMgr: ::windows::core::ManuallyDrop<IOleUndoManager>,
     pub dwAppearance: u32,
     pub lcid: i32,
     pub hpal: super::super::Graphics::Gdi::HPALETTE,
-    pub pBindHost: ::core::option::Option<super::Com::IBindHost>,
-    pub pOleControlSite: ::core::option::Option<IOleControlSite>,
-    pub pServiceProvider: ::core::option::Option<super::Com::IServiceProvider>,
+    pub pBindHost: ::windows::core::ManuallyDrop<super::Com::IBindHost>,
+    pub pOleControlSite: ::windows::core::ManuallyDrop<IOleControlSite>,
+    pub pServiceProvider: ::windows::core::ManuallyDrop<super::Com::IServiceProvider>,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for QACONTAINER {
     fn clone(&self) -> Self {
-        Self {
-            cbSize: self.cbSize,
-            pClientSite: self.pClientSite.clone(),
-            pAdviseSink: self.pAdviseSink.clone(),
-            pPropertyNotifySink: self.pPropertyNotifySink.clone(),
-            pUnkEventSink: self.pUnkEventSink.clone(),
-            dwAmbientFlags: self.dwAmbientFlags,
-            colorFore: self.colorFore,
-            colorBack: self.colorBack,
-            pFont: self.pFont.clone(),
-            pUndoMgr: self.pUndoMgr.clone(),
-            dwAppearance: self.dwAppearance,
-            lcid: self.lcid,
-            hpal: self.hpal,
-            pBindHost: self.pBindHost.clone(),
-            pOleControlSite: self.pOleControlSite.clone(),
-            pServiceProvider: self.pServiceProvider.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -18037,7 +17846,7 @@ impl ::core::fmt::Debug for QACONTAINER {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for QACONTAINER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for QACONTAINER {
@@ -18401,12 +18210,12 @@ impl ::core::default::Default for UDATE {
 pub struct _wireBRECORD {
     pub fFlags: u32,
     pub clSize: u32,
-    pub pRecInfo: ::core::option::Option<IRecordInfo>,
+    pub pRecInfo: ::windows::core::ManuallyDrop<IRecordInfo>,
     pub pRecord: *mut u8,
 }
 impl ::core::clone::Clone for _wireBRECORD {
     fn clone(&self) -> Self {
-        Self { fFlags: self.fFlags, clSize: self.clSize, pRecInfo: self.pRecInfo.clone(), pRecord: self.pRecord }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for _wireBRECORD {
@@ -18415,7 +18224,7 @@ impl ::core::fmt::Debug for _wireBRECORD {
     }
 }
 unsafe impl ::windows::core::Abi for _wireBRECORD {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for _wireBRECORD {
     fn eq(&self, other: &Self) -> bool {
@@ -18472,20 +18281,12 @@ pub struct _wireVARIANT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for _wireVARIANT {
     fn clone(&self) -> Self {
-        Self {
-            clSize: self.clSize,
-            rpcReserved: self.rpcReserved,
-            vt: self.vt,
-            wReserved1: self.wReserved1,
-            wReserved2: self.wReserved2,
-            wReserved3: self.wReserved3,
-            Anonymous: self.Anonymous.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for _wireVARIANT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for _wireVARIANT {
@@ -18508,8 +18309,8 @@ pub union _wireVARIANT_0 {
     pub cyVal: super::Com::CY,
     pub date: f64,
     pub bstrVal: *mut super::Com::FLAGGED_WORD_BLOB,
-    pub punkVal: ::core::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
-    pub pdispVal: ::core::mem::ManuallyDrop<::core::option::Option<super::Com::IDispatch>>,
+    pub punkVal: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
+    pub pdispVal: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::IDispatch>>,
     pub parray: *mut *mut _wireSAFEARRAY,
     pub brecVal: *mut _wireBRECORD,
     pub pbVal: *mut u8,
@@ -18550,7 +18351,7 @@ impl ::core::clone::Clone for _wireVARIANT_0 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for _wireVARIANT_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for _wireVARIANT_0 {

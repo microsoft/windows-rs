@@ -393,6 +393,9 @@ impl<'a> Reader<'a> {
     pub fn field_is_blittable(&self, row: Field, enclosing: TypeDef) -> bool {
         self.type_is_blittable(&self.field_type(row, Some(enclosing)))
     }
+    pub fn field_is_copyable(&self, row: Field, enclosing: TypeDef) -> bool {
+        self.type_is_copyable(&self.field_type(row, Some(enclosing)))
+    }
     pub fn field_guid(&self, row: Field) -> Option<GUID> {
         for attribute in self.field_attributes(row) {
             if self.attribute_name(attribute) == "GuidAttribute" {
@@ -853,7 +856,21 @@ impl<'a> Reader<'a> {
     }
     pub fn type_def_is_blittable(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
-            TypeKind::Struct => self.type_def_fields(row).all(|field| self.field_is_blittable(field, row)),
+            TypeKind::Struct => {
+                if self.type_def_flags(row).winrt() {
+                    self.type_def_fields(row).all(|field| self.field_is_blittable(field, row))
+                } else {
+                    true
+                }
+            }
+            TypeKind::Enum => true,
+            TypeKind::Delegate => !self.type_def_flags(row).winrt(),
+            _ => false,
+        }
+    }
+    pub fn type_def_is_copyable(&self, row: TypeDef) -> bool {
+        match self.type_def_kind(row) {
+            TypeKind::Struct => self.type_def_fields(row).all(|field| self.field_is_copyable(field, row)),
             TypeKind::Enum => true,
             TypeKind::Delegate => !self.type_def_flags(row).winrt(),
             _ => false,
@@ -1502,6 +1519,15 @@ impl<'a> Reader<'a> {
             Type::String | Type::BSTR | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
             Type::Win32Array((kind, _)) => self.type_is_blittable(kind),
             Type::WinrtArray(kind) => self.type_is_blittable(kind),
+            _ => true,
+        }
+    }
+    pub fn type_is_copyable(&self, ty: &Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_is_copyable(*row),
+            Type::String | Type::BSTR | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
+            Type::Win32Array((kind, _)) => self.type_is_copyable(kind),
+            Type::WinrtArray(kind) => self.type_is_copyable(kind),
             _ => true,
         }
     }

@@ -417,12 +417,12 @@ pub trait IEventObjectChange2_Impl: Sized {
 impl ::windows::core::RuntimeName for IEventObjectChange2 {}
 impl IEventObjectChange2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventObjectChange2_Impl, const OFFSET: isize>() -> IEventObjectChange2_Vtbl {
-        unsafe extern "system" fn ChangedSubscription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventObjectChange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const ::core::mem::ManuallyDrop<COMEVENTSYSCHANGEINFO>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChangedSubscription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventObjectChange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ChangedSubscription(::core::mem::transmute_copy(&pinfo)).into()
         }
-        unsafe extern "system" fn ChangedEventClass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventObjectChange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const ::core::mem::ManuallyDrop<COMEVENTSYSCHANGEINFO>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChangedEventClass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventObjectChange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ChangedEventClass(::core::mem::transmute_copy(&pinfo)).into()
@@ -462,7 +462,7 @@ impl IEventObjectCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectid: *mut ::core::ffi::c_void, pitem: *mut ::core::mem::ManuallyDrop<super::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectid: *mut ::core::ffi::c_void, pitem: *mut super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&objectid)) {
@@ -495,7 +495,7 @@ impl IEventObjectCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *const ::core::mem::ManuallyDrop<super::VARIANT>, objectid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *const super::VARIANT, objectid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute_copy(&item), ::core::mem::transmute(&objectid)).into()
@@ -547,7 +547,7 @@ impl IEventProperty_Vtbl {
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&propertyname)).into()
         }
-        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyvalue: *mut ::core::mem::ManuallyDrop<super::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -558,7 +558,7 @@ impl IEventProperty_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyvalue: *const ::core::mem::ManuallyDrop<super::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute_copy(&propertyvalue)).into()
@@ -677,7 +677,7 @@ impl IEventPublisher_Vtbl {
             let this = (*this).get_impl();
             this.SetDescription(::core::mem::transmute(&bstrdescription)).into()
         }
-        unsafe extern "system" fn GetDefaultProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut ::core::mem::ManuallyDrop<super::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDefaultProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDefaultProperty(::core::mem::transmute(&bstrpropertyname)) {
@@ -688,7 +688,7 @@ impl IEventPublisher_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutDefaultProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *const ::core::mem::ManuallyDrop<super::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutDefaultProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PutDefaultProperty(::core::mem::transmute(&bstrpropertyname), ::core::mem::transmute_copy(&propertyvalue)).into()
@@ -965,7 +965,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             this.SetMachineName(::core::mem::transmute(&bstrmachinename)).into()
         }
-        unsafe extern "system" fn GetPublisherProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut ::core::mem::ManuallyDrop<super::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPublisherProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPublisherProperty(::core::mem::transmute(&bstrpropertyname)) {
@@ -976,7 +976,7 @@ impl IEventSubscription_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutPublisherProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *const ::core::mem::ManuallyDrop<super::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutPublisherProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PutPublisherProperty(::core::mem::transmute(&bstrpropertyname), ::core::mem::transmute_copy(&propertyvalue)).into()
@@ -997,7 +997,7 @@ impl IEventSubscription_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSubscriberProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut ::core::mem::ManuallyDrop<super::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSubscriberProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSubscriberProperty(::core::mem::transmute(&bstrpropertyname)) {
@@ -1008,7 +1008,7 @@ impl IEventSubscription_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutSubscriberProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *const ::core::mem::ManuallyDrop<super::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutSubscriberProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PutSubscriberProperty(::core::mem::transmute(&bstrpropertyname), ::core::mem::transmute_copy(&propertyvalue)).into()

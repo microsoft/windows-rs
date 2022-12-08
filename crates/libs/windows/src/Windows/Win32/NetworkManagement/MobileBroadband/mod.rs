@@ -120,13 +120,12 @@ impl IMbnConnectionContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetProvisionedContexts)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetProvisionedContext<'a, P0, P1>(&self, provisionedcontexts: P0, providerid: P1) -> ::windows::core::Result<u32>
+    pub unsafe fn SetProvisionedContext<'a, P0>(&self, provisionedcontexts: MBN_CONTEXT, providerid: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, MBN_CONTEXT>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetProvisionedContext)(::windows::core::Vtable::as_raw(self), provisionedcontexts.into().abi(), providerid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).SetProvisionedContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(provisionedcontexts), providerid.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMbnConnectionContext, ::windows::core::IUnknown);
@@ -160,7 +159,7 @@ pub struct IMbnConnectionContext_Vtbl {
     pub GetProvisionedContexts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provisionedcontexts: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetProvisionedContexts: usize,
-    pub SetProvisionedContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provisionedcontexts: ::core::mem::ManuallyDrop<MBN_CONTEXT>, providerid: ::windows::core::PCWSTR, requestid: *mut u32) -> ::windows::core::HRESULT,
+    pub SetProvisionedContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provisionedcontexts: MBN_CONTEXT, providerid: ::windows::core::PCWSTR, requestid: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
@@ -1033,14 +1032,14 @@ unsafe impl ::windows::core::Interface for IMbnInterface {
 pub struct IMbnInterface_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub InterfaceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetInterfaceCapability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfacecaps: *mut ::core::mem::ManuallyDrop<MBN_INTERFACE_CAPS>) -> ::windows::core::HRESULT,
+    pub GetInterfaceCapability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfacecaps: *mut MBN_INTERFACE_CAPS) -> ::windows::core::HRESULT,
     pub GetSubscriberInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subscriberinformation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetReadyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, readystate: *mut MBN_READY_STATE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub InEmergencyMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, emergencymode: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     InEmergencyMode: usize,
-    pub GetHomeProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, homeprovider: *mut ::core::mem::ManuallyDrop<MBN_PROVIDER>) -> ::windows::core::HRESULT,
+    pub GetHomeProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, homeprovider: *mut MBN_PROVIDER) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetPreferredProviders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preferredproviders: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1249,7 +1248,7 @@ pub struct IMbnMultiCarrier(::windows::core::IUnknown);
 impl IMbnMultiCarrier {
     pub unsafe fn SetHomeProvider(&self, homeprovider: *const MBN_PROVIDER2) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetHomeProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(homeprovider), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).SetHomeProvider)(::windows::core::Vtable::as_raw(self), homeprovider, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1304,7 +1303,7 @@ unsafe impl ::windows::core::Interface for IMbnMultiCarrier {
 #[doc(hidden)]
 pub struct IMbnMultiCarrier_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub SetHomeProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, homeprovider: *const ::core::mem::ManuallyDrop<MBN_PROVIDER2>, requestid: *mut u32) -> ::windows::core::HRESULT,
+    pub SetHomeProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, homeprovider: *const MBN_PROVIDER2, requestid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetPreferredProviders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preferredmulticarrierproviders: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3820,23 +3819,15 @@ impl ::core::fmt::Debug for WWAEXT_SMS_CONSTANTS {
 pub struct MBN_CONTEXT {
     pub contextID: u32,
     pub contextType: MBN_CONTEXT_TYPE,
-    pub accessString: ::windows::core::BSTR,
-    pub userName: ::windows::core::BSTR,
-    pub password: ::windows::core::BSTR,
+    pub accessString: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub userName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub password: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub compression: MBN_COMPRESSION,
     pub authType: MBN_AUTH_PROTOCOL,
 }
 impl ::core::clone::Clone for MBN_CONTEXT {
     fn clone(&self) -> Self {
-        Self {
-            contextID: self.contextID,
-            contextType: self.contextType,
-            accessString: self.accessString.clone(),
-            userName: self.userName.clone(),
-            password: self.password.clone(),
-            compression: self.compression,
-            authType: self.authType,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for MBN_CONTEXT {
@@ -3845,7 +3836,7 @@ impl ::core::fmt::Debug for MBN_CONTEXT {
     }
 }
 unsafe impl ::windows::core::Abi for MBN_CONTEXT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for MBN_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -3862,14 +3853,14 @@ impl ::core::default::Default for MBN_CONTEXT {
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MBN_DEVICE_SERVICE {
-    pub deviceServiceID: ::windows::core::BSTR,
+    pub deviceServiceID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub dataWriteSupported: super::super::Foundation::VARIANT_BOOL,
     pub dataReadSupported: super::super::Foundation::VARIANT_BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MBN_DEVICE_SERVICE {
     fn clone(&self) -> Self {
-        Self { deviceServiceID: self.deviceServiceID.clone(), dataWriteSupported: self.dataWriteSupported, dataReadSupported: self.dataReadSupported }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3880,7 +3871,7 @@ impl ::core::fmt::Debug for MBN_DEVICE_SERVICE {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MBN_DEVICE_SERVICE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MBN_DEVICE_SERVICE {
@@ -3902,34 +3893,20 @@ pub struct MBN_INTERFACE_CAPS {
     pub cellularClass: MBN_CELLULAR_CLASS,
     pub voiceClass: MBN_VOICE_CLASS,
     pub dataClass: u32,
-    pub customDataClass: ::windows::core::BSTR,
+    pub customDataClass: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub gsmBandClass: u32,
     pub cdmaBandClass: u32,
-    pub customBandClass: ::windows::core::BSTR,
+    pub customBandClass: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub smsCaps: u32,
     pub controlCaps: u32,
-    pub deviceID: ::windows::core::BSTR,
-    pub manufacturer: ::windows::core::BSTR,
-    pub model: ::windows::core::BSTR,
-    pub firmwareInfo: ::windows::core::BSTR,
+    pub deviceID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub manufacturer: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub model: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub firmwareInfo: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for MBN_INTERFACE_CAPS {
     fn clone(&self) -> Self {
-        Self {
-            cellularClass: self.cellularClass,
-            voiceClass: self.voiceClass,
-            dataClass: self.dataClass,
-            customDataClass: self.customDataClass.clone(),
-            gsmBandClass: self.gsmBandClass,
-            cdmaBandClass: self.cdmaBandClass,
-            customBandClass: self.customBandClass.clone(),
-            smsCaps: self.smsCaps,
-            controlCaps: self.controlCaps,
-            deviceID: self.deviceID.clone(),
-            manufacturer: self.manufacturer.clone(),
-            model: self.model.clone(),
-            firmwareInfo: self.firmwareInfo.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for MBN_INTERFACE_CAPS {
@@ -3952,7 +3929,7 @@ impl ::core::fmt::Debug for MBN_INTERFACE_CAPS {
     }
 }
 unsafe impl ::windows::core::Abi for MBN_INTERFACE_CAPS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for MBN_INTERFACE_CAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -4000,14 +3977,14 @@ impl ::core::default::Default for MBN_PIN_INFO {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct MBN_PROVIDER {
-    pub providerID: ::windows::core::BSTR,
+    pub providerID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub providerState: u32,
-    pub providerName: ::windows::core::BSTR,
+    pub providerName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub dataClass: u32,
 }
 impl ::core::clone::Clone for MBN_PROVIDER {
     fn clone(&self) -> Self {
-        Self { providerID: self.providerID.clone(), providerState: self.providerState, providerName: self.providerName.clone(), dataClass: self.dataClass }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for MBN_PROVIDER {
@@ -4016,7 +3993,7 @@ impl ::core::fmt::Debug for MBN_PROVIDER {
     }
 }
 unsafe impl ::windows::core::Abi for MBN_PROVIDER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for MBN_PROVIDER {
     fn eq(&self, other: &Self) -> bool {
@@ -4039,7 +4016,7 @@ pub struct MBN_PROVIDER2 {
 }
 impl ::core::clone::Clone for MBN_PROVIDER2 {
     fn clone(&self) -> Self {
-        Self { provider: self.provider.clone(), cellularClass: self.cellularClass, signalStrength: self.signalStrength, signalError: self.signalError }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for MBN_PROVIDER2 {
@@ -4048,7 +4025,7 @@ impl ::core::fmt::Debug for MBN_PROVIDER2 {
     }
 }
 unsafe impl ::windows::core::Abi for MBN_PROVIDER2 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for MBN_PROVIDER2 {
     fn eq(&self, other: &Self) -> bool {

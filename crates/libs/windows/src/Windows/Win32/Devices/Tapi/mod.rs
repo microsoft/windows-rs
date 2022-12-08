@@ -3171,12 +3171,9 @@ impl IMcastAddressAllocation {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateLeaseInfoFromVariant<'a, P0>(&self, leasestarttime: f64, leasestoptime: f64, vaddresses: P0, prequestid: &::windows::core::BSTR, pserveraddress: &::windows::core::BSTR) -> ::windows::core::Result<IMcastLeaseInfo>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-    {
+    pub unsafe fn CreateLeaseInfoFromVariant(&self, leasestarttime: f64, leasestoptime: f64, vaddresses: super::super::System::Com::VARIANT, prequestid: &::windows::core::BSTR, pserveraddress: &::windows::core::BSTR) -> ::windows::core::Result<IMcastLeaseInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateLeaseInfoFromVariant)(::windows::core::Vtable::as_raw(self), leasestarttime, leasestoptime, vaddresses.into().abi(), ::core::mem::transmute_copy(prequestid), ::core::mem::transmute_copy(pserveraddress), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateLeaseInfoFromVariant)(::windows::core::Vtable::as_raw(self), leasestarttime, leasestoptime, ::core::mem::transmute(vaddresses), ::core::mem::transmute_copy(prequestid), ::core::mem::transmute_copy(pserveraddress), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3215,7 +3212,7 @@ unsafe impl ::windows::core::Interface for IMcastAddressAllocation {
 pub struct IMcastAddressAllocation_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Scopes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Scopes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Scopes: usize,
     pub EnumerateScopes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenummcastscope: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3236,7 +3233,7 @@ pub struct IMcastAddressAllocation_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateLeaseInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateLeaseInfoFromVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leasestarttime: f64, leasestoptime: f64, vaddresses: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, prequestid: *mut ::core::ffi::c_void, pserveraddress: *mut ::core::ffi::c_void, ppreleaserequest: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateLeaseInfoFromVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leasestarttime: f64, leasestoptime: f64, vaddresses: super::super::System::Com::VARIANT, prequestid: *mut ::core::ffi::c_void, pserveraddress: *mut ::core::ffi::c_void, ppreleaserequest: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreateLeaseInfoFromVariant: usize,
 }
@@ -3331,7 +3328,7 @@ pub struct IMcastLeaseInfo_Vtbl {
     pub ServerAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TTL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pttl: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Addresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Addresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Addresses: usize,
     pub EnumerateAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumaddresses: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3463,7 +3460,7 @@ pub struct ITACDGroup_Vtbl {
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumerateQueues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Queues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Queues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Queues: usize,
 }
@@ -3538,7 +3535,7 @@ impl ITAMMediaFormat {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaFormat(&self, pmt: *const super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMediaFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmt)).ok()
+        (::windows::core::Vtable::vtable(self).SetMediaFormat)(::windows::core::Vtable::as_raw(self), pmt).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ITAMMediaFormat, ::windows::core::IUnknown);
@@ -3573,7 +3570,7 @@ pub struct ITAMMediaFormat_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     MediaFormat: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
-    pub SetMediaFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *const ::core::mem::ManuallyDrop<super::super::Media::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows::core::HRESULT,
+    pub SetMediaFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *const super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     SetMediaFormat: usize,
 }
@@ -3780,7 +3777,7 @@ pub struct ITAddress_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateCall: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Calls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Calls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Calls: usize,
     pub EnumerateCalls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcallenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3951,12 +3948,11 @@ impl ITAddress2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DeviceSpecificVariant<'a, P0, P1>(&self, pcall: P0, vardevspecificbytearray: P1) -> ::windows::core::Result<()>
+    pub unsafe fn DeviceSpecificVariant<'a, P0>(&self, pcall: P0, vardevspecificbytearray: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITCallInfo>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Vtable::vtable(self).DeviceSpecificVariant)(::windows::core::Vtable::as_raw(self), pcall.into().abi(), vardevspecificbytearray.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).DeviceSpecificVariant)(::windows::core::Vtable::as_raw(self), pcall.into().abi(), ::core::mem::transmute(vardevspecificbytearray)).ok()
     }
     pub unsafe fn NegotiateExtVersion(&self, llowversion: i32, lhighversion: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3999,7 +3995,7 @@ unsafe impl ::windows::core::Interface for ITAddress2 {
 pub struct ITAddress2_Vtbl {
     pub base__: ITAddress_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Phones: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphones: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Phones: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphones: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Phones: usize,
     pub EnumeratePhones: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumphone: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4008,7 +4004,7 @@ pub struct ITAddress2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetPhoneFromTerminal: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PreferredPhones: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphones: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub PreferredPhones: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphones: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PreferredPhones: usize,
     pub EnumeratePreferredPhones: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumphone: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4025,7 +4021,7 @@ pub struct ITAddress2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     DeviceSpecific: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DeviceSpecificVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcall: *mut ::core::ffi::c_void, vardevspecificbytearray: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub DeviceSpecificVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcall: *mut ::core::ffi::c_void, vardevspecificbytearray: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     DeviceSpecificVariant: usize,
     pub NegotiateExtVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llowversion: i32, lhighversion: i32, plextversion: *mut i32) -> ::windows::core::HRESULT,
@@ -4113,17 +4109,17 @@ pub struct ITAddressCapabilities_Vtbl {
     pub get_AddressCapability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, addresscap: ADDRESS_CAPABILITY, plcapability: *mut i32) -> ::windows::core::HRESULT,
     pub get_AddressCapabilityString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, addresscapstring: ADDRESS_CAPABILITY_STRING, ppcapabilitystring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CallTreatments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub CallTreatments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CallTreatments: usize,
     pub EnumerateCallTreatments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumcalltreatment: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CompletionMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub CompletionMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CompletionMessages: usize,
     pub EnumerateCompletionMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumcompletionmessage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DeviceClasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub DeviceClasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     DeviceClasses: usize,
     pub EnumerateDeviceClasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdeviceclass: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4352,12 +4348,12 @@ pub struct ITAddressTranslation_Vtbl {
     pub TranslateDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndowner: isize, paddressin: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumerateLocations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumlocation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Locations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Locations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Locations: usize,
     pub EnumerateCallingCards: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumcallingcard: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CallingCards: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub CallingCards: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CallingCards: usize,
 }
@@ -4579,7 +4575,7 @@ pub struct ITAgent_Vtbl {
     pub TotalACDCallTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcalltime: *mut i32) -> ::windows::core::HRESULT,
     pub TotalWrapUpTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plwrapuptime: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AgentSessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub AgentSessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     AgentSessions: usize,
 }
@@ -4731,11 +4727,11 @@ pub struct ITAgentHandler_Vtbl {
     pub EnumerateACDGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumacdgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumerateUsableAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ACDGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub ACDGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ACDGroups: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub UsableAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub UsableAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     UsableAddresses: usize,
 }
@@ -5353,7 +5349,7 @@ pub struct ITAutomatedPhoneControl_Vtbl {
     UnselectCall: usize,
     pub EnumerateSelectedCalls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcallenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SelectedCalls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SelectedCalls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SelectedCalls: usize,
 }
@@ -5785,7 +5781,7 @@ pub struct ITCallHub_Vtbl {
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumerateCalls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumcall: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Calls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcalls: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Calls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcalls: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Calls: usize,
     pub NumCalls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcalls: *mut i32) -> ::windows::core::HRESULT,
@@ -5907,11 +5903,8 @@ impl ITCallInfo {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn put_CallInfoBuffer<'a, P0>(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-    {
-        (::windows::core::Vtable::vtable(self).put_CallInfoBuffer)(::windows::core::Vtable::as_raw(self), callinfobuffer, pcallinfobuffer.into().abi()).ok()
+    pub unsafe fn put_CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).put_CallInfoBuffer)(::windows::core::Vtable::as_raw(self), callinfobuffer, ::core::mem::transmute(pcallinfobuffer)).ok()
     }
     pub unsafe fn GetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCallInfoBuffer)(::windows::core::Vtable::as_raw(self), callinfobuffer, pdwsize, ppcallinfobuffer).ok()
@@ -5973,11 +5966,11 @@ pub struct ITCallInfo_Vtbl {
     pub get_CallInfoString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callinfostring: CALLINFO_STRING, ppcallinfostring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub put_CallInfoString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callinfostring: CALLINFO_STRING, pcallinfostring: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_CallInfoBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, ppcallinfobuffer: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub get_CallInfoBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, ppcallinfobuffer: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_CallInfoBuffer: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub put_CallInfoBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub put_CallInfoBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     put_CallInfoBuffer: usize,
     pub GetCallInfoBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::core::HRESULT,
@@ -6032,11 +6025,8 @@ impl ITCallInfo2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn put_CallInfoBuffer<'a, P0>(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.put_CallInfoBuffer)(::windows::core::Vtable::as_raw(self), callinfobuffer, pcallinfobuffer.into().abi()).ok()
+    pub unsafe fn put_CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.put_CallInfoBuffer)(::windows::core::Vtable::as_raw(self), callinfobuffer, ::core::mem::transmute(pcallinfobuffer)).ok()
     }
     pub unsafe fn GetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetCallInfoBuffer)(::windows::core::Vtable::as_raw(self), callinfobuffer, pdwsize, ppcallinfobuffer).ok()
@@ -6521,7 +6511,7 @@ pub struct ITCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnewenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6549,7 +6539,7 @@ impl ITCollection2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Add(&self, index: i32, pvariant: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(pvariant)).ok()
+        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), index, pvariant).ok()
     }
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), index).ok()
@@ -6591,7 +6581,7 @@ unsafe impl ::windows::core::Interface for ITCollection2 {
 pub struct ITCollection2_Vtbl {
     pub base__: ITCollection_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvariant: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvariant: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Add: usize,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32) -> ::windows::core::HRESULT,
@@ -7111,7 +7101,7 @@ pub struct ITDirectory_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     DeleteDirectoryObject: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_DirectoryObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub get_DirectoryObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_DirectoryObjects: usize,
     pub EnumerateDirectoryObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: *mut ::core::ffi::c_void, ppenumobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7197,7 +7187,7 @@ pub struct ITDirectoryObject_Vtbl {
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_DialableAddrs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaddresstype: i32, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub get_DialableAddrs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaddresstype: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_DialableAddrs: usize,
     pub EnumerateDialableAddrs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaddresstype: u32, ppenumdialableaddrs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7542,7 +7532,7 @@ impl ITFileTrack {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetFormat(&self, pmt: *const super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmt)).ok()
+        (::windows::core::Vtable::vtable(self).SetFormat)(::windows::core::Vtable::as_raw(self), pmt).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7611,7 +7601,7 @@ pub struct ITFileTrack_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     Format: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
-    pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *const ::core::mem::ManuallyDrop<super::super::Media::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows::core::HRESULT,
+    pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *const super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     SetFormat: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -8144,7 +8134,7 @@ pub struct ITLegacyCallMediaControl2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateCustomToneObject: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetIDAsVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceclass: *mut ::core::ffi::c_void, pvardeviceid: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetIDAsVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceclass: *mut ::core::ffi::c_void, pvardeviceid: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetIDAsVariant: usize,
 }
@@ -8429,11 +8419,8 @@ pub struct ITMediaPlayback(::windows::core::IUnknown);
 impl ITMediaPlayback {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetPlayList<'a, P0>(&self, playlistvariant: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-    {
-        (::windows::core::Vtable::vtable(self).SetPlayList)(::windows::core::Vtable::as_raw(self), playlistvariant.into().abi()).ok()
+    pub unsafe fn SetPlayList(&self, playlistvariant: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetPlayList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(playlistvariant)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8478,11 +8465,11 @@ unsafe impl ::windows::core::Interface for ITMediaPlayback {
 pub struct ITMediaPlayback_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetPlayList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, playlistvariant: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SetPlayList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, playlistvariant: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetPlayList: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PlayList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplaylistvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub PlayList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplaylistvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PlayList: usize,
 }
@@ -8671,7 +8658,7 @@ unsafe impl ::windows::core::Interface for ITMultiTrackTerminal {
 pub struct ITMultiTrackTerminal_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub TrackTerminals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub TrackTerminals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     TrackTerminals: usize,
     pub EnumerateTrackTerminals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumterminal: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8822,11 +8809,8 @@ impl ITPhone {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DeviceSpecificVariant<'a, P0>(&self, vardevspecificbytearray: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-    {
-        (::windows::core::Vtable::vtable(self).DeviceSpecificVariant)(::windows::core::Vtable::as_raw(self), vardevspecificbytearray.into().abi()).ok()
+    pub unsafe fn DeviceSpecificVariant(&self, vardevspecificbytearray: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).DeviceSpecificVariant)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vardevspecificbytearray)).ok()
     }
     pub unsafe fn NegotiateExtVersion(&self, llowversion: i32, lhighversion: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8871,14 +8855,14 @@ pub struct ITPhone_Vtbl {
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, privilege: PHONE_PRIVILEGE) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Addresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddresses: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Addresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddresses: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Addresses: usize,
     pub EnumerateAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub get_PhoneCapsLong: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclcap: PHONECAPS_LONG, plcapability: *mut i32) -> ::windows::core::HRESULT,
     pub get_PhoneCapsString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcscap: PHONECAPS_STRING, ppcapability: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Terminals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddress: *mut ::core::ffi::c_void, pterminals: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub get_Terminals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddress: *mut ::core::ffi::c_void, pterminals: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Terminals: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -8901,7 +8885,7 @@ pub struct ITPhone_Vtbl {
     pub Privilege: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprivilege: *mut PHONE_PRIVILEGE) -> ::windows::core::HRESULT,
     pub GetPhoneCapsBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbcaps: PHONECAPS_BUFFER, pdwsize: *mut u32, ppphonecapsbuffer: *mut *mut u8) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_PhoneCapsBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbcaps: PHONECAPS_BUFFER, pvarbuffer: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub get_PhoneCapsBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbcaps: PHONECAPS_BUFFER, pvarbuffer: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_PhoneCapsBuffer: usize,
     pub get_LampMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llampid: i32, plampmode: *mut PHONE_LAMP_MODE) -> ::windows::core::HRESULT,
@@ -8909,13 +8893,13 @@ pub struct ITPhone_Vtbl {
     pub Display: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdisplay: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lrow: i32, lcolumn: i32, bstrdisplay: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PreferredAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddresses: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub PreferredAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddresses: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PreferredAddresses: usize,
     pub EnumeratePreferredAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DeviceSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparams: *const u8, dwsize: u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DeviceSpecificVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardevspecificbytearray: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub DeviceSpecificVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardevspecificbytearray: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     DeviceSpecificVariant: usize,
     pub NegotiateExtVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llowversion: i32, lhighversion: i32, plextversion: *mut i32) -> ::windows::core::HRESULT,
@@ -9171,7 +9155,7 @@ impl ITPluggableTerminalEventSink {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FireEvent(&self, pmspeventinfo: *const MSP_EVENT_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).FireEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmspeventinfo)).ok()
+        (::windows::core::Vtable::vtable(self).FireEvent)(::windows::core::Vtable::as_raw(self), pmspeventinfo).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ITPluggableTerminalEventSink, ::windows::core::IUnknown);
@@ -9202,7 +9186,7 @@ unsafe impl ::windows::core::Interface for ITPluggableTerminalEventSink {
 pub struct ITPluggableTerminalEventSink_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub FireEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmspeventinfo: *const ::core::mem::ManuallyDrop<MSP_EVENT_INFO>) -> ::windows::core::HRESULT,
+    pub FireEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmspeventinfo: *const MSP_EVENT_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FireEvent: usize,
 }
@@ -9679,7 +9663,7 @@ unsafe impl ::windows::core::Interface for ITRendezvous {
 pub struct ITRendezvous_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DefaultDirectories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub DefaultDirectories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     DefaultDirectories: usize,
     pub EnumerateDefaultDirectories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdirectory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -10062,7 +10046,7 @@ pub struct ITStream_Vtbl {
     UnselectTerminal: usize,
     pub EnumerateTerminals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumterminal: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Terminals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pterminals: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Terminals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pterminals: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Terminals: usize,
 }
@@ -10142,7 +10126,7 @@ pub struct ITStreamControl_Vtbl {
     RemoveStream: usize,
     pub EnumerateStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Streams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Streams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Streams: usize,
 }
@@ -10242,7 +10226,7 @@ pub struct ITSubStream_Vtbl {
     UnselectTerminal: usize,
     pub EnumerateTerminals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumterminal: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Terminals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pterminals: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Terminals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pterminals: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Terminals: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -10326,7 +10310,7 @@ pub struct ITSubStreamControl_Vtbl {
     RemoveSubStream: usize,
     pub EnumerateSubStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumsubstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SubStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SubStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SubStreams: usize,
 }
@@ -10376,11 +10360,8 @@ impl ITTAPI {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCallHubTracking<'a, P0>(&self, paddresses: P0, btracking: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-    {
-        (::windows::core::Vtable::vtable(self).SetCallHubTracking)(::windows::core::Vtable::as_raw(self), paddresses.into().abi(), btracking).ok()
+    pub unsafe fn SetCallHubTracking(&self, paddresses: super::super::System::Com::VARIANT, btracking: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetCallHubTracking)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(paddresses), btracking).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10455,7 +10436,7 @@ pub struct ITTAPI_Vtbl {
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Addresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Addresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Addresses: usize,
     pub EnumerateAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -10465,12 +10446,12 @@ pub struct ITTAPI_Vtbl {
     RegisterCallNotifications: usize,
     pub UnregisterNotifications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lregister: i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CallHubs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub CallHubs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CallHubs: usize,
     pub EnumerateCallHubs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumcallhub: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetCallHubTracking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddresses: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, btracking: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub SetCallHubTracking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddresses: super::super::System::Com::VARIANT, btracking: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetCallHubTracking: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -10478,7 +10459,7 @@ pub struct ITTAPI_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     EnumeratePrivateTAPIObjects: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PrivateTAPIObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub PrivateTAPIObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PrivateTAPIObjects: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -10542,11 +10523,8 @@ impl ITTAPI2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCallHubTracking<'a, P0>(&self, paddresses: P0, btracking: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.SetCallHubTracking)(::windows::core::Vtable::as_raw(self), paddresses.into().abi(), btracking).ok()
+    pub unsafe fn SetCallHubTracking(&self, paddresses: super::super::System::Com::VARIANT, btracking: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetCallHubTracking)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(paddresses), btracking).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10635,7 +10613,7 @@ unsafe impl ::windows::core::Interface for ITTAPI2 {
 pub struct ITTAPI2_Vtbl {
     pub base__: ITTAPI_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Phones: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphones: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Phones: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphones: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Phones: usize,
     pub EnumeratePhones: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumphone: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -10698,7 +10676,7 @@ pub struct ITTAPICallCenter_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub EnumerateAgentHandlers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AgentHandlers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub AgentHandlers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     AgentHandlers: usize,
 }
@@ -11151,12 +11129,12 @@ unsafe impl ::windows::core::Interface for ITTerminalSupport {
 pub struct ITTerminalSupport_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub StaticTerminals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub StaticTerminals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     StaticTerminals: usize,
     pub EnumerateStaticTerminals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppterminalenumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DynamicTerminalClasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub DynamicTerminalClasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     DynamicTerminalClasses: usize,
     pub EnumerateDynamicTerminalClasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppterminalclassenumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -11264,12 +11242,12 @@ unsafe impl ::windows::core::Interface for ITTerminalSupport2 {
 pub struct ITTerminalSupport2_Vtbl {
     pub base__: ITTerminalSupport_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PluggableSuperclasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub PluggableSuperclasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PluggableSuperclasses: usize,
     pub EnumeratePluggableSuperclasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsuperclassenumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_PluggableTerminalClasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrterminalsuperclass: *mut ::core::ffi::c_void, lmediatype: i32, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub get_PluggableTerminalClasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrterminalsuperclass: *mut ::core::ffi::c_void, lmediatype: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_PluggableTerminalClasses: usize,
     pub EnumeratePluggableTerminalClasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iidterminalsuperclass: ::windows::core::GUID, lmediatype: i32, ppclassenumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -18511,12 +18489,12 @@ pub struct MSP_EVENT_INFO {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO {
     fn clone(&self) -> Self {
-        Self { dwSize: self.dwSize, Event: self.Event, hCall: self.hCall, Anonymous: self.Anonymous.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO {
@@ -18528,14 +18506,14 @@ impl ::core::default::Default for MSP_EVENT_INFO {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub union MSP_EVENT_INFO_0 {
-    pub MSP_ADDRESS_EVENT_INFO: ::core::mem::ManuallyDrop<MSP_EVENT_INFO_0_0>,
-    pub MSP_CALL_EVENT_INFO: ::core::mem::ManuallyDrop<MSP_EVENT_INFO_0_2>,
+    pub MSP_ADDRESS_EVENT_INFO: ::std::mem::ManuallyDrop<MSP_EVENT_INFO_0_0>,
+    pub MSP_CALL_EVENT_INFO: ::std::mem::ManuallyDrop<MSP_EVENT_INFO_0_2>,
     pub MSP_TSP_DATA: MSP_EVENT_INFO_0_6,
-    pub MSP_PRIVATE_EVENT_INFO: ::core::mem::ManuallyDrop<MSP_EVENT_INFO_0_4>,
-    pub MSP_FILE_TERMINAL_EVENT_INFO: ::core::mem::ManuallyDrop<MSP_EVENT_INFO_0_3>,
-    pub MSP_ASR_TERMINAL_EVENT_INFO: ::core::mem::ManuallyDrop<MSP_EVENT_INFO_0_1>,
-    pub MSP_TTS_TERMINAL_EVENT_INFO: ::core::mem::ManuallyDrop<MSP_EVENT_INFO_0_7>,
-    pub MSP_TONE_TERMINAL_EVENT_INFO: ::core::mem::ManuallyDrop<MSP_EVENT_INFO_0_5>,
+    pub MSP_PRIVATE_EVENT_INFO: ::std::mem::ManuallyDrop<MSP_EVENT_INFO_0_4>,
+    pub MSP_FILE_TERMINAL_EVENT_INFO: ::std::mem::ManuallyDrop<MSP_EVENT_INFO_0_3>,
+    pub MSP_ASR_TERMINAL_EVENT_INFO: ::std::mem::ManuallyDrop<MSP_EVENT_INFO_0_1>,
+    pub MSP_TTS_TERMINAL_EVENT_INFO: ::std::mem::ManuallyDrop<MSP_EVENT_INFO_0_7>,
+    pub MSP_TONE_TERMINAL_EVENT_INFO: ::std::mem::ManuallyDrop<MSP_EVENT_INFO_0_5>,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0 {
@@ -18545,7 +18523,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0 {
@@ -18558,12 +18536,12 @@ impl ::core::default::Default for MSP_EVENT_INFO_0 {
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
-    pub pTerminal: ::core::option::Option<ITTerminal>,
+    pub pTerminal: ::windows::core::ManuallyDrop<ITTerminal>,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_0 {
     fn clone(&self) -> Self {
-        Self { Type: self.Type, pTerminal: self.pTerminal.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18574,7 +18552,7 @@ impl ::core::fmt::Debug for MSP_EVENT_INFO_0_0 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_0 {
@@ -18594,13 +18572,13 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_0 {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_1 {
-    pub pASRTerminal: ::core::option::Option<ITTerminal>,
+    pub pASRTerminal: ::windows::core::ManuallyDrop<ITTerminal>,
     pub hrErrorCode: ::windows::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_1 {
     fn clone(&self) -> Self {
-        Self { pASRTerminal: self.pASRTerminal.clone(), hrErrorCode: self.hrErrorCode }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18611,7 +18589,7 @@ impl ::core::fmt::Debug for MSP_EVENT_INFO_0_1 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_1 {
@@ -18633,14 +18611,14 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_1 {
 pub struct MSP_EVENT_INFO_0_2 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
-    pub pStream: ::core::option::Option<ITStream>,
-    pub pTerminal: ::core::option::Option<ITTerminal>,
+    pub pStream: ::windows::core::ManuallyDrop<ITStream>,
+    pub pTerminal: ::windows::core::ManuallyDrop<ITTerminal>,
     pub hrError: ::windows::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_2 {
     fn clone(&self) -> Self {
-        Self { Type: self.Type, Cause: self.Cause, pStream: self.pStream.clone(), pTerminal: self.pTerminal.clone(), hrError: self.hrError }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18651,7 +18629,7 @@ impl ::core::fmt::Debug for MSP_EVENT_INFO_0_2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_2 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_2 {
@@ -18671,8 +18649,8 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_2 {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_3 {
-    pub pParentFileTerminal: ::core::option::Option<ITTerminal>,
-    pub pFileTrack: ::core::option::Option<ITFileTrack>,
+    pub pParentFileTerminal: ::windows::core::ManuallyDrop<ITTerminal>,
+    pub pFileTrack: ::windows::core::ManuallyDrop<ITFileTrack>,
     pub TerminalMediaState: TERMINAL_MEDIA_STATE,
     pub ftecEventCause: FT_STATE_EVENT_CAUSE,
     pub hrErrorCode: ::windows::core::HRESULT,
@@ -18680,13 +18658,7 @@ pub struct MSP_EVENT_INFO_0_3 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_3 {
     fn clone(&self) -> Self {
-        Self {
-            pParentFileTerminal: self.pParentFileTerminal.clone(),
-            pFileTrack: self.pFileTrack.clone(),
-            TerminalMediaState: self.TerminalMediaState,
-            ftecEventCause: self.ftecEventCause,
-            hrErrorCode: self.hrErrorCode,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18697,7 +18669,7 @@ impl ::core::fmt::Debug for MSP_EVENT_INFO_0_3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_3 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_3 {
@@ -18717,13 +18689,13 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_3 {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_4 {
-    pub pEvent: ::core::option::Option<super::super::System::Com::IDispatch>,
+    pub pEvent: ::windows::core::ManuallyDrop<super::super::System::Com::IDispatch>,
     pub lEventCode: i32,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_4 {
     fn clone(&self) -> Self {
-        Self { pEvent: self.pEvent.clone(), lEventCode: self.lEventCode }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18734,7 +18706,7 @@ impl ::core::fmt::Debug for MSP_EVENT_INFO_0_4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_4 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_4 {
@@ -18754,13 +18726,13 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_4 {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_5 {
-    pub pToneTerminal: ::core::option::Option<ITTerminal>,
+    pub pToneTerminal: ::windows::core::ManuallyDrop<ITTerminal>,
     pub hrErrorCode: ::windows::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_5 {
     fn clone(&self) -> Self {
-        Self { pToneTerminal: self.pToneTerminal.clone(), hrErrorCode: self.hrErrorCode }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18771,7 +18743,7 @@ impl ::core::fmt::Debug for MSP_EVENT_INFO_0_5 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_5 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_5 {
@@ -18830,13 +18802,13 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_6 {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_7 {
-    pub pTTSTerminal: ::core::option::Option<ITTerminal>,
+    pub pTTSTerminal: ::windows::core::ManuallyDrop<ITTerminal>,
     pub hrErrorCode: ::windows::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_7 {
     fn clone(&self) -> Self {
-        Self { pTTSTerminal: self.pTTSTerminal.clone(), hrErrorCode: self.hrErrorCode }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18847,7 +18819,7 @@ impl ::core::fmt::Debug for MSP_EVENT_INFO_0_7 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_7 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_7 {

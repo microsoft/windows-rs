@@ -50,11 +50,8 @@ impl IDedupChunkLibrary {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetParameter<'a, P0>(&self, dwparamtype: u32, vparamvalue: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-    {
-        (::windows::core::Vtable::vtable(self).SetParameter)(::windows::core::Vtable::as_raw(self), dwparamtype, vparamvalue.into().abi()).ok()
+    pub unsafe fn SetParameter(&self, dwparamtype: u32, vparamvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetParameter)(::windows::core::Vtable::as_raw(self), dwparamtype, ::core::mem::transmute(vparamvalue)).ok()
     }
     pub unsafe fn StartChunking(&self, iiditeratorinterfaceid: ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -91,7 +88,7 @@ pub struct IDedupChunkLibrary_Vtbl {
     pub InitializeForPushBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwparamtype: u32, vparamvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SetParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwparamtype: u32, vparamvalue: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetParameter: usize,
     pub StartChunking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iiditeratorinterfaceid: ::windows::core::GUID, ppchunksenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -189,9 +186,9 @@ pub struct IDedupDataPort_Vtbl {
     pub InsertChunksWithStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdatastream: *mut ::core::ffi::c_void, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     InsertChunksWithStream: usize,
-    pub CommitStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamcount: u32, pstreams: *const ::core::mem::ManuallyDrop<DedupStream>, entrycount: u32, pentries: *const DedupStreamEntry, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub CommitStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentries: *const DedupStreamEntry, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub CommitStreamsWithStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamcount: u32, pstreams: *const ::core::mem::ManuallyDrop<DedupStream>, entrycount: u32, pentriesstream: *mut ::core::ffi::c_void, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub CommitStreamsWithStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentriesstream: *mut ::core::ffi::c_void, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CommitStreamsWithStream: usize,
     pub GetStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamcount: u32, pstreampaths: *const *mut ::core::ffi::c_void, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -777,14 +774,14 @@ impl ::core::default::Default for DedupHash {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub struct DedupStream {
-    pub Path: ::windows::core::BSTR,
+    pub Path: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub Offset: u64,
     pub Length: u64,
     pub ChunkCount: u32,
 }
 impl ::core::clone::Clone for DedupStream {
     fn clone(&self) -> Self {
-        Self { Path: self.Path.clone(), Offset: self.Offset, Length: self.Length, ChunkCount: self.ChunkCount }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for DedupStream {
@@ -793,7 +790,7 @@ impl ::core::fmt::Debug for DedupStream {
     }
 }
 unsafe impl ::windows::core::Abi for DedupStream {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for DedupStream {
     fn eq(&self, other: &Self) -> bool {

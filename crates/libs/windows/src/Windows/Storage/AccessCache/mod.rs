@@ -11,7 +11,7 @@ unsafe impl ::windows::core::Interface for IItemRemovedEventArgs {
 #[doc(hidden)]
 pub struct IItemRemovedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub RemovedEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<AccessListEntry>) -> ::windows::core::HRESULT,
+    pub RemovedEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::ManuallyDrop<AccessListEntry>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1079,7 +1079,7 @@ impl ::core::fmt::Debug for AccessListEntry {
     }
 }
 unsafe impl ::windows::core::Abi for AccessListEntry {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 unsafe impl ::windows::core::RuntimeType for AccessListEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Storage.AccessCache.AccessListEntry;string;string)");

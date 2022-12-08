@@ -822,7 +822,7 @@ pub struct IStoreQueueItemStatus_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub PackageInstallState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StoreQueueItemState) -> ::windows::core::HRESULT,
     pub PackageInstallExtendedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StoreQueueItemExtendedState) -> ::windows::core::HRESULT,
-    pub UpdateStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<StorePackageUpdateStatus>) -> ::windows::core::HRESULT,
+    pub UpdateStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::ManuallyDrop<StorePackageUpdateStatus>) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4236,7 +4236,7 @@ impl ::core::fmt::Debug for StorePackageUpdateStatus {
     }
 }
 unsafe impl ::windows::core::Abi for StorePackageUpdateStatus {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 unsafe impl ::windows::core::RuntimeType for StorePackageUpdateStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Services.Store.StorePackageUpdateStatus;string;u8;u8;f8;f8;enum(Windows.Services.Store.StorePackageUpdateState;i4))");

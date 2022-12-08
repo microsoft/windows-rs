@@ -130,7 +130,7 @@ impl IMbnConnectionContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProvisionedContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnectionContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provisionedcontexts: ::core::mem::ManuallyDrop<MBN_CONTEXT>, providerid: ::windows::core::PCWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProvisionedContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnectionContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provisionedcontexts: MBN_CONTEXT, providerid: ::windows::core::PCWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SetProvisionedContext(::core::mem::transmute(&provisionedcontexts), ::core::mem::transmute(&providerid)) {
@@ -824,7 +824,7 @@ impl IMbnInterface_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetInterfaceCapability<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfacecaps: *mut ::core::mem::ManuallyDrop<MBN_INTERFACE_CAPS>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInterfaceCapability<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfacecaps: *mut MBN_INTERFACE_CAPS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetInterfaceCapability() {
@@ -868,7 +868,7 @@ impl IMbnInterface_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHomeProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, homeprovider: *mut ::core::mem::ManuallyDrop<MBN_PROVIDER>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHomeProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, homeprovider: *mut MBN_PROVIDER) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetHomeProvider() {
@@ -1099,7 +1099,7 @@ impl ::windows::core::RuntimeName for IMbnMultiCarrier {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMbnMultiCarrier_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnMultiCarrier_Impl, const OFFSET: isize>() -> IMbnMultiCarrier_Vtbl {
-        unsafe extern "system" fn SetHomeProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnMultiCarrier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, homeprovider: *const ::core::mem::ManuallyDrop<MBN_PROVIDER2>, requestid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHomeProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnMultiCarrier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, homeprovider: *const MBN_PROVIDER2, requestid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SetHomeProvider(::core::mem::transmute_copy(&homeprovider)) {

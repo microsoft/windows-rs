@@ -37,7 +37,7 @@ impl IDedupChunkLibrary_Vtbl {
             let this = (*this).get_impl();
             this.Uninitialize().into()
         }
-        unsafe extern "system" fn SetParameter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupChunkLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwparamtype: u32, vparamvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParameter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupChunkLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwparamtype: u32, vparamvalue: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetParameter(::core::mem::transmute_copy(&dwparamtype), ::core::mem::transmute(&vparamvalue)).into()
@@ -123,7 +123,7 @@ impl IDedupDataPort_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CommitStreams<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamcount: u32, pstreams: *const ::core::mem::ManuallyDrop<DedupStream>, entrycount: u32, pentries: *const DedupStreamEntry, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CommitStreams<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentries: *const DedupStreamEntry, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CommitStreams(::core::mem::transmute_copy(&streamcount), ::core::mem::transmute_copy(&pstreams), ::core::mem::transmute_copy(&entrycount), ::core::mem::transmute_copy(&pentries)) {
@@ -134,7 +134,7 @@ impl IDedupDataPort_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CommitStreamsWithStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamcount: u32, pstreams: *const ::core::mem::ManuallyDrop<DedupStream>, entrycount: u32, pentriesstream: *mut ::core::ffi::c_void, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CommitStreamsWithStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentriesstream: *mut ::core::ffi::c_void, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CommitStreamsWithStream(::core::mem::transmute_copy(&streamcount), ::core::mem::transmute_copy(&pstreams), ::core::mem::transmute_copy(&entrycount), ::core::mem::transmute(&pentriesstream)) {

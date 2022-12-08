@@ -10450,7 +10450,7 @@ pub struct ID3D11VideoContext_Vtbl {
     VideoProcessorGetStreamFilter: usize,
     pub VideoProcessorGetStreamExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32,
     #[cfg(feature = "Win32_Foundation")]
-    pub VideoProcessorBlt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, pview: *mut ::core::ffi::c_void, outputframe: u32, streamcount: u32, pstreams: *const ::core::mem::ManuallyDrop<D3D11_VIDEO_PROCESSOR_STREAM>) -> ::windows::core::HRESULT,
+    pub VideoProcessorBlt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, pview: *mut ::core::ffi::c_void, outputframe: u32, streamcount: u32, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     VideoProcessorBlt: usize,
     pub NegotiateCryptoSessionKeyExchange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -27826,7 +27826,7 @@ impl ::core::default::Default for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
-    pub pCryptoSession: ::core::option::Option<ID3D11CryptoSession>,
+    pub pCryptoSession: ::windows::core::ManuallyDrop<ID3D11CryptoSession>,
     pub BlobSize: u32,
     pub pBlob: *mut ::core::ffi::c_void,
     pub pKeyInfoId: *mut ::windows::core::GUID,
@@ -27835,14 +27835,7 @@ pub struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
 }
 impl ::core::clone::Clone for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     fn clone(&self) -> Self {
-        Self {
-            pCryptoSession: self.pCryptoSession.clone(),
-            BlobSize: self.BlobSize,
-            pBlob: self.pBlob,
-            pKeyInfoId: self.pKeyInfoId,
-            PrivateDataSize: self.PrivateDataSize,
-            pPrivateData: self.pPrivateData,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
@@ -27851,7 +27844,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     fn eq(&self, other: &Self) -> bool {
@@ -28543,28 +28536,16 @@ pub struct D3D11_VIDEO_PROCESSOR_STREAM {
     pub PastFrames: u32,
     pub FutureFrames: u32,
     pub ppPastSurfaces: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
-    pub pInputSurface: ::core::option::Option<ID3D11VideoProcessorInputView>,
+    pub pInputSurface: ::windows::core::ManuallyDrop<ID3D11VideoProcessorInputView>,
     pub ppFutureSurfaces: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
     pub ppPastSurfacesRight: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
-    pub pInputSurfaceRight: ::core::option::Option<ID3D11VideoProcessorInputView>,
+    pub pInputSurfaceRight: ::windows::core::ManuallyDrop<ID3D11VideoProcessorInputView>,
     pub ppFutureSurfacesRight: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_STREAM {
     fn clone(&self) -> Self {
-        Self {
-            Enable: self.Enable,
-            OutputIndex: self.OutputIndex,
-            InputFrameOrField: self.InputFrameOrField,
-            PastFrames: self.PastFrames,
-            FutureFrames: self.FutureFrames,
-            ppPastSurfaces: self.ppPastSurfaces,
-            pInputSurface: self.pInputSurface.clone(),
-            ppFutureSurfaces: self.ppFutureSurfaces,
-            ppPastSurfacesRight: self.ppPastSurfacesRight,
-            pInputSurfaceRight: self.pInputSurfaceRight.clone(),
-            ppFutureSurfacesRight: self.ppFutureSurfacesRight,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -28587,7 +28568,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_STREAM {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_STREAM {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_VIDEO_PROCESSOR_STREAM {

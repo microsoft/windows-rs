@@ -1107,7 +1107,7 @@ impl IVssFileShareSnapshotProvider_Vtbl {
             let this = (*this).get_impl();
             this.IsPathSnapshotted(::core::mem::transmute_copy(&pwszsharepath), ::core::mem::transmute_copy(&pbsnapshotspresent), ::core::mem::transmute_copy(&plsnapshotcompatibility)).into()
         }
-        unsafe extern "system" fn SetSnapshotProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSnapshotProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSnapshotProperty(::core::mem::transmute(&snapshotid), ::core::mem::transmute_copy(&esnapshotpropertyid), ::core::mem::transmute(&vproperty)).into()
@@ -1480,7 +1480,7 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
             let this = (*this).get_impl();
             this.IsVolumeSnapshotted(::core::mem::transmute_copy(&pwszvolumename), ::core::mem::transmute_copy(&pbsnapshotspresent), ::core::mem::transmute_copy(&plsnapshotcompatibility)).into()
         }
-        unsafe extern "system" fn SetSnapshotProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSnapshotProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSnapshotProperty(::core::mem::transmute(&snapshotid), ::core::mem::transmute_copy(&esnapshotpropertyid), ::core::mem::transmute(&vproperty)).into()

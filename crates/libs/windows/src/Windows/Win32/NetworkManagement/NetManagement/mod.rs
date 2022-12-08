@@ -2098,15 +2098,15 @@ unsafe impl ::windows::core::Interface for INetCfgClassSetup {
 pub struct INetCfgClassSetup_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub SelectAndInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, ppnccitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectAndInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, pobotoken: *const OBO_TOKEN, ppnccitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SelectAndInstall: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Install: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszwinfid: ::windows::core::PCWSTR, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: ::windows::core::PCWSTR, pszwanswersections: ::windows::core::PCWSTR, ppnccitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Install: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszwinfid: ::windows::core::PCWSTR, pobotoken: *const OBO_TOKEN, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: ::windows::core::PCWSTR, pszwanswersections: ::windows::core::PCWSTR, ppnccitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Install: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub DeInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomponent: *mut ::core::ffi::c_void, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, pmszwrefs: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub DeInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomponent: *mut ::core::ffi::c_void, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     DeInstall: usize,
 }
@@ -10996,7 +10996,7 @@ impl ::core::default::Default for NET_VALIDATE_PERSISTED_FIELDS {
 #[cfg(feature = "Win32_Foundation")]
 pub struct OBO_TOKEN {
     pub Type: OBO_TOKEN_TYPE,
-    pub pncc: ::core::option::Option<INetCfgComponent>,
+    pub pncc: ::windows::core::ManuallyDrop<INetCfgComponent>,
     pub pszwManufacturer: ::windows::core::PCWSTR,
     pub pszwProduct: ::windows::core::PCWSTR,
     pub pszwDisplayName: ::windows::core::PCWSTR,
@@ -11005,14 +11005,7 @@ pub struct OBO_TOKEN {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OBO_TOKEN {
     fn clone(&self) -> Self {
-        Self {
-            Type: self.Type,
-            pncc: self.pncc.clone(),
-            pszwManufacturer: self.pszwManufacturer,
-            pszwProduct: self.pszwProduct,
-            pszwDisplayName: self.pszwDisplayName,
-            fRegistered: self.fRegistered,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11023,7 +11016,7 @@ impl ::core::fmt::Debug for OBO_TOKEN {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OBO_TOKEN {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OBO_TOKEN {

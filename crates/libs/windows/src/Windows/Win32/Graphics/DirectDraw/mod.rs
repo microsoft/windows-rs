@@ -1090,12 +1090,12 @@ impl IDirectDrawSurface {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectDrawSurface>>,
     {
-        (::windows::core::Vtable::vtable(self).Blt)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, ::core::mem::transmute(param4)).ok()
+        (::windows::core::Vtable::vtable(self).Blt)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BltBatch)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).BltBatch)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1215,7 +1215,7 @@ impl IDirectDrawSurface {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectDrawSurface>>,
     {
-        (::windows::core::Vtable::vtable(self).UpdateOverlay)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, ::core::mem::transmute(param4)).ok()
+        (::windows::core::Vtable::vtable(self).UpdateOverlay)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, param4).ok()
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UpdateOverlayDisplay)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -1260,11 +1260,11 @@ pub struct IDirectDrawSurface_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDBLTFX>) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::mem::ManuallyDrop<DDBLTBATCH>, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -1306,7 +1306,7 @@ pub struct IDirectDrawSurface_Vtbl {
     pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDOVERLAYFX>) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
@@ -1333,12 +1333,12 @@ impl IDirectDrawSurface2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectDrawSurface2>>,
     {
-        (::windows::core::Vtable::vtable(self).Blt)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, ::core::mem::transmute(param4)).ok()
+        (::windows::core::Vtable::vtable(self).Blt)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BltBatch)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).BltBatch)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1458,7 +1458,7 @@ impl IDirectDrawSurface2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectDrawSurface2>>,
     {
-        (::windows::core::Vtable::vtable(self).UpdateOverlay)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, ::core::mem::transmute(param4)).ok()
+        (::windows::core::Vtable::vtable(self).UpdateOverlay)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, param4).ok()
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UpdateOverlayDisplay)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -1512,11 +1512,11 @@ pub struct IDirectDrawSurface2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDBLTFX>) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::mem::ManuallyDrop<DDBLTBATCH>, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -1558,7 +1558,7 @@ pub struct IDirectDrawSurface2_Vtbl {
     pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDOVERLAYFX>) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
@@ -1588,12 +1588,12 @@ impl IDirectDrawSurface3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectDrawSurface3>>,
     {
-        (::windows::core::Vtable::vtable(self).Blt)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, ::core::mem::transmute(param4)).ok()
+        (::windows::core::Vtable::vtable(self).Blt)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BltBatch)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).BltBatch)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1713,7 +1713,7 @@ impl IDirectDrawSurface3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectDrawSurface3>>,
     {
-        (::windows::core::Vtable::vtable(self).UpdateOverlay)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, ::core::mem::transmute(param4)).ok()
+        (::windows::core::Vtable::vtable(self).UpdateOverlay)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, param4).ok()
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UpdateOverlayDisplay)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -1770,11 +1770,11 @@ pub struct IDirectDrawSurface3_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDBLTFX>) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::mem::ManuallyDrop<DDBLTBATCH>, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -1816,7 +1816,7 @@ pub struct IDirectDrawSurface3_Vtbl {
     pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDOVERLAYFX>) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
@@ -1847,12 +1847,12 @@ impl IDirectDrawSurface4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectDrawSurface4>>,
     {
-        (::windows::core::Vtable::vtable(self).Blt)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, ::core::mem::transmute(param4)).ok()
+        (::windows::core::Vtable::vtable(self).Blt)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BltBatch)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).BltBatch)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1974,7 +1974,7 @@ impl IDirectDrawSurface4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectDrawSurface4>>,
     {
-        (::windows::core::Vtable::vtable(self).UpdateOverlay)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, ::core::mem::transmute(param4)).ok()
+        (::windows::core::Vtable::vtable(self).UpdateOverlay)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, param4).ok()
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UpdateOverlayDisplay)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -2046,11 +2046,11 @@ pub struct IDirectDrawSurface4_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDBLTFX>) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::mem::ManuallyDrop<DDBLTBATCH>, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -2095,7 +2095,7 @@ pub struct IDirectDrawSurface4_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Unlock: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDOVERLAYFX>) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
@@ -2131,12 +2131,12 @@ impl IDirectDrawSurface7 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectDrawSurface7>>,
     {
-        (::windows::core::Vtable::vtable(self).Blt)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, ::core::mem::transmute(param4)).ok()
+        (::windows::core::Vtable::vtable(self).Blt)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BltBatch)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).BltBatch)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2258,7 +2258,7 @@ impl IDirectDrawSurface7 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectDrawSurface7>>,
     {
-        (::windows::core::Vtable::vtable(self).UpdateOverlay)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, ::core::mem::transmute(param4)).ok()
+        (::windows::core::Vtable::vtable(self).UpdateOverlay)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2, param3, param4).ok()
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UpdateOverlayDisplay)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -2342,11 +2342,11 @@ pub struct IDirectDrawSurface7_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDBLTFX>) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::mem::ManuallyDrop<DDBLTBATCH>, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -2391,7 +2391,7 @@ pub struct IDirectDrawSurface7_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Unlock: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDOVERLAYFX>) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
@@ -4650,7 +4650,7 @@ impl ::core::default::Default for DDARGB {
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDBLTBATCH {
     pub lprDest: *mut super::super::Foundation::RECT,
-    pub lpDDSSrc: ::core::option::Option<IDirectDrawSurface>,
+    pub lpDDSSrc: ::windows::core::ManuallyDrop<IDirectDrawSurface>,
     pub lprSrc: *mut super::super::Foundation::RECT,
     pub dwFlags: u32,
     pub lpDDBltFx: *mut DDBLTFX,
@@ -4658,7 +4658,7 @@ pub struct DDBLTBATCH {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DDBLTBATCH {
     fn clone(&self) -> Self {
-        Self { lprDest: self.lprDest, lpDDSSrc: self.lpDDSSrc.clone(), lprSrc: self.lprSrc, dwFlags: self.dwFlags, lpDDBltFx: self.lpDDBltFx }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4669,7 +4669,7 @@ impl ::core::fmt::Debug for DDBLTBATCH {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DDBLTBATCH {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDBLTBATCH {
@@ -4714,35 +4714,11 @@ pub struct DDBLTFX {
 }
 impl ::core::clone::Clone for DDBLTFX {
     fn clone(&self) -> Self {
-        Self {
-            dwSize: self.dwSize,
-            dwDDFX: self.dwDDFX,
-            dwROP: self.dwROP,
-            dwDDROP: self.dwDDROP,
-            dwRotationAngle: self.dwRotationAngle,
-            dwZBufferOpCode: self.dwZBufferOpCode,
-            dwZBufferLow: self.dwZBufferLow,
-            dwZBufferHigh: self.dwZBufferHigh,
-            dwZBufferBaseDest: self.dwZBufferBaseDest,
-            dwZDestConstBitDepth: self.dwZDestConstBitDepth,
-            Anonymous1: self.Anonymous1.clone(),
-            dwZSrcConstBitDepth: self.dwZSrcConstBitDepth,
-            Anonymous2: self.Anonymous2.clone(),
-            dwAlphaEdgeBlendBitDepth: self.dwAlphaEdgeBlendBitDepth,
-            dwAlphaEdgeBlend: self.dwAlphaEdgeBlend,
-            dwReserved: self.dwReserved,
-            dwAlphaDestConstBitDepth: self.dwAlphaDestConstBitDepth,
-            Anonymous3: self.Anonymous3.clone(),
-            dwAlphaSrcConstBitDepth: self.dwAlphaSrcConstBitDepth,
-            Anonymous4: self.Anonymous4.clone(),
-            Anonymous5: self.Anonymous5.clone(),
-            ddckDestColorkey: self.ddckDestColorkey,
-            ddckSrcColorkey: self.ddckSrcColorkey,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 unsafe impl ::windows::core::Abi for DDBLTFX {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for DDBLTFX {
     fn default() -> Self {
@@ -4753,7 +4729,7 @@ impl ::core::default::Default for DDBLTFX {
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDBLTFX_0 {
     pub dwZDestConst: u32,
-    pub lpDDSZBufferDest: ::core::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
+    pub lpDDSZBufferDest: ::std::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
 }
 impl ::core::clone::Clone for DDBLTFX_0 {
     fn clone(&self) -> Self {
@@ -4761,7 +4737,7 @@ impl ::core::clone::Clone for DDBLTFX_0 {
     }
 }
 unsafe impl ::windows::core::Abi for DDBLTFX_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for DDBLTFX_0 {
     fn default() -> Self {
@@ -4772,7 +4748,7 @@ impl ::core::default::Default for DDBLTFX_0 {
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDBLTFX_1 {
     pub dwZSrcConst: u32,
-    pub lpDDSZBufferSrc: ::core::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
+    pub lpDDSZBufferSrc: ::std::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
 }
 impl ::core::clone::Clone for DDBLTFX_1 {
     fn clone(&self) -> Self {
@@ -4780,7 +4756,7 @@ impl ::core::clone::Clone for DDBLTFX_1 {
     }
 }
 unsafe impl ::windows::core::Abi for DDBLTFX_1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for DDBLTFX_1 {
     fn default() -> Self {
@@ -4791,7 +4767,7 @@ impl ::core::default::Default for DDBLTFX_1 {
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDBLTFX_2 {
     pub dwAlphaDestConst: u32,
-    pub lpDDSAlphaDest: ::core::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
+    pub lpDDSAlphaDest: ::std::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
 }
 impl ::core::clone::Clone for DDBLTFX_2 {
     fn clone(&self) -> Self {
@@ -4799,7 +4775,7 @@ impl ::core::clone::Clone for DDBLTFX_2 {
     }
 }
 unsafe impl ::windows::core::Abi for DDBLTFX_2 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for DDBLTFX_2 {
     fn default() -> Self {
@@ -4810,7 +4786,7 @@ impl ::core::default::Default for DDBLTFX_2 {
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDBLTFX_3 {
     pub dwAlphaSrcConst: u32,
-    pub lpDDSAlphaSrc: ::core::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
+    pub lpDDSAlphaSrc: ::std::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
 }
 impl ::core::clone::Clone for DDBLTFX_3 {
     fn clone(&self) -> Self {
@@ -4818,7 +4794,7 @@ impl ::core::clone::Clone for DDBLTFX_3 {
     }
 }
 unsafe impl ::windows::core::Abi for DDBLTFX_3 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for DDBLTFX_3 {
     fn default() -> Self {
@@ -4831,7 +4807,7 @@ pub union DDBLTFX_4 {
     pub dwFillColor: u32,
     pub dwFillDepth: u32,
     pub dwFillPixel: u32,
-    pub lpDDSPattern: ::core::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
+    pub lpDDSPattern: ::std::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
 }
 impl ::core::clone::Clone for DDBLTFX_4 {
     fn clone(&self) -> Self {
@@ -4839,7 +4815,7 @@ impl ::core::clone::Clone for DDBLTFX_4 {
     }
 }
 unsafe impl ::windows::core::Abi for DDBLTFX_4 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for DDBLTFX_4 {
     fn default() -> Self {
@@ -6484,28 +6460,12 @@ pub struct DDHAL_BLTDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDHAL_BLTDATA {
     fn clone(&self) -> Self {
-        Self {
-            lpDD: self.lpDD,
-            lpDDDestSurface: self.lpDDDestSurface,
-            rDest: self.rDest,
-            lpDDSrcSurface: self.lpDDSrcSurface,
-            rSrc: self.rSrc,
-            dwFlags: self.dwFlags,
-            dwROPFlags: self.dwROPFlags,
-            bltFX: self.bltFX.clone(),
-            ddRVal: self.ddRVal,
-            Blt: self.Blt,
-            IsClipped: self.IsClipped,
-            rOrigDest: self.rOrigDest,
-            rOrigSrc: self.rOrigSrc,
-            dwRectCnt: self.dwRectCnt,
-            prDestRects: self.prDestRects,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_BLTDATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_BLTDATA {
@@ -8804,22 +8764,12 @@ pub struct DDHAL_UPDATEOVERLAYDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDHAL_UPDATEOVERLAYDATA {
     fn clone(&self) -> Self {
-        Self {
-            lpDD: self.lpDD,
-            lpDDDestSurface: self.lpDDDestSurface,
-            rDest: self.rDest,
-            lpDDSrcSurface: self.lpDDSrcSurface,
-            rSrc: self.rSrc,
-            dwFlags: self.dwFlags,
-            overlayFX: self.overlayFX.clone(),
-            ddRVal: self.ddRVal,
-            UpdateOverlay: self.UpdateOverlay,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_UPDATEOVERLAYDATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_UPDATEOVERLAYDATA {
@@ -9557,24 +9507,11 @@ pub struct DDOVERLAYFX {
 }
 impl ::core::clone::Clone for DDOVERLAYFX {
     fn clone(&self) -> Self {
-        Self {
-            dwSize: self.dwSize,
-            dwAlphaEdgeBlendBitDepth: self.dwAlphaEdgeBlendBitDepth,
-            dwAlphaEdgeBlend: self.dwAlphaEdgeBlend,
-            dwReserved: self.dwReserved,
-            dwAlphaDestConstBitDepth: self.dwAlphaDestConstBitDepth,
-            Anonymous1: self.Anonymous1.clone(),
-            dwAlphaSrcConstBitDepth: self.dwAlphaSrcConstBitDepth,
-            Anonymous2: self.Anonymous2.clone(),
-            dckDestColorkey: self.dckDestColorkey,
-            dckSrcColorkey: self.dckSrcColorkey,
-            dwDDFX: self.dwDDFX,
-            dwFlags: self.dwFlags,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 unsafe impl ::windows::core::Abi for DDOVERLAYFX {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for DDOVERLAYFX {
     fn default() -> Self {
@@ -9585,7 +9522,7 @@ impl ::core::default::Default for DDOVERLAYFX {
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDOVERLAYFX_0 {
     pub dwAlphaDestConst: u32,
-    pub lpDDSAlphaDest: ::core::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
+    pub lpDDSAlphaDest: ::std::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
 }
 impl ::core::clone::Clone for DDOVERLAYFX_0 {
     fn clone(&self) -> Self {
@@ -9593,7 +9530,7 @@ impl ::core::clone::Clone for DDOVERLAYFX_0 {
     }
 }
 unsafe impl ::windows::core::Abi for DDOVERLAYFX_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for DDOVERLAYFX_0 {
     fn default() -> Self {
@@ -9604,7 +9541,7 @@ impl ::core::default::Default for DDOVERLAYFX_0 {
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDOVERLAYFX_1 {
     pub dwAlphaSrcConst: u32,
-    pub lpDDSAlphaSrc: ::core::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
+    pub lpDDSAlphaSrc: ::std::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
 }
 impl ::core::clone::Clone for DDOVERLAYFX_1 {
     fn clone(&self) -> Self {
@@ -9612,7 +9549,7 @@ impl ::core::clone::Clone for DDOVERLAYFX_1 {
     }
 }
 unsafe impl ::windows::core::Abi for DDOVERLAYFX_1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for DDOVERLAYFX_1 {
     fn default() -> Self {
@@ -9965,24 +9902,15 @@ pub struct DDRAWI_DDRAWCLIPPER_LCL {
     pub lpGbl: *mut DDRAWI_DDRAWCLIPPER_GBL,
     pub lpDD_lcl: *mut DDRAWI_DIRECTDRAW_LCL,
     pub dwLocalRefCnt: u32,
-    pub pUnkOuter: ::core::option::Option<::windows::core::IUnknown>,
+    pub pUnkOuter: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub lpDD_int: *mut DDRAWI_DIRECTDRAW_INT,
     pub dwReserved1: usize,
-    pub pAddrefedThisOwner: ::core::option::Option<::windows::core::IUnknown>,
+    pub pAddrefedThisOwner: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDRAWI_DDRAWCLIPPER_LCL {
     fn clone(&self) -> Self {
-        Self {
-            lpClipMore: self.lpClipMore,
-            lpGbl: self.lpGbl,
-            lpDD_lcl: self.lpDD_lcl,
-            dwLocalRefCnt: self.dwLocalRefCnt,
-            pUnkOuter: self.pUnkOuter.clone(),
-            lpDD_int: self.lpDD_int,
-            dwReserved1: self.dwReserved1,
-            pAddrefedThisOwner: self.pAddrefedThisOwner.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -9993,7 +9921,7 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWCLIPPER_LCL {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDRAWI_DDRAWCLIPPER_LCL {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_LCL {
@@ -10116,7 +10044,7 @@ pub struct DDRAWI_DDRAWPALETTE_LCL {
     pub lpGbl: *mut DDRAWI_DDRAWPALETTE_GBL,
     pub dwUnused0: usize,
     pub dwLocalRefCnt: u32,
-    pub pUnkOuter: ::core::option::Option<::windows::core::IUnknown>,
+    pub pUnkOuter: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub lpDD_lcl: *mut DDRAWI_DIRECTDRAW_LCL,
     pub dwReserved1: usize,
     pub dwDDRAWReserved1: usize,
@@ -10126,18 +10054,7 @@ pub struct DDRAWI_DDRAWPALETTE_LCL {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDRAWI_DDRAWPALETTE_LCL {
     fn clone(&self) -> Self {
-        Self {
-            lpPalMore: self.lpPalMore,
-            lpGbl: self.lpGbl,
-            dwUnused0: self.dwUnused0,
-            dwLocalRefCnt: self.dwLocalRefCnt,
-            pUnkOuter: self.pUnkOuter.clone(),
-            lpDD_lcl: self.lpDD_lcl,
-            dwReserved1: self.dwReserved1,
-            dwDDRAWReserved1: self.dwDDRAWReserved1,
-            dwDDRAWReserved2: self.dwDDRAWReserved2,
-            dwDDRAWReserved3: self.dwDDRAWReserved3,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -10148,7 +10065,7 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWPALETTE_LCL {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDRAWI_DDRAWPALETTE_LCL {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWPALETTE_LCL {
@@ -10841,7 +10758,7 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
     pub dwLocalFlags: u32,
     pub dwLocalRefCnt: u32,
     pub dwProcessId: u32,
-    pub pUnkOuter: ::core::option::Option<::windows::core::IUnknown>,
+    pub pUnkOuter: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub dwObsolete1: u32,
     pub hWnd: usize,
     pub hDC: usize,
@@ -10850,7 +10767,7 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
     pub lpCB: *mut DDRAWI_DDRAWSURFACE_INT,
     pub dwPreferredMode: u32,
     pub hD3DInstance: super::super::Foundation::HINSTANCE,
-    pub pD3DIUnknown: ::core::option::Option<::windows::core::IUnknown>,
+    pub pD3DIUnknown: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub lpDDCB: *mut DDHAL_CALLBACKS,
     pub hDDVxd: usize,
     pub dwAppHackFlags: u32,
@@ -10865,34 +10782,7 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDRAWI_DIRECTDRAW_LCL {
     fn clone(&self) -> Self {
-        Self {
-            lpDDMore: self.lpDDMore,
-            lpGbl: self.lpGbl,
-            dwUnused0: self.dwUnused0,
-            dwLocalFlags: self.dwLocalFlags,
-            dwLocalRefCnt: self.dwLocalRefCnt,
-            dwProcessId: self.dwProcessId,
-            pUnkOuter: self.pUnkOuter.clone(),
-            dwObsolete1: self.dwObsolete1,
-            hWnd: self.hWnd,
-            hDC: self.hDC,
-            dwErrorMode: self.dwErrorMode,
-            lpPrimary: self.lpPrimary,
-            lpCB: self.lpCB,
-            dwPreferredMode: self.dwPreferredMode,
-            hD3DInstance: self.hD3DInstance,
-            pD3DIUnknown: self.pD3DIUnknown.clone(),
-            lpDDCB: self.lpDDCB,
-            hDDVxd: self.hDDVxd,
-            dwAppHackFlags: self.dwAppHackFlags,
-            hFocusWnd: self.hFocusWnd,
-            dwHotTracking: self.dwHotTracking,
-            dwIMEState: self.dwIMEState,
-            hWndPopup: self.hWndPopup,
-            hDD: self.hDD,
-            hGammaCalibrator: self.hGammaCalibrator,
-            lpGammaCalibrator: self.lpGammaCalibrator,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -10929,7 +10819,7 @@ impl ::core::fmt::Debug for DDRAWI_DIRECTDRAW_LCL {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDRAWI_DIRECTDRAW_LCL {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DIRECTDRAW_LCL {
@@ -12172,30 +12062,12 @@ pub struct DD_BLTDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DD_BLTDATA {
     fn clone(&self) -> Self {
-        Self {
-            lpDD: self.lpDD,
-            lpDDDestSurface: self.lpDDDestSurface,
-            rDest: self.rDest,
-            lpDDSrcSurface: self.lpDDSrcSurface,
-            rSrc: self.rSrc,
-            dwFlags: self.dwFlags,
-            dwROPFlags: self.dwROPFlags,
-            bltFX: self.bltFX.clone(),
-            ddRVal: self.ddRVal,
-            Blt: self.Blt,
-            IsClipped: self.IsClipped,
-            rOrigDest: self.rOrigDest,
-            rOrigSrc: self.rOrigSrc,
-            dwRectCnt: self.dwRectCnt,
-            prDestRects: self.prDestRects,
-            dwAFlags: self.dwAFlags,
-            ddargbScaleFactors: self.ddargbScaleFactors,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_BLTDATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_BLTDATA {
@@ -15325,22 +15197,12 @@ pub struct DD_UPDATEOVERLAYDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DD_UPDATEOVERLAYDATA {
     fn clone(&self) -> Self {
-        Self {
-            lpDD: self.lpDD,
-            lpDDDestSurface: self.lpDDDestSurface,
-            rDest: self.rDest,
-            lpDDSrcSurface: self.lpDDSrcSurface,
-            rSrc: self.rSrc,
-            dwFlags: self.dwFlags,
-            overlayFX: self.overlayFX.clone(),
-            ddRVal: self.ddRVal,
-            UpdateOverlay: self.UpdateOverlay,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_UPDATEOVERLAYDATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_UPDATEOVERLAYDATA {
@@ -15786,11 +15648,11 @@ impl ::core::default::Default for HEAPALIGNMENT {
 pub struct IUNKNOWN_LIST {
     pub lpLink: *mut IUNKNOWN_LIST,
     pub lpGuid: *mut ::windows::core::GUID,
-    pub lpIUnknown: ::core::option::Option<::windows::core::IUnknown>,
+    pub lpIUnknown: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 impl ::core::clone::Clone for IUNKNOWN_LIST {
     fn clone(&self) -> Self {
-        Self { lpLink: self.lpLink, lpGuid: self.lpGuid, lpIUnknown: self.lpIUnknown.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for IUNKNOWN_LIST {
@@ -15799,7 +15661,7 @@ impl ::core::fmt::Debug for IUNKNOWN_LIST {
     }
 }
 unsafe impl ::windows::core::Abi for IUNKNOWN_LIST {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IUNKNOWN_LIST {
     fn eq(&self, other: &Self) -> bool {

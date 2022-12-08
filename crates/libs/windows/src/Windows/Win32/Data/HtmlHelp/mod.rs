@@ -1775,12 +1775,12 @@ pub struct HH_GLOBAL_PROPERTY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for HH_GLOBAL_PROPERTY {
     fn clone(&self) -> Self {
-        Self { id: self.id, var: self.var.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for HH_GLOBAL_PROPERTY {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for HH_GLOBAL_PROPERTY {

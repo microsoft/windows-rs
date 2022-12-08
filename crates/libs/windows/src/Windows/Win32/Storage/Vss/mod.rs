@@ -1520,11 +1520,8 @@ impl IVssFileShareSnapshotProvider {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSnapshotProperty<'a, P0>(&self, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-    {
-        (::windows::core::Vtable::vtable(self).SetSnapshotProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotid), esnapshotpropertyid, vproperty.into().abi()).ok()
+    pub unsafe fn SetSnapshotProperty(&self, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetSnapshotProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotid), esnapshotpropertyid, ::core::mem::transmute(vproperty)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVssFileShareSnapshotProvider, ::windows::core::IUnknown);
@@ -1571,7 +1568,7 @@ pub struct IVssFileShareSnapshotProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsPathSnapshotted: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSnapshotProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SetSnapshotProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSnapshotProperty: usize,
 }
@@ -1996,11 +1993,8 @@ impl IVssSoftwareSnapshotProvider {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSnapshotProperty<'a, P0>(&self, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-    {
-        (::windows::core::Vtable::vtable(self).SetSnapshotProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotid), esnapshotpropertyid, vproperty.into().abi()).ok()
+    pub unsafe fn SetSnapshotProperty(&self, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetSnapshotProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotid), esnapshotpropertyid, ::core::mem::transmute(vproperty)).ok()
     }
     pub unsafe fn RevertToSnapshot(&self, snapshotid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RevertToSnapshot)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotid)).ok()
@@ -2054,7 +2048,7 @@ pub struct IVssSoftwareSnapshotProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsVolumeSnapshotted: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSnapshotProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SetSnapshotProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSnapshotProperty: usize,
     pub RevertToSnapshot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID) -> ::windows::core::HRESULT,

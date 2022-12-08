@@ -4293,7 +4293,7 @@ impl IPMApplicationInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartAppBlob(&self, pblob: *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StartAppBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pblob)).ok()
+        (::windows::core::Vtable::vtable(self).StartAppBlob)(::windows::core::Vtable::as_raw(self), pblob).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4481,7 +4481,7 @@ pub struct IPMApplicationInfo_Vtbl {
     IsInboxApp: usize,
     pub StorageID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstorageid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub StartAppBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblob: *mut ::core::mem::ManuallyDrop<PM_STARTAPPBLOB>) -> ::windows::core::HRESULT,
+    pub StartAppBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblob: *mut PM_STARTAPPBLOB) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     StartAppBlob: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -4838,18 +4838,18 @@ impl IPMDeploymentManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BeginInstall)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pinstallinfo)).ok()
+        (::windows::core::Vtable::vtable(self).BeginInstall)(::windows::core::Vtable::as_raw(self), pinstallinfo).ok()
     }
     pub unsafe fn BeginUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BeginUpdate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pupdateinfo)).ok()
+        (::windows::core::Vtable::vtable(self).BeginUpdate)(::windows::core::Vtable::as_raw(self), pupdateinfo).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginDeployPackage(&self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BeginDeployPackage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pinstallinfo)).ok()
+        (::windows::core::Vtable::vtable(self).BeginDeployPackage)(::windows::core::Vtable::as_raw(self), pinstallinfo).ok()
     }
     pub unsafe fn BeginUpdateDeployedPackageLegacy(&self, pupdateinfo: *const PM_UPDATEINFO_LEGACY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BeginUpdateDeployedPackageLegacy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pupdateinfo)).ok()
+        (::windows::core::Vtable::vtable(self).BeginUpdateDeployedPackageLegacy)(::windows::core::Vtable::as_raw(self), pupdateinfo).ok()
     }
     pub unsafe fn BeginUninstall(&self, productid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).BeginUninstall)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(productid)).ok()
@@ -4857,10 +4857,10 @@ impl IPMDeploymentManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginEnterpriseAppInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BeginEnterpriseAppInstall)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pinstallinfo)).ok()
+        (::windows::core::Vtable::vtable(self).BeginEnterpriseAppInstall)(::windows::core::Vtable::as_raw(self), pinstallinfo).ok()
     }
     pub unsafe fn BeginEnterpriseAppUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BeginEnterpriseAppUpdate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pupdateinfo)).ok()
+        (::windows::core::Vtable::vtable(self).BeginEnterpriseAppUpdate)(::windows::core::Vtable::as_raw(self), pupdateinfo).ok()
     }
     pub unsafe fn BeginUpdateLicense(&self, productid: ::windows::core::GUID, offerid: ::windows::core::GUID, pblicense: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).BeginUpdateLicense)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(offerid), ::core::mem::transmute(pblicense.as_ptr()), pblicense.len() as _).ok()
@@ -4947,7 +4947,7 @@ impl IPMDeploymentManager {
         (::windows::core::Vtable::vtable(self).EnterprisePolicyIsApplicationAllowed)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(productid), publishername.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn BeginUpdateDeployedPackage(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BeginUpdateDeployedPackage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pupdateinfo)).ok()
+        (::windows::core::Vtable::vtable(self).BeginUpdateDeployedPackage)(::windows::core::Vtable::as_raw(self), pupdateinfo).ok()
     }
     pub unsafe fn ReportRestoreCancelled(&self, productid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReportRestoreCancelled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(productid)).ok()
@@ -5011,21 +5011,21 @@ pub struct IPMDeploymentManager_Vtbl {
     pub ReportDownloadProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, usprogress: u16) -> ::windows::core::HRESULT,
     pub ReportDownloadComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub BeginInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinstallinfo: *const ::core::mem::ManuallyDrop<PM_INSTALLINFO>) -> ::windows::core::HRESULT,
+    pub BeginInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BeginInstall: usize,
-    pub BeginUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pupdateinfo: *const ::core::mem::ManuallyDrop<PM_UPDATEINFO>) -> ::windows::core::HRESULT,
+    pub BeginUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub BeginDeployPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinstallinfo: *const ::core::mem::ManuallyDrop<PM_INSTALLINFO>) -> ::windows::core::HRESULT,
+    pub BeginDeployPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BeginDeployPackage: usize,
-    pub BeginUpdateDeployedPackageLegacy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pupdateinfo: *const ::core::mem::ManuallyDrop<PM_UPDATEINFO_LEGACY>) -> ::windows::core::HRESULT,
+    pub BeginUpdateDeployedPackageLegacy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pupdateinfo: *const PM_UPDATEINFO_LEGACY) -> ::windows::core::HRESULT,
     pub BeginUninstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub BeginEnterpriseAppInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinstallinfo: *const ::core::mem::ManuallyDrop<PM_INSTALLINFO>) -> ::windows::core::HRESULT,
+    pub BeginEnterpriseAppInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BeginEnterpriseAppInstall: usize,
-    pub BeginEnterpriseAppUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pupdateinfo: *const ::core::mem::ManuallyDrop<PM_UPDATEINFO>) -> ::windows::core::HRESULT,
+    pub BeginEnterpriseAppUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::HRESULT,
     pub BeginUpdateLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, offerid: ::windows::core::GUID, pblicense: *const u8, cblicense: u32) -> ::windows::core::HRESULT,
     pub GetLicenseChallenge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagepath: *mut ::core::ffi::c_void, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::HRESULT,
     pub GetLicenseChallengeByProductID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32) -> ::windows::core::HRESULT,
@@ -5050,7 +5050,7 @@ pub struct IPMDeploymentManager_Vtbl {
     pub EnterprisePolicyIsApplicationAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, publishername: ::windows::core::PCWSTR, pisallowed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     EnterprisePolicyIsApplicationAllowed: usize,
-    pub BeginUpdateDeployedPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pupdateinfo: *const ::core::mem::ManuallyDrop<PM_UPDATEINFO>) -> ::windows::core::HRESULT,
+    pub BeginUpdateDeployedPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::HRESULT,
     pub ReportRestoreCancelled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub ResolveResourceString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourcestring: ::windows::core::PCWSTR, presolvedresourcestring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UpdateCapabilitiesForModernApps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5065,41 +5065,23 @@ pub struct IPMDeploymentManager_Vtbl {
 #[repr(transparent)]
 pub struct IPMEnumerationManager(::windows::core::IUnknown);
 impl IPMEnumerationManager {
-    pub unsafe fn get_AllApplications<'a, P0>(&self, ppappenum: *mut ::core::option::Option<IPMApplicationInfoEnumerator>, filter: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PM_ENUM_FILTER>>,
-    {
-        (::windows::core::Vtable::vtable(self).get_AllApplications)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppappenum), filter.into().abi()).ok()
+    pub unsafe fn get_AllApplications(&self, ppappenum: *mut ::core::option::Option<IPMApplicationInfoEnumerator>, filter: PM_ENUM_FILTER) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).get_AllApplications)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppappenum), ::core::mem::transmute(filter)).ok()
     }
-    pub unsafe fn get_AllTiles<'a, P0>(&self, pptileenum: *mut ::core::option::Option<IPMTileInfoEnumerator>, filter: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PM_ENUM_FILTER>>,
-    {
-        (::windows::core::Vtable::vtable(self).get_AllTiles)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pptileenum), filter.into().abi()).ok()
+    pub unsafe fn get_AllTiles(&self, pptileenum: *mut ::core::option::Option<IPMTileInfoEnumerator>, filter: PM_ENUM_FILTER) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).get_AllTiles)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pptileenum), ::core::mem::transmute(filter)).ok()
     }
-    pub unsafe fn get_AllTasks<'a, P0>(&self, pptaskenum: *mut ::core::option::Option<IPMTaskInfoEnumerator>, filter: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PM_ENUM_FILTER>>,
-    {
-        (::windows::core::Vtable::vtable(self).get_AllTasks)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pptaskenum), filter.into().abi()).ok()
+    pub unsafe fn get_AllTasks(&self, pptaskenum: *mut ::core::option::Option<IPMTaskInfoEnumerator>, filter: PM_ENUM_FILTER) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).get_AllTasks)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pptaskenum), ::core::mem::transmute(filter)).ok()
     }
-    pub unsafe fn get_AllExtensions<'a, P0>(&self, ppextensionenum: *mut ::core::option::Option<IPMExtensionInfoEnumerator>, filter: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PM_ENUM_FILTER>>,
-    {
-        (::windows::core::Vtable::vtable(self).get_AllExtensions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppextensionenum), filter.into().abi()).ok()
+    pub unsafe fn get_AllExtensions(&self, ppextensionenum: *mut ::core::option::Option<IPMExtensionInfoEnumerator>, filter: PM_ENUM_FILTER) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).get_AllExtensions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppextensionenum), ::core::mem::transmute(filter)).ok()
     }
-    pub unsafe fn get_AllBackgroundServiceAgents<'a, P0>(&self, ppbsaenum: *mut ::core::option::Option<IPMBackgroundServiceAgentInfoEnumerator>, filter: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PM_ENUM_FILTER>>,
-    {
-        (::windows::core::Vtable::vtable(self).get_AllBackgroundServiceAgents)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbsaenum), filter.into().abi()).ok()
+    pub unsafe fn get_AllBackgroundServiceAgents(&self, ppbsaenum: *mut ::core::option::Option<IPMBackgroundServiceAgentInfoEnumerator>, filter: PM_ENUM_FILTER) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).get_AllBackgroundServiceAgents)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbsaenum), ::core::mem::transmute(filter)).ok()
     }
-    pub unsafe fn get_AllBackgroundWorkers<'a, P0>(&self, ppbswenum: *mut ::core::option::Option<IPMBackgroundWorkerInfoEnumerator>, filter: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PM_ENUM_FILTER>>,
-    {
-        (::windows::core::Vtable::vtable(self).get_AllBackgroundWorkers)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbswenum), filter.into().abi()).ok()
+    pub unsafe fn get_AllBackgroundWorkers(&self, ppbswenum: *mut ::core::option::Option<IPMBackgroundWorkerInfoEnumerator>, filter: PM_ENUM_FILTER) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).get_AllBackgroundWorkers)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbswenum), ::core::mem::transmute(filter)).ok()
     }
     pub unsafe fn get_ApplicationInfo(&self, productid: ::windows::core::GUID) -> ::windows::core::Result<IPMApplicationInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5145,19 +5127,13 @@ impl IPMEnumerationManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_StartTileEnumeratorBlob<'a, P0>(&self, filter: P0, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PM_ENUM_FILTER>>,
-    {
-        (::windows::core::Vtable::vtable(self).get_StartTileEnumeratorBlob)(::windows::core::Vtable::as_raw(self), filter.into().abi(), pctiles, pptileblobs).ok()
+    pub unsafe fn get_StartTileEnumeratorBlob(&self, filter: PM_ENUM_FILTER, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).get_StartTileEnumeratorBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(filter), pctiles, pptileblobs).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_StartAppEnumeratorBlob<'a, P0>(&self, filter: P0, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PM_ENUM_FILTER>>,
-    {
-        (::windows::core::Vtable::vtable(self).get_StartAppEnumeratorBlob)(::windows::core::Vtable::as_raw(self), filter.into().abi(), pcapps, ppappblobs).ok()
+    pub unsafe fn get_StartAppEnumeratorBlob(&self, filter: PM_ENUM_FILTER, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).get_StartAppEnumeratorBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(filter), pcapps, ppappblobs).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPMEnumerationManager, ::windows::core::IUnknown);
@@ -5187,12 +5163,12 @@ unsafe impl ::windows::core::Interface for IPMEnumerationManager {
 #[doc(hidden)]
 pub struct IPMEnumerationManager_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub get_AllApplications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppappenum: *mut *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>) -> ::windows::core::HRESULT,
-    pub get_AllTiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptileenum: *mut *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>) -> ::windows::core::HRESULT,
-    pub get_AllTasks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptaskenum: *mut *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>) -> ::windows::core::HRESULT,
-    pub get_AllExtensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppextensionenum: *mut *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>) -> ::windows::core::HRESULT,
-    pub get_AllBackgroundServiceAgents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbsaenum: *mut *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>) -> ::windows::core::HRESULT,
-    pub get_AllBackgroundWorkers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbswenum: *mut *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>) -> ::windows::core::HRESULT,
+    pub get_AllApplications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppappenum: *mut *mut ::core::ffi::c_void, filter: PM_ENUM_FILTER) -> ::windows::core::HRESULT,
+    pub get_AllTiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptileenum: *mut *mut ::core::ffi::c_void, filter: PM_ENUM_FILTER) -> ::windows::core::HRESULT,
+    pub get_AllTasks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptaskenum: *mut *mut ::core::ffi::c_void, filter: PM_ENUM_FILTER) -> ::windows::core::HRESULT,
+    pub get_AllExtensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppextensionenum: *mut *mut ::core::ffi::c_void, filter: PM_ENUM_FILTER) -> ::windows::core::HRESULT,
+    pub get_AllBackgroundServiceAgents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbsaenum: *mut *mut ::core::ffi::c_void, filter: PM_ENUM_FILTER) -> ::windows::core::HRESULT,
+    pub get_AllBackgroundWorkers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbswenum: *mut *mut ::core::ffi::c_void, filter: PM_ENUM_FILTER) -> ::windows::core::HRESULT,
     pub get_ApplicationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, ppappinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub get_TileInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, tileid: *mut ::core::ffi::c_void, pptileinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub get_TaskInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, taskid: *mut ::core::ffi::c_void, pptaskinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5204,11 +5180,11 @@ pub struct IPMEnumerationManager_Vtbl {
     pub get_FileHandlerGenericLogo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filetype: *mut ::core::ffi::c_void, logosize: PM_LOGO_SIZE, plogo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub get_ApplicationInfoFromAccessClaims: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sysappid0: *mut ::core::ffi::c_void, sysappid1: *mut ::core::ffi::c_void, ppappinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub get_StartTileEnumeratorBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> ::windows::core::HRESULT,
+    pub get_StartTileEnumeratorBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filter: PM_ENUM_FILTER, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     get_StartTileEnumeratorBlob: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub get_StartAppEnumeratorBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> ::windows::core::HRESULT,
+    pub get_StartAppEnumeratorBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filter: PM_ENUM_FILTER, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     get_StartAppEnumeratorBlob: usize,
 }
@@ -6125,7 +6101,7 @@ impl IPMTileInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartTileBlob(&self, pblob: *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StartTileBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pblob)).ok()
+        (::windows::core::Vtable::vtable(self).StartTileBlob)(::windows::core::Vtable::as_raw(self), pblob).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6221,7 +6197,7 @@ pub struct IPMTileInfo_Vtbl {
     pub set_HubTileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hubtype: PM_TILE_HUBTYPE, size: PM_TILE_SIZE) -> ::windows::core::HRESULT,
     pub set_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskname: *mut ::core::ffi::c_void, taskparameters: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub StartTileBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblob: *mut ::core::mem::ManuallyDrop<PM_STARTTILEBLOB>) -> ::windows::core::HRESULT,
+    pub StartTileBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblob: *mut PM_STARTTILEBLOB) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     StartTileBlob: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -12338,11 +12314,11 @@ impl ::core::default::Default for PM_APPTASKTYPE {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_BSATASKID {
     pub ProductID: ::windows::core::GUID,
-    pub TaskID: ::windows::core::BSTR,
+    pub TaskID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for PM_BSATASKID {
     fn clone(&self) -> Self {
-        Self { ProductID: self.ProductID, TaskID: self.TaskID.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for PM_BSATASKID {
@@ -12351,7 +12327,7 @@ impl ::core::fmt::Debug for PM_BSATASKID {
     }
 }
 unsafe impl ::windows::core::Abi for PM_BSATASKID {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for PM_BSATASKID {
     fn eq(&self, other: &Self) -> bool {
@@ -12368,11 +12344,11 @@ impl ::core::default::Default for PM_BSATASKID {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_BWTASKID {
     pub ProductID: ::windows::core::GUID,
-    pub TaskID: ::windows::core::BSTR,
+    pub TaskID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for PM_BWTASKID {
     fn clone(&self) -> Self {
-        Self { ProductID: self.ProductID, TaskID: self.TaskID.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for PM_BWTASKID {
@@ -12381,7 +12357,7 @@ impl ::core::fmt::Debug for PM_BWTASKID {
     }
 }
 unsafe impl ::windows::core::Abi for PM_BWTASKID {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for PM_BWTASKID {
     fn eq(&self, other: &Self) -> bool {
@@ -12402,11 +12378,11 @@ pub struct PM_ENUM_FILTER {
 }
 impl ::core::clone::Clone for PM_ENUM_FILTER {
     fn clone(&self) -> Self {
-        Self { FilterType: self.FilterType, FilterParameter: self.FilterParameter.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 unsafe impl ::windows::core::Abi for PM_ENUM_FILTER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for PM_ENUM_FILTER {
     fn default() -> Self {
@@ -12424,15 +12400,15 @@ pub union PM_ENUM_FILTER_0 {
     pub TaskProductID: ::windows::core::GUID,
     pub TileProductID: ::windows::core::GUID,
     pub AppTaskType: PM_APPTASKTYPE,
-    pub Consumer: ::core::mem::ManuallyDrop<PM_EXTENSIONCONSUMER>,
-    pub BSATask: ::core::mem::ManuallyDrop<PM_BSATASKID>,
+    pub Consumer: ::std::mem::ManuallyDrop<PM_EXTENSIONCONSUMER>,
+    pub BSATask: ::std::mem::ManuallyDrop<PM_BSATASKID>,
     pub BSAProductID: ::windows::core::GUID,
-    pub BWTask: ::core::mem::ManuallyDrop<PM_BWTASKID>,
-    pub ProtocolName: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
-    pub FileType: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
-    pub ContentType: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub BWTask: ::std::mem::ManuallyDrop<PM_BWTASKID>,
+    pub ProtocolName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub FileType: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub ContentType: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub AppSupportedFileExtPID: ::windows::core::GUID,
-    pub ShareTargetFileType: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub ShareTargetFileType: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for PM_ENUM_FILTER_0 {
     fn clone(&self) -> Self {
@@ -12440,7 +12416,7 @@ impl ::core::clone::Clone for PM_ENUM_FILTER_0 {
     }
 }
 unsafe impl ::windows::core::Abi for PM_ENUM_FILTER_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for PM_ENUM_FILTER_0 {
     fn default() -> Self {
@@ -12451,11 +12427,11 @@ impl ::core::default::Default for PM_ENUM_FILTER_0 {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_EXTENSIONCONSUMER {
     pub ConsumerPID: ::windows::core::GUID,
-    pub ExtensionID: ::windows::core::BSTR,
+    pub ExtensionID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for PM_EXTENSIONCONSUMER {
     fn clone(&self) -> Self {
-        Self { ConsumerPID: self.ConsumerPID, ExtensionID: self.ExtensionID.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for PM_EXTENSIONCONSUMER {
@@ -12464,7 +12440,7 @@ impl ::core::fmt::Debug for PM_EXTENSIONCONSUMER {
     }
 }
 unsafe impl ::windows::core::Abi for PM_EXTENSIONCONSUMER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for PM_EXTENSIONCONSUMER {
     fn eq(&self, other: &Self) -> bool {
@@ -12482,29 +12458,19 @@ impl ::core::default::Default for PM_EXTENSIONCONSUMER {
 #[cfg(feature = "Win32_Foundation")]
 pub struct PM_INSTALLINFO {
     pub ProductID: ::windows::core::GUID,
-    pub PackagePath: ::windows::core::BSTR,
+    pub PackagePath: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub InstanceID: ::windows::core::GUID,
     pub pbLicense: *mut u8,
     pub cbLicense: u32,
     pub IsUninstallDisabled: super::super::Foundation::BOOL,
     pub DeploymentOptions: u32,
     pub OfferID: ::windows::core::GUID,
-    pub MarketplaceAppVersion: ::windows::core::BSTR,
+    pub MarketplaceAppVersion: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_INSTALLINFO {
     fn clone(&self) -> Self {
-        Self {
-            ProductID: self.ProductID,
-            PackagePath: self.PackagePath.clone(),
-            InstanceID: self.InstanceID,
-            pbLicense: self.pbLicense,
-            cbLicense: self.cbLicense,
-            IsUninstallDisabled: self.IsUninstallDisabled,
-            DeploymentOptions: self.DeploymentOptions,
-            OfferID: self.OfferID,
-            MarketplaceAppVersion: self.MarketplaceAppVersion.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12515,7 +12481,7 @@ impl ::core::fmt::Debug for PM_INSTALLINFO {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_INSTALLINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PM_INSTALLINFO {
@@ -12534,12 +12500,12 @@ impl ::core::default::Default for PM_INSTALLINFO {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_INVOCATIONINFO {
-    pub URIBaseOrAUMID: ::windows::core::BSTR,
-    pub URIFragmentOrArgs: ::windows::core::BSTR,
+    pub URIBaseOrAUMID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub URIFragmentOrArgs: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for PM_INVOCATIONINFO {
     fn clone(&self) -> Self {
-        Self { URIBaseOrAUMID: self.URIBaseOrAUMID.clone(), URIFragmentOrArgs: self.URIFragmentOrArgs.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for PM_INVOCATIONINFO {
@@ -12548,7 +12514,7 @@ impl ::core::fmt::Debug for PM_INVOCATIONINFO {
     }
 }
 unsafe impl ::windows::core::Abi for PM_INVOCATIONINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for PM_INVOCATIONINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -12567,8 +12533,8 @@ impl ::core::default::Default for PM_INVOCATIONINFO {
 pub struct PM_STARTAPPBLOB {
     pub cbSize: u32,
     pub ProductID: ::windows::core::GUID,
-    pub AppTitle: ::windows::core::BSTR,
-    pub IconPath: ::windows::core::BSTR,
+    pub AppTitle: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub IconPath: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub IsUninstallable: super::super::Foundation::BOOL,
     pub AppInstallType: PM_APPLICATION_INSTALL_TYPE,
     pub InstanceID: ::windows::core::GUID,
@@ -12580,19 +12546,7 @@ pub struct PM_STARTAPPBLOB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_STARTAPPBLOB {
     fn clone(&self) -> Self {
-        Self {
-            cbSize: self.cbSize,
-            ProductID: self.ProductID,
-            AppTitle: self.AppTitle.clone(),
-            IconPath: self.IconPath.clone(),
-            IsUninstallable: self.IsUninstallable,
-            AppInstallType: self.AppInstallType,
-            InstanceID: self.InstanceID,
-            State: self.State,
-            IsModern: self.IsModern,
-            IsModernLightUp: self.IsModernLightUp,
-            LightUpSupportMask: self.LightUpSupportMask,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12603,7 +12557,7 @@ impl ::core::fmt::Debug for PM_STARTAPPBLOB {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_STARTAPPBLOB {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PM_STARTAPPBLOB {
@@ -12625,7 +12579,7 @@ impl ::core::default::Default for PM_STARTAPPBLOB {
 pub struct PM_STARTTILEBLOB {
     pub cbSize: u32,
     pub ProductID: ::windows::core::GUID,
-    pub TileID: ::windows::core::BSTR,
+    pub TileID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub TemplateType: TILE_TEMPLATE_TYPE,
     pub HubPosition: [u32; 32],
     pub HubVisibilityBitmask: u32,
@@ -12640,21 +12594,7 @@ pub struct PM_STARTTILEBLOB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_STARTTILEBLOB {
     fn clone(&self) -> Self {
-        Self {
-            cbSize: self.cbSize,
-            ProductID: self.ProductID,
-            TileID: self.TileID.clone(),
-            TemplateType: self.TemplateType,
-            HubPosition: self.HubPosition,
-            HubVisibilityBitmask: self.HubVisibilityBitmask,
-            IsDefault: self.IsDefault,
-            TileType: self.TileType,
-            pbPropBlob: self.pbPropBlob,
-            cbPropBlob: self.cbPropBlob,
-            IsRestoring: self.IsRestoring,
-            IsModern: self.IsModern,
-            InvocationInfo: self.InvocationInfo.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12679,7 +12619,7 @@ impl ::core::fmt::Debug for PM_STARTTILEBLOB {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_STARTTILEBLOB {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PM_STARTTILEBLOB {
@@ -12699,24 +12639,16 @@ impl ::core::default::Default for PM_STARTTILEBLOB {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_UPDATEINFO {
     pub ProductID: ::windows::core::GUID,
-    pub PackagePath: ::windows::core::BSTR,
+    pub PackagePath: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub InstanceID: ::windows::core::GUID,
     pub pbLicense: *mut u8,
     pub cbLicense: u32,
-    pub MarketplaceAppVersion: ::windows::core::BSTR,
+    pub MarketplaceAppVersion: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub DeploymentOptions: u32,
 }
 impl ::core::clone::Clone for PM_UPDATEINFO {
     fn clone(&self) -> Self {
-        Self {
-            ProductID: self.ProductID,
-            PackagePath: self.PackagePath.clone(),
-            InstanceID: self.InstanceID,
-            pbLicense: self.pbLicense,
-            cbLicense: self.cbLicense,
-            MarketplaceAppVersion: self.MarketplaceAppVersion.clone(),
-            DeploymentOptions: self.DeploymentOptions,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for PM_UPDATEINFO {
@@ -12725,7 +12657,7 @@ impl ::core::fmt::Debug for PM_UPDATEINFO {
     }
 }
 unsafe impl ::windows::core::Abi for PM_UPDATEINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for PM_UPDATEINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -12742,22 +12674,15 @@ impl ::core::default::Default for PM_UPDATEINFO {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_UPDATEINFO_LEGACY {
     pub ProductID: ::windows::core::GUID,
-    pub PackagePath: ::windows::core::BSTR,
+    pub PackagePath: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub InstanceID: ::windows::core::GUID,
     pub pbLicense: *mut u8,
     pub cbLicense: u32,
-    pub MarketplaceAppVersion: ::windows::core::BSTR,
+    pub MarketplaceAppVersion: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for PM_UPDATEINFO_LEGACY {
     fn clone(&self) -> Self {
-        Self {
-            ProductID: self.ProductID,
-            PackagePath: self.PackagePath.clone(),
-            InstanceID: self.InstanceID,
-            pbLicense: self.pbLicense,
-            cbLicense: self.cbLicense,
-            MarketplaceAppVersion: self.MarketplaceAppVersion.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for PM_UPDATEINFO_LEGACY {
@@ -12766,7 +12691,7 @@ impl ::core::fmt::Debug for PM_UPDATEINFO_LEGACY {
     }
 }
 unsafe impl ::windows::core::Abi for PM_UPDATEINFO_LEGACY {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for PM_UPDATEINFO_LEGACY {
     fn eq(&self, other: &Self) -> bool {

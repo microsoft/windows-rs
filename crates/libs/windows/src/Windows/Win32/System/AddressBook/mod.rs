@@ -2358,7 +2358,7 @@ impl IWABExtInit {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize(&self, lpwabextdisplay: *mut WABEXTDISPLAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpwabextdisplay)).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), lpwabextdisplay).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWABExtInit, ::windows::core::IUnknown);
@@ -2389,7 +2389,7 @@ unsafe impl ::windows::core::Interface for IWABExtInit {
 pub struct IWABExtInit_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpwabextdisplay: *mut ::core::mem::ManuallyDrop<WABEXTDISPLAY>) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpwabextdisplay: *mut WABEXTDISPLAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
 }
@@ -5375,9 +5375,9 @@ impl ::core::default::Default for TABLE_NOTIFICATION {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WABEXTDISPLAY {
     pub cbSize: u32,
-    pub lpWABObject: ::core::option::Option<IWABObject>,
-    pub lpAdrBook: ::core::option::Option<IAddrBook>,
-    pub lpPropObj: ::core::option::Option<IMAPIProp>,
+    pub lpWABObject: ::windows::core::ManuallyDrop<IWABObject>,
+    pub lpAdrBook: ::windows::core::ManuallyDrop<IAddrBook>,
+    pub lpPropObj: ::windows::core::ManuallyDrop<IMAPIProp>,
     pub fReadOnly: super::super::Foundation::BOOL,
     pub fDataChanged: super::super::Foundation::BOOL,
     pub ulFlags: u32,
@@ -5387,17 +5387,7 @@ pub struct WABEXTDISPLAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WABEXTDISPLAY {
     fn clone(&self) -> Self {
-        Self {
-            cbSize: self.cbSize,
-            lpWABObject: self.lpWABObject.clone(),
-            lpAdrBook: self.lpAdrBook.clone(),
-            lpPropObj: self.lpPropObj.clone(),
-            fReadOnly: self.fReadOnly,
-            fDataChanged: self.fDataChanged,
-            ulFlags: self.ulFlags,
-            lpv: self.lpv,
-            lpsz: self.lpsz,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5408,7 +5398,7 @@ impl ::core::fmt::Debug for WABEXTDISPLAY {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WABEXTDISPLAY {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WABEXTDISPLAY {
@@ -5429,7 +5419,7 @@ impl ::core::default::Default for WABEXTDISPLAY {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WABIMPORTPARAM {
     pub cbSize: u32,
-    pub lpAdrBook: ::core::option::Option<IAddrBook>,
+    pub lpAdrBook: ::windows::core::ManuallyDrop<IAddrBook>,
     pub hWnd: super::super::Foundation::HWND,
     pub ulFlags: u32,
     pub lpszFileName: ::windows::core::PSTR,
@@ -5437,7 +5427,7 @@ pub struct WABIMPORTPARAM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WABIMPORTPARAM {
     fn clone(&self) -> Self {
-        Self { cbSize: self.cbSize, lpAdrBook: self.lpAdrBook.clone(), hWnd: self.hWnd, ulFlags: self.ulFlags, lpszFileName: self.lpszFileName }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5448,7 +5438,7 @@ impl ::core::fmt::Debug for WABIMPORTPARAM {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WABIMPORTPARAM {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WABIMPORTPARAM {

@@ -970,7 +970,7 @@ impl IBackgroundCopyGroup {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetProp(&self, propid: GROUPPROP, pvarval: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetProp)(::windows::core::Vtable::as_raw(self), propid, ::core::mem::transmute(pvarval)).ok()
+        (::windows::core::Vtable::vtable(self).SetProp)(::windows::core::Vtable::as_raw(self), propid, pvarval).ok()
     }
     pub unsafe fn GetProgress(&self, dwflags: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1050,11 +1050,11 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyGroup {
 pub struct IBackgroundCopyGroup_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetProp: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SetProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetProp: usize,
     pub GetProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pdwprogress: *mut u32) -> ::windows::core::HRESULT,
@@ -1334,7 +1334,7 @@ pub struct IBackgroundCopyJob1_Vtbl {
     pub GetProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pdwprogress: *mut u32) -> ::windows::core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32, pdwwin32result: *mut u32, pdwtransportresult: *mut u32, pdwnumofretries: *mut u32) -> ::windows::core::HRESULT,
     pub AddFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfilecount: u32, ppfileset: *const *const FILESETINFO) -> ::windows::core::HRESULT,
-    pub GetFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfileindex: u32, pfileinfo: *mut ::core::mem::ManuallyDrop<FILESETINFO>) -> ::windows::core::HRESULT,
+    pub GetFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfileindex: u32, pfileinfo: *mut FILESETINFO) -> ::windows::core::HRESULT,
     pub GetFileCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwfilecount: *mut u32) -> ::windows::core::HRESULT,
     pub SwitchToForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub JobID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidjobid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -4485,13 +4485,13 @@ impl ::core::default::Default for BITS_JOB_PROPERTY_VALUE {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub struct FILESETINFO {
-    pub bstrRemoteFile: ::windows::core::BSTR,
-    pub bstrLocalFile: ::windows::core::BSTR,
+    pub bstrRemoteFile: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrLocalFile: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub dwSizeHint: u32,
 }
 impl ::core::clone::Clone for FILESETINFO {
     fn clone(&self) -> Self {
-        Self { bstrRemoteFile: self.bstrRemoteFile.clone(), bstrLocalFile: self.bstrLocalFile.clone(), dwSizeHint: self.dwSizeHint }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for FILESETINFO {
@@ -4500,7 +4500,7 @@ impl ::core::fmt::Debug for FILESETINFO {
     }
 }
 unsafe impl ::windows::core::Abi for FILESETINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for FILESETINFO {
     fn eq(&self, other: &Self) -> bool {

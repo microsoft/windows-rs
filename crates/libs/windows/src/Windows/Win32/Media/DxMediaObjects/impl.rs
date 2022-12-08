@@ -240,7 +240,7 @@ impl IMediaObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetInputType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwinputstreamindex: u32, dwtypeindex: u32, pmt: *mut ::core::mem::ManuallyDrop<DMO_MEDIA_TYPE>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInputType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwinputstreamindex: u32, dwtypeindex: u32, pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetInputType(::core::mem::transmute_copy(&dwinputstreamindex), ::core::mem::transmute_copy(&dwtypeindex)) {
@@ -251,7 +251,7 @@ impl IMediaObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOutputType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoutputstreamindex: u32, dwtypeindex: u32, pmt: *mut ::core::mem::ManuallyDrop<DMO_MEDIA_TYPE>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOutputType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoutputstreamindex: u32, dwtypeindex: u32, pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetOutputType(::core::mem::transmute_copy(&dwoutputstreamindex), ::core::mem::transmute_copy(&dwtypeindex)) {
@@ -262,17 +262,17 @@ impl IMediaObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInputType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwinputstreamindex: u32, pmt: *const ::core::mem::ManuallyDrop<DMO_MEDIA_TYPE>, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInputType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwinputstreamindex: u32, pmt: *const DMO_MEDIA_TYPE, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetInputType(::core::mem::transmute_copy(&dwinputstreamindex), ::core::mem::transmute_copy(&pmt), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn SetOutputType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoutputstreamindex: u32, pmt: *const ::core::mem::ManuallyDrop<DMO_MEDIA_TYPE>, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOutputType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoutputstreamindex: u32, pmt: *const DMO_MEDIA_TYPE, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOutputType(::core::mem::transmute_copy(&dwoutputstreamindex), ::core::mem::transmute_copy(&pmt), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn GetInputCurrentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwinputstreamindex: u32, pmt: *mut ::core::mem::ManuallyDrop<DMO_MEDIA_TYPE>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInputCurrentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwinputstreamindex: u32, pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetInputCurrentType(::core::mem::transmute_copy(&dwinputstreamindex)) {
@@ -283,7 +283,7 @@ impl IMediaObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOutputCurrentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoutputstreamindex: u32, pmt: *mut ::core::mem::ManuallyDrop<DMO_MEDIA_TYPE>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOutputCurrentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoutputstreamindex: u32, pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetOutputCurrentType(::core::mem::transmute_copy(&dwoutputstreamindex)) {
@@ -356,7 +356,7 @@ impl IMediaObject_Vtbl {
             let this = (*this).get_impl();
             this.ProcessInput(::core::mem::transmute_copy(&dwinputstreamindex), ::core::mem::transmute(&pbuffer), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&rttimestamp), ::core::mem::transmute_copy(&rttimelength)).into()
         }
-        unsafe extern "system" fn ProcessOutput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, coutputbuffercount: u32, poutputbuffers: *mut ::core::mem::ManuallyDrop<DMO_OUTPUT_DATA_BUFFER>, pdwstatus: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessOutput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, coutputbuffercount: u32, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ProcessOutput(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&coutputbuffercount), ::core::mem::transmute_copy(&poutputbuffers), ::core::mem::transmute_copy(&pdwstatus)).into()

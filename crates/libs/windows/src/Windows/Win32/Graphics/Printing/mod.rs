@@ -2870,7 +2870,7 @@ impl IImgCreateErrorInfo {
         (::windows::core::Vtable::vtable(self).base__.SetHelpContext)(::windows::core::Vtable::as_raw(self), dwhelpcontext).ok()
     }
     pub unsafe fn AttachToErrorInfo(&self, perrorinfo: *mut ImgErrorInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AttachToErrorInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(perrorinfo)).ok()
+        (::windows::core::Vtable::vtable(self).AttachToErrorInfo)(::windows::core::Vtable::as_raw(self), perrorinfo).ok()
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -2908,7 +2908,7 @@ unsafe impl ::windows::core::Interface for IImgCreateErrorInfo {
 #[doc(hidden)]
 pub struct IImgCreateErrorInfo_Vtbl {
     pub base__: super::super::System::Ole::ICreateErrorInfo_Vtbl,
-    pub AttachToErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorinfo: *mut ::core::mem::ManuallyDrop<ImgErrorInfo>) -> ::windows::core::HRESULT,
+    pub AttachToErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorinfo: *mut ImgErrorInfo) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3016,7 +3016,7 @@ pub struct IImgErrorInfo_Vtbl {
     pub GetUserParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cparam: u32, pbstrparam: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetUserFallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfallback: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetExceptionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexceptionid: *mut u32) -> ::windows::core::HRESULT,
-    pub DetachErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorinfo: *mut ::core::mem::ManuallyDrop<ImgErrorInfo>) -> ::windows::core::HRESULT,
+    pub DetachErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorinfo: *mut ImgErrorInfo) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -5399,7 +5399,7 @@ impl IPrintPipelinePropertyBag {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).AddProperty)(::windows::core::Vtable::as_raw(self), pszname.into(), ::core::mem::transmute(pvar)).ok()
+        (::windows::core::Vtable::vtable(self).AddProperty)(::windows::core::Vtable::as_raw(self), pszname.into(), pvar).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5447,11 +5447,11 @@ unsafe impl ::windows::core::Interface for IPrintPipelinePropertyBag {
 pub struct IPrintPipelinePropertyBag_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AddProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pvar: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub AddProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     AddProperty: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetProperty: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -6661,7 +6661,7 @@ impl IPrintSchemaParameterInitializer {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValue(&self, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar)).ok()
+        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), pvar).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6700,11 +6700,11 @@ unsafe impl ::windows::core::Interface for IPrintSchemaParameterInitializer {
 pub struct IPrintSchemaParameterInitializer_Vtbl {
     pub base__: IPrintSchemaElement_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Value: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetValue: usize,
 }
@@ -15918,33 +15918,21 @@ impl ::core::default::Default for INVOC {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub struct ImgErrorInfo {
-    pub description: ::windows::core::BSTR,
+    pub description: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub guid: ::windows::core::GUID,
     pub helpContext: u32,
-    pub helpFile: ::windows::core::BSTR,
-    pub source: ::windows::core::BSTR,
-    pub devDescription: ::windows::core::BSTR,
+    pub helpFile: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub source: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub devDescription: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub errorID: ::windows::core::GUID,
     pub cUserParameters: u32,
     pub aUserParameters: *mut ::windows::core::BSTR,
-    pub userFallback: ::windows::core::BSTR,
+    pub userFallback: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
     pub exceptionID: u32,
 }
 impl ::core::clone::Clone for ImgErrorInfo {
     fn clone(&self) -> Self {
-        Self {
-            description: self.description.clone(),
-            guid: self.guid,
-            helpContext: self.helpContext,
-            helpFile: self.helpFile.clone(),
-            source: self.source.clone(),
-            devDescription: self.devDescription.clone(),
-            errorID: self.errorID,
-            cUserParameters: self.cUserParameters,
-            aUserParameters: self.aUserParameters,
-            userFallback: self.userFallback.clone(),
-            exceptionID: self.exceptionID,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for ImgErrorInfo {
@@ -15953,7 +15941,7 @@ impl ::core::fmt::Debug for ImgErrorInfo {
     }
 }
 unsafe impl ::windows::core::Abi for ImgErrorInfo {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for ImgErrorInfo {
     fn eq(&self, other: &Self) -> bool {

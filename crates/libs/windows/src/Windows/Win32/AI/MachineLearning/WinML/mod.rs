@@ -740,7 +740,7 @@ impl IWinMLEvaluationContext {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BindValue(&self, pdescriptor: *const WINML_BINDING_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BindValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdescriptor)).ok()
+        (::windows::core::Vtable::vtable(self).BindValue)(::windows::core::Vtable::as_raw(self), pdescriptor).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -783,7 +783,7 @@ unsafe impl ::windows::core::Interface for IWinMLEvaluationContext {
 pub struct IWinMLEvaluationContext_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub BindValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescriptor: *const ::core::mem::ManuallyDrop<WINML_BINDING_DESC>) -> ::windows::core::HRESULT,
+    pub BindValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescriptor: *const WINML_BINDING_DESC) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     BindValue: usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -1705,12 +1705,12 @@ pub struct WINML_BINDING_DESC {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for WINML_BINDING_DESC {
     fn clone(&self) -> Self {
-        Self { Name: self.Name, BindType: self.BindType, Anonymous: self.Anonymous.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for WINML_BINDING_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::default::Default for WINML_BINDING_DESC {
@@ -1726,7 +1726,7 @@ pub union WINML_BINDING_DESC_0 {
     pub Sequence: WINML_SEQUENCE_BINDING_DESC,
     pub Map: WINML_MAP_BINDING_DESC,
     pub Image: WINML_IMAGE_BINDING_DESC,
-    pub Resource: ::core::mem::ManuallyDrop<WINML_RESOURCE_BINDING_DESC>,
+    pub Resource: ::std::mem::ManuallyDrop<WINML_RESOURCE_BINDING_DESC>,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for WINML_BINDING_DESC_0 {
@@ -1736,7 +1736,7 @@ impl ::core::clone::Clone for WINML_BINDING_DESC_0 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for WINML_BINDING_DESC_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::default::Default for WINML_BINDING_DESC_0 {
@@ -1947,12 +1947,12 @@ pub struct WINML_RESOURCE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
     pub pShape: *mut i64,
-    pub pResource: ::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pResource: ::windows::core::ManuallyDrop<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for WINML_RESOURCE_BINDING_DESC {
     fn clone(&self) -> Self {
-        Self { ElementType: self.ElementType, NumDimensions: self.NumDimensions, pShape: self.pShape, pResource: self.pResource.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -1963,7 +1963,7 @@ impl ::core::fmt::Debug for WINML_RESOURCE_BINDING_DESC {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for WINML_RESOURCE_BINDING_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for WINML_RESOURCE_BINDING_DESC {
