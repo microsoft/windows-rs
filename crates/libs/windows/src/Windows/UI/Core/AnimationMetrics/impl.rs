@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IPropertyAnimation_Impl: Sized {
     fn Type(&self) -> ::windows::core::Result<PropertyAnimationType>;

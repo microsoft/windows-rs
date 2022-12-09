@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICBitmap_Impl: Sized + IWICBitmapSource_Impl {
     fn Lock(&self, prclock: *const WICRect, flags: u32) -> ::windows::core::Result<IWICBitmapLock>;
     fn SetPalette(&self, pipalette: &::core::option::Option<IWICPalette>) -> ::windows::core::Result<()>;
@@ -38,6 +39,7 @@ impl IWICBitmap_Vtbl {
         iid == &<IWICBitmap as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICBitmapClipper_Impl: Sized + IWICBitmapSource_Impl {
     fn Initialize(&self, pisource: &::core::option::Option<IWICBitmapSource>, prc: *const WICRect) -> ::windows::core::Result<()>;
 }
@@ -55,6 +57,7 @@ impl IWICBitmapClipper_Vtbl {
         iid == &<IWICBitmapClipper as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWICBitmapCodecInfo_Impl: Sized + IWICComponentInfo_Impl {
     fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -191,6 +194,7 @@ impl IWICBitmapCodecInfo_Vtbl {
         iid == &<IWICBitmapCodecInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICBitmapCodecProgressNotification_Impl: Sized {
     fn RegisterProgressNotification(&self, pfnprogressnotification: PFNProgressNotification, pvdata: *const ::core::ffi::c_void, dwprogressflags: u32) -> ::windows::core::Result<()>;
 }
@@ -211,6 +215,7 @@ impl IWICBitmapCodecProgressNotification_Vtbl {
         iid == &<IWICBitmapCodecProgressNotification as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWICBitmapDecoder_Impl: Sized {
     fn QueryCapability(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<u32>;
@@ -352,6 +357,7 @@ impl IWICBitmapDecoder_Vtbl {
         iid == &<IWICBitmapDecoder as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWICBitmapDecoderInfo_Impl: Sized + IWICBitmapCodecInfo_Impl {
     fn GetPatterns(&self, cbsizepatterns: u32, ppatterns: *mut WICBitmapPattern, pcpatterns: *mut u32, pcbpatternsactual: *mut u32) -> ::windows::core::Result<()>;
@@ -401,6 +407,7 @@ impl IWICBitmapDecoderInfo_Vtbl {
         iid == &<IWICBitmapDecoderInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID || iid == &<IWICBitmapCodecInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IWICBitmapEncoder_Impl: Sized {
     fn Initialize(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>, cacheoption: WICBitmapEncoderCacheOption) -> ::windows::core::Result<()>;
@@ -505,6 +512,7 @@ impl IWICBitmapEncoder_Vtbl {
         iid == &<IWICBitmapEncoder as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWICBitmapEncoderInfo_Impl: Sized + IWICBitmapCodecInfo_Impl {
     fn CreateInstance(&self) -> ::windows::core::Result<IWICBitmapEncoder>;
@@ -531,6 +539,7 @@ impl IWICBitmapEncoderInfo_Vtbl {
         iid == &<IWICBitmapEncoderInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID || iid == &<IWICBitmapCodecInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICBitmapFlipRotator_Impl: Sized + IWICBitmapSource_Impl {
     fn Initialize(&self, pisource: &::core::option::Option<IWICBitmapSource>, options: WICBitmapTransformOptions) -> ::windows::core::Result<()>;
 }
@@ -548,6 +557,7 @@ impl IWICBitmapFlipRotator_Vtbl {
         iid == &<IWICBitmapFlipRotator as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICBitmapFrameDecode_Impl: Sized + IWICBitmapSource_Impl {
     fn GetMetadataQueryReader(&self) -> ::windows::core::Result<IWICMetadataQueryReader>;
     fn GetColorContexts(&self, ccount: u32, ppicolorcontexts: *mut ::core::option::Option<IWICColorContext>, pcactualcount: *mut u32) -> ::windows::core::Result<()>;
@@ -594,6 +604,7 @@ impl IWICBitmapFrameDecode_Vtbl {
         iid == &<IWICBitmapFrameDecode as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IWICBitmapFrameEncode_Impl: Sized {
     fn Initialize(&self, piencoderoptions: &::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyBag2>) -> ::windows::core::Result<()>;
@@ -693,6 +704,7 @@ impl IWICBitmapFrameEncode_Vtbl {
         iid == &<IWICBitmapFrameEncode as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICBitmapLock_Impl: Sized {
     fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()>;
     fn GetStride(&self) -> ::windows::core::Result<u32>;
@@ -746,6 +758,7 @@ impl IWICBitmapLock_Vtbl {
         iid == &<IWICBitmapLock as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICBitmapScaler_Impl: Sized + IWICBitmapSource_Impl {
     fn Initialize(&self, pisource: &::core::option::Option<IWICBitmapSource>, uiwidth: u32, uiheight: u32, mode: WICBitmapInterpolationMode) -> ::windows::core::Result<()>;
 }
@@ -763,6 +776,7 @@ impl IWICBitmapScaler_Vtbl {
         iid == &<IWICBitmapScaler as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICBitmapSource_Impl: Sized {
     fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()>;
     fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -817,6 +831,7 @@ impl IWICBitmapSource_Vtbl {
         iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWICBitmapSourceTransform_Impl: Sized {
     fn CopyPixels(&self, prc: *const WICRect, uiwidth: u32, uiheight: u32, pguiddstformat: *const ::windows::core::GUID, dsttransform: WICBitmapTransformOptions, nstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()>;
@@ -867,6 +882,7 @@ impl IWICBitmapSourceTransform_Vtbl {
         iid == &<IWICBitmapSourceTransform as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICColorContext_Impl: Sized {
     fn InitializeFromFilename(&self, wzfilename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn InitializeFromMemory(&self, pbbuffer: *const u8, cbbuffersize: u32) -> ::windows::core::Result<()>;
@@ -934,6 +950,7 @@ impl IWICColorContext_Vtbl {
         iid == &<IWICColorContext as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICColorTransform_Impl: Sized + IWICBitmapSource_Impl {
     fn Initialize(&self, pibitmapsource: &::core::option::Option<IWICBitmapSource>, picontextsource: &::core::option::Option<IWICColorContext>, picontextdest: &::core::option::Option<IWICColorContext>, pixelfmtdest: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
@@ -951,6 +968,7 @@ impl IWICColorTransform_Vtbl {
         iid == &<IWICColorTransform as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWICComponentFactory_Impl: Sized + IWICImagingFactory_Impl {
     fn CreateMetadataReader(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<IWICMetadataReader>;
@@ -1058,6 +1076,7 @@ impl IWICComponentFactory_Vtbl {
         iid == &<IWICComponentFactory as ::windows::core::Interface>::IID || iid == &<IWICImagingFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICComponentInfo_Impl: Sized {
     fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType>;
     fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -1151,6 +1170,7 @@ impl IWICComponentInfo_Vtbl {
         iid == &<IWICComponentInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IWICDdsDecoder_Impl: Sized {
     fn GetParameters(&self) -> ::windows::core::Result<WICDdsParameters>;
@@ -1193,6 +1213,7 @@ impl IWICDdsDecoder_Vtbl {
         iid == &<IWICDdsDecoder as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IWICDdsEncoder_Impl: Sized {
     fn SetParameters(&self, pparameters: *const WICDdsParameters) -> ::windows::core::Result<()>;
@@ -1236,6 +1257,7 @@ impl IWICDdsEncoder_Vtbl {
         iid == &<IWICDdsEncoder as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IWICDdsFrameDecode_Impl: Sized {
     fn GetSizeInBlocks(&self, pwidthinblocks: *mut u32, pheightinblocks: *mut u32) -> ::windows::core::Result<()>;
@@ -1279,6 +1301,7 @@ impl IWICDdsFrameDecode_Vtbl {
         iid == &<IWICDdsFrameDecode as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IWICDevelopRaw_Impl: Sized + IWICBitmapFrameDecode_Impl {
     fn QueryRawCapabilitiesInfo(&self, pinfo: *mut WICRawCapabilitiesInfo) -> ::windows::core::Result<()>;
@@ -1591,6 +1614,7 @@ impl IWICDevelopRaw_Vtbl {
         iid == &<IWICDevelopRaw as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID || iid == &<IWICBitmapFrameDecode as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICDevelopRawNotificationCallback_Impl: Sized {
     fn Notify(&self, notificationmask: u32) -> ::windows::core::Result<()>;
 }
@@ -1608,6 +1632,7 @@ impl IWICDevelopRawNotificationCallback_Vtbl {
         iid == &<IWICDevelopRawNotificationCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWICEnumMetadataItem_Impl: Sized {
     fn Next(&self, celt: u32, rgeltschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -1658,6 +1683,7 @@ impl IWICEnumMetadataItem_Vtbl {
         iid == &<IWICEnumMetadataItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICFastMetadataEncoder_Impl: Sized {
     fn Commit(&self) -> ::windows::core::Result<()>;
     fn GetMetadataQueryWriter(&self) -> ::windows::core::Result<IWICMetadataQueryWriter>;
@@ -1691,6 +1717,7 @@ impl IWICFastMetadataEncoder_Vtbl {
         iid == &<IWICFastMetadataEncoder as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWICFormatConverter_Impl: Sized + IWICBitmapSource_Impl {
     fn Initialize(&self, pisource: &::core::option::Option<IWICBitmapSource>, dstformat: *const ::windows::core::GUID, dither: WICBitmapDitherType, pipalette: &::core::option::Option<IWICPalette>, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> ::windows::core::Result<()>;
@@ -1727,6 +1754,7 @@ impl IWICFormatConverter_Vtbl {
         iid == &<IWICFormatConverter as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICFormatConverterInfo_Impl: Sized + IWICComponentInfo_Impl {
     fn GetPixelFormats(&self, cformats: u32, ppixelformatguids: *mut ::windows::core::GUID, pcactual: *mut u32) -> ::windows::core::Result<()>;
     fn CreateInstance(&self) -> ::windows::core::Result<IWICFormatConverter>;
@@ -1760,6 +1788,7 @@ impl IWICFormatConverterInfo_Vtbl {
         iid == &<IWICFormatConverterInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWICImagingFactory_Impl: Sized {
     fn CreateDecoderFromFilename(&self, wzfilename: &::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>;
@@ -2101,6 +2130,7 @@ impl IWICImagingFactory_Vtbl {
         iid == &<IWICImagingFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IWICJpegFrameDecode_Impl: Sized {
     fn DoesSupportIndexing(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -2223,6 +2253,7 @@ impl IWICJpegFrameDecode_Vtbl {
         iid == &<IWICJpegFrameDecode as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IWICJpegFrameEncode_Impl: Sized {
     fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32) -> ::windows::core::Result<super::Dxgi::Common::DXGI_JPEG_AC_HUFFMAN_TABLE>;
@@ -2285,6 +2316,7 @@ impl IWICJpegFrameEncode_Vtbl {
         iid == &<IWICJpegFrameEncode as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWICMetadataBlockReader_Impl: Sized {
     fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -2353,6 +2385,7 @@ impl IWICMetadataBlockReader_Vtbl {
         iid == &<IWICMetadataBlockReader as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWICMetadataBlockWriter_Impl: Sized + IWICMetadataBlockReader_Impl {
     fn InitializeFromBlockReader(&self, pimdblockreader: &::core::option::Option<IWICMetadataBlockReader>) -> ::windows::core::Result<()>;
@@ -2410,6 +2443,7 @@ impl IWICMetadataBlockWriter_Vtbl {
         iid == &<IWICMetadataBlockWriter as ::windows::core::Interface>::IID || iid == &<IWICMetadataBlockReader as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWICMetadataHandlerInfo_Impl: Sized + IWICComponentInfo_Impl {
     fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -2499,6 +2533,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
         iid == &<IWICMetadataHandlerInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWICMetadataQueryReader_Impl: Sized {
     fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -2555,6 +2590,7 @@ impl IWICMetadataQueryReader_Vtbl {
         iid == &<IWICMetadataQueryReader as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWICMetadataQueryWriter_Impl: Sized + IWICMetadataQueryReader_Impl {
     fn SetMetadataByName(&self, wzname: &::windows::core::PCWSTR, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
@@ -2585,6 +2621,7 @@ impl IWICMetadataQueryWriter_Vtbl {
         iid == &<IWICMetadataQueryWriter as ::windows::core::Interface>::IID || iid == &<IWICMetadataQueryReader as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWICMetadataReader_Impl: Sized {
     fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -2667,6 +2704,7 @@ impl IWICMetadataReader_Vtbl {
         iid == &<IWICMetadataReader as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWICMetadataReaderInfo_Impl: Sized + IWICMetadataHandlerInfo_Impl {
     fn GetPatterns(&self, guidcontainerformat: *const ::windows::core::GUID, cbsize: u32, ppattern: *mut WICMetadataPattern, pccount: *mut u32, pcbactual: *mut u32) -> ::windows::core::Result<()>;
@@ -2716,6 +2754,7 @@ impl IWICMetadataReaderInfo_Vtbl {
         iid == &<IWICMetadataReaderInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID || iid == &<IWICMetadataHandlerInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWICMetadataWriter_Impl: Sized + IWICMetadataReader_Impl {
     fn SetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
@@ -2760,6 +2799,7 @@ impl IWICMetadataWriter_Vtbl {
         iid == &<IWICMetadataWriter as ::windows::core::Interface>::IID || iid == &<IWICMetadataReader as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWICMetadataWriterInfo_Impl: Sized + IWICMetadataHandlerInfo_Impl {
     fn GetHeader(&self, guidcontainerformat: *const ::windows::core::GUID, cbsize: u32, pheader: *mut WICMetadataHeader, pcbactual: *mut u32) -> ::windows::core::Result<()>;
@@ -2796,6 +2836,7 @@ impl IWICMetadataWriterInfo_Vtbl {
         iid == &<IWICMetadataWriterInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID || iid == &<IWICMetadataHandlerInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWICPalette_Impl: Sized {
     fn InitializePredefined(&self, epalettetype: WICBitmapPaletteType, faddtransparentcolor: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -2912,6 +2953,7 @@ impl IWICPalette_Vtbl {
         iid == &<IWICPalette as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWICPersistStream_Impl: Sized + super::super::System::Com::IPersistStream_Impl {
     fn LoadEx(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>, pguidpreferredvendor: *const ::windows::core::GUID, dwpersistoptions: u32) -> ::windows::core::Result<()>;
@@ -2942,6 +2984,7 @@ impl IWICPersistStream_Vtbl {
         iid == &<IWICPersistStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersistStream as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICPixelFormatInfo_Impl: Sized + IWICComponentInfo_Impl {
     fn GetFormatGUID(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetColorContext(&self) -> ::windows::core::Result<IWICColorContext>;
@@ -3014,6 +3057,7 @@ impl IWICPixelFormatInfo_Vtbl {
         iid == &<IWICPixelFormatInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWICPixelFormatInfo2_Impl: Sized + IWICPixelFormatInfo_Impl {
     fn SupportsTransparency(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -3056,6 +3100,7 @@ impl IWICPixelFormatInfo2_Vtbl {
         iid == &<IWICPixelFormatInfo2 as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID || iid == &<IWICPixelFormatInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICPlanarBitmapFrameEncode_Impl: Sized {
     fn WritePixels(&self, linecount: u32, pplanes: *const WICBitmapPlane, cplanes: u32) -> ::windows::core::Result<()>;
     fn WriteSource(&self, ppplanes: *const ::core::option::Option<IWICBitmapSource>, cplanes: u32, prcsource: *const WICRect) -> ::windows::core::Result<()>;
@@ -3083,6 +3128,7 @@ impl IWICPlanarBitmapFrameEncode_Vtbl {
         iid == &<IWICPlanarBitmapFrameEncode as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWICPlanarBitmapSourceTransform_Impl: Sized {
     fn DoesSupportTransform(&self, puiwidth: *mut u32, puiheight: *mut u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pguiddstformats: *const ::windows::core::GUID, pplanedescriptions: *mut WICBitmapPlaneDescription, cplanes: u32, pfissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -3113,6 +3159,7 @@ impl IWICPlanarBitmapSourceTransform_Vtbl {
         iid == &<IWICPlanarBitmapSourceTransform as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWICPlanarFormatConverter_Impl: Sized + IWICBitmapSource_Impl {
     fn Initialize(&self, ppplanes: *const ::core::option::Option<IWICBitmapSource>, cplanes: u32, dstformat: *const ::windows::core::GUID, dither: WICBitmapDitherType, pipalette: &::core::option::Option<IWICPalette>, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> ::windows::core::Result<()>;
@@ -3149,6 +3196,7 @@ impl IWICPlanarFormatConverter_Vtbl {
         iid == &<IWICPlanarFormatConverter as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICProgressCallback_Impl: Sized {
     fn Notify(&self, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows::core::Result<()>;
 }
@@ -3166,6 +3214,7 @@ impl IWICProgressCallback_Vtbl {
         iid == &<IWICProgressCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait IWICProgressiveLevelControl_Impl: Sized {
     fn GetLevelCount(&self) -> ::windows::core::Result<u32>;
     fn GetCurrentLevel(&self) -> ::windows::core::Result<u32>;
@@ -3212,6 +3261,7 @@ impl IWICProgressiveLevelControl_Vtbl {
         iid == &<IWICProgressiveLevelControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWICStream_Impl: Sized + super::super::System::Com::IStream_Impl {
     fn InitializeFromIStream(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
@@ -3256,6 +3306,7 @@ impl IWICStream_Vtbl {
         iid == &<IWICStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWICStreamProvider_Impl: Sized {
     fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;

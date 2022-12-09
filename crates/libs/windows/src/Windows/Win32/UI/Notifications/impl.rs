@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_UI_Notifications\"`, `\"implement\"`*"]
 pub trait INotificationActivationCallback_Impl: Sized {
     fn Activate(&self, appusermodelid: &::windows::core::PCWSTR, invokedargs: &::windows::core::PCWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::core::Result<()>;
 }

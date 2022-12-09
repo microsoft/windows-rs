@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISdo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetPropertyInfo(&self, id: i32) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -81,6 +82,7 @@ impl ISdo_Vtbl {
         iid == &<ISdo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISdoCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -177,6 +179,7 @@ impl ISdoCollection_Vtbl {
         iid == &<ISdoCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISdoDictionaryOld_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnumAttributes(&self, id: *mut super::super::System::Com::VARIANT, pvalues: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -246,6 +249,7 @@ impl ISdoDictionaryOld_Vtbl {
         iid == &<ISdoDictionaryOld as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISdoMachine_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Attach(&self, bstrcomputername: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -373,6 +377,7 @@ impl ISdoMachine_Vtbl {
         iid == &<ISdoMachine as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISdoMachine2_Impl: Sized + ISdoMachine_Impl {
     fn GetTemplatesSDO(&self, bstrservicename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -430,6 +435,7 @@ impl ISdoMachine2_Vtbl {
         iid == &<ISdoMachine2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISdoMachine as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISdoServiceControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StartService(&self) -> ::windows::core::Result<()>;
@@ -480,6 +486,7 @@ impl ISdoServiceControl_Vtbl {
         iid == &<ISdoServiceControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITemplateSdo_Impl: Sized + ISdo_Impl {
     fn AddToCollection(&self, bstrname: &::windows::core::BSTR, pcollection: &::core::option::Option<super::super::System::Com::IDispatch>, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;

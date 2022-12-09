@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Ole")]
 pub trait IADesktopP2_Impl: Sized {
     fn ReReadWallpaper(&self) -> ::windows::core::Result<()>;
@@ -42,6 +43,7 @@ impl IADesktopP2_Vtbl {
         iid == &<IADesktopP2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"implement\"`*"]
 pub trait IActiveDesktopP_Impl: Sized {
     fn SetSafeMode(&self, dwflags: u32) -> ::windows::core::Result<()>;
     fn EnsureUpdateHTML(&self) -> ::windows::core::Result<()>;
@@ -83,6 +85,7 @@ impl IActiveDesktopP_Vtbl {
         iid == &<IActiveDesktopP as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBriefcaseInitiator_Impl: Sized {
     fn IsMonikerInBriefcase(&self, pmk: &::core::option::Option<super::super::System::Com::IMoniker>) -> ::windows::core::Result<()>;
@@ -103,6 +106,7 @@ impl IBriefcaseInitiator_Vtbl {
         iid == &<IBriefcaseInitiator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub trait IEmptyVolumeCache_Impl: Sized {
     fn Initialize(&self, hkregkey: super::super::System::Registry::HKEY, pcwszvolume: &::windows::core::PCWSTR, ppwszdisplayname: *mut ::windows::core::PWSTR, ppwszdescription: *mut ::windows::core::PWSTR, pdwflags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> ::windows::core::Result<()>;
@@ -160,6 +164,7 @@ impl IEmptyVolumeCache_Vtbl {
         iid == &<IEmptyVolumeCache as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub trait IEmptyVolumeCache2_Impl: Sized + IEmptyVolumeCache_Impl {
     fn InitializeEx(&self, hkregkey: super::super::System::Registry::HKEY, pcwszvolume: &::windows::core::PCWSTR, pcwszkeyname: &::windows::core::PCWSTR, ppwszdisplayname: *mut ::windows::core::PWSTR, ppwszdescription: *mut ::windows::core::PWSTR, ppwszbtntext: *mut ::windows::core::PWSTR, pdwflags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> ::windows::core::Result<()>;
@@ -180,6 +185,7 @@ impl IEmptyVolumeCache2_Vtbl {
         iid == &<IEmptyVolumeCache2 as ::windows::core::Interface>::IID || iid == &<IEmptyVolumeCache as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"implement\"`*"]
 pub trait IEmptyVolumeCacheCallBack_Impl: Sized {
     fn ScanProgress(&self, dwlspaceused: u64, dwflags: u32, pcwszstatus: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn PurgeProgress(&self, dwlspacefreed: u64, dwlspacetofree: u64, dwflags: u32, pcwszstatus: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -207,6 +213,7 @@ impl IEmptyVolumeCacheCallBack_Vtbl {
         iid == &<IEmptyVolumeCacheCallBack as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IReconcilableObject_Impl: Sized {
     fn Reconcile(&self, pinitiator: &::core::option::Option<IReconcileInitiator>, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: *mut ::core::option::Option<super::super::System::Com::IMoniker>, ploutindex: *mut i32, pstgnewresidues: &::core::option::Option<super::super::System::Com::StructuredStorage::IStorage>, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -243,6 +250,7 @@ impl IReconcilableObject_Vtbl {
         iid == &<IReconcilableObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"implement\"`*"]
 pub trait IReconcileInitiator_Impl: Sized {
     fn SetAbortCallback(&self, punkforabort: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn SetProgressFeedback(&self, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::Result<()>;

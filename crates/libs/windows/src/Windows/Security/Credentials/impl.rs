@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Security_Credentials\"`, `\"implement\"`*"]
 pub trait IWebAccount_Impl: Sized {
     fn WebAccountProvider(&self) -> ::windows::core::Result<WebAccountProvider>;
     fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;

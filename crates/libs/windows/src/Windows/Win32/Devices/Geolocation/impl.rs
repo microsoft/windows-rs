@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ICivicAddressReport_Impl: Sized + ILocationReport_Impl {
     fn GetAddressLine1(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -105,6 +106,7 @@ impl ICivicAddressReport_Vtbl {
         iid == &<ICivicAddressReport as ::windows::core::Interface>::IID || iid == &<ILocationReport as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICivicAddressReportFactory_Impl: Sized + ILocationReportFactory_Impl {
     fn CivicAddressReport(&self) -> ::windows::core::Result<IDispCivicAddressReport>;
@@ -131,6 +133,7 @@ impl ICivicAddressReportFactory_Vtbl {
         iid == &<ICivicAddressReportFactory as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocationReportFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"implement\"`*"]
 pub trait IDefaultLocation_Impl: Sized {
     fn SetReport(&self, reporttype: *const ::windows::core::GUID, plocationreport: &::core::option::Option<ILocationReport>) -> ::windows::core::Result<()>;
     fn GetReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport>;
@@ -164,6 +167,7 @@ impl IDefaultLocation_Vtbl {
         iid == &<IDefaultLocation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDispCivicAddressReport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AddressLine1(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -284,6 +288,7 @@ impl IDispCivicAddressReport_Vtbl {
         iid == &<IDispCivicAddressReport as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDispLatLongReport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Latitude(&self) -> ::windows::core::Result<f64>;
@@ -378,6 +383,7 @@ impl IDispLatLongReport_Vtbl {
         iid == &<IDispLatLongReport as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ILatLongReport_Impl: Sized + ILocationReport_Impl {
     fn GetLatitude(&self) -> ::windows::core::Result<f64>;
@@ -459,6 +465,7 @@ impl ILatLongReport_Vtbl {
         iid == &<ILatLongReport as ::windows::core::Interface>::IID || iid == &<ILocationReport as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ILatLongReportFactory_Impl: Sized + ILocationReportFactory_Impl {
     fn LatLongReport(&self) -> ::windows::core::Result<IDispLatLongReport>;
@@ -485,6 +492,7 @@ impl ILatLongReportFactory_Vtbl {
         iid == &<ILatLongReportFactory as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocationReportFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Devices_Sensors", feature = "Win32_Foundation"))]
 pub trait ILocation_Impl: Sized {
     fn RegisterForReport(&self, pevents: &::core::option::Option<ILocationEvents>, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::Result<()>;
@@ -588,6 +596,7 @@ impl ILocation_Vtbl {
         iid == &<ILocation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"implement\"`*"]
 pub trait ILocationEvents_Impl: Sized {
     fn OnLocationChanged(&self, reporttype: *const ::windows::core::GUID, plocationreport: &::core::option::Option<ILocationReport>) -> ::windows::core::Result<()>;
     fn OnStatusChanged(&self, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::Result<()>;
@@ -615,6 +624,7 @@ impl ILocationEvents_Vtbl {
         iid == &<ILocationEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"implement\"`*"]
 pub trait ILocationPower_Impl: Sized {
     fn Connect(&self) -> ::windows::core::Result<()>;
     fn Disconnect(&self) -> ::windows::core::Result<()>;
@@ -642,6 +652,7 @@ impl ILocationPower_Vtbl {
         iid == &<ILocationPower as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ILocationReport_Impl: Sized {
     fn GetSensorID(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -697,6 +708,7 @@ impl ILocationReport_Vtbl {
         iid == &<ILocationReport as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ILocationReportFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::core::Result<()>;
@@ -787,6 +799,7 @@ impl ILocationReportFactory_Vtbl {
         iid == &<ILocationReportFactory as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _ICivicAddressReportFactoryEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -800,6 +813,7 @@ impl _ICivicAddressReportFactoryEvents_Vtbl {
         iid == &<_ICivicAddressReportFactoryEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _ILatLongReportFactoryEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

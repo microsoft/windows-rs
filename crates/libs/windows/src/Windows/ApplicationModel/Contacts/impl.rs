@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"implement\"`*"]
 pub trait IContactField_Impl: Sized {
     fn Type(&self) -> ::windows::core::Result<ContactFieldType>;
     fn Category(&self) -> ::windows::core::Result<ContactFieldCategory>;
@@ -69,6 +70,7 @@ impl IContactField_Vtbl {
         iid == &<IContactField as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"implement\"`*"]
 pub trait IContactFieldFactory_Impl: Sized {
     fn CreateField_Default(&self, value: &::windows::core::HSTRING, r#type: ContactFieldType) -> ::windows::core::Result<ContactField>;
     fn CreateField_Category(&self, value: &::windows::core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::core::Result<ContactField>;
@@ -126,6 +128,7 @@ impl IContactFieldFactory_Vtbl {
         iid == &<IContactFieldFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IContactInstantMessageFieldFactory_Impl: Sized {
     fn CreateInstantMessage_Default(&self, username: &::windows::core::HSTRING) -> ::windows::core::Result<ContactInstantMessageField>;
@@ -186,6 +189,7 @@ impl IContactInstantMessageFieldFactory_Vtbl {
         iid == &<IContactInstantMessageFieldFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"implement\"`*"]
 pub trait IContactLocationFieldFactory_Impl: Sized {
     fn CreateLocation_Default(&self, unstructuredaddress: &::windows::core::HSTRING) -> ::windows::core::Result<ContactLocationField>;
     fn CreateLocation_Category(&self, unstructuredaddress: &::windows::core::HSTRING, category: ContactFieldCategory) -> ::windows::core::Result<ContactLocationField>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Graphics_Effects\"`, `\"implement\"`*"]
 pub trait IGraphicsEffect_Impl: Sized + IGraphicsEffectSource_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -34,6 +35,7 @@ impl IGraphicsEffect_Vtbl {
         iid == &<IGraphicsEffect as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Graphics_Effects\"`, `\"implement\"`*"]
 pub trait IGraphicsEffectSource_Impl: Sized {}
 impl ::windows::core::RuntimeName for IGraphicsEffectSource {
     const NAME: &'static str = "Windows.Graphics.Effects.IGraphicsEffectSource";

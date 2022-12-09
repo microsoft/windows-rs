@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPAddressFamilyControl_Impl: Sized {
     fn SetAddressFamily(&self, dwflags: i32) -> ::windows::core::Result<()>;
     fn GetAddressFamily(&self) -> ::windows::core::Result<i32>;
@@ -31,6 +32,7 @@ impl IUPnPAddressFamilyControl_Vtbl {
         iid == &<IUPnPAddressFamilyControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPAsyncResult_Impl: Sized {
     fn AsyncOperationComplete(&self, ullrequestid: u64) -> ::windows::core::Result<()>;
 }
@@ -48,6 +50,7 @@ impl IUPnPAsyncResult_Vtbl {
         iid == &<IUPnPAsyncResult as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPDescriptionDocument_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn ReadyState(&self) -> ::windows::core::Result<i32>;
@@ -137,6 +140,7 @@ impl IUPnPDescriptionDocument_Vtbl {
         iid == &<IUPnPDescriptionDocument as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPDescriptionDocumentCallback_Impl: Sized {
     fn LoadComplete(&self, hrloadresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
@@ -154,6 +158,7 @@ impl IUPnPDescriptionDocumentCallback_Vtbl {
         iid == &<IUPnPDescriptionDocumentCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPDevice_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn IsRootDevice(&self) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL>;
@@ -417,6 +422,7 @@ impl IUPnPDevice_Vtbl {
         iid == &<IUPnPDevice as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUPnPDeviceControl_Impl: Sized {
     fn Initialize(&self, bstrxmldesc: &::windows::core::BSTR, bstrdeviceidentifier: &::windows::core::BSTR, bstrinitstring: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -453,6 +459,7 @@ impl IUPnPDeviceControl_Vtbl {
         iid == &<IUPnPDeviceControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPDeviceControlHttpHeaders_Impl: Sized {
     fn GetAdditionalResponseHeaders(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
@@ -479,6 +486,7 @@ impl IUPnPDeviceControlHttpHeaders_Vtbl {
         iid == &<IUPnPDeviceControlHttpHeaders as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPDeviceDocumentAccess_Impl: Sized {
     fn GetDocumentURL(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
@@ -502,6 +510,7 @@ impl IUPnPDeviceDocumentAccess_Vtbl {
         iid == &<IUPnPDeviceDocumentAccess as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPDeviceDocumentAccessEx_Impl: Sized {
     fn GetDocument(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
@@ -525,6 +534,7 @@ impl IUPnPDeviceDocumentAccessEx_Vtbl {
         iid == &<IUPnPDeviceDocumentAccessEx as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPDeviceFinder_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn FindByType(&self, bstrtypeuri: &::windows::core::BSTR, dwflags: u32) -> ::windows::core::Result<IUPnPDevices>;
@@ -594,6 +604,7 @@ impl IUPnPDeviceFinder_Vtbl {
         iid == &<IUPnPDeviceFinder as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUPnPDeviceFinderAddCallbackWithInterface_Impl: Sized {
     fn DeviceAddedWithInterface(&self, lfinddata: i32, pdevice: &::core::option::Option<IUPnPDevice>, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -614,6 +625,7 @@ impl IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
         iid == &<IUPnPDeviceFinderAddCallbackWithInterface as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUPnPDeviceFinderCallback_Impl: Sized {
     fn DeviceAdded(&self, lfinddata: i32, pdevice: &::core::option::Option<IUPnPDevice>) -> ::windows::core::Result<()>;
@@ -651,6 +663,7 @@ impl IUPnPDeviceFinderCallback_Vtbl {
         iid == &<IUPnPDeviceFinderCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPDeviceProvider_Impl: Sized {
     fn Start(&self, bstrinitstring: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
@@ -674,6 +687,7 @@ impl IUPnPDeviceProvider_Vtbl {
         iid == &<IUPnPDeviceProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPDevices_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -729,6 +743,7 @@ impl IUPnPDevices_Vtbl {
         iid == &<IUPnPDevices as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPEventSink_Impl: Sized {
     fn OnStateChanged(&self, cchanges: u32, rgdispidchanges: *const i32) -> ::windows::core::Result<()>;
@@ -759,6 +774,7 @@ impl IUPnPEventSink_Vtbl {
         iid == &<IUPnPEventSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPEventSource_Impl: Sized {
     fn Advise(&self, pessubscriber: &::core::option::Option<IUPnPEventSink>) -> ::windows::core::Result<()>;
     fn Unadvise(&self, pessubscriber: &::core::option::Option<IUPnPEventSink>) -> ::windows::core::Result<()>;
@@ -786,6 +802,7 @@ impl IUPnPEventSource_Vtbl {
         iid == &<IUPnPEventSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPHttpHeaderControl_Impl: Sized {
     fn AddRequestHeaders(&self, bstrhttpheaders: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -803,6 +820,7 @@ impl IUPnPHttpHeaderControl_Vtbl {
         iid == &<IUPnPHttpHeaderControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUPnPRegistrar_Impl: Sized {
     fn RegisterDevice(&self, bstrxmldesc: &::windows::core::BSTR, bstrprogiddevicecontrolclass: &::windows::core::BSTR, bstrinitstring: &::windows::core::BSTR, bstrcontainerid: &::windows::core::BSTR, bstrresourcepath: &::windows::core::BSTR, nlifetime: i32) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -879,6 +897,7 @@ impl IUPnPRegistrar_Vtbl {
         iid == &<IUPnPRegistrar as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPRemoteEndpointInfo_Impl: Sized {
     fn GetDwordValue(&self, bstrvaluename: &::windows::core::BSTR) -> ::windows::core::Result<u32>;
     fn GetStringValue(&self, bstrvaluename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -931,6 +950,7 @@ impl IUPnPRemoteEndpointInfo_Vtbl {
         iid == &<IUPnPRemoteEndpointInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPReregistrar_Impl: Sized {
     fn ReregisterDevice(&self, bstrdeviceidentifier: &::windows::core::BSTR, bstrxmldesc: &::windows::core::BSTR, bstrprogiddevicecontrolclass: &::windows::core::BSTR, bstrinitstring: &::windows::core::BSTR, bstrcontainerid: &::windows::core::BSTR, bstrresourcepath: &::windows::core::BSTR, nlifetime: i32) -> ::windows::core::Result<()>;
     fn ReregisterRunningDevice(&self, bstrdeviceidentifier: &::windows::core::BSTR, bstrxmldesc: &::windows::core::BSTR, punkdevicecontrol: &::core::option::Option<::windows::core::IUnknown>, bstrinitstring: &::windows::core::BSTR, bstrresourcepath: &::windows::core::BSTR, nlifetime: i32) -> ::windows::core::Result<()>;
@@ -958,6 +978,7 @@ impl IUPnPReregistrar_Vtbl {
         iid == &<IUPnPReregistrar as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPService_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn QueryStateVariable(&self, bstrvariablename: &::windows::core::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
@@ -1040,6 +1061,7 @@ impl IUPnPService_Vtbl {
         iid == &<IUPnPService as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPServiceAsync_Impl: Sized {
     fn BeginInvokeAction(&self, bstractionname: &::windows::core::BSTR, vinactionargs: &super::super::super::System::Com::VARIANT, pasyncresult: &::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
@@ -1149,6 +1171,7 @@ impl IUPnPServiceAsync_Vtbl {
         iid == &<IUPnPServiceAsync as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPServiceCallback_Impl: Sized {
     fn StateVariableChanged(&self, pus: &::core::option::Option<IUPnPService>, pcwszstatevarname: &::windows::core::PCWSTR, vavalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -1179,6 +1202,7 @@ impl IUPnPServiceCallback_Vtbl {
         iid == &<IUPnPServiceCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPServiceDocumentAccess_Impl: Sized {
     fn GetDocumentURL(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetDocument(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1218,6 +1242,7 @@ impl IUPnPServiceDocumentAccess_Vtbl {
         iid == &<IUPnPServiceDocumentAccess as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPServiceEnumProperty_Impl: Sized {
     fn SetServiceEnumProperty(&self, dwmask: u32) -> ::windows::core::Result<()>;
 }
@@ -1235,6 +1260,7 @@ impl IUPnPServiceEnumProperty_Vtbl {
         iid == &<IUPnPServiceEnumProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPServices_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;

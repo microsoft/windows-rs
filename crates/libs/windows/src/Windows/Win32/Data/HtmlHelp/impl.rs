@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IITDatabase_Impl: Sized {
     fn Open(&self, lpszhost: &::windows::core::PCWSTR, lpszmoniker: &::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()>;
@@ -49,6 +50,7 @@ impl IITDatabase_Vtbl {
         iid == &<IITDatabase as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IITPropList_Impl: Sized + super::super::System::Com::IPersistStreamInit_Impl {
     fn Set(&self, propid: u32, lpszwstring: &::windows::core::PCWSTR, dwoperation: u32) -> ::windows::core::Result<()>;
@@ -191,6 +193,7 @@ impl IITPropList_Vtbl {
         iid == &<IITPropList as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersistStreamInit as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IITResultSet_Impl: Sized {
     fn SetColumnPriority(&self, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows::core::Result<()>;
@@ -417,6 +420,7 @@ impl IITResultSet_Vtbl {
         iid == &<IITResultSet as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IITWordWheel_Impl: Sized {
     fn Open(&self, lpitdb: &::core::option::Option<IITDatabase>, lpszmoniker: &::windows::core::PCWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::Result<()>;
@@ -524,6 +528,7 @@ impl IITWordWheel_Vtbl {
         iid == &<IITWordWheel as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"implement\"`*"]
 pub trait IStemSink_Impl: Sized {
     fn PutAltWord(&self, pwcinbuf: &::windows::core::PCWSTR, cwc: u32) -> ::windows::core::Result<()>;
     fn PutWord(&self, pwcinbuf: &::windows::core::PCWSTR, cwc: u32) -> ::windows::core::Result<()>;
@@ -551,6 +556,7 @@ impl IStemSink_Vtbl {
         iid == &<IStemSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IStemmerConfig_Impl: Sized {
     fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> ::windows::core::Result<()>;
@@ -602,6 +608,7 @@ impl IStemmerConfig_Vtbl {
         iid == &<IStemmerConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`, `\"Win32_System_Search\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Search"))]
 pub trait IWordBreakerConfig_Impl: Sized {
     fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> ::windows::core::Result<()>;

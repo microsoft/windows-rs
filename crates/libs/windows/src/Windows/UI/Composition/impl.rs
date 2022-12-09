@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
 pub trait IAnimationObject_Impl: Sized {
     fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &::core::option::Option<AnimationPropertyInfo>) -> ::windows::core::Result<()>;
 }
@@ -20,6 +21,7 @@ impl IAnimationObject_Vtbl {
         iid == &<IAnimationObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
 pub trait ICompositionAnimationBase_Impl: Sized {}
 impl ::windows::core::RuntimeName for ICompositionAnimationBase {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionAnimationBase";
@@ -32,6 +34,7 @@ impl ICompositionAnimationBase_Vtbl {
         iid == &<ICompositionAnimationBase as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
 pub trait ICompositionSupportsSystemBackdrop_Impl: Sized {
     fn SystemBackdrop(&self) -> ::windows::core::Result<CompositionBrush>;
     fn SetSystemBackdrop(&self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
@@ -68,6 +71,7 @@ impl ICompositionSupportsSystemBackdrop_Vtbl {
         iid == &<ICompositionSupportsSystemBackdrop as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
 pub trait ICompositionSurface_Impl: Sized {}
 impl ::windows::core::RuntimeName for ICompositionSurface {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSurface";
@@ -80,6 +84,7 @@ impl ICompositionSurface_Vtbl {
         iid == &<ICompositionSurface as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
 pub trait ICompositionSurfaceFacade_Impl: Sized {
     fn GetRealSurface(&self) -> ::windows::core::Result<ICompositionSurface>;
 }
@@ -109,6 +114,7 @@ impl ICompositionSurfaceFacade_Vtbl {
         iid == &<ICompositionSurfaceFacade as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
 pub trait IVisualElement_Impl: Sized {}
 impl ::windows::core::RuntimeName for IVisualElement {
     const NAME: &'static str = "Windows.UI.Composition.IVisualElement";
@@ -121,6 +127,7 @@ impl IVisualElement_Vtbl {
         iid == &<IVisualElement as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
 pub trait IVisualElement2_Impl: Sized {
     fn GetVisualInternal(&self) -> ::windows::core::Result<Visual>;
 }

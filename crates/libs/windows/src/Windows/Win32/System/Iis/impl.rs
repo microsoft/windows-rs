@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait AsyncIFtpAuthenticationProvider_Impl: Sized {
     fn Begin_AuthenticateUser(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR, pszpassword: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -28,6 +29,7 @@ impl AsyncIFtpAuthenticationProvider_Vtbl {
         iid == &<AsyncIFtpAuthenticationProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
 pub trait AsyncIFtpAuthorizationProvider_Impl: Sized {
     fn Begin_GetUserAccessPermission(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszvirtualpath: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Finish_GetUserAccessPermission(&self) -> ::windows::core::Result<FTP_ACCESS>;
@@ -61,6 +63,7 @@ impl AsyncIFtpAuthorizationProvider_Vtbl {
         iid == &<AsyncIFtpAuthorizationProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
 pub trait AsyncIFtpHomeDirectoryProvider_Impl: Sized {
     fn Begin_GetUserHomeDirectoryData(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Finish_GetUserHomeDirectoryData(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -94,6 +97,7 @@ impl AsyncIFtpHomeDirectoryProvider_Vtbl {
         iid == &<AsyncIFtpHomeDirectoryProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
 pub trait AsyncIFtpLogProvider_Impl: Sized {
     fn Begin_Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::Result<()>;
     fn Finish_Log(&self) -> ::windows::core::Result<()>;
@@ -121,6 +125,7 @@ impl AsyncIFtpLogProvider_Vtbl {
         iid == &<AsyncIFtpLogProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait AsyncIFtpPostprocessProvider_Impl: Sized {
     fn Begin_HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows::core::Result<()>;
@@ -157,6 +162,7 @@ impl AsyncIFtpPostprocessProvider_Vtbl {
         iid == &<AsyncIFtpPostprocessProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait AsyncIFtpPreprocessProvider_Impl: Sized {
     fn Begin_HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows::core::Result<()>;
@@ -193,6 +199,7 @@ impl AsyncIFtpPreprocessProvider_Vtbl {
         iid == &<AsyncIFtpPreprocessProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait AsyncIFtpRoleProvider_Impl: Sized {
     fn Begin_IsUserInRole(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR, pszrole: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -229,6 +236,7 @@ impl AsyncIFtpRoleProvider_Vtbl {
         iid == &<AsyncIFtpRoleProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
 pub trait AsyncIMSAdminBaseSinkW_Impl: Sized {
     fn Begin_SinkNotify(&self, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::core::Result<()>;
     fn Finish_SinkNotify(&self) -> ::windows::core::Result<()>;
@@ -270,6 +278,7 @@ impl AsyncIMSAdminBaseSinkW_Vtbl {
         iid == &<AsyncIMSAdminBaseSinkW as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
 pub trait IADMEXT_Impl: Sized {
     fn Initialize(&self) -> ::windows::core::Result<()>;
     fn EnumDcomCLSIDs(&self, pclsiddcom: *mut ::windows::core::GUID, dwenumindex: u32) -> ::windows::core::Result<()>;
@@ -304,6 +313,7 @@ impl IADMEXT_Vtbl {
         iid == &<IADMEXT as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFtpAuthenticationProvider_Impl: Sized {
     fn AuthenticateUser(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR, pszpassword: &::windows::core::PCWSTR, ppszcanonicalusername: *mut ::windows::core::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -324,6 +334,7 @@ impl IFtpAuthenticationProvider_Vtbl {
         iid == &<IFtpAuthenticationProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
 pub trait IFtpAuthorizationProvider_Impl: Sized {
     fn GetUserAccessPermission(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszvirtualpath: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR) -> ::windows::core::Result<FTP_ACCESS>;
 }
@@ -347,6 +358,7 @@ impl IFtpAuthorizationProvider_Vtbl {
         iid == &<IFtpAuthorizationProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
 pub trait IFtpHomeDirectoryProvider_Impl: Sized {
     fn GetUserHomeDirectoryData(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
@@ -370,6 +382,7 @@ impl IFtpHomeDirectoryProvider_Vtbl {
         iid == &<IFtpHomeDirectoryProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
 pub trait IFtpLogProvider_Impl: Sized {
     fn Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::Result<()>;
 }
@@ -387,6 +400,7 @@ impl IFtpLogProvider_Vtbl {
         iid == &<IFtpLogProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFtpPostprocessProvider_Impl: Sized {
     fn HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows::core::Result<FTP_PROCESS_STATUS>;
@@ -413,6 +427,7 @@ impl IFtpPostprocessProvider_Vtbl {
         iid == &<IFtpPostprocessProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFtpPreprocessProvider_Impl: Sized {
     fn HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows::core::Result<FTP_PROCESS_STATUS>;
@@ -439,6 +454,7 @@ impl IFtpPreprocessProvider_Vtbl {
         iid == &<IFtpPreprocessProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFtpProviderConstruct_Impl: Sized {
     fn Construct(&self, configurationentries: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
@@ -459,6 +475,7 @@ impl IFtpProviderConstruct_Vtbl {
         iid == &<IFtpProviderConstruct as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFtpRoleProvider_Impl: Sized {
     fn IsUserInRole(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR, pszrole: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -485,6 +502,7 @@ impl IFtpRoleProvider_Vtbl {
         iid == &<IFtpRoleProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMSAdminBase2W_Impl: Sized + IMSAdminBaseW_Impl {
     fn BackupWithPasswd(&self, pszmdbackuplocation: &::windows::core::PCWSTR, dwmdversion: u32, dwmdflags: u32, pszpasswd: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -543,6 +561,7 @@ impl IMSAdminBase2W_Vtbl {
         iid == &<IMSAdminBase2W as ::windows::core::Interface>::IID || iid == &<IMSAdminBaseW as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMSAdminBase3W_Impl: Sized + IMSAdminBase2W_Impl {
     fn GetChildPaths(&self, hmdhandle: u32, pszmdpath: &::windows::core::PCWSTR, cchmdbuffersize: u32, pszbuffer: &::windows::core::PWSTR, pcchmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()>;
@@ -563,6 +582,7 @@ impl IMSAdminBase3W_Vtbl {
         iid == &<IMSAdminBase3W as ::windows::core::Interface>::IID || iid == &<IMSAdminBaseW as ::windows::core::Interface>::IID || iid == &<IMSAdminBase2W as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
 pub trait IMSAdminBaseSinkW_Impl: Sized {
     fn SinkNotify(&self, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::core::Result<()>;
     fn ShutdownNotify(&self) -> ::windows::core::Result<()>;
@@ -590,6 +610,7 @@ impl IMSAdminBaseSinkW_Vtbl {
         iid == &<IMSAdminBaseSinkW as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMSAdminBaseW_Impl: Sized {
     fn AddKey(&self, hmdhandle: u32, pszmdpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -853,6 +874,7 @@ impl IMSAdminBaseW_Vtbl {
         iid == &<IMSAdminBaseW as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
 pub trait IMSImpExpHelpW_Impl: Sized {
     fn EnumeratePathsInFile(&self, pszfilename: &::windows::core::PCWSTR, pszkeytype: &::windows::core::PCWSTR, dwmdbuffersize: u32, pszbuffer: &::windows::core::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()>;
 }

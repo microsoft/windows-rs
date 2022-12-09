@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"ApplicationModel_Appointments\"`, `\"implement\"`*"]
 pub trait IAppointmentParticipant_Impl: Sized {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;

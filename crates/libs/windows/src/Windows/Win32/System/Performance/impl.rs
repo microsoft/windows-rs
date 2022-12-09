@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DICounterItem_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11,6 +12,7 @@ impl DICounterItem_Vtbl {
         iid == &<DICounterItem as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DILogFileItem_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -24,6 +26,7 @@ impl DILogFileItem_Vtbl {
         iid == &<DILogFileItem as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DISystemMonitor_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -37,6 +40,7 @@ impl DISystemMonitor_Vtbl {
         iid == &<DISystemMonitor as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DISystemMonitorEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -50,6 +54,7 @@ impl DISystemMonitorEvents_Vtbl {
         iid == &<DISystemMonitorEvents as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DISystemMonitorInternal_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -63,6 +68,7 @@ impl DISystemMonitorInternal_Vtbl {
         iid == &<DISystemMonitorInternal as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAlertDataCollector_Impl: Sized + IDataCollector_Impl {
     fn AlertThresholds(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
@@ -239,6 +245,7 @@ impl IAlertDataCollector_Vtbl {
         iid == &<IAlertDataCollector as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IDataCollector as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IApiTracingDataCollector_Impl: Sized + IDataCollector_Impl {
     fn LogApiNamesOnly(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -395,6 +402,7 @@ impl IApiTracingDataCollector_Vtbl {
         iid == &<IApiTracingDataCollector as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IDataCollector as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IConfigurationDataCollector_Impl: Sized + IDataCollector_Impl {
     fn FileMaxCount(&self) -> ::windows::core::Result<u32>;
@@ -591,6 +599,7 @@ impl IConfigurationDataCollector_Vtbl {
         iid == &<IConfigurationDataCollector as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IDataCollector as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"implement\"`*"]
 pub trait ICounterItem_Impl: Sized {
     fn Value(&self) -> ::windows::core::Result<f64>;
     fn SetColor(&self, color: u32) -> ::windows::core::Result<()>;
@@ -724,6 +733,7 @@ impl ICounterItem_Vtbl {
         iid == &<ICounterItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICounterItem2_Impl: Sized + ICounterItem_Impl {
     fn SetSelected(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
@@ -793,6 +803,7 @@ impl ICounterItem2_Vtbl {
         iid == &<ICounterItem2 as ::windows::core::Interface>::IID || iid == &<ICounterItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICounters_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -868,6 +879,7 @@ impl ICounters_Vtbl {
         iid == &<ICounters as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDataCollector_Impl: Sized + super::Com::IDispatch_Impl {
     fn DataCollectorSet(&self) -> ::windows::core::Result<IDataCollectorSet>;
@@ -1149,6 +1161,7 @@ impl IDataCollector_Vtbl {
         iid == &<IDataCollector as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDataCollectorCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -1252,6 +1265,7 @@ impl IDataCollectorCollection_Vtbl {
         iid == &<IDataCollectorCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDataCollectorSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn DataCollectors(&self) -> ::windows::core::Result<IDataCollectorCollection>;
@@ -1892,6 +1906,7 @@ impl IDataCollectorSet_Vtbl {
         iid == &<IDataCollectorSet as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDataCollectorSetCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -1982,6 +1997,7 @@ impl IDataCollectorSetCollection_Vtbl {
         iid == &<IDataCollectorSetCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDataManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn Enabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -2251,6 +2267,7 @@ impl IDataManager_Vtbl {
         iid == &<IDataManager as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFolderAction_Impl: Sized + super::Com::IDispatch_Impl {
     fn Age(&self) -> ::windows::core::Result<u32>;
@@ -2347,6 +2364,7 @@ impl IFolderAction_Vtbl {
         iid == &<IFolderAction as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFolderActionCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<u32>;
@@ -2443,6 +2461,7 @@ impl IFolderActionCollection_Vtbl {
         iid == &<IFolderActionCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"implement\"`*"]
 pub trait ILogFileItem_Impl: Sized {
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
@@ -2466,6 +2485,7 @@ impl ILogFileItem_Vtbl {
         iid == &<ILogFileItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ILogFiles_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -2541,6 +2561,7 @@ impl ILogFiles_Vtbl {
         iid == &<ILogFiles as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPerformanceCounterDataCollector_Impl: Sized + IDataCollector_Impl {
     fn DataSourceName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2657,6 +2678,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
         iid == &<IPerformanceCounterDataCollector as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IDataCollector as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISchedule_Impl: Sized + super::Com::IDispatch_Impl {
     fn StartDate(&self) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -2753,6 +2775,7 @@ impl ISchedule_Vtbl {
         iid == &<ISchedule as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IScheduleCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -2849,6 +2872,7 @@ impl IScheduleCollection_Vtbl {
         iid == &<IScheduleCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISystemMonitor_Impl: Sized {
     fn Appearance(&self) -> ::windows::core::Result<i32>;
@@ -3613,6 +3637,7 @@ impl ISystemMonitor_Vtbl {
         iid == &<ISystemMonitor as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISystemMonitor2_Impl: Sized + ISystemMonitor_Impl {
     fn SetEnableDigitGrouping(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
@@ -3811,6 +3836,7 @@ impl ISystemMonitor2_Vtbl {
         iid == &<ISystemMonitor2 as ::windows::core::Interface>::IID || iid == &<ISystemMonitor as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"implement\"`*"]
 pub trait ISystemMonitorEvents_Impl: Sized {
     fn OnCounterSelected(&self, index: i32);
     fn OnCounterAdded(&self, index: i32);
@@ -3859,6 +3885,7 @@ impl ISystemMonitorEvents_Vtbl {
         iid == &<ISystemMonitorEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITraceDataCollector_Impl: Sized + IDataCollector_Impl {
     fn BufferSize(&self) -> ::windows::core::Result<u32>;
@@ -4281,6 +4308,7 @@ impl ITraceDataCollector_Vtbl {
         iid == &<ITraceDataCollector as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IDataCollector as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITraceDataProvider_Impl: Sized + super::Com::IDispatch_Impl {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4496,6 +4524,7 @@ impl ITraceDataProvider_Vtbl {
         iid == &<ITraceDataProvider as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITraceDataProviderCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -4606,6 +4635,7 @@ impl ITraceDataProviderCollection_Vtbl {
         iid == &<ITraceDataProviderCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IValueMap_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -4762,6 +4792,7 @@ impl IValueMap_Vtbl {
         iid == &<IValueMap as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IValueMapItem_Impl: Sized + super::Com::IDispatch_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4878,6 +4909,7 @@ impl IValueMapItem_Vtbl {
         iid == &<IValueMapItem as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _ICounterItemUnion_Impl: Sized {
     fn Value(&self) -> ::windows::core::Result<f64>;
@@ -5067,6 +5099,7 @@ impl _ICounterItemUnion_Vtbl {
         iid == &<_ICounterItemUnion as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _ISystemMonitorUnion_Impl: Sized {
     fn Appearance(&self) -> ::windows::core::Result<i32>;

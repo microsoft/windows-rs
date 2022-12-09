@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`, `\"implement\"`*"]
 pub trait IInkCommitRequestHandler_Impl: Sized {
     fn OnCommitRequested(&self) -> ::windows::core::Result<()>;
 }
@@ -15,6 +16,7 @@ impl IInkCommitRequestHandler_Vtbl {
         iid == &<IInkCommitRequestHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInkD2DRenderer_Impl: Sized {
     fn Draw(&self, pd2d1devicecontext: &::core::option::Option<::windows::core::IUnknown>, pinkstrokeiterable: &::core::option::Option<::windows::core::IUnknown>, fhighcontrast: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -35,6 +37,7 @@ impl IInkD2DRenderer_Vtbl {
         iid == &<IInkD2DRenderer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`, `\"implement\"`*"]
 pub trait IInkD2DRenderer2_Impl: Sized {
     fn Draw(&self, pd2d1devicecontext: &::core::option::Option<::windows::core::IUnknown>, pinkstrokeiterable: &::core::option::Option<::windows::core::IUnknown>, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> ::windows::core::Result<()>;
 }
@@ -52,6 +55,7 @@ impl IInkD2DRenderer2_Vtbl {
         iid == &<IInkD2DRenderer2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`, `\"implement\"`*"]
 pub trait IInkDesktopHost_Impl: Sized {
     fn QueueWorkItem(&self, workitem: &::core::option::Option<IInkHostWorkItem>) -> ::windows::core::Result<()>;
     fn CreateInkPresenter(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -86,6 +90,7 @@ impl IInkDesktopHost_Vtbl {
         iid == &<IInkDesktopHost as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`, `\"implement\"`*"]
 pub trait IInkHostWorkItem_Impl: Sized {
     fn Invoke(&self) -> ::windows::core::Result<()>;
 }
@@ -103,6 +108,7 @@ impl IInkHostWorkItem_Vtbl {
         iid == &<IInkHostWorkItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`, `\"implement\"`*"]
 pub trait IInkPresenterDesktop_Impl: Sized {
     fn SetRootVisual(&self, rootvisual: &::core::option::Option<::windows::core::IUnknown>, device: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn SetCommitRequestHandler(&self, handler: &::core::option::Option<IInkCommitRequestHandler>) -> ::windows::core::Result<()>;

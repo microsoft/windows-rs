@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
 pub trait IXmlCharacterData_Impl: Sized + IXmlNode_Impl + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -90,6 +91,7 @@ impl IXmlCharacterData_Vtbl {
         iid == &<IXmlCharacterData as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
 pub trait IXmlNode_Impl: Sized + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn SetNodeValue(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
@@ -406,6 +408,7 @@ impl IXmlNode_Vtbl {
         iid == &<IXmlNode as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
 pub trait IXmlNodeSelector_Impl: Sized {
     fn SelectSingleNode(&self, xpath: &::windows::core::HSTRING) -> ::windows::core::Result<IXmlNode>;
     fn SelectNodes(&self, xpath: &::windows::core::HSTRING) -> ::windows::core::Result<XmlNodeList>;
@@ -477,6 +480,7 @@ impl IXmlNodeSelector_Vtbl {
         iid == &<IXmlNodeSelector as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
 pub trait IXmlNodeSerializer_Impl: Sized {
     fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -527,6 +531,7 @@ impl IXmlNodeSerializer_Vtbl {
         iid == &<IXmlNodeSerializer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
 pub trait IXmlText_Impl: Sized + IXmlCharacterData_Impl + IXmlNode_Impl + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn SplitText(&self, offset: u32) -> ::windows::core::Result<IXmlText>;
 }

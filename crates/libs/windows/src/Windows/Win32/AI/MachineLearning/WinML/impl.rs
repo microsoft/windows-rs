@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorAttributes_Impl: Sized {
     fn GetAttributeElementCount(&self, name: &::windows::core::PCSTR, r#type: MLOperatorAttributeType) -> ::windows::core::Result<u32>;
     fn GetAttribute(&self, name: &::windows::core::PCSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -51,6 +52,7 @@ impl IMLOperatorAttributes_Vtbl {
         iid == &<IMLOperatorAttributes as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorKernel_Impl: Sized {
     fn Compute(&self, context: &::core::option::Option<IMLOperatorKernelContext>) -> ::windows::core::Result<()>;
 }
@@ -68,6 +70,7 @@ impl IMLOperatorKernel_Vtbl {
         iid == &<IMLOperatorKernel as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorKernelContext_Impl: Sized {
     fn GetInputTensor(&self, inputindex: u32, tensor: *mut ::core::option::Option<IMLOperatorTensor>) -> ::windows::core::Result<()>;
     fn GetOutputTensor(&self, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32, tensor: *mut ::core::option::Option<IMLOperatorTensor>) -> ::windows::core::Result<()>;
@@ -122,6 +125,7 @@ impl IMLOperatorKernelContext_Vtbl {
         iid == &<IMLOperatorKernelContext as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorKernelCreationContext_Impl: Sized + IMLOperatorAttributes_Impl {
     fn GetInputCount(&self) -> u32;
     fn GetOutputCount(&self) -> u32;
@@ -216,6 +220,7 @@ impl IMLOperatorKernelCreationContext_Vtbl {
         iid == &<IMLOperatorKernelCreationContext as ::windows::core::Interface>::IID || iid == &<IMLOperatorAttributes as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorKernelFactory_Impl: Sized {
     fn CreateKernel(&self, context: &::core::option::Option<IMLOperatorKernelCreationContext>) -> ::windows::core::Result<IMLOperatorKernel>;
 }
@@ -239,6 +244,7 @@ impl IMLOperatorKernelFactory_Vtbl {
         iid == &<IMLOperatorKernelFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorRegistry_Impl: Sized {
     fn RegisterOperatorSetSchema(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: &::core::option::Option<IMLOperatorTypeInferrer>, shapeinferrer: &::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
     fn RegisterOperatorKernel(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: &::core::option::Option<IMLOperatorKernelFactory>, shapeinferrer: &::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
@@ -266,6 +272,7 @@ impl IMLOperatorRegistry_Vtbl {
         iid == &<IMLOperatorRegistry as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorShapeInferenceContext_Impl: Sized + IMLOperatorAttributes_Impl {
     fn GetInputCount(&self) -> u32;
     fn GetOutputCount(&self) -> u32;
@@ -347,6 +354,7 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
         iid == &<IMLOperatorShapeInferenceContext as ::windows::core::Interface>::IID || iid == &<IMLOperatorAttributes as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorShapeInferrer_Impl: Sized {
     fn InferOutputShapes(&self, context: &::core::option::Option<IMLOperatorShapeInferenceContext>) -> ::windows::core::Result<()>;
 }
@@ -364,6 +372,7 @@ impl IMLOperatorShapeInferrer_Vtbl {
         iid == &<IMLOperatorShapeInferrer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorTensor_Impl: Sized {
     fn GetDimensionCount(&self) -> u32;
     fn GetShape(&self, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::Result<()>;
@@ -426,6 +435,7 @@ impl IMLOperatorTensor_Vtbl {
         iid == &<IMLOperatorTensor as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorTensorShapeDescription_Impl: Sized {
     fn GetInputTensorDimensionCount(&self, inputindex: u32) -> ::windows::core::Result<u32>;
     fn GetInputTensorShape(&self, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::Result<()>;
@@ -486,6 +496,7 @@ impl IMLOperatorTensorShapeDescription_Vtbl {
         iid == &<IMLOperatorTensorShapeDescription as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorTypeInferenceContext_Impl: Sized + IMLOperatorAttributes_Impl {
     fn GetInputCount(&self) -> u32;
     fn GetOutputCount(&self) -> u32;
@@ -547,6 +558,7 @@ impl IMLOperatorTypeInferenceContext_Vtbl {
         iid == &<IMLOperatorTypeInferenceContext as ::windows::core::Interface>::IID || iid == &<IMLOperatorAttributes as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorTypeInferrer_Impl: Sized {
     fn InferOutputTypes(&self, context: &::core::option::Option<IMLOperatorTypeInferenceContext>) -> ::windows::core::Result<()>;
 }
@@ -564,6 +576,7 @@ impl IMLOperatorTypeInferrer_Vtbl {
         iid == &<IMLOperatorTypeInferrer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IWinMLEvaluationContext_Impl: Sized {
     fn BindValue(&self, pdescriptor: *const WINML_BINDING_DESC) -> ::windows::core::Result<()>;
@@ -607,6 +620,7 @@ impl IWinMLEvaluationContext_Vtbl {
         iid == &<IWinMLEvaluationContext as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWinMLModel_Impl: Sized {
     fn GetDescription(&self) -> ::windows::core::Result<*mut WINML_MODEL_DESC>;
@@ -669,6 +683,7 @@ impl IWinMLModel_Vtbl {
         iid == &<IWinMLModel as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IWinMLRuntime_Impl: Sized {
     fn LoadModel(&self, path: &::windows::core::PCWSTR) -> ::windows::core::Result<IWinMLModel>;
@@ -718,6 +733,7 @@ impl IWinMLRuntime_Vtbl {
         iid == &<IWinMLRuntime as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IWinMLRuntimeFactory_Impl: Sized {
     fn CreateRuntime(&self, runtimetype: WINML_RUNTIME_TYPE) -> ::windows::core::Result<IWinMLRuntime>;
 }

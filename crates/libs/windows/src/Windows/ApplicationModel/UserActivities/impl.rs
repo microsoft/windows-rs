@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"implement\"`*"]
 pub trait IUserActivityContentInfo_Impl: Sized {
     fn ToJson(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }

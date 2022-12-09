@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"implement\"`*"]
 pub trait IEnhancedStorageACT_Impl: Sized {
     fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::core::Result<()>;
     fn Unauthorize(&self) -> ::windows::core::Result<()>;
@@ -71,6 +72,7 @@ impl IEnhancedStorageACT_Vtbl {
         iid == &<IEnhancedStorageACT as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnhancedStorageACT2_Impl: Sized + IEnhancedStorageACT_Impl {
     fn GetDeviceName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -113,6 +115,7 @@ impl IEnhancedStorageACT2_Vtbl {
         iid == &<IEnhancedStorageACT2 as ::windows::core::Interface>::IID || iid == &<IEnhancedStorageACT as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnhancedStorageACT3_Impl: Sized + IEnhancedStorageACT2_Impl {
     fn UnauthorizeEx(&self, dwflags: u32) -> ::windows::core::Result<()>;
@@ -162,6 +165,7 @@ impl IEnhancedStorageACT3_Vtbl {
         iid == &<IEnhancedStorageACT3 as ::windows::core::Interface>::IID || iid == &<IEnhancedStorageACT as ::windows::core::Interface>::IID || iid == &<IEnhancedStorageACT2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Devices_PortableDevices")]
 pub trait IEnhancedStorageSilo_Impl: Sized {
     fn GetInfo(&self) -> ::windows::core::Result<SILO_INFO>;
@@ -231,6 +235,7 @@ impl IEnhancedStorageSilo_Vtbl {
         iid == &<IEnhancedStorageSilo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"implement\"`*"]
 pub trait IEnhancedStorageSiloAction_Impl: Sized {
     fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -277,6 +282,7 @@ impl IEnhancedStorageSiloAction_Vtbl {
         iid == &<IEnhancedStorageSiloAction as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"implement\"`*"]
 pub trait IEnumEnhancedStorageACT_Impl: Sized {
     fn GetACTs(&self, pppienhancedstorageacts: *mut *mut ::core::option::Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> ::windows::core::Result<()>;
     fn GetMatchingACT(&self, szvolume: &::windows::core::PCWSTR) -> ::windows::core::Result<IEnhancedStorageACT>;

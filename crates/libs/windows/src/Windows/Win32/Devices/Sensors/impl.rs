@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ILocationPermissions_Impl: Sized {
     fn GetGlobalLocationPermission(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -34,6 +35,7 @@ impl ILocationPermissions_Vtbl {
         iid == &<ILocationPermissions as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISensor_Impl: Sized {
     fn GetID(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -227,6 +229,7 @@ impl ISensor_Vtbl {
         iid == &<ISensor as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"implement\"`*"]
 pub trait ISensorCollection_Impl: Sized {
     fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<ISensor>;
     fn GetCount(&self) -> ::windows::core::Result<u32>;
@@ -294,6 +297,7 @@ impl ISensorCollection_Vtbl {
         iid == &<ISensorCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISensorDataReport_Impl: Sized {
     fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
@@ -349,6 +353,7 @@ impl ISensorDataReport_Vtbl {
         iid == &<ISensorDataReport as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Devices_PortableDevices")]
 pub trait ISensorEvents_Impl: Sized {
     fn OnStateChanged(&self, psensor: &::core::option::Option<ISensor>, state: SensorState) -> ::windows::core::Result<()>;
@@ -393,6 +398,7 @@ impl ISensorEvents_Vtbl {
         iid == &<ISensorEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISensorManager_Impl: Sized {
     fn GetSensorsByCategory(&self, sensorcategory: *const ::windows::core::GUID) -> ::windows::core::Result<ISensorCollection>;
@@ -462,6 +468,7 @@ impl ISensorManager_Vtbl {
         iid == &<ISensorManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"implement\"`*"]
 pub trait ISensorManagerEvents_Impl: Sized {
     fn OnSensorEnter(&self, psensor: &::core::option::Option<ISensor>, state: SensorState) -> ::windows::core::Result<()>;
 }

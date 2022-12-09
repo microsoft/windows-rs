@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
 pub trait IContact_Impl: Sized {
     fn GetContactID(&self, pszcontactid: &::windows::core::PWSTR, cchcontactid: u32, pdwcchcontactidrequired: *mut u32) -> ::windows::core::Result<()>;
     fn GetPath(&self, pszpath: &::windows::core::PWSTR, cchpath: u32, pdwcchpathrequired: *mut u32) -> ::windows::core::Result<()>;
@@ -32,6 +33,7 @@ impl IContact_Vtbl {
         iid == &<IContact as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
 pub trait IContactAggregationAggregate_Impl: Sized {
     fn Save(&self) -> ::windows::core::Result<()>;
     fn GetComponentItems(&self) -> ::windows::core::Result<IContactAggregationContactCollection>;
@@ -138,6 +140,7 @@ impl IContactAggregationAggregate_Vtbl {
         iid == &<IContactAggregationAggregate as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
 pub trait IContactAggregationAggregateCollection_Impl: Sized {
     fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationAggregate>;
     fn FindFirstByAntiLinkId(&self, pantilinkid: &::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationAggregate>;
@@ -203,6 +206,7 @@ impl IContactAggregationAggregateCollection_Vtbl {
         iid == &<IContactAggregationAggregateCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationContact_Impl: Sized {
     fn Delete(&self) -> ::windows::core::Result<()>;
@@ -399,6 +403,7 @@ impl IContactAggregationContact_Vtbl {
         iid == &<IContactAggregationContact as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
 pub trait IContactAggregationContactCollection_Impl: Sized {
     fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationContact>;
     fn FindNext(&self) -> ::windows::core::Result<IContactAggregationContact>;
@@ -477,6 +482,7 @@ impl IContactAggregationContactCollection_Vtbl {
         iid == &<IContactAggregationContactCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
 pub trait IContactAggregationGroup_Impl: Sized {
     fn Delete(&self) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
@@ -584,6 +590,7 @@ impl IContactAggregationGroup_Vtbl {
         iid == &<IContactAggregationGroup as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
 pub trait IContactAggregationGroupCollection_Impl: Sized {
     fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationGroup>;
     fn FindFirstByGlobalObjectId(&self, pglobalobjectid: *const ::windows::core::GUID) -> ::windows::core::Result<IContactAggregationGroup>;
@@ -649,6 +656,7 @@ impl IContactAggregationGroupCollection_Vtbl {
         iid == &<IContactAggregationGroupCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationLink_Impl: Sized {
     fn Delete(&self) -> ::windows::core::Result<()>;
@@ -832,6 +840,7 @@ impl IContactAggregationLink_Vtbl {
         iid == &<IContactAggregationLink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
 pub trait IContactAggregationLinkCollection_Impl: Sized {
     fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationLink>;
     fn FindFirstByRemoteId(&self, psourcetype: &::windows::core::PCWSTR, paccountid: &::windows::core::PCWSTR, premoteid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationLink>;
@@ -897,6 +906,7 @@ impl IContactAggregationLinkCollection_Vtbl {
         iid == &<IContactAggregationLinkCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationManager_Impl: Sized {
     fn GetVersionInfo(&self, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows::core::Result<()>;
@@ -1090,6 +1100,7 @@ impl IContactAggregationManager_Vtbl {
         iid == &<IContactAggregationManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationServerPerson_Impl: Sized {
     fn Delete(&self) -> ::windows::core::Result<()>;
@@ -1333,6 +1344,7 @@ impl IContactAggregationServerPerson_Vtbl {
         iid == &<IContactAggregationServerPerson as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
 pub trait IContactAggregationServerPersonCollection_Impl: Sized {
     fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationServerPerson>;
     fn FindFirstByServerId(&self, pserverid: &::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationServerPerson>;
@@ -1424,6 +1436,7 @@ impl IContactAggregationServerPersonCollection_Vtbl {
         iid == &<IContactAggregationServerPersonCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
 pub trait IContactCollection_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Next(&self) -> ::windows::core::Result<()>;
@@ -1464,6 +1477,7 @@ impl IContactCollection_Vtbl {
         iid == &<IContactCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
 pub trait IContactManager_Impl: Sized {
     fn Initialize(&self, pszappname: &::windows::core::PCWSTR, pszappversion: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Load(&self, pszcontactid: &::windows::core::PCWSTR) -> ::windows::core::Result<IContact>;
@@ -1537,6 +1551,7 @@ impl IContactManager_Vtbl {
         iid == &<IContactManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IContactProperties_Impl: Sized {
     fn GetString(&self, pszpropertyname: &::windows::core::PCWSTR, dwflags: u32, pszvalue: &::windows::core::PWSTR, cchvalue: u32, pdwcchpropertyvaluerequired: *mut u32) -> ::windows::core::Result<()>;
@@ -1644,6 +1659,7 @@ impl IContactProperties_Vtbl {
         iid == &<IContactProperties as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactPropertyCollection_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;

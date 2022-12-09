@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Web\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IUriToStreamResolver_Impl: Sized {
     fn UriToStreamAsync(&self, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>;

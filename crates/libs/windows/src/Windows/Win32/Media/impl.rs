@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Media\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IReferenceClock_Impl: Sized {
     fn GetTime(&self) -> ::windows::core::Result<i64>;
@@ -60,6 +61,7 @@ impl IReferenceClock_Vtbl {
         iid == &<IReferenceClock as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IReferenceClock2_Impl: Sized + IReferenceClock_Impl {}
 #[cfg(feature = "Win32_Foundation")]
@@ -73,6 +75,7 @@ impl IReferenceClock2_Vtbl {
         iid == &<IReferenceClock2 as ::windows::core::Interface>::IID || iid == &<IReferenceClock as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media\"`, `\"implement\"`*"]
 pub trait IReferenceClockTimerControl_Impl: Sized {
     fn SetDefaultTimerResolution(&self, timerresolution: i64) -> ::windows::core::Result<()>;
     fn GetDefaultTimerResolution(&self) -> ::windows::core::Result<i64>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"System\"`, `\"UI_ViewManagement\"`, `\"implement\"`*"]
 #[cfg(feature = "UI_ViewManagement")]
 pub trait ILauncherViewOptions_Impl: Sized {
     fn DesiredRemainingView(&self) -> ::windows::core::Result<super::UI::ViewManagement::ViewSizePreference>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IMidiMessage_Impl: Sized {
     fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -58,6 +59,7 @@ impl IMidiMessage_Vtbl {
         iid == &<IMidiMessage as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IMidiOutPort_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn SendMessage(&self, midimessage: &::core::option::Option<IMidiMessage>) -> ::windows::core::Result<()>;

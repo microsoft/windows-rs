@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSMan_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreateSession(&self, connection: &::windows::core::BSTR, flags: i32, connectionoptions: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<super::Com::IDispatch>;
@@ -66,6 +67,7 @@ impl IWSMan_Vtbl {
         iid == &<IWSMan as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManConnectionOptions_Impl: Sized + super::Com::IDispatch_Impl {
     fn UserName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -109,6 +111,7 @@ impl IWSManConnectionOptions_Vtbl {
         iid == &<IWSManConnectionOptions as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManConnectionOptionsEx_Impl: Sized + IWSManConnectionOptions_Impl {
     fn CertificateThumbprint(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -145,6 +148,7 @@ impl IWSManConnectionOptionsEx_Vtbl {
         iid == &<IWSManConnectionOptionsEx as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSManConnectionOptions as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManConnectionOptionsEx2_Impl: Sized + IWSManConnectionOptionsEx_Impl {
     fn SetProxy(&self, accesstype: i32, authenticationmechanism: i32, username: &::windows::core::BSTR, password: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -259,6 +263,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
         iid == &<IWSManConnectionOptionsEx2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSManConnectionOptions as ::windows::core::Interface>::IID || iid == &<IWSManConnectionOptionsEx as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManEnumerator_Impl: Sized + super::Com::IDispatch_Impl {
     fn ReadItem(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -314,6 +319,7 @@ impl IWSManEnumerator_Vtbl {
         iid == &<IWSManEnumerator as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManEx_Impl: Sized + IWSMan_Impl {
     fn CreateResourceLocator(&self, strresourcelocator: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
@@ -590,6 +596,7 @@ impl IWSManEx_Vtbl {
         iid == &<IWSManEx as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSMan as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManEx2_Impl: Sized + IWSManEx_Impl {
     fn SessionFlagUseClientCertificate(&self) -> ::windows::core::Result<i32>;
@@ -619,6 +626,7 @@ impl IWSManEx2_Vtbl {
         iid == &<IWSManEx2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSMan as ::windows::core::Interface>::IID || iid == &<IWSManEx as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManEx3_Impl: Sized + IWSManEx2_Impl {
     fn SessionFlagUTF16(&self) -> ::windows::core::Result<i32>;
@@ -726,6 +734,7 @@ impl IWSManEx3_Vtbl {
         iid == &<IWSManEx3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSMan as ::windows::core::Interface>::IID || iid == &<IWSManEx as ::windows::core::Interface>::IID || iid == &<IWSManEx2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManInternal_Impl: Sized + super::Com::IDispatch_Impl {
     fn ConfigSDDL(&self, session: &::core::option::Option<super::Com::IDispatch>, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -752,6 +761,7 @@ impl IWSManInternal_Vtbl {
         iid == &<IWSManInternal as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManResourceLocator_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetResourceURI(&self, uri: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -889,6 +899,7 @@ impl IWSManResourceLocator_Vtbl {
         iid == &<IWSManResourceLocator as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"implement\"`*"]
 pub trait IWSManResourceLocatorInternal_Impl: Sized {}
 impl ::windows::core::RuntimeName for IWSManResourceLocatorInternal {}
 impl IWSManResourceLocatorInternal_Vtbl {
@@ -899,6 +910,7 @@ impl IWSManResourceLocatorInternal_Vtbl {
         iid == &<IWSManResourceLocatorInternal as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManSession_Impl: Sized + super::Com::IDispatch_Impl {
     fn Get(&self, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;

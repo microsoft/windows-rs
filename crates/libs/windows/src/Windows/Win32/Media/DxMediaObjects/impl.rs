@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"implement\"`*"]
 pub trait IDMOQualityControl_Impl: Sized {
     fn SetNow(&self, rtnow: i64) -> ::windows::core::Result<()>;
     fn SetStatus(&self, dwflags: u32) -> ::windows::core::Result<()>;
@@ -38,6 +39,7 @@ impl IDMOQualityControl_Vtbl {
         iid == &<IDMOQualityControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"implement\"`*"]
 pub trait IDMOVideoOutputOptimizations_Impl: Sized {
     fn QueryOperationModePreferences(&self, uloutputstreamindex: u32) -> ::windows::core::Result<u32>;
     fn SetOperationMode(&self, uloutputstreamindex: u32, dwenabledfeatures: u32) -> ::windows::core::Result<()>;
@@ -97,6 +99,7 @@ impl IDMOVideoOutputOptimizations_Vtbl {
         iid == &<IDMOVideoOutputOptimizations as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"implement\"`*"]
 pub trait IEnumDMO_Impl: Sized {
     fn Next(&self, citemstofetch: u32, pclsid: *mut ::windows::core::GUID, names: *mut ::windows::core::PWSTR, pcitemsfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, citemstoskip: u32) -> ::windows::core::Result<()>;
@@ -144,6 +147,7 @@ impl IEnumDMO_Vtbl {
         iid == &<IEnumDMO as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"implement\"`*"]
 pub trait IMediaBuffer_Impl: Sized {
     fn SetLength(&self, cblength: u32) -> ::windows::core::Result<()>;
     fn GetMaxLength(&self) -> ::windows::core::Result<u32>;
@@ -184,6 +188,7 @@ impl IMediaBuffer_Vtbl {
         iid == &<IMediaBuffer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMediaObject_Impl: Sized {
     fn GetStreamCount(&self, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows::core::Result<()>;
@@ -383,6 +388,7 @@ impl IMediaObject_Vtbl {
         iid == &<IMediaObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"implement\"`*"]
 pub trait IMediaObjectInPlace_Impl: Sized {
     fn Process(&self, ulsize: u32, pdata: *mut u8, reftimestart: i64, dwflags: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IMediaObjectInPlace>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAction_Impl: Sized + super::Com::IDispatch_Impl {
     fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -35,6 +36,7 @@ impl IAction_Vtbl {
         iid == &<IAction as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IActionCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self, pcount: *mut i32) -> ::windows::core::Result<()>;
@@ -139,6 +141,7 @@ impl IActionCollection_Vtbl {
         iid == &<IActionCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBootTrigger_Impl: Sized + ITrigger_Impl {
     fn Delay(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -165,6 +168,7 @@ impl IBootTrigger_Vtbl {
         iid == &<IBootTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IComHandlerAction_Impl: Sized + IAction_Impl {
     fn ClassId(&self, pclsid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -209,6 +213,7 @@ impl IComHandlerAction_Vtbl {
         iid == &<IComHandlerAction as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAction as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDailyTrigger_Impl: Sized + ITrigger_Impl {
     fn DaysInterval(&self, pdays: *mut i16) -> ::windows::core::Result<()>;
@@ -253,6 +258,7 @@ impl IDailyTrigger_Vtbl {
         iid == &<IDailyTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEmailAction_Impl: Sized + IAction_Impl {
     fn Server(&self, pserver: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -415,6 +421,7 @@ impl IEmailAction_Vtbl {
         iid == &<IEmailAction as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAction as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"implement\"`*"]
 pub trait IEnumWorkItems_Impl: Sized {
     fn Next(&self, celt: u32, rgpwsznames: *mut *mut ::windows::core::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
     fn Skip(&self, celt: u32) -> ::windows::core::HRESULT;
@@ -462,6 +469,7 @@ impl IEnumWorkItems_Vtbl {
         iid == &<IEnumWorkItems as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEventTrigger_Impl: Sized + ITrigger_Impl {
     fn Subscription(&self, pquery: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -526,6 +534,7 @@ impl IEventTrigger_Vtbl {
         iid == &<IEventTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IExecAction_Impl: Sized + IAction_Impl {
     fn Path(&self, ppath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -584,6 +593,7 @@ impl IExecAction_Vtbl {
         iid == &<IExecAction as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAction as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IExecAction2_Impl: Sized + IExecAction_Impl {
     fn HideAppWindow(&self, phideappwindow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
@@ -614,6 +624,7 @@ impl IExecAction2_Vtbl {
         iid == &<IExecAction2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAction as ::windows::core::Interface>::IID || iid == &<IExecAction as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IIdleSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn IdleDuration(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -686,6 +697,7 @@ impl IIdleSettings_Vtbl {
         iid == &<IIdleSettings as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IIdleTrigger_Impl: Sized + ITrigger_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -699,6 +711,7 @@ impl IIdleTrigger_Vtbl {
         iid == &<IIdleTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ILogonTrigger_Impl: Sized + ITrigger_Impl {
     fn Delay(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -743,6 +756,7 @@ impl ILogonTrigger_Vtbl {
         iid == &<ILogonTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMaintenanceSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetPeriod(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -801,6 +815,7 @@ impl IMaintenanceSettings_Vtbl {
         iid == &<IMaintenanceSettings as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMonthlyDOWTrigger_Impl: Sized + ITrigger_Impl {
     fn DaysOfWeek(&self, pdays: *mut i16) -> ::windows::core::Result<()>;
@@ -887,6 +902,7 @@ impl IMonthlyDOWTrigger_Vtbl {
         iid == &<IMonthlyDOWTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMonthlyTrigger_Impl: Sized + ITrigger_Impl {
     fn DaysOfMonth(&self, pdays: *mut i32) -> ::windows::core::Result<()>;
@@ -959,6 +975,7 @@ impl IMonthlyTrigger_Vtbl {
         iid == &<IMonthlyTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetworkSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self, pname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -1003,6 +1020,7 @@ impl INetworkSettings_Vtbl {
         iid == &<INetworkSettings as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrincipal_Impl: Sized + super::Com::IDispatch_Impl {
     fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -1103,6 +1121,7 @@ impl IPrincipal_Vtbl {
         iid == &<IPrincipal as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrincipal2_Impl: Sized + super::Com::IDispatch_Impl {
     fn ProcessTokenSidType(&self, pprocesstokensidtype: *mut TASK_PROCESSTOKENSID_TYPE) -> ::windows::core::Result<()>;
@@ -1154,6 +1173,7 @@ impl IPrincipal2_Vtbl {
         iid == &<IPrincipal2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub trait IProvideTaskPage_Impl: Sized {
     fn GetPage(&self, tptype: TASKPAGE, fpersistchanges: super::super::Foundation::BOOL) -> ::windows::core::Result<super::super::UI::Controls::HPROPSHEETPAGE>;
@@ -1180,6 +1200,7 @@ impl IProvideTaskPage_Vtbl {
         iid == &<IProvideTaskPage as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRegisteredTask_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1406,6 +1427,7 @@ impl IRegisteredTask_Vtbl {
         iid == &<IRegisteredTask as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRegisteredTaskCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -1461,6 +1483,7 @@ impl IRegisteredTaskCollection_Vtbl {
         iid == &<IRegisteredTaskCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRegistrationInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Description(&self, pdescription: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -1603,6 +1626,7 @@ impl IRegistrationInfo_Vtbl {
         iid == &<IRegistrationInfo as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRegistrationTrigger_Impl: Sized + ITrigger_Impl {
     fn Delay(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -1629,6 +1653,7 @@ impl IRegistrationTrigger_Vtbl {
         iid == &<IRegistrationTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRepetitionPattern_Impl: Sized + super::Com::IDispatch_Impl {
     fn Interval(&self, pinterval: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -1687,6 +1712,7 @@ impl IRepetitionPattern_Vtbl {
         iid == &<IRepetitionPattern as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRunningTask_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1795,6 +1821,7 @@ impl IRunningTask_Vtbl {
         iid == &<IRunningTask as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRunningTaskCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -1850,6 +1877,7 @@ impl IRunningTaskCollection_Vtbl {
         iid == &<IRunningTaskCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IScheduledWorkItem_Impl: Sized {
     fn CreateTrigger(&self, pinewtrigger: *mut u16, pptrigger: *mut ::core::option::Option<ITaskTrigger>) -> ::windows::core::Result<()>;
@@ -2141,6 +2169,7 @@ impl IScheduledWorkItem_Vtbl {
         iid == &<IScheduledWorkItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISessionStateChangeTrigger_Impl: Sized + ITrigger_Impl {
     fn Delay(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2199,6 +2228,7 @@ impl ISessionStateChangeTrigger_Vtbl {
         iid == &<ISessionStateChangeTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IShowMessageAction_Impl: Sized + IAction_Impl {
     fn Title(&self, ptitle: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2243,6 +2273,7 @@ impl IShowMessageAction_Vtbl {
         iid == &<IShowMessageAction as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAction as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITask_Impl: Sized + IScheduledWorkItem_Impl {
     fn SetApplicationName(&self, pwszapplicationname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -2379,6 +2410,7 @@ impl ITask_Vtbl {
         iid == &<ITask as ::windows::core::Interface>::IID || iid == &<IScheduledWorkItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskDefinition_Impl: Sized + super::Com::IDispatch_Impl {
     fn RegistrationInfo(&self) -> ::windows::core::Result<IRegistrationInfo>;
@@ -2523,6 +2555,7 @@ impl ITaskDefinition_Vtbl {
         iid == &<ITaskDefinition as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskFolder_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2690,6 +2723,7 @@ impl ITaskFolder_Vtbl {
         iid == &<ITaskFolder as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskFolderCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -2745,6 +2779,7 @@ impl ITaskFolderCollection_Vtbl {
         iid == &<ITaskFolderCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"implement\"`*"]
 pub trait ITaskHandler_Impl: Sized {
     fn Start(&self, phandlerservices: &::core::option::Option<::windows::core::IUnknown>, data: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
@@ -2792,6 +2827,7 @@ impl ITaskHandler_Vtbl {
         iid == &<ITaskHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"implement\"`*"]
 pub trait ITaskHandlerStatus_Impl: Sized {
     fn UpdateStatus(&self, percentcomplete: i16, statusmessage: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn TaskCompleted(&self, taskerrcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -2819,6 +2855,7 @@ impl ITaskHandlerStatus_Vtbl {
         iid == &<ITaskHandlerStatus as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskNamedValueCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self, pcount: *mut i32) -> ::windows::core::Result<()>;
@@ -2895,6 +2932,7 @@ impl ITaskNamedValueCollection_Vtbl {
         iid == &<ITaskNamedValueCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskNamedValuePair_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self, pname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2939,6 +2977,7 @@ impl ITaskNamedValuePair_Vtbl {
         iid == &<ITaskNamedValuePair as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"implement\"`*"]
 pub trait ITaskScheduler_Impl: Sized {
     fn SetTargetComputer(&self, pwszcomputer: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetTargetComputer(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -3032,6 +3071,7 @@ impl ITaskScheduler_Vtbl {
         iid == &<ITaskScheduler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskService_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetFolder(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<ITaskFolder>;
@@ -3159,6 +3199,7 @@ impl ITaskService_Vtbl {
         iid == &<ITaskService as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn AllowDemandStart(&self, pallowdemandstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
@@ -3467,6 +3508,7 @@ impl ITaskSettings_Vtbl {
         iid == &<ITaskSettings as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskSettings2_Impl: Sized + super::Com::IDispatch_Impl {
     fn DisallowStartOnRemoteAppSession(&self, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
@@ -3511,6 +3553,7 @@ impl ITaskSettings2_Vtbl {
         iid == &<ITaskSettings2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskSettings3_Impl: Sized + ITaskSettings_Impl {
     fn DisallowStartOnRemoteAppSession(&self, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
@@ -3602,6 +3645,7 @@ impl ITaskSettings3_Vtbl {
         iid == &<ITaskSettings3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITaskSettings as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"implement\"`*"]
 pub trait ITaskTrigger_Impl: Sized {
     fn SetTrigger(&self, ptrigger: *const TASK_TRIGGER) -> ::windows::core::Result<()>;
     fn GetTrigger(&self) -> ::windows::core::Result<TASK_TRIGGER>;
@@ -3648,6 +3692,7 @@ impl ITaskTrigger_Vtbl {
         iid == &<ITaskTrigger as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"implement\"`*"]
 pub trait ITaskVariables_Impl: Sized {
     fn GetInput(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetOutput(&self, input: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3694,6 +3739,7 @@ impl ITaskVariables_Vtbl {
         iid == &<ITaskVariables as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITimeTrigger_Impl: Sized + ITrigger_Impl {
     fn RandomDelay(&self, prandomdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3724,6 +3770,7 @@ impl ITimeTrigger_Vtbl {
         iid == &<ITimeTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITrigger_Impl: Sized + super::Com::IDispatch_Impl {
     fn Type(&self, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()>;
@@ -3837,6 +3884,7 @@ impl ITrigger_Vtbl {
         iid == &<ITrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITriggerCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self, pcount: *mut i32) -> ::windows::core::Result<()>;
@@ -3913,6 +3961,7 @@ impl ITriggerCollection_Vtbl {
         iid == &<ITriggerCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWeeklyTrigger_Impl: Sized + ITrigger_Impl {
     fn DaysOfWeek(&self, pdays: *mut i16) -> ::windows::core::Result<()>;

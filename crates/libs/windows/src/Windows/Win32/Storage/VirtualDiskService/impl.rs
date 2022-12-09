@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IEnumVdsObject_Impl: Sized {
     fn Next(&self, celt: u32, ppobjectarray: *mut ::core::option::Option<::windows::core::IUnknown>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -45,6 +46,7 @@ impl IEnumVdsObject_Vtbl {
         iid == &<IEnumVdsObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsAdmin_Impl: Sized {
     fn RegisterProvider(&self, providerid: &::windows::core::GUID, providerclsid: &::windows::core::GUID, pwszname: &::windows::core::PCWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: &::windows::core::PCWSTR, pwszversion: &::windows::core::PCWSTR, guidversionid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn UnregisterProvider(&self, providerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -72,6 +74,7 @@ impl IVdsAdmin_Vtbl {
         iid == &<IVdsAdmin as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsAdviseSink_Impl: Sized {
     fn OnNotify(&self, lnumberofnotifications: i32, pnotificationarray: *const VDS_NOTIFICATION) -> ::windows::core::Result<()>;
 }
@@ -89,6 +92,7 @@ impl IVdsAdviseSink_Vtbl {
         iid == &<IVdsAdviseSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsAsync_Impl: Sized {
     fn Cancel(&self) -> ::windows::core::Result<()>;
     fn Wait(&self, phrresult: *mut ::windows::core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> ::windows::core::Result<()>;
@@ -123,6 +127,7 @@ impl IVdsAsync_Vtbl {
         iid == &<IVdsAsync as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsController_Impl: Sized {
     fn GetProperties(&self) -> ::windows::core::Result<VDS_CONTROLLER_PROP>;
     fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem>;
@@ -216,6 +221,7 @@ impl IVdsController_Vtbl {
         iid == &<IVdsController as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsControllerControllerPort_Impl: Sized {
     fn QueryControllerPorts(&self) -> ::windows::core::Result<IEnumVdsObject>;
 }
@@ -239,6 +245,7 @@ impl IVdsControllerControllerPort_Vtbl {
         iid == &<IVdsControllerControllerPort as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsControllerPort_Impl: Sized {
     fn GetProperties(&self) -> ::windows::core::Result<VDS_PORT_PROP>;
     fn GetController(&self) -> ::windows::core::Result<IVdsController>;
@@ -305,6 +312,7 @@ impl IVdsControllerPort_Vtbl {
         iid == &<IVdsControllerPort as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsDrive_Impl: Sized {
     fn GetProperties(&self) -> ::windows::core::Result<VDS_DRIVE_PROP>;
@@ -375,6 +383,7 @@ impl IVdsDrive_Vtbl {
         iid == &<IVdsDrive as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsDrive2_Impl: Sized {
     fn GetProperties2(&self) -> ::windows::core::Result<VDS_DRIVE_PROP2>;
 }
@@ -398,6 +407,7 @@ impl IVdsDrive2_Vtbl {
         iid == &<IVdsDrive2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsHwProvider_Impl: Sized {
     fn QuerySubSystems(&self) -> ::windows::core::Result<IEnumVdsObject>;
     fn Reenumerate(&self) -> ::windows::core::Result<()>;
@@ -438,6 +448,7 @@ impl IVdsHwProvider_Vtbl {
         iid == &<IVdsHwProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsHwProviderPrivate_Impl: Sized {
     fn QueryIfCreatedLun(&self, pwszdevicepath: &::windows::core::PCWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION) -> ::windows::core::Result<::windows::core::GUID>;
@@ -464,6 +475,7 @@ impl IVdsHwProviderPrivate_Vtbl {
         iid == &<IVdsHwProviderPrivate as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsHwProviderPrivateMpio_Impl: Sized {
     fn SetAllPathStatusesFromHbaPort(&self, hbaportprop: &VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> ::windows::core::Result<()>;
 }
@@ -484,6 +496,7 @@ impl IVdsHwProviderPrivateMpio_Vtbl {
         iid == &<IVdsHwProviderPrivateMpio as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsHwProviderStoragePools_Impl: Sized {
     fn QueryStoragePools(&self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> ::windows::core::Result<IEnumVdsObject>;
@@ -539,6 +552,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
         iid == &<IVdsHwProviderStoragePools as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsHwProviderType_Impl: Sized {
     fn GetProviderType(&self) -> ::windows::core::Result<VDS_HWPROVIDER_TYPE>;
 }
@@ -562,6 +576,7 @@ impl IVdsHwProviderType_Vtbl {
         iid == &<IVdsHwProviderType as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsHwProviderType2_Impl: Sized {
     fn GetProviderType2(&self) -> ::windows::core::Result<VDS_HWPROVIDER_TYPE>;
 }
@@ -585,6 +600,7 @@ impl IVdsHwProviderType2_Vtbl {
         iid == &<IVdsHwProviderType2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsIscsiPortal_Impl: Sized {
     fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_PORTAL_PROP>;
     fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem>;
@@ -671,6 +687,7 @@ impl IVdsIscsiPortal_Vtbl {
         iid == &<IVdsIscsiPortal as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsIscsiPortalGroup_Impl: Sized {
     fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_PORTALGROUP_PROP>;
     fn GetTarget(&self) -> ::windows::core::Result<IVdsIscsiTarget>;
@@ -762,6 +779,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
         iid == &<IVdsIscsiPortalGroup as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsIscsiTarget_Impl: Sized {
     fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_TARGET_PROP>;
@@ -884,6 +902,7 @@ impl IVdsIscsiTarget_Vtbl {
         iid == &<IVdsIscsiTarget as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLun_Impl: Sized {
     fn GetProperties(&self) -> ::windows::core::Result<VDS_LUN_PROP>;
@@ -1091,6 +1110,7 @@ impl IVdsLun_Vtbl {
         iid == &<IVdsLun as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLun2_Impl: Sized {
     fn QueryHints2(&self) -> ::windows::core::Result<VDS_HINTS2>;
@@ -1127,6 +1147,7 @@ impl IVdsLun2_Vtbl {
         iid == &<IVdsLun2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsLunControllerPorts_Impl: Sized {
     fn AssociateControllerPorts(&self, pactivecontrollerportidarray: *const ::windows::core::GUID, lnumberofactivecontrollerports: i32, pinactivecontrollerportidarray: *const ::windows::core::GUID, lnumberofinactivecontrollerports: i32) -> ::windows::core::Result<()>;
     fn QueryActiveControllerPorts(&self) -> ::windows::core::Result<IEnumVdsObject>;
@@ -1160,6 +1181,7 @@ impl IVdsLunControllerPorts_Vtbl {
         iid == &<IVdsLunControllerPorts as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsLunIscsi_Impl: Sized {
     fn AssociateTargets(&self, ptargetidarray: *const ::windows::core::GUID, lnumberoftargets: i32) -> ::windows::core::Result<()>;
     fn QueryAssociatedTargets(&self) -> ::windows::core::Result<IEnumVdsObject>;
@@ -1193,6 +1215,7 @@ impl IVdsLunIscsi_Vtbl {
         iid == &<IVdsLunIscsi as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLunMpio_Impl: Sized {
     fn GetPathInfo(&self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut i32) -> ::windows::core::Result<()>;
@@ -1243,6 +1266,7 @@ impl IVdsLunMpio_Vtbl {
         iid == &<IVdsLunMpio as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsLunNaming_Impl: Sized {
     fn SetFriendlyName(&self, pwszfriendlyname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
@@ -1260,6 +1284,7 @@ impl IVdsLunNaming_Vtbl {
         iid == &<IVdsLunNaming as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsLunNumber_Impl: Sized {
     fn GetLunNumber(&self) -> ::windows::core::Result<u32>;
 }
@@ -1283,6 +1308,7 @@ impl IVdsLunNumber_Vtbl {
         iid == &<IVdsLunNumber as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLunPlex_Impl: Sized {
     fn GetProperties(&self) -> ::windows::core::Result<VDS_LUN_PLEX_PROP>;
@@ -1352,6 +1378,7 @@ impl IVdsLunPlex_Vtbl {
         iid == &<IVdsLunPlex as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsMaintenance_Impl: Sized {
     fn StartMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::core::Result<()>;
     fn StopMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::core::Result<()>;
@@ -1386,6 +1413,7 @@ impl IVdsMaintenance_Vtbl {
         iid == &<IVdsMaintenance as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsProvider_Impl: Sized {
     fn GetProperties(&self) -> ::windows::core::Result<VDS_PROVIDER_PROP>;
 }
@@ -1409,6 +1437,7 @@ impl IVdsProvider_Vtbl {
         iid == &<IVdsProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsProviderPrivate_Impl: Sized {
     fn GetObject(&self, objectid: &::windows::core::GUID, r#type: VDS_OBJECT_TYPE) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -1452,6 +1481,7 @@ impl IVdsProviderPrivate_Vtbl {
         iid == &<IVdsProviderPrivate as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsProviderSupport_Impl: Sized {
     fn GetVersionSupport(&self) -> ::windows::core::Result<u32>;
 }
@@ -1475,6 +1505,7 @@ impl IVdsProviderSupport_Vtbl {
         iid == &<IVdsProviderSupport as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsStoragePool_Impl: Sized {
     fn GetProvider(&self) -> ::windows::core::Result<IVdsProvider>;
@@ -1563,6 +1594,7 @@ impl IVdsStoragePool_Vtbl {
         iid == &<IVdsStoragePool as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsSubSystem_Impl: Sized {
     fn GetProperties(&self) -> ::windows::core::Result<VDS_SUB_SYSTEM_PROP>;
@@ -1711,6 +1743,7 @@ impl IVdsSubSystem_Vtbl {
         iid == &<IVdsSubSystem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsSubSystem2_Impl: Sized {
     fn GetProperties2(&self) -> ::windows::core::Result<VDS_SUB_SYSTEM_PROP2>;
@@ -1779,6 +1812,7 @@ impl IVdsSubSystem2_Vtbl {
         iid == &<IVdsSubSystem2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsSubSystemInterconnect_Impl: Sized {
     fn GetSupportedInterconnects(&self) -> ::windows::core::Result<u32>;
 }
@@ -1805,6 +1839,7 @@ impl IVdsSubSystemInterconnect_Vtbl {
         iid == &<IVdsSubSystemInterconnect as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsSubSystemIscsi_Impl: Sized {
     fn QueryTargets(&self) -> ::windows::core::Result<IEnumVdsObject>;
     fn QueryPortals(&self) -> ::windows::core::Result<IEnumVdsObject>;
@@ -1864,6 +1899,7 @@ impl IVdsSubSystemIscsi_Vtbl {
         iid == &<IVdsSubSystemIscsi as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsSubSystemNaming_Impl: Sized {
     fn SetFriendlyName(&self, pwszfriendlyname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }

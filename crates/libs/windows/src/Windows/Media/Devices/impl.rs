@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Media_Devices\"`, `\"implement\"`*"]
 pub trait IDefaultAudioDeviceChangedEventArgs_Impl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Role(&self) -> ::windows::core::Result<AudioDeviceRole>;
@@ -41,6 +42,7 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
         iid == &<IDefaultAudioDeviceChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
 pub trait IMediaDeviceController_Impl: Sized {
     fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>;

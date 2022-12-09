@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Devices_Spi\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait ISpiDeviceStatics_Impl: Sized {
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"implement\"`*"]
 pub trait IForceFeedbackEffect_Impl: Sized {
     fn Gain(&self) -> ::windows::core::Result<f64>;
     fn SetGain(&self, value: f64) -> ::windows::core::Result<()>;

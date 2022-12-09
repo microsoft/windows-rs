@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationInterpolator_Impl: Sized {
     fn SetInitialValueAndVelocity(&self, initialvalue: f64, initialvelocity: f64) -> ::windows::core::Result<()>;
     fn SetDuration(&self, duration: f64) -> ::windows::core::Result<()>;
@@ -84,6 +85,7 @@ impl IUIAnimationInterpolator_Vtbl {
         iid == &<IUIAnimationInterpolator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationInterpolator2_Impl: Sized {
     fn GetDimension(&self) -> ::windows::core::Result<u32>;
     fn SetInitialValueAndVelocity(&self, initialvalue: *const f64, initialvelocity: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
@@ -172,6 +174,7 @@ impl IUIAnimationInterpolator2_Vtbl {
         iid == &<IUIAnimationInterpolator2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationLoopIterationChangeHandler2_Impl: Sized {
     fn OnLoopIterationChanged(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>, id: usize, newiterationcount: u32, olditerationcount: u32) -> ::windows::core::Result<()>;
 }
@@ -189,6 +192,7 @@ impl IUIAnimationLoopIterationChangeHandler2_Vtbl {
         iid == &<IUIAnimationLoopIterationChangeHandler2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationManager_Impl: Sized {
     fn CreateAnimationVariable(&self, initialvalue: f64) -> ::windows::core::Result<IUIAnimationVariable>;
     fn ScheduleTransition(&self, variable: &::core::option::Option<IUIAnimationVariable>, transition: &::core::option::Option<IUIAnimationTransition>, timenow: f64) -> ::windows::core::Result<()>;
@@ -365,6 +369,7 @@ impl IUIAnimationManager_Vtbl {
         iid == &<IUIAnimationManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAnimationManager2_Impl: Sized {
     fn CreateAnimationVectorVariable(&self, initialvalue: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationVariable2>;
@@ -570,6 +575,7 @@ impl IUIAnimationManager2_Vtbl {
         iid == &<IUIAnimationManager2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationManagerEventHandler_Impl: Sized {
     fn OnManagerStatusChanged(&self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::Result<()>;
 }
@@ -587,6 +593,7 @@ impl IUIAnimationManagerEventHandler_Vtbl {
         iid == &<IUIAnimationManagerEventHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationManagerEventHandler2_Impl: Sized {
     fn OnManagerStatusChanged(&self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::Result<()>;
 }
@@ -604,6 +611,7 @@ impl IUIAnimationManagerEventHandler2_Vtbl {
         iid == &<IUIAnimationManagerEventHandler2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationPrimitiveInterpolation_Impl: Sized {
     fn AddCubic(&self, dimension: u32, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> ::windows::core::Result<()>;
     fn AddSinusoidal(&self, dimension: u32, beginoffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> ::windows::core::Result<()>;
@@ -631,6 +639,7 @@ impl IUIAnimationPrimitiveInterpolation_Vtbl {
         iid == &<IUIAnimationPrimitiveInterpolation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationPriorityComparison_Impl: Sized {
     fn HasPriority(&self, scheduledstoryboard: &::core::option::Option<IUIAnimationStoryboard>, newstoryboard: &::core::option::Option<IUIAnimationStoryboard>, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::Result<()>;
 }
@@ -648,6 +657,7 @@ impl IUIAnimationPriorityComparison_Vtbl {
         iid == &<IUIAnimationPriorityComparison as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationPriorityComparison2_Impl: Sized {
     fn HasPriority(&self, scheduledstoryboard: &::core::option::Option<IUIAnimationStoryboard2>, newstoryboard: &::core::option::Option<IUIAnimationStoryboard2>, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::Result<()>;
 }
@@ -665,6 +675,7 @@ impl IUIAnimationPriorityComparison2_Vtbl {
         iid == &<IUIAnimationPriorityComparison2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationStoryboard_Impl: Sized {
     fn AddTransition(&self, variable: &::core::option::Option<IUIAnimationVariable>, transition: &::core::option::Option<IUIAnimationTransition>) -> ::windows::core::Result<()>;
     fn AddKeyframeAtOffset(&self, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>;
@@ -821,6 +832,7 @@ impl IUIAnimationStoryboard_Vtbl {
         iid == &<IUIAnimationStoryboard as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAnimationStoryboard2_Impl: Sized {
     fn AddTransition(&self, variable: &::core::option::Option<IUIAnimationVariable2>, transition: &::core::option::Option<IUIAnimationTransition2>) -> ::windows::core::Result<()>;
@@ -987,6 +999,7 @@ impl IUIAnimationStoryboard2_Vtbl {
         iid == &<IUIAnimationStoryboard2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationStoryboardEventHandler_Impl: Sized {
     fn OnStoryboardStatusChanged(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard>, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::Result<()>;
     fn OnStoryboardUpdated(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard>) -> ::windows::core::Result<()>;
@@ -1014,6 +1027,7 @@ impl IUIAnimationStoryboardEventHandler_Vtbl {
         iid == &<IUIAnimationStoryboardEventHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationStoryboardEventHandler2_Impl: Sized {
     fn OnStoryboardStatusChanged(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::Result<()>;
     fn OnStoryboardUpdated(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>) -> ::windows::core::Result<()>;
@@ -1041,6 +1055,7 @@ impl IUIAnimationStoryboardEventHandler2_Vtbl {
         iid == &<IUIAnimationStoryboardEventHandler2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationTimer_Impl: Sized {
     fn SetTimerUpdateHandler(&self, updatehandler: &::core::option::Option<IUIAnimationTimerUpdateHandler>, idlebehavior: UI_ANIMATION_IDLE_BEHAVIOR) -> ::windows::core::Result<()>;
     fn SetTimerEventHandler(&self, handler: &::core::option::Option<IUIAnimationTimerEventHandler>) -> ::windows::core::Result<()>;
@@ -1109,6 +1124,7 @@ impl IUIAnimationTimer_Vtbl {
         iid == &<IUIAnimationTimer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationTimerClientEventHandler_Impl: Sized {
     fn OnTimerClientStatusChanged(&self, newstatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousstatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> ::windows::core::Result<()>;
 }
@@ -1129,6 +1145,7 @@ impl IUIAnimationTimerClientEventHandler_Vtbl {
         iid == &<IUIAnimationTimerClientEventHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationTimerEventHandler_Impl: Sized {
     fn OnPreUpdate(&self) -> ::windows::core::Result<()>;
     fn OnPostUpdate(&self) -> ::windows::core::Result<()>;
@@ -1163,6 +1180,7 @@ impl IUIAnimationTimerEventHandler_Vtbl {
         iid == &<IUIAnimationTimerEventHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationTimerUpdateHandler_Impl: Sized {
     fn OnUpdate(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT>;
     fn SetTimerClientEventHandler(&self, handler: &::core::option::Option<IUIAnimationTimerClientEventHandler>) -> ::windows::core::Result<()>;
@@ -1203,6 +1221,7 @@ impl IUIAnimationTimerUpdateHandler_Vtbl {
         iid == &<IUIAnimationTimerUpdateHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationTransition_Impl: Sized {
     fn SetInitialValue(&self, value: f64) -> ::windows::core::Result<()>;
     fn SetInitialVelocity(&self, velocity: f64) -> ::windows::core::Result<()>;
@@ -1250,6 +1269,7 @@ impl IUIAnimationTransition_Vtbl {
         iid == &<IUIAnimationTransition as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationTransition2_Impl: Sized {
     fn GetDimension(&self) -> ::windows::core::Result<u32>;
     fn SetInitialValue(&self, value: f64) -> ::windows::core::Result<()>;
@@ -1324,6 +1344,7 @@ impl IUIAnimationTransition2_Vtbl {
         iid == &<IUIAnimationTransition2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationTransitionFactory_Impl: Sized {
     fn CreateTransition(&self, interpolator: &::core::option::Option<IUIAnimationInterpolator>) -> ::windows::core::Result<IUIAnimationTransition>;
 }
@@ -1347,6 +1368,7 @@ impl IUIAnimationTransitionFactory_Vtbl {
         iid == &<IUIAnimationTransitionFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationTransitionFactory2_Impl: Sized {
     fn CreateTransition(&self, interpolator: &::core::option::Option<IUIAnimationInterpolator2>) -> ::windows::core::Result<IUIAnimationTransition2>;
 }
@@ -1370,6 +1392,7 @@ impl IUIAnimationTransitionFactory2_Vtbl {
         iid == &<IUIAnimationTransitionFactory2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationTransitionLibrary_Impl: Sized {
     fn CreateInstantaneousTransition(&self, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition>;
     fn CreateConstantTransition(&self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition>;
@@ -1539,6 +1562,7 @@ impl IUIAnimationTransitionLibrary_Vtbl {
         iid == &<IUIAnimationTransitionLibrary as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationTransitionLibrary2_Impl: Sized {
     fn CreateInstantaneousTransition(&self, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
     fn CreateInstantaneousVectorTransition(&self, finalvalue: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2>;
@@ -1799,6 +1823,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
         iid == &<IUIAnimationTransitionLibrary2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationVariable_Impl: Sized {
     fn GetValue(&self) -> ::windows::core::Result<f64>;
     fn GetFinalValue(&self) -> ::windows::core::Result<f64>;
@@ -1952,6 +1977,7 @@ impl IUIAnimationVariable_Vtbl {
         iid == &<IUIAnimationVariable as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectComposition"))]
 pub trait IUIAnimationVariable2_Impl: Sized {
     fn GetDimension(&self) -> ::windows::core::Result<u32>;
@@ -2198,6 +2224,7 @@ impl IUIAnimationVariable2_Vtbl {
         iid == &<IUIAnimationVariable2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationVariableChangeHandler_Impl: Sized {
     fn OnValueChanged(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard>, variable: &::core::option::Option<IUIAnimationVariable>, newvalue: f64, previousvalue: f64) -> ::windows::core::Result<()>;
 }
@@ -2215,6 +2242,7 @@ impl IUIAnimationVariableChangeHandler_Vtbl {
         iid == &<IUIAnimationVariableChangeHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationVariableChangeHandler2_Impl: Sized {
     fn OnValueChanged(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>, variable: &::core::option::Option<IUIAnimationVariable2>, newvalue: *const f64, previousvalue: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
 }
@@ -2232,6 +2260,7 @@ impl IUIAnimationVariableChangeHandler2_Vtbl {
         iid == &<IUIAnimationVariableChangeHandler2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationVariableCurveChangeHandler2_Impl: Sized {
     fn OnCurveChanged(&self, variable: &::core::option::Option<IUIAnimationVariable2>) -> ::windows::core::Result<()>;
 }
@@ -2249,6 +2278,7 @@ impl IUIAnimationVariableCurveChangeHandler2_Vtbl {
         iid == &<IUIAnimationVariableCurveChangeHandler2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationVariableIntegerChangeHandler_Impl: Sized {
     fn OnIntegerValueChanged(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard>, variable: &::core::option::Option<IUIAnimationVariable>, newvalue: i32, previousvalue: i32) -> ::windows::core::Result<()>;
 }
@@ -2266,6 +2296,7 @@ impl IUIAnimationVariableIntegerChangeHandler_Vtbl {
         iid == &<IUIAnimationVariableIntegerChangeHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"implement\"`*"]
 pub trait IUIAnimationVariableIntegerChangeHandler2_Impl: Sized {
     fn OnIntegerValueChanged(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>, variable: &::core::option::Option<IUIAnimationVariable2>, newvalue: *const i32, previousvalue: *const i32, cdimension: u32) -> ::windows::core::Result<()>;
 }

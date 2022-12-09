@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDAddress_Impl: Sized {
     fn Serialize(&self, pszbuffer: ::windows::core::PWSTR, cchlength: u32, fsafe: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -28,6 +29,7 @@ impl IWSDAddress_Vtbl {
         iid == &<IWSDAddress as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDAsyncCallback_Impl: Sized {
     fn AsyncOperationComplete(&self, pasyncresult: &::core::option::Option<IWSDAsyncResult>, pasyncstate: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
@@ -45,6 +47,7 @@ impl IWSDAsyncCallback_Vtbl {
         iid == &<IWSDAsyncCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDAsyncResult_Impl: Sized {
     fn SetCallback(&self, pcallback: &::core::option::Option<IWSDAsyncCallback>, pasyncstate: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -128,6 +131,7 @@ impl IWSDAsyncResult_Vtbl {
         iid == &<IWSDAsyncResult as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDAttachment_Impl: Sized {}
 impl ::windows::core::RuntimeName for IWSDAttachment {}
 impl IWSDAttachment_Vtbl {
@@ -138,6 +142,7 @@ impl IWSDAttachment_Vtbl {
         iid == &<IWSDAttachment as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDDeviceHost_Impl: Sized {
     fn Init(&self, pszlocalid: &::windows::core::PCWSTR, pcontext: &::core::option::Option<IWSDXMLContext>, pphostaddresses: *const ::core::option::Option<IWSDAddress>, dwhostaddresscount: u32) -> ::windows::core::Result<()>;
@@ -238,6 +243,7 @@ impl IWSDDeviceHost_Vtbl {
         iid == &<IWSDDeviceHost as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDDeviceHostNotify_Impl: Sized {
     fn GetService(&self, pszserviceid: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
@@ -261,6 +267,7 @@ impl IWSDDeviceHostNotify_Vtbl {
         iid == &<IWSDDeviceHostNotify as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDDeviceProxy_Impl: Sized {
     fn Init(&self, pszdeviceid: &::windows::core::PCWSTR, pdeviceaddress: &::core::option::Option<IWSDAddress>, pszlocalid: &::windows::core::PCWSTR, pcontext: &::core::option::Option<IWSDXMLContext>, psponsor: &::core::option::Option<IWSDDeviceProxy>) -> ::windows::core::Result<()>;
     fn BeginGetMetadata(&self) -> ::windows::core::Result<IWSDAsyncResult>;
@@ -392,6 +399,7 @@ impl IWSDDeviceProxy_Vtbl {
         iid == &<IWSDDeviceProxy as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDEndpointProxy_Impl: Sized {
     fn SendOneWayRequest(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows::core::Result<()>;
@@ -475,6 +483,7 @@ impl IWSDEndpointProxy_Vtbl {
         iid == &<IWSDEndpointProxy as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDEventingStatus_Impl: Sized {
     fn SubscriptionRenewed(&self, pszsubscriptionaction: &::windows::core::PCWSTR);
     fn SubscriptionRenewalFailed(&self, pszsubscriptionaction: &::windows::core::PCWSTR, hr: ::windows::core::HRESULT);
@@ -509,6 +518,7 @@ impl IWSDEventingStatus_Vtbl {
         iid == &<IWSDEventingStatus as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDHttpAddress_Impl: Sized + IWSDTransportAddress_Impl {
     fn GetSecure(&self) -> ::windows::core::Result<()>;
@@ -559,6 +569,7 @@ impl IWSDHttpAddress_Vtbl {
         iid == &<IWSDHttpAddress as ::windows::core::Interface>::IID || iid == &<IWSDAddress as ::windows::core::Interface>::IID || iid == &<IWSDTransportAddress as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDHttpAuthParameters_Impl: Sized {
     fn GetClientAccessToken(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
@@ -601,6 +612,7 @@ impl IWSDHttpAuthParameters_Vtbl {
         iid == &<IWSDHttpAuthParameters as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDHttpMessageParameters_Impl: Sized + IWSDMessageParameters_Impl {
     fn SetInboundHttpHeaders(&self, pszheaders: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetInboundHttpHeaders(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -701,6 +713,7 @@ impl IWSDHttpMessageParameters_Vtbl {
         iid == &<IWSDHttpMessageParameters as ::windows::core::Interface>::IID || iid == &<IWSDMessageParameters as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDInboundAttachment_Impl: Sized + IWSDAttachment_Impl {
     fn Read(&self, pbuffer: *mut u8, dwbytestoread: u32, pdwnumberofbytesread: *mut u32) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
@@ -724,6 +737,7 @@ impl IWSDInboundAttachment_Vtbl {
         iid == &<IWSDInboundAttachment as ::windows::core::Interface>::IID || iid == &<IWSDAttachment as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDMessageParameters_Impl: Sized {
     fn GetLocalAddress(&self) -> ::windows::core::Result<IWSDAddress>;
     fn SetLocalAddress(&self, paddress: &::core::option::Option<IWSDAddress>) -> ::windows::core::Result<()>;
@@ -790,6 +804,7 @@ impl IWSDMessageParameters_Vtbl {
         iid == &<IWSDMessageParameters as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDMetadataExchange_Impl: Sized {
     fn GetMetadata(&self) -> ::windows::core::Result<*mut WSD_METADATA_SECTION_LIST>;
 }
@@ -813,6 +828,7 @@ impl IWSDMetadataExchange_Vtbl {
         iid == &<IWSDMetadataExchange as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDOutboundAttachment_Impl: Sized + IWSDAttachment_Impl {
     fn Write(&self, pbuffer: *const u8, dwbytestowrite: u32) -> ::windows::core::Result<u32>;
     fn Close(&self) -> ::windows::core::Result<()>;
@@ -853,6 +869,7 @@ impl IWSDOutboundAttachment_Vtbl {
         iid == &<IWSDOutboundAttachment as ::windows::core::Interface>::IID || iid == &<IWSDAttachment as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub trait IWSDSSLClientCertificate_Impl: Sized {
     fn GetClientCertificate(&self) -> ::windows::core::Result<*mut super::super::Security::Cryptography::CERT_CONTEXT>;
@@ -895,6 +912,7 @@ impl IWSDSSLClientCertificate_Vtbl {
         iid == &<IWSDSSLClientCertificate as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDScopeMatchingRule_Impl: Sized {
     fn GetScopeRule(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -937,6 +955,7 @@ impl IWSDScopeMatchingRule_Vtbl {
         iid == &<IWSDScopeMatchingRule as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDServiceMessaging_Impl: Sized {
     fn SendResponse(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pmessageparameters: &::core::option::Option<IWSDMessageParameters>) -> ::windows::core::Result<()>;
     fn FaultRequest(&self, prequestheader: *const WSD_SOAP_HEADER, pmessageparameters: &::core::option::Option<IWSDMessageParameters>, pfault: *const WSD_SOAP_FAULT) -> ::windows::core::Result<()>;
@@ -964,6 +983,7 @@ impl IWSDServiceMessaging_Vtbl {
         iid == &<IWSDServiceMessaging as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDServiceProxy_Impl: Sized + IWSDMetadataExchange_Impl {
     fn BeginGetMetadata(&self) -> ::windows::core::Result<IWSDAsyncResult>;
     fn EndGetMetadata(&self, presult: &::core::option::Option<IWSDAsyncResult>) -> ::windows::core::Result<*mut WSD_METADATA_SECTION_LIST>;
@@ -1050,6 +1070,7 @@ impl IWSDServiceProxy_Vtbl {
         iid == &<IWSDServiceProxy as ::windows::core::Interface>::IID || iid == &<IWSDMetadataExchange as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDServiceProxyEventing_Impl: Sized + IWSDServiceProxy_Impl {
     fn SubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: &::core::option::Option<::windows::core::IUnknown>, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
@@ -1174,6 +1195,7 @@ impl IWSDServiceProxyEventing_Vtbl {
         iid == &<IWSDServiceProxyEventing as ::windows::core::Interface>::IID || iid == &<IWSDMetadataExchange as ::windows::core::Interface>::IID || iid == &<IWSDServiceProxy as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDSignatureProperty_Impl: Sized {
     fn IsMessageSigned(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -1237,6 +1259,7 @@ impl IWSDSignatureProperty_Vtbl {
         iid == &<IWSDSignatureProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDTransportAddress_Impl: Sized + IWSDAddress_Impl {
     fn GetPort(&self) -> ::windows::core::Result<u16>;
@@ -1306,6 +1329,7 @@ impl IWSDTransportAddress_Vtbl {
         iid == &<IWSDTransportAddress as ::windows::core::Interface>::IID || iid == &<IWSDAddress as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub trait IWSDUdpAddress_Impl: Sized + IWSDTransportAddress_Impl {
     fn SetSockaddr(&self, psockaddr: *const super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows::core::Result<()>;
@@ -1416,6 +1440,7 @@ impl IWSDUdpAddress_Vtbl {
         iid == &<IWSDUdpAddress as ::windows::core::Interface>::IID || iid == &<IWSDAddress as ::windows::core::Interface>::IID || iid == &<IWSDTransportAddress as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDUdpMessageParameters_Impl: Sized + IWSDMessageParameters_Impl {
     fn SetRetransmitParams(&self, pparams: *const WSDUdpRetransmitParams) -> ::windows::core::Result<()>;
     fn GetRetransmitParams(&self) -> ::windows::core::Result<WSDUdpRetransmitParams>;
@@ -1449,6 +1474,7 @@ impl IWSDUdpMessageParameters_Vtbl {
         iid == &<IWSDUdpMessageParameters as ::windows::core::Interface>::IID || iid == &<IWSDMessageParameters as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDXMLContext_Impl: Sized {
     fn AddNamespace(&self, pszuri: &::windows::core::PCWSTR, pszsuggestedprefix: &::windows::core::PCWSTR, ppnamespace: *mut *mut WSDXML_NAMESPACE) -> ::windows::core::Result<()>;
     fn AddNameToNamespace(&self, pszuri: &::windows::core::PCWSTR, pszname: &::windows::core::PCWSTR, ppname: *mut *mut WSDXML_NAME) -> ::windows::core::Result<()>;
@@ -1490,6 +1516,7 @@ impl IWSDXMLContext_Vtbl {
         iid == &<IWSDXMLContext as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDiscoveredService_Impl: Sized {
     fn GetEndpointReference(&self) -> ::windows::core::Result<*mut WSD_ENDPOINT_REFERENCE>;
     fn GetTypes(&self) -> ::windows::core::Result<*mut WSD_NAME_LIST>;
@@ -1640,6 +1667,7 @@ impl IWSDiscoveredService_Vtbl {
         iid == &<IWSDiscoveredService as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDiscoveryProvider_Impl: Sized {
     fn SetAddressFamily(&self, dwaddressfamily: u32) -> ::windows::core::Result<()>;
     fn Attach(&self, psink: &::core::option::Option<IWSDiscoveryProviderNotify>) -> ::windows::core::Result<()>;
@@ -1708,6 +1736,7 @@ impl IWSDiscoveryProvider_Vtbl {
         iid == &<IWSDiscoveryProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDiscoveryProviderNotify_Impl: Sized {
     fn Add(&self, pservice: &::core::option::Option<IWSDiscoveredService>) -> ::windows::core::Result<()>;
     fn Remove(&self, pservice: &::core::option::Option<IWSDiscoveredService>) -> ::windows::core::Result<()>;
@@ -1749,6 +1778,7 @@ impl IWSDiscoveryProviderNotify_Vtbl {
         iid == &<IWSDiscoveryProviderNotify as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDiscoveryPublisher_Impl: Sized {
     fn SetAddressFamily(&self, dwaddressfamily: u32) -> ::windows::core::Result<()>;
     fn RegisterNotificationSink(&self, psink: &::core::option::Option<IWSDiscoveryPublisherNotify>) -> ::windows::core::Result<()>;
@@ -1908,6 +1938,7 @@ impl IWSDiscoveryPublisher_Vtbl {
         iid == &<IWSDiscoveryPublisher as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDiscoveryPublisherNotify_Impl: Sized {
     fn ProbeHandler(&self, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: &::core::option::Option<IWSDMessageParameters>) -> ::windows::core::Result<()>;
     fn ResolveHandler(&self, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: &::core::option::Option<IWSDMessageParameters>) -> ::windows::core::Result<()>;

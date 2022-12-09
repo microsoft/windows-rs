@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
 pub trait ICompositionCapabilitiesInteropFactory_Impl: Sized {
     fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionCapabilities>;
@@ -27,6 +28,7 @@ impl ICompositionCapabilitiesInteropFactory_Vtbl {
         iid == &<ICompositionCapabilitiesInteropFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICompositionDrawingSurfaceInterop_Impl: Sized {
     fn BeginDraw(&self, updaterect: *const super::super::super::Foundation::RECT, iid: *const ::windows::core::GUID, updateobject: *mut *mut ::core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()>;
@@ -85,6 +87,7 @@ impl ICompositionDrawingSurfaceInterop_Vtbl {
         iid == &<ICompositionDrawingSurfaceInterop as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICompositionDrawingSurfaceInterop2_Impl: Sized + ICompositionDrawingSurfaceInterop_Impl {
     fn CopySurface(&self, destinationresource: &::core::option::Option<::windows::core::IUnknown>, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
@@ -105,6 +108,7 @@ impl ICompositionDrawingSurfaceInterop2_Vtbl {
         iid == &<ICompositionDrawingSurfaceInterop2 as ::windows::core::Interface>::IID || iid == &<ICompositionDrawingSurfaceInterop as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"implement\"`*"]
 pub trait ICompositionGraphicsDeviceInterop_Impl: Sized {
     fn GetRenderingDevice(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn SetRenderingDevice(&self, value: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -138,6 +142,7 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
         iid == &<ICompositionGraphicsDeviceInterop as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition_Desktop\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(all(feature = "UI_Composition_Desktop", feature = "Win32_Foundation"))]
 pub trait ICompositorDesktopInterop_Impl: Sized {
     fn CreateDesktopWindowTarget(&self, hwndtarget: super::super::super::Foundation::HWND, istopmost: super::super::super::Foundation::BOOL) -> ::windows::core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>;
@@ -174,6 +179,7 @@ impl ICompositorDesktopInterop_Vtbl {
         iid == &<ICompositorDesktopInterop as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
 pub trait ICompositorInterop_Impl: Sized {
     fn CreateCompositionSurfaceForHandle(&self, swapchain: super::super::super::Foundation::HANDLE) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
@@ -229,6 +235,7 @@ impl ICompositorInterop_Vtbl {
         iid == &<ICompositorInterop as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDesktopWindowTargetInterop_Impl: Sized {
     fn Hwnd(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
@@ -255,6 +262,7 @@ impl IDesktopWindowTargetInterop_Vtbl {
         iid == &<IDesktopWindowTargetInterop as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"implement\"`*"]
 pub trait ISwapChainInterop_Impl: Sized {
     fn SetSwapChain(&self, swapchain: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
@@ -272,6 +280,7 @@ impl ISwapChainInterop_Vtbl {
         iid == &<ISwapChainInterop as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IVisualInteractionSourceInterop_Impl: Sized {
     fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDummyMBNUCMExt_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11,6 +12,7 @@ impl IDummyMBNUCMExt_Vtbl {
         iid == &<IDummyMBNUCMExt as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnConnection_Impl: Sized {
     fn ConnectionID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn InterfaceID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -109,6 +111,7 @@ impl IMbnConnection_Vtbl {
         iid == &<IMbnConnection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnConnectionContext_Impl: Sized {
     fn GetProvisionedContexts(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -151,6 +154,7 @@ impl IMbnConnectionContext_Vtbl {
         iid == &<IMbnConnectionContext as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnConnectionContextEvents_Impl: Sized {
     fn OnProvisionedContextListChange(&self, newinterface: &::core::option::Option<IMbnConnectionContext>) -> ::windows::core::Result<()>;
     fn OnSetProvisionedContextComplete(&self, newinterface: &::core::option::Option<IMbnConnectionContext>, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -178,6 +182,7 @@ impl IMbnConnectionContextEvents_Vtbl {
         iid == &<IMbnConnectionContextEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnConnectionEvents_Impl: Sized {
     fn OnConnectComplete(&self, newconnection: &::core::option::Option<IMbnConnection>, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn OnDisconnectComplete(&self, newconnection: &::core::option::Option<IMbnConnection>, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -219,6 +224,7 @@ impl IMbnConnectionEvents_Vtbl {
         iid == &<IMbnConnectionEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnConnectionManager_Impl: Sized {
     fn GetConnection(&self, connectionid: &::windows::core::PCWSTR) -> ::windows::core::Result<IMbnConnection>;
@@ -261,6 +267,7 @@ impl IMbnConnectionManager_Vtbl {
         iid == &<IMbnConnectionManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnConnectionManagerEvents_Impl: Sized {
     fn OnConnectionArrival(&self, newconnection: &::core::option::Option<IMbnConnection>) -> ::windows::core::Result<()>;
     fn OnConnectionRemoval(&self, oldconnection: &::core::option::Option<IMbnConnection>) -> ::windows::core::Result<()>;
@@ -288,6 +295,7 @@ impl IMbnConnectionManagerEvents_Vtbl {
         iid == &<IMbnConnectionManagerEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnConnectionProfile_Impl: Sized {
     fn GetProfileXmlData(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn UpdateProfile(&self, strprofile: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -328,6 +336,7 @@ impl IMbnConnectionProfile_Vtbl {
         iid == &<IMbnConnectionProfile as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnConnectionProfileEvents_Impl: Sized {
     fn OnProfileUpdate(&self, newprofile: &::core::option::Option<IMbnConnectionProfile>) -> ::windows::core::Result<()>;
 }
@@ -345,6 +354,7 @@ impl IMbnConnectionProfileEvents_Vtbl {
         iid == &<IMbnConnectionProfileEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnConnectionProfileManager_Impl: Sized {
     fn GetConnectionProfiles(&self, mbninterface: &::core::option::Option<IMbnInterface>) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -394,6 +404,7 @@ impl IMbnConnectionProfileManager_Vtbl {
         iid == &<IMbnConnectionProfileManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnConnectionProfileManagerEvents_Impl: Sized {
     fn OnConnectionProfileArrival(&self, newconnectionprofile: &::core::option::Option<IMbnConnectionProfile>) -> ::windows::core::Result<()>;
     fn OnConnectionProfileRemoval(&self, oldconnectionprofile: &::core::option::Option<IMbnConnectionProfile>) -> ::windows::core::Result<()>;
@@ -421,6 +432,7 @@ impl IMbnConnectionProfileManagerEvents_Vtbl {
         iid == &<IMbnConnectionProfileManagerEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMbnDeviceService_Impl: Sized {
     fn QuerySupportedCommands(&self) -> ::windows::core::Result<u32>;
@@ -593,6 +605,7 @@ impl IMbnDeviceService_Vtbl {
         iid == &<IMbnDeviceService as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnDeviceServiceStateEvents_Impl: Sized {
     fn OnSessionsStateChange(&self, interfaceid: &::windows::core::BSTR, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows::core::Result<()>;
 }
@@ -610,6 +623,7 @@ impl IMbnDeviceServiceStateEvents_Vtbl {
         iid == &<IMbnDeviceServiceStateEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnDeviceServicesContext_Impl: Sized {
     fn EnumerateDeviceServices(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -678,6 +692,7 @@ impl IMbnDeviceServicesContext_Vtbl {
         iid == &<IMbnDeviceServicesContext as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnDeviceServicesEvents_Impl: Sized {
     fn OnQuerySupportedCommandsComplete(&self, deviceservice: &::core::option::Option<IMbnDeviceService>, commandidlist: *const super::super::System::Com::SAFEARRAY, status: ::windows::core::HRESULT, requestid: u32) -> ::windows::core::Result<()>;
@@ -771,6 +786,7 @@ impl IMbnDeviceServicesEvents_Vtbl {
         iid == &<IMbnDeviceServicesEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnDeviceServicesManager_Impl: Sized {
     fn GetDeviceServicesContext(&self, networkinterfaceid: &::windows::core::BSTR) -> ::windows::core::Result<IMbnDeviceServicesContext>;
 }
@@ -794,6 +810,7 @@ impl IMbnDeviceServicesManager_Vtbl {
         iid == &<IMbnDeviceServicesManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMbnInterface_Impl: Sized {
     fn InterfaceID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -947,6 +964,7 @@ impl IMbnInterface_Vtbl {
         iid == &<IMbnInterface as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnInterfaceEvents_Impl: Sized {
     fn OnInterfaceCapabilityAvailable(&self, newinterface: &::core::option::Option<IMbnInterface>) -> ::windows::core::Result<()>;
     fn OnSubscriberInformationChange(&self, newinterface: &::core::option::Option<IMbnInterface>) -> ::windows::core::Result<()>;
@@ -1016,6 +1034,7 @@ impl IMbnInterfaceEvents_Vtbl {
         iid == &<IMbnInterfaceEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnInterfaceManager_Impl: Sized {
     fn GetInterface(&self, interfaceid: &::windows::core::PCWSTR) -> ::windows::core::Result<IMbnInterface>;
@@ -1058,6 +1077,7 @@ impl IMbnInterfaceManager_Vtbl {
         iid == &<IMbnInterfaceManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnInterfaceManagerEvents_Impl: Sized {
     fn OnInterfaceArrival(&self, newinterface: &::core::option::Option<IMbnInterface>) -> ::windows::core::Result<()>;
     fn OnInterfaceRemoval(&self, oldinterface: &::core::option::Option<IMbnInterface>) -> ::windows::core::Result<()>;
@@ -1085,6 +1105,7 @@ impl IMbnInterfaceManagerEvents_Vtbl {
         iid == &<IMbnInterfaceManagerEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnMultiCarrier_Impl: Sized {
     fn SetHomeProvider(&self, homeprovider: *const MBN_PROVIDER2) -> ::windows::core::Result<u32>;
@@ -1173,6 +1194,7 @@ impl IMbnMultiCarrier_Vtbl {
         iid == &<IMbnMultiCarrier as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnMultiCarrierEvents_Impl: Sized {
     fn OnSetHomeProviderComplete(&self, mbninterface: &::core::option::Option<IMbnMultiCarrier>, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn OnCurrentCellularClassChange(&self, mbninterface: &::core::option::Option<IMbnMultiCarrier>) -> ::windows::core::Result<()>;
@@ -1221,6 +1243,7 @@ impl IMbnMultiCarrierEvents_Vtbl {
         iid == &<IMbnMultiCarrierEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnPin_Impl: Sized {
     fn PinType(&self) -> ::windows::core::Result<MBN_PIN_TYPE>;
     fn PinFormat(&self) -> ::windows::core::Result<MBN_PIN_FORMAT>;
@@ -1377,6 +1400,7 @@ impl IMbnPin_Vtbl {
         iid == &<IMbnPin as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnPinEvents_Impl: Sized {
     fn OnEnableComplete(&self, pin: &::core::option::Option<IMbnPin>, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn OnDisableComplete(&self, pin: &::core::option::Option<IMbnPin>, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -1425,6 +1449,7 @@ impl IMbnPinEvents_Vtbl {
         iid == &<IMbnPinEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnPinManager_Impl: Sized {
     fn GetPinList(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -1480,6 +1505,7 @@ impl IMbnPinManager_Vtbl {
         iid == &<IMbnPinManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnPinManagerEvents_Impl: Sized {
     fn OnPinListAvailable(&self, pinmanager: &::core::option::Option<IMbnPinManager>) -> ::windows::core::Result<()>;
     fn OnGetPinStateComplete(&self, pinmanager: &::core::option::Option<IMbnPinManager>, pininfo: &MBN_PIN_INFO, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -1507,6 +1533,7 @@ impl IMbnPinManagerEvents_Vtbl {
         iid == &<IMbnPinManagerEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnRadio_Impl: Sized {
     fn SoftwareRadioState(&self) -> ::windows::core::Result<MBN_RADIO>;
     fn HardwareRadioState(&self) -> ::windows::core::Result<MBN_RADIO>;
@@ -1559,6 +1586,7 @@ impl IMbnRadio_Vtbl {
         iid == &<IMbnRadio as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnRadioEvents_Impl: Sized {
     fn OnRadioStateChange(&self, newinterface: &::core::option::Option<IMbnRadio>) -> ::windows::core::Result<()>;
     fn OnSetSoftwareRadioStateComplete(&self, newinterface: &::core::option::Option<IMbnRadio>, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -1586,6 +1614,7 @@ impl IMbnRadioEvents_Vtbl {
         iid == &<IMbnRadioEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnRegistration_Impl: Sized {
     fn GetRegisterState(&self) -> ::windows::core::Result<MBN_REGISTER_STATE>;
     fn GetRegisterMode(&self) -> ::windows::core::Result<MBN_REGISTER_MODE>;
@@ -1729,6 +1758,7 @@ impl IMbnRegistration_Vtbl {
         iid == &<IMbnRegistration as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnRegistrationEvents_Impl: Sized {
     fn OnRegisterModeAvailable(&self, newinterface: &::core::option::Option<IMbnRegistration>) -> ::windows::core::Result<()>;
     fn OnRegisterStateChange(&self, newinterface: &::core::option::Option<IMbnRegistration>) -> ::windows::core::Result<()>;
@@ -1770,6 +1800,7 @@ impl IMbnRegistrationEvents_Vtbl {
         iid == &<IMbnRegistrationEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnServiceActivation_Impl: Sized {
     fn Activate(&self, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<u32>;
@@ -1796,6 +1827,7 @@ impl IMbnServiceActivation_Vtbl {
         iid == &<IMbnServiceActivation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnServiceActivationEvents_Impl: Sized {
     fn OnActivationComplete(&self, serviceactivation: &::core::option::Option<IMbnServiceActivation>, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32, status: ::windows::core::HRESULT, networkerror: u32) -> ::windows::core::Result<()>;
@@ -1816,6 +1848,7 @@ impl IMbnServiceActivationEvents_Vtbl {
         iid == &<IMbnServiceActivationEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnSignal_Impl: Sized {
     fn GetSignalStrength(&self) -> ::windows::core::Result<u32>;
     fn GetSignalError(&self) -> ::windows::core::Result<u32>;
@@ -1855,6 +1888,7 @@ impl IMbnSignal_Vtbl {
         iid == &<IMbnSignal as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnSignalEvents_Impl: Sized {
     fn OnSignalStateChange(&self, newinterface: &::core::option::Option<IMbnSignal>) -> ::windows::core::Result<()>;
 }
@@ -1872,6 +1906,7 @@ impl IMbnSignalEvents_Vtbl {
         iid == &<IMbnSignalEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnSms_Impl: Sized {
     fn GetSmsConfiguration(&self) -> ::windows::core::Result<IMbnSmsConfiguration>;
@@ -1992,6 +2027,7 @@ impl IMbnSms_Vtbl {
         iid == &<IMbnSms as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
 pub trait IMbnSmsConfiguration_Impl: Sized {
     fn ServiceCenterAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetServiceCenterAddress(&self, scaddress: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -2071,6 +2107,7 @@ impl IMbnSmsConfiguration_Vtbl {
         iid == &<IMbnSmsConfiguration as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMbnSmsEvents_Impl: Sized {
     fn OnSmsConfigurationChange(&self, sms: &::core::option::Option<IMbnSms>) -> ::windows::core::Result<()>;
@@ -2136,6 +2173,7 @@ impl IMbnSmsEvents_Vtbl {
         iid == &<IMbnSmsEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnSmsReadMsgPdu_Impl: Sized {
     fn Index(&self) -> ::windows::core::Result<u32>;
@@ -2204,6 +2242,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
         iid == &<IMbnSmsReadMsgPdu as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnSmsReadMsgTextCdma_Impl: Sized {
     fn Index(&self) -> ::windows::core::Result<u32>;
@@ -2324,6 +2363,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
         iid == &<IMbnSmsReadMsgTextCdma as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnSubscriberInformation_Impl: Sized {
     fn SubscriberID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2379,6 +2419,7 @@ impl IMbnSubscriberInformation_Vtbl {
         iid == &<IMbnSubscriberInformation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnVendorSpecificEvents_Impl: Sized {
     fn OnEventNotification(&self, vendoroperation: &::core::option::Option<IMbnVendorSpecificOperation>, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
@@ -2409,6 +2450,7 @@ impl IMbnVendorSpecificEvents_Vtbl {
         iid == &<IMbnVendorSpecificEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnVendorSpecificOperation_Impl: Sized {
     fn SetVendorSpecific(&self, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<u32>;

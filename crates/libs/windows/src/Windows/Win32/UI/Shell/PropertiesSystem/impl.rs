@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 pub trait ICreateObject_Impl: Sized {
     fn CreateObject(&self, clsid: *const ::windows::core::GUID, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -15,6 +16,7 @@ impl ICreateObject_Vtbl {
         iid == &<ICreateObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 pub trait IDelayedPropertyStoreFactory_Impl: Sized + IPropertyStoreFactory_Impl {
     fn GetDelayedPropertyStore(&self, flags: GETPROPERTYSTOREFLAGS, dwstoreid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -32,6 +34,7 @@ impl IDelayedPropertyStoreFactory_Vtbl {
         iid == &<IDelayedPropertyStoreFactory as ::windows::core::Interface>::IID || iid == &<IPropertyStoreFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 pub trait IInitializeWithFile_Impl: Sized {
     fn Initialize(&self, pszfilepath: &::windows::core::PCWSTR, grfmode: u32) -> ::windows::core::Result<()>;
 }
@@ -49,6 +52,7 @@ impl IInitializeWithFile_Vtbl {
         iid == &<IInitializeWithFile as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInitializeWithStream_Impl: Sized {
     fn Initialize(&self, pstream: &::core::option::Option<super::super::super::System::Com::IStream>, grfmode: u32) -> ::windows::core::Result<()>;
@@ -69,6 +73,7 @@ impl IInitializeWithStream_Vtbl {
         iid == &<IInitializeWithStream as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait INamedPropertyStore_Impl: Sized {
     fn GetNamedValue(&self, pszname: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
@@ -131,6 +136,7 @@ impl INamedPropertyStore_Vtbl {
         iid == &<INamedPropertyStore as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 pub trait IObjectWithPropertyKey_Impl: Sized {
     fn SetPropertyKey(&self, key: *const PROPERTYKEY) -> ::windows::core::Result<()>;
     fn GetPropertyKey(&self) -> ::windows::core::Result<PROPERTYKEY>;
@@ -164,6 +170,7 @@ impl IObjectWithPropertyKey_Vtbl {
         iid == &<IObjectWithPropertyKey as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 pub trait IPersistSerializedPropStorage_Impl: Sized {
     fn SetFlags(&self, flags: i32) -> ::windows::core::Result<()>;
     fn SetPropertyStorage(&self, psps: *const SERIALIZEDPROPSTORAGE, cb: u32) -> ::windows::core::Result<()>;
@@ -198,6 +205,7 @@ impl IPersistSerializedPropStorage_Vtbl {
         iid == &<IPersistSerializedPropStorage as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 pub trait IPersistSerializedPropStorage2_Impl: Sized + IPersistSerializedPropStorage_Impl {
     fn GetPropertyStorageSize(&self) -> ::windows::core::Result<u32>;
     fn GetPropertyStorageBuffer(&self, psps: *mut SERIALIZEDPROPSTORAGE, cb: u32, pcbwritten: *mut u32) -> ::windows::core::Result<()>;
@@ -231,6 +239,7 @@ impl IPersistSerializedPropStorage2_Vtbl {
         iid == &<IPersistSerializedPropStorage2 as ::windows::core::Interface>::IID || iid == &<IPersistSerializedPropStorage as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyChange_Impl: Sized + IObjectWithPropertyKey_Impl {
     fn ApplyToPropVariant(&self, propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
@@ -257,6 +266,7 @@ impl IPropertyChange_Vtbl {
         iid == &<IPropertyChange as ::windows::core::Interface>::IID || iid == &<IObjectWithPropertyKey as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 pub trait IPropertyChangeArray_Impl: Sized {
     fn GetCount(&self) -> ::windows::core::Result<u32>;
     fn GetAt(&self, iindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -325,6 +335,7 @@ impl IPropertyChangeArray_Vtbl {
         iid == &<IPropertyChangeArray as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IPropertyDescription_Impl: Sized {
     fn GetPropertyKey(&self) -> ::windows::core::Result<PROPERTYKEY>;
@@ -584,6 +595,7 @@ impl IPropertyDescription_Vtbl {
         iid == &<IPropertyDescription as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IPropertyDescription2_Impl: Sized + IPropertyDescription_Impl {
     fn GetImageReferenceForValue(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -613,6 +625,7 @@ impl IPropertyDescription2_Vtbl {
         iid == &<IPropertyDescription2 as ::windows::core::Interface>::IID || iid == &<IPropertyDescription as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IPropertyDescriptionAliasInfo_Impl: Sized + IPropertyDescription_Impl {
     fn GetSortByAlias(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -643,6 +656,7 @@ impl IPropertyDescriptionAliasInfo_Vtbl {
         iid == &<IPropertyDescriptionAliasInfo as ::windows::core::Interface>::IID || iid == &<IPropertyDescription as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 pub trait IPropertyDescriptionList_Impl: Sized {
     fn GetCount(&self) -> ::windows::core::Result<u32>;
     fn GetAt(&self, ielem: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -676,6 +690,7 @@ impl IPropertyDescriptionList_Vtbl {
         iid == &<IPropertyDescriptionList as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IPropertyDescriptionRelatedPropertyInfo_Impl: Sized + IPropertyDescription_Impl {
     fn GetRelatedProperty(&self, pszrelationshipname: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -696,6 +711,7 @@ impl IPropertyDescriptionRelatedPropertyInfo_Vtbl {
         iid == &<IPropertyDescriptionRelatedPropertyInfo as ::windows::core::Interface>::IID || iid == &<IPropertyDescription as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IPropertyDescriptionSearchInfo_Impl: Sized + IPropertyDescription_Impl {
     fn GetSearchInfoFlags(&self) -> ::windows::core::Result<PROPDESC_SEARCHINFO_FLAGS>;
@@ -764,6 +780,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
         iid == &<IPropertyDescriptionSearchInfo as ::windows::core::Interface>::IID || iid == &<IPropertyDescription as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyEnumType_Impl: Sized {
     fn GetEnumType(&self) -> ::windows::core::Result<PROPENUMTYPE>;
@@ -845,6 +862,7 @@ impl IPropertyEnumType_Vtbl {
         iid == &<IPropertyEnumType as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyEnumType2_Impl: Sized + IPropertyEnumType_Impl {
     fn GetImageReference(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -871,6 +889,7 @@ impl IPropertyEnumType2_Vtbl {
         iid == &<IPropertyEnumType2 as ::windows::core::Interface>::IID || iid == &<IPropertyEnumType as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyEnumTypeList_Impl: Sized {
     fn GetCount(&self) -> ::windows::core::Result<u32>;
@@ -927,6 +946,7 @@ impl IPropertyEnumTypeList_Vtbl {
         iid == &<IPropertyEnumTypeList as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyStore_Impl: Sized {
     fn GetCount(&self) -> ::windows::core::Result<u32>;
@@ -996,6 +1016,7 @@ impl IPropertyStore_Vtbl {
         iid == &<IPropertyStore as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyStoreCache_Impl: Sized + IPropertyStore_Impl {
     fn GetState(&self, key: *const PROPERTYKEY) -> ::windows::core::Result<PSC_STATE>;
@@ -1046,6 +1067,7 @@ impl IPropertyStoreCache_Vtbl {
         iid == &<IPropertyStoreCache as ::windows::core::Interface>::IID || iid == &<IPropertyStore as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 pub trait IPropertyStoreCapabilities_Impl: Sized {
     fn IsPropertyWritable(&self, key: *const PROPERTYKEY) -> ::windows::core::Result<()>;
 }
@@ -1063,6 +1085,7 @@ impl IPropertyStoreCapabilities_Vtbl {
         iid == &<IPropertyStoreCapabilities as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 pub trait IPropertyStoreFactory_Impl: Sized {
     fn GetPropertyStore(&self, flags: GETPROPERTYSTOREFLAGS, punkfactory: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetPropertyStoreForKeys(&self, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -1090,6 +1113,7 @@ impl IPropertyStoreFactory_Vtbl {
         iid == &<IPropertyStoreFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertySystem_Impl: Sized {
     fn GetPropertyDescription(&self, propkey: *const PROPERTYKEY, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -1175,6 +1199,7 @@ impl IPropertySystem_Vtbl {
         iid == &<IPropertySystem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 pub trait IPropertySystemChangeNotify_Impl: Sized {
     fn SchemaRefreshed(&self) -> ::windows::core::Result<()>;
 }
@@ -1192,6 +1217,7 @@ impl IPropertySystemChangeNotify_Vtbl {
         iid == &<IPropertySystemChangeNotify as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyUI_Impl: Sized {
     fn ParsePropertyName(&self, pszname: &::windows::core::PCWSTR, pfmtid: *mut ::windows::core::GUID, ppid: *mut u32, pcheaten: *mut u32) -> ::windows::core::Result<()>;

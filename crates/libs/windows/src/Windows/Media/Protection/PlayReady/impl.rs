@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(feature = "deprecated")]
 pub trait INDClosedCaptionDataReceivedEventArgs_Impl: Sized {
     fn ClosedCaptionDataFormat(&self) -> ::windows::core::Result<NDClosedCaptionFormat>;
@@ -59,6 +60,7 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
         iid == &<INDClosedCaptionDataReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(feature = "deprecated")]
 pub trait INDCustomData_Impl: Sized {
     fn CustomDataTypeID(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
@@ -107,6 +109,7 @@ impl INDCustomData_Vtbl {
         iid == &<INDCustomData as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait INDDownloadEngine_Impl: Sized {
     fn Open(&self, uri: &::core::option::Option<super::super::super::Foundation::Uri>, sessionidbytes: &[u8]) -> ::windows::core::Result<()>;
@@ -216,6 +219,7 @@ impl INDDownloadEngine_Vtbl {
         iid == &<INDDownloadEngine as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(feature = "deprecated")]
 pub trait INDDownloadEngineNotifier_Impl: Sized {
     fn OnStreamOpened(&self) -> ::windows::core::Result<()>;
@@ -276,6 +280,7 @@ impl INDDownloadEngineNotifier_Vtbl {
         iid == &<INDDownloadEngineNotifier as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(feature = "deprecated")]
 pub trait INDLicenseFetchCompletedEventArgs_Impl: Sized {
     fn ResponseCustomData(&self) -> ::windows::core::Result<INDCustomData>;
@@ -308,6 +313,7 @@ impl INDLicenseFetchCompletedEventArgs_Vtbl {
         iid == &<INDLicenseFetchCompletedEventArgs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(feature = "deprecated")]
 pub trait INDLicenseFetchDescriptor_Impl: Sized {
     fn ContentIDType(&self) -> ::windows::core::Result<NDContentIDType>;
@@ -376,6 +382,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
         iid == &<INDLicenseFetchDescriptor as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(feature = "deprecated")]
 pub trait INDLicenseFetchResult_Impl: Sized {
     fn ResponseCustomData(&self) -> ::windows::core::Result<INDCustomData>;
@@ -408,6 +415,7 @@ impl INDLicenseFetchResult_Vtbl {
         iid == &<INDLicenseFetchResult as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait INDMessenger_Impl: Sized {
     fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
@@ -482,6 +490,7 @@ impl INDMessenger_Vtbl {
         iid == &<INDMessenger as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(feature = "deprecated")]
 pub trait INDProximityDetectionCompletedEventArgs_Impl: Sized {
     fn ProximityDetectionRetryCount(&self) -> ::windows::core::Result<u32>;
@@ -514,6 +523,7 @@ impl INDProximityDetectionCompletedEventArgs_Vtbl {
         iid == &<INDProximityDetectionCompletedEventArgs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(feature = "deprecated")]
 pub trait INDRegistrationCompletedEventArgs_Impl: Sized {
     fn ResponseCustomData(&self) -> ::windows::core::Result<INDCustomData>;
@@ -581,6 +591,7 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
         iid == &<INDRegistrationCompletedEventArgs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(feature = "deprecated")]
 pub trait INDSendResult_Impl: Sized {
     fn Response(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
@@ -611,6 +622,7 @@ impl INDSendResult_Vtbl {
         iid == &<INDSendResult as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Media_Core\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStartResult_Impl: Sized {
     fn MediaStreamSource(&self) -> ::windows::core::Result<super::super::Core::MediaStreamSource>;
@@ -643,6 +655,7 @@ impl INDStartResult_Vtbl {
         iid == &<INDStartResult as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 pub trait INDStorageFileHelper_Impl: Sized {
     fn GetFileURLs(&self, file: &::core::option::Option<super::super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
@@ -672,6 +685,7 @@ impl INDStorageFileHelper_Vtbl {
         iid == &<INDStorageFileHelper as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Media_Core\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStreamParser_Impl: Sized {
     fn ParseData(&self, databytes: &[u8]) -> ::windows::core::Result<()>;
@@ -739,6 +753,7 @@ impl INDStreamParser_Vtbl {
         iid == &<INDStreamParser as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStreamParserNotifier_Impl: Sized {
     fn OnContentIDReceived(&self, licensefetchdescriptor: &::core::option::Option<INDLicenseFetchDescriptor>) -> ::windows::core::Result<()>;
@@ -785,6 +800,7 @@ impl INDStreamParserNotifier_Vtbl {
         iid == &<INDStreamParserNotifier as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait INDTransmitterProperties_Impl: Sized {
     fn CertificateType(&self) -> ::windows::core::Result<NDCertificateType>;
@@ -960,6 +976,7 @@ impl INDTransmitterProperties_Vtbl {
         iid == &<INDTransmitterProperties as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IPlayReadyDomain_Impl: Sized {
     fn AccountId(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -1048,6 +1065,7 @@ impl IPlayReadyDomain_Vtbl {
         iid == &<IPlayReadyDomain as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IPlayReadyLicense_Impl: Sized {
     fn FullyEvaluated(&self) -> ::windows::core::Result<bool>;
@@ -1164,6 +1182,7 @@ impl IPlayReadyLicense_Vtbl {
         iid == &<IPlayReadyLicense as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IPlayReadyLicenseAcquisitionServiceRequest_Impl: Sized + super::IMediaProtectionServiceRequest_Impl + IPlayReadyServiceRequest_Impl {
     fn ContentHeader(&self) -> ::windows::core::Result<PlayReadyContentHeader>;
@@ -1224,6 +1243,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
         iid == &<IPlayReadyLicenseAcquisitionServiceRequest as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"implement\"`*"]
 pub trait IPlayReadyLicenseSession_Impl: Sized {
     fn CreateLAServiceRequest(&self) -> ::windows::core::Result<IPlayReadyLicenseAcquisitionServiceRequest>;
     fn ConfigureMediaProtectionManager(&self, mpm: &::core::option::Option<super::MediaProtectionManager>) -> ::windows::core::Result<()>;
@@ -1260,6 +1280,7 @@ impl IPlayReadyLicenseSession_Vtbl {
         iid == &<IPlayReadyLicenseSession as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPlayReadyLicenseSession2_Impl: Sized + IPlayReadyLicenseSession_Impl {
     fn CreateLicenseIterable(&self, contentheader: &::core::option::Option<PlayReadyContentHeader>, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable>;
@@ -1292,6 +1313,7 @@ impl IPlayReadyLicenseSession2_Vtbl {
         iid == &<IPlayReadyLicenseSession2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IPlayReadySecureStopServiceRequest_Impl: Sized + super::IMediaProtectionServiceRequest_Impl + IPlayReadyServiceRequest_Impl {
     fn SessionID(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -1381,6 +1403,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
         iid == &<IPlayReadySecureStopServiceRequest as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IPlayReadyServiceRequest_Impl: Sized + super::IMediaProtectionServiceRequest_Impl {
     fn Uri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;

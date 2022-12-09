@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Imaging\"`, `\"implement\"`*"]
 pub trait ISoftwareBitmapNative_Impl: Sized {
     fn GetData(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -15,6 +16,7 @@ impl ISoftwareBitmapNative_Vtbl {
         iid == &<ISoftwareBitmapNative as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging", feature = "Win32_Media_MediaFoundation"))]
 pub trait ISoftwareBitmapNativeFactory_Impl: Sized {
     fn CreateFromWICBitmap(&self, data: &::core::option::Option<super::super::super::super::Graphics::Imaging::IWICBitmap>, forcereadonly: super::super::super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;

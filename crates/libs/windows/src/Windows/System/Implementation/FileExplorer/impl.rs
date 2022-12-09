@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"System_Implementation_FileExplorer\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait ISysStorageProviderEventSource_Impl: Sized {
     fn EventReceived(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -37,6 +38,7 @@ impl ISysStorageProviderEventSource_Vtbl {
         iid == &<ISysStorageProviderEventSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"System_Implementation_FileExplorer\"`, `\"implement\"`*"]
 pub trait ISysStorageProviderHandlerFactory_Impl: Sized {
     fn GetHttpRequestProvider(&self, syncrootid: &::windows::core::HSTRING) -> ::windows::core::Result<ISysStorageProviderHttpRequestProvider>;
     fn GetEventSource(&self, syncrootid: &::windows::core::HSTRING, eventname: &::windows::core::HSTRING) -> ::windows::core::Result<ISysStorageProviderEventSource>;
@@ -80,6 +82,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
         iid == &<ISysStorageProviderHandlerFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"System_Implementation_FileExplorer\"`, `\"Foundation\"`, `\"Web_Http\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
 pub trait ISysStorageProviderHttpRequestProvider_Impl: Sized {
     fn SendRequestAsync(&self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;

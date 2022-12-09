@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_ServerBackup\"`, `\"implement\"`*"]
 pub trait IWsbApplicationAsync_Impl: Sized {
     fn QueryStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn Abort(&self) -> ::windows::core::Result<()>;
@@ -31,6 +32,7 @@ impl IWsbApplicationAsync_Vtbl {
         iid == &<IWsbApplicationAsync as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ServerBackup\"`, `\"implement\"`*"]
 pub trait IWsbApplicationBackupSupport_Impl: Sized {
     fn CheckConsistency(&self, wszwritermetadata: &::windows::core::PCWSTR, wszcomponentname: &::windows::core::PCWSTR, wszcomponentlogicalpath: &::windows::core::PCWSTR, cvolumes: u32, rgwszsourcevolumepath: *const ::windows::core::PCWSTR, rgwszsnapshotvolumepath: *const ::windows::core::PCWSTR) -> ::windows::core::Result<IWsbApplicationAsync>;
 }
@@ -54,6 +56,7 @@ impl IWsbApplicationBackupSupport_Vtbl {
         iid == &<IWsbApplicationBackupSupport as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ServerBackup\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWsbApplicationRestoreSupport_Impl: Sized {
     fn PreRestore(&self, wszwritermetadata: &::windows::core::PCWSTR, wszcomponentname: &::windows::core::PCWSTR, wszcomponentlogicalpath: &::windows::core::PCWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;

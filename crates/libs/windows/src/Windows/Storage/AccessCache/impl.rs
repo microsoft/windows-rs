@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IStorageItemAccessList_Impl: Sized {
     fn AddOverloadDefaultMetadata(&self, file: &::core::option::Option<super::IStorageItem>) -> ::windows::core::Result<::windows::core::HSTRING>;

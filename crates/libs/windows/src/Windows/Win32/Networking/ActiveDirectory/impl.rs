@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADs_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -153,6 +154,7 @@ impl IADs_Vtbl {
         iid == &<IADs as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsADSystemInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn UserName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -332,6 +334,7 @@ impl IADsADSystemInfo_Vtbl {
         iid == &<IADsADSystemInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsAccessControlEntry_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AccessMask(&self) -> ::windows::core::Result<i32>;
@@ -488,6 +491,7 @@ impl IADsAccessControlEntry_Vtbl {
         iid == &<IADsAccessControlEntry as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsAccessControlList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AclRevision(&self) -> ::windows::core::Result<i32>;
@@ -584,6 +588,7 @@ impl IADsAccessControlList_Vtbl {
         iid == &<IADsAccessControlList as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsAcl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ProtectedAttrName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -673,6 +678,7 @@ impl IADsAcl_Vtbl {
         iid == &<IADsAcl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"implement\"`*"]
 pub trait IADsAggregatee_Impl: Sized {
     fn ConnectAsAggregatee(&self, pouterunknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn DisconnectAsAggregatee(&self) -> ::windows::core::Result<()>;
@@ -714,6 +720,7 @@ impl IADsAggregatee_Vtbl {
         iid == &<IADsAggregatee as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"implement\"`*"]
 pub trait IADsAggregator_Impl: Sized {
     fn ConnectAsAggregator(&self, paggregatee: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn DisconnectAsAggregator(&self) -> ::windows::core::Result<()>;
@@ -741,6 +748,7 @@ impl IADsAggregator_Vtbl {
         iid == &<IADsAggregator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsBackLink_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RemoteID(&self) -> ::windows::core::Result<i32>;
@@ -797,6 +805,7 @@ impl IADsBackLink_Vtbl {
         iid == &<IADsBackLink as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsCaseIgnoreList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CaseIgnoreList(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -833,6 +842,7 @@ impl IADsCaseIgnoreList_Vtbl {
         iid == &<IADsCaseIgnoreList as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsClass_Impl: Sized + IADs_Impl {
     fn PrimaryInterface(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1155,6 +1165,7 @@ impl IADsClass_Vtbl {
         iid == &<IADsClass as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -1211,6 +1222,7 @@ impl IADsCollection_Vtbl {
         iid == &<IADsCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsComputer_Impl: Sized + IADs_Impl {
     fn ComputerID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1553,6 +1565,7 @@ impl IADsComputer_Vtbl {
         iid == &<IADsComputer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsComputerOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
@@ -1585,6 +1598,7 @@ impl IADsComputerOperations_Vtbl {
         iid == &<IADsComputerOperations as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsContainer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -1726,6 +1740,7 @@ impl IADsContainer_Vtbl {
         iid == &<IADsContainer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsDNWithBinary_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn BinaryValue(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -1782,6 +1797,7 @@ impl IADsDNWithBinary_Vtbl {
         iid == &<IADsDNWithBinary as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsDNWithString_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StringValue(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1838,6 +1854,7 @@ impl IADsDNWithString_Vtbl {
         iid == &<IADsDNWithString as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsDeleteOps_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DeleteObject(&self, lnflags: i32) -> ::windows::core::Result<()>;
@@ -1858,6 +1875,7 @@ impl IADsDeleteOps_Vtbl {
         iid == &<IADsDeleteOps as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsDomain_Impl: Sized + IADs_Impl {
     fn IsWorkgroup(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -2047,6 +2065,7 @@ impl IADsDomain_Vtbl {
         iid == &<IADsDomain as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsEmail_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows::core::Result<i32>;
@@ -2103,6 +2122,7 @@ impl IADsEmail_Vtbl {
         iid == &<IADsEmail as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsExtension_Impl: Sized {
     fn Operate(&self, dwcode: u32, vardata1: &super::super::System::Com::VARIANT, vardata2: &super::super::System::Com::VARIANT, vardata3: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -2146,6 +2166,7 @@ impl IADsExtension_Vtbl {
         iid == &<IADsExtension as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsFaxNumber_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TelephoneNumber(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2202,6 +2223,7 @@ impl IADsFaxNumber_Vtbl {
         iid == &<IADsFaxNumber as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsFileService_Impl: Sized + IADsService_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2258,6 +2280,7 @@ impl IADsFileService_Vtbl {
         iid == &<IADsFileService as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID || iid == &<IADsService as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsFileServiceOperations_Impl: Sized + IADsServiceOperations_Impl {
     fn Sessions(&self) -> ::windows::core::Result<IADsCollection>;
@@ -2300,6 +2323,7 @@ impl IADsFileServiceOperations_Vtbl {
         iid == &<IADsFileServiceOperations as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID || iid == &<IADsServiceOperations as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsFileShare_Impl: Sized + IADs_Impl {
     fn CurrentUserCount(&self) -> ::windows::core::Result<i32>;
@@ -2409,6 +2433,7 @@ impl IADsFileShare_Vtbl {
         iid == &<IADsFileShare as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsGroup_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2485,6 +2510,7 @@ impl IADsGroup_Vtbl {
         iid == &<IADsGroup as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsHold_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ObjectName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2541,6 +2567,7 @@ impl IADsHold_Vtbl {
         iid == &<IADsHold as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsLargeInteger_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn HighPart(&self) -> ::windows::core::Result<i32>;
@@ -2597,6 +2624,7 @@ impl IADsLargeInteger_Vtbl {
         iid == &<IADsLargeInteger as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsLocality_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2693,6 +2721,7 @@ impl IADsLocality_Vtbl {
         iid == &<IADsLocality as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsMembers_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -2755,6 +2784,7 @@ impl IADsMembers_Vtbl {
         iid == &<IADsMembers as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsNameTranslate_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetChaseReferral(&self, lnchasereferral: i32) -> ::windows::core::Result<()>;
@@ -2832,6 +2862,7 @@ impl IADsNameTranslate_Vtbl {
         iid == &<IADsNameTranslate as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsNamespaces_Impl: Sized + IADs_Impl {
     fn DefaultContainer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2868,6 +2899,7 @@ impl IADsNamespaces_Vtbl {
         iid == &<IADsNamespaces as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsNetAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AddressType(&self) -> ::windows::core::Result<i32>;
@@ -2924,6 +2956,7 @@ impl IADsNetAddress_Vtbl {
         iid == &<IADsNetAddress as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsO_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3060,6 +3093,7 @@ impl IADsO_Vtbl {
         iid == &<IADsO as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsOU_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3216,6 +3250,7 @@ impl IADsOU_Vtbl {
         iid == &<IADsOU as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsObjectOptions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetOption(&self, lnoption: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -3252,6 +3287,7 @@ impl IADsObjectOptions_Vtbl {
         iid == &<IADsObjectOptions as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsOctetList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn OctetList(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -3288,6 +3324,7 @@ impl IADsOctetList_Vtbl {
         iid == &<IADsOctetList as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsOpenDSObject_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn OpenDSObject(&self, lpszdnname: &::windows::core::BSTR, lpszusername: &::windows::core::BSTR, lpszpassword: &::windows::core::BSTR, lnreserved: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
@@ -3314,6 +3351,7 @@ impl IADsOpenDSObject_Vtbl {
         iid == &<IADsOpenDSObject as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPath_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows::core::Result<i32>;
@@ -3390,6 +3428,7 @@ impl IADsPath_Vtbl {
         iid == &<IADsPath as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPathname_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Set(&self, bstradspath: &::windows::core::BSTR, lnsettype: i32) -> ::windows::core::Result<()>;
@@ -3519,6 +3558,7 @@ impl IADsPathname_Vtbl {
         iid == &<IADsPathname as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPostalAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PostalAddress(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -3555,6 +3595,7 @@ impl IADsPostalAddress_Vtbl {
         iid == &<IADsPostalAddress as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPrintJob_Impl: Sized + IADs_Impl {
     fn HostPrintQueue(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3769,6 +3810,7 @@ impl IADsPrintJob_Vtbl {
         iid == &<IADsPrintJob as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPrintJobOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows::core::Result<i32>;
@@ -3858,6 +3900,7 @@ impl IADsPrintJobOperations_Vtbl {
         iid == &<IADsPrintJobOperations as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPrintQueue_Impl: Sized + IADs_Impl {
     fn PrinterPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4134,6 +4177,7 @@ impl IADsPrintQueue_Vtbl {
         iid == &<IADsPrintQueue as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPrintQueueOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows::core::Result<i32>;
@@ -4197,6 +4241,7 @@ impl IADsPrintQueueOperations_Vtbl {
         iid == &<IADsPrintQueueOperations as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsProperty_Impl: Sized + IADs_Impl {
     fn OID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4326,6 +4371,7 @@ impl IADsProperty_Vtbl {
         iid == &<IADsProperty as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPropertyEntry_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Clear(&self) -> ::windows::core::Result<()>;
@@ -4429,6 +4475,7 @@ impl IADsPropertyEntry_Vtbl {
         iid == &<IADsPropertyEntry as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPropertyList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PropertyCount(&self) -> ::windows::core::Result<i32>;
@@ -4526,6 +4573,7 @@ impl IADsPropertyList_Vtbl {
         iid == &<IADsPropertyList as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPropertyValue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Clear(&self) -> ::windows::core::Result<()>;
@@ -4789,6 +4837,7 @@ impl IADsPropertyValue_Vtbl {
         iid == &<IADsPropertyValue as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPropertyValue2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetObjectProperty(&self, lnadstype: *mut i32, pvprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -4819,6 +4868,7 @@ impl IADsPropertyValue2_Vtbl {
         iid == &<IADsPropertyValue2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsReplicaPointer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ServerName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4935,6 +4985,7 @@ impl IADsReplicaPointer_Vtbl {
         iid == &<IADsReplicaPointer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsResource_Impl: Sized + IADs_Impl {
     fn User(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5003,6 +5054,7 @@ impl IADsResource_Vtbl {
         iid == &<IADsResource as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsSecurityDescriptor_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Revision(&self) -> ::windows::core::Result<i32>;
@@ -5232,6 +5284,7 @@ impl IADsSecurityDescriptor_Vtbl {
         iid == &<IADsSecurityDescriptor as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsSecurityUtility_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetSecurityDescriptor(&self, varpath: &super::super::System::Com::VARIANT, lpathformat: i32, lformat: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -5301,6 +5354,7 @@ impl IADsSecurityUtility_Vtbl {
         iid == &<IADsSecurityUtility as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsService_Impl: Sized + IADs_Impl {
     fn HostComputer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5557,6 +5611,7 @@ impl IADsService_Vtbl {
         iid == &<IADsService as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsServiceOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows::core::Result<i32>;
@@ -5621,6 +5676,7 @@ impl IADsServiceOperations_Vtbl {
         iid == &<IADsServiceOperations as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsSession_Impl: Sized + IADs_Impl {
     fn User(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5715,6 +5771,7 @@ impl IADsSession_Vtbl {
         iid == &<IADsSession as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsSyntax_Impl: Sized + IADs_Impl {
     fn OleAutoDataType(&self) -> ::windows::core::Result<i32>;
@@ -5751,6 +5808,7 @@ impl IADsSyntax_Vtbl {
         iid == &<IADsSyntax as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsTimestamp_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn WholeSeconds(&self) -> ::windows::core::Result<i32>;
@@ -5807,6 +5865,7 @@ impl IADsTimestamp_Vtbl {
         iid == &<IADsTimestamp as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsTypedName_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ObjectName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5883,6 +5942,7 @@ impl IADsTypedName_Vtbl {
         iid == &<IADsTypedName as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsUser_Impl: Sized + IADs_Impl {
     fn BadLoginAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -6824,6 +6884,7 @@ impl IADsUser_Vtbl {
         iid == &<IADsUser as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsWinNTSystemInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn UserName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -6892,6 +6953,7 @@ impl IADsWinNTSystemInfo_Vtbl {
         iid == &<IADsWinNTSystemInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ICommonQuery_Impl: Sized {
     fn OpenQueryWindow(&self, hwndparent: super::super::Foundation::HWND, pquerywnd: *mut OPENQUERYWINDOW, ppdataobject: *mut ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
@@ -6912,6 +6974,7 @@ impl ICommonQuery_Vtbl {
         iid == &<ICommonQuery as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDirectoryObject_Impl: Sized {
     fn GetObjectInformation(&self) -> ::windows::core::Result<*mut ADS_OBJECT_INFO>;
@@ -6981,6 +7044,7 @@ impl IDirectoryObject_Vtbl {
         iid == &<IDirectoryObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectorySchemaMgmt_Impl: Sized {
     fn EnumAttributes(&self, ppszattrnames: *const ::windows::core::PCWSTR, dwnumattributes: u32, ppattrdefinition: *const *const ADS_ATTR_DEF, pdwnumattributes: *const u32) -> ::windows::core::Result<()>;
@@ -7053,6 +7117,7 @@ impl IDirectorySchemaMgmt_Vtbl {
         iid == &<IDirectorySchemaMgmt as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectorySearch_Impl: Sized {
     fn SetSearchPreference(&self, psearchprefs: *const ADS_SEARCHPREF_INFO, dwnumprefs: u32) -> ::windows::core::Result<()>;
@@ -7151,6 +7216,7 @@ impl IDirectorySearch_Vtbl {
         iid == &<IDirectorySearch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDsAdminCreateObj_Impl: Sized {
     fn Initialize(&self, padscontainerobj: &::core::option::Option<IADsContainer>, padscopysource: &::core::option::Option<IADs>, lpszclassname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -7187,6 +7253,7 @@ impl IDsAdminCreateObj_Vtbl {
         iid == &<IDsAdminCreateObj as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDsAdminNewObj_Impl: Sized {
     fn SetButtons(&self, ncurrindex: u32, bvalid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -7217,6 +7284,7 @@ impl IDsAdminNewObj_Vtbl {
         iid == &<IDsAdminNewObj as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDsAdminNewObjExt_Impl: Sized {
     fn Initialize(&self, padscontainerobj: &::core::option::Option<IADsContainer>, padscopysource: &::core::option::Option<IADs>, lpszclassname: &::windows::core::PCWSTR, pdsadminnewobj: &::core::option::Option<IDsAdminNewObj>, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> ::windows::core::Result<()>;
@@ -7275,6 +7343,7 @@ impl IDsAdminNewObjExt_Vtbl {
         iid == &<IDsAdminNewObjExt as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"implement\"`*"]
 pub trait IDsAdminNewObjPrimarySite_Impl: Sized {
     fn CreateNew(&self, pszname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Commit(&self) -> ::windows::core::Result<()>;
@@ -7302,6 +7371,7 @@ impl IDsAdminNewObjPrimarySite_Vtbl {
         iid == &<IDsAdminNewObjPrimarySite as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDsAdminNotifyHandler_Impl: Sized {
     fn Initialize(&self, pextrainfo: &::core::option::Option<super::super::System::Com::IDataObject>, pueventflags: *mut u32) -> ::windows::core::Result<()>;
@@ -7346,6 +7416,7 @@ impl IDsAdminNotifyHandler_Vtbl {
         iid == &<IDsAdminNotifyHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDsBrowseDomainTree_Impl: Sized {
     fn BrowseTo(&self, hwndparent: super::super::Foundation::HWND, ppsztargetpath: *mut ::windows::core::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
@@ -7397,6 +7468,7 @@ impl IDsBrowseDomainTree_Vtbl {
         iid == &<IDsBrowseDomainTree as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDsDisplaySpecifier_Impl: Sized {
     fn SetServer(&self, pszserver: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR, pszpassword: &::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()>;
@@ -7490,6 +7562,7 @@ impl IDsDisplaySpecifier_Vtbl {
         iid == &<IDsDisplaySpecifier as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDsObjectPicker_Impl: Sized {
     fn Initialize(&self, pinitinfo: *mut DSOP_INIT_INFO) -> ::windows::core::Result<()>;
@@ -7526,6 +7599,7 @@ impl IDsObjectPicker_Vtbl {
         iid == &<IDsObjectPicker as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDsObjectPickerCredentials_Impl: Sized + IDsObjectPicker_Impl {
     fn SetCredentials(&self, szusername: &::windows::core::PCWSTR, szpassword: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -7546,6 +7620,7 @@ impl IDsObjectPickerCredentials_Vtbl {
         iid == &<IDsObjectPickerCredentials as ::windows::core::Interface>::IID || iid == &<IDsObjectPicker as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPersistQuery_Impl: Sized + super::super::System::Com::IPersist_Impl {
     fn WriteString(&self, psection: &::windows::core::PCWSTR, pvaluename: &::windows::core::PCWSTR, pvalue: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -7611,6 +7686,7 @@ impl IPersistQuery_Vtbl {
         iid == &<IPersistQuery as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrivateDispatch_Impl: Sized {
     fn ADSIInitializeDispatchManager(&self, dwextensionid: i32) -> ::windows::core::Result<()>;
@@ -7680,6 +7756,7 @@ impl IPrivateDispatch_Vtbl {
         iid == &<IPrivateDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"implement\"`*"]
 pub trait IPrivateUnknown_Impl: Sized {
     fn ADSIInitializeObject(&self, lpszusername: &::windows::core::BSTR, lpszpassword: &::windows::core::BSTR, lnreserved: i32) -> ::windows::core::Result<()>;
     fn ADSIReleaseObject(&self) -> ::windows::core::Result<()>;
@@ -7707,6 +7784,7 @@ impl IPrivateUnknown_Vtbl {
         iid == &<IPrivateUnknown as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IQueryForm_Impl: Sized {
     fn Initialize(&self, hkform: super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;

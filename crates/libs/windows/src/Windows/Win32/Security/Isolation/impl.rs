@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IIsolatedAppLauncher_Impl: Sized {
     fn Launch(&self, appusermodelid: &::windows::core::PCWSTR, arguments: &::windows::core::PCWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::Result<()>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait IComprehensiveSpellCheckProvider_Impl: Sized {
     fn ComprehensiveCheck(&self, text: &::windows::core::PCWSTR) -> ::windows::core::Result<IEnumSpellingError>;
 }
@@ -21,6 +22,7 @@ impl IComprehensiveSpellCheckProvider_Vtbl {
         iid == &<IComprehensiveSpellCheckProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait IEnumCodePage_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumCodePage>;
     fn Next(&self, celt: u32, rgelt: *mut MIMECPINFO, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -68,6 +70,7 @@ impl IEnumCodePage_Vtbl {
         iid == &<IEnumCodePage as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait IEnumRfc1766_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumRfc1766>;
     fn Next(&self, celt: u32, rgelt: *mut RFC1766INFO, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -115,6 +118,7 @@ impl IEnumRfc1766_Vtbl {
         iid == &<IEnumRfc1766 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait IEnumScript_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumScript>;
     fn Next(&self, celt: u32, rgelt: *mut SCRIPTINFO, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -162,6 +166,7 @@ impl IEnumScript_Vtbl {
         iid == &<IEnumScript as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait IEnumSpellingError_Impl: Sized {
     fn Next(&self) -> ::windows::core::Result<ISpellingError>;
 }
@@ -185,6 +190,7 @@ impl IEnumSpellingError_Vtbl {
         iid == &<IEnumSpellingError as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait IMLangCodePages_Impl: Sized {
     fn GetCharCodePages(&self, chsrc: u16) -> ::windows::core::Result<u32>;
     fn GetStrCodePages(&self, pszsrc: &::windows::core::PCWSTR, cchsrc: i32, dwprioritycodepages: u32, pdwcodepages: *mut u32, pcchcodepages: *mut i32) -> ::windows::core::Result<()>;
@@ -244,6 +250,7 @@ impl IMLangCodePages_Vtbl {
         iid == &<IMLangCodePages as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait IMLangConvertCharset_Impl: Sized {
     fn Initialize(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> ::windows::core::Result<()>;
     fn GetSourceCodePage(&self) -> ::windows::core::Result<u32>;
@@ -324,6 +331,7 @@ impl IMLangConvertCharset_Vtbl {
         iid == &<IMLangConvertCharset as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IMLangFontLink_Impl: Sized + IMLangCodePages_Impl {
     fn GetFontCodePages(&self, hdc: super::Graphics::Gdi::HDC, hfont: super::Graphics::Gdi::HFONT, pdwcodepages: *mut u32) -> ::windows::core::Result<()>;
@@ -368,6 +376,7 @@ impl IMLangFontLink_Vtbl {
         iid == &<IMLangFontLink as ::windows::core::Interface>::IID || iid == &<IMLangCodePages as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IMLangFontLink2_Impl: Sized + IMLangCodePages_Impl {
     fn GetFontCodePages(&self, hdc: super::Graphics::Gdi::HDC, hfont: super::Graphics::Gdi::HFONT, pdwcodepages: *mut u32) -> ::windows::core::Result<()>;
@@ -439,6 +448,7 @@ impl IMLangFontLink2_Vtbl {
         iid == &<IMLangFontLink2 as ::windows::core::Interface>::IID || iid == &<IMLangCodePages as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait IMLangLineBreakConsole_Impl: Sized {
     fn BreakLineML(&self, psrcmlstr: &::core::option::Option<IMLangString>, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> ::windows::core::Result<()>;
     fn BreakLineW(&self, locale: u32, pszsrc: &::windows::core::PCWSTR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> ::windows::core::Result<()>;
@@ -473,6 +483,7 @@ impl IMLangLineBreakConsole_Vtbl {
         iid == &<IMLangLineBreakConsole as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLangString_Impl: Sized {
     fn Sync(&self, fnoaccess: super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -517,6 +528,7 @@ impl IMLangString_Vtbl {
         iid == &<IMLangString as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLangStringAStr_Impl: Sized + IMLangString_Impl {
     fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: &::windows::core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
@@ -589,6 +601,7 @@ impl IMLangStringAStr_Vtbl {
         iid == &<IMLangStringAStr as ::windows::core::Interface>::IID || iid == &<IMLangString as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLangStringBufA_Impl: Sized {
     fn GetStatus(&self, plflags: *mut i32, pcchbuf: *mut i32) -> ::windows::core::Result<()>;
@@ -640,6 +653,7 @@ impl IMLangStringBufA_Vtbl {
         iid == &<IMLangStringBufA as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait IMLangStringBufW_Impl: Sized {
     fn GetStatus(&self, plflags: *mut i32, pcchbuf: *mut i32) -> ::windows::core::Result<()>;
     fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut u16, pcchbuf: *mut i32) -> ::windows::core::Result<()>;
@@ -688,6 +702,7 @@ impl IMLangStringBufW_Vtbl {
         iid == &<IMLangStringBufW as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLangStringWStr_Impl: Sized + IMLangString_Impl {
     fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: &::windows::core::PCWSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
@@ -760,6 +775,7 @@ impl IMLangStringWStr_Vtbl {
         iid == &<IMLangStringWStr as ::windows::core::Interface>::IID || iid == &<IMLangString as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait IMultiLanguage_Impl: Sized {
     fn GetNumberOfCodePageInfo(&self) -> ::windows::core::Result<u32>;
     fn GetCodePageInfo(&self, uicodepage: u32) -> ::windows::core::Result<MIMECPINFO>;
@@ -932,6 +948,7 @@ impl IMultiLanguage_Vtbl {
         iid == &<IMultiLanguage as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMultiLanguage2_Impl: Sized {
     fn GetNumberOfCodePageInfo(&self) -> ::windows::core::Result<u32>;
@@ -1203,6 +1220,7 @@ impl IMultiLanguage2_Vtbl {
         iid == &<IMultiLanguage2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMultiLanguage3_Impl: Sized + IMultiLanguage2_Impl {
     fn DetectOutboundCodePage(&self, dwflags: u32, lpwidecharstr: &::windows::core::PCWSTR, cchwidechar: u32, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -1233,6 +1251,7 @@ impl IMultiLanguage3_Vtbl {
         iid == &<IMultiLanguage3 as ::windows::core::Interface>::IID || iid == &<IMultiLanguage2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOptionDescription_Impl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -1301,6 +1320,7 @@ impl IOptionDescription_Vtbl {
         iid == &<IOptionDescription as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpellCheckProvider_Impl: Sized {
     fn LanguageTag(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -1435,6 +1455,7 @@ impl ISpellCheckProvider_Vtbl {
         iid == &<ISpellCheckProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISpellCheckProviderFactory_Impl: Sized {
     fn SupportedLanguages(&self) -> ::windows::core::Result<super::System::Com::IEnumString>;
@@ -1490,6 +1511,7 @@ impl ISpellCheckProviderFactory_Vtbl {
         iid == &<ISpellCheckProviderFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpellChecker_Impl: Sized {
     fn LanguageTag(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -1664,6 +1686,7 @@ impl ISpellChecker_Vtbl {
         iid == &<ISpellChecker as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpellChecker2_Impl: Sized + ISpellChecker_Impl {
     fn Remove(&self, word: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -1684,6 +1707,7 @@ impl ISpellChecker2_Vtbl {
         iid == &<ISpellChecker2 as ::windows::core::Interface>::IID || iid == &<ISpellChecker as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait ISpellCheckerChangedEventHandler_Impl: Sized {
     fn Invoke(&self, sender: &::core::option::Option<ISpellChecker>) -> ::windows::core::Result<()>;
 }
@@ -1701,6 +1725,7 @@ impl ISpellCheckerChangedEventHandler_Vtbl {
         iid == &<ISpellCheckerChangedEventHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISpellCheckerFactory_Impl: Sized {
     fn SupportedLanguages(&self) -> ::windows::core::Result<super::System::Com::IEnumString>;
@@ -1756,6 +1781,7 @@ impl ISpellCheckerFactory_Vtbl {
         iid == &<ISpellCheckerFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait ISpellingError_Impl: Sized {
     fn StartIndex(&self) -> ::windows::core::Result<u32>;
     fn Length(&self) -> ::windows::core::Result<u32>;
@@ -1821,6 +1847,7 @@ impl ISpellingError_Vtbl {
         iid == &<ISpellingError as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait IUserDictionariesRegistrar_Impl: Sized {
     fn RegisterUserDictionary(&self, dictionarypath: &::windows::core::PCWSTR, languagetag: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn UnregisterUserDictionary(&self, dictionarypath: &::windows::core::PCWSTR, languagetag: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;

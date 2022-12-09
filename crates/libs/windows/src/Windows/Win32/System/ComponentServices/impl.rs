@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ContextInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn IsInTransaction(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -79,6 +80,7 @@ impl ContextInfo_Vtbl {
         iid == &<ContextInfo as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ContextInfo2_Impl: Sized + ContextInfo_Impl {
     fn GetPartitionId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -134,6 +136,7 @@ impl ContextInfo2_Vtbl {
         iid == &<ContextInfo2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ContextInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAppDomainHelper_Impl: Sized + super::Com::IDispatch_Impl {
     fn Initialize(&self, punkad: &::core::option::Option<::windows::core::IUnknown>, __midl__iappdomainhelper0000: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -164,6 +167,7 @@ impl IAppDomainHelper_Vtbl {
         iid == &<IAppDomainHelper as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAssemblyLocator_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetModules(&self, applicationdir: &::windows::core::BSTR, applicationname: &::windows::core::BSTR, assemblyname: &::windows::core::BSTR) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
@@ -190,6 +194,7 @@ impl IAssemblyLocator_Vtbl {
         iid == &<IAssemblyLocator as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IAsyncErrorNotify_Impl: Sized {
     fn OnError(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
@@ -207,6 +212,7 @@ impl IAsyncErrorNotify_Vtbl {
         iid == &<IAsyncErrorNotify as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICOMAdminCatalog_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetCollection(&self, bstrcollname: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
@@ -441,6 +447,7 @@ impl ICOMAdminCatalog_Vtbl {
         iid == &<ICOMAdminCatalog as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICOMAdminCatalog2_Impl: Sized + ICOMAdminCatalog_Impl {
     fn GetCollectionByQuery2(&self, bstrcollectionname: &::windows::core::BSTR, pvarquerystrings: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::IDispatch>;
@@ -758,6 +765,7 @@ impl ICOMAdminCatalog2_Vtbl {
         iid == &<ICOMAdminCatalog2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICOMAdminCatalog as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait ICOMLBArguments_Impl: Sized {
     fn GetCLSID(&self, pclsid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn SetCLSID(&self, pclsid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -799,6 +807,7 @@ impl ICOMLBArguments_Vtbl {
         iid == &<ICOMLBArguments as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICatalogCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -999,6 +1008,7 @@ impl ICatalogCollection_Vtbl {
         iid == &<ICatalogCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICatalogObject_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Value(&self, bstrpropname: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -1100,6 +1110,7 @@ impl ICatalogObject_Vtbl {
         iid == &<ICatalogObject as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait ICheckSxsConfig_Impl: Sized {
     fn IsSameSxsConfig(&self, wszsxsname: &::windows::core::PCWSTR, wszsxsdirectory: &::windows::core::PCWSTR, wszsxsappname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
@@ -1117,6 +1128,7 @@ impl ICheckSxsConfig_Vtbl {
         iid == &<ICheckSxsConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComActivityEvents_Impl: Sized {
     fn OnActivityCreate(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn OnActivityDestroy(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -1179,6 +1191,7 @@ impl IComActivityEvents_Vtbl {
         iid == &<IComActivityEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComApp2Events_Impl: Sized {
     fn OnAppActivation2(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID, guidprocess: &::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -1230,6 +1243,7 @@ impl IComApp2Events_Vtbl {
         iid == &<IComApp2Events as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComAppEvents_Impl: Sized {
     fn OnAppActivation(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn OnAppShutdown(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -1264,6 +1278,7 @@ impl IComAppEvents_Vtbl {
         iid == &<IComAppEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComCRMEvents_Impl: Sized {
     fn OnCRMRecoveryStart(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -1385,6 +1400,7 @@ impl IComCRMEvents_Vtbl {
         iid == &<IComCRMEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComExceptionEvents_Impl: Sized {
     fn OnExceptionUser(&self, pinfo: *const COMSVCSEVENTINFO, code: u32, address: u64, pszstacktrace: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
@@ -1402,6 +1418,7 @@ impl IComExceptionEvents_Vtbl {
         iid == &<IComExceptionEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComIdentityEvents_Impl: Sized {
     fn OnIISRequestInfo(&self, pinfo: *const COMSVCSEVENTINFO, objid: u64, pszclientip: &::windows::core::PCWSTR, pszserverip: &::windows::core::PCWSTR, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
@@ -1419,6 +1436,7 @@ impl IComIdentityEvents_Vtbl {
         iid == &<IComIdentityEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComInstance2Events_Impl: Sized {
     fn OnObjectCreate2(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, clsid: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, ctxtid: u64, objectid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn OnObjectDestroy2(&self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::Result<()>;
@@ -1446,6 +1464,7 @@ impl IComInstance2Events_Vtbl {
         iid == &<IComInstance2Events as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComInstanceEvents_Impl: Sized {
     fn OnObjectCreate(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, clsid: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, ctxtid: u64, objectid: u64) -> ::windows::core::Result<()>;
     fn OnObjectDestroy(&self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::Result<()>;
@@ -1473,6 +1492,7 @@ impl IComInstanceEvents_Vtbl {
         iid == &<IComInstanceEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComLTxEvents_Impl: Sized {
     fn OnLtxTransactionStart(&self, pinfo: *const COMSVCSEVENTINFO, guidltx: &::windows::core::GUID, tsid: &::windows::core::GUID, froot: super::super::Foundation::BOOL, nisolationlevel: i32) -> ::windows::core::Result<()>;
@@ -1524,6 +1544,7 @@ impl IComLTxEvents_Vtbl {
         iid == &<IComLTxEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComMethod2Events_Impl: Sized {
     fn OnMethodCall2(&self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32) -> ::windows::core::Result<()>;
     fn OnMethodReturn2(&self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -1558,6 +1579,7 @@ impl IComMethod2Events_Vtbl {
         iid == &<IComMethod2Events as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComMethodEvents_Impl: Sized {
     fn OnMethodCall(&self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32) -> ::windows::core::Result<()>;
     fn OnMethodReturn(&self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -1592,6 +1614,7 @@ impl IComMethodEvents_Vtbl {
         iid == &<IComMethodEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComMtaThreadPoolKnobs_Impl: Sized {
     fn MTASetMaxThreadCount(&self, dwmaxthreads: u32) -> ::windows::core::Result<()>;
     fn MTAGetMaxThreadCount(&self) -> ::windows::core::Result<u32>;
@@ -1645,6 +1668,7 @@ impl IComMtaThreadPoolKnobs_Vtbl {
         iid == &<IComMtaThreadPoolKnobs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComObjectConstruction2Events_Impl: Sized {
     fn OnObjectConstruct2(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: &::windows::core::PCWSTR, oid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
@@ -1662,6 +1686,7 @@ impl IComObjectConstruction2Events_Vtbl {
         iid == &<IComObjectConstruction2Events as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComObjectConstructionEvents_Impl: Sized {
     fn OnObjectConstruct(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: &::windows::core::PCWSTR, oid: u64) -> ::windows::core::Result<()>;
 }
@@ -1679,6 +1704,7 @@ impl IComObjectConstructionEvents_Vtbl {
         iid == &<IComObjectConstructionEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComObjectEvents_Impl: Sized {
     fn OnObjectActivate(&self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64, objectid: u64) -> ::windows::core::Result<()>;
     fn OnObjectDeactivate(&self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64, objectid: u64) -> ::windows::core::Result<()>;
@@ -1734,6 +1760,7 @@ impl IComObjectEvents_Vtbl {
         iid == &<IComObjectEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComObjectPool2Events_Impl: Sized {
     fn OnObjPoolPutObject2(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, nreason: i32, dwavailable: u32, oid: u64) -> ::windows::core::Result<()>;
     fn OnObjPoolGetObject2(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, dwavailable: u32, oid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -1775,6 +1802,7 @@ impl IComObjectPool2Events_Vtbl {
         iid == &<IComObjectPool2Events as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComObjectPoolEvents_Impl: Sized {
     fn OnObjPoolPutObject(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, nreason: i32, dwavailable: u32, oid: u64) -> ::windows::core::Result<()>;
     fn OnObjPoolGetObject(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, dwavailable: u32, oid: u64) -> ::windows::core::Result<()>;
@@ -1816,6 +1844,7 @@ impl IComObjectPoolEvents_Vtbl {
         iid == &<IComObjectPoolEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComObjectPoolEvents2_Impl: Sized {
     fn OnObjPoolCreateObject(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwobjscreated: u32, oid: u64) -> ::windows::core::Result<()>;
     fn OnObjPoolDestroyObject(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwobjscreated: u32, oid: u64) -> ::windows::core::Result<()>;
@@ -1864,6 +1893,7 @@ impl IComObjectPoolEvents2_Vtbl {
         iid == &<IComObjectPoolEvents2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComQCEvents_Impl: Sized {
     fn OnQCRecord(&self, pinfo: *const COMSVCSEVENTINFO, objid: u64, szqueue: &::windows::core::PCWSTR, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, msmqhr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn OnQCQueueOpen(&self, pinfo: *const COMSVCSEVENTINFO, szqueue: &::windows::core::PCWSTR, queueid: u64, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -1926,6 +1956,7 @@ impl IComQCEvents_Vtbl {
         iid == &<IComQCEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComResourceEvents_Impl: Sized {
     fn OnResourceCreate(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: &::windows::core::PCWSTR, resid: u64, enlisted: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -1977,6 +2008,7 @@ impl IComResourceEvents_Vtbl {
         iid == &<IComResourceEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComSecurityEvents_Impl: Sized {
     fn OnAuthenticate(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, objectid: u64, guidiid: *const ::windows::core::GUID, imeth: u32, cbbyteorig: u32, psidoriginaluser: *const u8, cbbytecur: u32, psidcurrentuser: *const u8, bcurrentuserinpersonatinginproc: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -2007,6 +2039,7 @@ impl IComSecurityEvents_Vtbl {
         iid == &<IComSecurityEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComStaThreadPoolKnobs_Impl: Sized {
     fn SetMinThreadCount(&self, minthreads: u32) -> ::windows::core::Result<()>;
     fn GetMinThreadCount(&self) -> ::windows::core::Result<u32>;
@@ -2133,6 +2166,7 @@ impl IComStaThreadPoolKnobs_Vtbl {
         iid == &<IComStaThreadPoolKnobs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComStaThreadPoolKnobs2_Impl: Sized + IComStaThreadPoolKnobs_Impl {
     fn GetMaxCPULoad(&self) -> ::windows::core::Result<u32>;
@@ -2249,6 +2283,7 @@ impl IComStaThreadPoolKnobs2_Vtbl {
         iid == &<IComStaThreadPoolKnobs2 as ::windows::core::Interface>::IID || iid == &<IComStaThreadPoolKnobs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComThreadEvents_Impl: Sized {
     fn OnThreadStart(&self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, dwthread: u32, dwtheadcnt: u32) -> ::windows::core::Result<()>;
     fn OnThreadTerminate(&self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, dwthread: u32, dwtheadcnt: u32) -> ::windows::core::Result<()>;
@@ -2339,6 +2374,7 @@ impl IComThreadEvents_Vtbl {
         iid == &<IComThreadEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComTrackingInfoCollection_Impl: Sized {
     fn Type(&self) -> ::windows::core::Result<TRACKING_COLL_TYPE>;
     fn Count(&self) -> ::windows::core::Result<u32>;
@@ -2385,6 +2421,7 @@ impl IComTrackingInfoCollection_Vtbl {
         iid == &<IComTrackingInfoCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComTrackingInfoEvents_Impl: Sized {
     fn OnNewTrackingInfo(&self, ptoplevelcollection: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
@@ -2402,6 +2439,7 @@ impl IComTrackingInfoEvents_Vtbl {
         iid == &<IComTrackingInfoEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IComTrackingInfoObject_Impl: Sized {
     fn GetValue(&self, szpropertyname: &::windows::core::PCWSTR) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -2428,6 +2466,7 @@ impl IComTrackingInfoObject_Vtbl {
         iid == &<IComTrackingInfoObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IComTrackingInfoProperties_Impl: Sized {
     fn PropCount(&self) -> ::windows::core::Result<u32>;
     fn GetPropName(&self, ulindex: u32) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -2467,6 +2506,7 @@ impl IComTrackingInfoProperties_Vtbl {
         iid == &<IComTrackingInfoProperties as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComTransaction2Events_Impl: Sized {
     fn OnTransactionStart2(&self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, froot: super::super::Foundation::BOOL, nisolationlevel: i32) -> ::windows::core::Result<()>;
@@ -2511,6 +2551,7 @@ impl IComTransaction2Events_Vtbl {
         iid == &<IComTransaction2Events as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComTransactionEvents_Impl: Sized {
     fn OnTransactionStart(&self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, froot: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -2555,6 +2596,7 @@ impl IComTransactionEvents_Vtbl {
         iid == &<IComTransactionEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IComUserEvent_Impl: Sized {
     fn OnUserEvent(&self, pinfo: *const COMSVCSEVENTINFO, pvarevent: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -2575,6 +2617,7 @@ impl IComUserEvent_Vtbl {
         iid == &<IComUserEvent as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IContextProperties_Impl: Sized {
     fn Count(&self, plcount: *mut i32) -> ::windows::core::Result<()>;
@@ -2632,6 +2675,7 @@ impl IContextProperties_Vtbl {
         iid == &<IContextProperties as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContextSecurityPerimeter_Impl: Sized {
     fn GetPerimeterFlag(&self, pflag: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -2662,6 +2706,7 @@ impl IContextSecurityPerimeter_Vtbl {
         iid == &<IContextSecurityPerimeter as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContextState_Impl: Sized {
     fn SetDeactivateOnReturn(&self, bdeactivate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
@@ -2706,6 +2751,7 @@ impl IContextState_Vtbl {
         iid == &<IContextState as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait ICreateWithLocalTransaction_Impl: Sized {
     fn CreateInstanceWithSysTx(&self, ptransaction: &::core::option::Option<::windows::core::IUnknown>, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -2723,6 +2769,7 @@ impl ICreateWithLocalTransaction_Vtbl {
         iid == &<ICreateWithLocalTransaction as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait ICreateWithTipTransactionEx_Impl: Sized {
     fn CreateInstance(&self, bstrtipurl: &::windows::core::BSTR, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -2740,6 +2787,7 @@ impl ICreateWithTipTransactionEx_Vtbl {
         iid == &<ICreateWithTipTransactionEx as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 pub trait ICreateWithTransactionEx_Impl: Sized {
     fn CreateInstance(&self, ptransaction: &::core::option::Option<super::DistributedTransactionCoordinator::ITransaction>, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -2760,6 +2808,7 @@ impl ICreateWithTransactionEx_Vtbl {
         iid == &<ICreateWithTransactionEx as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ICrmCompensator_Impl: Sized {
     fn SetLogControl(&self, plogcontrol: &::core::option::Option<ICrmLogControl>) -> ::windows::core::Result<()>;
@@ -2870,6 +2919,7 @@ impl ICrmCompensator_Vtbl {
         iid == &<ICrmCompensator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmCompensatorVariants_Impl: Sized {
     fn SetLogControlVariants(&self, plogcontrol: &::core::option::Option<ICrmLogControl>) -> ::windows::core::Result<()>;
@@ -2980,6 +3030,7 @@ impl ICrmCompensatorVariants_Vtbl {
         iid == &<ICrmCompensatorVariants as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmFormatLogRecords_Impl: Sized {
     fn GetColumnCount(&self) -> ::windows::core::Result<i32>;
@@ -3048,6 +3099,7 @@ impl ICrmFormatLogRecords_Vtbl {
         iid == &<ICrmFormatLogRecords as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmLogControl_Impl: Sized {
     fn TransactionUOW(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3119,6 +3171,7 @@ impl ICrmLogControl_Vtbl {
         iid == &<ICrmLogControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmMonitor_Impl: Sized {
     fn GetClerks(&self) -> ::windows::core::Result<ICrmMonitorClerks>;
@@ -3161,6 +3214,7 @@ impl ICrmMonitor_Vtbl {
         iid == &<ICrmMonitor as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmMonitorClerks_Impl: Sized + super::Com::IDispatch_Impl {
     fn Item(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -3268,6 +3322,7 @@ impl ICrmMonitorClerks_Vtbl {
         iid == &<ICrmMonitorClerks as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmMonitorLogRecords_Impl: Sized {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -3343,6 +3398,7 @@ impl ICrmMonitorLogRecords_Vtbl {
         iid == &<ICrmMonitorLogRecords as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDispenserDriver_Impl: Sized {
     fn CreateResource(&self, restypid: usize, presid: *mut usize, psecsfreebeforedestroy: *mut i32) -> ::windows::core::Result<()>;
@@ -3401,6 +3457,7 @@ impl IDispenserDriver_Vtbl {
         iid == &<IDispenserDriver as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IDispenserManager_Impl: Sized {
     fn RegisterDispenser(&self, __midl__idispensermanager0000: &::core::option::Option<IDispenserDriver>, szdispensername: &::windows::core::PCWSTR) -> ::windows::core::Result<IHolder>;
     fn GetContext(&self, __midl__idispensermanager0002: *mut usize, __midl__idispensermanager0003: *mut usize) -> ::windows::core::Result<()>;
@@ -3434,6 +3491,7 @@ impl IDispenserManager_Vtbl {
         iid == &<IDispenserManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IEnumNames_Impl: Sized {
     fn Next(&self, celt: u32, rgname: *mut ::windows::core::BSTR, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -3481,6 +3539,7 @@ impl IEnumNames_Vtbl {
         iid == &<IEnumNames as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEventServerTrace_Impl: Sized + super::Com::IDispatch_Impl {
     fn StartTraceGuid(&self, bstrguidevent: &::windows::core::BSTR, bstrguidfilter: &::windows::core::BSTR, lpidfilter: i32) -> ::windows::core::Result<()>;
@@ -3518,6 +3577,7 @@ impl IEventServerTrace_Vtbl {
         iid == &<IEventServerTrace as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGetAppTrackerData_Impl: Sized {
     fn GetApplicationProcesses(&self, partitionid: *const ::windows::core::GUID, applicationid: *const ::windows::core::GUID, flags: u32, numapplicationprocesses: *mut u32, applicationprocesses: *mut *mut ApplicationProcessSummary) -> ::windows::core::Result<()>;
@@ -3595,6 +3655,7 @@ impl IGetAppTrackerData_Vtbl {
         iid == &<IGetAppTrackerData as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGetContextProperties_Impl: Sized {
     fn Count(&self, plcount: *mut i32) -> ::windows::core::Result<()>;
@@ -3638,6 +3699,7 @@ impl IGetContextProperties_Vtbl {
         iid == &<IGetContextProperties as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGetSecurityCallContext_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetSecurityCallContext(&self) -> ::windows::core::Result<ISecurityCallContext>;
@@ -3664,6 +3726,7 @@ impl IGetSecurityCallContext_Vtbl {
         iid == &<IGetSecurityCallContext as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHolder_Impl: Sized {
     fn AllocResource(&self, __midl__iholder0000: usize, __midl__iholder0001: *mut usize) -> ::windows::core::Result<()>;
@@ -3736,6 +3799,7 @@ impl IHolder_Vtbl {
         iid == &<IHolder as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ILBEvents_Impl: Sized {
     fn TargetUp(&self, bstrservername: &::windows::core::BSTR, bstrclsideng: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3773,6 +3837,7 @@ impl ILBEvents_Vtbl {
         iid == &<ILBEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IMTSActivity_Impl: Sized {
     fn SynchronousCall(&self, pcall: &::core::option::Option<IMTSCall>) -> ::windows::core::Result<()>;
     fn AsyncCall(&self, pcall: &::core::option::Option<IMTSCall>) -> ::windows::core::Result<()>;
@@ -3821,6 +3886,7 @@ impl IMTSActivity_Vtbl {
         iid == &<IMTSActivity as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IMTSCall_Impl: Sized {
     fn OnCall(&self) -> ::windows::core::Result<()>;
 }
@@ -3838,6 +3904,7 @@ impl IMTSCall_Vtbl {
         iid == &<IMTSCall as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMTSLocator_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetEventDispatcher(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -3864,6 +3931,7 @@ impl IMTSLocator_Vtbl {
         iid == &<IMTSLocator as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IManagedActivationEvents_Impl: Sized {
     fn CreateManagedStub(&self, pinfo: &::core::option::Option<IManagedObjectInfo>, fdist: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -3894,6 +3962,7 @@ impl IManagedActivationEvents_Vtbl {
         iid == &<IManagedActivationEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IManagedObjectInfo_Impl: Sized {
     fn GetIUnknown(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -3950,6 +4019,7 @@ impl IManagedObjectInfo_Vtbl {
         iid == &<IManagedObjectInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IManagedPoolAction_Impl: Sized {
     fn LastRelease(&self) -> ::windows::core::Result<()>;
 }
@@ -3967,6 +4037,7 @@ impl IManagedPoolAction_Vtbl {
         iid == &<IManagedPoolAction as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IManagedPooledObj_Impl: Sized {
     fn SetHeld(&self, m_bheld: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -3987,6 +4058,7 @@ impl IManagedPooledObj_Vtbl {
         iid == &<IManagedPooledObj as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMessageMover_Impl: Sized + super::Com::IDispatch_Impl {
     fn SourcePath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4076,6 +4148,7 @@ impl IMessageMover_Vtbl {
         iid == &<IMessageMover as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMtsEventInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Names(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -4157,6 +4230,7 @@ impl IMtsEventInfo_Vtbl {
         iid == &<IMtsEventInfo as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMtsEvents_Impl: Sized + super::Com::IDispatch_Impl {
     fn PackageName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4232,6 +4306,7 @@ impl IMtsEvents_Vtbl {
         iid == &<IMtsEvents as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMtsGrp_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -4281,6 +4356,7 @@ impl IMtsGrp_Vtbl {
         iid == &<IMtsGrp as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IObjPool_Impl: Sized {
     fn Reserved1(&self);
     fn Reserved2(&self);
@@ -4343,6 +4419,7 @@ impl IObjPool_Vtbl {
         iid == &<IObjPool as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IObjectConstruct_Impl: Sized {
     fn Construct(&self, pctorobj: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
@@ -4363,6 +4440,7 @@ impl IObjectConstruct_Vtbl {
         iid == &<IObjectConstruct as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IObjectConstructString_Impl: Sized + super::Com::IDispatch_Impl {
     fn ConstructString(&self, pval: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -4383,6 +4461,7 @@ impl IObjectConstructString_Vtbl {
         iid == &<IObjectConstructString as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IObjectContext_Impl: Sized {
     fn CreateInstance(&self, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -4455,6 +4534,7 @@ impl IObjectContext_Vtbl {
         iid == &<IObjectContext as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IObjectContextActivity_Impl: Sized {
     fn GetActivityId(&self, pguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
@@ -4472,6 +4552,7 @@ impl IObjectContextActivity_Vtbl {
         iid == &<IObjectContextActivity as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IObjectContextInfo_Impl: Sized {
     fn IsInTransaction(&self) -> super::super::Foundation::BOOL;
@@ -4529,6 +4610,7 @@ impl IObjectContextInfo_Vtbl {
         iid == &<IObjectContextInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IObjectContextInfo2_Impl: Sized + IObjectContextInfo_Impl {
     fn GetPartitionId(&self, pguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -4566,6 +4648,7 @@ impl IObjectContextInfo2_Vtbl {
         iid == &<IObjectContextInfo2 as ::windows::core::Interface>::IID || iid == &<IObjectContextInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IObjectContextTip_Impl: Sized {
     fn GetTipUrl(&self, ptipurl: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -4583,6 +4666,7 @@ impl IObjectContextTip_Vtbl {
         iid == &<IObjectContextTip as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IObjectControl_Impl: Sized {
     fn Activate(&self) -> ::windows::core::Result<()>;
@@ -4620,6 +4704,7 @@ impl IObjectControl_Vtbl {
         iid == &<IObjectControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IPlaybackControl_Impl: Sized {
     fn FinalClientRetry(&self) -> ::windows::core::Result<()>;
     fn FinalServerRetry(&self) -> ::windows::core::Result<()>;
@@ -4647,6 +4732,7 @@ impl IPlaybackControl_Vtbl {
         iid == &<IPlaybackControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPoolManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn ShutdownPool(&self, clsidorprogid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -4667,6 +4753,7 @@ impl IPoolManager_Vtbl {
         iid == &<IPoolManager as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IProcessInitializer_Impl: Sized {
     fn Startup(&self, punkprocesscontrol: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Shutdown(&self) -> ::windows::core::Result<()>;
@@ -4694,6 +4781,7 @@ impl IProcessInitializer_Vtbl {
         iid == &<IProcessInitializer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISecurityCallContext_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -4788,6 +4876,7 @@ impl ISecurityCallContext_Vtbl {
         iid == &<ISecurityCallContext as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISecurityCallersColl_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -4843,6 +4932,7 @@ impl ISecurityCallersColl_Vtbl {
         iid == &<ISecurityCallersColl as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISecurityIdentityColl_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -4898,6 +4988,7 @@ impl ISecurityIdentityColl_Vtbl {
         iid == &<ISecurityIdentityColl as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISecurityProperty_Impl: Sized {
     fn GetDirectCreatorSID(&self, psid: *mut super::super::Foundation::PSID) -> ::windows::core::Result<()>;
@@ -4949,6 +5040,7 @@ impl ISecurityProperty_Vtbl {
         iid == &<ISecurityProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait ISelectCOMLBServer_Impl: Sized {
     fn Init(&self) -> ::windows::core::Result<()>;
     fn GetLBServer(&self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -4976,6 +5068,7 @@ impl ISelectCOMLBServer_Vtbl {
         iid == &<ISelectCOMLBServer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait ISendMethodEvents_Impl: Sized {
     fn SendMethodCall(&self, pidentity: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwmeth: u32) -> ::windows::core::Result<()>;
     fn SendMethodReturn(&self, pidentity: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwmeth: u32, hrcall: ::windows::core::HRESULT, hrserver: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -5003,6 +5096,7 @@ impl ISendMethodEvents_Vtbl {
         iid == &<ISendMethodEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IServiceActivity_Impl: Sized {
     fn SynchronousCall(&self, piservicecall: &::core::option::Option<IServiceCall>) -> ::windows::core::Result<()>;
     fn AsynchronousCall(&self, piservicecall: &::core::option::Option<IServiceCall>) -> ::windows::core::Result<()>;
@@ -5044,6 +5138,7 @@ impl IServiceActivity_Vtbl {
         iid == &<IServiceActivity as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IServiceCall_Impl: Sized {
     fn OnCall(&self) -> ::windows::core::Result<()>;
 }
@@ -5061,6 +5156,7 @@ impl IServiceCall_Vtbl {
         iid == &<IServiceCall as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IServiceComTIIntrinsicsConfig_Impl: Sized {
     fn ComTIIntrinsicsConfig(&self, comtiintrinsicsconfig: CSC_COMTIIntrinsicsConfig) -> ::windows::core::Result<()>;
 }
@@ -5078,6 +5174,7 @@ impl IServiceComTIIntrinsicsConfig_Vtbl {
         iid == &<IServiceComTIIntrinsicsConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IServiceIISIntrinsicsConfig_Impl: Sized {
     fn IISIntrinsicsConfig(&self, iisintrinsicsconfig: CSC_IISIntrinsicsConfig) -> ::windows::core::Result<()>;
 }
@@ -5095,6 +5192,7 @@ impl IServiceIISIntrinsicsConfig_Vtbl {
         iid == &<IServiceIISIntrinsicsConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IServiceInheritanceConfig_Impl: Sized {
     fn ContainingContextTreatment(&self, inheritanceconfig: CSC_InheritanceConfig) -> ::windows::core::Result<()>;
 }
@@ -5115,6 +5213,7 @@ impl IServiceInheritanceConfig_Vtbl {
         iid == &<IServiceInheritanceConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IServicePartitionConfig_Impl: Sized {
     fn PartitionConfig(&self, partitionconfig: CSC_PartitionConfig) -> ::windows::core::Result<()>;
     fn PartitionID(&self, guidpartitionid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -5142,6 +5241,7 @@ impl IServicePartitionConfig_Vtbl {
         iid == &<IServicePartitionConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IServicePool_Impl: Sized {
     fn Initialize(&self, ppoolconfig: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetObject(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -5176,6 +5276,7 @@ impl IServicePool_Vtbl {
         iid == &<IServicePool as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IServicePoolConfig_Impl: Sized {
     fn SetMaxPoolSize(&self, dwmaxpool: u32) -> ::windows::core::Result<()>;
@@ -5268,6 +5369,7 @@ impl IServicePoolConfig_Vtbl {
         iid == &<IServicePoolConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IServiceSxsConfig_Impl: Sized {
     fn SxsConfig(&self, scsconfig: CSC_SxsConfig) -> ::windows::core::Result<()>;
     fn SxsName(&self, szsxsname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -5302,6 +5404,7 @@ impl IServiceSxsConfig_Vtbl {
         iid == &<IServiceSxsConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IServiceSynchronizationConfig_Impl: Sized {
     fn ConfigureSynchronization(&self, synchconfig: CSC_SynchronizationConfig) -> ::windows::core::Result<()>;
 }
@@ -5319,6 +5422,7 @@ impl IServiceSynchronizationConfig_Vtbl {
         iid == &<IServiceSynchronizationConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 pub trait IServiceSysTxnConfig_Impl: Sized + IServiceTransactionConfig_Impl {
     fn ConfigureBYOTSysTxn(&self, ptxproxy: &::core::option::Option<ITransactionProxy>) -> ::windows::core::Result<()>;
@@ -5339,6 +5443,7 @@ impl IServiceSysTxnConfig_Vtbl {
         iid == &<IServiceSysTxnConfig as ::windows::core::Interface>::IID || iid == &<IServiceTransactionConfigBase as ::windows::core::Interface>::IID || iid == &<IServiceTransactionConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IServiceThreadPoolConfig_Impl: Sized {
     fn SelectThreadPool(&self, threadpool: CSC_ThreadPool) -> ::windows::core::Result<()>;
     fn SetBindingInfo(&self, binding: CSC_Binding) -> ::windows::core::Result<()>;
@@ -5366,6 +5471,7 @@ impl IServiceThreadPoolConfig_Vtbl {
         iid == &<IServiceThreadPoolConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IServiceTrackerConfig_Impl: Sized {
     fn TrackerConfig(&self, trackerconfig: CSC_TrackerConfig, sztrackerappname: &::windows::core::PCWSTR, sztrackerctxname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
@@ -5383,6 +5489,7 @@ impl IServiceTrackerConfig_Vtbl {
         iid == &<IServiceTrackerConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 pub trait IServiceTransactionConfig_Impl: Sized + IServiceTransactionConfigBase_Impl {
     fn ConfigureBYOT(&self, pitxbyot: &::core::option::Option<super::DistributedTransactionCoordinator::ITransaction>) -> ::windows::core::Result<()>;
@@ -5403,6 +5510,7 @@ impl IServiceTransactionConfig_Vtbl {
         iid == &<IServiceTransactionConfig as ::windows::core::Interface>::IID || iid == &<IServiceTransactionConfigBase as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IServiceTransactionConfigBase_Impl: Sized {
     fn ConfigureTransaction(&self, transactionconfig: CSC_TransactionConfig) -> ::windows::core::Result<()>;
     fn IsolationLevel(&self, option: COMAdminTxIsolationLevelOptions) -> ::windows::core::Result<()>;
@@ -5451,6 +5559,7 @@ impl IServiceTransactionConfigBase_Vtbl {
         iid == &<IServiceTransactionConfigBase as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISharedProperty_Impl: Sized + super::Com::IDispatch_Impl {
     fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -5487,6 +5596,7 @@ impl ISharedProperty_Vtbl {
         iid == &<ISharedProperty as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISharedPropertyGroup_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreatePropertyByPosition(&self, index: i32, fexists: *mut super::super::Foundation::VARIANT_BOOL, ppprop: *mut ::core::option::Option<ISharedProperty>) -> ::windows::core::Result<()>;
@@ -5543,6 +5653,7 @@ impl ISharedPropertyGroup_Vtbl {
         iid == &<ISharedPropertyGroup as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISharedPropertyGroupManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreatePropertyGroup(&self, name: &::windows::core::BSTR, dwisomode: *mut i32, dwrelmode: *mut i32, fexists: *mut super::super::Foundation::VARIANT_BOOL, ppgroup: *mut ::core::option::Option<ISharedPropertyGroup>) -> ::windows::core::Result<()>;
@@ -5592,6 +5703,7 @@ impl ISharedPropertyGroupManager_Vtbl {
         iid == &<ISharedPropertyGroupManager as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait ISystemAppEventData_Impl: Sized {
     fn Startup(&self) -> ::windows::core::Result<()>;
     fn OnDataChanged(&self, dwpid: u32, dwmask: u32, dwnumbersinks: u32, bstrdwmethodmask: &::windows::core::BSTR, dwreason: u32, u64tracehandle: u64) -> ::windows::core::Result<()>;
@@ -5619,6 +5731,7 @@ impl ISystemAppEventData_Vtbl {
         iid == &<ISystemAppEventData as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait IThreadPoolKnobs_Impl: Sized {
     fn GetMaxThreads(&self, plcmaxthreads: *mut i32) -> ::windows::core::Result<()>;
     fn GetCurrentThreads(&self, plccurrentthreads: *mut i32) -> ::windows::core::Result<()>;
@@ -5702,6 +5815,7 @@ impl IThreadPoolKnobs_Vtbl {
         iid == &<IThreadPoolKnobs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITransactionContext_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreateInstance(&self, pszprogid: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -5745,6 +5859,7 @@ impl ITransactionContext_Vtbl {
         iid == &<ITransactionContext as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait ITransactionContextEx_Impl: Sized {
     fn CreateInstance(&self, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Commit(&self) -> ::windows::core::Result<()>;
@@ -5779,6 +5894,7 @@ impl ITransactionContextEx_Vtbl {
         iid == &<ITransactionContextEx as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait ITransactionProperty_Impl: Sized {
     fn Reserved1(&self);
     fn Reserved2(&self);
@@ -5924,6 +6040,7 @@ impl ITransactionProperty_Vtbl {
         iid == &<ITransactionProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 pub trait ITransactionProxy_Impl: Sized {
     fn Commit(&self, guid: &::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -6001,6 +6118,7 @@ impl ITransactionProxy_Vtbl {
         iid == &<ITransactionProxy as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait ITransactionResourcePool_Impl: Sized {
     fn PutResource(&self, ppool: &::core::option::Option<IObjPool>, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetResource(&self, ppool: &::core::option::Option<IObjPool>) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -6034,6 +6152,7 @@ impl ITransactionResourcePool_Vtbl {
         iid == &<ITransactionResourcePool as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait ITransactionStatus_Impl: Sized {
     fn SetTransactionStatus(&self, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn GetTransactionStatus(&self, phrstatus: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -6061,6 +6180,7 @@ impl ITransactionStatus_Vtbl {
         iid == &<ITransactionStatus as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"implement\"`*"]
 pub trait ITxProxyHolder_Impl: Sized {
     fn GetIdentifier(&self, pguidltx: *mut ::windows::core::GUID);
 }
@@ -6078,6 +6198,7 @@ impl ITxProxyHolder_Vtbl {
         iid == &<ITxProxyHolder as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ObjectContext_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreateInstance(&self, bstrprogid: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -6239,6 +6360,7 @@ impl ObjectContext_Vtbl {
         iid == &<ObjectContext as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ObjectControl_Impl: Sized {
     fn Activate(&self) -> ::windows::core::Result<()>;
@@ -6276,6 +6398,7 @@ impl ObjectControl_Vtbl {
         iid == &<ObjectControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait SecurityProperty_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetDirectCallerName(&self) -> ::windows::core::Result<::windows::core::BSTR>;

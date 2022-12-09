@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"implement\"`*"]
 pub trait IEnumWIA_DEV_CAPS_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut WIA_DEV_CAP, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -58,6 +59,7 @@ impl IEnumWIA_DEV_CAPS_Vtbl {
         iid == &<IEnumWIA_DEV_CAPS as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"implement\"`*"]
 pub trait IEnumWIA_DEV_INFO_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IWiaPropertyStorage>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -118,6 +120,7 @@ impl IEnumWIA_DEV_INFO_Vtbl {
         iid == &<IEnumWIA_DEV_INFO as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"implement\"`*"]
 pub trait IEnumWIA_FORMAT_INFO_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut WIA_FORMAT_INFO, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -178,6 +181,7 @@ impl IEnumWIA_FORMAT_INFO_Vtbl {
         iid == &<IEnumWIA_FORMAT_INFO as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"implement\"`*"]
 pub trait IEnumWiaItem_Impl: Sized {
     fn Next(&self, celt: u32, ppiwiaitem: *mut ::core::option::Option<IWiaItem>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -238,6 +242,7 @@ impl IEnumWiaItem_Vtbl {
         iid == &<IEnumWiaItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"implement\"`*"]
 pub trait IEnumWiaItem2_Impl: Sized {
     fn Next(&self, celt: u32, ppiwiaitem2: *mut ::core::option::Option<IWiaItem2>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -298,6 +303,7 @@ impl IEnumWiaItem2_Vtbl {
         iid == &<IEnumWiaItem2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWiaAppErrorHandler_Impl: Sized {
     fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
@@ -334,6 +340,7 @@ impl IWiaAppErrorHandler_Vtbl {
         iid == &<IWiaAppErrorHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"implement\"`*"]
 pub trait IWiaDataCallback_Impl: Sized {
     fn BandedDataCallback(&self, lmessage: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, lreserved: i32, lreslength: i32, pbbuffer: *mut u8) -> ::windows::core::Result<()>;
 }
@@ -351,6 +358,7 @@ impl IWiaDataCallback_Vtbl {
         iid == &<IWiaDataCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWiaDataTransfer_Impl: Sized {
     fn idtGetData(&self, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: &::core::option::Option<IWiaDataCallback>) -> ::windows::core::Result<()>;
@@ -414,6 +422,7 @@ impl IWiaDataTransfer_Vtbl {
         iid == &<IWiaDataTransfer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWiaDevMgr_Impl: Sized {
     fn EnumDeviceInfo(&self, lflag: i32) -> ::windows::core::Result<IEnumWIA_DEV_INFO>;
@@ -511,6 +520,7 @@ impl IWiaDevMgr_Vtbl {
         iid == &<IWiaDevMgr as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWiaDevMgr2_Impl: Sized {
     fn EnumDeviceInfo(&self, lflags: i32) -> ::windows::core::Result<IEnumWIA_DEV_INFO>;
@@ -601,6 +611,7 @@ impl IWiaDevMgr2_Vtbl {
         iid == &<IWiaDevMgr2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"implement\"`*"]
 pub trait IWiaDrvItem_Impl: Sized {
     fn GetItemFlags(&self) -> ::windows::core::Result<i32>;
     fn GetDeviceSpecContext(&self) -> ::windows::core::Result<*mut u8>;
@@ -765,6 +776,7 @@ impl IWiaDrvItem_Vtbl {
         iid == &<IWiaDrvItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWiaErrorHandler_Impl: Sized {
     fn ReportStatus(&self, lflags: i32, hwndparent: super::super::Foundation::HWND, pwiaitem2: &::core::option::Option<IWiaItem2>, hrstatus: ::windows::core::HRESULT, lpercentcomplete: i32) -> ::windows::core::Result<()>;
@@ -801,6 +813,7 @@ impl IWiaErrorHandler_Vtbl {
         iid == &<IWiaErrorHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"implement\"`*"]
 pub trait IWiaEventCallback_Impl: Sized {
     fn ImageEventCallback(&self, peventguid: *const ::windows::core::GUID, bstreventdescription: &::windows::core::BSTR, bstrdeviceid: &::windows::core::BSTR, bstrdevicedescription: &::windows::core::BSTR, dwdevicetype: u32, bstrfullitemname: &::windows::core::BSTR, puleventtype: *mut u32, ulreserved: u32) -> ::windows::core::Result<()>;
 }
@@ -818,6 +831,7 @@ impl IWiaEventCallback_Vtbl {
         iid == &<IWiaEventCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWiaImageFilter_Impl: Sized {
     fn InitializeFilter(&self, pwiaitem2: &::core::option::Option<IWiaItem2>, pwiatransfercallback: &::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
@@ -862,6 +876,7 @@ impl IWiaImageFilter_Vtbl {
         iid == &<IWiaImageFilter as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWiaItem_Impl: Sized {
     fn GetItemType(&self) -> ::windows::core::Result<i32>;
@@ -1043,6 +1058,7 @@ impl IWiaItem_Vtbl {
         iid == &<IWiaItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWiaItem2_Impl: Sized {
     fn CreateChildItem(&self, litemflags: i32, lcreationflags: i32, bstritemname: &::windows::core::BSTR) -> ::windows::core::Result<IWiaItem2>;
@@ -1231,6 +1247,7 @@ impl IWiaItem2_Vtbl {
         iid == &<IWiaItem2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"implement\"`*"]
 pub trait IWiaItemExtras_Impl: Sized {
     fn GetExtendedErrorInfo(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Escape(&self, dwescapecode: u32, lpindata: *const u8, cbindatasize: u32, poutdata: *mut u8, dwoutdatasize: u32, pdwactualdatasize: *mut u32) -> ::windows::core::Result<()>;
@@ -1271,6 +1288,7 @@ impl IWiaItemExtras_Vtbl {
         iid == &<IWiaItemExtras as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"implement\"`*"]
 pub trait IWiaLog_Impl: Sized {
     fn InitializeLog(&self, hinstance: i32) -> ::windows::core::Result<()>;
     fn hResult(&self, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -1305,6 +1323,7 @@ impl IWiaLog_Vtbl {
         iid == &<IWiaLog as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"implement\"`*"]
 pub trait IWiaLogEx_Impl: Sized {
     fn InitializeLogEx(&self, hinstance: *const u8) -> ::windows::core::Result<()>;
     fn hResult(&self, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -1353,6 +1372,7 @@ impl IWiaLogEx_Vtbl {
         iid == &<IWiaLogEx as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWiaMiniDrv_Impl: Sized {
     fn drvInitializeWia(&self, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: &::windows::core::BSTR, __midl__iwiaminidrv0003: &::windows::core::BSTR, __midl__iwiaminidrv0004: &::core::option::Option<::windows::core::IUnknown>, __midl__iwiaminidrv0005: &::core::option::Option<::windows::core::IUnknown>, __midl__iwiaminidrv0006: *mut ::core::option::Option<IWiaDrvItem>, __midl__iwiaminidrv0007: *mut ::core::option::Option<::windows::core::IUnknown>, __midl__iwiaminidrv0008: *mut i32) -> ::windows::core::Result<()>;
@@ -1537,6 +1557,7 @@ impl IWiaMiniDrv_Vtbl {
         iid == &<IWiaMiniDrv as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWiaMiniDrvCallBack_Impl: Sized {
     fn MiniDrvCallback(&self, lreason: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, ptranctx: *const MINIDRV_TRANSFER_CONTEXT, lreserved: i32) -> ::windows::core::Result<()>;
@@ -1557,6 +1578,7 @@ impl IWiaMiniDrvCallBack_Vtbl {
         iid == &<IWiaMiniDrvCallBack as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWiaMiniDrvTransferCallback_Impl: Sized {
     fn GetNextStream(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR, ppistream: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
@@ -1587,6 +1609,7 @@ impl IWiaMiniDrvTransferCallback_Vtbl {
         iid == &<IWiaMiniDrvTransferCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"implement\"`*"]
 pub trait IWiaNotifyDevMgr_Impl: Sized {
     fn NewDeviceArrival(&self) -> ::windows::core::Result<()>;
 }
@@ -1604,6 +1627,7 @@ impl IWiaNotifyDevMgr_Vtbl {
         iid == &<IWiaNotifyDevMgr as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"implement\"`*"]
 pub trait IWiaPreview_Impl: Sized {
     fn GetNewPreview(&self, lflags: i32, pwiaitem2: &::core::option::Option<IWiaItem2>, pwiatransfercallback: &::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
     fn UpdatePreview(&self, lflags: i32, pchildwiaitem2: &::core::option::Option<IWiaItem2>, pwiatransfercallback: &::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
@@ -1645,6 +1669,7 @@ impl IWiaPreview_Vtbl {
         iid == &<IWiaPreview as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWiaPropertyStorage_Impl: Sized {
     fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
@@ -1791,6 +1816,7 @@ impl IWiaPropertyStorage_Vtbl {
         iid == &<IWiaPropertyStorage as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWiaSegmentationFilter_Impl: Sized {
     fn DetectRegions(&self, lflags: i32, pinputstream: &::core::option::Option<super::super::System::Com::IStream>, pwiaitem2: &::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()>;
@@ -1811,6 +1837,7 @@ impl IWiaSegmentationFilter_Vtbl {
         iid == &<IWiaSegmentationFilter as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWiaTransfer_Impl: Sized {
     fn Download(&self, lflags: i32, piwiatransfercallback: &::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
@@ -1861,6 +1888,7 @@ impl IWiaTransfer_Vtbl {
         iid == &<IWiaTransfer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWiaTransferCallback_Impl: Sized {
     fn TransferCallback(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::core::Result<()>;
@@ -1891,6 +1919,7 @@ impl IWiaTransferCallback_Vtbl {
         iid == &<IWiaTransferCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWiaUIExtension_Impl: Sized {
     fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA) -> ::windows::core::Result<()>;
@@ -1928,6 +1957,7 @@ impl IWiaUIExtension_Vtbl {
         iid == &<IWiaUIExtension as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWiaUIExtension2_Impl: Sized {
     fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA2) -> ::windows::core::Result<()>;
@@ -1958,6 +1988,7 @@ impl IWiaUIExtension2_Vtbl {
         iid == &<IWiaUIExtension2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWiaVideo_Impl: Sized {
     fn PreviewVisible(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;

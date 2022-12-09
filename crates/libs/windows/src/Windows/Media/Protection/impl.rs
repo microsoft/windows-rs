@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Media_Protection\"`, `\"implement\"`*"]
 pub trait IMediaProtectionServiceRequest_Impl: Sized {
     fn ProtectionSystem(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Type(&self) -> ::windows::core::Result<::windows::core::GUID>;

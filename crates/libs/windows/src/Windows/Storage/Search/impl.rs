@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 pub trait IIndexableContent_Impl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -93,6 +94,7 @@ impl IIndexableContent_Vtbl {
         iid == &<IIndexableContent as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IStorageFolderQueryOperations_Impl: Sized {
     fn GetIndexedStateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IndexedState>>;
@@ -349,6 +351,7 @@ impl IStorageFolderQueryOperations_Vtbl {
         iid == &<IStorageFolderQueryOperations as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IStorageQueryResultBase_Impl: Sized {
     fn GetItemCountAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait IEnumNetCfgBindingInterface_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingInterface>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -45,6 +46,7 @@ impl IEnumNetCfgBindingInterface_Vtbl {
         iid == &<IEnumNetCfgBindingInterface as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait IEnumNetCfgBindingPath_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingPath>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -92,6 +94,7 @@ impl IEnumNetCfgBindingPath_Vtbl {
         iid == &<IEnumNetCfgBindingPath as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait IEnumNetCfgComponent_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgComponent>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -139,6 +142,7 @@ impl IEnumNetCfgComponent_Vtbl {
         iid == &<IEnumNetCfgComponent as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfg_Impl: Sized {
     fn Initialize(&self, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Uninitialize(&self) -> ::windows::core::Result<()>;
@@ -201,6 +205,7 @@ impl INetCfg_Vtbl {
         iid == &<INetCfg as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgBindingInterface_Impl: Sized {
     fn GetName(&self, ppszwinterfacename: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn GetUpperComponent(&self, ppnccitem: *mut ::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
@@ -235,6 +240,7 @@ impl INetCfgBindingInterface_Vtbl {
         iid == &<INetCfgBindingInterface as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgBindingPath_Impl: Sized {
     fn IsSamePathAs(&self, ppath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
@@ -313,6 +319,7 @@ impl INetCfgBindingPath_Vtbl {
         iid == &<INetCfgBindingPath as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgClass_Impl: Sized {
     fn FindComponent(&self, pszwinfid: &::windows::core::PCWSTR, ppnccitem: *mut ::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
     fn EnumComponents(&self, ppenumcomponent: *mut ::core::option::Option<IEnumNetCfgComponent>) -> ::windows::core::Result<()>;
@@ -340,6 +347,7 @@ impl INetCfgClass_Vtbl {
         iid == &<INetCfgClass as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgClassSetup_Impl: Sized {
     fn SelectAndInstall(&self, hwndparent: super::super::Foundation::HWND, pobotoken: *const OBO_TOKEN, ppnccitem: *mut ::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
@@ -377,6 +385,7 @@ impl INetCfgClassSetup_Vtbl {
         iid == &<INetCfgClassSetup as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgClassSetup2_Impl: Sized + INetCfgClassSetup_Impl {
     fn UpdateNonEnumeratedComponent(&self, picomp: &::core::option::Option<INetCfgComponent>, dwsetupflags: u32, dwupgradefrombuildno: u32) -> ::windows::core::Result<()>;
@@ -400,6 +409,7 @@ impl INetCfgClassSetup2_Vtbl {
         iid == &<INetCfgClassSetup2 as ::windows::core::Interface>::IID || iid == &<INetCfgClassSetup as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub trait INetCfgComponent_Impl: Sized {
     fn GetDisplayName(&self, ppszwdisplayname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
@@ -512,6 +522,7 @@ impl INetCfgComponent_Vtbl {
         iid == &<INetCfgComponent as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgComponentBindings_Impl: Sized {
     fn BindTo(&self, pnccitem: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
     fn UnbindFrom(&self, pnccitem: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
@@ -581,6 +592,7 @@ impl INetCfgComponentBindings_Vtbl {
         iid == &<INetCfgComponentBindings as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgComponentControl_Impl: Sized {
     fn Initialize(&self, picomp: &::core::option::Option<INetCfgComponent>, pinetcfg: &::core::option::Option<INetCfg>, finstalling: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -625,6 +637,7 @@ impl INetCfgComponentControl_Vtbl {
         iid == &<INetCfgComponentControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgComponentNotifyBinding_Impl: Sized {
     fn QueryBindingPath(&self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
     fn NotifyBindingPath(&self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
@@ -652,6 +665,7 @@ impl INetCfgComponentNotifyBinding_Vtbl {
         iid == &<INetCfgComponentNotifyBinding as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgComponentNotifyGlobal_Impl: Sized {
     fn GetSupportedNotifications(&self) -> ::windows::core::Result<u32>;
     fn SysQueryBindingPath(&self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
@@ -699,6 +713,7 @@ impl INetCfgComponentNotifyGlobal_Vtbl {
         iid == &<INetCfgComponentNotifyGlobal as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgComponentPropertyUi_Impl: Sized {
     fn QueryPropertyUi(&self, punkreserved: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -757,6 +772,7 @@ impl INetCfgComponentPropertyUi_Vtbl {
         iid == &<INetCfgComponentPropertyUi as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgComponentSetup_Impl: Sized {
     fn Install(&self, dwsetupflags: u32) -> ::windows::core::Result<()>;
     fn Upgrade(&self, dwsetupflags: u32, dwupgradefombuildno: u32) -> ::windows::core::Result<()>;
@@ -798,6 +814,7 @@ impl INetCfgComponentSetup_Vtbl {
         iid == &<INetCfgComponentSetup as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgComponentSysPrep_Impl: Sized {
     fn SaveAdapterParameters(&self, pncsp: &::core::option::Option<INetCfgSysPrep>, pszwanswersections: &::windows::core::PCWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn RestoreAdapterParameters(&self, pszwanswerfile: &::windows::core::PCWSTR, pszwanswersection: &::windows::core::PCWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -825,6 +842,7 @@ impl INetCfgComponentSysPrep_Vtbl {
         iid == &<INetCfgComponentSysPrep as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgComponentUpperEdge_Impl: Sized {
     fn GetInterfaceIdsForAdapter(&self, padapter: &::core::option::Option<INetCfgComponent>, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn AddInterfacesToAdapter(&self, padapter: &::core::option::Option<INetCfgComponent>, dwnuminterfaces: u32) -> ::windows::core::Result<()>;
@@ -859,6 +877,7 @@ impl INetCfgComponentUpperEdge_Vtbl {
         iid == &<INetCfgComponentUpperEdge as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgLock_Impl: Sized {
     fn AcquireWriteLock(&self, cmstimeout: u32, pszwclientdescription: &::windows::core::PCWSTR, ppszwclientdescription: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn ReleaseWriteLock(&self) -> ::windows::core::Result<()>;
@@ -893,6 +912,7 @@ impl INetCfgLock_Vtbl {
         iid == &<INetCfgLock as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgPnpReconfigCallback_Impl: Sized {
     fn SendPnpReconfig(&self, layer: NCPNP_RECONFIG_LAYER, pszwupper: &::windows::core::PCWSTR, pszwlower: &::windows::core::PCWSTR, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::core::Result<()>;
 }
@@ -910,6 +930,7 @@ impl INetCfgPnpReconfigCallback_Vtbl {
         iid == &<INetCfgPnpReconfigCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgSysPrep_Impl: Sized {
     fn HrSetupSetFirstDword(&self, pwszsection: &::windows::core::PCWSTR, pwszkey: &::windows::core::PCWSTR, dwvalue: u32) -> ::windows::core::Result<()>;
@@ -954,6 +975,7 @@ impl INetCfgSysPrep_Vtbl {
         iid == &<INetCfgSysPrep as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetLanConnectionUiInfo_Impl: Sized {
     fn GetDeviceGuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
@@ -977,6 +999,7 @@ impl INetLanConnectionUiInfo_Vtbl {
         iid == &<INetLanConnectionUiInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetRasConnectionIpUiInfo_Impl: Sized {
     fn GetUiInfo(&self) -> ::windows::core::Result<RASCON_IPUI>;
@@ -1003,6 +1026,7 @@ impl INetRasConnectionIpUiInfo_Vtbl {
         iid == &<INetRasConnectionIpUiInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IProvisioningDomain_Impl: Sized {
     fn Add(&self, pszwpathtofolder: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -1035,6 +1059,7 @@ impl IProvisioningDomain_Vtbl {
         iid == &<IProvisioningDomain as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait IProvisioningProfileWireless_Impl: Sized {
     fn CreateProfile(&self, bstrxmlwirelessconfigprofile: &::windows::core::BSTR, bstrxmlconnectionconfigprofile: &::windows::core::BSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
 }

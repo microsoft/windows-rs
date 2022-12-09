@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`, `\"implement\"`*"]
 pub trait IWCNConnectNotify_Impl: Sized {
     fn ConnectSucceeded(&self) -> ::windows::core::Result<()>;
     fn ConnectFailed(&self, hrfailure: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -25,6 +26,7 @@ impl IWCNConnectNotify_Vtbl {
         iid == &<IWCNConnectNotify as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`, `\"implement\"`*"]
 pub trait IWCNDevice_Impl: Sized {
     fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows::core::Result<()>;
     fn Connect(&self, pnotify: &::core::option::Option<IWCNConnectNotify>) -> ::windows::core::Result<()>;

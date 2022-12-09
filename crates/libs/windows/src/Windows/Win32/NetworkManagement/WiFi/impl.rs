@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
 pub trait IDot11AdHocInterface_Impl: Sized {
     fn GetDeviceSignature(&self, psignature: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetFriendlyName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -98,6 +99,7 @@ impl IDot11AdHocInterface_Vtbl {
         iid == &<IDot11AdHocInterface as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
 pub trait IDot11AdHocInterfaceNotificationSink_Impl: Sized {
     fn OnConnectionStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
 }
@@ -115,6 +117,7 @@ impl IDot11AdHocInterfaceNotificationSink_Vtbl {
         iid == &<IDot11AdHocInterfaceNotificationSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDot11AdHocManager_Impl: Sized {
     fn CreateNetwork(&self, name: &::windows::core::PCWSTR, password: &::windows::core::PCWSTR, geographicalid: i32, pinterface: &::core::option::Option<IDot11AdHocInterface>, psecurity: &::core::option::Option<IDot11AdHocSecuritySettings>, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork>;
@@ -190,6 +193,7 @@ impl IDot11AdHocManager_Vtbl {
         iid == &<IDot11AdHocManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
 pub trait IDot11AdHocManagerNotificationSink_Impl: Sized {
     fn OnNetworkAdd(&self, piadhocnetwork: &::core::option::Option<IDot11AdHocNetwork>) -> ::windows::core::Result<()>;
     fn OnNetworkRemove(&self, signature: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -231,6 +235,7 @@ impl IDot11AdHocManagerNotificationSink_Vtbl {
         iid == &<IDot11AdHocManagerNotificationSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDot11AdHocNetwork_Impl: Sized {
     fn GetStatus(&self, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
@@ -355,6 +360,7 @@ impl IDot11AdHocNetwork_Vtbl {
         iid == &<IDot11AdHocNetwork as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
 pub trait IDot11AdHocNetworkNotificationSink_Impl: Sized {
     fn OnStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
     fn OnConnectFail(&self, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> ::windows::core::Result<()>;
@@ -382,6 +388,7 @@ impl IDot11AdHocNetworkNotificationSink_Vtbl {
         iid == &<IDot11AdHocNetworkNotificationSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
 pub trait IDot11AdHocSecuritySettings_Impl: Sized {
     fn GetDot11AuthAlgorithm(&self, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows::core::Result<()>;
     fn GetDot11CipherAlgorithm(&self, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> ::windows::core::Result<()>;
@@ -409,6 +416,7 @@ impl IDot11AdHocSecuritySettings_Vtbl {
         iid == &<IDot11AdHocSecuritySettings as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
 pub trait IEnumDot11AdHocInterfaces_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocInterface>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -456,6 +464,7 @@ impl IEnumDot11AdHocInterfaces_Vtbl {
         iid == &<IEnumDot11AdHocInterfaces as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
 pub trait IEnumDot11AdHocNetworks_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocNetwork>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -503,6 +512,7 @@ impl IEnumDot11AdHocNetworks_Vtbl {
         iid == &<IEnumDot11AdHocNetworks as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
 pub trait IEnumDot11AdHocSecuritySettings_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocSecuritySettings>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;

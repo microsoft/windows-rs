@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGameExplorer_Impl: Sized {
     fn AddGame(&self, bstrgdfbinarypath: &::windows::core::BSTR, bstrgameinstalldirectory: &::windows::core::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -48,6 +49,7 @@ impl IGameExplorer_Vtbl {
         iid == &<IGameExplorer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGameExplorer2_Impl: Sized {
     fn InstallGame(&self, binarygdfpath: &::windows::core::PCWSTR, installdirectory: &::windows::core::PCWSTR, installscope: GAME_INSTALL_SCOPE) -> ::windows::core::Result<()>;
@@ -91,6 +93,7 @@ impl IGameExplorer2_Vtbl {
         iid == &<IGameExplorer2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGameStatistics_Impl: Sized {
     fn GetMaxCategoryLength(&self) -> ::windows::core::Result<u32>;
@@ -233,6 +236,7 @@ impl IGameStatistics_Vtbl {
         iid == &<IGameStatistics as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Gaming\"`, `\"implement\"`*"]
 pub trait IGameStatisticsMgr_Impl: Sized {
     fn GetGameStatistics(&self, gdfbinarypath: &::windows::core::PCWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::core::option::Option<IGameStatistics>) -> ::windows::core::Result<()>;
     fn RemoveGameStatistics(&self, gdfbinarypath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -260,6 +264,7 @@ impl IGameStatisticsMgr_Vtbl {
         iid == &<IGameStatisticsMgr as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXblIdpAuthManager_Impl: Sized {
     fn SetGamerAccount(&self, msaaccountid: &::windows::core::PCWSTR, xuid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -336,6 +341,7 @@ impl IXblIdpAuthManager_Vtbl {
         iid == &<IXblIdpAuthManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Gaming\"`, `\"implement\"`*"]
 pub trait IXblIdpAuthTokenResult_Impl: Sized {
     fn GetStatus(&self) -> ::windows::core::Result<XBL_IDP_AUTH_TOKEN_STATUS>;
     fn GetErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
@@ -609,6 +615,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
         iid == &<IXblIdpAuthTokenResult as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Gaming\"`, `\"implement\"`*"]
 pub trait IXblIdpAuthTokenResult2_Impl: Sized {
     fn GetModernGamertag(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetModernGamertagSuffix(&self) -> ::windows::core::Result<::windows::core::PWSTR>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"UI_Popups\"`, `\"implement\"`*"]
 pub trait IUICommand_Impl: Sized {
     fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;

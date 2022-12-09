@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`, `\"implement\"`*"]
 pub trait ISceSvcAttachmentData_Impl: Sized {
     fn GetData(&self, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::core::Result<()>;
     fn Initialize(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: &::core::option::Option<ISceSvcAttachmentPersistInfo>, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -39,6 +40,7 @@ impl ISceSvcAttachmentData_Vtbl {
         iid == &<ISceSvcAttachmentData as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISceSvcAttachmentPersistInfo_Impl: Sized {
     fn Save(&self, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;

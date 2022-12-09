@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumACDGroup_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITACDGroup>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -48,6 +49,7 @@ impl IEnumACDGroup_Vtbl {
         iid == &<IEnumACDGroup as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumAddress_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITAddress>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -98,6 +100,7 @@ impl IEnumAddress_Vtbl {
         iid == &<IEnumAddress as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumAgent_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITAgent>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -148,6 +151,7 @@ impl IEnumAgent_Vtbl {
         iid == &<IEnumAgent as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumAgentHandler_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITAgentHandler>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -198,6 +202,7 @@ impl IEnumAgentHandler_Vtbl {
         iid == &<IEnumAgentHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumAgentSession_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITAgentSession>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -248,6 +253,7 @@ impl IEnumAgentSession_Vtbl {
         iid == &<IEnumAgentSession as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"implement\"`*"]
 pub trait IEnumBstr_Impl: Sized {
     fn Next(&self, celt: u32, ppstrings: *mut ::windows::core::BSTR, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
@@ -295,6 +301,7 @@ impl IEnumBstr_Vtbl {
         iid == &<IEnumBstr as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumCall_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITCallInfo>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -345,6 +352,7 @@ impl IEnumCall_Vtbl {
         iid == &<IEnumCall as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumCallHub_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITCallHub>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -395,6 +403,7 @@ impl IEnumCallHub_Vtbl {
         iid == &<IEnumCallHub as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumCallingCard_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITCallingCard>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -445,6 +454,7 @@ impl IEnumCallingCard_Vtbl {
         iid == &<IEnumCallingCard as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"implement\"`*"]
 pub trait IEnumDialableAddrs_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::windows::core::BSTR, pcfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
@@ -492,6 +502,7 @@ impl IEnumDialableAddrs_Vtbl {
         iid == &<IEnumDialableAddrs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumDirectory_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITDirectory>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -542,6 +553,7 @@ impl IEnumDirectory_Vtbl {
         iid == &<IEnumDirectory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumDirectoryObject_Impl: Sized {
     fn Next(&self, celt: u32, pval: *mut ::core::option::Option<ITDirectoryObject>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -592,6 +604,7 @@ impl IEnumDirectoryObject_Vtbl {
         iid == &<IEnumDirectoryObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumLocation_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITLocationInfo>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -642,6 +655,7 @@ impl IEnumLocation_Vtbl {
         iid == &<IEnumLocation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumMcastScope_Impl: Sized {
     fn Next(&self, celt: u32, ppscopes: *mut ::core::option::Option<IMcastScope>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -692,6 +706,7 @@ impl IEnumMcastScope_Vtbl {
         iid == &<IEnumMcastScope as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPhone_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITPhone>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -742,6 +757,7 @@ impl IEnumPhone_Vtbl {
         iid == &<IEnumPhone as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPluggableSuperclassInfo_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITPluggableTerminalSuperclassInfo>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -792,6 +808,7 @@ impl IEnumPluggableSuperclassInfo_Vtbl {
         iid == &<IEnumPluggableSuperclassInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPluggableTerminalClassInfo_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITPluggableTerminalClassInfo>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -842,6 +859,7 @@ impl IEnumPluggableTerminalClassInfo_Vtbl {
         iid == &<IEnumPluggableTerminalClassInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumQueue_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITQueue>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -892,6 +910,7 @@ impl IEnumQueue_Vtbl {
         iid == &<IEnumQueue as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumStream_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITStream>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -942,6 +961,7 @@ impl IEnumStream_Vtbl {
         iid == &<IEnumStream as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumSubStream_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITSubStream>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -992,6 +1012,7 @@ impl IEnumSubStream_Vtbl {
         iid == &<IEnumSubStream as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumTerminal_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITTerminal>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -1042,6 +1063,7 @@ impl IEnumTerminal_Vtbl {
         iid == &<IEnumTerminal as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"implement\"`*"]
 pub trait IEnumTerminalClass_Impl: Sized {
     fn Next(&self, celt: u32, pelements: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
@@ -1089,6 +1111,7 @@ impl IEnumTerminalClass_Vtbl {
         iid == &<IEnumTerminalClass as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMcastAddressAllocation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Scopes(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -1190,6 +1213,7 @@ impl IMcastAddressAllocation_Vtbl {
         iid == &<IMcastAddressAllocation as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMcastLeaseInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RequestID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1324,6 +1348,7 @@ impl IMcastLeaseInfo_Vtbl {
         iid == &<IMcastLeaseInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMcastScope_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ScopeID(&self) -> ::windows::core::Result<i32>;
@@ -1405,6 +1430,7 @@ impl IMcastScope_Vtbl {
         iid == &<IMcastScope as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITACDGroup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1460,6 +1486,7 @@ impl ITACDGroup_Vtbl {
         iid == &<ITACDGroup as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITACDGroupEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Group(&self) -> ::windows::core::Result<ITACDGroup>;
@@ -1502,6 +1529,7 @@ impl ITACDGroupEvent_Vtbl {
         iid == &<ITACDGroupEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait ITAMMediaFormat_Impl: Sized {
     fn MediaFormat(&self) -> ::windows::core::Result<*mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE>;
@@ -1538,6 +1566,7 @@ impl ITAMMediaFormat_Vtbl {
         iid == &<ITAMMediaFormat as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITASRTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Terminal(&self) -> ::windows::core::Result<ITTerminal>;
@@ -1593,6 +1622,7 @@ impl ITASRTerminalEvent_Vtbl {
         iid == &<ITASRTerminalEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn State(&self) -> ::windows::core::Result<ADDRESS_STATE>;
@@ -1786,6 +1816,7 @@ impl ITAddress_Vtbl {
         iid == &<ITAddress as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAddress2_Impl: Sized + ITAddress_Impl {
     fn Phones(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -1914,6 +1945,7 @@ impl ITAddress2_Vtbl {
         iid == &<ITAddress2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITAddress as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAddressCapabilities_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn get_AddressCapability(&self, addresscap: ADDRESS_CAPABILITY) -> ::windows::core::Result<i32>;
@@ -2034,6 +2066,7 @@ impl ITAddressCapabilities_Vtbl {
         iid == &<ITAddressCapabilities as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAddressDeviceSpecificEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Address(&self) -> ::windows::core::Result<ITAddress>;
@@ -2115,6 +2148,7 @@ impl ITAddressDeviceSpecificEvent_Vtbl {
         iid == &<ITAddressDeviceSpecificEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAddressEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Address(&self) -> ::windows::core::Result<ITAddress>;
@@ -2170,6 +2204,7 @@ impl ITAddressEvent_Vtbl {
         iid == &<ITAddressEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAddressTranslation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TranslateAddress(&self, paddresstotranslate: &::windows::core::BSTR, lcard: i32, ltranslateoptions: i32) -> ::windows::core::Result<ITAddressTranslationInfo>;
@@ -2258,6 +2293,7 @@ impl ITAddressTranslation_Vtbl {
         iid == &<ITAddressTranslation as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAddressTranslationInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DialableString(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2339,6 +2375,7 @@ impl ITAddressTranslationInfo_Vtbl {
         iid == &<ITAddressTranslationInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAgent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnumerateAgentSessions(&self) -> ::windows::core::Result<IEnumAgentSession>;
@@ -2564,6 +2601,7 @@ impl ITAgent_Vtbl {
         iid == &<ITAgent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAgentEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Agent(&self) -> ::windows::core::Result<ITAgent>;
@@ -2606,6 +2644,7 @@ impl ITAgentEvent_Vtbl {
         iid == &<ITAgentEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAgentHandler_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2713,6 +2752,7 @@ impl ITAgentHandler_Vtbl {
         iid == &<ITAgentHandler as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAgentHandlerEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AgentHandler(&self) -> ::windows::core::Result<ITAgentHandler>;
@@ -2755,6 +2795,7 @@ impl ITAgentHandlerEvent_Vtbl {
         iid == &<ITAgentHandlerEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAgentSession_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Agent(&self) -> ::windows::core::Result<ITAgent>;
@@ -2986,6 +3027,7 @@ impl ITAgentSession_Vtbl {
         iid == &<ITAgentSession as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAgentSessionEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows::core::Result<ITAgentSession>;
@@ -3028,6 +3070,7 @@ impl ITAgentSessionEvent_Vtbl {
         iid == &<ITAgentSessionEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
 pub trait ITAllocatorProperties_Impl: Sized {
     fn SetAllocatorProperties(&self, pallocproperties: *const super::super::Media::DirectShow::ALLOCATOR_PROPERTIES) -> ::windows::core::Result<()>;
@@ -3104,6 +3147,7 @@ impl ITAllocatorProperties_Vtbl {
         iid == &<ITAllocatorProperties as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAutomatedPhoneControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StartTone(&self, tone: PHONE_TONE, lduration: i32) -> ::windows::core::Result<()>;
@@ -3434,6 +3478,7 @@ impl ITAutomatedPhoneControl_Vtbl {
         iid == &<ITAutomatedPhoneControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITBasicAudioTerminal_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetVolume(&self, lvolume: i32) -> ::windows::core::Result<()>;
@@ -3490,6 +3535,7 @@ impl ITBasicAudioTerminal_Vtbl {
         iid == &<ITBasicAudioTerminal as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITBasicCallControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Connect(&self, fsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
@@ -3638,6 +3684,7 @@ impl ITBasicCallControl_Vtbl {
         iid == &<ITBasicCallControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITBasicCallControl2_Impl: Sized + ITBasicCallControl_Impl {
     fn RequestTerminal(&self, bstrterminalclassguid: &::windows::core::BSTR, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>;
@@ -3681,6 +3728,7 @@ impl ITBasicCallControl2_Vtbl {
         iid == &<ITBasicCallControl2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITBasicCallControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCallHub_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Clear(&self) -> ::windows::core::Result<()>;
@@ -3756,6 +3804,7 @@ impl ITCallHub_Vtbl {
         iid == &<ITCallHub as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCallHubEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Event(&self) -> ::windows::core::Result<CALLHUB_EVENT>;
@@ -3811,6 +3860,7 @@ impl ITCallHubEvent_Vtbl {
         iid == &<ITCallHubEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCallInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Address(&self) -> ::windows::core::Result<ITAddress>;
@@ -3960,6 +4010,7 @@ impl ITCallInfo_Vtbl {
         iid == &<ITCallInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCallInfo2_Impl: Sized + ITCallInfo_Impl {
     fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -3996,6 +4047,7 @@ impl ITCallInfo2_Vtbl {
         iid == &<ITCallInfo2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITCallInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCallInfoChangeEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows::core::Result<ITCallInfo>;
@@ -4051,6 +4103,7 @@ impl ITCallInfoChangeEvent_Vtbl {
         iid == &<ITCallInfoChangeEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCallMediaEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows::core::Result<ITCallInfo>;
@@ -4145,6 +4198,7 @@ impl ITCallMediaEvent_Vtbl {
         iid == &<ITCallMediaEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCallNotificationEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows::core::Result<ITCallInfo>;
@@ -4200,6 +4254,7 @@ impl ITCallNotificationEvent_Vtbl {
         iid == &<ITCallNotificationEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCallStateEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows::core::Result<ITCallInfo>;
@@ -4268,6 +4323,7 @@ impl ITCallStateEvent_Vtbl {
         iid == &<ITCallStateEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCallingCard_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PermanentCardID(&self) -> ::windows::core::Result<i32>;
@@ -4375,6 +4431,7 @@ impl ITCallingCard_Vtbl {
         iid == &<ITCallingCard as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -4430,6 +4487,7 @@ impl ITCollection_Vtbl {
         iid == &<ITCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCollection2_Impl: Sized + ITCollection_Impl {
     fn Add(&self, index: i32, pvariant: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -4456,6 +4514,7 @@ impl ITCollection2_Vtbl {
         iid == &<ITCollection2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCustomTone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Frequency(&self) -> ::windows::core::Result<i32>;
@@ -4552,6 +4611,7 @@ impl ITCustomTone_Vtbl {
         iid == &<ITCustomTone as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITDetectTone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AppSpecific(&self) -> ::windows::core::Result<i32>;
@@ -4628,6 +4688,7 @@ impl ITDetectTone_Vtbl {
         iid == &<ITDetectTone as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITDigitDetectionEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows::core::Result<ITCallInfo>;
@@ -4709,6 +4770,7 @@ impl ITDigitDetectionEvent_Vtbl {
         iid == &<ITDigitDetectionEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITDigitGenerationEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows::core::Result<ITCallInfo>;
@@ -4777,6 +4839,7 @@ impl ITDigitGenerationEvent_Vtbl {
         iid == &<ITDigitGenerationEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITDigitsGatheredEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows::core::Result<ITCallInfo>;
@@ -4858,6 +4921,7 @@ impl ITDigitsGatheredEvent_Vtbl {
         iid == &<ITDigitsGatheredEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITDirectory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DirectoryType(&self) -> ::windows::core::Result<DIRECTORY_TYPE>;
@@ -5008,6 +5072,7 @@ impl ITDirectory_Vtbl {
         iid == &<ITDirectory as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITDirectoryObject_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ObjectType(&self) -> ::windows::core::Result<DIRECTORY_OBJECT_TYPE>;
@@ -5103,6 +5168,7 @@ impl ITDirectoryObject_Vtbl {
         iid == &<ITDirectoryObject as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITDirectoryObjectConference_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Protocol(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5272,6 +5338,7 @@ impl ITDirectoryObjectConference_Vtbl {
         iid == &<ITDirectoryObjectConference as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITDirectoryObjectUser_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn IPPhonePrimary(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5308,6 +5375,7 @@ impl ITDirectoryObjectUser_Vtbl {
         iid == &<ITDirectoryObjectUser as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITDispatchMapper_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn QueryDispatchInterface(&self, piid: &::windows::core::BSTR, pinterfacetomap: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
@@ -5337,6 +5405,7 @@ impl ITDispatchMapper_Vtbl {
         iid == &<ITDispatchMapper as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITFileTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Terminal(&self) -> ::windows::core::Result<ITTerminal>;
@@ -5431,6 +5500,7 @@ impl ITFileTerminalEvent_Vtbl {
         iid == &<ITFileTerminalEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITFileTrack_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Format(&self) -> ::windows::core::Result<*mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE>;
@@ -5513,6 +5583,7 @@ impl ITFileTrack_Vtbl {
         iid == &<ITFileTrack as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITForwardInformation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetNumRingsNoAnswer(&self, lnumrings: i32) -> ::windows::core::Result<()>;
@@ -5596,6 +5667,7 @@ impl ITForwardInformation_Vtbl {
         iid == &<ITForwardInformation as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITForwardInformation2_Impl: Sized + ITForwardInformation_Impl {
     fn SetForwardType2(&self, forwardtype: i32, pdestaddress: &::windows::core::BSTR, destaddresstype: i32, pcalleraddress: &::windows::core::BSTR, calleraddresstype: i32) -> ::windows::core::Result<()>;
@@ -5652,6 +5724,7 @@ impl ITForwardInformation2_Vtbl {
         iid == &<ITForwardInformation2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITForwardInformation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITILSConfig_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Port(&self) -> ::windows::core::Result<i32>;
@@ -5688,6 +5761,7 @@ impl ITILSConfig_Vtbl {
         iid == &<ITILSConfig as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"implement\"`*"]
 pub trait ITLegacyAddressMediaControl_Impl: Sized {
     fn GetID(&self, pdeviceclass: &::windows::core::BSTR, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::Result<()>;
     fn GetDevConfig(&self, pdeviceclass: &::windows::core::BSTR, pdwsize: *mut u32, ppdeviceconfig: *mut *mut u8) -> ::windows::core::Result<()>;
@@ -5722,6 +5796,7 @@ impl ITLegacyAddressMediaControl_Vtbl {
         iid == &<ITLegacyAddressMediaControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITLegacyAddressMediaControl2_Impl: Sized + ITLegacyAddressMediaControl_Impl {
     fn ConfigDialog(&self, hwndowner: super::super::Foundation::HWND, pdeviceclass: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -5752,6 +5827,7 @@ impl ITLegacyAddressMediaControl2_Vtbl {
         iid == &<ITLegacyAddressMediaControl2 as ::windows::core::Interface>::IID || iid == &<ITLegacyAddressMediaControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITLegacyCallMediaControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DetectDigits(&self, digitmode: i32) -> ::windows::core::Result<()>;
@@ -5803,6 +5879,7 @@ impl ITLegacyCallMediaControl_Vtbl {
         iid == &<ITLegacyCallMediaControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITLegacyCallMediaControl2_Impl: Sized + ITLegacyCallMediaControl_Impl {
     fn GenerateDigits2(&self, pdigits: &::windows::core::BSTR, digitmode: i32, lduration: i32) -> ::windows::core::Result<()>;
@@ -5907,6 +5984,7 @@ impl ITLegacyCallMediaControl2_Vtbl {
         iid == &<ITLegacyCallMediaControl2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITLegacyCallMediaControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITLegacyWaveSupport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn IsFullDuplex(&self) -> ::windows::core::Result<FULLDUPLEX_SUPPORT>;
@@ -5933,6 +6011,7 @@ impl ITLegacyWaveSupport_Vtbl {
         iid == &<ITLegacyWaveSupport as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITLocationInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PermanentLocationID(&self) -> ::windows::core::Result<i32>;
@@ -6092,6 +6171,7 @@ impl ITLocationInfo_Vtbl {
         iid == &<ITLocationInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"implement\"`*"]
 pub trait ITMSPAddress_Impl: Sized {
     fn Initialize(&self, hevent: *const i32) -> ::windows::core::Result<()>;
     fn Shutdown(&self) -> ::windows::core::Result<()>;
@@ -6153,6 +6233,7 @@ impl ITMSPAddress_Vtbl {
         iid == &<ITMSPAddress as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITMediaControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Start(&self) -> ::windows::core::Result<()>;
@@ -6203,6 +6284,7 @@ impl ITMediaControl_Vtbl {
         iid == &<ITMediaControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITMediaPlayback_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetPlayList(&self, playlistvariant: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -6239,6 +6321,7 @@ impl ITMediaPlayback_Vtbl {
         iid == &<ITMediaPlayback as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITMediaRecord_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetFileName(&self, bstrfilename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -6275,6 +6358,7 @@ impl ITMediaRecord_Vtbl {
         iid == &<ITMediaRecord as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITMediaSupport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MediaTypes(&self) -> ::windows::core::Result<i32>;
@@ -6317,6 +6401,7 @@ impl ITMediaSupport_Vtbl {
         iid == &<ITMediaSupport as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITMultiTrackTerminal_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TrackTerminals(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -6405,6 +6490,7 @@ impl ITMultiTrackTerminal_Vtbl {
         iid == &<ITMultiTrackTerminal as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITPhone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Open(&self, privilege: PHONE_PRIVILEGE) -> ::windows::core::Result<()>;
@@ -6772,6 +6858,7 @@ impl ITPhone_Vtbl {
         iid == &<ITPhone as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITPhoneDeviceSpecificEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Phone(&self) -> ::windows::core::Result<ITPhone>;
@@ -6840,6 +6927,7 @@ impl ITPhoneDeviceSpecificEvent_Vtbl {
         iid == &<ITPhoneDeviceSpecificEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITPhoneEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Phone(&self) -> ::windows::core::Result<ITPhone>;
@@ -6973,6 +7061,7 @@ impl ITPhoneEvent_Vtbl {
         iid == &<ITPhoneEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITPluggableTerminalClassInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -7080,6 +7169,7 @@ impl ITPluggableTerminalClassInfo_Vtbl {
         iid == &<ITPluggableTerminalClassInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITPluggableTerminalEventSink_Impl: Sized {
     fn FireEvent(&self, pmspeventinfo: *const MSP_EVENT_INFO) -> ::windows::core::Result<()>;
@@ -7100,6 +7190,7 @@ impl ITPluggableTerminalEventSink_Vtbl {
         iid == &<ITPluggableTerminalEventSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"implement\"`*"]
 pub trait ITPluggableTerminalEventSinkRegistration_Impl: Sized {
     fn RegisterSink(&self, peventsink: &::core::option::Option<ITPluggableTerminalEventSink>) -> ::windows::core::Result<()>;
     fn UnregisterSink(&self) -> ::windows::core::Result<()>;
@@ -7127,6 +7218,7 @@ impl ITPluggableTerminalEventSinkRegistration_Vtbl {
         iid == &<ITPluggableTerminalEventSinkRegistration as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITPluggableTerminalSuperclassInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -7169,6 +7261,7 @@ impl ITPluggableTerminalSuperclassInfo_Vtbl {
         iid == &<ITPluggableTerminalSuperclassInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITPrivateEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Address(&self) -> ::windows::core::Result<ITAddress>;
@@ -7250,6 +7343,7 @@ impl ITPrivateEvent_Vtbl {
         iid == &<ITPrivateEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITQOSEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows::core::Result<ITCallInfo>;
@@ -7305,6 +7399,7 @@ impl ITQOSEvent_Vtbl {
         iid == &<ITQOSEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetMeasurementPeriod(&self, lperiod: i32) -> ::windows::core::Result<()>;
@@ -7471,6 +7566,7 @@ impl ITQueue_Vtbl {
         iid == &<ITQueue as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITQueueEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Queue(&self) -> ::windows::core::Result<ITQueue>;
@@ -7513,6 +7609,7 @@ impl ITQueueEvent_Vtbl {
         iid == &<ITQueueEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITRendezvous_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DefaultDirectories(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -7581,6 +7678,7 @@ impl ITRendezvous_Vtbl {
         iid == &<ITRendezvous as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MakeCall(&self, pdestaddress: &::windows::core::BSTR, pappname: &::windows::core::BSTR, pcalledparty: &::windows::core::BSTR, pcomment: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -7601,6 +7699,7 @@ impl ITRequest_Vtbl {
         iid == &<ITRequest as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITRequestEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RegistrationInstance(&self) -> ::windows::core::Result<i32>;
@@ -7695,6 +7794,7 @@ impl ITRequestEvent_Vtbl {
         iid == &<ITRequestEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITScriptableAudioFormat_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Channels(&self) -> ::windows::core::Result<i32>;
@@ -7831,6 +7931,7 @@ impl ITScriptableAudioFormat_Vtbl {
         iid == &<ITScriptableAudioFormat as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITStaticAudioTerminal_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn WaveId(&self) -> ::windows::core::Result<i32>;
@@ -7857,6 +7958,7 @@ impl ITStaticAudioTerminal_Vtbl {
         iid == &<ITStaticAudioTerminal as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MediaType(&self) -> ::windows::core::Result<i32>;
@@ -7973,6 +8075,7 @@ impl ITStream_Vtbl {
         iid == &<ITStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITStreamControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateStream(&self, lmediatype: i32, td: TERMINAL_DIRECTION) -> ::windows::core::Result<ITStream>;
@@ -8035,6 +8138,7 @@ impl ITStreamControl_Vtbl {
         iid == &<ITStreamControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITSubStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StartSubStream(&self) -> ::windows::core::Result<()>;
@@ -8125,6 +8229,7 @@ impl ITSubStream_Vtbl {
         iid == &<ITSubStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITSubStreamControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateSubStream(&self) -> ::windows::core::Result<ITSubStream>;
@@ -8187,6 +8292,7 @@ impl ITSubStreamControl_Vtbl {
         iid == &<ITSubStreamControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITTAPI_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self) -> ::windows::core::Result<()>;
@@ -8363,6 +8469,7 @@ impl ITTAPI_Vtbl {
         iid == &<ITTAPI as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITTAPI2_Impl: Sized + ITTAPI_Impl {
     fn Phones(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -8418,6 +8525,7 @@ impl ITTAPI2_Vtbl {
         iid == &<ITTAPI2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITTAPI as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITTAPICallCenter_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnumerateAgentHandlers(&self) -> ::windows::core::Result<IEnumAgentHandler>;
@@ -8460,6 +8568,7 @@ impl ITTAPICallCenter_Vtbl {
         iid == &<ITTAPICallCenter as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITTAPIDispatchEventNotification_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8473,6 +8582,7 @@ impl ITTAPIDispatchEventNotification_Vtbl {
         iid == &<ITTAPIDispatchEventNotification as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITTAPIEventNotification_Impl: Sized {
     fn Event(&self, tapievent: TAPI_EVENT, pevent: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
@@ -8493,6 +8603,7 @@ impl ITTAPIEventNotification_Vtbl {
         iid == &<ITTAPIEventNotification as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITTAPIObjectEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TAPIObject(&self) -> ::windows::core::Result<ITTAPI>;
@@ -8561,6 +8672,7 @@ impl ITTAPIObjectEvent_Vtbl {
         iid == &<ITTAPIObjectEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITTAPIObjectEvent2_Impl: Sized + ITTAPIObjectEvent_Impl {
     fn Phone(&self) -> ::windows::core::Result<ITPhone>;
@@ -8587,6 +8699,7 @@ impl ITTAPIObjectEvent2_Vtbl {
         iid == &<ITTAPIObjectEvent2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITTAPIObjectEvent as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITTTSTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Terminal(&self) -> ::windows::core::Result<ITTerminal>;
@@ -8642,6 +8755,7 @@ impl ITTTSTerminalEvent_Vtbl {
         iid == &<ITTTSTerminalEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITTerminal_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -8736,6 +8850,7 @@ impl ITTerminal_Vtbl {
         iid == &<ITTerminal as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITTerminalSupport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StaticTerminals(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -8830,6 +8945,7 @@ impl ITTerminalSupport_Vtbl {
         iid == &<ITTerminalSupport as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITTerminalSupport2_Impl: Sized + ITTerminalSupport_Impl {
     fn PluggableSuperclasses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -8898,6 +9014,7 @@ impl ITTerminalSupport2_Vtbl {
         iid == &<ITTerminalSupport2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITTerminalSupport as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITToneDetectionEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows::core::Result<ITCallInfo>;
@@ -8966,6 +9083,7 @@ impl ITToneDetectionEvent_Vtbl {
         iid == &<ITToneDetectionEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITToneTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Terminal(&self) -> ::windows::core::Result<ITTerminal>;
@@ -9021,6 +9139,7 @@ impl ITToneTerminalEvent_Vtbl {
         iid == &<ITToneTerminalEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 pub trait ITnef_Impl: Sized {
     fn AddProps(&self, ulflags: u32, ulelemid: u32, lpvdata: *mut ::core::ffi::c_void, lpproplist: *mut super::super::System::AddressBook::SPropTagArray) -> ::windows::core::Result<()>;

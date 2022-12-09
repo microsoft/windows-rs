@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAccountingProviderConfig_Impl: Sized {
     fn Initialize(&self, pszmachinename: &::windows::core::PCWSTR) -> ::windows::core::Result<usize>;
@@ -55,6 +56,7 @@ impl IAccountingProviderConfig_Vtbl {
         iid == &<IAccountingProviderConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAuthenticationProviderConfig_Impl: Sized {
     fn Initialize(&self, pszmachinename: &::windows::core::PCWSTR) -> ::windows::core::Result<usize>;
@@ -112,6 +114,7 @@ impl IAuthenticationProviderConfig_Vtbl {
         iid == &<IAuthenticationProviderConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEAPProviderConfig_Impl: Sized {
     fn Initialize(&self, pszmachinename: &::windows::core::PCWSTR, dweaptypeid: u32) -> ::windows::core::Result<usize>;
@@ -170,6 +173,7 @@ impl IEAPProviderConfig_Vtbl {
         iid == &<IEAPProviderConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEAPProviderConfig2_Impl: Sized + IEAPProviderConfig_Impl {
     fn ServerInvokeConfigUI2(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::Result<()>;
@@ -200,6 +204,7 @@ impl IEAPProviderConfig2_Vtbl {
         iid == &<IEAPProviderConfig2 as ::windows::core::Interface>::IID || iid == &<IEAPProviderConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEAPProviderConfig3_Impl: Sized + IEAPProviderConfig2_Impl {
     fn ServerInvokeCertificateConfigUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> ::windows::core::Result<()>;
@@ -223,6 +228,7 @@ impl IEAPProviderConfig3_Vtbl {
         iid == &<IEAPProviderConfig3 as ::windows::core::Interface>::IID || iid == &<IEAPProviderConfig as ::windows::core::Interface>::IID || iid == &<IEAPProviderConfig2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRouterProtocolConfig_Impl: Sized {
     fn AddProtocol(&self, pszmachinename: &::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: &::core::option::Option<::windows::core::IUnknown>, ureserved1: usize) -> ::windows::core::Result<()>;

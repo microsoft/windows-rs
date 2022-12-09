@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IAsyncAction_Impl: Sized + IAsyncInfo_Impl {
     fn SetCompleted(&self, handler: &::core::option::Option<AsyncActionCompletedHandler>) -> ::windows::core::Result<()>;
     fn Completed(&self) -> ::windows::core::Result<AsyncActionCompletedHandler>;
@@ -41,6 +42,7 @@ impl IAsyncAction_Vtbl {
         iid == &<IAsyncAction as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IAsyncActionWithProgress_Impl<TProgress>: Sized + IAsyncInfo_Impl
 where
     TProgress: ::windows::core::RuntimeType + 'static,
@@ -109,6 +111,7 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
         iid == &<IAsyncActionWithProgress<TProgress> as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IAsyncInfo_Impl: Sized {
     fn Id(&self) -> ::windows::core::Result<u32>;
     fn Status(&self) -> ::windows::core::Result<AsyncStatus>;
@@ -180,6 +183,7 @@ impl IAsyncInfo_Vtbl {
         iid == &<IAsyncInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IAsyncOperation_Impl<TResult>: Sized + IAsyncInfo_Impl
 where
     TResult: ::windows::core::RuntimeType + 'static,
@@ -234,6 +238,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResu
         iid == &<IAsyncOperation<TResult> as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IAsyncOperationWithProgress_Impl<TResult, TProgress>: Sized + IAsyncInfo_Impl
 where
     TResult: ::windows::core::RuntimeType + 'static,
@@ -311,6 +316,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         iid == &<IAsyncOperationWithProgress<TResult, TProgress> as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IClosable_Impl: Sized {
     fn Close(&self) -> ::windows::core::Result<()>;
 }
@@ -330,6 +336,7 @@ impl IClosable_Vtbl {
         iid == &<IClosable as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IGetActivationFactory_Impl: Sized {
     fn GetActivationFactory(&self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
@@ -359,6 +366,7 @@ impl IGetActivationFactory_Vtbl {
         iid == &<IGetActivationFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IMemoryBuffer_Impl: Sized + IClosable_Impl {
     fn CreateReference(&self) -> ::windows::core::Result<IMemoryBufferReference>;
 }
@@ -385,6 +393,7 @@ impl IMemoryBuffer_Vtbl {
         iid == &<IMemoryBuffer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IMemoryBufferReference_Impl: Sized + IClosable_Impl {
     fn Capacity(&self) -> ::windows::core::Result<u32>;
     fn Closed(&self, handler: &::core::option::Option<TypedEventHandler<IMemoryBufferReference, ::windows::core::IInspectable>>) -> ::windows::core::Result<EventRegistrationToken>;
@@ -435,6 +444,7 @@ impl IMemoryBufferReference_Vtbl {
         iid == &<IMemoryBufferReference as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IPropertyValue_Impl: Sized {
     fn Type(&self) -> ::windows::core::Result<PropertyType>;
     fn IsNumericScalar(&self) -> ::windows::core::Result<bool>;
@@ -863,6 +873,7 @@ impl IPropertyValue_Vtbl {
         iid == &<IPropertyValue as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IReference_Impl<T>: Sized + IPropertyValue_Impl
 where
     T: ::windows::core::RuntimeType + 'static,
@@ -896,6 +907,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference_Vtbl<T> {
         iid == &<IReference<T> as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IReferenceArray_Impl<T>: Sized + IPropertyValue_Impl
 where
     T: ::windows::core::RuntimeType + 'static,
@@ -930,6 +942,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
         iid == &<IReferenceArray<T> as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IStringable_Impl: Sized {
     fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -956,6 +969,7 @@ impl IStringable_Vtbl {
         iid == &<IStringable as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IWwwFormUrlDecoderEntry_Impl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;

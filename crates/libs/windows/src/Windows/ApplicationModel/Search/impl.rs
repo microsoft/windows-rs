@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"ApplicationModel_Search\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(feature = "deprecated")]
 pub trait ISearchPaneQueryChangedEventArgs_Impl: Sized {
     fn QueryText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;

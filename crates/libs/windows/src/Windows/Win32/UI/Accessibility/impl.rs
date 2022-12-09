@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IAccIdentity_Impl: Sized {
     fn GetIdentityString(&self, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::Result<()>;
 }
@@ -15,6 +16,7 @@ impl IAccIdentity_Vtbl {
         iid == &<IAccIdentity as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAccPropServer_Impl: Sized {
     fn GetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &::windows::core::GUID, pvarvalue: *mut super::super::System::Com::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -35,6 +37,7 @@ impl IAccPropServer_Vtbl {
         iid == &<IAccPropServer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IAccPropServices_Impl: Sized {
     fn SetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &::windows::core::GUID, var: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -156,6 +159,7 @@ impl IAccPropServices_Vtbl {
         iid == &<IAccPropServices as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAccessible_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn accParent(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
@@ -409,6 +413,7 @@ impl IAccessible_Vtbl {
         iid == &<IAccessible as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessibleEx_Impl: Sized {
     fn GetObjectForChild(&self, idchild: i32) -> ::windows::core::Result<IAccessibleEx>;
@@ -471,6 +476,7 @@ impl IAccessibleEx_Vtbl {
         iid == &<IAccessibleEx as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessibleHandler_Impl: Sized {
     fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> ::windows::core::Result<IAccessible>;
@@ -497,6 +503,7 @@ impl IAccessibleHandler_Vtbl {
         iid == &<IAccessibleHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessibleHostingElementProviders_Impl: Sized {
     fn GetEmbeddedFragmentRoots(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -539,6 +546,7 @@ impl IAccessibleHostingElementProviders_Vtbl {
         iid == &<IAccessibleHostingElementProviders as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessibleWindowlessSite_Impl: Sized {
     fn AcquireObjectIdRange(&self, rangesize: i32, prangeowner: &::core::option::Option<IAccessibleHandler>) -> ::windows::core::Result<i32>;
@@ -601,6 +609,7 @@ impl IAccessibleWindowlessSite_Vtbl {
         iid == &<IAccessibleWindowlessSite as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IAnnotationProvider_Impl: Sized {
     fn AnnotationTypeId(&self) -> ::windows::core::Result<UIA_ANNOTATIONTYPE>;
     fn AnnotationTypeName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -679,6 +688,7 @@ impl IAnnotationProvider_Vtbl {
         iid == &<IAnnotationProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait ICustomNavigationProvider_Impl: Sized {
     fn Navigate(&self, direction: NavigateDirection) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
@@ -702,6 +712,7 @@ impl ICustomNavigationProvider_Vtbl {
         iid == &<ICustomNavigationProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IDockProvider_Impl: Sized {
     fn SetDockPosition(&self, dockposition: DockPosition) -> ::windows::core::Result<()>;
     fn DockPosition(&self) -> ::windows::core::Result<DockPosition>;
@@ -735,6 +746,7 @@ impl IDockProvider_Vtbl {
         iid == &<IDockProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDragProvider_Impl: Sized {
     fn IsGrabbed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -803,6 +815,7 @@ impl IDragProvider_Vtbl {
         iid == &<IDragProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDropTargetProvider_Impl: Sized {
     fn DropTargetEffect(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -845,6 +858,7 @@ impl IDropTargetProvider_Vtbl {
         iid == &<IDropTargetProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IExpandCollapseProvider_Impl: Sized {
     fn Expand(&self) -> ::windows::core::Result<()>;
     fn Collapse(&self) -> ::windows::core::Result<()>;
@@ -885,6 +899,7 @@ impl IExpandCollapseProvider_Vtbl {
         iid == &<IExpandCollapseProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IGridItemProvider_Impl: Sized {
     fn Row(&self) -> ::windows::core::Result<i32>;
     fn Column(&self) -> ::windows::core::Result<i32>;
@@ -963,6 +978,7 @@ impl IGridItemProvider_Vtbl {
         iid == &<IGridItemProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IGridProvider_Impl: Sized {
     fn GetItem(&self, row: i32, column: i32) -> ::windows::core::Result<IRawElementProviderSimple>;
     fn RowCount(&self) -> ::windows::core::Result<i32>;
@@ -1015,6 +1031,7 @@ impl IGridProvider_Vtbl {
         iid == &<IGridProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IInvokeProvider_Impl: Sized {
     fn Invoke(&self) -> ::windows::core::Result<()>;
 }
@@ -1032,6 +1049,7 @@ impl IInvokeProvider_Vtbl {
         iid == &<IInvokeProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IItemContainerProvider_Impl: Sized {
     fn FindItemByProperty(&self, pstartafter: &::core::option::Option<IRawElementProviderSimple>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IRawElementProviderSimple>;
@@ -1058,6 +1076,7 @@ impl IItemContainerProvider_Vtbl {
         iid == &<IItemContainerProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ILegacyIAccessibleProvider_Impl: Sized {
     fn Select(&self, flagsselect: i32) -> ::windows::core::Result<()>;
@@ -1238,6 +1257,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
         iid == &<ILegacyIAccessibleProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMultipleViewProvider_Impl: Sized {
     fn GetViewName(&self, viewid: i32) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1300,6 +1320,7 @@ impl IMultipleViewProvider_Vtbl {
         iid == &<IMultipleViewProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IObjectModelProvider_Impl: Sized {
     fn GetUnderlyingObjectModel(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
@@ -1323,6 +1344,7 @@ impl IObjectModelProvider_Vtbl {
         iid == &<IObjectModelProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IProxyProviderWinEventHandler_Impl: Sized {
     fn RespondToWinEvent(&self, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: &::core::option::Option<IProxyProviderWinEventSink>) -> ::windows::core::Result<()>;
@@ -1343,6 +1365,7 @@ impl IProxyProviderWinEventHandler_Vtbl {
         iid == &<IProxyProviderWinEventHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IProxyProviderWinEventSink_Impl: Sized {
     fn AddAutomationPropertyChangedEvent(&self, pprovider: &::core::option::Option<IRawElementProviderSimple>, id: UIA_PROPERTY_ID, newvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -1380,6 +1403,7 @@ impl IProxyProviderWinEventSink_Vtbl {
         iid == &<IProxyProviderWinEventSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRangeValueProvider_Impl: Sized {
     fn SetValue(&self, val: f64) -> ::windows::core::Result<()>;
@@ -1481,6 +1505,7 @@ impl IRangeValueProvider_Vtbl {
         iid == &<IRangeValueProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRawElementProviderAdviseEvents_Impl: Sized {
     fn AdviseEventAdded(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
@@ -1511,6 +1536,7 @@ impl IRawElementProviderAdviseEvents_Vtbl {
         iid == &<IRawElementProviderAdviseEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRawElementProviderFragment_Impl: Sized {
     fn Navigate(&self, direction: NavigateDirection) -> ::windows::core::Result<IRawElementProviderFragment>;
@@ -1599,6 +1625,7 @@ impl IRawElementProviderFragment_Vtbl {
         iid == &<IRawElementProviderFragment as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IRawElementProviderFragmentRoot_Impl: Sized {
     fn ElementProviderFromPoint(&self, x: f64, y: f64) -> ::windows::core::Result<IRawElementProviderFragment>;
     fn GetFocus(&self) -> ::windows::core::Result<IRawElementProviderFragment>;
@@ -1638,6 +1665,7 @@ impl IRawElementProviderFragmentRoot_Vtbl {
         iid == &<IRawElementProviderFragmentRoot as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRawElementProviderHostingAccessibles_Impl: Sized {
     fn GetEmbeddedAccessibles(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -1664,6 +1692,7 @@ impl IRawElementProviderHostingAccessibles_Vtbl {
         iid == &<IRawElementProviderHostingAccessibles as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRawElementProviderHwndOverride_Impl: Sized {
     fn GetOverrideProviderForHwnd(&self, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<IRawElementProviderSimple>;
@@ -1693,6 +1722,7 @@ impl IRawElementProviderHwndOverride_Vtbl {
         iid == &<IRawElementProviderHwndOverride as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRawElementProviderSimple_Impl: Sized {
     fn ProviderOptions(&self) -> ::windows::core::Result<ProviderOptions>;
@@ -1761,6 +1791,7 @@ impl IRawElementProviderSimple_Vtbl {
         iid == &<IRawElementProviderSimple as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRawElementProviderSimple2_Impl: Sized + IRawElementProviderSimple_Impl {
     fn ShowContextMenu(&self) -> ::windows::core::Result<()>;
@@ -1781,6 +1812,7 @@ impl IRawElementProviderSimple2_Vtbl {
         iid == &<IRawElementProviderSimple2 as ::windows::core::Interface>::IID || iid == &<IRawElementProviderSimple as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRawElementProviderSimple3_Impl: Sized + IRawElementProviderSimple2_Impl {
     fn GetMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -1807,6 +1839,7 @@ impl IRawElementProviderSimple3_Vtbl {
         iid == &<IRawElementProviderSimple3 as ::windows::core::Interface>::IID || iid == &<IRawElementProviderSimple as ::windows::core::Interface>::IID || iid == &<IRawElementProviderSimple2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRawElementProviderWindowlessSite_Impl: Sized {
     fn GetAdjacentFragment(&self, direction: NavigateDirection) -> ::windows::core::Result<IRawElementProviderFragment>;
@@ -1849,6 +1882,7 @@ impl IRawElementProviderWindowlessSite_Vtbl {
         iid == &<IRawElementProviderWindowlessSite as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IRichEditUiaInformation_Impl: Sized {
     fn GetBoundaryRectangle(&self, puiarect: *mut UiaRect) -> ::windows::core::Result<()>;
     fn IsVisible(&self) -> ::windows::core::Result<()>;
@@ -1876,6 +1910,7 @@ impl IRichEditUiaInformation_Vtbl {
         iid == &<IRichEditUiaInformation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IRicheditWindowlessAccessibility_Impl: Sized {
     fn CreateProvider(&self, psite: &::core::option::Option<IRawElementProviderWindowlessSite>) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
@@ -1899,6 +1934,7 @@ impl IRicheditWindowlessAccessibility_Vtbl {
         iid == &<IRicheditWindowlessAccessibility as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IScrollItemProvider_Impl: Sized {
     fn ScrollIntoView(&self) -> ::windows::core::Result<()>;
 }
@@ -1916,6 +1952,7 @@ impl IScrollItemProvider_Vtbl {
         iid == &<IScrollItemProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IScrollProvider_Impl: Sized {
     fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::Result<()>;
@@ -2024,6 +2061,7 @@ impl IScrollProvider_Vtbl {
         iid == &<IScrollProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISelectionItemProvider_Impl: Sized {
     fn Select(&self) -> ::windows::core::Result<()>;
@@ -2087,6 +2125,7 @@ impl ISelectionItemProvider_Vtbl {
         iid == &<ISelectionItemProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISelectionProvider_Impl: Sized {
     fn GetSelection(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -2142,6 +2181,7 @@ impl ISelectionProvider_Vtbl {
         iid == &<ISelectionProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISelectionProvider2_Impl: Sized + ISelectionProvider_Impl {
     fn FirstSelectedItem(&self) -> ::windows::core::Result<IRawElementProviderSimple>;
@@ -2210,6 +2250,7 @@ impl ISelectionProvider2_Vtbl {
         iid == &<ISelectionProvider2 as ::windows::core::Interface>::IID || iid == &<ISelectionProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpreadsheetItemProvider_Impl: Sized {
     fn Formula(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2265,6 +2306,7 @@ impl ISpreadsheetItemProvider_Vtbl {
         iid == &<ISpreadsheetItemProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait ISpreadsheetProvider_Impl: Sized {
     fn GetItemByName(&self, name: &::windows::core::PCWSTR) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
@@ -2288,6 +2330,7 @@ impl ISpreadsheetProvider_Vtbl {
         iid == &<ISpreadsheetProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IStylesProvider_Impl: Sized {
     fn StyleId(&self) -> ::windows::core::Result<UIA_STYLE_ID>;
     fn StyleName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2392,6 +2435,7 @@ impl IStylesProvider_Vtbl {
         iid == &<IStylesProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait ISynchronizedInputProvider_Impl: Sized {
     fn StartListening(&self, inputtype: SynchronizedInputType) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
@@ -2419,6 +2463,7 @@ impl ISynchronizedInputProvider_Vtbl {
         iid == &<ISynchronizedInputProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITableItemProvider_Impl: Sized {
     fn GetRowHeaderItems(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -2461,6 +2506,7 @@ impl ITableItemProvider_Vtbl {
         iid == &<ITableItemProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITableProvider_Impl: Sized {
     fn GetRowHeaders(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -2516,6 +2562,7 @@ impl ITableProvider_Vtbl {
         iid == &<ITableProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait ITextChildProvider_Impl: Sized {
     fn TextContainer(&self) -> ::windows::core::Result<IRawElementProviderSimple>;
     fn TextRange(&self) -> ::windows::core::Result<ITextRangeProvider>;
@@ -2555,6 +2602,7 @@ impl ITextChildProvider_Vtbl {
         iid == &<ITextChildProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITextEditProvider_Impl: Sized + ITextProvider_Impl {
     fn GetActiveComposition(&self) -> ::windows::core::Result<ITextRangeProvider>;
@@ -2597,6 +2645,7 @@ impl ITextEditProvider_Vtbl {
         iid == &<ITextEditProvider as ::windows::core::Interface>::IID || iid == &<ITextProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITextProvider_Impl: Sized {
     fn GetSelection(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -2691,6 +2740,7 @@ impl ITextProvider_Vtbl {
         iid == &<ITextProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITextProvider2_Impl: Sized + ITextProvider_Impl {
     fn RangeFromAnnotation(&self, annotationelement: &::core::option::Option<IRawElementProviderSimple>) -> ::windows::core::Result<ITextRangeProvider>;
@@ -2727,6 +2777,7 @@ impl ITextProvider2_Vtbl {
         iid == &<ITextProvider2 as ::windows::core::Interface>::IID || iid == &<ITextProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextRangeProvider_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<ITextRangeProvider>;
@@ -2941,6 +2992,7 @@ impl ITextRangeProvider_Vtbl {
         iid == &<ITextRangeProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextRangeProvider2_Impl: Sized + ITextRangeProvider_Impl {
     fn ShowContextMenu(&self) -> ::windows::core::Result<()>;
@@ -2961,6 +3013,7 @@ impl ITextRangeProvider2_Vtbl {
         iid == &<ITextRangeProvider2 as ::windows::core::Interface>::IID || iid == &<ITextRangeProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IToggleProvider_Impl: Sized {
     fn Toggle(&self) -> ::windows::core::Result<()>;
     fn ToggleState(&self) -> ::windows::core::Result<ToggleState>;
@@ -2994,6 +3047,7 @@ impl IToggleProvider_Vtbl {
         iid == &<IToggleProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITransformProvider_Impl: Sized {
     fn Move(&self, x: f64, y: f64) -> ::windows::core::Result<()>;
@@ -3070,6 +3124,7 @@ impl ITransformProvider_Vtbl {
         iid == &<ITransformProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITransformProvider2_Impl: Sized + ITransformProvider_Impl {
     fn Zoom(&self, zoom: f64) -> ::windows::core::Result<()>;
@@ -3152,6 +3207,7 @@ impl ITransformProvider2_Vtbl {
         iid == &<ITransformProvider2 as ::windows::core::Interface>::IID || iid == &<ITransformProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomation_Impl: Sized {
     fn CompareElements(&self, el1: &::core::option::Option<IUIAutomationElement>, el2: &::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -3799,6 +3855,7 @@ impl IUIAutomation_Vtbl {
         iid == &<IUIAutomation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomation2_Impl: Sized + IUIAutomation_Impl {
     fn AutoSetFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -3875,6 +3932,7 @@ impl IUIAutomation2_Vtbl {
         iid == &<IUIAutomation2 as ::windows::core::Interface>::IID || iid == &<IUIAutomation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomation3_Impl: Sized + IUIAutomation2_Impl {
     fn AddTextEditTextChangedEventHandler(&self, element: &::core::option::Option<IUIAutomationElement>, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: &::core::option::Option<IUIAutomationCacheRequest>, handler: &::core::option::Option<IUIAutomationTextEditTextChangedEventHandler>) -> ::windows::core::Result<()>;
@@ -3905,6 +3963,7 @@ impl IUIAutomation3_Vtbl {
         iid == &<IUIAutomation3 as ::windows::core::Interface>::IID || iid == &<IUIAutomation as ::windows::core::Interface>::IID || iid == &<IUIAutomation2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomation4_Impl: Sized + IUIAutomation3_Impl {
     fn AddChangesEventHandler(&self, element: &::core::option::Option<IUIAutomationElement>, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: &::core::option::Option<IUIAutomationCacheRequest>, handler: &::core::option::Option<IUIAutomationChangesEventHandler>) -> ::windows::core::Result<()>;
@@ -3935,6 +3994,7 @@ impl IUIAutomation4_Vtbl {
         iid == &<IUIAutomation4 as ::windows::core::Interface>::IID || iid == &<IUIAutomation as ::windows::core::Interface>::IID || iid == &<IUIAutomation2 as ::windows::core::Interface>::IID || iid == &<IUIAutomation3 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomation5_Impl: Sized + IUIAutomation4_Impl {
     fn AddNotificationEventHandler(&self, element: &::core::option::Option<IUIAutomationElement>, scope: TreeScope, cacherequest: &::core::option::Option<IUIAutomationCacheRequest>, handler: &::core::option::Option<IUIAutomationNotificationEventHandler>) -> ::windows::core::Result<()>;
@@ -3965,6 +4025,7 @@ impl IUIAutomation5_Vtbl {
         iid == &<IUIAutomation5 as ::windows::core::Interface>::IID || iid == &<IUIAutomation as ::windows::core::Interface>::IID || iid == &<IUIAutomation2 as ::windows::core::Interface>::IID || iid == &<IUIAutomation3 as ::windows::core::Interface>::IID || iid == &<IUIAutomation4 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomation6_Impl: Sized + IUIAutomation5_Impl {
     fn CreateEventHandlerGroup(&self) -> ::windows::core::Result<IUIAutomationEventHandlerGroup>;
@@ -4062,6 +4123,7 @@ impl IUIAutomation6_Vtbl {
         iid == &<IUIAutomation6 as ::windows::core::Interface>::IID || iid == &<IUIAutomation as ::windows::core::Interface>::IID || iid == &<IUIAutomation2 as ::windows::core::Interface>::IID || iid == &<IUIAutomation3 as ::windows::core::Interface>::IID || iid == &<IUIAutomation4 as ::windows::core::Interface>::IID || iid == &<IUIAutomation5 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationActiveTextPositionChangedEventHandler_Impl: Sized {
     fn HandleActiveTextPositionChangedEvent(&self, sender: &::core::option::Option<IUIAutomationElement>, range: &::core::option::Option<IUIAutomationTextRange>) -> ::windows::core::Result<()>;
 }
@@ -4082,6 +4144,7 @@ impl IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
         iid == &<IUIAutomationActiveTextPositionChangedEventHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationAndCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn ChildCount(&self) -> ::windows::core::Result<i32>;
@@ -4131,6 +4194,7 @@ impl IUIAutomationAndCondition_Vtbl {
         iid == &<IUIAutomationAndCondition as ::windows::core::Interface>::IID || iid == &<IUIAutomationCondition as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationAnnotationPattern_Impl: Sized {
     fn CurrentAnnotationTypeId(&self) -> ::windows::core::Result<UIA_ANNOTATIONTYPE>;
     fn CurrentAnnotationTypeName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4274,6 +4338,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
         iid == &<IUIAutomationAnnotationPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationBoolCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn BooleanValue(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -4300,6 +4365,7 @@ impl IUIAutomationBoolCondition_Vtbl {
         iid == &<IUIAutomationBoolCondition as ::windows::core::Interface>::IID || iid == &<IUIAutomationCondition as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationCacheRequest_Impl: Sized {
     fn AddProperty(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<()>;
     fn AddPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<()>;
@@ -4400,6 +4466,7 @@ impl IUIAutomationCacheRequest_Vtbl {
         iid == &<IUIAutomationCacheRequest as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationChangesEventHandler_Impl: Sized {
     fn HandleChangesEvent(&self, sender: &::core::option::Option<IUIAutomationElement>, uiachanges: *const UiaChangeInfo, changescount: i32) -> ::windows::core::Result<()>;
@@ -4420,6 +4487,7 @@ impl IUIAutomationChangesEventHandler_Vtbl {
         iid == &<IUIAutomationChangesEventHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationCondition_Impl: Sized {}
 impl ::windows::core::RuntimeName for IUIAutomationCondition {}
 impl IUIAutomationCondition_Vtbl {
@@ -4430,6 +4498,7 @@ impl IUIAutomationCondition_Vtbl {
         iid == &<IUIAutomationCondition as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationCustomNavigationPattern_Impl: Sized {
     fn Navigate(&self, direction: NavigateDirection) -> ::windows::core::Result<IUIAutomationElement>;
 }
@@ -4453,6 +4522,7 @@ impl IUIAutomationCustomNavigationPattern_Vtbl {
         iid == &<IUIAutomationCustomNavigationPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationDockPattern_Impl: Sized {
     fn SetDockPosition(&self, dockpos: DockPosition) -> ::windows::core::Result<()>;
     fn CurrentDockPosition(&self) -> ::windows::core::Result<DockPosition>;
@@ -4499,6 +4569,7 @@ impl IUIAutomationDockPattern_Vtbl {
         iid == &<IUIAutomationDockPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IUIAutomationDragPattern_Impl: Sized {
     fn CurrentIsGrabbed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -4619,6 +4690,7 @@ impl IUIAutomationDragPattern_Vtbl {
         iid == &<IUIAutomationDragPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationDropTargetPattern_Impl: Sized {
     fn CurrentDropTargetEffect(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4687,6 +4759,7 @@ impl IUIAutomationDropTargetPattern_Vtbl {
         iid == &<IUIAutomationDropTargetPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationElement_Impl: Sized {
     fn SetFocus(&self) -> ::windows::core::Result<()>;
@@ -5745,6 +5818,7 @@ impl IUIAutomationElement_Vtbl {
         iid == &<IUIAutomationElement as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationElement2_Impl: Sized + IUIAutomationElement_Impl {
     fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -5839,6 +5913,7 @@ impl IUIAutomationElement2_Vtbl {
         iid == &<IUIAutomationElement2 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationElement3_Impl: Sized + IUIAutomationElement2_Impl {
     fn ShowContextMenu(&self) -> ::windows::core::Result<()>;
@@ -5888,6 +5963,7 @@ impl IUIAutomationElement3_Vtbl {
         iid == &<IUIAutomationElement3 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationElement4_Impl: Sized + IUIAutomationElement3_Impl {
     fn CurrentPositionInSet(&self) -> ::windows::core::Result<i32>;
@@ -6034,6 +6110,7 @@ impl IUIAutomationElement4_Vtbl {
         iid == &<IUIAutomationElement4 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement2 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement3 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationElement5_Impl: Sized + IUIAutomationElement4_Impl {
     fn CurrentLandmarkType(&self) -> ::windows::core::Result<UIA_LANDMARKTYPE_ID>;
@@ -6102,6 +6179,7 @@ impl IUIAutomationElement5_Vtbl {
         iid == &<IUIAutomationElement5 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement2 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement3 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement4 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationElement6_Impl: Sized + IUIAutomationElement5_Impl {
     fn CurrentFullDescription(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -6144,6 +6222,7 @@ impl IUIAutomationElement6_Vtbl {
         iid == &<IUIAutomationElement6 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement2 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement3 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement4 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement5 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationElement7_Impl: Sized + IUIAutomationElement6_Impl {
     fn FindFirstWithOptions(&self, scope: TreeScope, condition: &::core::option::Option<IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: &::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<IUIAutomationElement>;
@@ -6225,6 +6304,7 @@ impl IUIAutomationElement7_Vtbl {
         iid == &<IUIAutomationElement7 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement2 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement3 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement4 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement5 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement6 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationElement8_Impl: Sized + IUIAutomationElement7_Impl {
     fn CurrentHeadingLevel(&self) -> ::windows::core::Result<UIA_HEADINGLEVEL_ID>;
@@ -6267,6 +6347,7 @@ impl IUIAutomationElement8_Vtbl {
         iid == &<IUIAutomationElement8 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement2 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement3 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement4 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement5 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement6 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement7 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationElement9_Impl: Sized + IUIAutomationElement8_Impl {
     fn CurrentIsDialog(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -6309,6 +6390,7 @@ impl IUIAutomationElement9_Vtbl {
         iid == &<IUIAutomationElement9 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement2 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement3 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement4 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement5 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement6 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement7 as ::windows::core::Interface>::IID || iid == &<IUIAutomationElement8 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationElementArray_Impl: Sized {
     fn Length(&self) -> ::windows::core::Result<i32>;
     fn GetElement(&self, index: i32) -> ::windows::core::Result<IUIAutomationElement>;
@@ -6348,6 +6430,7 @@ impl IUIAutomationElementArray_Vtbl {
         iid == &<IUIAutomationElementArray as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationEventHandler_Impl: Sized {
     fn HandleAutomationEvent(&self, sender: &::core::option::Option<IUIAutomationElement>, eventid: UIA_EVENT_ID) -> ::windows::core::Result<()>;
 }
@@ -6365,6 +6448,7 @@ impl IUIAutomationEventHandler_Vtbl {
         iid == &<IUIAutomationEventHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationEventHandlerGroup_Impl: Sized {
     fn AddActiveTextPositionChangedEventHandler(&self, scope: TreeScope, cacherequest: &::core::option::Option<IUIAutomationCacheRequest>, handler: &::core::option::Option<IUIAutomationActiveTextPositionChangedEventHandler>) -> ::windows::core::Result<()>;
     fn AddAutomationEventHandler(&self, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: &::core::option::Option<IUIAutomationCacheRequest>, handler: &::core::option::Option<IUIAutomationEventHandler>) -> ::windows::core::Result<()>;
@@ -6427,6 +6511,7 @@ impl IUIAutomationEventHandlerGroup_Vtbl {
         iid == &<IUIAutomationEventHandlerGroup as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationExpandCollapsePattern_Impl: Sized {
     fn Expand(&self) -> ::windows::core::Result<()>;
     fn Collapse(&self) -> ::windows::core::Result<()>;
@@ -6480,6 +6565,7 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
         iid == &<IUIAutomationExpandCollapsePattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationFocusChangedEventHandler_Impl: Sized {
     fn HandleFocusChangedEvent(&self, sender: &::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<()>;
 }
@@ -6497,6 +6583,7 @@ impl IUIAutomationFocusChangedEventHandler_Vtbl {
         iid == &<IUIAutomationFocusChangedEventHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationGridItemPattern_Impl: Sized {
     fn CurrentContainingGrid(&self) -> ::windows::core::Result<IUIAutomationElement>;
     fn CurrentRow(&self) -> ::windows::core::Result<i32>;
@@ -6640,6 +6727,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
         iid == &<IUIAutomationGridItemPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationGridPattern_Impl: Sized {
     fn GetItem(&self, row: i32, column: i32) -> ::windows::core::Result<IUIAutomationElement>;
     fn CurrentRowCount(&self) -> ::windows::core::Result<i32>;
@@ -6718,6 +6806,7 @@ impl IUIAutomationGridPattern_Vtbl {
         iid == &<IUIAutomationGridPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationInvokePattern_Impl: Sized {
     fn Invoke(&self) -> ::windows::core::Result<()>;
 }
@@ -6735,6 +6824,7 @@ impl IUIAutomationInvokePattern_Vtbl {
         iid == &<IUIAutomationInvokePattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationItemContainerPattern_Impl: Sized {
     fn FindItemByProperty(&self, pstartafter: &::core::option::Option<IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IUIAutomationElement>;
@@ -6761,6 +6851,7 @@ impl IUIAutomationItemContainerPattern_Vtbl {
         iid == &<IUIAutomationItemContainerPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationLegacyIAccessiblePattern_Impl: Sized {
     fn Select(&self, flagsselect: i32) -> ::windows::core::Result<()>;
@@ -7071,6 +7162,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         iid == &<IUIAutomationLegacyIAccessiblePattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationMultipleViewPattern_Impl: Sized {
     fn GetViewName(&self, view: i32) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -7159,6 +7251,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
         iid == &<IUIAutomationMultipleViewPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationNotCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn GetChild(&self) -> ::windows::core::Result<IUIAutomationCondition>;
 }
@@ -7182,6 +7275,7 @@ impl IUIAutomationNotCondition_Vtbl {
         iid == &<IUIAutomationNotCondition as ::windows::core::Interface>::IID || iid == &<IUIAutomationCondition as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationNotificationEventHandler_Impl: Sized {
     fn HandleNotificationEvent(&self, sender: &::core::option::Option<IUIAutomationElement>, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &::windows::core::BSTR, activityid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -7199,6 +7293,7 @@ impl IUIAutomationNotificationEventHandler_Vtbl {
         iid == &<IUIAutomationNotificationEventHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationObjectModelPattern_Impl: Sized {
     fn GetUnderlyingObjectModel(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
@@ -7222,6 +7317,7 @@ impl IUIAutomationObjectModelPattern_Vtbl {
         iid == &<IUIAutomationObjectModelPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationOrCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn ChildCount(&self) -> ::windows::core::Result<i32>;
@@ -7271,6 +7367,7 @@ impl IUIAutomationOrCondition_Vtbl {
         iid == &<IUIAutomationOrCondition as ::windows::core::Interface>::IID || iid == &<IUIAutomationCondition as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationPatternHandler_Impl: Sized {
     fn CreateClientWrapper(&self, ppatterninstance: &::core::option::Option<IUIAutomationPatternInstance>) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Dispatch(&self, ptarget: &::core::option::Option<::windows::core::IUnknown>, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> ::windows::core::Result<()>;
@@ -7304,6 +7401,7 @@ impl IUIAutomationPatternHandler_Vtbl {
         iid == &<IUIAutomationPatternHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationPatternInstance_Impl: Sized {
     fn GetProperty(&self, index: u32, cached: super::super::Foundation::BOOL, r#type: UIAutomationType, pptr: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -7334,6 +7432,7 @@ impl IUIAutomationPatternInstance_Vtbl {
         iid == &<IUIAutomationPatternInstance as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationPropertyChangedEventHandler_Impl: Sized {
     fn HandlePropertyChangedEvent(&self, sender: &::core::option::Option<IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, newvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -7357,6 +7456,7 @@ impl IUIAutomationPropertyChangedEventHandler_Vtbl {
         iid == &<IUIAutomationPropertyChangedEventHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationPropertyCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn PropertyId(&self) -> ::windows::core::Result<UIA_PROPERTY_ID>;
@@ -7412,6 +7512,7 @@ impl IUIAutomationPropertyCondition_Vtbl {
         iid == &<IUIAutomationPropertyCondition as ::windows::core::Interface>::IID || iid == &<IUIAutomationCondition as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationProxyFactory_Impl: Sized {
     fn CreateProvider(&self, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32) -> ::windows::core::Result<IRawElementProviderSimple>;
@@ -7454,6 +7555,7 @@ impl IUIAutomationProxyFactory_Vtbl {
         iid == &<IUIAutomationProxyFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IUIAutomationProxyFactoryEntry_Impl: Sized {
     fn ProxyFactory(&self) -> ::windows::core::Result<IUIAutomationProxyFactory>;
@@ -7603,6 +7705,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
         iid == &<IUIAutomationProxyFactoryEntry as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationProxyFactoryMapping_Impl: Sized {
     fn Count(&self) -> ::windows::core::Result<u32>;
@@ -7700,6 +7803,7 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
         iid == &<IUIAutomationProxyFactoryMapping as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationRangeValuePattern_Impl: Sized {
     fn SetValue(&self, val: f64) -> ::windows::core::Result<()>;
@@ -7879,6 +7983,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
         iid == &<IUIAutomationRangeValuePattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationRegistrar_Impl: Sized {
     fn RegisterProperty(&self, property: *const UIAutomationPropertyInfo) -> ::windows::core::Result<i32>;
@@ -7928,6 +8033,7 @@ impl IUIAutomationRegistrar_Vtbl {
         iid == &<IUIAutomationRegistrar as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationScrollItemPattern_Impl: Sized {
     fn ScrollIntoView(&self) -> ::windows::core::Result<()>;
 }
@@ -7945,6 +8051,7 @@ impl IUIAutomationScrollItemPattern_Vtbl {
         iid == &<IUIAutomationScrollItemPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationScrollPattern_Impl: Sized {
     fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::Result<()>;
@@ -8131,6 +8238,7 @@ impl IUIAutomationScrollPattern_Vtbl {
         iid == &<IUIAutomationScrollPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationSelectionItemPattern_Impl: Sized {
     fn Select(&self) -> ::windows::core::Result<()>;
@@ -8220,6 +8328,7 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
         iid == &<IUIAutomationSelectionItemPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationSelectionPattern_Impl: Sized {
     fn GetCurrentSelection(&self) -> ::windows::core::Result<IUIAutomationElementArray>;
@@ -8314,6 +8423,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
         iid == &<IUIAutomationSelectionPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationSelectionPattern2_Impl: Sized + IUIAutomationSelectionPattern_Impl {
     fn CurrentFirstSelectedItem(&self) -> ::windows::core::Result<IUIAutomationElement>;
@@ -8434,6 +8544,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
         iid == &<IUIAutomationSelectionPattern2 as ::windows::core::Interface>::IID || iid == &<IUIAutomationSelectionPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationSpreadsheetItemPattern_Impl: Sized {
     fn CurrentFormula(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -8528,6 +8639,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
         iid == &<IUIAutomationSpreadsheetItemPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationSpreadsheetPattern_Impl: Sized {
     fn GetItemByName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<IUIAutomationElement>;
 }
@@ -8551,6 +8663,7 @@ impl IUIAutomationSpreadsheetPattern_Vtbl {
         iid == &<IUIAutomationSpreadsheetPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationStructureChangedEventHandler_Impl: Sized {
     fn HandleStructureChangedEvent(&self, sender: &::core::option::Option<IUIAutomationElement>, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
@@ -8574,6 +8687,7 @@ impl IUIAutomationStructureChangedEventHandler_Vtbl {
         iid == &<IUIAutomationStructureChangedEventHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationStylesPattern_Impl: Sized {
     fn CurrentStyleId(&self) -> ::windows::core::Result<UIA_STYLE_ID>;
     fn CurrentStyleName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -8783,6 +8897,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         iid == &<IUIAutomationStylesPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationSynchronizedInputPattern_Impl: Sized {
     fn StartListening(&self, inputtype: SynchronizedInputType) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
@@ -8810,6 +8925,7 @@ impl IUIAutomationSynchronizedInputPattern_Vtbl {
         iid == &<IUIAutomationSynchronizedInputPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationTableItemPattern_Impl: Sized {
     fn GetCurrentRowHeaderItems(&self) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn GetCurrentColumnHeaderItems(&self) -> ::windows::core::Result<IUIAutomationElementArray>;
@@ -8875,6 +8991,7 @@ impl IUIAutomationTableItemPattern_Vtbl {
         iid == &<IUIAutomationTableItemPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationTablePattern_Impl: Sized {
     fn GetCurrentRowHeaders(&self) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn GetCurrentColumnHeaders(&self) -> ::windows::core::Result<IUIAutomationElementArray>;
@@ -8966,6 +9083,7 @@ impl IUIAutomationTablePattern_Vtbl {
         iid == &<IUIAutomationTablePattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationTextChildPattern_Impl: Sized {
     fn TextContainer(&self) -> ::windows::core::Result<IUIAutomationElement>;
     fn TextRange(&self) -> ::windows::core::Result<IUIAutomationTextRange>;
@@ -9005,6 +9123,7 @@ impl IUIAutomationTextChildPattern_Vtbl {
         iid == &<IUIAutomationTextChildPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationTextEditPattern_Impl: Sized + IUIAutomationTextPattern_Impl {
     fn GetActiveComposition(&self) -> ::windows::core::Result<IUIAutomationTextRange>;
@@ -9047,6 +9166,7 @@ impl IUIAutomationTextEditPattern_Vtbl {
         iid == &<IUIAutomationTextEditPattern as ::windows::core::Interface>::IID || iid == &<IUIAutomationTextPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationTextEditTextChangedEventHandler_Impl: Sized {
     fn HandleTextEditTextChangedEvent(&self, sender: &::core::option::Option<IUIAutomationElement>, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
@@ -9070,6 +9190,7 @@ impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
         iid == &<IUIAutomationTextEditTextChangedEventHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationTextPattern_Impl: Sized {
     fn RangeFromPoint(&self, pt: &super::super::Foundation::POINT) -> ::windows::core::Result<IUIAutomationTextRange>;
@@ -9164,6 +9285,7 @@ impl IUIAutomationTextPattern_Vtbl {
         iid == &<IUIAutomationTextPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationTextPattern2_Impl: Sized + IUIAutomationTextPattern_Impl {
     fn RangeFromAnnotation(&self, annotation: &::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<IUIAutomationTextRange>;
@@ -9200,6 +9322,7 @@ impl IUIAutomationTextPattern2_Vtbl {
         iid == &<IUIAutomationTextPattern2 as ::windows::core::Interface>::IID || iid == &<IUIAutomationTextPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationTextRange_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IUIAutomationTextRange>;
@@ -9414,6 +9537,7 @@ impl IUIAutomationTextRange_Vtbl {
         iid == &<IUIAutomationTextRange as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationTextRange2_Impl: Sized + IUIAutomationTextRange_Impl {
     fn ShowContextMenu(&self) -> ::windows::core::Result<()>;
@@ -9434,6 +9558,7 @@ impl IUIAutomationTextRange2_Vtbl {
         iid == &<IUIAutomationTextRange2 as ::windows::core::Interface>::IID || iid == &<IUIAutomationTextRange as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUIAutomationTextRange3_Impl: Sized + IUIAutomationTextRange2_Impl {
     fn GetEnclosingElementBuildCache(&self, cacherequest: &::core::option::Option<IUIAutomationCacheRequest>) -> ::windows::core::Result<IUIAutomationElement>;
@@ -9489,6 +9614,7 @@ impl IUIAutomationTextRange3_Vtbl {
         iid == &<IUIAutomationTextRange3 as ::windows::core::Interface>::IID || iid == &<IUIAutomationTextRange as ::windows::core::Interface>::IID || iid == &<IUIAutomationTextRange2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationTextRangeArray_Impl: Sized {
     fn Length(&self) -> ::windows::core::Result<i32>;
     fn GetElement(&self, index: i32) -> ::windows::core::Result<IUIAutomationTextRange>;
@@ -9528,6 +9654,7 @@ impl IUIAutomationTextRangeArray_Vtbl {
         iid == &<IUIAutomationTextRangeArray as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationTogglePattern_Impl: Sized {
     fn Toggle(&self) -> ::windows::core::Result<()>;
     fn CurrentToggleState(&self) -> ::windows::core::Result<ToggleState>;
@@ -9574,6 +9701,7 @@ impl IUIAutomationTogglePattern_Vtbl {
         iid == &<IUIAutomationTogglePattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationTransformPattern_Impl: Sized {
     fn Move(&self, x: f64, y: f64) -> ::windows::core::Result<()>;
@@ -9689,6 +9817,7 @@ impl IUIAutomationTransformPattern_Vtbl {
         iid == &<IUIAutomationTransformPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationTransformPattern2_Impl: Sized + IUIAutomationTransformPattern_Impl {
     fn Zoom(&self, zoomvalue: f64) -> ::windows::core::Result<()>;
@@ -9823,6 +9952,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
         iid == &<IUIAutomationTransformPattern2 as ::windows::core::Interface>::IID || iid == &<IUIAutomationTransformPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationTreeWalker_Impl: Sized {
     fn GetParentElement(&self, element: &::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<IUIAutomationElement>;
     fn GetFirstChildElement(&self, element: &::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<IUIAutomationElement>;
@@ -10005,6 +10135,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         iid == &<IUIAutomationTreeWalker as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationValuePattern_Impl: Sized {
     fn SetValue(&self, val: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -10080,6 +10211,7 @@ impl IUIAutomationValuePattern_Vtbl {
         iid == &<IUIAutomationValuePattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IUIAutomationVirtualizedItemPattern_Impl: Sized {
     fn Realize(&self) -> ::windows::core::Result<()>;
 }
@@ -10097,6 +10229,7 @@ impl IUIAutomationVirtualizedItemPattern_Vtbl {
         iid == &<IUIAutomationVirtualizedItemPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAutomationWindowPattern_Impl: Sized {
     fn Close(&self) -> ::windows::core::Result<()>;
@@ -10296,6 +10429,7 @@ impl IUIAutomationWindowPattern_Vtbl {
         iid == &<IUIAutomationWindowPattern as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IValueProvider_Impl: Sized {
     fn SetValue(&self, val: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -10345,6 +10479,7 @@ impl IValueProvider_Vtbl {
         iid == &<IValueProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
 pub trait IVirtualizedItemProvider_Impl: Sized {
     fn Realize(&self) -> ::windows::core::Result<()>;
 }
@@ -10362,6 +10497,7 @@ impl IVirtualizedItemProvider_Vtbl {
         iid == &<IVirtualizedItemProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWindowProvider_Impl: Sized {
     fn SetVisualState(&self, state: WindowVisualState) -> ::windows::core::Result<()>;

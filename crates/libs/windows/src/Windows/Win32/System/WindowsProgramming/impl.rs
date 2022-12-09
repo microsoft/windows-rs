@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ICameraUIControl_Impl: Sized {
     fn Show(&self, pwindow: &::core::option::Option<::windows::core::IUnknown>, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: super::super::Foundation::BOOL, peventcallback: &::core::option::Option<ICameraUIControlEventCallback>) -> ::windows::core::Result<()>;
@@ -88,6 +89,7 @@ impl ICameraUIControl_Vtbl {
         iid == &<ICameraUIControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"implement\"`*"]
 pub trait ICameraUIControlEventCallback_Impl: Sized {
     fn OnStartupComplete(&self);
     fn OnSuspendComplete(&self);
@@ -136,6 +138,7 @@ impl ICameraUIControlEventCallback_Vtbl {
         iid == &<ICameraUIControlEventCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"implement\"`*"]
 pub trait IClipServiceNotificationHelper_Impl: Sized {
     fn ShowToast(&self, titletext: &::windows::core::BSTR, bodytext: &::windows::core::BSTR, packagename: &::windows::core::BSTR, appid: &::windows::core::BSTR, launchcommand: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -153,6 +156,7 @@ impl IClipServiceNotificationHelper_Vtbl {
         iid == &<IClipServiceNotificationHelper as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContainerActivationHelper_Impl: Sized {
     fn CanActivateClientVM(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -179,6 +183,7 @@ impl IContainerActivationHelper_Vtbl {
         iid == &<IContainerActivationHelper as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDefaultBrowserSyncSettings_Impl: Sized {
     fn IsEnabled(&self) -> super::super::Foundation::BOOL;
@@ -199,6 +204,7 @@ impl IDefaultBrowserSyncSettings_Vtbl {
         iid == &<IDefaultBrowserSyncSettings as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"implement\"`*"]
 pub trait IDeleteBrowsingHistory_Impl: Sized {
     fn DeleteBrowsingHistory(&self, dwflags: u32) -> ::windows::core::Result<()>;
 }
@@ -216,6 +222,7 @@ impl IDeleteBrowsingHistory_Vtbl {
         iid == &<IDeleteBrowsingHistory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Ole")]
 pub trait IEditionUpgradeBroker_Impl: Sized {
     fn InitializeParentWindow(&self, parenthandle: super::Ole::OLE_HANDLE) -> ::windows::core::Result<()>;
@@ -260,6 +267,7 @@ impl IEditionUpgradeBroker_Vtbl {
         iid == &<IEditionUpgradeBroker as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEditionUpgradeHelper_Impl: Sized {
     fn CanUpgrade(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -329,6 +337,7 @@ impl IEditionUpgradeHelper_Vtbl {
         iid == &<IEditionUpgradeHelper as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWindowsLockModeHelper_Impl: Sized {
     fn GetSMode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;

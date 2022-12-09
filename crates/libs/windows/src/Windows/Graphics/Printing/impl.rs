@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Graphics_Printing\"`, `\"implement\"`*"]
 pub trait IPrintDocumentSource_Impl: Sized {}
 impl ::windows::core::RuntimeName for IPrintDocumentSource {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintDocumentSource";
@@ -10,6 +11,7 @@ impl IPrintDocumentSource_Vtbl {
         iid == &<IPrintDocumentSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IPrintTaskOptionsCore_Impl: Sized {
     fn GetPageDescription(&self, jobpagenumber: u32) -> ::windows::core::Result<PrintPageDescription>;
@@ -42,6 +44,7 @@ impl IPrintTaskOptionsCore_Vtbl {
         iid == &<IPrintTaskOptionsCore as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Graphics_Printing\"`, `\"implement\"`*"]
 pub trait IPrintTaskOptionsCoreProperties_Impl: Sized {
     fn SetMediaSize(&self, value: PrintMediaSize) -> ::windows::core::Result<()>;
     fn MediaSize(&self) -> ::windows::core::Result<PrintMediaSize>;
@@ -316,6 +319,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
         iid == &<IPrintTaskOptionsCoreProperties as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPrintTaskOptionsCoreUIConfiguration_Impl: Sized {
     fn DisplayedOptions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;

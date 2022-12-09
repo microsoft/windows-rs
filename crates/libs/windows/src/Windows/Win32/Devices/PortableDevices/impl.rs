@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IConnectionRequestCallback_Impl: Sized {
     fn OnComplete(&self, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
@@ -15,6 +16,7 @@ impl IConnectionRequestCallback_Vtbl {
         iid == &<IConnectionRequestCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IEnumPortableDeviceConnectors_Impl: Sized {
     fn Next(&self, crequested: u32, pconnectors: *mut ::core::option::Option<IPortableDeviceConnector>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, cconnectors: u32) -> ::windows::core::Result<()>;
@@ -62,6 +64,7 @@ impl IEnumPortableDeviceConnectors_Vtbl {
         iid == &<IEnumPortableDeviceConnectors as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IEnumPortableDeviceObjectIDs_Impl: Sized {
     fn Next(&self, cobjects: u32, pobjids: *mut ::windows::core::PWSTR, pcfetched: *mut u32) -> ::windows::core::HRESULT;
     fn Skip(&self, cobjects: u32) -> ::windows::core::HRESULT;
@@ -116,6 +119,7 @@ impl IEnumPortableDeviceObjectIDs_Vtbl {
         iid == &<IEnumPortableDeviceObjectIDs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IMediaRadioManager_Impl: Sized {
     fn GetRadioInstances(&self) -> ::windows::core::Result<IRadioInstanceCollection>;
     fn OnSystemRadioStateChange(&self, sysradiostate: SYSTEM_RADIO_STATE, utimeoutsec: u32) -> ::windows::core::Result<()>;
@@ -149,6 +153,7 @@ impl IMediaRadioManager_Vtbl {
         iid == &<IMediaRadioManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IMediaRadioManagerNotifySink_Impl: Sized {
     fn OnInstanceAdd(&self, pradioinstance: &::core::option::Option<IRadioInstance>) -> ::windows::core::Result<()>;
     fn OnInstanceRemove(&self, bstrradioinstanceid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -183,6 +188,7 @@ impl IMediaRadioManagerNotifySink_Vtbl {
         iid == &<IMediaRadioManagerNotifySink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IPortableDevice_Impl: Sized {
     fn Open(&self, pszpnpdeviceid: &::windows::core::PCWSTR, pclientinfo: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
     fn SendCommand(&self, dwflags: u32, pparameters: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<IPortableDeviceValues>;
@@ -289,6 +295,7 @@ impl IPortableDevice_Vtbl {
         iid == &<IPortableDevice as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IPortableDeviceCapabilities_Impl: Sized {
     fn GetSupportedCommands(&self) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
@@ -442,6 +449,7 @@ impl IPortableDeviceCapabilities_Vtbl {
         iid == &<IPortableDeviceCapabilities as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Devices_Properties\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub trait IPortableDeviceConnector_Impl: Sized {
     fn Connect(&self, pcallback: &::core::option::Option<IConnectionRequestCallback>) -> ::windows::core::Result<()>;
@@ -506,6 +514,7 @@ impl IPortableDeviceConnector_Vtbl {
         iid == &<IPortableDeviceConnector as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPortableDeviceContent_Impl: Sized {
     fn EnumObjects(&self, dwflags: u32, pszparentobjectid: &::windows::core::PCWSTR, pfilter: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<IEnumPortableDeviceObjectIDs>;
@@ -616,6 +625,7 @@ impl IPortableDeviceContent_Vtbl {
         iid == &<IPortableDeviceContent as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPortableDeviceContent2_Impl: Sized + IPortableDeviceContent_Impl {
     fn UpdateObjectWithPropertiesAndData(&self, pszobjectid: &::windows::core::PCWSTR, pproperties: &::core::option::Option<IPortableDeviceValues>, ppdata: *mut ::core::option::Option<super::super::System::Com::IStream>, pdwoptimalwritebuffersize: *mut u32) -> ::windows::core::Result<()>;
@@ -639,6 +649,7 @@ impl IPortableDeviceContent2_Vtbl {
         iid == &<IPortableDeviceContent2 as ::windows::core::Interface>::IID || iid == &<IPortableDeviceContent as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPortableDeviceDataStream_Impl: Sized + super::super::System::Com::IStream_Impl {
     fn GetObjectID(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -675,6 +686,7 @@ impl IPortableDeviceDataStream_Vtbl {
         iid == &<IPortableDeviceDataStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPortableDeviceDispatchFactory_Impl: Sized {
     fn GetDeviceDispatch(&self, pszpnpdeviceid: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
@@ -701,6 +713,7 @@ impl IPortableDeviceDispatchFactory_Vtbl {
         iid == &<IPortableDeviceDispatchFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IPortableDeviceEventCallback_Impl: Sized {
     fn OnEvent(&self, peventparameters: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
 }
@@ -718,6 +731,7 @@ impl IPortableDeviceEventCallback_Vtbl {
         iid == &<IPortableDeviceEventCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IPortableDeviceKeyCollection_Impl: Sized {
     fn GetCount(&self, pcelems: *const u32) -> ::windows::core::Result<()>;
@@ -769,6 +783,7 @@ impl IPortableDeviceKeyCollection_Vtbl {
         iid == &<IPortableDeviceKeyCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IPortableDeviceManager_Impl: Sized {
     fn GetDevices(&self, ppnpdeviceids: *mut ::windows::core::PWSTR, pcpnpdeviceids: *mut u32) -> ::windows::core::Result<()>;
     fn RefreshDeviceList(&self) -> ::windows::core::Result<()>;
@@ -831,6 +846,7 @@ impl IPortableDeviceManager_Vtbl {
         iid == &<IPortableDeviceManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPortableDevicePropVariantCollection_Impl: Sized {
     fn GetCount(&self, pcelems: *const u32) -> ::windows::core::Result<()>;
@@ -902,6 +918,7 @@ impl IPortableDevicePropVariantCollection_Vtbl {
         iid == &<IPortableDevicePropVariantCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IPortableDeviceProperties_Impl: Sized {
     fn GetSupportedProperties(&self, pszobjectid: &::windows::core::PCWSTR) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
@@ -984,6 +1001,7 @@ impl IPortableDeviceProperties_Vtbl {
         iid == &<IPortableDeviceProperties as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IPortableDevicePropertiesBulk_Impl: Sized {
     fn QueueGetValuesByObjectList(&self, pobjectids: &::core::option::Option<IPortableDevicePropVariantCollection>, pkeys: &::core::option::Option<IPortableDeviceKeyCollection>, pcallback: &::core::option::Option<IPortableDevicePropertiesBulkCallback>) -> ::windows::core::Result<::windows::core::GUID>;
     fn QueueGetValuesByObjectFormat(&self, pguidobjectformat: *const ::windows::core::GUID, pszparentobjectid: &::windows::core::PCWSTR, dwdepth: u32, pkeys: &::core::option::Option<IPortableDeviceKeyCollection>, pcallback: &::core::option::Option<IPortableDevicePropertiesBulkCallback>) -> ::windows::core::Result<::windows::core::GUID>;
@@ -1050,6 +1068,7 @@ impl IPortableDevicePropertiesBulk_Vtbl {
         iid == &<IPortableDevicePropertiesBulk as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IPortableDevicePropertiesBulkCallback_Impl: Sized {
     fn OnStart(&self, pcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn OnProgress(&self, pcontext: *const ::windows::core::GUID, presults: &::core::option::Option<IPortableDeviceValuesCollection>) -> ::windows::core::Result<()>;
@@ -1084,6 +1103,7 @@ impl IPortableDevicePropertiesBulkCallback_Vtbl {
         iid == &<IPortableDevicePropertiesBulkCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IPortableDeviceResources_Impl: Sized {
     fn GetSupportedResources(&self, pszobjectid: &::windows::core::PCWSTR) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
@@ -1154,6 +1174,7 @@ impl IPortableDeviceResources_Vtbl {
         iid == &<IPortableDeviceResources as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IPortableDeviceService_Impl: Sized {
     fn Open(&self, pszpnpserviceid: &::windows::core::PCWSTR, pclientinfo: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
     fn Capabilities(&self) -> ::windows::core::Result<IPortableDeviceServiceCapabilities>;
@@ -1286,6 +1307,7 @@ impl IPortableDeviceService_Vtbl {
         iid == &<IPortableDeviceService as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IPortableDeviceServiceActivation_Impl: Sized {
     fn OpenAsync(&self, pszpnpserviceid: &::windows::core::PCWSTR, pclientinfo: &::core::option::Option<IPortableDeviceValues>, pcallback: &::core::option::Option<IPortableDeviceServiceOpenCallback>) -> ::windows::core::Result<()>;
     fn CancelOpenAsync(&self) -> ::windows::core::Result<()>;
@@ -1313,6 +1335,7 @@ impl IPortableDeviceServiceActivation_Vtbl {
         iid == &<IPortableDeviceServiceActivation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IPortableDeviceServiceCapabilities_Impl: Sized {
     fn GetSupportedMethods(&self) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
@@ -1531,6 +1554,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         iid == &<IPortableDeviceServiceCapabilities as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IPortableDeviceServiceManager_Impl: Sized {
     fn GetDeviceServices(&self, pszpnpdeviceid: &::windows::core::PCWSTR, guidservicecategory: *const ::windows::core::GUID, pservices: *mut ::windows::core::PWSTR, pcservices: *mut u32) -> ::windows::core::Result<()>;
     fn GetDeviceForService(&self, pszpnpserviceid: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -1564,6 +1588,7 @@ impl IPortableDeviceServiceManager_Vtbl {
         iid == &<IPortableDeviceServiceManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IPortableDeviceServiceMethodCallback_Impl: Sized {
     fn OnComplete(&self, hrstatus: ::windows::core::HRESULT, presults: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
 }
@@ -1581,6 +1606,7 @@ impl IPortableDeviceServiceMethodCallback_Vtbl {
         iid == &<IPortableDeviceServiceMethodCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IPortableDeviceServiceMethods_Impl: Sized {
     fn Invoke(&self, method: *const ::windows::core::GUID, pparameters: &::core::option::Option<IPortableDeviceValues>, ppresults: *mut ::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
     fn InvokeAsync(&self, method: *const ::windows::core::GUID, pparameters: &::core::option::Option<IPortableDeviceValues>, pcallback: &::core::option::Option<IPortableDeviceServiceMethodCallback>) -> ::windows::core::Result<()>;
@@ -1615,6 +1641,7 @@ impl IPortableDeviceServiceMethods_Vtbl {
         iid == &<IPortableDeviceServiceMethods as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IPortableDeviceServiceOpenCallback_Impl: Sized {
     fn OnComplete(&self, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
@@ -1632,6 +1659,7 @@ impl IPortableDeviceServiceOpenCallback_Vtbl {
         iid == &<IPortableDeviceServiceOpenCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IPortableDeviceUnitsStream_Impl: Sized {
     fn SeekInUnits(&self, dlibmove: i64, units: WPD_STREAM_UNITS, dworigin: u32, plibnewposition: *mut u64) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
@@ -1659,6 +1687,7 @@ impl IPortableDeviceUnitsStream_Vtbl {
         iid == &<IPortableDeviceUnitsStream as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IPortableDeviceValues_Impl: Sized {
     fn GetCount(&self, pcelt: *const u32) -> ::windows::core::Result<()>;
@@ -2051,6 +2080,7 @@ impl IPortableDeviceValues_Vtbl {
         iid == &<IPortableDeviceValues as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IPortableDeviceValuesCollection_Impl: Sized {
     fn GetCount(&self, pcelems: *const u32) -> ::windows::core::Result<()>;
     fn GetAt(&self, dwindex: u32) -> ::windows::core::Result<IPortableDeviceValues>;
@@ -2105,6 +2135,7 @@ impl IPortableDeviceValuesCollection_Vtbl {
         iid == &<IPortableDeviceValuesCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPortableDeviceWebControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetDeviceFromId(&self, deviceid: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
@@ -2141,6 +2172,7 @@ impl IPortableDeviceWebControl_Vtbl {
         iid == &<IPortableDeviceWebControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRadioInstance_Impl: Sized {
     fn GetRadioManagerSignature(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -2230,6 +2262,7 @@ impl IRadioInstance_Vtbl {
         iid == &<IRadioInstance as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IRadioInstanceCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows::core::Result<u32>;
     fn GetAt(&self, uindex: u32) -> ::windows::core::Result<IRadioInstance>;
@@ -2269,6 +2302,7 @@ impl IRadioInstanceCollection_Vtbl {
         iid == &<IRadioInstanceCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 pub trait IWpdSerializer_Impl: Sized {
     fn GetIPortableDeviceValuesFromBuffer(&self, pbuffer: *const u8, dwinputbufferlength: u32) -> ::windows::core::Result<IPortableDeviceValues>;
     fn WriteIPortableDeviceValuesToBuffer(&self, dwoutputbufferlength: u32, presults: &::core::option::Option<IPortableDeviceValues>, pbuffer: *mut u8, pdwbyteswritten: *mut u32) -> ::windows::core::Result<()>;

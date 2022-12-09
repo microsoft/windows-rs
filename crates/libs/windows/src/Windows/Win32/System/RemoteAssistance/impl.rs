@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DRendezvousSessionEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11,6 +12,7 @@ impl DRendezvousSessionEvents_Vtbl {
         iid == &<DRendezvousSessionEvents as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"implement\"`*"]
 pub trait IRendezvousApplication_Impl: Sized {
     fn SetRendezvousSession(&self, prendezvoussession: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
@@ -28,6 +30,7 @@ impl IRendezvousApplication_Vtbl {
         iid == &<IRendezvousApplication as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"implement\"`*"]
 pub trait IRendezvousSession_Impl: Sized {
     fn State(&self) -> ::windows::core::Result<RENDEZVOUS_SESSION_STATE>;
     fn RemoteUser(&self) -> ::windows::core::Result<::windows::core::BSTR>;

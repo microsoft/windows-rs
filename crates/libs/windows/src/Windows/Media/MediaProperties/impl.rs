@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IMediaEncodingProperties_Impl: Sized {
     fn Properties(&self) -> ::windows::core::Result<MediaPropertySet>;

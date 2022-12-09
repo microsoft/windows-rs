@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IEnteredBackgroundEventArgs_Impl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<super::Foundation::Deferral>;
@@ -30,6 +31,7 @@ impl IEnteredBackgroundEventArgs_Vtbl {
         iid == &<IEnteredBackgroundEventArgs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait ILeavingBackgroundEventArgs_Impl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<super::Foundation::Deferral>;
@@ -62,6 +64,7 @@ impl ILeavingBackgroundEventArgs_Vtbl {
         iid == &<ILeavingBackgroundEventArgs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"ApplicationModel\"`, `\"implement\"`*"]
 pub trait IPackageCatalogStatics2_Impl: Sized {
     fn OpenForPackage(&self, package: &::core::option::Option<Package>) -> ::windows::core::Result<PackageCatalog>;
 }
@@ -91,6 +94,7 @@ impl IPackageCatalogStatics2_Vtbl {
         iid == &<IPackageCatalogStatics2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"ApplicationModel\"`, `\"implement\"`*"]
 pub trait ISuspendingDeferral_Impl: Sized {
     fn Complete(&self) -> ::windows::core::Result<()>;
 }
@@ -110,6 +114,7 @@ impl ISuspendingDeferral_Vtbl {
         iid == &<ISuspendingDeferral as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"ApplicationModel\"`, `\"implement\"`*"]
 pub trait ISuspendingEventArgs_Impl: Sized {
     fn SuspendingOperation(&self) -> ::windows::core::Result<SuspendingOperation>;
 }
@@ -139,6 +144,7 @@ impl ISuspendingEventArgs_Vtbl {
         iid == &<ISuspendingEventArgs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait ISuspendingOperation_Impl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<SuspendingDeferral>;

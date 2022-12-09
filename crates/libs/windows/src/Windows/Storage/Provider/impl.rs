@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IStorageProviderItemPropertySource_Impl: Sized {
     fn GetItemProperties(&self, itempath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>;
@@ -30,6 +31,7 @@ impl IStorageProviderItemPropertySource_Vtbl {
         iid == &<IStorageProviderItemPropertySource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Provider\"`, `\"implement\"`*"]
 pub trait IStorageProviderPropertyCapabilities_Impl: Sized {
     fn IsPropertySupported(&self, propertycanonicalname: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
@@ -59,6 +61,7 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
         iid == &<IStorageProviderPropertyCapabilities as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IStorageProviderStatusUISource_Impl: Sized {
     fn GetStatusUI(&self) -> ::windows::core::Result<StorageProviderStatusUI>;
@@ -112,6 +115,7 @@ impl IStorageProviderStatusUISource_Vtbl {
         iid == &<IStorageProviderStatusUISource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Provider\"`, `\"implement\"`*"]
 pub trait IStorageProviderStatusUISourceFactory_Impl: Sized {
     fn GetStatusUISource(&self, syncrootid: &::windows::core::HSTRING) -> ::windows::core::Result<IStorageProviderStatusUISource>;
 }
@@ -141,6 +145,7 @@ impl IStorageProviderStatusUISourceFactory_Vtbl {
         iid == &<IStorageProviderStatusUISourceFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IStorageProviderUICommand_Impl: Sized {
     fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -222,6 +227,7 @@ impl IStorageProviderUICommand_Vtbl {
         iid == &<IStorageProviderUICommand as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Provider\"`, `\"implement\"`*"]
 pub trait IStorageProviderUriSource_Impl: Sized {
     fn GetPathForContentUri(&self, contenturi: &::windows::core::HSTRING, result: &::core::option::Option<StorageProviderGetPathForContentUriResult>) -> ::windows::core::Result<()>;
     fn GetContentInfoForPath(&self, path: &::windows::core::HSTRING, result: &::core::option::Option<StorageProviderGetContentInfoForPathResult>) -> ::windows::core::Result<()>;
