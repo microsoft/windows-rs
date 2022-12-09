@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`, `\"Security_Authentication_Web_Core\"`, `\"implement\"`*"]
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderBaseReportOperation_Impl: Sized {
     fn ReportCompleted(&self) -> ::windows::core::Result<()>;
@@ -30,6 +31,7 @@ impl IWebAccountProviderBaseReportOperation_Vtbl {
         iid == &<IWebAccountProviderBaseReportOperation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`, `\"implement\"`*"]
 pub trait IWebAccountProviderOperation_Impl: Sized {
     fn Kind(&self) -> ::windows::core::Result<WebAccountProviderOperationKind>;
 }
@@ -56,6 +58,7 @@ impl IWebAccountProviderOperation_Vtbl {
         iid == &<IWebAccountProviderOperation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`, `\"Security_Authentication_Web_Core\"`, `\"implement\"`*"]
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderSilentReportOperation_Impl: Sized + IWebAccountProviderBaseReportOperation_Impl {
     fn ReportUserInteractionRequired(&self) -> ::windows::core::Result<()>;
@@ -88,6 +91,7 @@ impl IWebAccountProviderSilentReportOperation_Vtbl {
         iid == &<IWebAccountProviderSilentReportOperation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`, `\"implement\"`*"]
 pub trait IWebAccountProviderTokenObjects_Impl: Sized {
     fn Operation(&self) -> ::windows::core::Result<IWebAccountProviderOperation>;
 }
@@ -117,6 +121,7 @@ impl IWebAccountProviderTokenObjects_Vtbl {
         iid == &<IWebAccountProviderTokenObjects as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`, `\"System\"`, `\"implement\"`*"]
 #[cfg(feature = "System")]
 pub trait IWebAccountProviderTokenObjects2_Impl: Sized + IWebAccountProviderTokenObjects_Impl {
     fn User(&self) -> ::windows::core::Result<super::super::super::super::System::User>;
@@ -146,6 +151,7 @@ impl IWebAccountProviderTokenObjects2_Vtbl {
         iid == &<IWebAccountProviderTokenObjects2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IWebAccountProviderTokenOperation_Impl: Sized + IWebAccountProviderOperation_Impl {
     fn ProviderRequest(&self) -> ::windows::core::Result<WebProviderTokenRequest>;
@@ -213,6 +219,7 @@ impl IWebAccountProviderTokenOperation_Vtbl {
         iid == &<IWebAccountProviderTokenOperation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`, `\"Security_Authentication_Web_Core\"`, `\"implement\"`*"]
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderUIReportOperation_Impl: Sized + IWebAccountProviderBaseReportOperation_Impl {
     fn ReportUserCanceled(&self) -> ::windows::core::Result<()>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`, `\"implement\"`*"]
 pub trait IDedupBackupSupport_Impl: Sized {
     fn RestoreFiles(&self, numberoffiles: u32, filefullpaths: *const ::windows::core::BSTR, store: &::core::option::Option<IDedupReadFileCallback>, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
@@ -15,6 +16,7 @@ impl IDedupBackupSupport_Vtbl {
         iid == &<IDedupBackupSupport as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDedupChunkLibrary_Impl: Sized {
     fn InitializeForPushBuffers(&self) -> ::windows::core::Result<()>;
@@ -65,6 +67,7 @@ impl IDedupChunkLibrary_Vtbl {
         iid == &<IDedupChunkLibrary as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDedupDataPort_Impl: Sized {
     fn GetStatus(&self, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> ::windows::core::Result<()>;
@@ -213,6 +216,7 @@ impl IDedupDataPort_Vtbl {
         iid == &<IDedupDataPort as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`, `\"implement\"`*"]
 pub trait IDedupDataPortManager_Impl: Sized {
     fn GetConfiguration(&self, pminchunksize: *mut u32, pmaxchunksize: *mut u32, pchunkingalgorithm: *mut DedupChunkingAlgorithm, phashingalgorithm: *mut DedupHashingAlgorithm, pcompressionalgorithm: *mut DedupCompressionAlgorithm) -> ::windows::core::Result<()>;
     fn GetVolumeStatus(&self, options: u32, path: &::windows::core::BSTR) -> ::windows::core::Result<DedupDataPortVolumeStatus>;
@@ -259,6 +263,7 @@ impl IDedupDataPortManager_Vtbl {
         iid == &<IDedupDataPortManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`, `\"implement\"`*"]
 pub trait IDedupIterateChunksHash32_Impl: Sized {
     fn PushBuffer(&self, pbuffer: *const u8, ulbufferlength: u32) -> ::windows::core::Result<()>;
     fn Next(&self, ulmaxchunks: u32, parrchunks: *mut DEDUP_CHUNK_INFO_HASH32, pulfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -300,6 +305,7 @@ impl IDedupIterateChunksHash32_Vtbl {
         iid == &<IDedupIterateChunksHash32 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`, `\"implement\"`*"]
 pub trait IDedupReadFileCallback_Impl: Sized {
     fn ReadBackupFile(&self, filefullpath: &::windows::core::BSTR, fileoffset: i64, sizetoread: u32, filebuffer: *mut u8, returnedsize: *mut u32, flags: u32) -> ::windows::core::Result<()>;
     fn OrderContainersRestore(&self, numberofcontainers: u32, containerpaths: *const ::windows::core::BSTR, readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows::core::Result<()>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IInkPointFactory_Impl: Sized {
     fn CreateInkPoint(&self, position: &super::super::super::Foundation::Point, pressure: f32) -> ::windows::core::Result<InkPoint>;
@@ -30,6 +31,7 @@ impl IInkPointFactory_Vtbl {
         iid == &<IInkPointFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Input_Inking\"`, `\"implement\"`*"]
 pub trait IInkPresenterRulerFactory_Impl: Sized {
     fn Create(&self, inkpresenter: &::core::option::Option<InkPresenter>) -> ::windows::core::Result<InkPresenterRuler>;
 }
@@ -56,6 +58,7 @@ impl IInkPresenterRulerFactory_Vtbl {
         iid == &<IInkPresenterRulerFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation_Numerics\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub trait IInkPresenterStencil_Impl: Sized {
     fn Kind(&self) -> ::windows::core::Result<InkPresenterStencilKind>;
@@ -172,6 +175,7 @@ impl IInkPresenterStencil_Vtbl {
         iid == &<IInkPresenterStencil as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IInkRecognizerContainer_Impl: Sized {
     fn SetDefaultRecognizer(&self, recognizer: &::core::option::Option<InkRecognizer>) -> ::windows::core::Result<()>;
@@ -225,6 +229,7 @@ impl IInkRecognizerContainer_Vtbl {
         iid == &<IInkRecognizerContainer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 pub trait IInkStrokeContainer_Impl: Sized {
     fn BoundingRect(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;

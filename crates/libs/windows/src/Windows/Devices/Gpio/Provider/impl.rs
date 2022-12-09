@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Devices_Gpio_Provider\"`, `\"implement\"`*"]
 pub trait IGpioControllerProvider_Impl: Sized {
     fn PinCount(&self) -> ::windows::core::Result<i32>;
     fn OpenPinProvider(&self, pin: i32, sharingmode: ProviderGpioSharingMode) -> ::windows::core::Result<IGpioPinProvider>;
@@ -41,6 +42,7 @@ impl IGpioControllerProvider_Vtbl {
         iid == &<IGpioControllerProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Devices_Gpio_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IGpioPinProvider_Impl: Sized {
     fn ValueChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -185,6 +187,7 @@ impl IGpioPinProvider_Vtbl {
         iid == &<IGpioPinProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Devices_Gpio_Provider\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IGpioProvider_Impl: Sized {
     fn GetControllers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IGpioControllerProvider>>;

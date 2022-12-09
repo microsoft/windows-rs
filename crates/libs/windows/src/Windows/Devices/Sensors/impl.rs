@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Devices_Sensors\"`, `\"implement\"`*"]
 pub trait ISensorDataThreshold_Impl: Sized {}
 impl ::windows::core::RuntimeName for ISensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.ISensorDataThreshold";

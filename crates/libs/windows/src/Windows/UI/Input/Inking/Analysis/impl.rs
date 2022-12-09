@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IInkAnalysisNode_Impl: Sized {
     fn Id(&self) -> ::windows::core::Result<u32>;
@@ -114,6 +115,7 @@ impl IInkAnalysisNode_Vtbl {
         iid == &<IInkAnalysisNode as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`, `\"implement\"`*"]
 pub trait IInkAnalyzerFactory_Impl: Sized {
     fn CreateAnalyzer(&self) -> ::windows::core::Result<InkAnalyzer>;
 }

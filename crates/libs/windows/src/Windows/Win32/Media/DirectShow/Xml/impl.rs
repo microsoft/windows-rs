@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IXMLGraphBuilder_Impl: Sized {
     fn BuildFromXML(&self, pgraph: &::core::option::Option<super::IGraphBuilder>, pxml: &::core::option::Option<super::super::super::Data::Xml::MsXml::IXMLElement>) -> ::windows::core::Result<()>;

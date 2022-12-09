@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBindCallbackRedirect_Impl: Sized {
     fn Redirect(&self, lpcurl: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL>;
@@ -24,6 +25,7 @@ impl IBindCallbackRedirect_Vtbl {
         iid == &<IBindCallbackRedirect as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IBindHttpSecurity_Impl: Sized {
     fn GetIgnoreCertMask(&self) -> ::windows::core::Result<u32>;
 }
@@ -47,6 +49,7 @@ impl IBindHttpSecurity_Vtbl {
         iid == &<IBindHttpSecurity as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IBindProtocol_Impl: Sized {
     fn CreateBinding(&self, szurl: &::windows::core::PCWSTR, pbc: &::core::option::Option<super::IBindCtx>) -> ::windows::core::Result<super::IBinding>;
 }
@@ -70,6 +73,7 @@ impl IBindProtocol_Vtbl {
         iid == &<IBindProtocol as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait ICatalogFileInfo_Impl: Sized {
     fn GetCatalogFile(&self) -> ::windows::core::Result<::windows::core::PSTR>;
     fn GetJavaTrust(&self, ppjavatrust: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -103,6 +107,7 @@ impl ICatalogFileInfo_Vtbl {
         iid == &<ICatalogFileInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICodeInstall_Impl: Sized + IWindowForBindingUI_Impl {
     fn OnCodeInstallProblem(&self, ulstatuscode: u32, szdestination: &::windows::core::PCWSTR, szsource: &::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
@@ -123,6 +128,7 @@ impl ICodeInstall_Vtbl {
         iid == &<ICodeInstall as ::windows::core::Interface>::IID || iid == &<IWindowForBindingUI as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IDataFilter_Impl: Sized {
     fn DoEncode(&self, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::Result<()>;
     fn DoDecode(&self, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::Result<()>;
@@ -157,6 +163,7 @@ impl IDataFilter_Vtbl {
         iid == &<IDataFilter as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IEncodingFilterFactory_Impl: Sized {
     fn FindBestFilter(&self, pwzcodein: &::windows::core::PCWSTR, pwzcodeout: &::windows::core::PCWSTR, info: &DATAINFO) -> ::windows::core::Result<IDataFilter>;
     fn GetDefaultFilter(&self, pwzcodein: &::windows::core::PCWSTR, pwzcodeout: &::windows::core::PCWSTR) -> ::windows::core::Result<IDataFilter>;
@@ -196,6 +203,7 @@ impl IEncodingFilterFactory_Vtbl {
         iid == &<IEncodingFilterFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGetBindHandle_Impl: Sized {
     fn GetBindHandle(&self, enumrequestedhandle: BINDHANDLETYPES) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
@@ -222,6 +230,7 @@ impl IGetBindHandle_Vtbl {
         iid == &<IGetBindHandle as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IHttpNegotiate_Impl: Sized {
     fn BeginningTransaction(&self, szurl: &::windows::core::PCWSTR, szheaders: &::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn OnResponse(&self, dwresponsecode: u32, szresponseheaders: &::windows::core::PCWSTR, szrequestheaders: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -261,6 +270,7 @@ impl IHttpNegotiate_Vtbl {
         iid == &<IHttpNegotiate as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IHttpNegotiate2_Impl: Sized + IHttpNegotiate_Impl {
     fn GetRootSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>;
 }
@@ -278,6 +288,7 @@ impl IHttpNegotiate2_Vtbl {
         iid == &<IHttpNegotiate2 as ::windows::core::Interface>::IID || iid == &<IHttpNegotiate as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IHttpNegotiate3_Impl: Sized + IHttpNegotiate2_Impl {
     fn GetSerializedClientCertContext(&self, ppbcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::Result<()>;
 }
@@ -298,6 +309,7 @@ impl IHttpNegotiate3_Vtbl {
         iid == &<IHttpNegotiate3 as ::windows::core::Interface>::IID || iid == &<IHttpNegotiate as ::windows::core::Interface>::IID || iid == &<IHttpNegotiate2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHttpSecurity_Impl: Sized + IWindowForBindingUI_Impl {
     fn OnSecurityProblem(&self, dwproblem: u32) -> ::windows::core::Result<()>;
@@ -318,6 +330,7 @@ impl IHttpSecurity_Vtbl {
         iid == &<IHttpSecurity as ::windows::core::Interface>::IID || iid == &<IWindowForBindingUI as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternet_Impl: Sized {}
 impl ::windows::core::RuntimeName for IInternet {}
 impl IInternet_Vtbl {
@@ -328,6 +341,7 @@ impl IInternet_Vtbl {
         iid == &<IInternet as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IInternetBindInfo_Impl: Sized {
     fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::core::Result<()>;
@@ -358,6 +372,7 @@ impl IInternetBindInfo_Vtbl {
         iid == &<IInternetBindInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IInternetBindInfoEx_Impl: Sized + IInternetBindInfo_Impl {
     fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
@@ -378,6 +393,7 @@ impl IInternetBindInfoEx_Vtbl {
         iid == &<IInternetBindInfoEx as ::windows::core::Interface>::IID || iid == &<IInternetBindInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternetHostSecurityManager_Impl: Sized {
     fn GetSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>;
     fn ProcessUrlAction(&self, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>;
@@ -412,6 +428,7 @@ impl IInternetHostSecurityManager_Vtbl {
         iid == &<IInternetHostSecurityManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternetPriority_Impl: Sized {
     fn SetPriority(&self, npriority: i32) -> ::windows::core::Result<()>;
     fn GetPriority(&self) -> ::windows::core::Result<i32>;
@@ -445,6 +462,7 @@ impl IInternetPriority_Vtbl {
         iid == &<IInternetPriority as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetProtocol_Impl: Sized + IInternetProtocolRoot_Impl {
     fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()>;
@@ -495,6 +513,7 @@ impl IInternetProtocol_Vtbl {
         iid == &<IInternetProtocol as ::windows::core::Interface>::IID || iid == &<IInternetProtocolRoot as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetProtocolEx_Impl: Sized + IInternetProtocol_Impl {
     fn StartEx(&self, puri: &::core::option::Option<super::IUri>, poiprotsink: &::core::option::Option<IInternetProtocolSink>, poibindinfo: &::core::option::Option<IInternetBindInfo>, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
@@ -515,6 +534,7 @@ impl IInternetProtocolEx_Vtbl {
         iid == &<IInternetProtocolEx as ::windows::core::Interface>::IID || iid == &<IInternetProtocolRoot as ::windows::core::Interface>::IID || iid == &<IInternetProtocol as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternetProtocolInfo_Impl: Sized {
     fn ParseUrl(&self, pwzurl: &::windows::core::PCWSTR, parseaction: PARSEACTION, dwparseflags: u32, pwzresult: ::windows::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>;
     fn CombineUrl(&self, pwzbaseurl: &::windows::core::PCWSTR, pwzrelativeurl: &::windows::core::PCWSTR, dwcombineflags: u32, pwzresult: &::windows::core::PCWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>;
@@ -556,6 +576,7 @@ impl IInternetProtocolInfo_Vtbl {
         iid == &<IInternetProtocolInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetProtocolRoot_Impl: Sized {
     fn Start(&self, szurl: &::windows::core::PCWSTR, poiprotsink: &::core::option::Option<IInternetProtocolSink>, poibindinfo: &::core::option::Option<IInternetBindInfo>, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
@@ -614,6 +635,7 @@ impl IInternetProtocolRoot_Vtbl {
         iid == &<IInternetProtocolRoot as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternetProtocolSink_Impl: Sized {
     fn Switch(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()>;
     fn ReportProgress(&self, ulstatuscode: u32, szstatustext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -655,6 +677,7 @@ impl IInternetProtocolSink_Vtbl {
         iid == &<IInternetProtocolSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternetProtocolSinkStackable_Impl: Sized {
     fn SwitchSink(&self, poiprotsink: &::core::option::Option<IInternetProtocolSink>) -> ::windows::core::Result<()>;
     fn CommitSwitch(&self) -> ::windows::core::Result<()>;
@@ -689,6 +712,7 @@ impl IInternetProtocolSinkStackable_Vtbl {
         iid == &<IInternetProtocolSinkStackable as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternetSecurityManager_Impl: Sized {
     fn SetSecuritySite(&self, psite: &::core::option::Option<IInternetSecurityMgrSite>) -> ::windows::core::Result<()>;
     fn GetSecuritySite(&self) -> ::windows::core::Result<IInternetSecurityMgrSite>;
@@ -764,6 +788,7 @@ impl IInternetSecurityManager_Vtbl {
         iid == &<IInternetSecurityManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternetSecurityManagerEx_Impl: Sized + IInternetSecurityManager_Impl {
     fn ProcessUrlActionEx(&self, pwszurl: &::windows::core::PCWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::Result<()>;
 }
@@ -781,6 +806,7 @@ impl IInternetSecurityManagerEx_Vtbl {
         iid == &<IInternetSecurityManagerEx as ::windows::core::Interface>::IID || iid == &<IInternetSecurityManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternetSecurityManagerEx2_Impl: Sized + IInternetSecurityManagerEx_Impl {
     fn MapUrlToZoneEx2(&self, puri: &::core::option::Option<super::IUri>, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut ::windows::core::PWSTR, pdwoutflags: *mut u32) -> ::windows::core::Result<()>;
     fn ProcessUrlActionEx2(&self, puri: &::core::option::Option<super::IUri>, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> ::windows::core::Result<()>;
@@ -822,6 +848,7 @@ impl IInternetSecurityManagerEx2_Vtbl {
         iid == &<IInternetSecurityManagerEx2 as ::windows::core::Interface>::IID || iid == &<IInternetSecurityManager as ::windows::core::Interface>::IID || iid == &<IInternetSecurityManagerEx as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetSecurityMgrSite_Impl: Sized {
     fn GetWindow(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
@@ -858,6 +885,7 @@ impl IInternetSecurityMgrSite_Vtbl {
         iid == &<IInternetSecurityMgrSite as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternetSession_Impl: Sized {
     fn RegisterNameSpace(&self, pcf: &::core::option::Option<super::IClassFactory>, rclsid: *const ::windows::core::GUID, pwzprotocol: &::windows::core::PCWSTR, cpatterns: u32, ppwzpatterns: *const ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
     fn UnregisterNameSpace(&self, pcf: &::core::option::Option<super::IClassFactory>, pszprotocol: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -920,6 +948,7 @@ impl IInternetSession_Vtbl {
         iid == &<IInternetSession as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternetThreadSwitch_Impl: Sized {
     fn Prepare(&self) -> ::windows::core::Result<()>;
     fn Continue(&self) -> ::windows::core::Result<()>;
@@ -947,6 +976,7 @@ impl IInternetThreadSwitch_Vtbl {
         iid == &<IInternetThreadSwitch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetZoneManager_Impl: Sized {
     fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::Result<()>;
@@ -1053,6 +1083,7 @@ impl IInternetZoneManager_Vtbl {
         iid == &<IInternetZoneManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetZoneManagerEx_Impl: Sized + IInternetZoneManager_Impl {
     fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()>;
@@ -1083,6 +1114,7 @@ impl IInternetZoneManagerEx_Vtbl {
         iid == &<IInternetZoneManagerEx as ::windows::core::Interface>::IID || iid == &<IInternetZoneManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetZoneManagerEx2_Impl: Sized + IInternetZoneManagerEx_Impl {
     fn GetZoneAttributesEx(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> ::windows::core::Result<()>;
@@ -1127,6 +1159,7 @@ impl IInternetZoneManagerEx2_Vtbl {
         iid == &<IInternetZoneManagerEx2 as ::windows::core::Interface>::IID || iid == &<IInternetZoneManager as ::windows::core::Interface>::IID || iid == &<IInternetZoneManagerEx as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IMonikerProp_Impl: Sized {
     fn PutProperty(&self, mkp: MONIKERPROPERTY, val: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
@@ -1144,6 +1177,7 @@ impl IMonikerProp_Vtbl {
         iid == &<IMonikerProp as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistMoniker_Impl: Sized {
     fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -1214,6 +1248,7 @@ impl IPersistMoniker_Vtbl {
         iid == &<IPersistMoniker as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Data_Xml_MsXml\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Data_Xml_MsXml")]
 pub trait ISoftDistExt_Impl: Sized {
     fn ProcessSoftDist(&self, szcdfurl: &::windows::core::PCWSTR, psoftdistelement: &::core::option::Option<super::super::super::Data::Xml::MsXml::IXMLElement>, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::Result<()>;
@@ -1258,6 +1293,7 @@ impl ISoftDistExt_Vtbl {
         iid == &<ISoftDistExt as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IUriBuilderFactory_Impl: Sized {
     fn CreateIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> ::windows::core::Result<super::IUriBuilder>;
     fn CreateInitializedIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> ::windows::core::Result<super::IUriBuilder>;
@@ -1297,6 +1333,7 @@ impl IUriBuilderFactory_Vtbl {
         iid == &<IUriBuilderFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IUriContainer_Impl: Sized {
     fn GetIUri(&self) -> ::windows::core::Result<super::IUri>;
 }
@@ -1320,6 +1357,7 @@ impl IUriContainer_Vtbl {
         iid == &<IUriContainer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IWinInetCacheHints_Impl: Sized {
     fn SetCacheExtension(&self, pwzext: &::windows::core::PCWSTR, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
 }
@@ -1337,6 +1375,7 @@ impl IWinInetCacheHints_Vtbl {
         iid == &<IWinInetCacheHints as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IWinInetCacheHints2_Impl: Sized + IWinInetCacheHints_Impl {
     fn SetCacheExtension2(&self, pwzext: &::windows::core::PCWSTR, pwzcachefile: ::windows::core::PWSTR, pcchcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
 }
@@ -1354,6 +1393,7 @@ impl IWinInetCacheHints2_Vtbl {
         iid == &<IWinInetCacheHints2 as ::windows::core::Interface>::IID || iid == &<IWinInetCacheHints as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IWinInetFileStream_Impl: Sized {
     fn SetHandleForUnlock(&self, hwininetlockhandle: usize, dwreserved: usize) -> ::windows::core::Result<()>;
     fn SetDeleteFile(&self, dwreserved: usize) -> ::windows::core::Result<()>;
@@ -1381,6 +1421,7 @@ impl IWinInetFileStream_Vtbl {
         iid == &<IWinInetFileStream as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IWinInetHttpInfo_Impl: Sized + IWinInetInfo_Impl {
     fn QueryInfo(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32, pdwflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
 }
@@ -1398,6 +1439,7 @@ impl IWinInetHttpInfo_Vtbl {
         iid == &<IWinInetHttpInfo as ::windows::core::Interface>::IID || iid == &<IWinInetInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IWinInetHttpTimeouts_Impl: Sized {
     fn GetRequestTimeouts(&self, pdwconnecttimeout: *mut u32, pdwsendtimeout: *mut u32, pdwreceivetimeout: *mut u32) -> ::windows::core::Result<()>;
 }
@@ -1415,6 +1457,7 @@ impl IWinInetHttpTimeouts_Vtbl {
         iid == &<IWinInetHttpTimeouts as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IWinInetInfo_Impl: Sized {
     fn QueryOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::core::Result<()>;
 }
@@ -1432,6 +1475,7 @@ impl IWinInetInfo_Vtbl {
         iid == &<IWinInetInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWindowForBindingUI_Impl: Sized {
     fn GetWindow(&self, rguidreason: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
@@ -1458,6 +1502,7 @@ impl IWindowForBindingUI_Vtbl {
         iid == &<IWindowForBindingUI as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IWrappedProtocol_Impl: Sized {
     fn GetWrapperCode(&self, pncode: *mut i32, dwreserved: usize) -> ::windows::core::Result<()>;
 }
@@ -1475,6 +1520,7 @@ impl IWrappedProtocol_Vtbl {
         iid == &<IWrappedProtocol as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IZoneIdentifier_Impl: Sized {
     fn GetId(&self) -> ::windows::core::Result<u32>;
     fn SetId(&self, dwzone: u32) -> ::windows::core::Result<()>;
@@ -1515,6 +1561,7 @@ impl IZoneIdentifier_Vtbl {
         iid == &<IZoneIdentifier as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IZoneIdentifier2_Impl: Sized + IZoneIdentifier_Impl {
     fn GetLastWriterPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetLastWriterPackageFamilyName(&self, packagefamilyname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;

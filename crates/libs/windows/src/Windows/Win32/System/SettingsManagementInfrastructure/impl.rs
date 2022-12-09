@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IItemEnumerator_Impl: Sized {
     fn Current(&self) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -47,6 +48,7 @@ impl IItemEnumerator_Vtbl {
         iid == &<IItemEnumerator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISettingsContext_Impl: Sized {
     fn Serialize(&self, pstream: &::core::option::Option<super::Com::IStream>, ptarget: &::core::option::Option<ITargetInfo>) -> ::windows::core::Result<()>;
@@ -124,6 +126,7 @@ impl ISettingsContext_Vtbl {
         iid == &<ISettingsContext as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISettingsEngine_Impl: Sized {
     fn GetNamespaces(&self, flags: WcmNamespaceEnumerationFlags, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<IItemEnumerator>;
@@ -312,6 +315,7 @@ impl ISettingsEngine_Vtbl {
         iid == &<ISettingsEngine as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"implement\"`*"]
 pub trait ISettingsIdentity_Impl: Sized {
     fn GetAttribute(&self, reserved: *const ::core::ffi::c_void, name: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetAttribute(&self, reserved: *const ::core::ffi::c_void, name: &::windows::core::PCWSTR, value: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -365,6 +369,7 @@ impl ISettingsIdentity_Vtbl {
         iid == &<ISettingsIdentity as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISettingsItem_Impl: Sized {
     fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -631,6 +636,7 @@ impl ISettingsItem_Vtbl {
         iid == &<ISettingsItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISettingsNamespace_Impl: Sized {
     fn GetIdentity(&self) -> ::windows::core::Result<ISettingsIdentity>;
@@ -732,6 +738,7 @@ impl ISettingsNamespace_Vtbl {
         iid == &<ISettingsNamespace as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"implement\"`*"]
 pub trait ISettingsResult_Impl: Sized {
     fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
@@ -823,6 +830,7 @@ impl ISettingsResult_Vtbl {
         iid == &<ISettingsResult as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITargetInfo_Impl: Sized {
     fn GetTargetMode(&self) -> ::windows::core::Result<WcmTargetMode>;

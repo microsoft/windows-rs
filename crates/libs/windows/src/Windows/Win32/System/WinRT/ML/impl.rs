@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ILearningModelDeviceFactoryNative_Impl: Sized {
     fn CreateFromD3D12CommandQueue(&self, value: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -27,6 +28,7 @@ impl ILearningModelDeviceFactoryNative_Vtbl {
         iid == &<ILearningModelDeviceFactoryNative as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
 pub trait ILearningModelOperatorProviderNative_Impl: Sized {
     fn GetRegistry(&self) -> ::windows::core::Result<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry>;
@@ -53,6 +55,7 @@ impl ILearningModelOperatorProviderNative_Vtbl {
         iid == &<ILearningModelOperatorProviderNative as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"implement\"`*"]
 pub trait ILearningModelSessionOptionsNative_Impl: Sized {
     fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> ::windows::core::Result<()>;
 }
@@ -73,6 +76,7 @@ impl ILearningModelSessionOptionsNative_Vtbl {
         iid == &<ILearningModelSessionOptionsNative as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ITensorNative_Impl: Sized {
     fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::Result<()>;
@@ -109,6 +113,7 @@ impl ITensorNative_Vtbl {
         iid == &<ITensorNative as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ITensorStaticsNative_Impl: Sized {
     fn CreateFromD3D12Resource(&self, value: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, shape: *mut i64, shapecount: i32, result: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;

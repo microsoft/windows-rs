@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IDirect3DDevice_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn Trim(&self) -> ::windows::core::Result<()>;
@@ -20,6 +21,7 @@ impl IDirect3DDevice_Vtbl {
         iid == &<IDirect3DDevice as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IDirect3DSurface_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn Description(&self) -> ::windows::core::Result<Direct3DSurfaceDescription>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDeviceModelPlugIn_Impl: Sized {
     fn Initialize(&self, bstrxml: &::windows::core::BSTR, cnummodels: u32, imodelposition: u32) -> ::windows::core::Result<()>;
@@ -121,6 +122,7 @@ impl IDeviceModelPlugIn_Vtbl {
         iid == &<IDeviceModelPlugIn as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"implement\"`*"]
 pub trait IGamutMapModelPlugIn_Impl: Sized {
     fn Initialize(&self, bstrxml: &::windows::core::BSTR, psrcplugin: &::core::option::Option<IDeviceModelPlugIn>, pdestplugin: &::core::option::Option<IDeviceModelPlugIn>, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::Result<()>;
     fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::Result<()>;

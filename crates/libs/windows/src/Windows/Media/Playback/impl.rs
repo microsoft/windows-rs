@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Media_Playback\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(feature = "deprecated")]
 pub trait IMediaEnginePlaybackSource_Impl: Sized {
     fn CurrentItem(&self) -> ::windows::core::Result<MediaPlaybackItem>;
@@ -37,6 +38,7 @@ impl IMediaEnginePlaybackSource_Vtbl {
         iid == &<IMediaEnginePlaybackSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Media_Playback\"`, `\"implement\"`*"]
 pub trait IMediaPlaybackSource_Impl: Sized {}
 impl ::windows::core::RuntimeName for IMediaPlaybackSource {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackSource";

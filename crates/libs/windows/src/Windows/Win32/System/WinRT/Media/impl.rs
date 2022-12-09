@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_WinRT_Media\"`, `\"implement\"`*"]
 pub trait IAudioFrameNative_Impl: Sized {
     fn GetData(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -15,6 +16,7 @@ impl IAudioFrameNative_Vtbl {
         iid == &<IAudioFrameNative as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_Media\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IAudioFrameNativeFactory_Impl: Sized {
     fn CreateFromMFSample(&self, data: &::core::option::Option<super::super::super::Media::MediaFoundation::IMFSample>, forcereadonly: super::super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -38,6 +40,7 @@ impl IAudioFrameNativeFactory_Vtbl {
         iid == &<IAudioFrameNativeFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_Media\"`, `\"implement\"`*"]
 pub trait IVideoFrameNative_Impl: Sized {
     fn GetData(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetDevice(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -65,6 +68,7 @@ impl IVideoFrameNative_Vtbl {
         iid == &<IVideoFrameNative as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_Media\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IVideoFrameNativeFactory_Impl: Sized {
     fn CreateFromMFSample(&self, data: &::core::option::Option<super::super::super::Media::MediaFoundation::IMFSample>, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: &::core::option::Option<super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;

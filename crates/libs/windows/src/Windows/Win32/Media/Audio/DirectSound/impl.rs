@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectSound_Impl: Sized {
     fn CreateSoundBuffer(&self, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut ::core::option::Option<IDirectSoundBuffer>, punkouter: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -88,6 +89,7 @@ impl IDirectSound_Vtbl {
         iid == &<IDirectSound as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait IDirectSound3DBuffer_Impl: Sized {
     fn GetAllParameters(&self) -> ::windows::core::Result<DS3DBUFFER>;
@@ -278,6 +280,7 @@ impl IDirectSound3DBuffer_Vtbl {
         iid == &<IDirectSound3DBuffer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait IDirectSound3DListener_Impl: Sized {
     fn GetAllParameters(&self) -> ::windows::core::Result<DS3DLISTENER>;
@@ -435,6 +438,7 @@ impl IDirectSound3DListener_Vtbl {
         iid == &<IDirectSound3DListener as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectSound8_Impl: Sized + IDirectSound_Impl {
     fn VerifyCertification(&self) -> ::windows::core::Result<u32>;
@@ -461,6 +465,7 @@ impl IDirectSound8_Vtbl {
         iid == &<IDirectSound8 as ::windows::core::Interface>::IID || iid == &<IDirectSound as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
 pub trait IDirectSoundBuffer_Impl: Sized {
     fn GetCaps(&self) -> ::windows::core::Result<DSBCAPS>;
     fn GetCurrentPosition(&self, pdwcurrentplaycursor: *mut u32, pdwcurrentwritecursor: *mut u32) -> ::windows::core::Result<()>;
@@ -630,6 +635,7 @@ impl IDirectSoundBuffer_Vtbl {
         iid == &<IDirectSoundBuffer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
 pub trait IDirectSoundBuffer8_Impl: Sized + IDirectSoundBuffer_Impl {
     fn SetFX(&self, dweffectscount: u32, pdsfxdesc: *const DSEFFECTDESC, pdwresultcodes: *mut u32) -> ::windows::core::Result<()>;
     fn AcquireResources(&self, dwflags: u32, dweffectscount: u32, pdwresultcodes: *mut u32) -> ::windows::core::Result<()>;
@@ -664,6 +670,7 @@ impl IDirectSoundBuffer8_Vtbl {
         iid == &<IDirectSoundBuffer8 as ::windows::core::Interface>::IID || iid == &<IDirectSoundBuffer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
 pub trait IDirectSoundCapture_Impl: Sized {
     fn CreateCaptureBuffer(&self, pcdscbufferdesc: *const DSCBUFFERDESC, ppdscbuffer: *mut ::core::option::Option<IDirectSoundCaptureBuffer>, punkouter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetCaps(&self) -> ::windows::core::Result<DSCCAPS>;
@@ -704,6 +711,7 @@ impl IDirectSoundCapture_Vtbl {
         iid == &<IDirectSoundCapture as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
 pub trait IDirectSoundCaptureBuffer_Impl: Sized {
     fn GetCaps(&self) -> ::windows::core::Result<DSCBCAPS>;
     fn GetCurrentPosition(&self, pdwcaptureposition: *mut u32, pdwreadposition: *mut u32) -> ::windows::core::Result<()>;
@@ -792,6 +800,7 @@ impl IDirectSoundCaptureBuffer_Vtbl {
         iid == &<IDirectSoundCaptureBuffer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
 pub trait IDirectSoundCaptureBuffer8_Impl: Sized + IDirectSoundCaptureBuffer_Impl {
     fn GetObjectInPath(&self, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetFXStatus(&self, dweffectscount: u32, pdwfxstatus: *mut u32) -> ::windows::core::Result<()>;
@@ -819,6 +828,7 @@ impl IDirectSoundCaptureBuffer8_Vtbl {
         iid == &<IDirectSoundCaptureBuffer8 as ::windows::core::Interface>::IID || iid == &<IDirectSoundCaptureBuffer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectSoundCaptureFXAec_Impl: Sized {
     fn SetAllParameters(&self, pdscfxaec: *const DSCFXAec) -> ::windows::core::Result<()>;
@@ -875,6 +885,7 @@ impl IDirectSoundCaptureFXAec_Vtbl {
         iid == &<IDirectSoundCaptureFXAec as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectSoundCaptureFXNoiseSuppress_Impl: Sized {
     fn SetAllParameters(&self, pcdscfxnoisesuppress: *const DSCFXNoiseSuppress) -> ::windows::core::Result<()>;
@@ -918,6 +929,7 @@ impl IDirectSoundCaptureFXNoiseSuppress_Vtbl {
         iid == &<IDirectSoundCaptureFXNoiseSuppress as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
 pub trait IDirectSoundFXChorus_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxchorus: *const DSFXChorus) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXChorus>;
@@ -951,6 +963,7 @@ impl IDirectSoundFXChorus_Vtbl {
         iid == &<IDirectSoundFXChorus as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
 pub trait IDirectSoundFXCompressor_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxcompressor: *const DSFXCompressor) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXCompressor>;
@@ -984,6 +997,7 @@ impl IDirectSoundFXCompressor_Vtbl {
         iid == &<IDirectSoundFXCompressor as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
 pub trait IDirectSoundFXDistortion_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxdistortion: *const DSFXDistortion) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXDistortion>;
@@ -1017,6 +1031,7 @@ impl IDirectSoundFXDistortion_Vtbl {
         iid == &<IDirectSoundFXDistortion as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
 pub trait IDirectSoundFXEcho_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxecho: *const DSFXEcho) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXEcho>;
@@ -1050,6 +1065,7 @@ impl IDirectSoundFXEcho_Vtbl {
         iid == &<IDirectSoundFXEcho as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
 pub trait IDirectSoundFXFlanger_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxflanger: *const DSFXFlanger) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXFlanger>;
@@ -1083,6 +1099,7 @@ impl IDirectSoundFXFlanger_Vtbl {
         iid == &<IDirectSoundFXFlanger as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
 pub trait IDirectSoundFXGargle_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxgargle: *const DSFXGargle) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXGargle>;
@@ -1116,6 +1133,7 @@ impl IDirectSoundFXGargle_Vtbl {
         iid == &<IDirectSoundFXGargle as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
 pub trait IDirectSoundFXI3DL2Reverb_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxi3dl2reverb: *const DSFXI3DL2Reverb) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXI3DL2Reverb>;
@@ -1189,6 +1207,7 @@ impl IDirectSoundFXI3DL2Reverb_Vtbl {
         iid == &<IDirectSoundFXI3DL2Reverb as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
 pub trait IDirectSoundFXParamEq_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxparameq: *const DSFXParamEq) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXParamEq>;
@@ -1222,6 +1241,7 @@ impl IDirectSoundFXParamEq_Vtbl {
         iid == &<IDirectSoundFXParamEq as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
 pub trait IDirectSoundFXWavesReverb_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxwavesreverb: *const DSFXWavesReverb) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXWavesReverb>;
@@ -1255,6 +1275,7 @@ impl IDirectSoundFXWavesReverb_Vtbl {
         iid == &<IDirectSoundFXWavesReverb as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectSoundFullDuplex_Impl: Sized {
     fn Initialize(&self, pcaptureguid: *const ::windows::core::GUID, prenderguid: *const ::windows::core::GUID, lpdscbufferdesc: *const DSCBUFFERDESC, lpdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, lplpdirectsoundcapturebuffer8: *mut ::core::option::Option<IDirectSoundCaptureBuffer8>, lplpdirectsoundbuffer8: *mut ::core::option::Option<IDirectSoundBuffer8>) -> ::windows::core::Result<()>;
@@ -1275,6 +1296,7 @@ impl IDirectSoundFullDuplex_Vtbl {
         iid == &<IDirectSoundFullDuplex as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectSoundNotify_Impl: Sized {
     fn SetNotificationPositions(&self, dwpositionnotifies: u32, pcpositionnotifies: *const DSBPOSITIONNOTIFY) -> ::windows::core::Result<()>;

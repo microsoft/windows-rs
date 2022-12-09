@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"implement\"`*"]
 pub trait IContentPrefetcherTaskTrigger_Impl: Sized {
     fn TriggerContentPrefetcherTask(&self, packagefullname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn IsRegisteredForContentPrefetch(&self, packagefullname: &::windows::core::PCWSTR) -> ::windows::core::Result<u8>;

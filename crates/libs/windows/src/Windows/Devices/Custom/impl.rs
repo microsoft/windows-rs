@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Devices_Custom\"`, `\"implement\"`*"]
 pub trait IIOControlCode_Impl: Sized {
     fn AccessMode(&self) -> ::windows::core::Result<IOControlAccessMode>;
     fn BufferingMethod(&self) -> ::windows::core::Result<IOControlBufferingMethod>;

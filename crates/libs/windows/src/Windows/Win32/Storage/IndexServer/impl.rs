@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IFilter_Impl: Sized {
     fn Init(&self, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32;
@@ -49,6 +50,7 @@ impl IFilter_Vtbl {
         iid == &<IFilter as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
 pub trait IPhraseSink_Impl: Sized {
     fn PutSmallPhrase(&self, pwcnoun: &::windows::core::PCWSTR, cwcnoun: u32, pwcmodifier: &::windows::core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::core::Result<()>;
     fn PutPhrase(&self, pwcphrase: &::windows::core::PCWSTR, cwcphrase: u32) -> ::windows::core::Result<()>;

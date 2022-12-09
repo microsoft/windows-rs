@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
 pub trait ICustomGameControllerFactory_Impl: Sized {
     fn CreateGameController(&self, provider: &::core::option::Option<IGameControllerProvider>) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn OnGameControllerAdded(&self, value: &::core::option::Option<super::IGameController>) -> ::windows::core::Result<()>;
@@ -41,6 +42,7 @@ impl ICustomGameControllerFactory_Vtbl {
         iid == &<ICustomGameControllerFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
 pub trait IGameControllerInputSink_Impl: Sized {
     fn OnInputResumed(&self, timestamp: u64) -> ::windows::core::Result<()>;
     fn OnInputSuspended(&self, timestamp: u64) -> ::windows::core::Result<()>;
@@ -70,6 +72,7 @@ impl IGameControllerInputSink_Vtbl {
         iid == &<IGameControllerInputSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
 pub trait IGameControllerProvider_Impl: Sized {
     fn FirmwareVersionInfo(&self) -> ::windows::core::Result<GameControllerVersionInfo>;
     fn HardwareProductId(&self) -> ::windows::core::Result<u16>;
@@ -155,6 +158,7 @@ impl IGameControllerProvider_Vtbl {
         iid == &<IGameControllerProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
 pub trait IGipGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
     fn OnKeyReceived(&self, timestamp: u64, keycode: u8, ispressed: bool) -> ::windows::core::Result<()>;
     fn OnMessageReceived(&self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[u8]) -> ::windows::core::Result<()>;
@@ -184,6 +188,7 @@ impl IGipGameControllerInputSink_Vtbl {
         iid == &<IGipGameControllerInputSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
 pub trait IHidGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
     fn OnInputReportReceived(&self, timestamp: u64, reportid: u8, reportbuffer: &[u8]) -> ::windows::core::Result<()>;
 }
@@ -206,6 +211,7 @@ impl IHidGameControllerInputSink_Vtbl {
         iid == &<IHidGameControllerInputSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
 pub trait IXusbGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
     fn OnInputReceived(&self, timestamp: u64, reportid: u8, inputbuffer: &[u8]) -> ::windows::core::Result<()>;
 }

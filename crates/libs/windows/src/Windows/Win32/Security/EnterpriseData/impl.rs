@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IProtectionPolicyManagerInterop_Impl: Sized {
     fn RequestAccessForWindowAsync(&self, appwindow: super::super::Foundation::HWND, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -28,6 +29,7 @@ impl IProtectionPolicyManagerInterop_Vtbl {
         iid == &<IProtectionPolicyManagerInterop as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IProtectionPolicyManagerInterop2_Impl: Sized {
     fn RequestAccessForAppWithWindowAsync(&self, appwindow: super::super::Foundation::HWND, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -79,6 +81,7 @@ impl IProtectionPolicyManagerInterop2_Vtbl {
         iid == &<IProtectionPolicyManagerInterop2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IProtectionPolicyManagerInterop3_Impl: Sized {
     fn RequestAccessWithBehaviorForWindowAsync(&self, appwindow: super::super::Foundation::HWND, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfounk: &::core::option::Option<::windows::core::IUnknown>, messagefromapp: &::windows::core::HSTRING, behavior: u32, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;

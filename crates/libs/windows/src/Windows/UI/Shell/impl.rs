@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"UI_Shell\"`, `\"implement\"`*"]
 pub trait IAdaptiveCard_Impl: Sized {
     fn ToJson(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -24,6 +25,7 @@ impl IAdaptiveCard_Vtbl {
         iid == &<IAdaptiveCard as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Shell\"`, `\"implement\"`*"]
 pub trait IAdaptiveCardBuilderStatics_Impl: Sized {
     fn CreateAdaptiveCardFromJson(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IAdaptiveCard>;
 }

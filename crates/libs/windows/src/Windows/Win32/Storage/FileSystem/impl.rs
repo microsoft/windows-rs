@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDiskQuotaControl_Impl: Sized + super::super::System::Com::IConnectionPointContainer_Impl {
     fn Initialize(&self, pszpath: &::windows::core::PCWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -191,6 +192,7 @@ impl IDiskQuotaControl_Vtbl {
         iid == &<IDiskQuotaControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IConnectionPointContainer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"implement\"`*"]
 pub trait IDiskQuotaEvents_Impl: Sized {
     fn OnUserNameChanged(&self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
 }
@@ -208,6 +210,7 @@ impl IDiskQuotaEvents_Vtbl {
         iid == &<IDiskQuotaEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDiskQuotaUser_Impl: Sized {
     fn GetID(&self, pulid: *mut u32) -> ::windows::core::Result<()>;
@@ -329,6 +332,7 @@ impl IDiskQuotaUser_Vtbl {
         iid == &<IDiskQuotaUser as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"implement\"`*"]
 pub trait IDiskQuotaUserBatch_Impl: Sized {
     fn Add(&self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
     fn Remove(&self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
@@ -370,6 +374,7 @@ impl IDiskQuotaUserBatch_Vtbl {
         iid == &<IDiskQuotaUserBatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"implement\"`*"]
 pub trait IEnumDiskQuotaUsers_Impl: Sized {
     fn Next(&self, cusers: u32, rgusers: *mut ::core::option::Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, cusers: u32) -> ::windows::core::Result<()>;

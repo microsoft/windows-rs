@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISideShowBulkCapabilities_Impl: Sized + ISideShowCapabilities_Impl {
     fn GetCapabilities(&self, in_keycollection: &::core::option::Option<ISideShowKeyCollection>, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()>;
@@ -18,6 +19,7 @@ impl ISideShowBulkCapabilities_Vtbl {
         iid == &<ISideShowBulkCapabilities as ::windows::core::Interface>::IID || iid == &<ISideShowCapabilities as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISideShowCapabilities_Impl: Sized {
     fn GetCapability(&self, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
@@ -38,6 +40,7 @@ impl ISideShowCapabilities_Vtbl {
         iid == &<ISideShowCapabilities as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
 pub trait ISideShowCapabilitiesCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows::core::Result<u32>;
     fn GetAt(&self, in_dwindex: u32) -> ::windows::core::Result<ISideShowCapabilities>;
@@ -77,6 +80,7 @@ impl ISideShowCapabilitiesCollection_Vtbl {
         iid == &<ISideShowCapabilitiesCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISideShowContent_Impl: Sized {
     fn GetContent(&self, in_picapabilities: &::core::option::Option<ISideShowCapabilities>, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()>;
@@ -126,6 +130,7 @@ impl ISideShowContent_Vtbl {
         iid == &<ISideShowContent as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
 pub trait ISideShowContentManager_Impl: Sized {
     fn Add(&self, in_picontent: &::core::option::Option<ISideShowContent>) -> ::windows::core::Result<()>;
     fn Remove(&self, in_contentid: u32) -> ::windows::core::Result<()>;
@@ -180,6 +185,7 @@ impl ISideShowContentManager_Vtbl {
         iid == &<ISideShowContentManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
 pub trait ISideShowEvents_Impl: Sized {
     fn ContentMissing(&self, in_contentid: u32) -> ::windows::core::Result<ISideShowContent>;
     fn ApplicationEvent(&self, in_picapabilities: &::core::option::Option<ISideShowCapabilities>, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::core::Result<()>;
@@ -227,6 +233,7 @@ impl ISideShowEvents_Vtbl {
         iid == &<ISideShowEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ISideShowKeyCollection_Impl: Sized {
     fn Add(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
@@ -278,6 +285,7 @@ impl ISideShowKeyCollection_Vtbl {
         iid == &<ISideShowKeyCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ISideShowNotification_Impl: Sized {
     fn NotificationId(&self) -> ::windows::core::Result<u32>;
@@ -394,6 +402,7 @@ impl ISideShowNotification_Vtbl {
         iid == &<ISideShowNotification as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
 pub trait ISideShowNotificationManager_Impl: Sized {
     fn Show(&self, in_pinotification: &::core::option::Option<ISideShowNotification>) -> ::windows::core::Result<()>;
     fn Revoke(&self, in_notificationid: u32) -> ::windows::core::Result<()>;
@@ -428,6 +437,7 @@ impl ISideShowNotificationManager_Vtbl {
         iid == &<ISideShowNotificationManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ISideShowPropVariantCollection_Impl: Sized {
     fn Add(&self, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
@@ -479,6 +489,7 @@ impl ISideShowPropVariantCollection_Vtbl {
         iid == &<ISideShowPropVariantCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
 pub trait ISideShowSession_Impl: Sized {
     fn RegisterContent(&self, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowContentManager>;
     fn RegisterNotifications(&self, in_applicationid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowNotificationManager>;

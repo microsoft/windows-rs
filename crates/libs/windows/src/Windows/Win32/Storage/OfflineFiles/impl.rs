@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"implement\"`*"]
 pub trait IEnumOfflineFilesItems_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IOfflineFilesItem>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -45,6 +46,7 @@ impl IEnumOfflineFilesItems_Vtbl {
         iid == &<IEnumOfflineFilesItems as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"implement\"`*"]
 pub trait IEnumOfflineFilesSettings_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IOfflineFilesSetting>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -92,6 +94,7 @@ impl IEnumOfflineFilesSettings_Vtbl {
         iid == &<IEnumOfflineFilesSettings as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesCache_Impl: Sized {
     fn Synchronize(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const ::windows::core::PCWSTR, cpaths: u32, basync: super::super::Foundation::BOOL, dwsynccontrol: u32, pisyncconflicthandler: &::core::option::Option<IOfflineFilesSyncConflictHandler>, piprogress: &::core::option::Option<IOfflineFilesSyncProgress>, psyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -257,6 +260,7 @@ impl IOfflineFilesCache_Vtbl {
         iid == &<IOfflineFilesCache as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesCache2_Impl: Sized + IOfflineFilesCache_Impl {
     fn RenameItemEx(&self, pszpathoriginal: &::windows::core::PCWSTR, pszpathnew: &::windows::core::PCWSTR, breplaceifexists: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -277,6 +281,7 @@ impl IOfflineFilesCache2_Vtbl {
         iid == &<IOfflineFilesCache2 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesCache as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesChangeInfo_Impl: Sized {
     fn IsDirty(&self, pbdirty: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
@@ -365,6 +370,7 @@ impl IOfflineFilesChangeInfo_Vtbl {
         iid == &<IOfflineFilesChangeInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesConnectionInfo_Impl: Sized {
     fn GetConnectState(&self, pconnectstate: *mut OFFLINEFILES_CONNECT_STATE, pofflinereason: *mut OFFLINEFILES_OFFLINE_REASON) -> ::windows::core::Result<()>;
@@ -415,6 +421,7 @@ impl IOfflineFilesConnectionInfo_Vtbl {
         iid == &<IOfflineFilesConnectionInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesDirectoryItem_Impl: Sized + IOfflineFilesItem_Impl {}
 #[cfg(feature = "Win32_Foundation")]
@@ -428,6 +435,7 @@ impl IOfflineFilesDirectoryItem_Vtbl {
         iid == &<IOfflineFilesDirectoryItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"implement\"`*"]
 pub trait IOfflineFilesDirtyInfo_Impl: Sized {
     fn LocalDirtyByteCount(&self) -> ::windows::core::Result<i64>;
     fn RemoteDirtyByteCount(&self) -> ::windows::core::Result<i64>;
@@ -467,6 +475,7 @@ impl IOfflineFilesDirtyInfo_Vtbl {
         iid == &<IOfflineFilesDirtyInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOfflineFilesErrorInfo_Impl: Sized {
     fn GetRawData(&self) -> ::windows::core::Result<*mut super::super::System::Com::BYTE_BLOB>;
@@ -509,6 +518,7 @@ impl IOfflineFilesErrorInfo_Vtbl {
         iid == &<IOfflineFilesErrorInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesEvents_Impl: Sized {
     fn CacheMoved(&self, pszoldpath: &::windows::core::PCWSTR, psznewpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -700,6 +710,7 @@ impl IOfflineFilesEvents_Vtbl {
         iid == &<IOfflineFilesEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesEvents2_Impl: Sized + IOfflineFilesEvents_Impl {
     fn ItemReconnectBegin(&self) -> ::windows::core::Result<()>;
@@ -779,6 +790,7 @@ impl IOfflineFilesEvents2_Vtbl {
         iid == &<IOfflineFilesEvents2 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesEvents3_Impl: Sized + IOfflineFilesEvents2_Impl {
     fn TransparentCacheItemNotify(&self, pszpath: &::windows::core::PCWSTR, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: super::super::Foundation::BOOL, bmodifiedattributes: super::super::Foundation::BOOL, pzsoldpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -816,6 +828,7 @@ impl IOfflineFilesEvents3_Vtbl {
         iid == &<IOfflineFilesEvents3 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesEvents4_Impl: Sized + IOfflineFilesEvents3_Impl {
     fn PrefetchCloseHandleBegin(&self) -> ::windows::core::Result<()>;
@@ -846,6 +859,7 @@ impl IOfflineFilesEvents4_Vtbl {
         iid == &<IOfflineFilesEvents4 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents2 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents3 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"implement\"`*"]
 pub trait IOfflineFilesEventsFilter_Impl: Sized {
     fn GetPathFilter(&self, ppszfilter: *mut ::windows::core::PWSTR, pmatch: *mut OFFLINEFILES_PATHFILTER_MATCH) -> ::windows::core::Result<()>;
     fn GetIncludedEvents(&self, celements: u32, prgevents: *mut OFFLINEFILES_EVENTS, pcevents: *mut u32) -> ::windows::core::Result<()>;
@@ -880,6 +894,7 @@ impl IOfflineFilesEventsFilter_Vtbl {
         iid == &<IOfflineFilesEventsFilter as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesFileItem_Impl: Sized + IOfflineFilesItem_Impl {
     fn IsSparse(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -922,6 +937,7 @@ impl IOfflineFilesFileItem_Vtbl {
         iid == &<IOfflineFilesFileItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesFileSysInfo_Impl: Sized {
     fn GetAttributes(&self, copy: OFFLINEFILES_ITEM_COPY) -> ::windows::core::Result<u32>;
@@ -971,6 +987,7 @@ impl IOfflineFilesFileSysInfo_Vtbl {
         iid == &<IOfflineFilesFileSysInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesGhostInfo_Impl: Sized {
     fn IsGhosted(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -997,6 +1014,7 @@ impl IOfflineFilesGhostInfo_Vtbl {
         iid == &<IOfflineFilesGhostInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesItem_Impl: Sized {
     fn GetItemType(&self) -> ::windows::core::Result<OFFLINEFILES_ITEM_TYPE>;
@@ -1072,6 +1090,7 @@ impl IOfflineFilesItem_Vtbl {
         iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"implement\"`*"]
 pub trait IOfflineFilesItemContainer_Impl: Sized {
     fn EnumItems(&self, dwqueryflags: u32) -> ::windows::core::Result<IEnumOfflineFilesItems>;
     fn EnumItemsEx(&self, pincludefilefilter: &::core::option::Option<IOfflineFilesItemFilter>, pincludedirfilter: &::core::option::Option<IOfflineFilesItemFilter>, pexcludefilefilter: &::core::option::Option<IOfflineFilesItemFilter>, pexcludedirfilter: &::core::option::Option<IOfflineFilesItemFilter>, dwenumflags: u32, dwqueryflags: u32) -> ::windows::core::Result<IEnumOfflineFilesItems>;
@@ -1111,6 +1130,7 @@ impl IOfflineFilesItemContainer_Vtbl {
         iid == &<IOfflineFilesItemContainer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesItemFilter_Impl: Sized {
     fn GetFilterFlags(&self, pullflags: *mut u64, pullmask: *mut u64) -> ::windows::core::Result<()>;
@@ -1148,6 +1168,7 @@ impl IOfflineFilesItemFilter_Vtbl {
         iid == &<IOfflineFilesItemFilter as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesPinInfo_Impl: Sized {
     fn IsPinned(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -1205,6 +1226,7 @@ impl IOfflineFilesPinInfo_Vtbl {
         iid == &<IOfflineFilesPinInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesPinInfo2_Impl: Sized + IOfflineFilesPinInfo_Impl {
     fn IsPartlyPinned(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -1231,6 +1253,7 @@ impl IOfflineFilesPinInfo2_Vtbl {
         iid == &<IOfflineFilesPinInfo2 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesPinInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesProgress_Impl: Sized {
     fn Begin(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -1280,6 +1303,7 @@ impl IOfflineFilesProgress_Vtbl {
         iid == &<IOfflineFilesProgress as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesServerItem_Impl: Sized + IOfflineFilesItem_Impl {}
 #[cfg(feature = "Win32_Foundation")]
@@ -1293,6 +1317,7 @@ impl IOfflineFilesServerItem_Vtbl {
         iid == &<IOfflineFilesServerItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IOfflineFilesSetting_Impl: Sized {
     fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -1396,6 +1421,7 @@ impl IOfflineFilesSetting_Vtbl {
         iid == &<IOfflineFilesSetting as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesShareInfo_Impl: Sized {
     fn GetShareItem(&self) -> ::windows::core::Result<IOfflineFilesShareItem>;
@@ -1451,6 +1477,7 @@ impl IOfflineFilesShareInfo_Vtbl {
         iid == &<IOfflineFilesShareInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesShareItem_Impl: Sized + IOfflineFilesItem_Impl {}
 #[cfg(feature = "Win32_Foundation")]
@@ -1464,6 +1491,7 @@ impl IOfflineFilesShareItem_Vtbl {
         iid == &<IOfflineFilesShareItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesSimpleProgress_Impl: Sized + IOfflineFilesProgress_Impl {
     fn ItemBegin(&self, pszfile: &::windows::core::PCWSTR) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>;
@@ -1506,6 +1534,7 @@ impl IOfflineFilesSimpleProgress_Vtbl {
         iid == &<IOfflineFilesSimpleProgress as ::windows::core::Interface>::IID || iid == &<IOfflineFilesProgress as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesSuspend_Impl: Sized {
     fn SuspendRoot(&self, bsuspend: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -1526,6 +1555,7 @@ impl IOfflineFilesSuspend_Vtbl {
         iid == &<IOfflineFilesSuspend as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesSuspendInfo_Impl: Sized {
     fn IsSuspended(&self, pbsuspended: *mut super::super::Foundation::BOOL, pbsuspendedroot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -1546,6 +1576,7 @@ impl IOfflineFilesSuspendInfo_Vtbl {
         iid == &<IOfflineFilesSuspendInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"implement\"`*"]
 pub trait IOfflineFilesSyncConflictHandler_Impl: Sized {
     fn ResolveConflict(&self, pszpath: &::windows::core::PCWSTR, fstateknown: u32, state: OFFLINEFILES_SYNC_STATE, fchangedetails: u32, pconflictresolution: *mut OFFLINEFILES_SYNC_CONFLICT_RESOLVE, ppsznewname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
 }
@@ -1563,6 +1594,7 @@ impl IOfflineFilesSyncConflictHandler_Vtbl {
         iid == &<IOfflineFilesSyncConflictHandler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IOfflineFilesSyncErrorInfo_Impl: Sized + IOfflineFilesErrorInfo_Impl {
     fn GetSyncOperation(&self) -> ::windows::core::Result<OFFLINEFILES_SYNC_OPERATION>;
@@ -1658,6 +1690,7 @@ impl IOfflineFilesSyncErrorInfo_Vtbl {
         iid == &<IOfflineFilesSyncErrorInfo as ::windows::core::Interface>::IID || iid == &<IOfflineFilesErrorInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesSyncErrorItemInfo_Impl: Sized {
     fn GetFileAttributes(&self) -> ::windows::core::Result<u32>;
@@ -1707,6 +1740,7 @@ impl IOfflineFilesSyncErrorItemInfo_Vtbl {
         iid == &<IOfflineFilesSyncErrorItemInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesSyncProgress_Impl: Sized + IOfflineFilesProgress_Impl {
     fn SyncItemBegin(&self, pszfile: &::windows::core::PCWSTR) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>;
@@ -1749,6 +1783,7 @@ impl IOfflineFilesSyncProgress_Vtbl {
         iid == &<IOfflineFilesSyncProgress as ::windows::core::Interface>::IID || iid == &<IOfflineFilesProgress as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesTransparentCacheInfo_Impl: Sized {
     fn IsTransparentlyCached(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;

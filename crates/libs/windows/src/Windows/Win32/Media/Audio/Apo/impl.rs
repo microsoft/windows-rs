@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
 pub trait IApoAcousticEchoCancellation_Impl: Sized {}
 impl ::windows::core::RuntimeName for IApoAcousticEchoCancellation {}
 impl IApoAcousticEchoCancellation_Vtbl {
@@ -8,6 +9,7 @@ impl IApoAcousticEchoCancellation_Vtbl {
         iid == &<IApoAcousticEchoCancellation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
 pub trait IApoAuxiliaryInputConfiguration_Impl: Sized {
     fn AddAuxiliaryInput(&self, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()>;
     fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> ::windows::core::Result<()>;
@@ -48,6 +50,7 @@ impl IApoAuxiliaryInputConfiguration_Vtbl {
         iid == &<IApoAuxiliaryInputConfiguration as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
 pub trait IApoAuxiliaryInputRT_Impl: Sized {
     fn AcceptInput(&self, dwinputid: u32, pinputconnection: *const APO_CONNECTION_PROPERTY);
 }
@@ -65,6 +68,7 @@ impl IApoAuxiliaryInputRT_Vtbl {
         iid == &<IApoAuxiliaryInputRT as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
 pub trait IAudioDeviceModulesClient_Impl: Sized {
     fn SetAudioDeviceModulesManager(&self, paudiodevicemodulesmanager: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
@@ -85,6 +89,7 @@ impl IAudioDeviceModulesClient_Vtbl {
         iid == &<IAudioDeviceModulesClient as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioMediaType_Impl: Sized {
     fn IsCompressedFormat(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
@@ -147,6 +152,7 @@ impl IAudioMediaType_Vtbl {
         iid == &<IAudioMediaType as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
 pub trait IAudioProcessingObject_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn GetLatency(&self) -> ::windows::core::Result<i64>;
@@ -239,6 +245,7 @@ impl IAudioProcessingObject_Vtbl {
         iid == &<IAudioProcessingObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
 pub trait IAudioProcessingObjectConfiguration_Impl: Sized {
     fn LockForProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()>;
     fn UnlockForProcess(&self) -> ::windows::core::Result<()>;
@@ -266,6 +273,7 @@ impl IAudioProcessingObjectConfiguration_Vtbl {
         iid == &<IAudioProcessingObjectConfiguration as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
 pub trait IAudioProcessingObjectLoggingService_Impl: Sized {
     fn ApoLog(&self, level: APO_LOG_LEVEL, format: &::windows::core::PCWSTR);
 }
@@ -283,6 +291,7 @@ impl IAudioProcessingObjectLoggingService_Vtbl {
         iid == &<IAudioProcessingObjectLoggingService as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IAudioProcessingObjectNotifications_Impl: Sized {
     fn GetApoNotificationRegistrationInfo(&self, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::Result<()>;
@@ -313,6 +322,7 @@ impl IAudioProcessingObjectNotifications_Vtbl {
         iid == &<IAudioProcessingObjectNotifications as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
 pub trait IAudioProcessingObjectRT_Impl: Sized {
     fn APOProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut APO_CONNECTION_PROPERTY);
     fn CalcInputFrames(&self, u32outputframecount: u32) -> u32;
@@ -347,6 +357,7 @@ impl IAudioProcessingObjectRT_Vtbl {
         iid == &<IAudioProcessingObjectRT as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
 pub trait IAudioProcessingObjectRTQueueService_Impl: Sized {
     fn GetRealTimeWorkQueue(&self) -> ::windows::core::Result<u32>;
 }
@@ -370,6 +381,7 @@ impl IAudioProcessingObjectRTQueueService_Vtbl {
         iid == &<IAudioProcessingObjectRTQueueService as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
 pub trait IAudioProcessingObjectVBR_Impl: Sized {
     fn CalcMaxInputFrames(&self, u32maxoutputframecount: u32) -> ::windows::core::Result<u32>;
     fn CalcMaxOutputFrames(&self, u32maxinputframecount: u32) -> ::windows::core::Result<u32>;
@@ -409,6 +421,7 @@ impl IAudioProcessingObjectVBR_Vtbl {
         iid == &<IAudioProcessingObjectVBR as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
 pub trait IAudioSystemEffects_Impl: Sized {}
 impl ::windows::core::RuntimeName for IAudioSystemEffects {}
 impl IAudioSystemEffects_Vtbl {
@@ -419,6 +432,7 @@ impl IAudioSystemEffects_Vtbl {
         iid == &<IAudioSystemEffects as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSystemEffects2_Impl: Sized + IAudioSystemEffects_Impl {
     fn GetEffectsList(&self, ppeffectsids: *mut *mut ::windows::core::GUID, pceffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
@@ -439,6 +453,7 @@ impl IAudioSystemEffects2_Vtbl {
         iid == &<IAudioSystemEffects2 as ::windows::core::Interface>::IID || iid == &<IAudioSystemEffects as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSystemEffects3_Impl: Sized + IAudioSystemEffects2_Impl {
     fn GetControllableSystemEffectsList(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
@@ -469,6 +484,7 @@ impl IAudioSystemEffects3_Vtbl {
         iid == &<IAudioSystemEffects3 as ::windows::core::Interface>::IID || iid == &<IAudioSystemEffects as ::windows::core::Interface>::IID || iid == &<IAudioSystemEffects2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
 pub trait IAudioSystemEffectsCustomFormats_Impl: Sized {
     fn GetFormatCount(&self) -> ::windows::core::Result<u32>;
     fn GetFormat(&self, nformat: u32) -> ::windows::core::Result<IAudioMediaType>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D11On12Device_Impl: Sized {
     fn CreateWrappedResource(&self, presource12: &::core::option::Option<::windows::core::IUnknown>, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, riid: *const ::windows::core::GUID, ppresource11: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -35,6 +36,7 @@ impl ID3D11On12Device_Vtbl {
         iid == &<ID3D11On12Device as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D11On12Device1_Impl: Sized + ID3D11On12Device_Impl {
     fn GetD3D12Device(&self, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -55,6 +57,7 @@ impl ID3D11On12Device1_Vtbl {
         iid == &<ID3D11On12Device1 as ::windows::core::Interface>::IID || iid == &<ID3D11On12Device as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D11On12Device2_Impl: Sized + ID3D11On12Device1_Impl {
     fn UnwrapUnderlyingResource(&self, presource11: &::core::option::Option<super::Direct3D11::ID3D11Resource>, pcommandqueue: &::core::option::Option<super::Direct3D12::ID3D12CommandQueue>, riid: *const ::windows::core::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;

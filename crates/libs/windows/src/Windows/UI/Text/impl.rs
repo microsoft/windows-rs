@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"UI_Text\"`, `\"implement\"`*"]
 pub trait ITextCharacterFormat_Impl: Sized {
     fn AllCaps(&self) -> ::windows::core::Result<FormatEffect>;
     fn SetAllCaps(&self, value: FormatEffect) -> ::windows::core::Result<()>;
@@ -545,6 +546,7 @@ impl ITextCharacterFormat_Vtbl {
         iid == &<ITextCharacterFormat as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait ITextDocument_Impl: Sized {
     fn CaretType(&self) -> ::windows::core::Result<CaretType>;
@@ -850,6 +852,7 @@ impl ITextDocument_Vtbl {
         iid == &<ITextDocument as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Text\"`, `\"implement\"`*"]
 pub trait ITextParagraphFormat_Impl: Sized {
     fn Alignment(&self) -> ::windows::core::Result<ParagraphAlignment>;
     fn SetAlignment(&self, value: ParagraphAlignment) -> ::windows::core::Result<()>;
@@ -1369,6 +1372,7 @@ impl ITextParagraphFormat_Vtbl {
         iid == &<ITextParagraphFormat as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait ITextRange_Impl: Sized {
     fn Character(&self) -> ::windows::core::Result<u16>;
@@ -1926,6 +1930,7 @@ impl ITextRange_Vtbl {
         iid == &<ITextRange as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait ITextSelection_Impl: Sized + ITextRange_Impl {
     fn Options(&self) -> ::windows::core::Result<SelectionOptions>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_WinRT_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub trait IDisplayDeviceInterop_Impl: Sized {
     fn CreateSharedHandle(&self, pobject: &::core::option::Option<::windows::core::IInspectable>, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
@@ -40,6 +41,7 @@ impl IDisplayDeviceInterop_Vtbl {
         iid == &<IDisplayDeviceInterop as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_Display\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDisplayPathInterop_Impl: Sized {
     fn CreateSourcePresentationHandle(&self) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAlternativeName_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn InitializeFromString(&self, r#type: AlternativeNameType, strvalue: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -87,6 +88,7 @@ impl IAlternativeName_Vtbl {
         iid == &<IAlternativeName as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAlternativeNames_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IAlternativeName>;
@@ -163,6 +165,7 @@ impl IAlternativeNames_Vtbl {
         iid == &<IAlternativeNames as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBinaryConverter_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn StringToString(&self, strencodedin: &::windows::core::BSTR, encodingin: EncodingType, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -218,6 +221,7 @@ impl IBinaryConverter_Vtbl {
         iid == &<IBinaryConverter as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBinaryConverter2_Impl: Sized + IBinaryConverter_Impl {
     fn StringArrayToVariantArray(&self, pvarstringarray: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
@@ -260,6 +264,7 @@ impl IBinaryConverter2_Vtbl {
         iid == &<IBinaryConverter2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IBinaryConverter as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICEnroll_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn createFilePKCS10(&self, dnname: &::windows::core::BSTR, usage: &::windows::core::BSTR, wszpkcs10filename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -836,6 +841,7 @@ impl ICEnroll_Vtbl {
         iid == &<ICEnroll as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICEnroll2_Impl: Sized + ICEnroll_Impl {
     fn addCertTypeToRequest(&self, certtype: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -906,6 +912,7 @@ impl ICEnroll2_Vtbl {
         iid == &<ICEnroll2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICEnroll as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICEnroll3_Impl: Sized + ICEnroll2_Impl {
     fn InstallPKCS7(&self, pkcs7: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -1068,6 +1075,7 @@ impl ICEnroll3_Vtbl {
         iid == &<ICEnroll3 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICEnroll as ::windows::core::Interface>::IID || iid == &<ICEnroll2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICEnroll4_Impl: Sized + ICEnroll3_Impl {
     fn SetPrivateKeyArchiveCertificate(&self, bstrcert: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -1399,6 +1407,7 @@ impl ICEnroll4_Vtbl {
         iid == &<ICEnroll4 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICEnroll as ::windows::core::Interface>::IID || iid == &<ICEnroll2 as ::windows::core::Interface>::IID || iid == &<ICEnroll3 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertAdmin_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn IsValidCertificate(&self, strconfig: &::windows::core::BSTR, strserialnumber: &::windows::core::BSTR) -> ::windows::core::Result<i32>;
@@ -1515,6 +1524,7 @@ impl ICertAdmin_Vtbl {
         iid == &<ICertAdmin as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertAdmin2_Impl: Sized + ICertAdmin_Impl {
     fn PublishCRLs(&self, strconfig: &::windows::core::BSTR, date: f64, crlflags: i32) -> ::windows::core::Result<()>;
@@ -1650,6 +1660,7 @@ impl ICertAdmin2_Vtbl {
         iid == &<ICertAdmin2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertAdmin as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertConfig_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Reset(&self, index: i32) -> ::windows::core::Result<i32>;
@@ -1718,6 +1729,7 @@ impl ICertConfig_Vtbl {
         iid == &<ICertConfig as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertConfig2_Impl: Sized + ICertConfig_Impl {
     fn SetSharedFolder(&self, strsharedfolder: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -1738,6 +1750,7 @@ impl ICertConfig2_Vtbl {
         iid == &<ICertConfig2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertEncodeAltName_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Decode(&self, strbinary: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -1827,6 +1840,7 @@ impl ICertEncodeAltName_Vtbl {
         iid == &<ICertEncodeAltName as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertEncodeAltName2_Impl: Sized + ICertEncodeAltName_Impl {
     fn DecodeBlob(&self, strencodeddata: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
@@ -1883,6 +1897,7 @@ impl ICertEncodeAltName2_Vtbl {
         iid == &<ICertEncodeAltName2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertEncodeAltName as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertEncodeBitString_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Decode(&self, strbinary: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -1945,6 +1960,7 @@ impl ICertEncodeBitString_Vtbl {
         iid == &<ICertEncodeBitString as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertEncodeBitString2_Impl: Sized + ICertEncodeBitString_Impl {
     fn DecodeBlob(&self, strencodeddata: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
@@ -1994,6 +2010,7 @@ impl ICertEncodeBitString2_Vtbl {
         iid == &<ICertEncodeBitString2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertEncodeBitString as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertEncodeCRLDistInfo_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Decode(&self, strbinary: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2103,6 +2120,7 @@ impl ICertEncodeCRLDistInfo_Vtbl {
         iid == &<ICertEncodeCRLDistInfo as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertEncodeCRLDistInfo2_Impl: Sized + ICertEncodeCRLDistInfo_Impl {
     fn DecodeBlob(&self, strencodeddata: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
@@ -2139,6 +2157,7 @@ impl ICertEncodeCRLDistInfo2_Vtbl {
         iid == &<ICertEncodeCRLDistInfo2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertEncodeCRLDistInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertEncodeDateArray_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Decode(&self, strbinary: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2215,6 +2234,7 @@ impl ICertEncodeDateArray_Vtbl {
         iid == &<ICertEncodeDateArray as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertEncodeDateArray2_Impl: Sized + ICertEncodeDateArray_Impl {
     fn DecodeBlob(&self, strencodeddata: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
@@ -2251,6 +2271,7 @@ impl ICertEncodeDateArray2_Vtbl {
         iid == &<ICertEncodeDateArray2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertEncodeDateArray as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertEncodeLongArray_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Decode(&self, strbinary: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2327,6 +2348,7 @@ impl ICertEncodeLongArray_Vtbl {
         iid == &<ICertEncodeLongArray as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertEncodeLongArray2_Impl: Sized + ICertEncodeLongArray_Impl {
     fn DecodeBlob(&self, strencodeddata: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
@@ -2363,6 +2385,7 @@ impl ICertEncodeLongArray2_Vtbl {
         iid == &<ICertEncodeLongArray2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertEncodeLongArray as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertEncodeStringArray_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Decode(&self, strbinary: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2452,6 +2475,7 @@ impl ICertEncodeStringArray_Vtbl {
         iid == &<ICertEncodeStringArray as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertEncodeStringArray2_Impl: Sized + ICertEncodeStringArray_Impl {
     fn DecodeBlob(&self, strencodeddata: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
@@ -2488,6 +2512,7 @@ impl ICertEncodeStringArray2_Vtbl {
         iid == &<ICertEncodeStringArray2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertEncodeStringArray as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertExit_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, strconfig: &::windows::core::BSTR) -> ::windows::core::Result<CERT_EXIT_EVENT_MASK>;
@@ -2537,6 +2562,7 @@ impl ICertExit_Vtbl {
         iid == &<ICertExit as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertExit2_Impl: Sized + ICertExit_Impl {
     fn GetManageModule(&self) -> ::windows::core::Result<ICertManageModule>;
@@ -2563,6 +2589,7 @@ impl ICertExit2_Vtbl {
         iid == &<ICertExit2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertExit as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertGetConfig_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn GetConfig(&self, flags: CERT_GET_CONFIG_FLAGS) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2589,6 +2616,7 @@ impl ICertGetConfig_Vtbl {
         iid == &<ICertGetConfig as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertManageModule_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn GetProperty(&self, strconfig: &::windows::core::BSTR, strstoragelocation: &::windows::core::BSTR, strpropertyname: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
@@ -2632,6 +2660,7 @@ impl ICertManageModule_Vtbl {
         iid == &<ICertManageModule as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPolicy_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, strconfig: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2688,6 +2717,7 @@ impl ICertPolicy_Vtbl {
         iid == &<ICertPolicy as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPolicy2_Impl: Sized + ICertPolicy_Impl {
     fn GetManageModule(&self) -> ::windows::core::Result<ICertManageModule>;
@@ -2714,6 +2744,7 @@ impl ICertPolicy2_Vtbl {
         iid == &<ICertPolicy2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertPolicy as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertProperties_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertProperty>;
@@ -2797,6 +2828,7 @@ impl ICertProperties_Vtbl {
         iid == &<ICertProperties as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertProperty_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn InitializeFromCertificate(&self, machinecontext: super::super::super::Foundation::VARIANT_BOOL, encoding: EncodingType, strcertificate: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2874,6 +2906,7 @@ impl ICertProperty_Vtbl {
         iid == &<ICertProperty as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPropertyArchived_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, archivedvalue: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
@@ -2910,6 +2943,7 @@ impl ICertPropertyArchived_Vtbl {
         iid == &<ICertPropertyArchived as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPropertyArchivedKeyHash_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strarchivedkeyhashvalue: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2946,6 +2980,7 @@ impl ICertPropertyArchivedKeyHash_Vtbl {
         iid == &<ICertPropertyArchivedKeyHash as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPropertyAutoEnroll_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2982,6 +3017,7 @@ impl ICertPropertyAutoEnroll_Vtbl {
         iid == &<ICertPropertyAutoEnroll as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPropertyBackedUp_Impl: Sized + ICertProperty_Impl {
     fn InitializeFromCurrentTime(&self, backedupvalue: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
@@ -3038,6 +3074,7 @@ impl ICertPropertyBackedUp_Vtbl {
         iid == &<ICertPropertyBackedUp as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPropertyDescription_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, strdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3074,6 +3111,7 @@ impl ICertPropertyDescription_Vtbl {
         iid == &<ICertPropertyDescription as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPropertyEnrollment_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, requestid: i32, strcadnsname: &::windows::core::BSTR, strcaname: &::windows::core::BSTR, strfriendlyname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3149,6 +3187,7 @@ impl ICertPropertyEnrollment_Vtbl {
         iid == &<ICertPropertyEnrollment as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPropertyEnrollmentPolicyServer_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, propertyflags: EnrollmentPolicyServerPropertyFlags, authflags: X509EnrollmentAuthFlags, enrollmentserverauthflags: X509EnrollmentAuthFlags, urlflags: PolicyServerUrlFlags, strrequestid: &::windows::core::BSTR, strurl: &::windows::core::BSTR, strid: &::windows::core::BSTR, strenrollmentserverurl: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3276,6 +3315,7 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
         iid == &<ICertPropertyEnrollmentPolicyServer as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPropertyFriendlyName_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, strfriendlyname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3312,6 +3352,7 @@ impl ICertPropertyFriendlyName_Vtbl {
         iid == &<ICertPropertyFriendlyName as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPropertyKeyProvInfo_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, pvalue: &::core::option::Option<IX509PrivateKey>) -> ::windows::core::Result<()>;
@@ -3348,6 +3389,7 @@ impl ICertPropertyKeyProvInfo_Vtbl {
         iid == &<ICertPropertyKeyProvInfo as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPropertyRenewal_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3391,6 +3433,7 @@ impl ICertPropertyRenewal_Vtbl {
         iid == &<ICertPropertyRenewal as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPropertyRequestOriginator_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, strrequestoriginator: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3434,6 +3477,7 @@ impl ICertPropertyRequestOriginator_Vtbl {
         iid == &<ICertPropertyRequestOriginator as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPropertySHA1Hash_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3470,6 +3514,7 @@ impl ICertPropertySHA1Hash_Vtbl {
         iid == &<ICertPropertySHA1Hash as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Submit(&self, flags: i32, strrequest: &::windows::core::BSTR, strattributes: &::windows::core::BSTR, strconfig: &::windows::core::BSTR) -> ::windows::core::Result<i32>;
@@ -3577,6 +3622,7 @@ impl ICertRequest_Vtbl {
         iid == &<ICertRequest as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertRequest2_Impl: Sized + ICertRequest_Impl {
     fn GetIssuedCertificate(&self, strconfig: &::windows::core::BSTR, requestid: i32, strserialnumber: &::windows::core::BSTR) -> ::windows::core::Result<CR_DISP>;
@@ -3671,6 +3717,7 @@ impl ICertRequest2_Vtbl {
         iid == &<ICertRequest2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertRequest as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertRequest3_Impl: Sized + ICertRequest2_Impl {
     fn SetCredential(&self, hwnd: i32, authtype: X509EnrollmentAuthFlags, strcredential: &::windows::core::BSTR, strpassword: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3733,6 +3780,7 @@ impl ICertRequest3_Vtbl {
         iid == &<ICertRequest3 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertRequest as ::windows::core::Interface>::IID || iid == &<ICertRequest2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"implement\"`*"]
 pub trait ICertRequestD_Impl: Sized {
     fn Request(&self, dwflags: u32, pwszauthority: &::windows::core::PCWSTR, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: &::windows::core::PCWSTR, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>;
     fn GetCACert(&self, fchain: u32, pwszauthority: &::windows::core::PCWSTR) -> ::windows::core::Result<CERTTRANSBLOB>;
@@ -3773,6 +3821,7 @@ impl ICertRequestD_Vtbl {
         iid == &<ICertRequestD as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"implement\"`*"]
 pub trait ICertRequestD2_Impl: Sized + ICertRequestD_Impl {
     fn Request2(&self, pwszauthority: &::windows::core::PCWSTR, dwflags: u32, pwszserialnumber: &::windows::core::PCWSTR, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: &::windows::core::PCWSTR, pctbrequest: *const CERTTRANSBLOB, pctbfullresponse: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>;
     fn GetCAProperty(&self, pwszauthority: &::windows::core::PCWSTR, propid: i32, propindex: i32, proptype: i32) -> ::windows::core::Result<CERTTRANSBLOB>;
@@ -3820,6 +3869,7 @@ impl ICertRequestD2_Vtbl {
         iid == &<ICertRequestD2 as ::windows::core::Interface>::IID || iid == &<ICertRequestD as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertServerExit_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn SetContext(&self, context: i32) -> ::windows::core::Result<()>;
@@ -3962,6 +4012,7 @@ impl ICertServerExit_Vtbl {
         iid == &<ICertServerExit as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertServerPolicy_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn SetContext(&self, context: i32) -> ::windows::core::Result<()>;
@@ -4118,6 +4169,7 @@ impl ICertServerPolicy_Vtbl {
         iid == &<ICertServerPolicy as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertView_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn OpenConnection(&self, strconfig: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -4202,6 +4254,7 @@ impl ICertView_Vtbl {
         iid == &<ICertView as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertView2_Impl: Sized + ICertView_Impl {
     fn SetTable(&self, table: CVRC_TABLE) -> ::windows::core::Result<()>;
@@ -4222,6 +4275,7 @@ impl ICertView2_Vtbl {
         iid == &<ICertView2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertView as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertificateAttestationChallenge_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, encoding: EncodingType, strpendingfullcmcresponsewithchallenge: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -4271,6 +4325,7 @@ impl ICertificateAttestationChallenge_Vtbl {
         iid == &<ICertificateAttestationChallenge as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertificateAttestationChallenge2_Impl: Sized + ICertificateAttestationChallenge_Impl {
     fn SetKeyContainerName(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -4301,6 +4356,7 @@ impl ICertificateAttestationChallenge2_Vtbl {
         iid == &<ICertificateAttestationChallenge2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertificateAttestationChallenge as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertificatePolicies_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertificatePolicy>;
@@ -4377,6 +4433,7 @@ impl ICertificatePolicies_Vtbl {
         iid == &<ICertificatePolicies as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertificatePolicy_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pvalue: &::core::option::Option<IObjectId>) -> ::windows::core::Result<()>;
@@ -4426,6 +4483,7 @@ impl ICertificatePolicy_Vtbl {
         iid == &<ICertificatePolicy as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertificationAuthorities_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertificationAuthority>;
@@ -4522,6 +4580,7 @@ impl ICertificationAuthorities_Vtbl {
         iid == &<ICertificationAuthorities as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertificationAuthority_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_Property(&self, property: EnrollmentCAProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
@@ -4548,6 +4607,7 @@ impl ICertificationAuthority_Vtbl {
         iid == &<ICertificationAuthority as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICryptAttribute_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn InitializeFromObjectId(&self, pobjectid: &::core::option::Option<IObjectId>) -> ::windows::core::Result<()>;
@@ -4604,6 +4664,7 @@ impl ICryptAttribute_Vtbl {
         iid == &<ICryptAttribute as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICryptAttributes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICryptAttribute>;
@@ -4700,6 +4761,7 @@ impl ICryptAttributes_Vtbl {
         iid == &<ICryptAttributes as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICspAlgorithm_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn GetAlgorithmOid(&self, length: i32, algflags: AlgorithmFlags) -> ::windows::core::Result<IObjectId>;
@@ -4846,6 +4908,7 @@ impl ICspAlgorithm_Vtbl {
         iid == &<ICspAlgorithm as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICspAlgorithms_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspAlgorithm>;
@@ -4948,6 +5011,7 @@ impl ICspAlgorithms_Vtbl {
         iid == &<ICspAlgorithms as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICspInformation_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn InitializeFromName(&self, strname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -5173,6 +5237,7 @@ impl ICspInformation_Vtbl {
         iid == &<ICspInformation as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICspInformations_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspInformation>;
@@ -5321,6 +5386,7 @@ impl ICspInformations_Vtbl {
         iid == &<ICspInformations as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICspStatus_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pcsp: &::core::option::Option<ICspInformation>, palgorithm: &::core::option::Option<ICspAlgorithm>) -> ::windows::core::Result<()>;
@@ -5416,6 +5482,7 @@ impl ICspStatus_Vtbl {
         iid == &<ICspStatus as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICspStatuses_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspStatus>;
@@ -5544,6 +5611,7 @@ impl ICspStatuses_Vtbl {
         iid == &<ICspStatuses as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnroll_Impl: Sized {
     fn createFilePKCS10WStr(&self, dnname: &::windows::core::PCWSTR, usage: &::windows::core::PCWSTR, wszpkcs10filename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -6050,6 +6118,7 @@ impl IEnroll_Vtbl {
         iid == &<IEnroll as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnroll2_Impl: Sized + IEnroll_Impl {
     fn InstallPKCS7Blob(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>;
@@ -6192,6 +6261,7 @@ impl IEnroll2_Vtbl {
         iid == &<IEnroll2 as ::windows::core::Interface>::IID || iid == &<IEnroll as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnroll4_Impl: Sized + IEnroll2_Impl {
     fn SetThumbPrintWStr(&self, thumbprintblob: &super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>;
@@ -6432,6 +6502,7 @@ impl IEnroll4_Vtbl {
         iid == &<IEnroll4 as ::windows::core::Interface>::IID || iid == &<IEnroll as ::windows::core::Interface>::IID || iid == &<IEnroll2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEnumCERTVIEWATTRIBUTE_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Next(&self, pindex: *mut i32) -> ::windows::core::Result<()>;
@@ -6496,6 +6567,7 @@ impl IEnumCERTVIEWATTRIBUTE_Vtbl {
         iid == &<IEnumCERTVIEWATTRIBUTE as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEnumCERTVIEWCOLUMN_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Next(&self, pindex: *mut i32) -> ::windows::core::Result<()>;
@@ -6588,6 +6660,7 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
         iid == &<IEnumCERTVIEWCOLUMN as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEnumCERTVIEWEXTENSION_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Next(&self, pindex: *mut i32) -> ::windows::core::Result<()>;
@@ -6659,6 +6732,7 @@ impl IEnumCERTVIEWEXTENSION_Vtbl {
         iid == &<IEnumCERTVIEWEXTENSION as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEnumCERTVIEWROW_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Next(&self, pindex: *mut i32) -> ::windows::core::Result<()>;
@@ -6755,6 +6829,7 @@ impl IEnumCERTVIEWROW_Vtbl {
         iid == &<IEnumCERTVIEWROW as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INDESPolicy_Impl: Sized {
     fn Initialize(&self) -> ::windows::core::Result<()>;
@@ -6812,6 +6887,7 @@ impl INDESPolicy_Vtbl {
         iid == &<INDESPolicy as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IOCSPAdmin_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn OCSPServiceProperties(&self) -> ::windows::core::Result<IOCSPPropertyCollection>;
@@ -6934,6 +7010,7 @@ impl IOCSPAdmin_Vtbl {
         iid == &<IOCSPAdmin as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IOCSPCAConfiguration_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Identifier(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -7208,6 +7285,7 @@ impl IOCSPCAConfiguration_Vtbl {
         iid == &<IOCSPCAConfiguration as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IOCSPCAConfigurationCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -7296,6 +7374,7 @@ impl IOCSPCAConfigurationCollection_Vtbl {
         iid == &<IOCSPCAConfigurationCollection as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IOCSPProperty_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -7358,6 +7437,7 @@ impl IOCSPProperty_Vtbl {
         iid == &<IOCSPProperty as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IOCSPPropertyCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -7466,6 +7546,7 @@ impl IOCSPPropertyCollection_Vtbl {
         iid == &<IOCSPPropertyCollection as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IObjectId_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn InitializeFromName(&self, name: CERTENROLL_OBJECTID) -> ::windows::core::Result<()>;
@@ -7562,6 +7643,7 @@ impl IObjectId_Vtbl {
         iid == &<IObjectId as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IObjectIds_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IObjectId>;
@@ -7645,6 +7727,7 @@ impl IObjectIds_Vtbl {
         iid == &<IObjectIds as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPolicyQualifier_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn InitializeEncode(&self, strqualifier: &::windows::core::BSTR, r#type: PolicyQualifierType) -> ::windows::core::Result<()>;
@@ -7720,6 +7803,7 @@ impl IPolicyQualifier_Vtbl {
         iid == &<IPolicyQualifier as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPolicyQualifiers_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IPolicyQualifier>;
@@ -7796,6 +7880,7 @@ impl IPolicyQualifiers_Vtbl {
         iid == &<IPolicyQualifiers as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISignerCertificate_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, machinecontext: super::super::super::Foundation::VARIANT_BOOL, verifytype: X509PrivateKeyVerify, encoding: EncodingType, strcertificate: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -7925,6 +8010,7 @@ impl ISignerCertificate_Vtbl {
         iid == &<ISignerCertificate as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISignerCertificates_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ISignerCertificate>;
@@ -8014,6 +8100,7 @@ impl ISignerCertificates_Vtbl {
         iid == &<ISignerCertificates as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISmimeCapabilities_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ISmimeCapability>;
@@ -8104,6 +8191,7 @@ impl ISmimeCapabilities_Vtbl {
         iid == &<ISmimeCapabilities as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISmimeCapability_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pobjectid: &::core::option::Option<IObjectId>, bitcount: i32) -> ::windows::core::Result<()>;
@@ -8153,6 +8241,7 @@ impl ISmimeCapability_Vtbl {
         iid == &<ISmimeCapability as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX500DistinguishedName_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Decode(&self, strencodedname: &::windows::core::BSTR, encoding: EncodingType, nameflags: X500NameFlags) -> ::windows::core::Result<()>;
@@ -8209,6 +8298,7 @@ impl IX500DistinguishedName_Vtbl {
         iid == &<IX500DistinguishedName as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509Attribute_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pobjectid: &::core::option::Option<IObjectId>, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -8258,6 +8348,7 @@ impl IX509Attribute_Vtbl {
         iid == &<IX509Attribute as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509AttributeArchiveKey_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, pkey: &::core::option::Option<IX509PrivateKey>, encoding: EncodingType, strcaxcert: &::windows::core::BSTR, palgorithm: &::core::option::Option<IObjectId>, encryptionstrength: i32) -> ::windows::core::Result<()>;
@@ -8327,6 +8418,7 @@ impl IX509AttributeArchiveKey_Vtbl {
         iid == &<IX509AttributeArchiveKey as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Attribute as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509AttributeArchiveKeyHash_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncodeFromEncryptedKeyBlob(&self, encoding: EncodingType, strencryptedkeyblob: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -8370,6 +8462,7 @@ impl IX509AttributeArchiveKeyHash_Vtbl {
         iid == &<IX509AttributeArchiveKeyHash as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Attribute as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509AttributeClientId_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, clientid: RequestClientInfoClientId, strmachinednsname: &::windows::core::BSTR, strusersamname: &::windows::core::BSTR, strprocessname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -8452,6 +8545,7 @@ impl IX509AttributeClientId_Vtbl {
         iid == &<IX509AttributeClientId as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Attribute as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509AttributeCspProvider_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, keyspec: X509KeySpec, strprovidername: &::windows::core::BSTR, encoding: EncodingType, strsignature: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -8521,6 +8615,7 @@ impl IX509AttributeCspProvider_Vtbl {
         iid == &<IX509AttributeCspProvider as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Attribute as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509AttributeExtensions_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, pextensions: &::core::option::Option<IX509Extensions>) -> ::windows::core::Result<()>;
@@ -8564,6 +8659,7 @@ impl IX509AttributeExtensions_Vtbl {
         iid == &<IX509AttributeExtensions as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Attribute as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509AttributeOSVersion_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, strosversion: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -8607,6 +8703,7 @@ impl IX509AttributeOSVersion_Vtbl {
         iid == &<IX509AttributeOSVersion as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Attribute as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509AttributeRenewalCertificate_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strcert: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -8650,6 +8747,7 @@ impl IX509AttributeRenewalCertificate_Vtbl {
         iid == &<IX509AttributeRenewalCertificate as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Attribute as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509Attributes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509Attribute>;
@@ -8726,6 +8824,7 @@ impl IX509Attributes_Vtbl {
         iid == &<IX509Attributes as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()>;
@@ -8995,6 +9094,7 @@ impl IX509CertificateRequest_Vtbl {
         iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRequestCertificate_Impl: Sized + IX509CertificateRequestPkcs10_Impl {
     fn CheckPublicKeySignature(&self, ppublickey: &::core::option::Option<IX509PublicKey>) -> ::windows::core::Result<()>;
@@ -9118,6 +9218,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
         iid == &<IX509CertificateRequestCertificate as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRequestCertificate2_Impl: Sized + IX509CertificateRequestCertificate_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: &::core::option::Option<IX509EnrollmentPolicyServer>, ptemplate: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
@@ -9174,6 +9275,7 @@ impl IX509CertificateRequestCertificate2_Vtbl {
         iid == &<IX509CertificateRequestCertificate2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestCertificate as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRequestCmc_Impl: Sized + IX509CertificateRequestPkcs7_Impl {
     fn InitializeFromInnerRequestTemplateName(&self, pinnerrequest: &::core::option::Option<IX509CertificateRequest>, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -9447,6 +9549,7 @@ impl IX509CertificateRequestCmc_Vtbl {
         iid == &<IX509CertificateRequestCmc as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRequestCmc2_Impl: Sized + IX509CertificateRequestCmc_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: &::core::option::Option<IX509EnrollmentPolicyServer>, ptemplate: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
@@ -9517,6 +9620,7 @@ impl IX509CertificateRequestCmc2_Vtbl {
         iid == &<IX509CertificateRequestCmc2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestCmc as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRequestPkcs10_Impl: Sized + IX509CertificateRequest_Impl {
     fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -9843,6 +9947,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
         iid == &<IX509CertificateRequestPkcs10 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRequestPkcs10V2_Impl: Sized + IX509CertificateRequestPkcs10_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: &::core::option::Option<IX509EnrollmentPolicyServer>, ptemplate: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
@@ -9906,6 +10011,7 @@ impl IX509CertificateRequestPkcs10V2_Vtbl {
         iid == &<IX509CertificateRequestPkcs10V2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRequestPkcs10V3_Impl: Sized + IX509CertificateRequestPkcs10V2_Impl {
     fn AttestPrivateKey(&self) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL>;
@@ -10035,6 +10141,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
         iid == &<IX509CertificateRequestPkcs10V3 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRequestPkcs10V4_Impl: Sized + IX509CertificateRequestPkcs10V3_Impl {
     fn ClaimType(&self) -> ::windows::core::Result<KeyAttestationClaimType>;
@@ -10091,6 +10198,7 @@ impl IX509CertificateRequestPkcs10V4_Vtbl {
         iid == &<IX509CertificateRequestPkcs10V4 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V2 as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V3 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRequestPkcs7_Impl: Sized + IX509CertificateRequest_Impl {
     fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -10175,6 +10283,7 @@ impl IX509CertificateRequestPkcs7_Vtbl {
         iid == &<IX509CertificateRequestPkcs7 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRequestPkcs7V2_Impl: Sized + IX509CertificateRequestPkcs7_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: &::core::option::Option<IX509EnrollmentPolicyServer>, ptemplate: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
@@ -10231,6 +10340,7 @@ impl IX509CertificateRequestPkcs7V2_Vtbl {
         iid == &<IX509CertificateRequestPkcs7V2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRevocationList_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self) -> ::windows::core::Result<()>;
@@ -10566,6 +10676,7 @@ impl IX509CertificateRevocationList_Vtbl {
         iid == &<IX509CertificateRevocationList as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRevocationListEntries_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509CertificateRevocationListEntry>;
@@ -10662,6 +10773,7 @@ impl IX509CertificateRevocationListEntries_Vtbl {
         iid == &<IX509CertificateRevocationListEntries as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRevocationListEntry_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, encoding: EncodingType, serialnumber: &::windows::core::BSTR, revocationdate: f64) -> ::windows::core::Result<()>;
@@ -10757,6 +10869,7 @@ impl IX509CertificateRevocationListEntry_Vtbl {
         iid == &<IX509CertificateRevocationListEntry as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateTemplate_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_Property(&self, property: EnrollmentTemplateProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
@@ -10783,6 +10896,7 @@ impl IX509CertificateTemplate_Vtbl {
         iid == &<IX509CertificateTemplate as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateTemplateWritable_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pvalue: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
@@ -10846,6 +10960,7 @@ impl IX509CertificateTemplateWritable_Vtbl {
         iid == &<IX509CertificateTemplateWritable as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateTemplates_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509CertificateTemplate>;
@@ -10948,6 +11063,7 @@ impl IX509CertificateTemplates_Vtbl {
         iid == &<IX509CertificateTemplates as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509EndorsementKey_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn ProviderName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -11077,6 +11193,7 @@ impl IX509EndorsementKey_Vtbl {
         iid == &<IX509EndorsementKey as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509Enrollment_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()>;
@@ -11338,6 +11455,7 @@ impl IX509Enrollment_Vtbl {
         iid == &<IX509Enrollment as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509Enrollment2_Impl: Sized + IX509Enrollment_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: &::core::option::Option<IX509EnrollmentPolicyServer>, ptemplate: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
@@ -11407,6 +11525,7 @@ impl IX509Enrollment2_Vtbl {
         iid == &<IX509Enrollment2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Enrollment as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509EnrollmentHelper_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn AddPolicyServer(&self, strenrollmentpolicyserveruri: &::windows::core::BSTR, strenrollmentpolicyid: &::windows::core::BSTR, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: X509EnrollmentAuthFlags, strcredential: &::windows::core::BSTR, strpassword: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -11457,6 +11576,7 @@ impl IX509EnrollmentHelper_Vtbl {
         iid == &<IX509EnrollmentHelper as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509EnrollmentPolicyServer_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, bstrpolicyserverurl: &::windows::core::BSTR, bstrpolicyserverid: &::windows::core::BSTR, authflags: X509EnrollmentAuthFlags, fisuntrusted: super::super::super::Foundation::VARIANT_BOOL, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()>;
@@ -11749,6 +11869,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
         iid == &<IX509EnrollmentPolicyServer as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509EnrollmentStatus_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn AppendText(&self, strtext: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -11885,6 +12006,7 @@ impl IX509EnrollmentStatus_Vtbl {
         iid == &<IX509EnrollmentStatus as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509EnrollmentWebClassFactory_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn CreateObject(&self, strprogid: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -11911,6 +12033,7 @@ impl IX509EnrollmentWebClassFactory_Vtbl {
         iid == &<IX509EnrollmentWebClassFactory as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509Extension_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pobjectid: &::core::option::Option<IObjectId>, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -11980,6 +12103,7 @@ impl IX509Extension_Vtbl {
         iid == &<IX509Extension as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509ExtensionAlternativeNames_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: &::core::option::Option<IAlternativeNames>) -> ::windows::core::Result<()>;
@@ -12023,6 +12147,7 @@ impl IX509ExtensionAlternativeNames_Vtbl {
         iid == &<IX509ExtensionAlternativeNames as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509ExtensionAuthorityKeyIdentifier_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -12066,6 +12191,7 @@ impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
         iid == &<IX509ExtensionAuthorityKeyIdentifier as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509ExtensionBasicConstraints_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, isca: super::super::super::Foundation::VARIANT_BOOL, pathlenconstraint: i32) -> ::windows::core::Result<()>;
@@ -12122,6 +12248,7 @@ impl IX509ExtensionBasicConstraints_Vtbl {
         iid == &<IX509ExtensionBasicConstraints as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509ExtensionCertificatePolicies_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: &::core::option::Option<ICertificatePolicies>) -> ::windows::core::Result<()>;
@@ -12165,6 +12292,7 @@ impl IX509ExtensionCertificatePolicies_Vtbl {
         iid == &<IX509ExtensionCertificatePolicies as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509ExtensionEnhancedKeyUsage_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: &::core::option::Option<IObjectIds>) -> ::windows::core::Result<()>;
@@ -12208,6 +12336,7 @@ impl IX509ExtensionEnhancedKeyUsage_Vtbl {
         iid == &<IX509ExtensionEnhancedKeyUsage as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509ExtensionKeyUsage_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, usageflags: X509KeyUsageFlags) -> ::windows::core::Result<()>;
@@ -12251,6 +12380,7 @@ impl IX509ExtensionKeyUsage_Vtbl {
         iid == &<IX509ExtensionKeyUsage as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509ExtensionMSApplicationPolicies_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: &::core::option::Option<ICertificatePolicies>) -> ::windows::core::Result<()>;
@@ -12294,6 +12424,7 @@ impl IX509ExtensionMSApplicationPolicies_Vtbl {
         iid == &<IX509ExtensionMSApplicationPolicies as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509ExtensionSmimeCapabilities_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: &::core::option::Option<ISmimeCapabilities>) -> ::windows::core::Result<()>;
@@ -12337,6 +12468,7 @@ impl IX509ExtensionSmimeCapabilities_Vtbl {
         iid == &<IX509ExtensionSmimeCapabilities as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509ExtensionSubjectKeyIdentifier_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -12380,6 +12512,7 @@ impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
         iid == &<IX509ExtensionSubjectKeyIdentifier as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509ExtensionTemplate_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, ptemplateoid: &::core::option::Option<IObjectId>, majorversion: i32, minorversion: i32) -> ::windows::core::Result<()>;
@@ -12449,6 +12582,7 @@ impl IX509ExtensionTemplate_Vtbl {
         iid == &<IX509ExtensionTemplate as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509ExtensionTemplateName_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -12492,6 +12626,7 @@ impl IX509ExtensionTemplateName_Vtbl {
         iid == &<IX509ExtensionTemplateName as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509Extensions_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509Extension>;
@@ -12588,6 +12723,7 @@ impl IX509Extensions_Vtbl {
         iid == &<IX509Extensions as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509MachineEnrollmentFactory_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn CreateObject(&self, strprogid: &::windows::core::BSTR) -> ::windows::core::Result<IX509EnrollmentHelper>;
@@ -12614,6 +12750,7 @@ impl IX509MachineEnrollmentFactory_Vtbl {
         iid == &<IX509MachineEnrollmentFactory as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509NameValuePair_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, strname: &::windows::core::BSTR, strvalue: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -12663,6 +12800,7 @@ impl IX509NameValuePair_Vtbl {
         iid == &<IX509NameValuePair as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509NameValuePairs_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509NameValuePair>;
@@ -12739,6 +12877,7 @@ impl IX509NameValuePairs_Vtbl {
         iid == &<IX509NameValuePairs as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509PolicyServerListManager_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509PolicyServerUrl>;
@@ -12822,6 +12961,7 @@ impl IX509PolicyServerListManager_Vtbl {
         iid == &<IX509PolicyServerListManager as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509PolicyServerUrl_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()>;
@@ -12979,6 +13119,7 @@ impl IX509PolicyServerUrl_Vtbl {
         iid == &<IX509PolicyServerUrl as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509PrivateKey_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Open(&self) -> ::windows::core::Result<()>;
@@ -13569,6 +13710,7 @@ impl IX509PrivateKey_Vtbl {
         iid == &<IX509PrivateKey as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509PrivateKey2_Impl: Sized + IX509PrivateKey_Impl {
     fn HardwareKeyUsage(&self) -> ::windows::core::Result<X509HardwareKeyUsageFlags>;
@@ -13685,6 +13827,7 @@ impl IX509PrivateKey2_Vtbl {
         iid == &<IX509PrivateKey2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509PrivateKey as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509PublicKey_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pobjectid: &::core::option::Option<IObjectId>, strencodedkey: &::windows::core::BSTR, strencodedparameters: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
@@ -13780,6 +13923,7 @@ impl IX509PublicKey_Vtbl {
         iid == &<IX509PublicKey as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509SCEPEnrollment_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, prequest: &::core::option::Option<IX509CertificateRequestPkcs10>, strthumbprint: &::windows::core::BSTR, thumprintencoding: EncodingType, strservercertificates: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
@@ -14028,6 +14172,7 @@ impl IX509SCEPEnrollment_Vtbl {
         iid == &<IX509SCEPEnrollment as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509SCEPEnrollment2_Impl: Sized + IX509SCEPEnrollment_Impl {
     fn CreateChallengeAnswerMessage(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -14116,6 +14261,7 @@ impl IX509SCEPEnrollment2_Vtbl {
         iid == &<IX509SCEPEnrollment2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509SCEPEnrollment as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509SCEPEnrollmentHelper_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, strserverurl: &::windows::core::BSTR, strrequestheaders: &::windows::core::BSTR, prequest: &::core::option::Option<IX509CertificateRequestPkcs10>, strcacertificatethumbprint: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -14198,6 +14344,7 @@ impl IX509SCEPEnrollmentHelper_Vtbl {
         iid == &<IX509SCEPEnrollmentHelper as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509SignatureInformation_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn HashAlgorithm(&self) -> ::windows::core::Result<IObjectId>;

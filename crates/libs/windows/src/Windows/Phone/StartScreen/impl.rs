@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Phone_StartScreen\"`, `\"UI_Notifications\"`, `\"implement\"`*"]
 #[cfg(feature = "UI_Notifications")]
 pub trait IToastNotificationManagerStatics3_Impl: Sized {
     fn CreateToastNotifierForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
 pub trait IIterable_Impl<T>: Sized
 where
     T: ::windows::core::RuntimeType + 'static,
@@ -31,6 +32,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IIterable_Vtbl<T> {
         iid == &<IIterable<T> as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
 pub trait IIterator_Impl<T>: Sized
 where
     T: ::windows::core::RuntimeType + 'static,
@@ -106,6 +108,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IIterator_Vtbl<T> {
         iid == &<IIterator<T> as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
 pub trait IKeyValuePair_Impl<K, V>: Sized
 where
     K: ::windows::core::RuntimeType + 'static,
@@ -155,6 +158,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         iid == &<IKeyValuePair<K, V> as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
 pub trait IMap_Impl<K, V>: Sized + IIterable_Impl<IKeyValuePair<K, V>>
 where
     K: ::windows::core::RuntimeType + 'static,
@@ -260,6 +264,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         iid == &<IMap<K, V> as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
 pub trait IMapChangedEventArgs_Impl<K>: Sized
 where
     K: ::windows::core::RuntimeType + 'static,
@@ -307,6 +312,7 @@ impl<K: ::windows::core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
         iid == &<IMapChangedEventArgs<K> as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
 pub trait IMapView_Impl<K, V>: Sized + IIterable_Impl<IKeyValuePair<K, V>>
 where
     K: ::windows::core::RuntimeType + 'static,
@@ -377,6 +383,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         iid == &<IMapView<K, V> as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
 pub trait IObservableMap_Impl<K, V>: Sized + IIterable_Impl<IKeyValuePair<K, V>> + IMap_Impl<K, V>
 where
     K: ::windows::core::RuntimeType + 'static,
@@ -419,6 +426,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         iid == &<IObservableMap<K, V> as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
 pub trait IObservableVector_Impl<T>: Sized + IIterable_Impl<T> + IVector_Impl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
@@ -459,6 +467,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
         iid == &<IObservableVector<T> as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
 pub trait IPropertySet_Impl: Sized + IIterable_Impl<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> + IMap_Impl<::windows::core::HSTRING, ::windows::core::IInspectable> + IObservableMap_Impl<::windows::core::HSTRING, ::windows::core::IInspectable> {}
 impl ::windows::core::RuntimeName for IPropertySet {
     const NAME: &'static str = "Windows.Foundation.Collections.IPropertySet";
@@ -471,6 +480,7 @@ impl IPropertySet_Vtbl {
         iid == &<IPropertySet as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
 pub trait IVector_Impl<T>: Sized + IIterable_Impl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
@@ -609,6 +619,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Vtbl<T> {
         iid == &<IVector<T> as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
 pub trait IVectorChangedEventArgs_Impl: Sized {
     fn CollectionChange(&self) -> ::windows::core::Result<CollectionChange>;
     fn Index(&self) -> ::windows::core::Result<u32>;
@@ -652,6 +663,7 @@ impl IVectorChangedEventArgs_Vtbl {
         iid == &<IVectorChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
 pub trait IVectorView_Impl<T>: Sized + IIterable_Impl<T>
 where
     T: ::windows::core::RuntimeType + 'static,

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Security_Tpm\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITpmVirtualSmartCardManager_Impl: Sized {
     fn CreateVirtualSmartCard(&self, pszfriendlyname: &::windows::core::PCWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: &::core::option::Option<ITpmVirtualSmartCardManagerStatusCallback>, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -50,6 +51,7 @@ impl ITpmVirtualSmartCardManager_Vtbl {
         iid == &<ITpmVirtualSmartCardManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Tpm\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITpmVirtualSmartCardManager2_Impl: Sized + ITpmVirtualSmartCardManager_Impl {
     fn CreateVirtualSmartCardWithPinPolicy(&self, pszfriendlyname: &::windows::core::PCWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: &::core::option::Option<ITpmVirtualSmartCardManagerStatusCallback>, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -91,6 +93,7 @@ impl ITpmVirtualSmartCardManager2_Vtbl {
         iid == &<ITpmVirtualSmartCardManager2 as ::windows::core::Interface>::IID || iid == &<ITpmVirtualSmartCardManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Tpm\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITpmVirtualSmartCardManager3_Impl: Sized + ITpmVirtualSmartCardManager2_Impl {
     fn CreateVirtualSmartCardWithAttestation(&self, pszfriendlyname: &::windows::core::PCWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, attestationtype: TPMVSC_ATTESTATION_TYPE, fgenerate: super::super::Foundation::BOOL, pstatuscallback: &::core::option::Option<ITpmVirtualSmartCardManagerStatusCallback>) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -136,6 +139,7 @@ impl ITpmVirtualSmartCardManager3_Vtbl {
         iid == &<ITpmVirtualSmartCardManager3 as ::windows::core::Interface>::IID || iid == &<ITpmVirtualSmartCardManager as ::windows::core::Interface>::IID || iid == &<ITpmVirtualSmartCardManager2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Tpm\"`, `\"implement\"`*"]
 pub trait ITpmVirtualSmartCardManagerStatusCallback_Impl: Sized {
     fn ReportProgress(&self, status: TPMVSCMGR_STATUS) -> ::windows::core::Result<()>;
     fn ReportError(&self, error: TPMVSCMGR_ERROR) -> ::windows::core::Result<()>;

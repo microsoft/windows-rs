@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput2A_Impl: Sized + IDirectInputA_Impl {
     fn FindDevice(&self, param0: *const ::windows::core::GUID, param1: &::windows::core::PCSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -18,6 +19,7 @@ impl IDirectInput2A_Vtbl {
         iid == &<IDirectInput2A as ::windows::core::Interface>::IID || iid == &<IDirectInputA as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput2W_Impl: Sized + IDirectInputW_Impl {
     fn FindDevice(&self, param0: *const ::windows::core::GUID, param1: &::windows::core::PCWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -38,6 +40,7 @@ impl IDirectInput2W_Vtbl {
         iid == &<IDirectInput2W as ::windows::core::Interface>::IID || iid == &<IDirectInputW as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput7A_Impl: Sized + IDirectInput2A_Impl {
     fn CreateDeviceEx(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -58,6 +61,7 @@ impl IDirectInput7A_Vtbl {
         iid == &<IDirectInput7A as ::windows::core::Interface>::IID || iid == &<IDirectInputA as ::windows::core::Interface>::IID || iid == &<IDirectInput2A as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput7W_Impl: Sized + IDirectInput2W_Impl {
     fn CreateDeviceEx(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -78,6 +82,7 @@ impl IDirectInput7W_Vtbl {
         iid == &<IDirectInput7W as ::windows::core::Interface>::IID || iid == &<IDirectInputW as ::windows::core::Interface>::IID || iid == &<IDirectInput2W as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput8A_Impl: Sized {
     fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8A>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -150,6 +155,7 @@ impl IDirectInput8A_Vtbl {
         iid == &<IDirectInput8A as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput8W_Impl: Sized {
     fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8W>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -222,6 +228,7 @@ impl IDirectInput8W_Vtbl {
         iid == &<IDirectInput8W as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputA_Impl: Sized {
     fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -273,6 +280,7 @@ impl IDirectInputA_Vtbl {
         iid == &<IDirectInputA as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDevice2A_Impl: Sized + IDirectInputDeviceA_Impl {
     fn CreateEffect(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -352,6 +360,7 @@ impl IDirectInputDevice2A_Vtbl {
         iid == &<IDirectInputDevice2A as ::windows::core::Interface>::IID || iid == &<IDirectInputDeviceA as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDevice2W_Impl: Sized + IDirectInputDeviceW_Impl {
     fn CreateEffect(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -431,6 +440,7 @@ impl IDirectInputDevice2W_Vtbl {
         iid == &<IDirectInputDevice2W as ::windows::core::Interface>::IID || iid == &<IDirectInputDeviceW as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDevice7A_Impl: Sized + IDirectInputDevice2A_Impl {
     fn EnumEffectsInFile(&self, param0: &::windows::core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
@@ -461,6 +471,7 @@ impl IDirectInputDevice7A_Vtbl {
         iid == &<IDirectInputDevice7A as ::windows::core::Interface>::IID || iid == &<IDirectInputDeviceA as ::windows::core::Interface>::IID || iid == &<IDirectInputDevice2A as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDevice7W_Impl: Sized + IDirectInputDevice2W_Impl {
     fn EnumEffectsInFile(&self, param0: &::windows::core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
@@ -491,6 +502,7 @@ impl IDirectInputDevice7W_Vtbl {
         iid == &<IDirectInputDevice7W as ::windows::core::Interface>::IID || iid == &<IDirectInputDeviceW as ::windows::core::Interface>::IID || iid == &<IDirectInputDevice2W as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDevice8A_Impl: Sized {
     fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()>;
@@ -710,6 +722,7 @@ impl IDirectInputDevice8A_Vtbl {
         iid == &<IDirectInputDevice8A as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDevice8W_Impl: Sized {
     fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()>;
@@ -929,6 +942,7 @@ impl IDirectInputDevice8W_Vtbl {
         iid == &<IDirectInputDevice8W as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDeviceA_Impl: Sized {
     fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()>;
@@ -1050,6 +1064,7 @@ impl IDirectInputDeviceA_Vtbl {
         iid == &<IDirectInputDeviceA as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDeviceW_Impl: Sized {
     fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()>;
@@ -1171,6 +1186,7 @@ impl IDirectInputDeviceW_Vtbl {
         iid == &<IDirectInputDeviceW as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputEffect_Impl: Sized {
     fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -1257,6 +1273,7 @@ impl IDirectInputEffect_Vtbl {
         iid == &<IDirectInputEffect as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"implement\"`*"]
 pub trait IDirectInputEffectDriver_Impl: Sized {
     fn DeviceID(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetVersions(&self, param0: *mut DIDRIVERVERSIONS) -> ::windows::core::Result<()>;
@@ -1347,6 +1364,7 @@ impl IDirectInputEffectDriver_Vtbl {
         iid == &<IDirectInputEffectDriver as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub trait IDirectInputJoyConfig_Impl: Sized {
     fn Acquire(&self) -> ::windows::core::Result<()>;
@@ -1475,6 +1493,7 @@ impl IDirectInputJoyConfig_Vtbl {
         iid == &<IDirectInputJoyConfig as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub trait IDirectInputJoyConfig8_Impl: Sized {
     fn Acquire(&self) -> ::windows::core::Result<()>;
@@ -1603,6 +1622,7 @@ impl IDirectInputJoyConfig8_Vtbl {
         iid == &<IDirectInputJoyConfig8 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputW_Impl: Sized {
     fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;

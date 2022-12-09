@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPhotoAcquire_Impl: Sized {
     fn CreatePhotoSource(&self, pszdevice: &::windows::core::PCWSTR) -> ::windows::core::Result<IPhotoAcquireSource>;
@@ -47,6 +48,7 @@ impl IPhotoAcquire_Vtbl {
         iid == &<IPhotoAcquire as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPhotoAcquireDeviceSelectionDialog_Impl: Sized {
     fn SetTitle(&self, psztitle: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -84,6 +86,7 @@ impl IPhotoAcquireDeviceSelectionDialog_Vtbl {
         iid == &<IPhotoAcquireDeviceSelectionDialog as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IPhotoAcquireItem_Impl: Sized {
     fn GetItemName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -205,6 +208,7 @@ impl IPhotoAcquireItem_Vtbl {
         iid == &<IPhotoAcquireItem as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPhotoAcquireOptionsDialog_Impl: Sized {
     fn Initialize(&self, pszregistryroot: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -262,6 +266,7 @@ impl IPhotoAcquireOptionsDialog_Vtbl {
         iid == &<IPhotoAcquireOptionsDialog as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IPhotoAcquirePlugin_Impl: Sized {
     fn Initialize(&self, pphotoacquiresource: &::core::option::Option<IPhotoAcquireSource>, pphotoacquireprogresscb: &::core::option::Option<IPhotoAcquireProgressCB>) -> ::windows::core::Result<()>;
@@ -306,6 +311,7 @@ impl IPhotoAcquirePlugin_Vtbl {
         iid == &<IPhotoAcquirePlugin as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPhotoAcquireProgressCB_Impl: Sized {
     fn Cancelled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -473,6 +479,7 @@ impl IPhotoAcquireProgressCB_Vtbl {
         iid == &<IPhotoAcquireProgressCB as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPhotoAcquireSettings_Impl: Sized {
     fn InitializeFromRegistry(&self, pszregistrykey: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -616,6 +623,7 @@ impl IPhotoAcquireSettings_Vtbl {
         iid == &<IPhotoAcquireSettings as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IPhotoAcquireSource_Impl: Sized {
     fn GetFriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -718,6 +726,7 @@ impl IPhotoAcquireSource_Vtbl {
         iid == &<IPhotoAcquireSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPhotoProgressActionCB_Impl: Sized {
     fn DoAction(&self, hwndparent: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
@@ -738,6 +747,7 @@ impl IPhotoProgressActionCB_Vtbl {
         iid == &<IPhotoProgressActionCB as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IPhotoProgressDialog_Impl: Sized {
     fn Create(&self, hwndparent: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
@@ -898,6 +908,7 @@ impl IPhotoProgressDialog_Vtbl {
         iid == &<IPhotoProgressDialog as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IUserInputString_Impl: Sized {
     fn GetSubmitButtonText(&self) -> ::windows::core::Result<::windows::core::BSTR>;

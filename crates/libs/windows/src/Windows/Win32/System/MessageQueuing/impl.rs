@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQApplication_Impl: Sized + super::Com::IDispatch_Impl {
     fn MachineIdOfMachineName(&self, machinename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -24,6 +25,7 @@ impl IMSMQApplication_Vtbl {
         iid == &<IMSMQApplication as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQApplication2_Impl: Sized + IMSMQApplication_Impl {
     fn RegisterCertificate(&self, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -125,6 +127,7 @@ impl IMSMQApplication2_Vtbl {
         iid == &<IMSMQApplication2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQApplication as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQApplication3_Impl: Sized + IMSMQApplication2_Impl {
     fn ActiveQueues(&self) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -247,6 +250,7 @@ impl IMSMQApplication3_Vtbl {
         iid == &<IMSMQApplication3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQApplication as ::windows::core::Interface>::IID || iid == &<IMSMQApplication2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Item(&self, index: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -302,6 +306,7 @@ impl IMSMQCollection_Vtbl {
         iid == &<IMSMQCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQCoordinatedTransactionDispenser_Impl: Sized + super::Com::IDispatch_Impl {
     fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction>;
@@ -328,6 +333,7 @@ impl IMSMQCoordinatedTransactionDispenser_Vtbl {
         iid == &<IMSMQCoordinatedTransactionDispenser as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQCoordinatedTransactionDispenser2_Impl: Sized + super::Com::IDispatch_Impl {
     fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction2>;
@@ -370,6 +376,7 @@ impl IMSMQCoordinatedTransactionDispenser2_Vtbl {
         iid == &<IMSMQCoordinatedTransactionDispenser2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQCoordinatedTransactionDispenser3_Impl: Sized + super::Com::IDispatch_Impl {
     fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction3>;
@@ -412,6 +419,7 @@ impl IMSMQCoordinatedTransactionDispenser3_Vtbl {
         iid == &<IMSMQCoordinatedTransactionDispenser3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQDestination_Impl: Sized + super::Com::IDispatch_Impl {
     fn Open(&self) -> ::windows::core::Result<()>;
@@ -568,6 +576,7 @@ impl IMSMQDestination_Vtbl {
         iid == &<IMSMQDestination as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQEvent_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -581,6 +590,7 @@ impl IMSMQEvent_Vtbl {
         iid == &<IMSMQEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQEvent2_Impl: Sized + IMSMQEvent_Impl {
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
@@ -607,6 +617,7 @@ impl IMSMQEvent2_Vtbl {
         iid == &<IMSMQEvent2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQEvent as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQEvent3_Impl: Sized + IMSMQEvent2_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -620,6 +631,7 @@ impl IMSMQEvent3_Vtbl {
         iid == &<IMSMQEvent3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQEvent as ::windows::core::Interface>::IID || iid == &<IMSMQEvent2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQManagement_Impl: Sized + super::Com::IDispatch_Impl {
     fn Init(&self, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -747,6 +759,7 @@ impl IMSMQManagement_Vtbl {
         iid == &<IMSMQManagement as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQMessage_Impl: Sized + super::Com::IDispatch_Impl {
     fn Class(&self) -> ::windows::core::Result<i32>;
@@ -1274,6 +1287,7 @@ impl IMSMQMessage_Vtbl {
         iid == &<IMSMQMessage as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQMessage2_Impl: Sized + super::Com::IDispatch_Impl {
     fn Class(&self) -> ::windows::core::Result<i32>;
@@ -2079,6 +2093,7 @@ impl IMSMQMessage2_Vtbl {
         iid == &<IMSMQMessage2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQMessage3_Impl: Sized + super::Com::IDispatch_Impl {
     fn Class(&self) -> ::windows::core::Result<i32>;
@@ -3056,6 +3071,7 @@ impl IMSMQMessage3_Vtbl {
         iid == &<IMSMQMessage3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQMessage4_Impl: Sized + super::Com::IDispatch_Impl {
     fn Class(&self) -> ::windows::core::Result<i32>;
@@ -4033,6 +4049,7 @@ impl IMSMQMessage4_Vtbl {
         iid == &<IMSMQMessage4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQOutgoingQueueManagement_Impl: Sized + IMSMQManagement_Impl {
     fn State(&self) -> ::windows::core::Result<i32>;
@@ -4109,6 +4126,7 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
         iid == &<IMSMQOutgoingQueueManagement as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQManagement as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQPrivateDestination_Impl: Sized + super::Com::IDispatch_Impl {
     fn Handle(&self) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -4145,6 +4163,7 @@ impl IMSMQPrivateDestination_Vtbl {
         iid == &<IMSMQPrivateDestination as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQPrivateEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Hwnd(&self) -> ::windows::core::Result<i32>;
@@ -4188,6 +4207,7 @@ impl IMSMQPrivateEvent_Vtbl {
         iid == &<IMSMQPrivateEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQuery_Impl: Sized + super::Com::IDispatch_Impl {
     fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos>;
@@ -4214,6 +4234,7 @@ impl IMSMQQuery_Vtbl {
         iid == &<IMSMQQuery as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQuery2_Impl: Sized + super::Com::IDispatch_Impl {
     fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos2>;
@@ -4256,6 +4277,7 @@ impl IMSMQQuery2_Vtbl {
         iid == &<IMSMQQuery2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQuery3_Impl: Sized + super::Com::IDispatch_Impl {
     fn LookupQueue_v2(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos3>;
@@ -4323,6 +4345,7 @@ impl IMSMQQuery3_Vtbl {
         iid == &<IMSMQQuery3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQuery4_Impl: Sized + super::Com::IDispatch_Impl {
     fn LookupQueue_v2(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos4>;
@@ -4390,6 +4413,7 @@ impl IMSMQQuery4_Vtbl {
         iid == &<IMSMQQuery4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueue_Impl: Sized + super::Com::IDispatch_Impl {
     fn Access(&self) -> ::windows::core::Result<i32>;
@@ -4557,6 +4581,7 @@ impl IMSMQQueue_Vtbl {
         iid == &<IMSMQQueue as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueue2_Impl: Sized + super::Com::IDispatch_Impl {
     fn Access(&self) -> ::windows::core::Result<i32>;
@@ -4802,6 +4827,7 @@ impl IMSMQQueue2_Vtbl {
         iid == &<IMSMQQueue2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueue3_Impl: Sized + super::Com::IDispatch_Impl {
     fn Access(&self) -> ::windows::core::Result<i32>;
@@ -5210,6 +5236,7 @@ impl IMSMQQueue3_Vtbl {
         iid == &<IMSMQQueue3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueue4_Impl: Sized + super::Com::IDispatch_Impl {
     fn Access(&self) -> ::windows::core::Result<i32>;
@@ -5631,6 +5658,7 @@ impl IMSMQQueue4_Vtbl {
         iid == &<IMSMQQueue4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn QueueGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5953,6 +5981,7 @@ impl IMSMQQueueInfo_Vtbl {
         iid == &<IMSMQQueueInfo as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfo2_Impl: Sized + super::Com::IDispatch_Impl {
     fn QueueGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -6321,6 +6350,7 @@ impl IMSMQQueueInfo2_Vtbl {
         iid == &<IMSMQQueueInfo2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfo3_Impl: Sized + super::Com::IDispatch_Impl {
     fn QueueGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -6748,6 +6778,7 @@ impl IMSMQQueueInfo3_Vtbl {
         iid == &<IMSMQQueueInfo3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfo4_Impl: Sized + super::Com::IDispatch_Impl {
     fn QueueGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -7175,6 +7206,7 @@ impl IMSMQQueueInfo4_Vtbl {
         iid == &<IMSMQQueueInfo4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfos_Impl: Sized + super::Com::IDispatch_Impl {
     fn Reset(&self) -> ::windows::core::Result<()>;
@@ -7211,6 +7243,7 @@ impl IMSMQQueueInfos_Vtbl {
         iid == &<IMSMQQueueInfos as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfos2_Impl: Sized + super::Com::IDispatch_Impl {
     fn Reset(&self) -> ::windows::core::Result<()>;
@@ -7260,6 +7293,7 @@ impl IMSMQQueueInfos2_Vtbl {
         iid == &<IMSMQQueueInfos2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfos3_Impl: Sized + super::Com::IDispatch_Impl {
     fn Reset(&self) -> ::windows::core::Result<()>;
@@ -7309,6 +7343,7 @@ impl IMSMQQueueInfos3_Vtbl {
         iid == &<IMSMQQueueInfos3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfos4_Impl: Sized + super::Com::IDispatch_Impl {
     fn Reset(&self) -> ::windows::core::Result<()>;
@@ -7358,6 +7393,7 @@ impl IMSMQQueueInfos4_Vtbl {
         iid == &<IMSMQQueueInfos4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueManagement_Impl: Sized + IMSMQManagement_Impl {
     fn JournalMessageCount(&self) -> ::windows::core::Result<i32>;
@@ -7413,6 +7449,7 @@ impl IMSMQQueueManagement_Vtbl {
         iid == &<IMSMQQueueManagement as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQManagement as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQTransaction_Impl: Sized + super::Com::IDispatch_Impl {
     fn Transaction(&self) -> ::windows::core::Result<i32>;
@@ -7456,6 +7493,7 @@ impl IMSMQTransaction_Vtbl {
         iid == &<IMSMQTransaction as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQTransaction2_Impl: Sized + IMSMQTransaction_Impl {
     fn InitNew(&self, vartransaction: &super::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -7492,6 +7530,7 @@ impl IMSMQTransaction2_Vtbl {
         iid == &<IMSMQTransaction2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQTransaction as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQTransaction3_Impl: Sized + IMSMQTransaction2_Impl {
     fn ITransaction(&self) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -7518,6 +7557,7 @@ impl IMSMQTransaction3_Vtbl {
         iid == &<IMSMQTransaction3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQTransaction as ::windows::core::Interface>::IID || iid == &<IMSMQTransaction2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQTransactionDispenser_Impl: Sized + super::Com::IDispatch_Impl {
     fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction>;
@@ -7544,6 +7584,7 @@ impl IMSMQTransactionDispenser_Vtbl {
         iid == &<IMSMQTransactionDispenser as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQTransactionDispenser2_Impl: Sized + super::Com::IDispatch_Impl {
     fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction2>;
@@ -7586,6 +7627,7 @@ impl IMSMQTransactionDispenser2_Vtbl {
         iid == &<IMSMQTransactionDispenser2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQTransactionDispenser3_Impl: Sized + super::Com::IDispatch_Impl {
     fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction3>;
@@ -7628,6 +7670,7 @@ impl IMSMQTransactionDispenser3_Vtbl {
         iid == &<IMSMQTransactionDispenser3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _DMSMQEventEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

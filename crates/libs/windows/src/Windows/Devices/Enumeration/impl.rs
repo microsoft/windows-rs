@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Devices_Enumeration\"`, `\"implement\"`*"]
 pub trait IDevicePairingSettings_Impl: Sized {}
 impl ::windows::core::RuntimeName for IDevicePairingSettings {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDevicePairingSettings";

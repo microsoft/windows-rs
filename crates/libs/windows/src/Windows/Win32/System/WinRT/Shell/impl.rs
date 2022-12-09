@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`, `\"Win32_UI_Shell\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_UI_Shell")]
 pub trait IDDEInitializer_Impl: Sized {
     fn Initialize(&self, fileextensionorprotocol: &::windows::core::PCWSTR, method: CreateProcessMethod, currentdirectory: &::windows::core::PCWSTR, exectarget: &::core::option::Option<super::super::super::UI::Shell::IShellItem>, site: &::core::option::Option<::windows::core::IUnknown>, application: &::windows::core::PCWSTR, targetfile: &::windows::core::PCWSTR, arguments: &::windows::core::PCWSTR, verb: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;

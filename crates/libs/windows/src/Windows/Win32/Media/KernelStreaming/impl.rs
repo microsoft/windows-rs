@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
 pub trait IKsAggregateControl_Impl: Sized {
     fn KsAddAggregate(&self, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn KsRemoveAggregate(&self, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -25,6 +26,7 @@ impl IKsAggregateControl_Vtbl {
         iid == &<IKsAggregateControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
 pub trait IKsControl_Impl: Sized {
     fn KsProperty(&self, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()>;
     fn KsMethod(&self, method: *const KSIDENTIFIER, methodlength: u32, methoddata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()>;
@@ -59,6 +61,7 @@ impl IKsControl_Vtbl {
         iid == &<IKsControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IKsFormatSupport_Impl: Sized {
     fn IsFormatSupported(&self, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -95,6 +98,7 @@ impl IKsFormatSupport_Vtbl {
         iid == &<IKsFormatSupport as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
 pub trait IKsJackContainerId_Impl: Sized {
     fn GetJackContainerId(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
@@ -118,6 +122,7 @@ impl IKsJackContainerId_Vtbl {
         iid == &<IKsJackContainerId as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IKsJackDescription_Impl: Sized {
     fn GetJackCount(&self) -> ::windows::core::Result<u32>;
@@ -160,6 +165,7 @@ impl IKsJackDescription_Vtbl {
         iid == &<IKsJackDescription as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
 pub trait IKsJackDescription2_Impl: Sized {
     fn GetJackCount(&self) -> ::windows::core::Result<u32>;
     fn GetJackDescription2(&self, njack: u32) -> ::windows::core::Result<KSJACK_DESCRIPTION2>;
@@ -199,6 +205,7 @@ impl IKsJackDescription2_Vtbl {
         iid == &<IKsJackDescription2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IKsJackSinkInformation_Impl: Sized {
     fn GetJackSinkInformation(&self) -> ::windows::core::Result<KSJACK_SINK_INFORMATION>;
@@ -225,6 +232,7 @@ impl IKsJackSinkInformation_Vtbl {
         iid == &<IKsJackSinkInformation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
 pub trait IKsPropertySet_Impl: Sized {
     fn Set(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::Result<()>;
     fn Get(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()>;
@@ -265,6 +273,7 @@ impl IKsPropertySet_Vtbl {
         iid == &<IKsPropertySet as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
 pub trait IKsTopology_Impl: Sized {
     fn CreateNodeInstance(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: &::core::option::Option<::windows::core::IUnknown>, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub trait IOpcCertificateEnumerator_Impl: Sized {
     fn MoveNext(&self, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -48,6 +49,7 @@ impl IOpcCertificateEnumerator_Vtbl {
         iid == &<IOpcCertificateEnumerator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub trait IOpcCertificateSet_Impl: Sized {
     fn Add(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<()>;
@@ -91,6 +93,7 @@ impl IOpcCertificateSet_Vtbl {
         iid == &<IOpcCertificateSet as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOpcDigitalSignature_Impl: Sized {
     fn GetNamespaces(&self, prefixes: *mut *mut ::windows::core::PWSTR, namespaces: *mut *mut ::windows::core::PWSTR, count: *mut u32) -> ::windows::core::Result<()>;
@@ -272,6 +275,7 @@ impl IOpcDigitalSignature_Vtbl {
         iid == &<IOpcDigitalSignature as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOpcDigitalSignatureEnumerator_Impl: Sized {
     fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
@@ -340,6 +344,7 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
         iid == &<IOpcDigitalSignatureEnumerator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_System_Com"))]
 pub trait IOpcDigitalSignatureManager_Impl: Sized {
     fn GetSignatureOriginPartName(&self) -> ::windows::core::Result<IOpcPartUri>;
@@ -442,6 +447,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
         iid == &<IOpcDigitalSignatureManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com"))]
 pub trait IOpcFactory_Impl: Sized {
     fn CreatePackageRootUri(&self) -> ::windows::core::Result<IOpcUri>;
@@ -543,6 +549,7 @@ impl IOpcFactory_Vtbl {
         iid == &<IOpcFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"implement\"`*"]
 pub trait IOpcPackage_Impl: Sized {
     fn GetPartSet(&self) -> ::windows::core::Result<IOpcPartSet>;
     fn GetRelationshipSet(&self) -> ::windows::core::Result<IOpcRelationshipSet>;
@@ -582,6 +589,7 @@ impl IOpcPackage_Vtbl {
         iid == &<IOpcPackage as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOpcPart_Impl: Sized {
     fn GetRelationshipSet(&self) -> ::windows::core::Result<IOpcRelationshipSet>;
@@ -663,6 +671,7 @@ impl IOpcPart_Vtbl {
         iid == &<IOpcPart as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOpcPartEnumerator_Impl: Sized {
     fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
@@ -731,6 +740,7 @@ impl IOpcPartEnumerator_Vtbl {
         iid == &<IOpcPartEnumerator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IOpcPartSet_Impl: Sized {
     fn GetPart(&self, name: &::core::option::Option<IOpcPartUri>) -> ::windows::core::Result<IOpcPart>;
@@ -806,6 +816,7 @@ impl IOpcPartSet_Vtbl {
         iid == &<IOpcPartSet as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IOpcPartUri_Impl: Sized + IOpcUri_Impl {
     fn ComparePartUri(&self, parturi: &::core::option::Option<IOpcPartUri>) -> ::windows::core::Result<i32>;
@@ -861,6 +872,7 @@ impl IOpcPartUri_Vtbl {
         iid == &<IOpcPartUri as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IUri as ::windows::core::Interface>::IID || iid == &<IOpcUri as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOpcRelationship_Impl: Sized {
     fn GetId(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -942,6 +954,7 @@ impl IOpcRelationship_Vtbl {
         iid == &<IOpcRelationship as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOpcRelationshipEnumerator_Impl: Sized {
     fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
@@ -1010,6 +1023,7 @@ impl IOpcRelationshipEnumerator_Vtbl {
         iid == &<IOpcRelationshipEnumerator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"implement\"`*"]
 pub trait IOpcRelationshipSelector_Impl: Sized {
     fn GetSelectorType(&self) -> ::windows::core::Result<OPC_RELATIONSHIP_SELECTOR>;
     fn GetSelectionCriterion(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -1049,6 +1063,7 @@ impl IOpcRelationshipSelector_Vtbl {
         iid == &<IOpcRelationshipSelector as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOpcRelationshipSelectorEnumerator_Impl: Sized {
     fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
@@ -1117,6 +1132,7 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
         iid == &<IOpcRelationshipSelectorEnumerator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"implement\"`*"]
 pub trait IOpcRelationshipSelectorSet_Impl: Sized {
     fn Create(&self, selector: OPC_RELATIONSHIP_SELECTOR, selectioncriterion: &::windows::core::PCWSTR) -> ::windows::core::Result<IOpcRelationshipSelector>;
     fn Delete(&self, relationshipselector: &::core::option::Option<IOpcRelationshipSelector>) -> ::windows::core::Result<()>;
@@ -1163,6 +1179,7 @@ impl IOpcRelationshipSelectorSet_Vtbl {
         iid == &<IOpcRelationshipSelectorSet as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IOpcRelationshipSet_Impl: Sized {
     fn GetRelationship(&self, relationshipidentifier: &::windows::core::PCWSTR) -> ::windows::core::Result<IOpcRelationship>;
@@ -1264,6 +1281,7 @@ impl IOpcRelationshipSet_Vtbl {
         iid == &<IOpcRelationshipSet as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"implement\"`*"]
 pub trait IOpcSignatureCustomObject_Impl: Sized {
     fn GetXml(&self, xmlmarkup: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()>;
 }
@@ -1281,6 +1299,7 @@ impl IOpcSignatureCustomObject_Vtbl {
         iid == &<IOpcSignatureCustomObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOpcSignatureCustomObjectEnumerator_Impl: Sized {
     fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
@@ -1349,6 +1368,7 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
         iid == &<IOpcSignatureCustomObjectEnumerator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"implement\"`*"]
 pub trait IOpcSignatureCustomObjectSet_Impl: Sized {
     fn Create(&self, xmlmarkup: *const u8, count: u32) -> ::windows::core::Result<IOpcSignatureCustomObject>;
     fn Delete(&self, customobject: &::core::option::Option<IOpcSignatureCustomObject>) -> ::windows::core::Result<()>;
@@ -1395,6 +1415,7 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
         iid == &<IOpcSignatureCustomObjectSet as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOpcSignaturePartReference_Impl: Sized {
     fn GetPartName(&self) -> ::windows::core::Result<IOpcPartUri>;
@@ -1470,6 +1491,7 @@ impl IOpcSignaturePartReference_Vtbl {
         iid == &<IOpcSignaturePartReference as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOpcSignaturePartReferenceEnumerator_Impl: Sized {
     fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
@@ -1538,6 +1560,7 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
         iid == &<IOpcSignaturePartReferenceEnumerator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOpcSignaturePartReferenceSet_Impl: Sized {
     fn Create(&self, parturi: &::core::option::Option<IOpcPartUri>, digestmethod: &::windows::core::PCWSTR, transformmethod: OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<IOpcSignaturePartReference>;
@@ -1587,6 +1610,7 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
         iid == &<IOpcSignaturePartReferenceSet as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOpcSignatureReference_Impl: Sized {
     fn GetId(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -1675,6 +1699,7 @@ impl IOpcSignatureReference_Vtbl {
         iid == &<IOpcSignatureReference as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOpcSignatureReferenceEnumerator_Impl: Sized {
     fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
@@ -1743,6 +1768,7 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
         iid == &<IOpcSignatureReferenceEnumerator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOpcSignatureReferenceSet_Impl: Sized {
     fn Create(&self, referenceuri: &::core::option::Option<super::super::super::System::Com::IUri>, referenceid: &::windows::core::PCWSTR, r#type: &::windows::core::PCWSTR, digestmethod: &::windows::core::PCWSTR, transformmethod: OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<IOpcSignatureReference>;
@@ -1792,6 +1818,7 @@ impl IOpcSignatureReferenceSet_Vtbl {
         iid == &<IOpcSignatureReferenceSet as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOpcSignatureRelationshipReference_Impl: Sized {
     fn GetSourceUri(&self) -> ::windows::core::Result<IOpcUri>;
@@ -1880,6 +1907,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
         iid == &<IOpcSignatureRelationshipReference as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOpcSignatureRelationshipReferenceEnumerator_Impl: Sized {
     fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
@@ -1948,6 +1976,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
         iid == &<IOpcSignatureRelationshipReferenceEnumerator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOpcSignatureRelationshipReferenceSet_Impl: Sized {
     fn Create(&self, sourceuri: &::core::option::Option<IOpcUri>, digestmethod: &::windows::core::PCWSTR, relationshipsigningoption: OPC_RELATIONSHIPS_SIGNING_OPTION, selectorset: &::core::option::Option<IOpcRelationshipSelectorSet>, transformmethod: OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<IOpcSignatureRelationshipReference>;
@@ -2010,6 +2039,7 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
         iid == &<IOpcSignatureRelationshipReferenceSet as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOpcSigningOptions_Impl: Sized {
     fn GetSignatureId(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -2211,6 +2241,7 @@ impl IOpcSigningOptions_Vtbl {
         iid == &<IOpcSigningOptions as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IOpcUri_Impl: Sized + super::super::super::System::Com::IUri_Impl {
     fn GetRelationshipsPartUri(&self) -> ::windows::core::Result<IOpcPartUri>;

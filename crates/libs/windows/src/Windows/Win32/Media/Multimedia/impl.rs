@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAVIEditStream_Impl: Sized {
     fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()>;
@@ -55,6 +56,7 @@ impl IAVIEditStream_Vtbl {
         iid == &<IAVIEditStream as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAVIFile_Impl: Sized {
     fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::Result<()>;
@@ -120,6 +122,7 @@ impl IAVIFile_Vtbl {
         iid == &<IAVIFile as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAVIPersistFile_Impl: Sized + super::super::System::Com::IPersistFile_Impl {
     fn Reserved1(&self) -> ::windows::core::Result<()>;
@@ -140,6 +143,7 @@ impl IAVIPersistFile_Vtbl {
         iid == &<IAVIPersistFile as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersistFile as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAVIStream_Impl: Sized {
     fn Create(&self, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
@@ -233,6 +237,7 @@ impl IAVIStream_Vtbl {
         iid == &<IAVIStream as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"implement\"`*"]
 pub trait IAVIStreaming_Impl: Sized {
     fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::Result<()>;
     fn End(&self) -> ::windows::core::Result<()>;
@@ -256,6 +261,7 @@ impl IAVIStreaming_Vtbl {
         iid == &<IAVIStreaming as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IGetFrame_Impl: Sized {
     fn GetFrame(&self, lpos: i32) -> *mut ::core::ffi::c_void;

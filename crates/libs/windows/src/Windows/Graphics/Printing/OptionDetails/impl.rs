@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"implement\"`*"]
 pub trait IPrintCustomOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
     fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -34,6 +35,7 @@ impl IPrintCustomOptionDetails_Vtbl {
         iid == &<IPrintCustomOptionDetails as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPrintItemListOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
     fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>;
@@ -63,6 +65,7 @@ impl IPrintItemListOptionDetails_Vtbl {
         iid == &<IPrintItemListOptionDetails as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"implement\"`*"]
 pub trait IPrintNumberOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
     fn MinValue(&self) -> ::windows::core::Result<u32>;
     fn MaxValue(&self) -> ::windows::core::Result<u32>;
@@ -106,6 +109,7 @@ impl IPrintNumberOptionDetails_Vtbl {
         iid == &<IPrintNumberOptionDetails as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"implement\"`*"]
 pub trait IPrintOptionDetails_Impl: Sized {
     fn OptionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn OptionType(&self) -> ::windows::core::Result<PrintOptionType>;
@@ -219,6 +223,7 @@ impl IPrintOptionDetails_Vtbl {
         iid == &<IPrintOptionDetails as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"implement\"`*"]
 pub trait IPrintTextOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
     fn MaxCharacters(&self) -> ::windows::core::Result<u32>;
 }

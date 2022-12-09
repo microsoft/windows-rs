@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDynamicRenderer_Impl: Sized {
     fn Enabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -155,6 +156,7 @@ impl IDynamicRenderer_Vtbl {
         iid == &<IDynamicRenderer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGestureRecognizer_Impl: Sized {
     fn Enabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -225,6 +227,7 @@ impl IGestureRecognizer_Vtbl {
         iid == &<IGestureRecognizer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IHandwrittenTextInsertion_Impl: Sized {
     fn InsertRecognitionResultsArray(&self, psaalternates: *const super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -255,6 +258,7 @@ impl IHandwrittenTextInsertion_Vtbl {
         iid == &<IHandwrittenTextInsertion as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInk_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -268,6 +272,7 @@ impl IInk_Vtbl {
         iid == &<IInk as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkCollector_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn hWnd(&self) -> ::windows::core::Result<isize>;
@@ -678,6 +683,7 @@ impl IInkCollector_Vtbl {
         iid == &<IInkCollector as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkCursor_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -779,6 +785,7 @@ impl IInkCursor_Vtbl {
         iid == &<IInkCursor as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkCursorButton_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -834,6 +841,7 @@ impl IInkCursorButton_Vtbl {
         iid == &<IInkCursorButton as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkCursorButtons_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -889,6 +897,7 @@ impl IInkCursorButtons_Vtbl {
         iid == &<IInkCursorButtons as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkCursors_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -944,6 +953,7 @@ impl IInkCursors_Vtbl {
         iid == &<IInkCursors as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkCustomStrokes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -1020,6 +1030,7 @@ impl IInkCustomStrokes_Vtbl {
         iid == &<IInkCustomStrokes as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkDisp_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Strokes(&self) -> ::windows::core::Result<IInkStrokes>;
@@ -1313,6 +1324,7 @@ impl IInkDisp_Vtbl {
         iid == &<IInkDisp as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkDivider_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Strokes(&self) -> ::windows::core::Result<IInkStrokes>;
@@ -1402,6 +1414,7 @@ impl IInkDivider_Vtbl {
         iid == &<IInkDivider as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkDivisionResult_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Strokes(&self) -> ::windows::core::Result<IInkStrokes>;
@@ -1444,6 +1457,7 @@ impl IInkDivisionResult_Vtbl {
         iid == &<IInkDivisionResult as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkDivisionUnit_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Strokes(&self) -> ::windows::core::Result<IInkStrokes>;
@@ -1512,6 +1526,7 @@ impl IInkDivisionUnit_Vtbl {
         iid == &<IInkDivisionUnit as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkDivisionUnits_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -1567,6 +1582,7 @@ impl IInkDivisionUnits_Vtbl {
         iid == &<IInkDivisionUnits as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkDrawingAttributes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Color(&self) -> ::windows::core::Result<i32>;
@@ -1789,6 +1805,7 @@ impl IInkDrawingAttributes_Vtbl {
         iid == &<IInkDrawingAttributes as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkEdit_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Status(&self) -> ::windows::core::Result<InkEditStatus>;
@@ -2572,6 +2589,7 @@ impl IInkEdit_Vtbl {
         iid == &<IInkEdit as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkExtendedProperties_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -2667,6 +2685,7 @@ impl IInkExtendedProperties_Vtbl {
         iid == &<IInkExtendedProperties as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkExtendedProperty_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Guid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2716,6 +2735,7 @@ impl IInkExtendedProperty_Vtbl {
         iid == &<IInkExtendedProperty as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkGesture_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Confidence(&self) -> ::windows::core::Result<InkRecognitionConfidence>;
@@ -2765,6 +2785,7 @@ impl IInkGesture_Vtbl {
         iid == &<IInkGesture as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInkLineInfo_Impl: Sized {
     fn SetFormat(&self, pim: *const INKMETRIC) -> ::windows::core::Result<()>;
@@ -2823,6 +2844,7 @@ impl IInkLineInfo_Vtbl {
         iid == &<IInkLineInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkOverlay_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn hWnd(&self) -> ::windows::core::Result<isize>;
@@ -3373,6 +3395,7 @@ impl IInkOverlay_Vtbl {
         iid == &<IInkOverlay as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkPicture_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn hWnd(&self) -> ::windows::core::Result<isize>;
@@ -3976,6 +3999,7 @@ impl IInkPicture_Vtbl {
         iid == &<IInkPicture as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRecognitionAlternate_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn String(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4175,6 +4199,7 @@ impl IInkRecognitionAlternate_Vtbl {
         iid == &<IInkRecognitionAlternate as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRecognitionAlternates_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -4243,6 +4268,7 @@ impl IInkRecognitionAlternates_Vtbl {
         iid == &<IInkRecognitionAlternates as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRecognitionResult_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TopString(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4338,6 +4364,7 @@ impl IInkRecognitionResult_Vtbl {
         iid == &<IInkRecognitionResult as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRecognizer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4445,6 +4472,7 @@ impl IInkRecognizer_Vtbl {
         iid == &<IInkRecognizer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRecognizer2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Id(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4487,6 +4515,7 @@ impl IInkRecognizer2_Vtbl {
         iid == &<IInkRecognizer2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRecognizerContext_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Strokes(&self) -> ::windows::core::Result<IInkStrokes>;
@@ -4737,6 +4766,7 @@ impl IInkRecognizerContext_Vtbl {
         iid == &<IInkRecognizerContext as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRecognizerContext2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnabledUnicodeRanges(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -4773,6 +4803,7 @@ impl IInkRecognizerContext2_Vtbl {
         iid == &<IInkRecognizerContext2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRecognizerGuide_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn WritingBox(&self) -> ::windows::core::Result<IInkRectangle>;
@@ -4909,6 +4940,7 @@ impl IInkRecognizerGuide_Vtbl {
         iid == &<IInkRecognizerGuide as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRecognizers_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -4977,6 +5009,7 @@ impl IInkRecognizers_Vtbl {
         iid == &<IInkRecognizers as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRectangle_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Top(&self) -> ::windows::core::Result<i32>;
@@ -5107,6 +5140,7 @@ impl IInkRectangle_Vtbl {
         iid == &<IInkRectangle as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRenderer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetViewTransform(&self, viewtransform: &::core::option::Option<IInkTransform>) -> ::windows::core::Result<()>;
@@ -5240,6 +5274,7 @@ impl IInkRenderer_Vtbl {
         iid == &<IInkRenderer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkStrokeDisp_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ID(&self) -> ::windows::core::Result<i32>;
@@ -5625,6 +5660,7 @@ impl IInkStrokeDisp_Vtbl {
         iid == &<IInkStrokeDisp as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkStrokes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -5823,6 +5859,7 @@ impl IInkStrokes_Vtbl {
         iid == &<IInkStrokes as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkTablet_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5911,6 +5948,7 @@ impl IInkTablet_Vtbl {
         iid == &<IInkTablet as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkTablet2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DeviceKind(&self) -> ::windows::core::Result<TabletDeviceKind>;
@@ -5937,6 +5975,7 @@ impl IInkTablet2_Vtbl {
         iid == &<IInkTablet2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkTablet3_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn IsMultiTouch(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -5979,6 +6018,7 @@ impl IInkTablet3_Vtbl {
         iid == &<IInkTablet3 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkTablets_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -6060,6 +6100,7 @@ impl IInkTablets_Vtbl {
         iid == &<IInkTablets as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkTransform_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Reset(&self) -> ::windows::core::Result<()>;
@@ -6272,6 +6313,7 @@ impl IInkTransform_Vtbl {
         iid == &<IInkTransform as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkWordList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AddWord(&self, newword: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -6309,6 +6351,7 @@ impl IInkWordList_Vtbl {
         iid == &<IInkWordList as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkWordList2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AddWords(&self, newwords: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -6329,6 +6372,7 @@ impl IInkWordList2_Vtbl {
         iid == &<IInkWordList2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"implement\"`*"]
 pub trait IInputPanelWindowHandle_Impl: Sized {
     fn AttachedEditWindow32(&self) -> ::windows::core::Result<i32>;
     fn SetAttachedEditWindow32(&self, attachededitwindow: i32) -> ::windows::core::Result<()>;
@@ -6382,6 +6426,7 @@ impl IInputPanelWindowHandle_Vtbl {
         iid == &<IInputPanelWindowHandle as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMathInputControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Show(&self) -> ::windows::core::Result<()>;
@@ -6535,6 +6580,7 @@ impl IMathInputControl_Vtbl {
         iid == &<IMathInputControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPenInputPanel_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Busy(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -6804,6 +6850,7 @@ impl IPenInputPanel_Vtbl {
         iid == &<IPenInputPanel as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IRealTimeStylus_Impl: Sized {
     fn Enabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -7115,6 +7162,7 @@ impl IRealTimeStylus_Vtbl {
         iid == &<IRealTimeStylus as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRealTimeStylus2_Impl: Sized {
     fn FlicksEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -7151,6 +7199,7 @@ impl IRealTimeStylus2_Vtbl {
         iid == &<IRealTimeStylus2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRealTimeStylus3_Impl: Sized {
     fn MultiTouchEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -7187,6 +7236,7 @@ impl IRealTimeStylus3_Vtbl {
         iid == &<IRealTimeStylus3 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"implement\"`*"]
 pub trait IRealTimeStylusSynchronization_Impl: Sized {
     fn AcquireLock(&self, lock: RealTimeStylusLockType) -> ::windows::core::Result<()>;
     fn ReleaseLock(&self, lock: RealTimeStylusLockType) -> ::windows::core::Result<()>;
@@ -7214,6 +7264,7 @@ impl IRealTimeStylusSynchronization_Vtbl {
         iid == &<IRealTimeStylusSynchronization as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISketchInk_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7227,6 +7278,7 @@ impl ISketchInk_Vtbl {
         iid == &<ISketchInk as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IStrokeBuilder_Impl: Sized {
     fn CreateStroke(&self, cpktbufflength: u32, ppackets: *const i32, cpacketproperties: u32, ppacketproperties: *const PACKET_PROPERTY, finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: *mut ::core::option::Option<IInkStrokeDisp>) -> ::windows::core::Result<()>;
@@ -7291,6 +7343,7 @@ impl IStrokeBuilder_Vtbl {
         iid == &<IStrokeBuilder as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IStylusAsyncPlugin_Impl: Sized + IStylusPlugin_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -7304,6 +7357,7 @@ impl IStylusAsyncPlugin_Vtbl {
         iid == &<IStylusAsyncPlugin as ::windows::core::Interface>::IID || iid == &<IStylusPlugin as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IStylusPlugin_Impl: Sized {
     fn RealTimeStylusEnabled(&self, pirtssrc: &::core::option::Option<IRealTimeStylus>, ctcidcount: u32, ptcids: *const u32) -> ::windows::core::Result<()>;
@@ -7445,6 +7499,7 @@ impl IStylusPlugin_Vtbl {
         iid == &<IStylusPlugin as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IStylusSyncPlugin_Impl: Sized + IStylusPlugin_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -7458,6 +7513,7 @@ impl IStylusSyncPlugin_Vtbl {
         iid == &<IStylusSyncPlugin as ::windows::core::Interface>::IID || iid == &<IStylusPlugin as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITextInputPanel_Impl: Sized {
     fn AttachedEditWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
@@ -7727,6 +7783,7 @@ impl ITextInputPanel_Vtbl {
         iid == &<ITextInputPanel as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITextInputPanelEventSink_Impl: Sized {
     fn InPlaceStateChanging(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> ::windows::core::Result<()>;
@@ -7827,6 +7884,7 @@ impl ITextInputPanelEventSink_Vtbl {
         iid == &<ITextInputPanelEventSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITextInputPanelRunInfo_Impl: Sized {
     fn IsTipRunning(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -7853,6 +7911,7 @@ impl ITextInputPanelRunInfo_Vtbl {
         iid == &<ITextInputPanelRunInfo as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITipAutoCompleteClient_Impl: Sized {
     fn AdviseProvider(&self, hwndfield: super::super::Foundation::HWND, piprovider: &::core::option::Option<ITipAutoCompleteProvider>) -> ::windows::core::Result<()>;
@@ -7910,6 +7969,7 @@ impl ITipAutoCompleteClient_Vtbl {
         iid == &<ITipAutoCompleteClient as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITipAutoCompleteProvider_Impl: Sized {
     fn UpdatePendingText(&self, bstrpendingtext: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -7940,6 +8000,7 @@ impl ITipAutoCompleteProvider_Vtbl {
         iid == &<ITipAutoCompleteProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _IInkCollectorEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7953,6 +8014,7 @@ impl _IInkCollectorEvents_Vtbl {
         iid == &<_IInkCollectorEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _IInkEditEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7966,6 +8028,7 @@ impl _IInkEditEvents_Vtbl {
         iid == &<_IInkEditEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _IInkEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7979,6 +8042,7 @@ impl _IInkEvents_Vtbl {
         iid == &<_IInkEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _IInkOverlayEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7992,6 +8056,7 @@ impl _IInkOverlayEvents_Vtbl {
         iid == &<_IInkOverlayEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _IInkPictureEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8005,6 +8070,7 @@ impl _IInkPictureEvents_Vtbl {
         iid == &<_IInkPictureEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _IInkRecognitionEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8018,6 +8084,7 @@ impl _IInkRecognitionEvents_Vtbl {
         iid == &<_IInkRecognitionEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _IInkStrokesEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8031,6 +8098,7 @@ impl _IInkStrokesEvents_Vtbl {
         iid == &<_IInkStrokesEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _IMathInputControlEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8044,6 +8112,7 @@ impl _IMathInputControlEvents_Vtbl {
         iid == &<_IMathInputControlEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _IPenInputPanelEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRadialControllerConfigurationInterop_Impl: Sized {
     fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -21,6 +22,7 @@ impl IRadialControllerConfigurationInterop_Vtbl {
         iid == &<IRadialControllerConfigurationInterop as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRadialControllerIndependentInputSourceInterop_Impl: Sized {
     fn CreateForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -44,6 +46,7 @@ impl IRadialControllerIndependentInputSourceInterop_Vtbl {
         iid == &<IRadialControllerIndependentInputSourceInterop as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRadialControllerInterop_Impl: Sized {
     fn CreateForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;

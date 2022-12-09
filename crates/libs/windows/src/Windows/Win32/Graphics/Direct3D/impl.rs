@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
 pub trait ID3DBlob_Impl: Sized {
     fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void;
     fn GetBufferSize(&self) -> usize;
@@ -25,6 +26,7 @@ impl ID3DBlob_Vtbl {
         iid == &<ID3DBlob as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
 pub trait ID3DDestructionNotifier_Impl: Sized {
     fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
     fn UnregisterDestructionCallback(&self, callbackid: u32) -> ::windows::core::Result<()>;
@@ -58,6 +60,7 @@ impl ID3DDestructionNotifier_Vtbl {
         iid == &<ID3DDestructionNotifier as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
 pub trait ID3DInclude_Impl: Sized {
     fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: &::windows::core::PCSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()>;
     fn Close(&self, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;

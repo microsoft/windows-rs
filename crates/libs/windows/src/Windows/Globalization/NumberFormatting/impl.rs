@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
 pub trait INumberFormatter_Impl: Sized {
     fn FormatInt(&self, value: i64) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FormatUInt(&self, value: u64) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -55,6 +56,7 @@ impl INumberFormatter_Vtbl {
         iid == &<INumberFormatter as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
 pub trait INumberFormatter2_Impl: Sized {
     fn FormatInt(&self, value: i64) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FormatUInt(&self, value: u64) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -112,6 +114,7 @@ impl INumberFormatter2_Vtbl {
         iid == &<INumberFormatter2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait INumberFormatterOptions_Impl: Sized {
     fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
@@ -291,6 +294,7 @@ impl INumberFormatterOptions_Vtbl {
         iid == &<INumberFormatterOptions as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait INumberParser_Impl: Sized {
     fn ParseInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<i64>>;
@@ -351,6 +355,7 @@ impl INumberParser_Vtbl {
         iid == &<INumberParser as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
 pub trait INumberRounder_Impl: Sized {
     fn RoundInt32(&self, value: i32) -> ::windows::core::Result<i32>;
     fn RoundUInt32(&self, value: u32) -> ::windows::core::Result<u32>;
@@ -450,6 +455,7 @@ impl INumberRounder_Vtbl {
         iid == &<INumberRounder as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
 pub trait INumberRounderOption_Impl: Sized {
     fn NumberRounder(&self) -> ::windows::core::Result<INumberRounder>;
     fn SetNumberRounder(&self, value: &::core::option::Option<INumberRounder>) -> ::windows::core::Result<()>;
@@ -486,6 +492,7 @@ impl INumberRounderOption_Vtbl {
         iid == &<INumberRounderOption as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
 pub trait ISignedZeroOption_Impl: Sized {
     fn IsZeroSigned(&self) -> ::windows::core::Result<bool>;
     fn SetIsZeroSigned(&self, value: bool) -> ::windows::core::Result<()>;
@@ -522,6 +529,7 @@ impl ISignedZeroOption_Vtbl {
         iid == &<ISignedZeroOption as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
 pub trait ISignificantDigitsOption_Impl: Sized {
     fn SignificantDigits(&self) -> ::windows::core::Result<i32>;
     fn SetSignificantDigits(&self, value: i32) -> ::windows::core::Result<()>;

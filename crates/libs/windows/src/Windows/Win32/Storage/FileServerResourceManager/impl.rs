@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DIFsrmClassificationEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11,6 +12,7 @@ impl DIFsrmClassificationEvents_Vtbl {
         iid == &<DIFsrmClassificationEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmAccessDeniedRemediationClient_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Show(&self, parentwnd: usize, accesspath: &::windows::core::BSTR, errortype: AdrClientErrorType, flags: i32, windowtitle: &::windows::core::BSTR, windowmessage: &::windows::core::BSTR) -> ::windows::core::Result<i32>;
@@ -37,6 +39,7 @@ impl IFsrmAccessDeniedRemediationClient_Vtbl {
         iid == &<IFsrmAccessDeniedRemediationClient as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmAction_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Id(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -106,6 +109,7 @@ impl IFsrmAction_Vtbl {
         iid == &<IFsrmAction as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmActionCommand_Impl: Sized + IFsrmAction_Impl {
     fn ExecutablePath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -262,6 +266,7 @@ impl IFsrmActionCommand_Vtbl {
         iid == &<IFsrmActionCommand as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmAction as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmActionEmail_Impl: Sized + IFsrmAction_Impl {
     fn MailFrom(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -418,6 +423,7 @@ impl IFsrmActionEmail_Vtbl {
         iid == &<IFsrmActionEmail as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmAction as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmActionEmail2_Impl: Sized + IFsrmActionEmail_Impl {
     fn AttachmentFileListSize(&self) -> ::windows::core::Result<i32>;
@@ -454,6 +460,7 @@ impl IFsrmActionEmail2_Vtbl {
         iid == &<IFsrmActionEmail2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmAction as ::windows::core::Interface>::IID || iid == &<IFsrmActionEmail as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmActionEventLog_Impl: Sized + IFsrmAction_Impl {
     fn EventType(&self) -> ::windows::core::Result<FsrmEventType>;
@@ -510,6 +517,7 @@ impl IFsrmActionEventLog_Vtbl {
         iid == &<IFsrmActionEventLog as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmAction as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmActionReport_Impl: Sized + IFsrmAction_Impl {
     fn ReportTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -566,6 +574,7 @@ impl IFsrmActionReport_Vtbl {
         iid == &<IFsrmActionReport as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmAction as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmAutoApplyQuota_Impl: Sized + IFsrmQuotaObject_Impl {
     fn ExcludeFolders(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -615,6 +624,7 @@ impl IFsrmAutoApplyQuota_Vtbl {
         iid == &<IFsrmAutoApplyQuota as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaBase as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmClassificationManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ClassificationReportFormats(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -934,6 +944,7 @@ impl IFsrmClassificationManager_Vtbl {
         iid == &<IFsrmClassificationManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmClassificationManager2_Impl: Sized + IFsrmClassificationManager_Impl {
     fn ClassifyFiles(&self, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> ::windows::core::Result<()>;
@@ -954,6 +965,7 @@ impl IFsrmClassificationManager2_Vtbl {
         iid == &<IFsrmClassificationManager2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmClassificationManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmClassificationRule_Impl: Sized + IFsrmRule_Impl {
     fn ExecutionOption(&self) -> ::windows::core::Result<FsrmExecutionOption>;
@@ -1030,6 +1042,7 @@ impl IFsrmClassificationRule_Vtbl {
         iid == &<IFsrmClassificationRule as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmRule as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmClassifierModuleDefinition_Impl: Sized + IFsrmPipelineModuleDefinition_Impl {
     fn PropertiesAffected(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -1106,6 +1119,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
         iid == &<IFsrmClassifierModuleDefinition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmPipelineModuleDefinition as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmClassifierModuleImplementation_Impl: Sized + IFsrmPipelineModuleImplementation_Impl {
     fn LastModified(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -1170,6 +1184,7 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
         iid == &<IFsrmClassifierModuleImplementation as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmPipelineModuleImplementation as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -1271,6 +1286,7 @@ impl IFsrmCollection_Vtbl {
         iid == &<IFsrmCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmCommittableCollection_Impl: Sized + IFsrmMutableCollection_Impl {
     fn Commit(&self, options: FsrmCommitOptions) -> ::windows::core::Result<IFsrmCollection>;
@@ -1297,6 +1313,7 @@ impl IFsrmCommittableCollection_Vtbl {
         iid == &<IFsrmCommittableCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmCollection as ::windows::core::Interface>::IID || iid == &<IFsrmMutableCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmDerivedObjectsResult_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DerivedObjects(&self) -> ::windows::core::Result<IFsrmCollection>;
@@ -1339,6 +1356,7 @@ impl IFsrmDerivedObjectsResult_Vtbl {
         iid == &<IFsrmDerivedObjectsResult as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmExportImport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ExportFileGroups(&self, filepath: &::windows::core::BSTR, filegroupnamessafearray: *const super::super::System::Com::VARIANT, remotehost: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -1415,6 +1433,7 @@ impl IFsrmExportImport_Vtbl {
         iid == &<IFsrmExportImport as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmFileCondition_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows::core::Result<FsrmFileConditionType>;
@@ -1451,6 +1470,7 @@ impl IFsrmFileCondition_Vtbl {
         iid == &<IFsrmFileCondition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmFileConditionProperty_Impl: Sized + IFsrmFileCondition_Impl {
     fn PropertyName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1567,6 +1587,7 @@ impl IFsrmFileConditionProperty_Vtbl {
         iid == &<IFsrmFileConditionProperty as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmFileCondition as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmFileGroup_Impl: Sized + IFsrmObject_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1643,6 +1664,7 @@ impl IFsrmFileGroup_Vtbl {
         iid == &<IFsrmFileGroup as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmFileGroupImported_Impl: Sized + IFsrmFileGroup_Impl {
     fn OverwriteOnCommit(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -1679,6 +1701,7 @@ impl IFsrmFileGroupImported_Vtbl {
         iid == &<IFsrmFileGroupImported as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmFileGroup as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmFileGroupManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateFileGroup(&self) -> ::windows::core::Result<IFsrmFileGroup>;
@@ -1760,6 +1783,7 @@ impl IFsrmFileGroupManager_Vtbl {
         iid == &<IFsrmFileGroupManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmFileManagementJob_Impl: Sized + IFsrmObject_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2287,6 +2311,7 @@ impl IFsrmFileManagementJob_Vtbl {
         iid == &<IFsrmFileManagementJob as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmFileManagementJobManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ActionVariables(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -2368,6 +2393,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
         iid == &<IFsrmFileManagementJobManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmFileScreen_Impl: Sized + IFsrmFileScreenBase_Impl {
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2456,6 +2482,7 @@ impl IFsrmFileScreen_Vtbl {
         iid == &<IFsrmFileScreen as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmFileScreenBase as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmFileScreenBase_Impl: Sized + IFsrmObject_Impl {
     fn BlockedFileGroups(&self) -> ::windows::core::Result<IFsrmMutableCollection>;
@@ -2538,6 +2565,7 @@ impl IFsrmFileScreenBase_Vtbl {
         iid == &<IFsrmFileScreenBase as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmFileScreenException_Impl: Sized + IFsrmObject_Impl {
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2587,6 +2615,7 @@ impl IFsrmFileScreenException_Vtbl {
         iid == &<IFsrmFileScreenException as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmFileScreenManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ActionVariables(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -2720,6 +2749,7 @@ impl IFsrmFileScreenManager_Vtbl {
         iid == &<IFsrmFileScreenManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmFileScreenTemplate_Impl: Sized + IFsrmFileScreenBase_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2776,6 +2806,7 @@ impl IFsrmFileScreenTemplate_Vtbl {
         iid == &<IFsrmFileScreenTemplate as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmFileScreenBase as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmFileScreenTemplateImported_Impl: Sized + IFsrmFileScreenTemplate_Impl {
     fn OverwriteOnCommit(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -2812,6 +2843,7 @@ impl IFsrmFileScreenTemplateImported_Vtbl {
         iid == &<IFsrmFileScreenTemplateImported as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmFileScreenBase as ::windows::core::Interface>::IID || iid == &<IFsrmFileScreenTemplate as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmFileScreenTemplateManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateTemplate(&self) -> ::windows::core::Result<IFsrmFileScreenTemplate>;
@@ -2893,6 +2925,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
         iid == &<IFsrmFileScreenTemplateManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmMutableCollection_Impl: Sized + IFsrmCollection_Impl {
     fn Add(&self, item: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -2943,6 +2976,7 @@ impl IFsrmMutableCollection_Vtbl {
         iid == &<IFsrmMutableCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmCollection as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmObject_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Id(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -3006,6 +3040,7 @@ impl IFsrmObject_Vtbl {
         iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmPathMapper_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetSharePathsForLocalPath(&self, localpath: &::windows::core::BSTR) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -3035,6 +3070,7 @@ impl IFsrmPathMapper_Vtbl {
         iid == &<IFsrmPathMapper as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmPipelineModuleConnector_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ModuleImplementation(&self) -> ::windows::core::Result<IFsrmPipelineModuleImplementation>;
@@ -3110,6 +3146,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
         iid == &<IFsrmPipelineModuleConnector as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmPipelineModuleDefinition_Impl: Sized + IFsrmObject_Impl {
     fn ModuleClsid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3319,6 +3356,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         iid == &<IFsrmPipelineModuleDefinition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmPipelineModuleImplementation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn OnLoad(&self, moduledefinition: &::core::option::Option<IFsrmPipelineModuleDefinition>) -> ::windows::core::Result<IFsrmPipelineModuleConnector>;
@@ -3355,6 +3393,7 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
         iid == &<IFsrmPipelineModuleImplementation as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmProperty_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3423,6 +3462,7 @@ impl IFsrmProperty_Vtbl {
         iid == &<IFsrmProperty as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmPropertyBag_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3700,6 +3740,7 @@ impl IFsrmPropertyBag_Vtbl {
         iid == &<IFsrmPropertyBag as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmPropertyBag2_Impl: Sized + IFsrmPropertyBag_Impl {
     fn GetFieldValue(&self, field: FsrmPropertyBagField) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -3742,6 +3783,7 @@ impl IFsrmPropertyBag2_Vtbl {
         iid == &<IFsrmPropertyBag2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmPropertyBag as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmPropertyCondition_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3825,6 +3867,7 @@ impl IFsrmPropertyCondition_Vtbl {
         iid == &<IFsrmPropertyCondition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmPropertyDefinition_Impl: Sized + IFsrmObject_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3941,6 +3984,7 @@ impl IFsrmPropertyDefinition_Vtbl {
         iid == &<IFsrmPropertyDefinition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmPropertyDefinition2_Impl: Sized + IFsrmPropertyDefinition_Impl {
     fn PropertyDefinitionFlags(&self) -> ::windows::core::Result<i32>;
@@ -4016,6 +4060,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
         iid == &<IFsrmPropertyDefinition2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmPropertyDefinition as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmPropertyDefinitionValue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4084,6 +4129,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
         iid == &<IFsrmPropertyDefinitionValue as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmQuota_Impl: Sized + IFsrmQuotaObject_Impl {
     fn QuotaUsed(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -4153,6 +4199,7 @@ impl IFsrmQuota_Vtbl {
         iid == &<IFsrmQuota as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaBase as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmQuotaBase_Impl: Sized + IFsrmObject_Impl {
     fn QuotaLimit(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -4269,6 +4316,7 @@ impl IFsrmQuotaBase_Vtbl {
         iid == &<IFsrmQuotaBase as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmQuotaManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ActionVariables(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -4435,6 +4483,7 @@ impl IFsrmQuotaManager_Vtbl {
         iid == &<IFsrmQuotaManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmQuotaManagerEx_Impl: Sized + IFsrmQuotaManager_Impl {
     fn IsAffectedByQuota(&self, path: &::windows::core::BSTR, options: FsrmEnumOptions) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -4461,6 +4510,7 @@ impl IFsrmQuotaManagerEx_Vtbl {
         iid == &<IFsrmQuotaManagerEx as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmQuotaObject_Impl: Sized + IFsrmQuotaBase_Impl {
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4549,6 +4599,7 @@ impl IFsrmQuotaObject_Vtbl {
         iid == &<IFsrmQuotaObject as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaBase as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmQuotaTemplate_Impl: Sized + IFsrmQuotaBase_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4605,6 +4656,7 @@ impl IFsrmQuotaTemplate_Vtbl {
         iid == &<IFsrmQuotaTemplate as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaBase as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmQuotaTemplateImported_Impl: Sized + IFsrmQuotaTemplate_Impl {
     fn OverwriteOnCommit(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -4641,6 +4693,7 @@ impl IFsrmQuotaTemplateImported_Vtbl {
         iid == &<IFsrmQuotaTemplateImported as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaBase as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaTemplate as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmQuotaTemplateManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateTemplate(&self) -> ::windows::core::Result<IFsrmQuotaTemplate>;
@@ -4722,6 +4775,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
         iid == &<IFsrmQuotaTemplateManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmReport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows::core::Result<FsrmReportType>;
@@ -4831,6 +4885,7 @@ impl IFsrmReport_Vtbl {
         iid == &<IFsrmReport as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmReportJob_Impl: Sized + IFsrmObject_Impl {
     fn Task(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5032,6 +5087,7 @@ impl IFsrmReportJob_Vtbl {
         iid == &<IFsrmReportJob as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmReportManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnumReportJobs(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection>;
@@ -5160,6 +5216,7 @@ impl IFsrmReportManager_Vtbl {
         iid == &<IFsrmReportManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmReportScheduler_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn VerifyNamespaces(&self, namespacessafearray: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -5204,6 +5261,7 @@ impl IFsrmReportScheduler_Vtbl {
         iid == &<IFsrmReportScheduler as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmRule_Impl: Sized + IFsrmObject_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5346,6 +5404,7 @@ impl IFsrmRule_Vtbl {
         iid == &<IFsrmRule as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmSetting_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SmtpServer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5489,6 +5548,7 @@ impl IFsrmSetting_Vtbl {
         iid == &<IFsrmSetting as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmStorageModuleDefinition_Impl: Sized + IFsrmPipelineModuleDefinition_Impl {
     fn Capabilities(&self) -> ::windows::core::Result<FsrmStorageModuleCaps>;
@@ -5565,6 +5625,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
         iid == &<IFsrmStorageModuleDefinition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmPipelineModuleDefinition as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsrmStorageModuleImplementation_Impl: Sized + IFsrmPipelineModuleImplementation_Impl {
     fn UseDefinitions(&self, propertydefinitions: &::core::option::Option<IFsrmCollection>) -> ::windows::core::Result<()>;

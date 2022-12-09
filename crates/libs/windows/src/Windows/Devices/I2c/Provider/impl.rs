@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Devices_I2c_Provider\"`, `\"implement\"`*"]
 pub trait II2cControllerProvider_Impl: Sized {
     fn GetDeviceProvider(&self, settings: &::core::option::Option<ProviderI2cConnectionSettings>) -> ::windows::core::Result<II2cDeviceProvider>;
 }
@@ -27,6 +28,7 @@ impl II2cControllerProvider_Vtbl {
         iid == &<II2cControllerProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Devices_I2c_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait II2cDeviceProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -122,6 +124,7 @@ impl II2cDeviceProvider_Vtbl {
         iid == &<II2cDeviceProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Devices_I2c_Provider\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait II2cProvider_Impl: Sized {
     fn GetControllersAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>>;

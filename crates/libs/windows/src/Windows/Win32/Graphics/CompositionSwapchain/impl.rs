@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ICompositionFramePresentStatistics_Impl: Sized + IPresentStatistics_Impl {
     fn GetContentTag(&self) -> usize;
@@ -35,6 +36,7 @@ impl ICompositionFramePresentStatistics_Vtbl {
         iid == &<ICompositionFramePresentStatistics as ::windows::core::Interface>::IID || iid == &<IPresentStatistics as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IIndependentFlipFramePresentStatistics_Impl: Sized + IPresentStatistics_Impl {
     fn GetOutputAdapterLUID(&self) -> super::super::Foundation::LUID;
@@ -86,6 +88,7 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
         iid == &<IIndependentFlipFramePresentStatistics as ::windows::core::Interface>::IID || iid == &<IPresentStatistics as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"implement\"`*"]
 pub trait IPresentStatistics_Impl: Sized {
     fn GetPresentId(&self) -> u64;
     fn GetKind(&self) -> PresentStatisticsKind;
@@ -113,6 +116,7 @@ impl IPresentStatistics_Vtbl {
         iid == &<IPresentStatistics as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"implement\"`*"]
 pub trait IPresentStatusPresentStatistics_Impl: Sized + IPresentStatistics_Impl {
     fn GetCompositionFrameId(&self) -> u64;
     fn GetPresentStatus(&self) -> PresentStatus;
@@ -140,6 +144,7 @@ impl IPresentStatusPresentStatistics_Vtbl {
         iid == &<IPresentStatusPresentStatistics as ::windows::core::Interface>::IID || iid == &<IPresentStatistics as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPresentationBuffer_Impl: Sized {
     fn GetAvailableEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
@@ -182,6 +187,7 @@ impl IPresentationBuffer_Vtbl {
         iid == &<IPresentationBuffer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"implement\"`*"]
 pub trait IPresentationContent_Impl: Sized {
     fn SetTag(&self, tag: usize);
 }
@@ -199,6 +205,7 @@ impl IPresentationContent_Vtbl {
         iid == &<IPresentationContent as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"implement\"`*"]
 pub trait IPresentationFactory_Impl: Sized {
     fn IsPresentationSupported(&self) -> u8;
     fn IsPresentationSupportedWithIndependentFlip(&self) -> u8;
@@ -239,6 +246,7 @@ impl IPresentationFactory_Vtbl {
         iid == &<IPresentationFactory as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPresentationManager_Impl: Sized {
     fn AddBufferFromResource(&self, resource: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IPresentationBuffer>;
@@ -382,6 +390,7 @@ impl IPresentationManager_Vtbl {
         iid == &<IPresentationManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IPresentationSurface_Impl: Sized + IPresentationContent_Impl {
     fn SetBuffer(&self, presentationbuffer: &::core::option::Option<IPresentationBuffer>) -> ::windows::core::Result<()>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"implement\"`*"]
 pub trait ICcgDomainAuthCredentials_Impl: Sized {
     fn GetPasswordCredentials(&self, plugininput: &::windows::core::PCWSTR, domainname: *mut ::windows::core::PWSTR, username: *mut ::windows::core::PWSTR, password: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
 }

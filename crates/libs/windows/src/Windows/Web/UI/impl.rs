@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Web_UI\"`, `\"ApplicationModel_DataTransfer\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`, `\"UI\"`, `\"Web_Http\"`, `\"implement\"`*"]
 #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "Web_Http"))]
 pub trait IWebViewControl_Impl: Sized {
     fn Source(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
@@ -618,6 +619,7 @@ impl IWebViewControl_Vtbl {
         iid == &<IWebViewControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Web_UI\"`, `\"implement\"`*"]
 pub trait IWebViewControl2_Impl: Sized {
     fn AddInitializeScript(&self, script: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }

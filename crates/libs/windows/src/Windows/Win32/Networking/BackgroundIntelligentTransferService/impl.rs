@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait AsyncIBackgroundCopyCallback_Impl: Sized {
     fn Begin_JobTransferred(&self, pjob: &::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()>;
     fn Finish_JobTransferred(&self) -> ::windows::core::Result<()>;
@@ -53,6 +54,7 @@ impl AsyncIBackgroundCopyCallback_Vtbl {
         iid == &<AsyncIBackgroundCopyCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBITSExtensionSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnableBITSUploads(&self) -> ::windows::core::Result<()>;
@@ -109,6 +111,7 @@ impl IBITSExtensionSetup_Vtbl {
         iid == &<IBITSExtensionSetup as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBITSExtensionSetupFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetObject(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<IBITSExtensionSetup>;
@@ -135,6 +138,7 @@ impl IBITSExtensionSetupFactory_Vtbl {
         iid == &<IBITSExtensionSetupFactory as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBackgroundCopyCallback_Impl: Sized {
     fn JobTransferred(&self, pjob: &::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()>;
     fn JobError(&self, pjob: &::core::option::Option<IBackgroundCopyJob>, perror: &::core::option::Option<IBackgroundCopyError>) -> ::windows::core::Result<()>;
@@ -169,6 +173,7 @@ impl IBackgroundCopyCallback_Vtbl {
         iid == &<IBackgroundCopyCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBackgroundCopyCallback1_Impl: Sized {
     fn OnStatus(&self, pgroup: &::core::option::Option<IBackgroundCopyGroup>, pjob: &::core::option::Option<IBackgroundCopyJob1>, dwfileindex: u32, dwstatus: u32, dwnumofretries: u32, dwwin32result: u32, dwtransportresult: u32) -> ::windows::core::Result<()>;
     fn OnProgress(&self, progresstype: u32, pgroup: &::core::option::Option<IBackgroundCopyGroup>, pjob: &::core::option::Option<IBackgroundCopyJob1>, dwfileindex: u32, dwprogressvalue: u32) -> ::windows::core::Result<()>;
@@ -203,6 +208,7 @@ impl IBackgroundCopyCallback1_Vtbl {
         iid == &<IBackgroundCopyCallback1 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBackgroundCopyCallback2_Impl: Sized + IBackgroundCopyCallback_Impl {
     fn FileTransferred(&self, pjob: &::core::option::Option<IBackgroundCopyJob>, pfile: &::core::option::Option<IBackgroundCopyFile>) -> ::windows::core::Result<()>;
 }
@@ -220,6 +226,7 @@ impl IBackgroundCopyCallback2_Vtbl {
         iid == &<IBackgroundCopyCallback2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBackgroundCopyCallback3_Impl: Sized + IBackgroundCopyCallback2_Impl {
     fn FileRangesTransferred(&self, job: &::core::option::Option<IBackgroundCopyJob>, file: &::core::option::Option<IBackgroundCopyFile>, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::Result<()>;
 }
@@ -237,6 +244,7 @@ impl IBackgroundCopyCallback3_Vtbl {
         iid == &<IBackgroundCopyCallback3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyCallback as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyCallback2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBackgroundCopyError_Impl: Sized {
     fn GetError(&self, pcontext: *mut BG_ERROR_CONTEXT, pcode: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn GetFile(&self) -> ::windows::core::Result<IBackgroundCopyFile>;
@@ -309,6 +317,7 @@ impl IBackgroundCopyError_Vtbl {
         iid == &<IBackgroundCopyError as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile_Impl: Sized {
     fn GetRemoteName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -364,6 +373,7 @@ impl IBackgroundCopyFile_Vtbl {
         iid == &<IBackgroundCopyFile as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile2_Impl: Sized + IBackgroundCopyFile_Impl {
     fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()>;
@@ -394,6 +404,7 @@ impl IBackgroundCopyFile2_Vtbl {
         iid == &<IBackgroundCopyFile2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile3_Impl: Sized + IBackgroundCopyFile2_Impl {
     fn GetTemporaryName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -456,6 +467,7 @@ impl IBackgroundCopyFile3_Vtbl {
         iid == &<IBackgroundCopyFile3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile4_Impl: Sized + IBackgroundCopyFile3_Impl {
     fn GetPeerDownloadStats(&self, pfromorigin: *mut u64, pfrompeers: *mut u64) -> ::windows::core::Result<()>;
@@ -476,6 +488,7 @@ impl IBackgroundCopyFile4_Vtbl {
         iid == &<IBackgroundCopyFile4 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile3 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile5_Impl: Sized + IBackgroundCopyFile4_Impl {
     fn SetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: &BITS_FILE_PROPERTY_VALUE) -> ::windows::core::Result<()>;
@@ -512,6 +525,7 @@ impl IBackgroundCopyFile5_Vtbl {
         iid == &<IBackgroundCopyFile5 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile4 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile6_Impl: Sized + IBackgroundCopyFile5_Impl {
     fn UpdateDownloadPosition(&self, offset: u64) -> ::windows::core::Result<()>;
@@ -549,6 +563,7 @@ impl IBackgroundCopyFile6_Vtbl {
         iid == &<IBackgroundCopyFile6 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile4 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile5 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBackgroundCopyGroup_Impl: Sized {
     fn GetProp(&self, propid: GROUPPROP) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -718,6 +733,7 @@ impl IBackgroundCopyGroup_Vtbl {
         iid == &<IBackgroundCopyGroup as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob_Impl: Sized {
     fn AddFileSet(&self, cfilecount: u32, pfileset: *const BG_FILE_INFO) -> ::windows::core::Result<()>;
@@ -1054,6 +1070,7 @@ impl IBackgroundCopyJob_Vtbl {
         iid == &<IBackgroundCopyJob as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBackgroundCopyJob1_Impl: Sized {
     fn CancelJob(&self) -> ::windows::core::Result<()>;
     fn GetProgress(&self, dwflags: u32) -> ::windows::core::Result<u32>;
@@ -1147,6 +1164,7 @@ impl IBackgroundCopyJob1_Vtbl {
         iid == &<IBackgroundCopyJob1 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob2_Impl: Sized + IBackgroundCopyJob_Impl {
     fn SetNotifyCmdLine(&self, program: &::windows::core::PCWSTR, parameters: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -1225,6 +1243,7 @@ impl IBackgroundCopyJob2_Vtbl {
         iid == &<IBackgroundCopyJob2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob3_Impl: Sized + IBackgroundCopyJob2_Impl {
     fn ReplaceRemotePrefix(&self, oldprefix: &::windows::core::PCWSTR, newprefix: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -1275,6 +1294,7 @@ impl IBackgroundCopyJob3_Vtbl {
         iid == &<IBackgroundCopyJob3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob4_Impl: Sized + IBackgroundCopyJob3_Impl {
     fn SetPeerCachingFlags(&self, flags: u32) -> ::windows::core::Result<()>;
@@ -1357,6 +1377,7 @@ impl IBackgroundCopyJob4_Vtbl {
         iid == &<IBackgroundCopyJob4 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob3 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob5_Impl: Sized + IBackgroundCopyJob4_Impl {
     fn SetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: &BITS_JOB_PROPERTY_VALUE) -> ::windows::core::Result<()>;
@@ -1393,6 +1414,7 @@ impl IBackgroundCopyJob5_Vtbl {
         iid == &<IBackgroundCopyJob5 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob4 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBackgroundCopyJobHttpOptions_Impl: Sized {
     fn SetClientCertificateByID(&self, storelocation: BG_CERT_STORE_LOCATION, storename: &::windows::core::PCWSTR, pcerthashblob: *const u8) -> ::windows::core::Result<()>;
     fn SetClientCertificateByName(&self, storelocation: BG_CERT_STORE_LOCATION, storename: &::windows::core::PCWSTR, subjectname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -1474,6 +1496,7 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBackgroundCopyJobHttpOptions2_Impl: Sized + IBackgroundCopyJobHttpOptions_Impl {
     fn SetHttpMethod(&self, method: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetHttpMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -1507,6 +1530,7 @@ impl IBackgroundCopyJobHttpOptions2_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBackgroundCopyJobHttpOptions3_Impl: Sized + IBackgroundCopyJobHttpOptions2_Impl {
     fn SetServerCertificateValidationInterface(&self, certvalidationcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn MakeCustomHeadersWriteOnly(&self) -> ::windows::core::Result<()>;
@@ -1534,6 +1558,7 @@ impl IBackgroundCopyJobHttpOptions3_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBackgroundCopyManager_Impl: Sized {
     fn CreateJob(&self, displayname: &::windows::core::PCWSTR, r#type: BG_JOB_TYPE, pjobid: *mut ::windows::core::GUID, ppjob: *mut ::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()>;
     fn GetJob(&self, jobid: *const ::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyJob>;
@@ -1593,6 +1618,7 @@ impl IBackgroundCopyManager_Vtbl {
         iid == &<IBackgroundCopyManager as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBackgroundCopyQMgr_Impl: Sized {
     fn CreateGroup(&self, guidgroupid: &::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyGroup>;
     fn GetGroup(&self, groupid: &::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyGroup>;
@@ -1645,6 +1671,7 @@ impl IBackgroundCopyQMgr_Vtbl {
         iid == &<IBackgroundCopyQMgr as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBackgroundCopyServerCertificateValidationCallback_Impl: Sized {
     fn ValidateServerCertificate(&self, job: &::core::option::Option<IBackgroundCopyJob>, file: &::core::option::Option<IBackgroundCopyFile>, certlength: u32, certdata: *const u8, certencodingtype: u32, certstorelength: u32, certstoredata: *const u8) -> ::windows::core::Result<()>;
 }
@@ -1665,6 +1692,7 @@ impl IBackgroundCopyServerCertificateValidationCallback_Vtbl {
         iid == &<IBackgroundCopyServerCertificateValidationCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBitsPeer_Impl: Sized {
     fn GetPeerName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -1720,6 +1748,7 @@ impl IBitsPeer_Vtbl {
         iid == &<IBitsPeer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBitsPeerCacheAdministration_Impl: Sized {
     fn GetMaximumCacheSize(&self) -> ::windows::core::Result<u32>;
     fn SetMaximumCacheSize(&self, bytes: u32) -> ::windows::core::Result<()>;
@@ -1867,6 +1896,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
         iid == &<IBitsPeerCacheAdministration as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBitsPeerCacheRecord_Impl: Sized {
     fn GetId(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -1962,6 +1992,7 @@ impl IBitsPeerCacheRecord_Vtbl {
         iid == &<IBitsPeerCacheRecord as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBitsTokenOptions_Impl: Sized {
     fn SetHelperTokenFlags(&self, usageflags: BG_TOKEN) -> ::windows::core::Result<()>;
     fn GetHelperTokenFlags(&self) -> ::windows::core::Result<BG_TOKEN>;
@@ -2022,6 +2053,7 @@ impl IBitsTokenOptions_Vtbl {
         iid == &<IBitsTokenOptions as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IEnumBackgroundCopyFiles_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBackgroundCopyFile>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -2082,6 +2114,7 @@ impl IEnumBackgroundCopyFiles_Vtbl {
         iid == &<IEnumBackgroundCopyFiles as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IEnumBackgroundCopyGroups_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -2142,6 +2175,7 @@ impl IEnumBackgroundCopyGroups_Vtbl {
         iid == &<IEnumBackgroundCopyGroups as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IEnumBackgroundCopyJobs_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBackgroundCopyJob>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -2202,6 +2236,7 @@ impl IEnumBackgroundCopyJobs_Vtbl {
         iid == &<IEnumBackgroundCopyJobs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IEnumBackgroundCopyJobs1_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -2262,6 +2297,7 @@ impl IEnumBackgroundCopyJobs1_Vtbl {
         iid == &<IEnumBackgroundCopyJobs1 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IEnumBitsPeerCacheRecords_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBitsPeerCacheRecord>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -2322,6 +2358,7 @@ impl IEnumBitsPeerCacheRecords_Vtbl {
         iid == &<IEnumBitsPeerCacheRecords as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IEnumBitsPeers_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBitsPeer>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;

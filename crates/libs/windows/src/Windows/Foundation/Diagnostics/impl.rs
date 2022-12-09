@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"implement\"`*"]
 pub trait IErrorReportingSettings_Impl: Sized {
     fn SetErrorOptions(&self, value: ErrorOptions) -> ::windows::core::Result<()>;
     fn GetErrorOptions(&self) -> ::windows::core::Result<ErrorOptions>;
@@ -34,6 +35,7 @@ impl IErrorReportingSettings_Vtbl {
         iid == &<IErrorReportingSettings as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"Storage\"`, `\"implement\"`*"]
 #[cfg(feature = "Storage")]
 pub trait IFileLoggingSession_Impl: Sized + super::IClosable_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -122,6 +124,7 @@ impl IFileLoggingSession_Vtbl {
         iid == &<IFileLoggingSession as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"implement\"`*"]
 pub trait ILoggingChannel_Impl: Sized + super::IClosable_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Enabled(&self) -> ::windows::core::Result<bool>;
@@ -228,6 +231,7 @@ impl ILoggingChannel_Vtbl {
         iid == &<ILoggingChannel as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"Storage\"`, `\"implement\"`*"]
 #[cfg(feature = "Storage")]
 pub trait ILoggingSession_Impl: Sized + super::IClosable_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -295,6 +299,7 @@ impl ILoggingSession_Vtbl {
         iid == &<ILoggingSession as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"implement\"`*"]
 pub trait ILoggingTarget_Impl: Sized {
     fn IsEnabled(&self) -> ::windows::core::Result<bool>;
     fn IsEnabledWithLevel(&self, level: LoggingLevel) -> ::windows::core::Result<bool>;

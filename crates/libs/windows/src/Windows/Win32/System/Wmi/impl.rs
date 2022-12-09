@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IEnumWbemClassObject_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Next(&self, ltimeout: i32, ucount: u32, apobjects: *mut ::core::option::Option<IWbemClassObject>, pureturned: *mut u32) -> ::windows::core::HRESULT;
@@ -52,6 +53,7 @@ impl IEnumWbemClassObject_Vtbl {
         iid == &<IEnumWbemClassObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IMofCompiler_Impl: Sized {
     fn CompileFile(&self, filename: &::windows::core::PCWSTR, serverandnamespace: &::windows::core::PCWSTR, user: &::windows::core::PCWSTR, authority: &::windows::core::PCWSTR, password: &::windows::core::PCWSTR, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::Result<()>;
     fn CompileBuffer(&self, buffsize: i32, pbuffer: *const u8, serverandnamespace: &::windows::core::PCWSTR, user: &::windows::core::PCWSTR, authority: &::windows::core::PCWSTR, password: &::windows::core::PCWSTR, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::Result<()>;
@@ -86,6 +88,7 @@ impl IMofCompiler_Vtbl {
         iid == &<IMofCompiler as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemDateTime_Impl: Sized + super::Com::IDispatch_Impl {
     fn Value(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -502,6 +505,7 @@ impl ISWbemDateTime_Vtbl {
         iid == &<ISWbemDateTime as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemEventSource_Impl: Sized + super::Com::IDispatch_Impl {
     fn NextEvent(&self, itimeoutms: i32) -> ::windows::core::Result<ISWbemObject>;
@@ -544,6 +548,7 @@ impl ISWbemEventSource_Vtbl {
         iid == &<ISWbemEventSource as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemLastError_Impl: Sized + ISWbemObject_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -557,6 +562,7 @@ impl ISWbemLastError_Vtbl {
         iid == &<ISWbemLastError as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISWbemObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemLocator_Impl: Sized + super::Com::IDispatch_Impl {
     fn ConnectServer(&self, strserver: &::windows::core::BSTR, strnamespace: &::windows::core::BSTR, struser: &::windows::core::BSTR, strpassword: &::windows::core::BSTR, strlocale: &::windows::core::BSTR, strauthority: &::windows::core::BSTR, isecurityflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemServices>;
@@ -599,6 +605,7 @@ impl ISWbemLocator_Vtbl {
         iid == &<ISWbemLocator as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemMethod_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -680,6 +687,7 @@ impl ISWbemMethod_Vtbl {
         iid == &<ISWbemMethod as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemMethodSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -735,6 +743,7 @@ impl ISWbemMethodSet_Vtbl {
         iid == &<ISWbemMethodSet as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemNamedValue_Impl: Sized + super::Com::IDispatch_Impl {
     fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -784,6 +793,7 @@ impl ISWbemNamedValue_Vtbl {
         iid == &<ISWbemNamedValue as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemNamedValueSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -879,6 +889,7 @@ impl ISWbemNamedValueSet_Vtbl {
         iid == &<ISWbemNamedValueSet as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemObject_Impl: Sized + super::Com::IDispatch_Impl {
     fn Put_(&self, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObjectPath>;
@@ -1186,6 +1197,7 @@ impl ISWbemObject_Vtbl {
         iid == &<ISWbemObject as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemObjectEx_Impl: Sized + ISWbemObject_Impl {
     fn Refresh_(&self, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
@@ -1242,6 +1254,7 @@ impl ISWbemObjectEx_Vtbl {
         iid == &<ISWbemObjectEx as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISWbemObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemObjectPath_Impl: Sized + super::Com::IDispatch_Impl {
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1497,6 +1510,7 @@ impl ISWbemObjectPath_Vtbl {
         iid == &<ISWbemObjectPath as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemObjectSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -1578,6 +1592,7 @@ impl ISWbemObjectSet_Vtbl {
         iid == &<ISWbemObjectSet as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemPrivilege_Impl: Sized + super::Com::IDispatch_Impl {
     fn IsEnabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -1653,6 +1668,7 @@ impl ISWbemPrivilege_Vtbl {
         iid == &<ISWbemPrivilege as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemPrivilegeSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -1748,6 +1764,7 @@ impl ISWbemPrivilegeSet_Vtbl {
         iid == &<ISWbemPrivilegeSet as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemProperty_Impl: Sized + super::Com::IDispatch_Impl {
     fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -1862,6 +1879,7 @@ impl ISWbemProperty_Vtbl {
         iid == &<ISWbemProperty as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemPropertySet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -1937,6 +1955,7 @@ impl ISWbemPropertySet_Vtbl {
         iid == &<ISWbemPropertySet as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemQualifier_Impl: Sized + super::Com::IDispatch_Impl {
     fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -2072,6 +2091,7 @@ impl ISWbemQualifier_Vtbl {
         iid == &<ISWbemQualifier as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemQualifierSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -2147,6 +2167,7 @@ impl ISWbemQualifierSet_Vtbl {
         iid == &<ISWbemQualifierSet as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemRefreshableItem_Impl: Sized + super::Com::IDispatch_Impl {
     fn Index(&self) -> ::windows::core::Result<i32>;
@@ -2235,6 +2256,7 @@ impl ISWbemRefreshableItem_Vtbl {
         iid == &<ISWbemRefreshableItem as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemRefresher_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -2357,6 +2379,7 @@ impl ISWbemRefresher_Vtbl {
         iid == &<ISWbemRefresher as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemSecurity_Impl: Sized + super::Com::IDispatch_Impl {
     fn ImpersonationLevel(&self) -> ::windows::core::Result<WbemImpersonationLevelEnum>;
@@ -2426,6 +2449,7 @@ impl ISWbemSecurity_Vtbl {
         iid == &<ISWbemSecurity as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemServices_Impl: Sized + super::Com::IDispatch_Impl {
     fn Get(&self, strobjectpath: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObject>;
@@ -2644,6 +2668,7 @@ impl ISWbemServices_Vtbl {
         iid == &<ISWbemServices as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemServicesEx_Impl: Sized + ISWbemServices_Impl {
     fn Put(&self, objwbemobject: &::core::option::Option<ISWbemObjectEx>, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObjectPath>;
@@ -2676,6 +2701,7 @@ impl ISWbemServicesEx_Vtbl {
         iid == &<ISWbemServicesEx as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISWbemServices as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemSink_Impl: Sized + super::Com::IDispatch_Impl {
     fn Cancel(&self) -> ::windows::core::Result<()>;
@@ -2696,6 +2722,7 @@ impl ISWbemSink_Vtbl {
         iid == &<ISWbemSink as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemSinkEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2709,6 +2736,7 @@ impl ISWbemSinkEvents_Vtbl {
         iid == &<ISWbemSinkEvents as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IUnsecuredApartment_Impl: Sized {
     fn CreateObjectStub(&self, pobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
@@ -2732,6 +2760,7 @@ impl IUnsecuredApartment_Vtbl {
         iid == &<IUnsecuredApartment as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWMIExtension_Impl: Sized + super::Com::IDispatch_Impl {
     fn WMIObjectPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2787,6 +2816,7 @@ impl IWMIExtension_Vtbl {
         iid == &<IWMIExtension as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemAddressResolution_Impl: Sized {
     fn Resolve(&self, wsznamespacepath: &::windows::core::PCWSTR, wszaddresstype: ::windows::core::PWSTR, pdwaddresslength: *mut u32, pabbinaryaddress: *mut *mut u8) -> ::windows::core::Result<()>;
 }
@@ -2804,6 +2834,7 @@ impl IWbemAddressResolution_Vtbl {
         iid == &<IWbemAddressResolution as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemBackupRestore_Impl: Sized {
     fn Backup(&self, strbackuptofile: &::windows::core::PCWSTR, lflags: i32) -> ::windows::core::Result<()>;
     fn Restore(&self, strrestorefromfile: &::windows::core::PCWSTR, lflags: i32) -> ::windows::core::Result<()>;
@@ -2831,6 +2862,7 @@ impl IWbemBackupRestore_Vtbl {
         iid == &<IWbemBackupRestore as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemBackupRestoreEx_Impl: Sized + IWbemBackupRestore_Impl {
     fn Pause(&self) -> ::windows::core::Result<()>;
     fn Resume(&self) -> ::windows::core::Result<()>;
@@ -2858,6 +2890,7 @@ impl IWbemBackupRestoreEx_Vtbl {
         iid == &<IWbemBackupRestoreEx as ::windows::core::Interface>::IID || iid == &<IWbemBackupRestore as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemCallResult_Impl: Sized {
     fn GetResultObject(&self, ltimeout: i32) -> ::windows::core::Result<IWbemClassObject>;
     fn GetResultString(&self, ltimeout: i32) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2923,6 +2956,7 @@ impl IWbemCallResult_Vtbl {
         iid == &<IWbemCallResult as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWbemClassObject_Impl: Sized {
     fn GetQualifierSet(&self) -> ::windows::core::Result<IWbemQualifierSet>;
@@ -3167,6 +3201,7 @@ impl IWbemClassObject_Vtbl {
         iid == &<IWbemClassObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemClientConnectionTransport_Impl: Sized {
     fn Open(&self, straddresstype: &::windows::core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: &::windows::core::BSTR, struser: &::windows::core::BSTR, strpassword: &::windows::core::BSTR, strlocale: &::windows::core::BSTR, lflags: i32, pctx: &::core::option::Option<IWbemContext>, riid: *const ::windows::core::GUID, pinterface: *mut *mut ::core::ffi::c_void, pcallres: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()>;
     fn OpenAsync(&self, straddresstype: &::windows::core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: &::windows::core::BSTR, struser: &::windows::core::BSTR, strpassword: &::windows::core::BSTR, strlocale: &::windows::core::BSTR, lflags: i32, pctx: &::core::option::Option<IWbemContext>, riid: *const ::windows::core::GUID, presponsehandler: &::core::option::Option<IWbemObjectSink>) -> ::windows::core::Result<()>;
@@ -3202,6 +3237,7 @@ impl IWbemClientConnectionTransport_Vtbl {
         iid == &<IWbemClientConnectionTransport as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemClientTransport_Impl: Sized {
     fn ConnectServer(&self, straddresstype: &::windows::core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strnetworkresource: &::windows::core::BSTR, struser: &::windows::core::BSTR, strpassword: &::windows::core::BSTR, strlocale: &::windows::core::BSTR, lsecurityflags: i32, strauthority: &::windows::core::BSTR, pctx: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<IWbemServices>;
 }
@@ -3225,6 +3261,7 @@ impl IWbemClientTransport_Vtbl {
         iid == &<IWbemClientTransport as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemConfigureRefresher_Impl: Sized {
     fn AddObjectByPath(&self, pnamespace: &::core::option::Option<IWbemServices>, wszpath: &::windows::core::PCWSTR, lflags: i32, pcontext: &::core::option::Option<IWbemContext>, pprefreshable: *mut ::core::option::Option<IWbemClassObject>, plid: *mut i32) -> ::windows::core::Result<()>;
     fn AddObjectByTemplate(&self, pnamespace: &::core::option::Option<IWbemServices>, ptemplate: &::core::option::Option<IWbemClassObject>, lflags: i32, pcontext: &::core::option::Option<IWbemContext>, pprefreshable: *mut ::core::option::Option<IWbemClassObject>, plid: *mut i32) -> ::windows::core::Result<()>;
@@ -3273,6 +3310,7 @@ impl IWbemConfigureRefresher_Vtbl {
         iid == &<IWbemConfigureRefresher as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemConnectorLogin_Impl: Sized {
     fn ConnectorLogin(&self, wsznetworkresource: &::windows::core::PCWSTR, wszpreferredlocale: &::windows::core::PCWSTR, lflags: i32, pctx: &::core::option::Option<IWbemContext>, riid: *const ::windows::core::GUID, pinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -3290,6 +3328,7 @@ impl IWbemConnectorLogin_Vtbl {
         iid == &<IWbemConnectorLogin as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemConstructClassObject_Impl: Sized {
     fn SetInheritanceChain(&self, lnumantecedents: i32, awszantecedents: *const ::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetPropertyOrigin(&self, wszpropertyname: &::windows::core::PCWSTR, loriginindex: i32) -> ::windows::core::Result<()>;
@@ -3331,6 +3370,7 @@ impl IWbemConstructClassObject_Vtbl {
         iid == &<IWbemConstructClassObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWbemContext_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IWbemContext>;
@@ -3428,6 +3468,7 @@ impl IWbemContext_Vtbl {
         iid == &<IWbemContext as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemDecoupledBasicEventProvider_Impl: Sized + IWbemDecoupledRegistrar_Impl {
     fn GetSink(&self, a_flags: i32, a_context: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<IWbemObjectSink>;
     fn GetService(&self, a_flags: i32, a_context: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<IWbemServices>;
@@ -3467,6 +3508,7 @@ impl IWbemDecoupledBasicEventProvider_Vtbl {
         iid == &<IWbemDecoupledBasicEventProvider as ::windows::core::Interface>::IID || iid == &<IWbemDecoupledRegistrar as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemDecoupledRegistrar_Impl: Sized {
     fn Register(&self, a_flags: i32, a_context: &::core::option::Option<IWbemContext>, a_user: &::windows::core::PCWSTR, a_locale: &::windows::core::PCWSTR, a_scope: &::windows::core::PCWSTR, a_registration: &::windows::core::PCWSTR, piunknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn UnRegister(&self) -> ::windows::core::Result<()>;
@@ -3494,6 +3536,7 @@ impl IWbemDecoupledRegistrar_Vtbl {
         iid == &<IWbemDecoupledRegistrar as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemEventConsumerProvider_Impl: Sized {
     fn FindConsumer(&self, plogicalconsumer: &::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<IWbemUnboundObjectSink>;
 }
@@ -3517,6 +3560,7 @@ impl IWbemEventConsumerProvider_Vtbl {
         iid == &<IWbemEventConsumerProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemEventProvider_Impl: Sized {
     fn ProvideEvents(&self, psink: &::core::option::Option<IWbemObjectSink>, lflags: i32) -> ::windows::core::Result<()>;
 }
@@ -3534,6 +3578,7 @@ impl IWbemEventProvider_Vtbl {
         iid == &<IWbemEventProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemEventProviderQuerySink_Impl: Sized {
     fn NewQuery(&self, dwid: u32, wszquerylanguage: *const u16, wszquery: *const u16) -> ::windows::core::Result<()>;
     fn CancelQuery(&self, dwid: u32) -> ::windows::core::Result<()>;
@@ -3561,6 +3606,7 @@ impl IWbemEventProviderQuerySink_Vtbl {
         iid == &<IWbemEventProviderQuerySink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemEventProviderSecurity_Impl: Sized {
     fn AccessCheck(&self, wszquerylanguage: *const u16, wszquery: *const u16, lsidlength: i32, psid: *const u8) -> ::windows::core::Result<()>;
 }
@@ -3578,6 +3624,7 @@ impl IWbemEventProviderSecurity_Vtbl {
         iid == &<IWbemEventProviderSecurity as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemEventSink_Impl: Sized + IWbemObjectSink_Impl {
     fn SetSinkSecurity(&self, lsdlength: i32, psd: *const u8) -> ::windows::core::Result<()>;
     fn IsActive(&self) -> ::windows::core::Result<()>;
@@ -3625,6 +3672,7 @@ impl IWbemEventSink_Vtbl {
         iid == &<IWbemEventSink as ::windows::core::Interface>::IID || iid == &<IWbemObjectSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemHiPerfEnum_Impl: Sized {
     fn AddObjects(&self, lflags: i32, unumobjects: u32, apids: *const i32, apobj: *const ::core::option::Option<IWbemObjectAccess>) -> ::windows::core::Result<()>;
     fn RemoveObjects(&self, lflags: i32, unumobjects: u32, apids: *const i32) -> ::windows::core::Result<()>;
@@ -3666,6 +3714,7 @@ impl IWbemHiPerfEnum_Vtbl {
         iid == &<IWbemHiPerfEnum as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemHiPerfProvider_Impl: Sized {
     fn QueryInstances(&self, pnamespace: &::core::option::Option<IWbemServices>, wszclass: &::windows::core::PCWSTR, lflags: i32, pctx: &::core::option::Option<IWbemContext>, psink: &::core::option::Option<IWbemObjectSink>) -> ::windows::core::Result<()>;
     fn CreateRefresher(&self, pnamespace: &::core::option::Option<IWbemServices>, lflags: i32) -> ::windows::core::Result<IWbemRefresher>;
@@ -3733,6 +3782,7 @@ impl IWbemHiPerfProvider_Vtbl {
         iid == &<IWbemHiPerfProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemLevel1Login_Impl: Sized {
     fn EstablishPosition(&self, wszlocalelist: &::windows::core::PCWSTR, dwnumlocales: u32) -> ::windows::core::Result<u32>;
     fn RequestChallenge(&self, wsznetworkresource: &::windows::core::PCWSTR, wszuser: &::windows::core::PCWSTR) -> ::windows::core::Result<u8>;
@@ -3798,6 +3848,7 @@ impl IWbemLevel1Login_Vtbl {
         iid == &<IWbemLevel1Login as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemLocator_Impl: Sized {
     fn ConnectServer(&self, strnetworkresource: &::windows::core::BSTR, struser: &::windows::core::BSTR, strpassword: &::windows::core::BSTR, strlocale: &::windows::core::BSTR, lsecurityflags: i32, strauthority: &::windows::core::BSTR, pctx: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<IWbemServices>;
 }
@@ -3821,6 +3872,7 @@ impl IWbemLocator_Vtbl {
         iid == &<IWbemLocator as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWbemObjectAccess_Impl: Sized + IWbemClassObject_Impl {
     fn GetPropertyHandle(&self, wszpropertyname: &::windows::core::PCWSTR, ptype: *mut i32, plhandle: *mut i32) -> ::windows::core::Result<()>;
@@ -3919,6 +3971,7 @@ impl IWbemObjectAccess_Vtbl {
         iid == &<IWbemObjectAccess as ::windows::core::Interface>::IID || iid == &<IWbemClassObject as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemObjectSink_Impl: Sized {
     fn Indicate(&self, lobjectcount: i32, apobjarray: *const ::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<()>;
     fn SetStatus(&self, lflags: i32, hresult: ::windows::core::HRESULT, strparam: &::windows::core::BSTR, pobjparam: &::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<()>;
@@ -3946,6 +3999,7 @@ impl IWbemObjectSink_Vtbl {
         iid == &<IWbemObjectSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWbemObjectSinkEx_Impl: Sized + IWbemObjectSink_Impl {
     fn WriteMessage(&self, uchannel: u32, strmessage: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -4009,6 +4063,7 @@ impl IWbemObjectSinkEx_Vtbl {
         iid == &<IWbemObjectSinkEx as ::windows::core::Interface>::IID || iid == &<IWbemObjectSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemObjectTextSrc_Impl: Sized {
     fn GetText(&self, lflags: i32, pobj: &::core::option::Option<IWbemClassObject>, uobjtextformat: u32, pctx: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<::windows::core::BSTR>;
     fn CreateFromText(&self, lflags: i32, strtext: &::windows::core::BSTR, uobjtextformat: u32, pctx: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<IWbemClassObject>;
@@ -4048,6 +4103,7 @@ impl IWbemObjectTextSrc_Vtbl {
         iid == &<IWbemObjectTextSrc as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWbemPath_Impl: Sized {
     fn SetText(&self, umode: u32, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -4270,6 +4326,7 @@ impl IWbemPath_Vtbl {
         iid == &<IWbemPath as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWbemPathKeyList_Impl: Sized {
     fn GetCount(&self) -> ::windows::core::Result<u32>;
@@ -4368,6 +4425,7 @@ impl IWbemPathKeyList_Vtbl {
         iid == &<IWbemPathKeyList as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWbemPropertyProvider_Impl: Sized {
     fn GetProperty(&self, lflags: i32, strlocale: &::windows::core::BSTR, strclassmapping: &::windows::core::BSTR, strinstmapping: &::windows::core::BSTR, strpropmapping: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -4404,6 +4462,7 @@ impl IWbemPropertyProvider_Vtbl {
         iid == &<IWbemPropertyProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemProviderIdentity_Impl: Sized {
     fn SetRegistrationObject(&self, lflags: i32, pprovreg: &::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<()>;
 }
@@ -4421,6 +4480,7 @@ impl IWbemProviderIdentity_Vtbl {
         iid == &<IWbemProviderIdentity as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemProviderInit_Impl: Sized {
     fn Initialize(&self, wszuser: &::windows::core::PCWSTR, lflags: i32, wsznamespace: &::windows::core::PCWSTR, wszlocale: &::windows::core::PCWSTR, pnamespace: &::core::option::Option<IWbemServices>, pctx: &::core::option::Option<IWbemContext>, pinitsink: &::core::option::Option<IWbemProviderInitSink>) -> ::windows::core::Result<()>;
 }
@@ -4438,6 +4498,7 @@ impl IWbemProviderInit_Vtbl {
         iid == &<IWbemProviderInit as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemProviderInitSink_Impl: Sized {
     fn SetStatus(&self, lstatus: i32, lflags: i32) -> ::windows::core::Result<()>;
 }
@@ -4455,6 +4516,7 @@ impl IWbemProviderInitSink_Vtbl {
         iid == &<IWbemProviderInitSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWbemQualifierSet_Impl: Sized {
     fn Get(&self, wszname: &::windows::core::PCWSTR, lflags: i32, pval: *mut super::Com::VARIANT, plflavor: *mut i32) -> ::windows::core::Result<()>;
@@ -4526,6 +4588,7 @@ impl IWbemQualifierSet_Vtbl {
         iid == &<IWbemQualifierSet as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemQuery_Impl: Sized {
     fn Empty(&self) -> ::windows::core::Result<()>;
     fn SetLanguageFeatures(&self, uflags: u32, uarraysize: u32, pufeatures: *const u32) -> ::windows::core::Result<()>;
@@ -4588,6 +4651,7 @@ impl IWbemQuery_Vtbl {
         iid == &<IWbemQuery as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemRefresher_Impl: Sized {
     fn Refresh(&self, lflags: i32) -> ::windows::core::Result<()>;
 }
@@ -4605,6 +4669,7 @@ impl IWbemRefresher_Vtbl {
         iid == &<IWbemRefresher as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemServices_Impl: Sized {
     fn OpenNamespace(&self, strnamespace: &::windows::core::BSTR, lflags: i32, pctx: &::core::option::Option<IWbemContext>, ppworkingnamespace: *mut ::core::option::Option<IWbemServices>, ppresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()>;
     fn CancelAsyncCall(&self, psink: &::core::option::Option<IWbemObjectSink>) -> ::windows::core::Result<()>;
@@ -4809,6 +4874,7 @@ impl IWbemServices_Vtbl {
         iid == &<IWbemServices as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemShutdown_Impl: Sized {
     fn Shutdown(&self, ureason: i32, umaxmilliseconds: u32, pctx: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<()>;
 }
@@ -4826,6 +4892,7 @@ impl IWbemShutdown_Vtbl {
         iid == &<IWbemShutdown as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemStatusCodeText_Impl: Sized {
     fn GetErrorCodeText(&self, hres: ::windows::core::HRESULT, localeid: u32, lflags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetFacilityCodeText(&self, hres: ::windows::core::HRESULT, localeid: u32, lflags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4865,6 +4932,7 @@ impl IWbemStatusCodeText_Vtbl {
         iid == &<IWbemStatusCodeText as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemTransport_Impl: Sized {
     fn Initialize(&self) -> ::windows::core::Result<()>;
 }
@@ -4882,6 +4950,7 @@ impl IWbemTransport_Vtbl {
         iid == &<IWbemTransport as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemUnboundObjectSink_Impl: Sized {
     fn IndicateToConsumer(&self, plogicalconsumer: &::core::option::Option<IWbemClassObject>, lnumobjects: i32, apobjects: *const ::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<()>;
 }
@@ -4899,6 +4968,7 @@ impl IWbemUnboundObjectSink_Vtbl {
         iid == &<IWbemUnboundObjectSink as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"implement\"`*"]
 pub trait IWbemUnsecuredApartment_Impl: Sized + IUnsecuredApartment_Impl {
     fn CreateSinkStub(&self, psink: &::core::option::Option<IWbemObjectSink>, dwflags: u32, wszreserved: &::windows::core::PCWSTR) -> ::windows::core::Result<IWbemObjectSink>;
 }

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Devices_Adc_Provider\"`, `\"implement\"`*"]
 pub trait IAdcControllerProvider_Impl: Sized {
     fn ChannelCount(&self) -> ::windows::core::Result<i32>;
     fn ResolutionInBits(&self) -> ::windows::core::Result<i32>;
@@ -132,6 +133,7 @@ impl IAdcControllerProvider_Vtbl {
         iid == &<IAdcControllerProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Devices_Adc_Provider\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IAdcProvider_Impl: Sized {
     fn GetControllers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>>;

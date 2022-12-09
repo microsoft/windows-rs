@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDDVideoPortContainer_Impl: Sized {
     fn CreateVideoPort(&self, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut ::core::option::Option<IDirectDrawVideoPort>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -42,6 +43,7 @@ impl IDDVideoPortContainer_Vtbl {
         iid == &<IDDVideoPortContainer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDraw_Impl: Sized {
     fn Compact(&self) -> ::windows::core::Result<()>;
@@ -210,6 +212,7 @@ impl IDirectDraw_Vtbl {
         iid == &<IDirectDraw as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDraw2_Impl: Sized {
     fn Compact(&self) -> ::windows::core::Result<()>;
@@ -385,6 +388,7 @@ impl IDirectDraw2_Vtbl {
         iid == &<IDirectDraw2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDraw4_Impl: Sized {
     fn Compact(&self) -> ::windows::core::Result<()>;
@@ -594,6 +598,7 @@ impl IDirectDraw4_Vtbl {
         iid == &<IDirectDraw4 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDraw7_Impl: Sized {
     fn Compact(&self) -> ::windows::core::Result<()>;
@@ -817,6 +822,7 @@ impl IDirectDraw7_Vtbl {
         iid == &<IDirectDraw7 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawClipper_Impl: Sized {
     fn GetClipList(&self, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> ::windows::core::Result<()>;
@@ -875,6 +881,7 @@ impl IDirectDrawClipper_Vtbl {
         iid == &<IDirectDrawClipper as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
 pub trait IDirectDrawColorControl_Impl: Sized {
     fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()>;
     fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()>;
@@ -902,6 +909,7 @@ impl IDirectDrawColorControl_Vtbl {
         iid == &<IDirectDrawColorControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
 pub trait IDirectDrawGammaControl_Impl: Sized {
     fn GetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::Result<()>;
     fn SetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::Result<()>;
@@ -929,6 +937,7 @@ impl IDirectDrawGammaControl_Vtbl {
         iid == &<IDirectDrawGammaControl as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
 pub trait IDirectDrawKernel_Impl: Sized {
     fn GetCaps(&self, param0: *mut DDKERNELCAPS) -> ::windows::core::Result<()>;
     fn GetKernelHandle(&self, param0: *mut usize) -> ::windows::core::Result<()>;
@@ -963,6 +972,7 @@ impl IDirectDrawKernel_Vtbl {
         iid == &<IDirectDrawKernel as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDirectDrawPalette_Impl: Sized {
     fn GetCaps(&self, param0: *mut u32) -> ::windows::core::Result<()>;
@@ -1007,6 +1017,7 @@ impl IDirectDrawPalette_Vtbl {
         iid == &<IDirectDrawPalette as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface_Impl: Sized {
     fn AddAttachedSurface(&self, param0: &::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<()>;
@@ -1266,6 +1277,7 @@ impl IDirectDrawSurface_Vtbl {
         iid == &<IDirectDrawSurface as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface2_Impl: Sized {
     fn AddAttachedSurface(&self, param0: &::core::option::Option<IDirectDrawSurface2>) -> ::windows::core::Result<()>;
@@ -1546,6 +1558,7 @@ impl IDirectDrawSurface2_Vtbl {
         iid == &<IDirectDrawSurface2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface3_Impl: Sized {
     fn AddAttachedSurface(&self, param0: &::core::option::Option<IDirectDrawSurface3>) -> ::windows::core::Result<()>;
@@ -1833,6 +1846,7 @@ impl IDirectDrawSurface3_Vtbl {
         iid == &<IDirectDrawSurface3 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface4_Impl: Sized {
     fn AddAttachedSurface(&self, param0: &::core::option::Option<IDirectDrawSurface4>) -> ::windows::core::Result<()>;
@@ -2155,6 +2169,7 @@ impl IDirectDrawSurface4_Vtbl {
         iid == &<IDirectDrawSurface4 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface7_Impl: Sized {
     fn AddAttachedSurface(&self, param0: &::core::option::Option<IDirectDrawSurface7>) -> ::windows::core::Result<()>;
@@ -2505,6 +2520,7 @@ impl IDirectDrawSurface7_Vtbl {
         iid == &<IDirectDrawSurface7 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
 pub trait IDirectDrawSurfaceKernel_Impl: Sized {
     fn GetKernelHandle(&self, param0: *mut usize) -> ::windows::core::Result<()>;
     fn ReleaseKernelHandle(&self) -> ::windows::core::Result<()>;
@@ -2532,6 +2548,7 @@ impl IDirectDrawSurfaceKernel_Vtbl {
         iid == &<IDirectDrawSurfaceKernel as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectDrawVideoPort_Impl: Sized {
     fn Flip(&self, param0: &::core::option::Option<IDirectDrawSurface>, param1: u32) -> ::windows::core::Result<()>;
@@ -2646,6 +2663,7 @@ impl IDirectDrawVideoPort_Vtbl {
         iid == &<IDirectDrawVideoPort as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectDrawVideoPortNotify_Impl: Sized {
     fn AcquireNotification(&self, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> ::windows::core::Result<()>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Storage_Streams\"`, `\"implement\"`*"]
 pub trait IBuffer_Impl: Sized {
     fn Capacity(&self) -> ::windows::core::Result<u32>;
     fn Length(&self) -> ::windows::core::Result<u32>;
@@ -48,6 +49,7 @@ impl IBuffer_Vtbl {
         iid == &<IBuffer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Streams\"`, `\"implement\"`*"]
 pub trait IContentTypeProvider_Impl: Sized {
     fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -74,6 +76,7 @@ impl IContentTypeProvider_Vtbl {
         iid == &<IContentTypeProvider as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IDataReader_Impl: Sized {
     fn UnconsumedBufferLength(&self) -> ::windows::core::Result<u32>;
@@ -428,6 +431,7 @@ impl IDataReader_Vtbl {
         iid == &<IDataReader as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IDataWriter_Impl: Sized {
     fn UnstoredBufferLength(&self) -> ::windows::core::Result<u32>;
@@ -698,6 +702,7 @@ impl IDataWriter_Vtbl {
         iid == &<IDataWriter as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IInputStream_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn ReadAsync(&self, buffer: &::core::option::Option<IBuffer>, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>;
@@ -727,6 +732,7 @@ impl IInputStream_Vtbl {
         iid == &<IInputStream as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IInputStreamReference_Impl: Sized {
     fn OpenSequentialReadAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IInputStream>>;
@@ -759,6 +765,7 @@ impl IInputStreamReference_Vtbl {
         iid == &<IInputStreamReference as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IOutputStream_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn WriteAsync(&self, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
@@ -805,6 +812,7 @@ impl IOutputStream_Vtbl {
         iid == &<IOutputStream as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPropertySetSerializer_Impl: Sized {
     fn Serialize(&self, propertyset: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<IBuffer>;
@@ -844,6 +852,7 @@ impl IPropertySetSerializer_Vtbl {
         iid == &<IPropertySetSerializer as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IRandomAccessStream_Impl: Sized + super::super::Foundation::IClosable_Impl + IInputStream_Impl + IOutputStream_Impl {
     fn Size(&self) -> ::windows::core::Result<u64>;
@@ -974,6 +983,7 @@ impl IRandomAccessStream_Vtbl {
         iid == &<IRandomAccessStream as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IRandomAccessStreamReference_Impl: Sized {
     fn OpenReadAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>>;
@@ -1006,6 +1016,7 @@ impl IRandomAccessStreamReference_Vtbl {
         iid == &<IRandomAccessStreamReference as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IRandomAccessStreamWithContentType_Impl: Sized + super::super::Foundation::IClosable_Impl + IContentTypeProvider_Impl + IInputStream_Impl + IOutputStream_Impl + IRandomAccessStream_Impl {}
 #[cfg(feature = "Foundation")]

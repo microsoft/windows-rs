@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"implement\"`*"]
 pub trait ITraceEvent_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<ITraceEvent>;
     fn GetUserContext(&self) -> ::windows::core::Result<*mut ::core::ffi::c_void>;
@@ -113,6 +114,7 @@ impl ITraceEvent_Vtbl {
         iid == &<ITraceEvent as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"implement\"`*"]
 pub trait ITraceEventCallback_Impl: Sized {
     fn OnBeginProcessTrace(&self, headerevent: &::core::option::Option<ITraceEvent>, relogger: &::core::option::Option<ITraceRelogger>) -> ::windows::core::Result<()>;
     fn OnFinalizeProcessTrace(&self, relogger: &::core::option::Option<ITraceRelogger>) -> ::windows::core::Result<()>;
@@ -147,6 +149,7 @@ impl ITraceEventCallback_Vtbl {
         iid == &<ITraceEventCallback as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITraceRelogger_Impl: Sized {
     fn AddLogfileTraceStream(&self, logfilename: &::windows::core::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<RELOGSTREAM_HANDLE>;

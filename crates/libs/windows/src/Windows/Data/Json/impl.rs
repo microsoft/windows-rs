@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Data_Json\"`, `\"implement\"`*"]
 pub trait IJsonValue_Impl: Sized {
     fn ValueType(&self) -> ::windows::core::Result<JsonValueType>;
     fn Stringify(&self) -> ::windows::core::Result<::windows::core::HSTRING>;

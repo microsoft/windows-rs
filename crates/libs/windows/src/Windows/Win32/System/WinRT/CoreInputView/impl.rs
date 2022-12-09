@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_WinRT_CoreInputView\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICoreFrameworkInputViewInterop_Impl: Sized {
     fn GetForWindow(&self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, coreframeworkinputview: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;

@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSCDefaultProduct_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetDefaultProduct(&self, etype: SECURITY_PRODUCT_TYPE, pguid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -18,6 +19,7 @@ impl IWSCDefaultProduct_Vtbl {
         iid == &<IWSCDefaultProduct as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSCProductList_Impl: Sized + super::Com::IDispatch_Impl {
     fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> ::windows::core::Result<()>;
@@ -67,6 +69,7 @@ impl IWSCProductList_Vtbl {
         iid == &<IWSCProductList as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWscProduct_Impl: Sized + super::Com::IDispatch_Impl {
     fn ProductName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -174,6 +177,7 @@ impl IWscProduct_Vtbl {
         iid == &<IWscProduct as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWscProduct2_Impl: Sized + IWscProduct_Impl {
     fn AntivirusScanSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
@@ -268,6 +272,7 @@ impl IWscProduct2_Vtbl {
         iid == &<IWscProduct2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWscProduct as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWscProduct3_Impl: Sized + IWscProduct2_Impl {
     fn AntivirusDaysUntilExpired(&self) -> ::windows::core::Result<u32>;

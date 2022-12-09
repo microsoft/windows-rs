@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait ICoreAcceleratorKeys_Impl: Sized {
     fn AcceleratorKeyActivated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -37,6 +38,7 @@ impl ICoreAcceleratorKeys_Vtbl {
         iid == &<ICoreAcceleratorKeys as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait ICoreInputSourceBase_Impl: Sized {
     fn Dispatcher(&self) -> ::windows::core::Result<CoreDispatcher>;
@@ -111,6 +113,7 @@ impl ICoreInputSourceBase_Vtbl {
         iid == &<ICoreInputSourceBase as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait ICorePointerInputSource_Impl: Sized {
     fn ReleasePointerCapture(&self) -> ::windows::core::Result<()>;
@@ -339,6 +342,7 @@ impl ICorePointerInputSource_Vtbl {
         iid == &<ICorePointerInputSource as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"System\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "System"))]
 pub trait ICorePointerInputSource2_Impl: Sized + ICorePointerInputSource_Impl {
     fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
@@ -371,6 +375,7 @@ impl ICorePointerInputSource2_Vtbl {
         iid == &<ICorePointerInputSource2 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait ICorePointerRedirector_Impl: Sized {
     fn PointerRoutedAway(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -452,6 +457,7 @@ impl ICorePointerRedirector_Vtbl {
         iid == &<ICorePointerRedirector as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Core\"`, `\"Foundation_Collections\"`, `\"System\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
 pub trait ICoreWindow_Impl: Sized {
     fn AutomationHostProvider(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
@@ -1030,6 +1036,7 @@ impl ICoreWindow_Vtbl {
         iid == &<ICoreWindow as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Core\"`, `\"implement\"`*"]
 pub trait ICoreWindowEventArgs_Impl: Sized {
     fn Handled(&self) -> ::windows::core::Result<bool>;
     fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
@@ -1066,6 +1073,7 @@ impl ICoreWindowEventArgs_Vtbl {
         iid == &<ICoreWindowEventArgs as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"UI_Core\"`, `\"implement\"`*"]
 pub trait IInitializeWithCoreWindow_Impl: Sized {
     fn Initialize(&self, window: &::core::option::Option<CoreWindow>) -> ::windows::core::Result<()>;
 }
