@@ -105,6 +105,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p sample_rss &&
           cargo test --target ${{ matrix.target }} -p sample_simple &&
           cargo test --target ${{ matrix.target }} -p sample_spellchecker &&
+          cargo test --target ${{ matrix.target }} -p sample_thread_pool_work &&
+          cargo test --target ${{ matrix.target }} -p sample_thread_pool_work_sys &&
           cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
           cargo test --target ${{ matrix.target }} -p sample_wmi &&
           cargo test --target ${{ matrix.target }} -p sample_xml &&
@@ -130,8 +132,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_error &&
           cargo test --target ${{ matrix.target }} -p test_event &&
           cargo test --target ${{ matrix.target }} -p test_extensions &&
-          cargo test --target ${{ matrix.target }} -p test_handles &&
           cargo clean &&
+          cargo test --target ${{ matrix.target }} -p test_handles &&
           cargo test --target ${{ matrix.target }} -p test_helpers &&
           cargo test --target ${{ matrix.target }} -p test_implement &&
           cargo test --target ${{ matrix.target }} -p test_interface &&
