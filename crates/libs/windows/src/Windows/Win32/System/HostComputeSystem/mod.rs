@@ -242,13 +242,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetOperationResult<P0>(operation: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcsGetOperationResult<P0>(operation: P0, resultdocument: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
     ::windows::core::link ! ( "computecore.dll""system" fn HcsGetOperationResult ( operation : HCS_OPERATION , resultdocument : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsGetOperationResult(operation.into(), result__.as_mut_ptr()).from_abi(result__)
+    HcsGetOperationResult(operation.into(), ::core::mem::transmute(resultdocument.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -301,13 +300,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetProcessorCompatibilityFromSavedState<P0>(runtimefilename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcsGetProcessorCompatibilityFromSavedState<P0>(runtimefilename: P0, processorfeaturesstring: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "computecore.dll""system" fn HcsGetProcessorCompatibilityFromSavedState ( runtimefilename : :: windows::core::PCWSTR , processorfeaturesstring : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsGetProcessorCompatibilityFromSavedState(runtimefilename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    HcsGetProcessorCompatibilityFromSavedState(runtimefilename.into().abi(), ::core::mem::transmute(processorfeaturesstring.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -398,13 +396,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsModifyServiceSettings<P0>(settings: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcsModifyServiceSettings<P0>(settings: P0, result: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "computecore.dll""system" fn HcsModifyServiceSettings ( settings : :: windows::core::PCWSTR , result : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsModifyServiceSettings(settings.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    HcsModifyServiceSettings(settings.into().abi(), ::core::mem::transmute(result.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -614,23 +611,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsWaitForComputeSystemExit<P0>(computesystem: P0, timeoutms: u32) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcsWaitForComputeSystemExit<P0>(computesystem: P0, timeoutms: u32, result: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
 {
     ::windows::core::link ! ( "computecore.dll""system" fn HcsWaitForComputeSystemExit ( computesystem : HCS_SYSTEM , timeoutms : u32 , result : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsWaitForComputeSystemExit(computesystem.into(), timeoutms, result__.as_mut_ptr()).from_abi(result__)
+    HcsWaitForComputeSystemExit(computesystem.into(), timeoutms, ::core::mem::transmute(result.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsWaitForOperationResult<P0>(operation: P0, timeoutms: u32) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcsWaitForOperationResult<P0>(operation: P0, timeoutms: u32, resultdocument: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
     ::windows::core::link ! ( "computecore.dll""system" fn HcsWaitForOperationResult ( operation : HCS_OPERATION , timeoutms : u32 , resultdocument : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsWaitForOperationResult(operation.into(), timeoutms, result__.as_mut_ptr()).from_abi(result__)
+    HcsWaitForOperationResult(operation.into(), timeoutms, ::core::mem::transmute(resultdocument.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -644,13 +639,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsWaitForProcessExit<P0>(computesystem: P0, timeoutms: u32) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn HcsWaitForProcessExit<P0>(computesystem: P0, timeoutms: u32, result: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_PROCESS>,
 {
     ::windows::core::link ! ( "computecore.dll""system" fn HcsWaitForProcessExit ( computesystem : HCS_PROCESS , timeoutms : u32 , result : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsWaitForProcessExit(computesystem.into(), timeoutms, result__.as_mut_ptr()).from_abi(result__)
+    HcsWaitForProcessExit(computesystem.into(), timeoutms, ::core::mem::transmute(result.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[repr(transparent)]

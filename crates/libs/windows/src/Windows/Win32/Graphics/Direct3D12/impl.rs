@@ -1058,7 +1058,7 @@ impl ID3D12Device5_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device6_Impl: Sized + ID3D12Device5_Impl {
-    fn SetBackgroundProcessingMode(&self, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetBackgroundProcessingMode(&self, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows::core::RuntimeName for ID3D12Device6 {}
@@ -1068,13 +1068,7 @@ impl ID3D12Device6_Vtbl {
         unsafe extern "system" fn SetBackgroundProcessingMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SetBackgroundProcessingMode(::core::mem::transmute_copy(&mode), ::core::mem::transmute_copy(&measurementsaction), ::core::mem::transmute_copy(&heventtosignaluponcompletion)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pbfurthermeasurementsdesired, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.SetBackgroundProcessingMode(::core::mem::transmute_copy(&mode), ::core::mem::transmute_copy(&measurementsaction), ::core::mem::transmute_copy(&heventtosignaluponcompletion), ::core::mem::transmute_copy(&pbfurthermeasurementsdesired)).into()
         }
         Self { base__: ID3D12Device5_Vtbl::new::<Identity, Impl, OFFSET>(), SetBackgroundProcessingMode: SetBackgroundProcessingMode::<Identity, Impl, OFFSET> }
     }

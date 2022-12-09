@@ -19,7 +19,8 @@ fn test() -> Result<()> {
         writer.WriteEndDocument()?;
         writer.Flush()?;
 
-        let pos = stream.Seek(0, STREAM_SEEK_SET)?;
+        let mut pos = 0;
+        stream.Seek(0, STREAM_SEEK_SET, Some(&mut pos))?;
         assert_eq!(pos, 0);
 
         let mut reader: Option<IXmlReader> = None;
@@ -101,7 +102,8 @@ fn lite() -> Result<()> {
         writer.WriteEndElement(HSTRING::from("html").as_wide())?;
         writer.Flush()?;
 
-        let pos = stream.Seek(0, STREAM_SEEK_SET)?;
+        let mut pos = 0;
+        stream.Seek(0, STREAM_SEEK_SET, Some(&mut pos))?;
         assert_eq!(pos, 0);
 
         let mut reader: Option<IXmlReader> = None;

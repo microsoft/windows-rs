@@ -69,9 +69,9 @@ impl IMLOperatorKernel_Vtbl {
     }
 }
 pub trait IMLOperatorKernelContext_Impl: Sized {
-    fn GetInputTensor(&self, inputindex: u32) -> ::windows::core::Result<IMLOperatorTensor>;
-    fn GetOutputTensor(&self, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32) -> ::windows::core::Result<IMLOperatorTensor>;
-    fn GetOutputTensor2(&self, outputindex: u32) -> ::windows::core::Result<IMLOperatorTensor>;
+    fn GetInputTensor(&self, inputindex: u32, tensor: *mut ::core::option::Option<IMLOperatorTensor>) -> ::windows::core::Result<()>;
+    fn GetOutputTensor(&self, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32, tensor: *mut ::core::option::Option<IMLOperatorTensor>) -> ::windows::core::Result<()>;
+    fn GetOutputTensor2(&self, outputindex: u32, tensor: *mut ::core::option::Option<IMLOperatorTensor>) -> ::windows::core::Result<()>;
     fn AllocateTemporaryData(&self, size: usize) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetExecutionInterface(&self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>);
 }
@@ -81,35 +81,17 @@ impl IMLOperatorKernelContext_Vtbl {
         unsafe extern "system" fn GetInputTensor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLOperatorKernelContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputindex: u32, tensor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetInputTensor(::core::mem::transmute_copy(&inputindex)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(tensor, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetInputTensor(::core::mem::transmute_copy(&inputindex), ::core::mem::transmute_copy(&tensor)).into()
         }
         unsafe extern "system" fn GetOutputTensor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLOperatorKernelContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32, tensor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOutputTensor(::core::mem::transmute_copy(&outputindex), ::core::mem::transmute_copy(&dimensioncount), ::core::mem::transmute_copy(&dimensionsizes)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(tensor, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetOutputTensor(::core::mem::transmute_copy(&outputindex), ::core::mem::transmute_copy(&dimensioncount), ::core::mem::transmute_copy(&dimensionsizes), ::core::mem::transmute_copy(&tensor)).into()
         }
         unsafe extern "system" fn GetOutputTensor2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLOperatorKernelContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputindex: u32, tensor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOutputTensor2(::core::mem::transmute_copy(&outputindex)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(tensor, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetOutputTensor2(::core::mem::transmute_copy(&outputindex), ::core::mem::transmute_copy(&tensor)).into()
         }
         unsafe extern "system" fn AllocateTemporaryData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLOperatorKernelContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: usize, data: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

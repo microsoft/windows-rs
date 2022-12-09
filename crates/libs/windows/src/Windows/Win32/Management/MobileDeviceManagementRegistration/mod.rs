@@ -1,12 +1,11 @@
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
-pub unsafe fn ApplyLocalManagementSyncML<P0>(syncmlrequest: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn ApplyLocalManagementSyncML<P0>(syncmlrequest: P0, syncmlresult: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "mdmlocalmanagement.dll""system" fn ApplyLocalManagementSyncML ( syncmlrequest : :: windows::core::PCWSTR , syncmlresult : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ApplyLocalManagementSyncML(syncmlrequest.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    ApplyLocalManagementSyncML(syncmlrequest.into().abi(), ::core::mem::transmute(syncmlresult.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
@@ -76,10 +75,9 @@ pub unsafe fn IsMdmUxWithoutAadAllowed() -> ::windows::core::Result<super::super
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterDeviceWithLocalManagement() -> ::windows::core::Result<super::super::Foundation::BOOL> {
+pub unsafe fn RegisterDeviceWithLocalManagement(alreadyregistered: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mdmlocalmanagement.dll""system" fn RegisterDeviceWithLocalManagement ( alreadyregistered : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RegisterDeviceWithLocalManagement(result__.as_mut_ptr()).from_abi(result__)
+    RegisterDeviceWithLocalManagement(::core::mem::transmute(alreadyregistered.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]

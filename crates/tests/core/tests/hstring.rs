@@ -185,11 +185,17 @@ fn hstring_compat() -> Result<()> {
         let world = HSTRING::from("World");
         assert_eq!(WindowsCompareStringOrdinal(&hey, &world)?, -1);
 
-        assert_eq!(WindowsConcatString(&hey, &world)?, "HeyWorld");
+        let mut result = HSTRING::new();
+        WindowsConcatString(&hey, &world, Some(&mut result))?;
+        assert_eq!(result, "HeyWorld");
 
-        assert_eq!(WindowsCreateString(Some(&hey.as_wide()))?, "Hey");
+        let mut result = HSTRING::new();
+        WindowsCreateString(Some(&hey.as_wide()), Some(&mut result))?;
+        assert_eq!(result, "Hey");
 
-        assert_eq!(WindowsDuplicateString(&hey)?, "Hey");
+        let mut result = HSTRING::new();
+        WindowsDuplicateString(&hey, Some(&mut result))?;
+        assert_eq!(result, "Hey");
 
         assert_eq!(WindowsGetStringLen(&hey), 3);
         assert_eq!(WindowsGetStringLen(&world), 5);

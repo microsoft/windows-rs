@@ -10,12 +10,11 @@ impl IGeometrySource2DInterop {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D")]
-    pub unsafe fn TryGetGeometryUsingFactory<P0>(&self, factory: P0) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>
+    pub unsafe fn TryGetGeometryUsingFactory<P0>(&self, factory: P0, value: ::core::option::Option<*mut ::core::option::Option<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::super::Graphics::Direct2D::ID2D1Factory>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).TryGetGeometryUsingFactory)(::windows::core::Vtable::as_raw(self), factory.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).TryGetGeometryUsingFactory)(::windows::core::Vtable::as_raw(self), factory.into().abi(), ::core::mem::transmute(value.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IGeometrySource2DInterop, ::windows::core::IUnknown);

@@ -5,7 +5,7 @@ pub trait ICameraUIControl_Impl: Sized {
     fn Suspend(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn Resume(&self) -> ::windows::core::Result<()>;
     fn GetCurrentViewType(&self) -> ::windows::core::Result<CameraUIControlViewType>;
-    fn GetActiveItem(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetActiveItem(&self, pbstractiveitempath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetSelectedItems(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
     fn RemoveCapturedItem(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
@@ -54,13 +54,7 @@ impl ICameraUIControl_Vtbl {
         unsafe extern "system" fn GetActiveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICameraUIControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstractiveitempath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetActiveItem() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pbstractiveitempath, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetActiveItem(::core::mem::transmute_copy(&pbstractiveitempath)).into()
         }
         unsafe extern "system" fn GetSelectedItems<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICameraUIControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppselecteditempaths: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

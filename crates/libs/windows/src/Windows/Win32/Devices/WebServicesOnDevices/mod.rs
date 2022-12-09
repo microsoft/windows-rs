@@ -1471,12 +1471,11 @@ impl IWSDServiceProxy {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetServiceMetadata)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SubscribeToOperation<P0>(&self, poperation: *const WSD_OPERATION, punknown: P0, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<*mut WSDXML_ELEMENT>
+    pub unsafe fn SubscribeToOperation<P0>(&self, poperation: *const WSD_OPERATION, punknown: P0, pany: *const WSDXML_ELEMENT, ppany: ::core::option::Option<*mut *mut WSDXML_ELEMENT>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SubscribeToOperation)(::windows::core::Vtable::as_raw(self), poperation, punknown.into().abi(), pany, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).SubscribeToOperation)(::windows::core::Vtable::as_raw(self), poperation, punknown.into().abi(), pany, ::core::mem::transmute(ppany.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn UnsubscribeToOperation(&self, poperation: *const WSD_OPERATION) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnsubscribeToOperation)(::windows::core::Vtable::as_raw(self), poperation).ok()
@@ -1550,12 +1549,11 @@ impl IWSDServiceProxyEventing {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetServiceMetadata)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SubscribeToOperation<P0>(&self, poperation: *const WSD_OPERATION, punknown: P0, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<*mut WSDXML_ELEMENT>
+    pub unsafe fn SubscribeToOperation<P0>(&self, poperation: *const WSD_OPERATION, punknown: P0, pany: *const WSDXML_ELEMENT, ppany: ::core::option::Option<*mut *mut WSDXML_ELEMENT>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.SubscribeToOperation)(::windows::core::Vtable::as_raw(self), poperation, punknown.into().abi(), pany, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.SubscribeToOperation)(::windows::core::Vtable::as_raw(self), poperation, punknown.into().abi(), pany, ::core::mem::transmute(ppany.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn UnsubscribeToOperation(&self, poperation: *const WSD_OPERATION) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.UnsubscribeToOperation)(::windows::core::Vtable::as_raw(self), poperation).ok()
@@ -2074,21 +2072,19 @@ pub struct IWSDUdpMessageParameters_Vtbl {
 #[repr(transparent)]
 pub struct IWSDXMLContext(::windows::core::IUnknown);
 impl IWSDXMLContext {
-    pub unsafe fn AddNamespace<P0, P1>(&self, pszuri: P0, pszsuggestedprefix: P1) -> ::windows::core::Result<*mut WSDXML_NAMESPACE>
+    pub unsafe fn AddNamespace<P0, P1>(&self, pszuri: P0, pszsuggestedprefix: P1, ppnamespace: ::core::option::Option<*mut *mut WSDXML_NAMESPACE>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddNamespace)(::windows::core::Vtable::as_raw(self), pszuri.into().abi(), pszsuggestedprefix.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddNamespace)(::windows::core::Vtable::as_raw(self), pszuri.into().abi(), pszsuggestedprefix.into().abi(), ::core::mem::transmute(ppnamespace.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn AddNameToNamespace<P0, P1>(&self, pszuri: P0, pszname: P1) -> ::windows::core::Result<*mut WSDXML_NAME>
+    pub unsafe fn AddNameToNamespace<P0, P1>(&self, pszuri: P0, pszname: P1, ppname: ::core::option::Option<*mut *mut WSDXML_NAME>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddNameToNamespace)(::windows::core::Vtable::as_raw(self), pszuri.into().abi(), pszname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddNameToNamespace)(::windows::core::Vtable::as_raw(self), pszuri.into().abi(), pszname.into().abi(), ::core::mem::transmute(ppname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetNamespaces(&self, pnamespaces: &[*const WSDXML_NAMESPACE], blayernumber: u8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetNamespaces)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pnamespaces.as_ptr()), pnamespaces.len() as _, blayernumber).ok()

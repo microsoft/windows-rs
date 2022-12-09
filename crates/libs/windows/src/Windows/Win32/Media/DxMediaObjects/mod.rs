@@ -285,15 +285,13 @@ impl IMediaObject {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetInputType(&self, dwinputstreamindex: u32, dwtypeindex: u32) -> ::windows::core::Result<DMO_MEDIA_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputType)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, dwtypeindex, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetInputType(&self, dwinputstreamindex: u32, dwtypeindex: u32, pmt: ::core::option::Option<*mut DMO_MEDIA_TYPE>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetInputType)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, dwtypeindex, ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetOutputType(&self, dwoutputstreamindex: u32, dwtypeindex: u32) -> ::windows::core::Result<DMO_MEDIA_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOutputType)(::windows::core::Vtable::as_raw(self), dwoutputstreamindex, dwtypeindex, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetOutputType(&self, dwoutputstreamindex: u32, dwtypeindex: u32, pmt: ::core::option::Option<*mut DMO_MEDIA_TYPE>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetOutputType)(::windows::core::Vtable::as_raw(self), dwoutputstreamindex, dwtypeindex, ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

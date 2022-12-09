@@ -267,7 +267,7 @@ impl Window {
                 let next_frame: f64 =
                     stats.nextEstimatedFrameTime as f64 / stats.timeFrequency as f64;
 
-                self.manager.Update(next_frame)?;
+                self.manager.Update(next_frame, None)?;
                 let storyboard = self.manager.CreateStoryboard()?;
                 let key_frame = add_show_transition(&self.library, &storyboard, &self.cards[next])?;
 
@@ -299,13 +299,13 @@ impl Window {
                         &self.cards[next],
                     )?;
 
-                    storyboard.Schedule(next_frame)?;
+                    storyboard.Schedule(next_frame, None)?;
                     update_animation(desktop, &self.cards[first])?;
                     update_animation(desktop, &self.cards[next])?;
                 } else {
                     self.first = Some(next);
                     self.cards[next].status = Status::Selected;
-                    storyboard.Schedule(next_frame)?;
+                    storyboard.Schedule(next_frame, None)?;
                     update_animation(desktop, &self.cards[next])?;
                 }
 

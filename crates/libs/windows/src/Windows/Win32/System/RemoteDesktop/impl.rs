@@ -1111,7 +1111,7 @@ pub trait ITsSbClientConnection_Impl: Sized {
     fn InitialProgram(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn LoadBalanceResult(&self) -> ::windows::core::Result<ITsSbLoadBalanceResult>;
     fn FarmName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn PutContext(&self, contextid: &::windows::core::BSTR, context: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn PutContext(&self, contextid: &::windows::core::BSTR, context: &super::Com::VARIANT, existingcontext: *mut super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn GetContext(&self, contextid: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
     fn Environment(&self) -> ::windows::core::Result<ITsSbEnvironment>;
     fn get_ConnectionError(&self) -> ::windows::core::Result<()>;
@@ -1185,13 +1185,7 @@ impl ITsSbClientConnection_Vtbl {
         unsafe extern "system" fn PutContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbClientConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contextid: *mut ::core::ffi::c_void, context: super::Com::VARIANT, existingcontext: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PutContext(::core::mem::transmute(&contextid), ::core::mem::transmute(&context)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(existingcontext, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.PutContext(::core::mem::transmute(&contextid), ::core::mem::transmute(&context), ::core::mem::transmute_copy(&existingcontext)).into()
         }
         unsafe extern "system" fn GetContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbClientConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contextid: *mut ::core::ffi::c_void, context: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

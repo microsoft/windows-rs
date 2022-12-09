@@ -1986,12 +1986,11 @@ pub struct DataSourceObject_Vtbl {
 #[repr(transparent)]
 pub struct IAccessor(::windows::core::IUnknown);
 impl IAccessor {
-    pub unsafe fn AddRefAccessor<P0>(&self, haccessor: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn AddRefAccessor<P0>(&self, haccessor: P0, pcrefcount: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<HACCESSOR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddRefAccessor)(::windows::core::Vtable::as_raw(self), haccessor.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddRefAccessor)(::windows::core::Vtable::as_raw(self), haccessor.into(), ::core::mem::transmute(pcrefcount.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2006,12 +2005,11 @@ impl IAccessor {
     {
         (::windows::core::Vtable::vtable(self).GetBindings)(::windows::core::Vtable::as_raw(self), haccessor.into(), pdwaccessorflags, ::core::mem::transmute(pcbindings.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(prgbindings.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn ReleaseAccessor<P0>(&self, haccessor: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn ReleaseAccessor<P0>(&self, haccessor: P0, pcrefcount: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<HACCESSOR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ReleaseAccessor)(::windows::core::Vtable::as_raw(self), haccessor.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).ReleaseAccessor)(::windows::core::Vtable::as_raw(self), haccessor.into(), ::core::mem::transmute(pcrefcount.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAccessor, ::windows::core::IUnknown);
@@ -2196,13 +2194,11 @@ pub struct IBindResource_Vtbl {
 #[repr(transparent)]
 pub struct IChapteredRowset(::windows::core::IUnknown);
 impl IChapteredRowset {
-    pub unsafe fn AddRefChapter(&self, hchapter: usize) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddRefChapter)(::windows::core::Vtable::as_raw(self), hchapter, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn AddRefChapter(&self, hchapter: usize, pcrefcount: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).AddRefChapter)(::windows::core::Vtable::as_raw(self), hchapter, ::core::mem::transmute(pcrefcount.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn ReleaseChapter(&self, hchapter: usize) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ReleaseChapter)(::windows::core::Vtable::as_raw(self), hchapter, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn ReleaseChapter(&self, hchapter: usize, pcrefcount: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).ReleaseChapter)(::windows::core::Vtable::as_raw(self), hchapter, ::core::mem::transmute(pcrefcount.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IChapteredRowset, ::windows::core::IUnknown);
@@ -2514,9 +2510,8 @@ impl ICommand {
     {
         (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), riid, ::core::mem::transmute(pparams.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcrowsaffected.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pprowset.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetDBSession(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDBSession)(::windows::core::Vtable::as_raw(self), riid, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetDBSession(&self, riid: *const ::windows::core::GUID, ppsession: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetDBSession)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(ppsession.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICommand, ::windows::core::IUnknown);
@@ -2843,9 +2838,8 @@ impl ICommandText {
     {
         (::windows::core::Vtable::vtable(self).base__.Execute)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), riid, ::core::mem::transmute(pparams.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcrowsaffected.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pprowset.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetDBSession(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDBSession)(::windows::core::Vtable::as_raw(self), riid, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetDBSession(&self, riid: *const ::windows::core::GUID, ppsession: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetDBSession)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(ppsession.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCommandText(&self, pguiddialect: ::core::option::Option<*mut ::windows::core::GUID>, ppwszcommand: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCommandText)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguiddialect.unwrap_or(::std::ptr::null_mut())), ppwszcommand).ok()
@@ -3565,13 +3559,12 @@ impl IConditionGenerator {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn DefaultPhrase<P0, P1>(&self, pszvaluetype: P0, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: P1) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn DefaultPhrase<P0, P1>(&self, pszvaluetype: P0, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: P1, ppszphrase: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DefaultPhrase)(::windows::core::Vtable::as_raw(self), pszvaluetype.into().abi(), ppropvar, fuseenglish.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).DefaultPhrase)(::windows::core::Vtable::as_raw(self), pszvaluetype.into().abi(), ppropvar, fuseenglish.into(), ::core::mem::transmute(ppszphrase.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IConditionGenerator, ::windows::core::IUnknown);
@@ -4564,9 +4557,8 @@ pub struct IDataSourceLocator_Vtbl {
 #[repr(transparent)]
 pub struct IEntity(::windows::core::IUnknown);
 impl IEntity {
-    pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Name(&self, ppszname: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Base(&self) -> ::windows::core::Result<IEntity> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4607,9 +4599,8 @@ impl IEntity {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetNamedEntity)(::windows::core::Vtable::as_raw(self), pszvalue.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn DefaultPhrase(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DefaultPhrase)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn DefaultPhrase(&self, ppszphrase: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).DefaultPhrase)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszphrase.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IEntity, ::windows::core::IUnknown);
@@ -4929,9 +4920,8 @@ impl IErrorRecords {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetBasicErrorInfo)(::windows::core::Vtable::as_raw(self), ulrecordnum, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetCustomErrorObject(&self, ulrecordnum: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCustomErrorObject)(::windows::core::Vtable::as_raw(self), ulrecordnum, riid, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetCustomErrorObject(&self, ulrecordnum: u32, riid: *const ::windows::core::GUID, ppobject: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetCustomErrorObject)(::windows::core::Vtable::as_raw(self), ulrecordnum, riid, ::core::mem::transmute(ppobject.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4997,9 +4987,8 @@ pub struct IErrorRecords_Vtbl {
 #[repr(transparent)]
 pub struct IGetDataSource(::windows::core::IUnknown);
 impl IGetDataSource {
-    pub unsafe fn GetDataSource(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDataSource)(::windows::core::Vtable::as_raw(self), riid, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetDataSource(&self, riid: *const ::windows::core::GUID, ppdatasource: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetDataSource)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(ppdatasource.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IGetDataSource, ::windows::core::IUnknown);
@@ -5634,9 +5623,8 @@ impl INamedEntity {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn DefaultPhrase(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DefaultPhrase)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn DefaultPhrase(&self, ppszphrase: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).DefaultPhrase)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszphrase.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INamedEntity, ::windows::core::IUnknown);
@@ -6410,9 +6398,8 @@ pub struct IRegisterProvider_Vtbl {
 #[repr(transparent)]
 pub struct IRelationship(::windows::core::IUnknown);
 impl IRelationship {
-    pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Name(&self, ppszname: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6431,9 +6418,8 @@ impl IRelationship {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).MetaData)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn DefaultPhrase(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DefaultPhrase)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn DefaultPhrase(&self, ppszphrase: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).DefaultPhrase)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszphrase.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IRelationship, ::windows::core::IUnknown);
@@ -6528,12 +6514,11 @@ impl IRow {
     }
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
-    pub unsafe fn Open<P0>(&self, punkouter: P0, pcolumnid: *const super::super::Storage::IndexServer::DBID, rguidcolumntype: *const ::windows::core::GUID, dwbindflags: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>
+    pub unsafe fn Open<P0>(&self, punkouter: P0, pcolumnid: *const super::super::Storage::IndexServer::DBID, rguidcolumntype: *const ::windows::core::GUID, dwbindflags: u32, riid: *const ::windows::core::GUID, ppunk: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), pcolumnid, rguidcolumntype, dwbindflags, riid, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), pcolumnid, rguidcolumntype, dwbindflags, riid, ::core::mem::transmute(ppunk.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IRow, ::windows::core::IUnknown);
@@ -7424,13 +7409,11 @@ impl IRowsetInfo {
     pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: ::core::option::Option<*mut *mut DBPROPSET>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, ::core::mem::transmute(prgpropertysets.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetReferencedRowset(&self, iordinal: usize, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetReferencedRowset)(::windows::core::Vtable::as_raw(self), iordinal, riid, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetReferencedRowset(&self, iordinal: usize, riid: *const ::windows::core::GUID, ppreferencedrowset: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetReferencedRowset)(::windows::core::Vtable::as_raw(self), iordinal, riid, ::core::mem::transmute(ppreferencedrowset.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetSpecification(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSpecification)(::windows::core::Vtable::as_raw(self), riid, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSpecification(&self, riid: *const ::windows::core::GUID, ppspecification: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSpecification)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(ppspecification.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IRowsetInfo, ::windows::core::IUnknown);
@@ -11235,9 +11218,8 @@ impl ITableCreation {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC) -> ::windows::core::Result<*mut super::super::Storage::IndexServer::DBID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.AddColumn)(::windows::core::Vtable::as_raw(self), ptableid, pcolumndesc, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn AddColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC, ppcolumnid: ::core::option::Option<*mut *mut super::super::Storage::IndexServer::DBID>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.AddColumn)(::windows::core::Vtable::as_raw(self), ptableid, pcolumndesc, ::core::mem::transmute(ppcolumnid.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -11324,9 +11306,8 @@ impl ITableDefinition {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC) -> ::windows::core::Result<*mut super::super::Storage::IndexServer::DBID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddColumn)(::windows::core::Vtable::as_raw(self), ptableid, pcolumndesc, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn AddColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC, ppcolumnid: ::core::option::Option<*mut *mut super::super::Storage::IndexServer::DBID>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).AddColumn)(::windows::core::Vtable::as_raw(self), ptableid, pcolumndesc, ::core::mem::transmute(ppcolumnid.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -11409,9 +11390,8 @@ impl ITableDefinitionWithConstraints {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC) -> ::windows::core::Result<*mut super::super::Storage::IndexServer::DBID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.AddColumn)(::windows::core::Vtable::as_raw(self), ptableid, pcolumndesc, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn AddColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC, ppcolumnid: ::core::option::Option<*mut *mut super::super::Storage::IndexServer::DBID>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.AddColumn)(::windows::core::Vtable::as_raw(self), ptableid, pcolumndesc, ::core::mem::transmute(ppcolumnid.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -11678,12 +11658,11 @@ impl ITransactionLocal {
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-    pub unsafe fn StartTransaction<P0>(&self, isolevel: i32, isoflags: u32, potheroptions: P0) -> ::windows::core::Result<u32>
+    pub unsafe fn StartTransaction<P0>(&self, isolevel: i32, isoflags: u32, potheroptions: P0, pultransactionlevel: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::DistributedTransactionCoordinator::ITransactionOptions>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).StartTransaction)(::windows::core::Vtable::as_raw(self), isolevel, isoflags, potheroptions.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).StartTransaction)(::windows::core::Vtable::as_raw(self), isolevel, isoflags, potheroptions.into().abi(), ::core::mem::transmute(pultransactionlevel.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
@@ -12466,9 +12445,8 @@ impl IViewChapter {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetSpecification)(::windows::core::Vtable::as_raw(self), riid, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn OpenViewChapter(&self, hsource: usize) -> ::windows::core::Result<usize> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenViewChapter)(::windows::core::Vtable::as_raw(self), hsource, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn OpenViewChapter(&self, hsource: usize, phviewchapter: ::core::option::Option<*mut usize>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).OpenViewChapter)(::windows::core::Vtable::as_raw(self), hsource, ::core::mem::transmute(phviewchapter.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IViewChapter, ::windows::core::IUnknown);

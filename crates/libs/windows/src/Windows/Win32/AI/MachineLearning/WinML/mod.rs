@@ -119,17 +119,14 @@ pub struct IMLOperatorKernel_Vtbl {
 #[repr(transparent)]
 pub struct IMLOperatorKernelContext(::windows::core::IUnknown);
 impl IMLOperatorKernelContext {
-    pub unsafe fn GetInputTensor(&self, inputindex: u32) -> ::windows::core::Result<IMLOperatorTensor> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputTensor)(::windows::core::Vtable::as_raw(self), inputindex, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetInputTensor(&self, inputindex: u32, tensor: ::core::option::Option<*mut ::core::option::Option<IMLOperatorTensor>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetInputTensor)(::windows::core::Vtable::as_raw(self), inputindex, ::core::mem::transmute(tensor.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetOutputTensor(&self, outputindex: u32, dimensionsizes: &[u32]) -> ::windows::core::Result<IMLOperatorTensor> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOutputTensor)(::windows::core::Vtable::as_raw(self), outputindex, dimensionsizes.len() as _, ::core::mem::transmute(dimensionsizes.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetOutputTensor(&self, outputindex: u32, dimensionsizes: &[u32], tensor: ::core::option::Option<*mut ::core::option::Option<IMLOperatorTensor>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetOutputTensor)(::windows::core::Vtable::as_raw(self), outputindex, dimensionsizes.len() as _, ::core::mem::transmute(dimensionsizes.as_ptr()), ::core::mem::transmute(tensor.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetOutputTensor2(&self, outputindex: u32) -> ::windows::core::Result<IMLOperatorTensor> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOutputTensor2)(::windows::core::Vtable::as_raw(self), outputindex, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetOutputTensor2(&self, outputindex: u32, tensor: ::core::option::Option<*mut ::core::option::Option<IMLOperatorTensor>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetOutputTensor2)(::windows::core::Vtable::as_raw(self), outputindex, ::core::mem::transmute(tensor.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AllocateTemporaryData(&self, size: usize) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

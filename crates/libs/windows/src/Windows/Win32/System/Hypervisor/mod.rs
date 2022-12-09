@@ -930,13 +930,12 @@ where
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvSignalVirtualProcessorSynicEvent<P0>(partition: P0, synicevent: WHV_SYNIC_EVENT_PARAMETERS) -> ::windows::core::Result<super::super::Foundation::BOOL>
+pub unsafe fn WHvSignalVirtualProcessorSynicEvent<P0>(partition: P0, synicevent: WHV_SYNIC_EVENT_PARAMETERS, newlysignaled: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
     ::windows::core::link ! ( "winhvplatform.dll""system" fn WHvSignalVirtualProcessorSynicEvent ( partition : WHV_PARTITION_HANDLE , synicevent : WHV_SYNIC_EVENT_PARAMETERS , newlysignaled : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WHvSignalVirtualProcessorSynicEvent(partition.into(), ::core::mem::transmute(synicevent), result__.as_mut_ptr()).from_abi(result__)
+    WHvSignalVirtualProcessorSynicEvent(partition.into(), ::core::mem::transmute(synicevent), ::core::mem::transmute(newlysignaled.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -162,7 +162,7 @@ impl Window {
         let shadow = self.shadow.as_ref().unwrap();
 
         unsafe {
-            self.manager.Update(get_time(self.frequency)?)?;
+            self.manager.Update(get_time(self.frequency)?, None)?;
 
             target.Clear(Some(&D2D1_COLOR_F {
                 r: 1.0,

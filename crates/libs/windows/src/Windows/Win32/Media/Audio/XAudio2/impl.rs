@@ -1,8 +1,8 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXAPO_Impl: Sized {
     fn GetRegistrationProperties(&self) -> ::windows::core::Result<*mut XAPO_REGISTRATION_PROPERTIES>;
-    fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX) -> ::windows::core::Result<*mut super::WAVEFORMATEX>;
-    fn IsOutputFormatSupported(&self, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX) -> ::windows::core::Result<*mut super::WAVEFORMATEX>;
+    fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn IsOutputFormatSupported(&self, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::Result<()>;
     fn Initialize(&self, pdata: *const ::core::ffi::c_void, databytesize: u32) -> ::windows::core::Result<()>;
     fn Reset(&self);
     fn LockForProcess(&self, inputlockedparametercount: u32, pinputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS) -> ::windows::core::Result<()>;
@@ -30,24 +30,12 @@ impl IXAPO_Vtbl {
         unsafe extern "system" fn IsInputFormatSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsInputFormatSupported(::core::mem::transmute_copy(&poutputformat), ::core::mem::transmute_copy(&prequestedinputformat)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppsupportedinputformat, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.IsInputFormatSupported(::core::mem::transmute_copy(&poutputformat), ::core::mem::transmute_copy(&prequestedinputformat), ::core::mem::transmute_copy(&ppsupportedinputformat)).into()
         }
         unsafe extern "system" fn IsOutputFormatSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsOutputFormatSupported(::core::mem::transmute_copy(&pinputformat), ::core::mem::transmute_copy(&prequestedoutputformat)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppsupportedoutputformat, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.IsOutputFormatSupported(::core::mem::transmute_copy(&pinputformat), ::core::mem::transmute_copy(&prequestedoutputformat), ::core::mem::transmute_copy(&ppsupportedoutputformat)).into()
         }
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void, databytesize: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

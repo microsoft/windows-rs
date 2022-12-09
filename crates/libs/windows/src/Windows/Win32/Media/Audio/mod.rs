@@ -22,13 +22,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn CoRegisterMessageFilter<P0>(lpmessagefilter: P0) -> ::windows::core::Result<IMessageFilter>
+pub unsafe fn CoRegisterMessageFilter<P0>(lpmessagefilter: P0, lplpmessagefilter: ::core::option::Option<*mut ::core::option::Option<IMessageFilter>>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMessageFilter>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CoRegisterMessageFilter ( lpmessagefilter : * mut::core::ffi::c_void , lplpmessagefilter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CoRegisterMessageFilter(lpmessagefilter.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    CoRegisterMessageFilter(lpmessagefilter.into().abi(), ::core::mem::transmute(lplpmessagefilter.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]

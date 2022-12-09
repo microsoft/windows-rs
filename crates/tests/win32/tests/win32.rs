@@ -137,7 +137,8 @@ fn com() -> windows::core::Result<()> {
         stream.Write(values.as_ptr() as _, values.len() as _, Some(&mut copied)).ok()?;
         assert!(copied == 4);
 
-        let position = stream.Seek(0, STREAM_SEEK_SET)?;
+        let mut position = 0;
+        stream.Seek(0, STREAM_SEEK_SET, Some(&mut position))?;
         assert!(position == 0);
 
         let mut values = vec![0, 0, 0, 0];

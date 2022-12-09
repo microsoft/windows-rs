@@ -10491,9 +10491,8 @@ impl IBaseFilter {
     {
         (::windows::core::Vtable::vtable(self).base__.SetSyncSource)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
     }
-    pub unsafe fn GetSyncSource(&self) -> ::windows::core::Result<super::IReferenceClock> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSyncSource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSyncSource(&self, pclock: ::core::option::Option<*mut ::core::option::Option<super::IReferenceClock>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetSyncSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pclock.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn EnumPins(&self) -> ::windows::core::Result<IEnumPins> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -37184,9 +37183,8 @@ impl IMediaFilter {
     {
         (::windows::core::Vtable::vtable(self).SetSyncSource)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
     }
-    pub unsafe fn GetSyncSource(&self) -> ::windows::core::Result<super::IReferenceClock> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSyncSource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSyncSource(&self, pclock: ::core::option::Option<*mut ::core::option::Option<super::IReferenceClock>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSyncSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pclock.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -37997,9 +37995,8 @@ impl IMediaStreamFilter {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetSyncSource)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
     }
-    pub unsafe fn GetSyncSource(&self) -> ::windows::core::Result<super::IReferenceClock> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSyncSource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSyncSource(&self, pclock: ::core::option::Option<*mut ::core::option::Option<super::IReferenceClock>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.GetSyncSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pclock.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn EnumPins(&self) -> ::windows::core::Result<IEnumPins> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

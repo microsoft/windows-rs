@@ -1,25 +1,23 @@
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WebAuthNAuthenticatorGetAssertion<P0, P1>(hwnd: P0, pwszrpid: P1, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: ::core::option::Option<*const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS>) -> ::windows::core::Result<*mut WEBAUTHN_ASSERTION>
+pub unsafe fn WebAuthNAuthenticatorGetAssertion<P0, P1>(hwnd: P0, pwszrpid: P1, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: ::core::option::Option<*const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS>, ppwebauthnassertion: ::core::option::Option<*mut *mut WEBAUTHN_ASSERTION>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "webauthn.dll""system" fn WebAuthNAuthenticatorGetAssertion ( hwnd : super::super::Foundation:: HWND , pwszrpid : :: windows::core::PCWSTR , pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA , pwebauthngetassertionoptions : *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS , ppwebauthnassertion : *mut *mut WEBAUTHN_ASSERTION ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WebAuthNAuthenticatorGetAssertion(hwnd.into(), pwszrpid.into().abi(), pwebauthnclientdata, ::core::mem::transmute(pwebauthngetassertionoptions.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    WebAuthNAuthenticatorGetAssertion(hwnd.into(), pwszrpid.into().abi(), pwebauthnclientdata, ::core::mem::transmute(pwebauthngetassertionoptions.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppwebauthnassertion.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WebAuthNAuthenticatorMakeCredential<P0>(hwnd: P0, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: ::core::option::Option<*const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS>) -> ::windows::core::Result<*mut WEBAUTHN_CREDENTIAL_ATTESTATION>
+pub unsafe fn WebAuthNAuthenticatorMakeCredential<P0>(hwnd: P0, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: ::core::option::Option<*const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS>, ppwebauthncredentialattestation: ::core::option::Option<*mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "webauthn.dll""system" fn WebAuthNAuthenticatorMakeCredential ( hwnd : super::super::Foundation:: HWND , prpinformation : *const WEBAUTHN_RP_ENTITY_INFORMATION , puserinformation : *const WEBAUTHN_USER_ENTITY_INFORMATION , ppubkeycredparams : *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS , pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA , pwebauthnmakecredentialoptions : *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS , ppwebauthncredentialattestation : *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WebAuthNAuthenticatorMakeCredential(hwnd.into(), prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, ::core::mem::transmute(pwebauthnmakecredentialoptions.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    WebAuthNAuthenticatorMakeCredential(hwnd.into(), prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, ::core::mem::transmute(pwebauthnmakecredentialoptions.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppwebauthncredentialattestation.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]

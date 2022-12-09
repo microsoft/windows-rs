@@ -1100,13 +1100,12 @@ where
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn WindowFromAccessibleObject<P0>(param0: P0) -> ::windows::core::Result<super::super::Foundation::HWND>
+pub unsafe fn WindowFromAccessibleObject<P0>(param0: P0, phwnd: ::core::option::Option<*mut super::super::Foundation::HWND>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<IAccessible>>,
 {
     ::windows::core::link ! ( "oleacc.dll""system" fn WindowFromAccessibleObject ( param0 : * mut::core::ffi::c_void , phwnd : *mut super::super::Foundation:: HWND ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowFromAccessibleObject(param0.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    WindowFromAccessibleObject(param0.into().abi(), ::core::mem::transmute(phwnd.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
