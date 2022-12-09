@@ -48,10 +48,10 @@ The cast method returns a Rust `Result` type allowing you to handle calls to `ca
 
 The `windows` crate comes with definitions for all the interfaces you're likely to encounter when using the Windows SDK, but you might still have the need to define an interface yourself.
 
-To do so, you'll need to use the `interface` feature which (like any Cargo feature) can be enabled in your project's Cargo.toml file.
+To do so, you'll need to use the `implement` feature which (like any Cargo feature) can be enabled in your project's Cargo.toml file.
 
 ```toml
-windows = { version = "..", features = ["interface"] }
+windows = { version = "..", features = ["implement"] }
 ```
 
 Then inside your project you define the interface in much the same way you define a Rust trait just with the `#[windows::interface]` annotation above the trait definition.

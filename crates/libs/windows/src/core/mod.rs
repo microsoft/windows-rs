@@ -75,7 +75,7 @@ pub use bindings::IAgileObject;
 pub use windows_implement::implement;
 
 #[doc(hidden)]
-#[cfg(feature = "interface")]
+#[cfg(feature = "implement")]
 pub use windows_interface::interface;
 
 #[doc(hidden)]
