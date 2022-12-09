@@ -144,6 +144,7 @@ pub struct SignatureParam {
 pub struct Cfg<'a> {
     pub types: BTreeMap<&'a str, BTreeSet<TypeDef>>,
     pub arches: BTreeSet<&'static str>,
+    pub implement: bool,
 }
 
 impl<'a> Cfg<'a> {
@@ -1176,6 +1177,7 @@ impl<'a> Reader<'a> {
     }
     pub fn type_def_cfg_impl(&self, def: TypeDef, generics: &[Type]) -> Cfg {
         let mut cfg = Cfg::default();
+        cfg.implement = true;
 
         fn combine<'a>(reader: &'a Reader, def: TypeDef, generics: &[Type], cfg: &mut Cfg<'a>) {
             reader.type_def_cfg_combine(def, generics, cfg);

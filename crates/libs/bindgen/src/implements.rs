@@ -14,6 +14,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     let generic_names = gen.generic_names(generics);
     let named_phantoms = gen.generic_named_phantoms(generics);
     let cfg = gen.reader.type_def_cfg_impl(def, generics);
+    let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
     let mut requires = quote! {};
     let type_ident = quote! { #type_ident<#generic_names> };
@@ -124,6 +125,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
     if has_unknown_base {
         quote! {
+            #doc
             #features
             pub trait #impl_ident<#generic_names> : Sized #requires where #constraints {
                 #(#method_traits)*
@@ -145,6 +147,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     } else {
         quote! {
+            #doc
             #features
             pub trait #impl_ident : Sized #requires {
                 #(#method_traits)*

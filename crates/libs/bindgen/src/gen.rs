@@ -317,10 +317,14 @@ impl<'a> Gen<'a> {
             quote! {}
         } else {
             let mut tokens = format!(r#"`\"{}\"`"#, to_feature(self.namespace));
-
             let features = cfg_features(cfg, self.namespace);
+
             for features in features {
                 write!(tokens, r#", `\"{}\"`"#, to_feature(features)).unwrap();
+            }
+
+            if cfg.implement {
+                tokens.push_str(r#", `\"implement\"`"#)
             }
 
             format!(r#"#[doc = "*Required features: {tokens}*"]"#).into()
