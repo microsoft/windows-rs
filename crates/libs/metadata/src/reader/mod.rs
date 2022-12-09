@@ -1176,8 +1176,7 @@ impl<'a> Reader<'a> {
         cfg
     }
     pub fn type_def_cfg_impl(&self, def: TypeDef, generics: &[Type]) -> Cfg {
-        let mut cfg = Cfg::default();
-        cfg.implement = true;
+        let mut cfg = Cfg { implement: true, ..Default::default() };
 
         fn combine<'a>(reader: &'a Reader, def: TypeDef, generics: &[Type], cfg: &mut Cfg<'a>) {
             reader.type_def_cfg_combine(def, generics, cfg);
