@@ -38,14 +38,12 @@ fn test() -> Result<()> {
         let mut node_type = XmlNodeType_None;
         reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1005
         reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "html");
 
         let mut node_type = XmlNodeType_None;
         reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1005
         reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "head");
 
@@ -117,7 +115,6 @@ fn lite() -> Result<()> {
         let mut node_type = XmlNodeType_None;
         reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1005
         reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "html");
 
