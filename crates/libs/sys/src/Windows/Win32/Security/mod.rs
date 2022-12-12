@@ -275,7 +275,7 @@ pub mod WinWlx;
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"] fn SetPrivateObjectSecurityEx ( securityinformation : u32 , modificationdescriptor : PSECURITY_DESCRIPTOR , objectssecuritydescriptor : *mut PSECURITY_DESCRIPTOR , autoinheritflags : SECURITY_AUTO_INHERIT_FLAGS , genericmapping : *const GENERIC_MAPPING , token : super::Foundation:: HANDLE ) -> super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Security\"`*"] fn SetSecurityAccessMask ( securityinformation : u32 , desiredaccess : *mut u32 ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"] fn SetSecurityDescriptorControl ( psecuritydescriptor : PSECURITY_DESCRIPTOR , controlbitsofinterest : u16 , controlbitstoset : u16 ) -> super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"] fn SetSecurityDescriptorControl ( psecuritydescriptor : PSECURITY_DESCRIPTOR , controlbitsofinterest : SECURITY_DESCRIPTOR_CONTROL , controlbitstoset : SECURITY_DESCRIPTOR_CONTROL ) -> super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"] fn SetSecurityDescriptorDacl ( psecuritydescriptor : PSECURITY_DESCRIPTOR , bdaclpresent : super::Foundation:: BOOL , pdacl : *const ACL , bdacldefaulted : super::Foundation:: BOOL ) -> super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -291,6 +291,12 @@ pub mod WinWlx;
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"] fn SetUserObjectSecurity ( hobj : super::Foundation:: HANDLE , psirequested : *const OBJECT_SECURITY_INFORMATION , psid : PSECURITY_DESCRIPTOR ) -> super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const CVT_SECONDS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub const SECURITY_DYNAMIC_TRACKING: super::Foundation::BOOLEAN = 1u8;
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub const SECURITY_STATIC_TRACKING: super::Foundation::BOOLEAN = 0u8;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const cwcFILENAMESUFFIXMAX: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]

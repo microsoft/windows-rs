@@ -2488,6 +2488,8 @@ pub const WSA_MAXIMUM_WAIT_EVENTS: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSA_WAIT_FAILED: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSA_WAIT_TIMEOUT: u32 = 258u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSK_SO_BASE: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSPDESCRIPTION_LEN: u32 = 255u32;
@@ -2576,13 +2578,13 @@ pub const AALTYPE_5: AAL_TYPE = 5i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const AALTYPE_USER: AAL_TYPE = 16i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub type ADDRESS_FAMILY = u32;
+pub type ADDRESS_FAMILY = u16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const AF_INET: ADDRESS_FAMILY = 2u32;
+pub const AF_INET: ADDRESS_FAMILY = 2u16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const AF_INET6: ADDRESS_FAMILY = 23u32;
+pub const AF_INET6: ADDRESS_FAMILY = 23u16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const AF_UNSPEC: ADDRESS_FAMILY = 0u32;
+pub const AF_UNSPEC: ADDRESS_FAMILY = 0u16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub type ARP_HARDWARE_TYPE = i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -6889,7 +6891,7 @@ impl ::core::clone::Clone for SNAP_HEADER {
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SOCKADDR {
-    pub sa_family: u16,
+    pub sa_family: ADDRESS_FAMILY,
     pub sa_data: [super::super::Foundation::CHAR; 14],
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6917,7 +6919,7 @@ impl ::core::clone::Clone for SOCKADDR_ATM {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct SOCKADDR_DL {
-    pub sdl_family: u16,
+    pub sdl_family: ADDRESS_FAMILY,
     pub sdl_data: [u8; 8],
     pub sdl_zero: [u8; 4],
 }
@@ -6931,7 +6933,7 @@ impl ::core::clone::Clone for SOCKADDR_DL {
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SOCKADDR_IN {
-    pub sin_family: u16,
+    pub sin_family: ADDRESS_FAMILY,
     pub sin_port: u16,
     pub sin_addr: IN_ADDR,
     pub sin_zero: [super::super::Foundation::CHAR; 8],
@@ -6947,7 +6949,7 @@ impl ::core::clone::Clone for SOCKADDR_IN {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct SOCKADDR_IN6 {
-    pub sin6_family: u16,
+    pub sin6_family: ADDRESS_FAMILY,
     pub sin6_port: u16,
     pub sin6_flowinfo: u32,
     pub sin6_addr: IN6_ADDR,
@@ -7004,7 +7006,7 @@ impl ::core::clone::Clone for SOCKADDR_IN6_W2KSP1 {
 pub union SOCKADDR_INET {
     pub Ipv4: SOCKADDR_IN,
     pub Ipv6: SOCKADDR_IN6,
-    pub si_family: u16,
+    pub si_family: ADDRESS_FAMILY,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SOCKADDR_INET {}
@@ -7067,7 +7069,7 @@ impl ::core::clone::Clone for SOCKADDR_NB {
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SOCKADDR_STORAGE {
-    pub ss_family: u16,
+    pub ss_family: ADDRESS_FAMILY,
     pub __ss_pad1: [super::super::Foundation::CHAR; 6],
     pub __ss_align: i64,
     pub __ss_pad2: [super::super::Foundation::CHAR; 112],
@@ -7116,7 +7118,7 @@ impl ::core::clone::Clone for SOCKADDR_TP {
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SOCKADDR_UN {
-    pub sun_family: u16,
+    pub sun_family: ADDRESS_FAMILY,
     pub sun_path: [super::super::Foundation::CHAR; 108],
 }
 #[cfg(feature = "Win32_Foundation")]

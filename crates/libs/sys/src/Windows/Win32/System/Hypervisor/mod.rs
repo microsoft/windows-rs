@@ -1661,14 +1661,17 @@ impl ::core::clone::Clone for MODULE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct SOCKADDR_HV {
-    pub Family: u16,
+    pub Family: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub Reserved: u16,
     pub VmId: ::windows_sys::core::GUID,
     pub ServiceId: ::windows_sys::core::GUID,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for SOCKADDR_HV {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for SOCKADDR_HV {
     fn clone(&self) -> Self {
         *self

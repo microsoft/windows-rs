@@ -39,10 +39,10 @@ pub const WnvObjectTypeMax: WNV_OBJECT_TYPE = 2i32;
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     pub MACAddress: super::super::Networking::WinSock::DL_EUI48,
-    pub CAFamily: u16,
+    pub CAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub CA: WNV_IP_ADDRESS,
     pub VirtualSubnetId: u32,
-    pub PAFamily: u16,
+    pub PAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub PA: WNV_IP_ADDRESS,
     pub NotificationReason: WNV_CA_NOTIFICATION_TYPE,
 }
@@ -145,8 +145,8 @@ impl ::core::clone::Clone for WNV_OBJECT_HEADER {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_POLICY_MISMATCH_PARAM {
-    pub CAFamily: u16,
-    pub PAFamily: u16,
+    pub CAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
+    pub PAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub VirtualSubnetId: u32,
     pub CA: WNV_IP_ADDRESS,
     pub PA: WNV_IP_ADDRESS,
@@ -163,7 +163,7 @@ impl ::core::clone::Clone for WNV_POLICY_MISMATCH_PARAM {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
-    pub PAFamily: u16,
+    pub PAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub PA: WNV_IP_ADDRESS,
     pub AddressState: super::super::Networking::WinSock::NL_DAD_STATE,
 }
@@ -179,9 +179,9 @@ impl ::core::clone::Clone for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_REDIRECT_PARAM {
-    pub CAFamily: u16,
-    pub PAFamily: u16,
-    pub NewPAFamily: u16,
+    pub CAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
+    pub PAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
+    pub NewPAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub VirtualSubnetId: u32,
     pub CA: WNV_IP_ADDRESS,
     pub PA: WNV_IP_ADDRESS,
