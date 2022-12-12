@@ -7,7 +7,7 @@ pub fn gen() -> TokenStream {
                 // addr.port() is in host byte order
                 // sin_port must be big-endian, network byte order
                 SOCKADDR_IN {
-                    sin_family: AF_INET.0 as u16,
+                    sin_family: AF_INET,
                     sin_port: addr.port().to_be(),
                     sin_addr: (*addr.ip()).into(),
                     ..Default::default()
