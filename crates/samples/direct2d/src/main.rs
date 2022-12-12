@@ -44,8 +44,7 @@ struct Angles {
 
 impl Angles {
     fn now() -> Self {
-        let mut time = Default::default();
-        unsafe { GetLocalTime(&mut time) };
+        let time = unsafe { GetLocalTime() };
 
         let second = (time.wSecond as f32 + time.wMilliseconds as f32 / 1000.0) * 6.0;
         let minute = time.wMinute as f32 * 6.0 + second / 60.0;
@@ -171,20 +170,15 @@ impl Window {
                 a: 1.0,
             }));
 
-            let mut previous = None;
-            // TODO: workaround for https://github.com/microsoft/windows-rs/issues/2246
-            target.GetTarget(&mut previous);
+            let previous = target.GetTarget()?;
             target.SetTarget(clock);
             target.Clear(None);
             self.draw_clock()?;
-            target.SetTarget(previous.as_ref());
+            target.SetTarget(&previous);
             target.SetTransform(&Matrix3x2::translation(5.0, 5.0));
 
-            let mut output = None;
-            shadow.GetOutput(&mut output);
-
             target.DrawImage(
-                output.as_ref(),
+                &shadow.GetOutput()?,
                 None,
                 None,
                 D2D1_INTERPOLATION_MODE_LINEAR,

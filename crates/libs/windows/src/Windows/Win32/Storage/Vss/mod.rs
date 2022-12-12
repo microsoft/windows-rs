@@ -1277,9 +1277,8 @@ impl IVssDifferentialSoftwareSnapshotMgmt3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVolumeProtectLevel(&self, pwszvolumename: *const u16) -> ::windows::core::Result<VSS_VOLUME_PROTECTION_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVolumeProtectLevel)(::windows::core::Vtable::as_raw(self), pwszvolumename, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetVolumeProtectLevel(&self, pwszvolumename: *const u16, protectionlevel: *mut VSS_VOLUME_PROTECTION_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetVolumeProtectLevel)(::windows::core::Vtable::as_raw(self), pwszvolumename, protectionlevel).ok()
     }
     pub unsafe fn ClearVolumeProtectFault(&self, pwszvolumename: *const u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ClearVolumeProtectFault)(::windows::core::Vtable::as_raw(self), pwszvolumename).ok()
@@ -1488,9 +1487,8 @@ impl IVssFileShareSnapshotProvider {
     pub unsafe fn SetContext(&self, lcontext: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetContext)(::windows::core::Vtable::as_raw(self), lcontext).ok()
     }
-    pub unsafe fn GetSnapshotProperties(&self, snapshotid: ::windows::core::GUID) -> ::windows::core::Result<VSS_SNAPSHOT_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSnapshotProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotid), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSnapshotProperties(&self, snapshotid: ::windows::core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSnapshotProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotid), pprop).ok()
     }
     pub unsafe fn Query(&self, queriedobjectid: ::windows::core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE) -> ::windows::core::Result<IVssEnumObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1961,9 +1959,8 @@ impl IVssSoftwareSnapshotProvider {
     pub unsafe fn SetContext(&self, lcontext: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetContext)(::windows::core::Vtable::as_raw(self), lcontext).ok()
     }
-    pub unsafe fn GetSnapshotProperties(&self, snapshotid: ::windows::core::GUID) -> ::windows::core::Result<VSS_SNAPSHOT_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSnapshotProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotid), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSnapshotProperties(&self, snapshotid: ::windows::core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSnapshotProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotid), pprop).ok()
     }
     pub unsafe fn Query(&self, queriedobjectid: ::windows::core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE) -> ::windows::core::Result<IVssEnumObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

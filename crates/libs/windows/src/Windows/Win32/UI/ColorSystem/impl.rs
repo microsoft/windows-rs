@@ -7,7 +7,7 @@ pub trait IDeviceModelPlugIn_Impl: Sized {
     fn ColorimetricToDeviceColors(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF) -> ::windows::core::Result<f32>;
     fn ColorimetricToDeviceColorsWithBlack(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation) -> ::windows::core::Result<f32>;
     fn SetTransformDeviceModelInfo(&self, imodelposition: u32, pidevicemodelother: &::core::option::Option<IDeviceModelPlugIn>) -> ::windows::core::Result<()>;
-    fn GetPrimarySamples(&self) -> ::windows::core::Result<PrimaryXYZColors>;
+    fn GetPrimarySamples(&self, pprimarycolor: *mut PrimaryXYZColors) -> ::windows::core::Result<()>;
     fn GetGamutBoundaryMeshSize(&self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::core::Result<()>;
     fn GetGamutBoundaryMesh(&self, cchannels: u32, cvertices: u32, ctriangles: u32, pvertices: *mut f32, ptriangles: *mut GamutShellTriangle) -> ::windows::core::Result<()>;
     fn GetNeutralAxisSize(&self) -> ::windows::core::Result<u32>;
@@ -69,13 +69,7 @@ impl IDeviceModelPlugIn_Vtbl {
         unsafe extern "system" fn GetPrimarySamples<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDeviceModelPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprimarycolor: *mut PrimaryXYZColors) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPrimarySamples() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pprimarycolor, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetPrimarySamples(::core::mem::transmute_copy(&pprimarycolor)).into()
         }
         unsafe extern "system" fn GetGamutBoundaryMeshSize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDeviceModelPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

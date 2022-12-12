@@ -400,7 +400,7 @@ impl INetworkConnection_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetworkConnectionCost_Impl: Sized {
     fn GetCost(&self) -> ::windows::core::Result<u32>;
-    fn GetDataPlanStatus(&self) -> ::windows::core::Result<NLM_DATAPLAN_STATUS>;
+    fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for INetworkConnectionCost {}
@@ -421,13 +421,7 @@ impl INetworkConnectionCost_Vtbl {
         unsafe extern "system" fn GetDataPlanStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkConnectionCost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDataPlanStatus() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdataplanstatus, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetDataPlanStatus(::core::mem::transmute_copy(&pdataplanstatus)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

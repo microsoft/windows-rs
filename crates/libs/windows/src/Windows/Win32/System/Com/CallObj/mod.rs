@@ -23,9 +23,8 @@ pub struct ICallFrame(::windows::core::IUnknown);
 impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetInfo(&self) -> ::windows::core::Result<CALLFRAMEINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetInfo(&self, pinfo: *mut CALLFRAMEINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
     }
     pub unsafe fn GetIIDAndMethod(&self, piid: *mut ::windows::core::GUID, pimethod: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetIIDAndMethod)(::windows::core::Vtable::as_raw(self), piid, pimethod).ok()

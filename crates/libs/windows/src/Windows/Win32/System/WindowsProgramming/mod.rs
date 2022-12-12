@@ -1121,15 +1121,19 @@ pub unsafe fn QueryIdleProcessorCycleTimeEx(group: u16, bufferlength: *mut u32, 
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn QueryInterruptTime(lpinterrupttime: *mut u64) {
+pub unsafe fn QueryInterruptTime() -> u64 {
     ::windows::core::link ! ( "api-ms-win-core-realtime-l1-1-1.dll""system" fn QueryInterruptTime ( lpinterrupttime : *mut u64 ) -> ( ) );
-    QueryInterruptTime(lpinterrupttime)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    QueryInterruptTime(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn QueryInterruptTimePrecise(lpinterrupttimeprecise: *mut u64) {
+pub unsafe fn QueryInterruptTimePrecise() -> u64 {
     ::windows::core::link ! ( "api-ms-win-core-realtime-l1-1-1.dll""system" fn QueryInterruptTimePrecise ( lpinterrupttimeprecise : *mut u64 ) -> ( ) );
-    QueryInterruptTimePrecise(lpinterrupttimeprecise)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    QueryInterruptTimePrecise(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1160,9 +1164,11 @@ pub unsafe fn QueryUnbiasedInterruptTime(unbiasedtime: *mut u64) -> super::super
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: *mut u64) {
+pub unsafe fn QueryUnbiasedInterruptTimePrecise() -> u64 {
     ::windows::core::link ! ( "api-ms-win-core-realtime-l1-1-1.dll""system" fn QueryUnbiasedInterruptTimePrecise ( lpunbiasedinterrupttimeprecise : *mut u64 ) -> ( ) );
-    QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    QueryUnbiasedInterruptTimePrecise(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]

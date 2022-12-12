@@ -642,9 +642,8 @@ impl ISimilarityFileIdTable {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), similarityfileid, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Lookup(&self, similarityfileindex: u32) -> ::windows::core::Result<SimilarityFileId> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Lookup)(::windows::core::Vtable::as_raw(self), similarityfileindex, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Lookup(&self, similarityfileindex: u32, similarityfileid: *mut SimilarityFileId) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Lookup)(::windows::core::Vtable::as_raw(self), similarityfileindex, similarityfileid).ok()
     }
     pub unsafe fn Invalidate(&self, similarityfileindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Invalidate)(::windows::core::Vtable::as_raw(self), similarityfileindex).ok()
@@ -857,8 +856,10 @@ impl ISimilarityTraitsMapping {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ResizeMapping)(::windows::core::Vtable::as_raw(self), accessmode, begin, end, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetPageSize(&self, pagesize: *mut u32) {
-        (::windows::core::Vtable::vtable(self).GetPageSize)(::windows::core::Vtable::as_raw(self), pagesize)
+    pub unsafe fn GetPageSize(&self) -> u32 {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetPageSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
+        result__.assume_init()
     }
     pub unsafe fn CreateView(&self, minimummappedpages: u32, accessmode: RdcMappingAccessMode) -> ::windows::core::Result<ISimilarityTraitsMappedView> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

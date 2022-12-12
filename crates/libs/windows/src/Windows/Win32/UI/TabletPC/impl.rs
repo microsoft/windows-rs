@@ -4816,7 +4816,7 @@ pub trait IInkRecognizerGuide_Impl: Sized + super::super::System::Com::IDispatch
     fn SetColumns(&self, units: i32) -> ::windows::core::Result<()>;
     fn Midline(&self) -> ::windows::core::Result<i32>;
     fn SetMidline(&self, units: i32) -> ::windows::core::Result<()>;
-    fn GuideData(&self) -> ::windows::core::Result<InkRecoGuide>;
+    fn GuideData(&self, precoguide: *mut InkRecoGuide) -> ::windows::core::Result<()>;
     fn SetGuideData(&self, recoguide: &InkRecoGuide) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4907,13 +4907,7 @@ impl IInkRecognizerGuide_Vtbl {
         unsafe extern "system" fn GuideData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, precoguide: *mut InkRecoGuide) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GuideData() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(precoguide, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GuideData(::core::mem::transmute_copy(&precoguide)).into()
         }
         unsafe extern "system" fn SetGuideData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recoguide: InkRecoGuide) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -6123,7 +6117,7 @@ pub trait IInkTransform_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn SeteDx(&self, value: f32) -> ::windows::core::Result<()>;
     fn eDy(&self) -> ::windows::core::Result<f32>;
     fn SeteDy(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Data(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::XFORM>;
+    fn Data(&self, xform: *mut super::super::Graphics::Gdi::XFORM) -> ::windows::core::Result<()>;
     fn SetData(&self, xform: &super::super::Graphics::Gdi::XFORM) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6270,13 +6264,7 @@ impl IInkTransform_Vtbl {
         unsafe extern "system" fn Data<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInkTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xform: *mut super::super::Graphics::Gdi::XFORM) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Data() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(xform, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Data(::core::mem::transmute_copy(&xform)).into()
         }
         unsafe extern "system" fn SetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInkTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xform: super::super::Graphics::Gdi::XFORM) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

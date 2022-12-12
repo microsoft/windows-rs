@@ -573,7 +573,7 @@ pub trait IPropertyStorage_Impl: Sized {
     fn Enum(&self) -> ::windows::core::Result<IEnumSTATPROPSTG>;
     fn SetTimes(&self, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
     fn SetClass(&self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn Stat(&self) -> ::windows::core::Result<STATPROPSETSTG>;
+    fn Stat(&self, pstatpsstg: *mut STATPROPSETSTG) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IPropertyStorage {}
@@ -644,13 +644,7 @@ impl IPropertyStorage_Vtbl {
         unsafe extern "system" fn Stat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatpsstg: *mut STATPROPSETSTG) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Stat() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pstatpsstg, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Stat(::core::mem::transmute_copy(&pstatpsstg)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

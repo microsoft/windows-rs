@@ -230,10 +230,9 @@ pub unsafe fn WsCreateError(properties: ::core::option::Option<&[WS_ERROR_PROPER
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsCreateFaultFromError(error: *const WS_ERROR, faulterrorcode: ::windows::core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: *const WS_HEAP) -> ::windows::core::Result<WS_FAULT> {
+pub unsafe fn WsCreateFaultFromError(error: *const WS_ERROR, faulterrorcode: ::windows::core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: *const WS_HEAP, fault: *mut WS_FAULT) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "webservices.dll""system" fn WsCreateFaultFromError ( error : *const WS_ERROR , faulterrorcode : :: windows::core::HRESULT , faultdisclosure : WS_FAULT_DISCLOSURE , heap : *const WS_HEAP , fault : *mut WS_FAULT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WsCreateFaultFromError(error, faulterrorcode, faultdisclosure, heap, result__.as_mut_ptr()).from_abi(result__)
+    WsCreateFaultFromError(error, faulterrorcode, faultdisclosure, heap, fault).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]

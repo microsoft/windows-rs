@@ -129,9 +129,9 @@ impl IVdsAsync_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsController_Impl: Sized {
-    fn GetProperties(&self) -> ::windows::core::Result<VDS_CONTROLLER_PROP>;
+    fn GetProperties(&self, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> ::windows::core::Result<()>;
     fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem>;
-    fn GetPortProperties(&self, sportnumber: i16) -> ::windows::core::Result<VDS_PORT_PROP>;
+    fn GetPortProperties(&self, sportnumber: i16, pportprop: *mut VDS_PORT_PROP) -> ::windows::core::Result<()>;
     fn FlushCache(&self) -> ::windows::core::Result<()>;
     fn InvalidateCache(&self) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
@@ -144,13 +144,7 @@ impl IVdsController_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pcontrollerprop, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProperties(::core::mem::transmute_copy(&pcontrollerprop)).into()
         }
         unsafe extern "system" fn GetSubSystem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsubsystem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -166,13 +160,7 @@ impl IVdsController_Vtbl {
         unsafe extern "system" fn GetPortProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sportnumber: i16, pportprop: *mut VDS_PORT_PROP) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPortProperties(::core::mem::transmute_copy(&sportnumber)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pportprop, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetPortProperties(::core::mem::transmute_copy(&sportnumber), ::core::mem::transmute_copy(&pportprop)).into()
         }
         unsafe extern "system" fn FlushCache<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -247,7 +235,7 @@ impl IVdsControllerControllerPort_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsControllerPort_Impl: Sized {
-    fn GetProperties(&self) -> ::windows::core::Result<VDS_PORT_PROP>;
+    fn GetProperties(&self, pportprop: *mut VDS_PORT_PROP) -> ::windows::core::Result<()>;
     fn GetController(&self) -> ::windows::core::Result<IVdsController>;
     fn QueryAssociatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject>;
     fn Reset(&self) -> ::windows::core::Result<()>;
@@ -259,13 +247,7 @@ impl IVdsControllerPort_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsControllerPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pportprop: *mut VDS_PORT_PROP) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pportprop, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProperties(::core::mem::transmute_copy(&pportprop)).into()
         }
         unsafe extern "system" fn GetController<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsControllerPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcontroller: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -315,7 +297,7 @@ impl IVdsControllerPort_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsDrive_Impl: Sized {
-    fn GetProperties(&self) -> ::windows::core::Result<VDS_DRIVE_PROP>;
+    fn GetProperties(&self, pdriveprop: *mut VDS_DRIVE_PROP) -> ::windows::core::Result<()>;
     fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem>;
     fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()>;
     fn SetFlags(&self, ulflags: u32) -> ::windows::core::Result<()>;
@@ -330,13 +312,7 @@ impl IVdsDrive_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsDrive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdriveprop: *mut VDS_DRIVE_PROP) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdriveprop, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProperties(::core::mem::transmute_copy(&pdriveprop)).into()
         }
         unsafe extern "system" fn GetSubSystem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsDrive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsubsystem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -385,7 +361,7 @@ impl IVdsDrive_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsDrive2_Impl: Sized {
-    fn GetProperties2(&self) -> ::windows::core::Result<VDS_DRIVE_PROP2>;
+    fn GetProperties2(&self, pdriveprop2: *mut VDS_DRIVE_PROP2) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IVdsDrive2 {}
 impl IVdsDrive2_Vtbl {
@@ -393,13 +369,7 @@ impl IVdsDrive2_Vtbl {
         unsafe extern "system" fn GetProperties2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsDrive2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdriveprop2: *mut VDS_DRIVE_PROP2) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties2() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdriveprop2, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProperties2(::core::mem::transmute_copy(&pdriveprop2)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProperties2: GetProperties2::<Identity, Impl, OFFSET> }
     }
@@ -602,7 +572,7 @@ impl IVdsHwProviderType2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsIscsiPortal_Impl: Sized {
-    fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_PORTAL_PROP>;
+    fn GetProperties(&self, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> ::windows::core::Result<()>;
     fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem>;
     fn QueryAssociatedPortalGroups(&self) -> ::windows::core::Result<IEnumVdsObject>;
     fn SetStatus(&self, status: VDS_ISCSI_PORTAL_STATUS) -> ::windows::core::Result<()>;
@@ -616,13 +586,7 @@ impl IVdsIscsiPortal_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsIscsiPortal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pportalprop, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProperties(::core::mem::transmute_copy(&pportalprop)).into()
         }
         unsafe extern "system" fn GetSubSystem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsIscsiPortal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsubsystem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -689,7 +653,7 @@ impl IVdsIscsiPortal_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsIscsiPortalGroup_Impl: Sized {
-    fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_PORTALGROUP_PROP>;
+    fn GetProperties(&self, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> ::windows::core::Result<()>;
     fn GetTarget(&self) -> ::windows::core::Result<IVdsIscsiTarget>;
     fn QueryAssociatedPortals(&self) -> ::windows::core::Result<IEnumVdsObject>;
     fn AddPortal(&self, portalid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
@@ -702,13 +666,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pportalgroupprop, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProperties(::core::mem::transmute_copy(&pportalgroupprop)).into()
         }
         unsafe extern "system" fn GetTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -782,7 +740,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsIscsiTarget_Impl: Sized {
-    fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_TARGET_PROP>;
+    fn GetProperties(&self, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> ::windows::core::Result<()>;
     fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem>;
     fn QueryPortalGroups(&self) -> ::windows::core::Result<IEnumVdsObject>;
     fn QueryAssociatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject>;
@@ -801,13 +759,7 @@ impl IVdsIscsiTarget_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ptargetprop, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProperties(::core::mem::transmute_copy(&ptargetprop)).into()
         }
         unsafe extern "system" fn GetSubSystem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsubsystem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -905,9 +857,9 @@ impl IVdsIscsiTarget_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLun_Impl: Sized {
-    fn GetProperties(&self) -> ::windows::core::Result<VDS_LUN_PROP>;
+    fn GetProperties(&self, plunprop: *mut VDS_LUN_PROP) -> ::windows::core::Result<()>;
     fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem>;
-    fn GetIdentificationData(&self) -> ::windows::core::Result<VDS_LUN_INFORMATION>;
+    fn GetIdentificationData(&self, pluninfo: *mut VDS_LUN_INFORMATION) -> ::windows::core::Result<()>;
     fn QueryActiveControllers(&self) -> ::windows::core::Result<IEnumVdsObject>;
     fn Extend(&self, ullnumberofbytestoadd: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32) -> ::windows::core::Result<IVdsAsync>;
     fn Shrink(&self, ullnumberofbytestoremove: u64) -> ::windows::core::Result<IVdsAsync>;
@@ -918,7 +870,7 @@ pub trait IVdsLun_Impl: Sized {
     fn SetMask(&self, pwszunmaskinglist: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Delete(&self) -> ::windows::core::Result<()>;
     fn AssociateControllers(&self, pactivecontrolleridarray: *const ::windows::core::GUID, lnumberofactivecontrollers: i32, pinactivecontrolleridarray: *const ::windows::core::GUID, lnumberofinactivecontrollers: i32) -> ::windows::core::Result<()>;
-    fn QueryHints(&self) -> ::windows::core::Result<VDS_HINTS>;
+    fn QueryHints(&self, phints: *mut VDS_HINTS) -> ::windows::core::Result<()>;
     fn ApplyHints(&self, phints: *const VDS_HINTS) -> ::windows::core::Result<()>;
     fn SetStatus(&self, status: VDS_LUN_STATUS) -> ::windows::core::Result<()>;
     fn QueryMaxLunExtendSize(&self, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32) -> ::windows::core::Result<u64>;
@@ -931,13 +883,7 @@ impl IVdsLun_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsLun_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plunprop: *mut VDS_LUN_PROP) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(plunprop, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProperties(::core::mem::transmute_copy(&plunprop)).into()
         }
         unsafe extern "system" fn GetSubSystem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsLun_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsubsystem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -953,13 +899,7 @@ impl IVdsLun_Vtbl {
         unsafe extern "system" fn GetIdentificationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsLun_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pluninfo: *mut VDS_LUN_INFORMATION) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIdentificationData() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pluninfo, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetIdentificationData(::core::mem::transmute_copy(&pluninfo)).into()
         }
         unsafe extern "system" fn QueryActiveControllers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsLun_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1056,13 +996,7 @@ impl IVdsLun_Vtbl {
         unsafe extern "system" fn QueryHints<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsLun_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phints: *mut VDS_HINTS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueryHints() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(phints, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.QueryHints(::core::mem::transmute_copy(&phints)).into()
         }
         unsafe extern "system" fn ApplyHints<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsLun_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phints: *const VDS_HINTS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1113,7 +1047,7 @@ impl IVdsLun_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLun2_Impl: Sized {
-    fn QueryHints2(&self) -> ::windows::core::Result<VDS_HINTS2>;
+    fn QueryHints2(&self, phints2: *mut VDS_HINTS2) -> ::windows::core::Result<()>;
     fn ApplyHints2(&self, phints2: *const VDS_HINTS2) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1124,13 +1058,7 @@ impl IVdsLun2_Vtbl {
         unsafe extern "system" fn QueryHints2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsLun2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phints2: *mut VDS_HINTS2) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueryHints2() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(phints2, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.QueryHints2(::core::mem::transmute_copy(&phints2)).into()
         }
         unsafe extern "system" fn ApplyHints2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsLun2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phints2: *const VDS_HINTS2) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1311,10 +1239,10 @@ impl IVdsLunNumber_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLunPlex_Impl: Sized {
-    fn GetProperties(&self) -> ::windows::core::Result<VDS_LUN_PLEX_PROP>;
+    fn GetProperties(&self, pplexprop: *mut VDS_LUN_PLEX_PROP) -> ::windows::core::Result<()>;
     fn GetLun(&self) -> ::windows::core::Result<IVdsLun>;
     fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()>;
-    fn QueryHints(&self) -> ::windows::core::Result<VDS_HINTS>;
+    fn QueryHints(&self, phints: *mut VDS_HINTS) -> ::windows::core::Result<()>;
     fn ApplyHints(&self, phints: *const VDS_HINTS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1325,13 +1253,7 @@ impl IVdsLunPlex_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsLunPlex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pplexprop: *mut VDS_LUN_PLEX_PROP) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pplexprop, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProperties(::core::mem::transmute_copy(&pplexprop)).into()
         }
         unsafe extern "system" fn GetLun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsLunPlex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pplun: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1352,13 +1274,7 @@ impl IVdsLunPlex_Vtbl {
         unsafe extern "system" fn QueryHints<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsLunPlex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phints: *mut VDS_HINTS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueryHints() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(phints, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.QueryHints(::core::mem::transmute_copy(&phints)).into()
         }
         unsafe extern "system" fn ApplyHints<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsLunPlex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phints: *const VDS_HINTS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1415,7 +1331,7 @@ impl IVdsMaintenance_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
 pub trait IVdsProvider_Impl: Sized {
-    fn GetProperties(&self) -> ::windows::core::Result<VDS_PROVIDER_PROP>;
+    fn GetProperties(&self, pproviderprop: *mut VDS_PROVIDER_PROP) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IVdsProvider {}
 impl IVdsProvider_Vtbl {
@@ -1423,13 +1339,7 @@ impl IVdsProvider_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproviderprop: *mut VDS_PROVIDER_PROP) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pproviderprop, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProperties(::core::mem::transmute_copy(&pproviderprop)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProperties: GetProperties::<Identity, Impl, OFFSET> }
     }
@@ -1509,8 +1419,8 @@ impl IVdsProviderSupport_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsStoragePool_Impl: Sized {
     fn GetProvider(&self) -> ::windows::core::Result<IVdsProvider>;
-    fn GetProperties(&self) -> ::windows::core::Result<VDS_STORAGE_POOL_PROP>;
-    fn GetAttributes(&self) -> ::windows::core::Result<VDS_POOL_ATTRIBUTES>;
+    fn GetProperties(&self, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> ::windows::core::Result<()>;
+    fn GetAttributes(&self, pstoragepoolattributes: *mut VDS_POOL_ATTRIBUTES) -> ::windows::core::Result<()>;
     fn QueryDriveExtents(&self, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()>;
     fn QueryAllocatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject>;
     fn QueryAllocatedStoragePools(&self) -> ::windows::core::Result<IEnumVdsObject>;
@@ -1534,24 +1444,12 @@ impl IVdsStoragePool_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsStoragePool_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pstoragepoolprop, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProperties(::core::mem::transmute_copy(&pstoragepoolprop)).into()
         }
         unsafe extern "system" fn GetAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsStoragePool_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstoragepoolattributes: *mut VDS_POOL_ATTRIBUTES) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAttributes() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pstoragepoolattributes, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetAttributes(::core::mem::transmute_copy(&pstoragepoolattributes)).into()
         }
         unsafe extern "system" fn QueryDriveExtents<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsStoragePool_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1597,7 +1495,7 @@ impl IVdsStoragePool_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsSubSystem_Impl: Sized {
-    fn GetProperties(&self) -> ::windows::core::Result<VDS_SUB_SYSTEM_PROP>;
+    fn GetProperties(&self, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> ::windows::core::Result<()>;
     fn GetProvider(&self) -> ::windows::core::Result<IVdsProvider>;
     fn QueryControllers(&self) -> ::windows::core::Result<IEnumVdsObject>;
     fn QueryLuns(&self) -> ::windows::core::Result<IEnumVdsObject>;
@@ -1618,13 +1516,7 @@ impl IVdsSubSystem_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(psubsystemprop, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProperties(::core::mem::transmute_copy(&psubsystemprop)).into()
         }
         unsafe extern "system" fn GetProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1746,7 +1638,7 @@ impl IVdsSubSystem_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsSubSystem2_Impl: Sized {
-    fn GetProperties2(&self) -> ::windows::core::Result<VDS_SUB_SYSTEM_PROP2>;
+    fn GetProperties2(&self, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> ::windows::core::Result<()>;
     fn GetDrive2(&self, sbusnumber: i16, sslotnumber: i16, ulenclosurenumber: u32) -> ::windows::core::Result<IVdsDrive>;
     fn CreateLun2(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: &::windows::core::PCWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync>;
     fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64>;
@@ -1759,13 +1651,7 @@ impl IVdsSubSystem2_Vtbl {
         unsafe extern "system" fn GetProperties2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsSubSystem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties2() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(psubsystemprop2, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProperties2(::core::mem::transmute_copy(&psubsystemprop2)).into()
         }
         unsafe extern "system" fn GetDrive2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsSubSystem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sbusnumber: i16, sslotnumber: i16, ulenclosurenumber: u32, ppdrive: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

@@ -7403,9 +7403,9 @@ pub trait IStiDevice_Impl: Sized {
     fn RawReadCommand(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()>;
     fn RawWriteCommand(&self, lpbuffer: *const ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()>;
     fn Subscribe(&self, lpsubsribe: *mut STISUBSCRIBE) -> ::windows::core::Result<()>;
-    fn GetLastNotificationData(&self) -> ::windows::core::Result<STINOTIFY>;
+    fn GetLastNotificationData(&self, lpnotify: *mut STINOTIFY) -> ::windows::core::Result<()>;
     fn UnSubscribe(&self) -> ::windows::core::Result<()>;
-    fn GetLastErrorInfo(&self) -> ::windows::core::Result<_ERROR_INFOW>;
+    fn GetLastErrorInfo(&self, plasterrorinfo: *mut _ERROR_INFOW) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::windows::core::RuntimeName for IStiDevice {}
@@ -7491,13 +7491,7 @@ impl IStiDevice_Vtbl {
         unsafe extern "system" fn GetLastNotificationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStiDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpnotify: *mut STINOTIFY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetLastNotificationData() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(lpnotify, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetLastNotificationData(::core::mem::transmute_copy(&lpnotify)).into()
         }
         unsafe extern "system" fn UnSubscribe<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStiDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -7507,13 +7501,7 @@ impl IStiDevice_Vtbl {
         unsafe extern "system" fn GetLastErrorInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStiDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plasterrorinfo: *mut _ERROR_INFOW) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetLastErrorInfo() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(plasterrorinfo, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetLastErrorInfo(::core::mem::transmute_copy(&plasterrorinfo)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -7651,8 +7639,8 @@ pub trait IStiUSD_Impl: Sized {
     fn RawReadCommand(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()>;
     fn RawWriteCommand(&self, lpbuffer: *const ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()>;
     fn SetNotificationHandle(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn GetNotificationData(&self) -> ::windows::core::Result<STINOTIFY>;
-    fn GetLastErrorInfo(&self) -> ::windows::core::Result<_ERROR_INFOW>;
+    fn GetNotificationData(&self, lpnotify: *mut STINOTIFY) -> ::windows::core::Result<()>;
+    fn GetLastErrorInfo(&self, plasterrorinfo: *mut _ERROR_INFOW) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO", feature = "Win32_System_Registry"))]
 impl ::windows::core::RuntimeName for IStiUSD {}
@@ -7744,24 +7732,12 @@ impl IStiUSD_Vtbl {
         unsafe extern "system" fn GetNotificationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStiUSD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpnotify: *mut STINOTIFY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetNotificationData() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(lpnotify, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetNotificationData(::core::mem::transmute_copy(&lpnotify)).into()
         }
         unsafe extern "system" fn GetLastErrorInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStiUSD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plasterrorinfo: *mut _ERROR_INFOW) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetLastErrorInfo() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(plasterrorinfo, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetLastErrorInfo(::core::mem::transmute_copy(&plasterrorinfo)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

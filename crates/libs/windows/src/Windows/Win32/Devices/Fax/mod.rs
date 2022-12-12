@@ -7675,16 +7675,14 @@ impl IStiDevice {
     pub unsafe fn Subscribe(&self, lpsubsribe: *mut STISUBSCRIBE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Subscribe)(::windows::core::Vtable::as_raw(self), lpsubsribe).ok()
     }
-    pub unsafe fn GetLastNotificationData(&self) -> ::windows::core::Result<STINOTIFY> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLastNotificationData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetLastNotificationData(&self, lpnotify: *mut STINOTIFY) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetLastNotificationData)(::windows::core::Vtable::as_raw(self), lpnotify).ok()
     }
     pub unsafe fn UnSubscribe(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnSubscribe)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn GetLastErrorInfo(&self) -> ::windows::core::Result<_ERROR_INFOW> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLastErrorInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetLastErrorInfo(&self, plasterrorinfo: *mut _ERROR_INFOW) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetLastErrorInfo)(::windows::core::Vtable::as_raw(self), plasterrorinfo).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IStiDevice, ::windows::core::IUnknown);
@@ -7925,13 +7923,11 @@ impl IStiUSD {
     {
         (::windows::core::Vtable::vtable(self).SetNotificationHandle)(::windows::core::Vtable::as_raw(self), hevent.into()).ok()
     }
-    pub unsafe fn GetNotificationData(&self) -> ::windows::core::Result<STINOTIFY> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNotificationData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetNotificationData(&self, lpnotify: *mut STINOTIFY) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetNotificationData)(::windows::core::Vtable::as_raw(self), lpnotify).ok()
     }
-    pub unsafe fn GetLastErrorInfo(&self) -> ::windows::core::Result<_ERROR_INFOW> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLastErrorInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetLastErrorInfo(&self, plasterrorinfo: *mut _ERROR_INFOW) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetLastErrorInfo)(::windows::core::Vtable::as_raw(self), plasterrorinfo).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IStiUSD, ::windows::core::IUnknown);

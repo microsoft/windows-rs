@@ -2419,8 +2419,10 @@ pub struct ICatRegister_Vtbl {
 #[repr(transparent)]
 pub struct IChannelHook(::windows::core::IUnknown);
 impl IChannelHook {
-    pub unsafe fn ClientGetSize(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pdatasize: *mut u32) {
-        (::windows::core::Vtable::vtable(self).ClientGetSize)(::windows::core::Vtable::as_raw(self), uextent, riid, pdatasize)
+    pub unsafe fn ClientGetSize(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> u32 {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).ClientGetSize)(::windows::core::Vtable::as_raw(self), uextent, riid, result__.as_mut_ptr());
+        result__.assume_init()
     }
     pub unsafe fn ClientFillBuffer(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pdatasize: *mut u32, pdatabuffer: *const ::core::ffi::c_void) {
         (::windows::core::Vtable::vtable(self).ClientFillBuffer)(::windows::core::Vtable::as_raw(self), uextent, riid, pdatasize, pdatabuffer)
@@ -2431,8 +2433,10 @@ impl IChannelHook {
     pub unsafe fn ServerNotify(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, cbdatasize: u32, pdatabuffer: *const ::core::ffi::c_void, ldatarep: u32) {
         (::windows::core::Vtable::vtable(self).ServerNotify)(::windows::core::Vtable::as_raw(self), uextent, riid, cbdatasize, pdatabuffer, ldatarep)
     }
-    pub unsafe fn ServerGetSize(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, hrfault: ::windows::core::HRESULT, pdatasize: *mut u32) {
-        (::windows::core::Vtable::vtable(self).ServerGetSize)(::windows::core::Vtable::as_raw(self), uextent, riid, hrfault, pdatasize)
+    pub unsafe fn ServerGetSize(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, hrfault: ::windows::core::HRESULT) -> u32 {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).ServerGetSize)(::windows::core::Vtable::as_raw(self), uextent, riid, hrfault, result__.as_mut_ptr());
+        result__.assume_init()
     }
     pub unsafe fn ServerFillBuffer(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pdatasize: *mut u32, pdatabuffer: *const ::core::ffi::c_void, hrfault: ::windows::core::HRESULT) {
         (::windows::core::Vtable::vtable(self).ServerFillBuffer)(::windows::core::Vtable::as_raw(self), uextent, riid, pdatasize, pdatabuffer, hrfault)

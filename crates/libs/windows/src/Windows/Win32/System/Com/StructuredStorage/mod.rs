@@ -1121,9 +1121,8 @@ impl IPropertyStorage {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Stat(&self) -> ::windows::core::Result<STATPROPSETSTG> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Stat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Stat(&self, pstatpsstg: *mut STATPROPSETSTG) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Stat)(::windows::core::Vtable::as_raw(self), pstatpsstg).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPropertyStorage, ::windows::core::IUnknown);

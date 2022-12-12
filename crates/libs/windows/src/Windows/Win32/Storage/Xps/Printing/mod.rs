@@ -178,9 +178,8 @@ impl IXpsPrintJob {
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn GetJobStatus(&self) -> ::windows::core::Result<XPS_JOB_STATUS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetJobStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetJobStatus(&self, jobstatus: *mut XPS_JOB_STATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetJobStatus)(::windows::core::Vtable::as_raw(self), jobstatus).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IXpsPrintJob, ::windows::core::IUnknown);

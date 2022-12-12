@@ -195,12 +195,12 @@ pub trait IActiveIMMApp_Impl: Sized {
     fn GetCandidateListW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
     fn GetCandidateListCountA(&self, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()>;
     fn GetCandidateListCountW(&self, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCandidateWindow(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32) -> ::windows::core::Result<CANDIDATEFORM>;
-    fn GetCompositionFontA(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTA>;
-    fn GetCompositionFontW(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTW>;
+    fn GetCandidateWindow(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcandidate: *mut CANDIDATEFORM) -> ::windows::core::Result<()>;
+    fn GetCompositionFontA(&self, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::Result<()>;
+    fn GetCompositionFontW(&self, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()>;
     fn GetCompositionStringA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetCompositionStringW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetCompositionWindow(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<COMPOSITIONFORM>;
+    fn GetCompositionWindow(&self, himc: super::super::super::Globalization::HIMC, pcompform: *mut COMPOSITIONFORM) -> ::windows::core::Result<()>;
     fn GetContext(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
     fn GetConversionListA(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: &::windows::core::PCSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
     fn GetConversionListW(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: &::windows::core::PCWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
@@ -348,35 +348,17 @@ impl IActiveIMMApp_Vtbl {
         unsafe extern "system" fn GetCandidateWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcandidate: *mut CANDIDATEFORM) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCandidateWindow(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&dwindex)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pcandidate, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetCandidateWindow(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&pcandidate)).into()
         }
         unsafe extern "system" fn GetCompositionFontA<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCompositionFontA(::core::mem::transmute_copy(&himc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(plf, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetCompositionFontA(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&plf)).into()
         }
         unsafe extern "system" fn GetCompositionFontW<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCompositionFontW(::core::mem::transmute_copy(&himc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(plf, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetCompositionFontW(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&plf)).into()
         }
         unsafe extern "system" fn GetCompositionStringA<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -391,13 +373,7 @@ impl IActiveIMMApp_Vtbl {
         unsafe extern "system" fn GetCompositionWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pcompform: *mut COMPOSITIONFORM) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCompositionWindow(::core::mem::transmute_copy(&himc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pcompform, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetCompositionWindow(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&pcompform)).into()
         }
         unsafe extern "system" fn GetContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, phimc: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -802,12 +778,12 @@ pub trait IActiveIMMIME_Impl: Sized {
     fn GetCandidateListW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
     fn GetCandidateListCountA(&self, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()>;
     fn GetCandidateListCountW(&self, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCandidateWindow(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32) -> ::windows::core::Result<CANDIDATEFORM>;
-    fn GetCompositionFontA(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTA>;
-    fn GetCompositionFontW(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTW>;
+    fn GetCandidateWindow(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcandidate: *mut CANDIDATEFORM) -> ::windows::core::Result<()>;
+    fn GetCompositionFontA(&self, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::Result<()>;
+    fn GetCompositionFontW(&self, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()>;
     fn GetCompositionStringA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetCompositionStringW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetCompositionWindow(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<COMPOSITIONFORM>;
+    fn GetCompositionWindow(&self, himc: super::super::super::Globalization::HIMC, pcompform: *mut COMPOSITIONFORM) -> ::windows::core::Result<()>;
     fn GetContext(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
     fn GetConversionListA(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: &::windows::core::PCSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
     fn GetConversionListW(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: &::windows::core::PCWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
@@ -975,35 +951,17 @@ impl IActiveIMMIME_Vtbl {
         unsafe extern "system" fn GetCandidateWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcandidate: *mut CANDIDATEFORM) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCandidateWindow(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&dwindex)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pcandidate, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetCandidateWindow(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&pcandidate)).into()
         }
         unsafe extern "system" fn GetCompositionFontA<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCompositionFontA(::core::mem::transmute_copy(&himc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(plf, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetCompositionFontA(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&plf)).into()
         }
         unsafe extern "system" fn GetCompositionFontW<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, plf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCompositionFontW(::core::mem::transmute_copy(&himc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(plf, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetCompositionFontW(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&plf)).into()
         }
         unsafe extern "system" fn GetCompositionStringA<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1018,13 +976,7 @@ impl IActiveIMMIME_Vtbl {
         unsafe extern "system" fn GetCompositionWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pcompform: *mut COMPOSITIONFORM) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCompositionWindow(::core::mem::transmute_copy(&himc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pcompform, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetCompositionWindow(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&pcompform)).into()
         }
         unsafe extern "system" fn GetContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, phimc: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

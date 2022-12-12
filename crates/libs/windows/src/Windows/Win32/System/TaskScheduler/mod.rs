@@ -4778,9 +4778,8 @@ impl ITaskTrigger {
     pub unsafe fn SetTrigger(&self, ptrigger: *const TASK_TRIGGER) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetTrigger)(::windows::core::Vtable::as_raw(self), ptrigger).ok()
     }
-    pub unsafe fn GetTrigger(&self) -> ::windows::core::Result<TASK_TRIGGER> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTrigger)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetTrigger(&self, ptrigger: *mut TASK_TRIGGER) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetTrigger)(::windows::core::Vtable::as_raw(self), ptrigger).ok()
     }
     pub unsafe fn GetTriggerString(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

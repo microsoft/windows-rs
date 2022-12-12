@@ -9,7 +9,7 @@ pub trait IImageList_Impl: Sized {
     fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()>;
     fn Remove(&self, i: i32) -> ::windows::core::Result<()>;
     fn GetIcon(&self, i: i32, flags: u32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON>;
-    fn GetImageInfo(&self, i: i32) -> ::windows::core::Result<IMAGEINFO>;
+    fn GetImageInfo(&self, i: i32, pimageinfo: *mut IMAGEINFO) -> ::windows::core::Result<()>;
     fn Copy(&self, idst: i32, punksrc: &::core::option::Option<::windows::core::IUnknown>, isrc: i32, uflags: u32) -> ::windows::core::Result<()>;
     fn Merge(&self, i1: i32, punk2: &::core::option::Option<::windows::core::IUnknown>, i2: i32, dx: i32, dy: i32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Clone(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -103,13 +103,7 @@ impl IImageList_Vtbl {
         unsafe extern "system" fn GetImageInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImageList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i: i32, pimageinfo: *mut IMAGEINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetImageInfo(::core::mem::transmute_copy(&i)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pimageinfo, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetImageInfo(::core::mem::transmute_copy(&i), ::core::mem::transmute_copy(&pimageinfo)).into()
         }
         unsafe extern "system" fn Copy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImageList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idst: i32, punksrc: *mut ::core::ffi::c_void, isrc: i32, uflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

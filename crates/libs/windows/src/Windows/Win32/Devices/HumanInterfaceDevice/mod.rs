@@ -58,9 +58,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
-pub unsafe fn HidD_GetHidGuid(hidguid: *mut ::windows::core::GUID) {
+pub unsafe fn HidD_GetHidGuid() -> ::windows::core::GUID {
     ::windows::core::link ! ( "hid.dll""system" fn HidD_GetHidGuid ( hidguid : *mut :: windows::core::GUID ) -> ( ) );
-    HidD_GetHidGuid(hidguid)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    HidD_GetHidGuid(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

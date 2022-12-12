@@ -180,17 +180,15 @@ pub struct IVdsAsync_Vtbl {
 #[repr(transparent)]
 pub struct IVdsController(::windows::core::IUnknown);
 impl IVdsController {
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_CONTROLLER_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties(&self, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pcontrollerprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetSubSystem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetPortProperties(&self, sportnumber: i16) -> ::windows::core::Result<VDS_PORT_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPortProperties)(::windows::core::Vtable::as_raw(self), sportnumber, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetPortProperties(&self, sportnumber: i16, pportprop: *mut VDS_PORT_PROP) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetPortProperties)(::windows::core::Vtable::as_raw(self), sportnumber, pportprop).ok()
     }
     pub unsafe fn FlushCache(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FlushCache)(::windows::core::Vtable::as_raw(self)).ok()
@@ -287,9 +285,8 @@ pub struct IVdsControllerControllerPort_Vtbl {
 #[repr(transparent)]
 pub struct IVdsControllerPort(::windows::core::IUnknown);
 impl IVdsControllerPort {
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_PORT_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties(&self, pportprop: *mut VDS_PORT_PROP) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pportprop).ok()
     }
     pub unsafe fn GetController(&self) -> ::windows::core::Result<IVdsController> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -343,9 +340,8 @@ pub struct IVdsControllerPort_Vtbl {
 #[repr(transparent)]
 pub struct IVdsDrive(::windows::core::IUnknown);
 impl IVdsDrive {
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_DRIVE_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties(&self, pdriveprop: *mut VDS_DRIVE_PROP) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pdriveprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -407,9 +403,8 @@ pub struct IVdsDrive_Vtbl {
 #[repr(transparent)]
 pub struct IVdsDrive2(::windows::core::IUnknown);
 impl IVdsDrive2 {
-    pub unsafe fn GetProperties2(&self) -> ::windows::core::Result<VDS_DRIVE_PROP2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties2)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties2(&self, pdriveprop2: *mut VDS_DRIVE_PROP2) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties2)(::windows::core::Vtable::as_raw(self), pdriveprop2).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVdsDrive2, ::windows::core::IUnknown);
@@ -716,9 +711,8 @@ pub struct IVdsHwProviderType2_Vtbl {
 #[repr(transparent)]
 pub struct IVdsIscsiPortal(::windows::core::IUnknown);
 impl IVdsIscsiPortal {
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_PORTAL_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties(&self, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pportalprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -781,9 +775,8 @@ pub struct IVdsIscsiPortal_Vtbl {
 #[repr(transparent)]
 pub struct IVdsIscsiPortalGroup(::windows::core::IUnknown);
 impl IVdsIscsiPortalGroup {
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_PORTALGROUP_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties(&self, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pportalgroupprop).ok()
     }
     pub unsafe fn GetTarget(&self) -> ::windows::core::Result<IVdsIscsiTarget> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -846,9 +839,8 @@ pub struct IVdsIscsiTarget(::windows::core::IUnknown);
 impl IVdsIscsiTarget {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_TARGET_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties(&self, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), ptargetprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -937,9 +929,8 @@ pub struct IVdsIscsiTarget_Vtbl {
 #[repr(transparent)]
 pub struct IVdsLun(::windows::core::IUnknown);
 impl IVdsLun {
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_LUN_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties(&self, plunprop: *mut VDS_LUN_PROP) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), plunprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -947,9 +938,8 @@ impl IVdsLun {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIdentificationData(&self) -> ::windows::core::Result<VDS_LUN_INFORMATION> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIdentificationData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetIdentificationData(&self, pluninfo: *mut VDS_LUN_INFORMATION) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetIdentificationData)(::windows::core::Vtable::as_raw(self), pluninfo).ok()
     }
     pub unsafe fn QueryActiveControllers(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -993,9 +983,8 @@ impl IVdsLun {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryHints(&self) -> ::windows::core::Result<VDS_HINTS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryHints)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn QueryHints(&self, phints: *mut VDS_HINTS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).QueryHints)(::windows::core::Vtable::as_raw(self), phints).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1070,9 +1059,8 @@ pub struct IVdsLun2(::windows::core::IUnknown);
 impl IVdsLun2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryHints2(&self) -> ::windows::core::Result<VDS_HINTS2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryHints2)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn QueryHints2(&self, phints2: *mut VDS_HINTS2) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).QueryHints2)(::windows::core::Vtable::as_raw(self), phints2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1342,9 +1330,8 @@ pub struct IVdsLunNumber_Vtbl {
 #[repr(transparent)]
 pub struct IVdsLunPlex(::windows::core::IUnknown);
 impl IVdsLunPlex {
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_LUN_PLEX_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties(&self, pplexprop: *mut VDS_LUN_PLEX_PROP) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pplexprop).ok()
     }
     pub unsafe fn GetLun(&self) -> ::windows::core::Result<IVdsLun> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1357,9 +1344,8 @@ impl IVdsLunPlex {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryHints(&self) -> ::windows::core::Result<VDS_HINTS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryHints)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn QueryHints(&self, phints: *mut VDS_HINTS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).QueryHints)(::windows::core::Vtable::as_raw(self), phints).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1458,9 +1444,8 @@ pub struct IVdsMaintenance_Vtbl {
 #[repr(transparent)]
 pub struct IVdsProvider(::windows::core::IUnknown);
 impl IVdsProvider {
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_PROVIDER_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties(&self, pproviderprop: *mut VDS_PROVIDER_PROP) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pproviderprop).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVdsProvider, ::windows::core::IUnknown);
@@ -1596,15 +1581,13 @@ impl IVdsStoragePool {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetProvider)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_STORAGE_POOL_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties(&self, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pstoragepoolprop).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributes(&self) -> ::windows::core::Result<VDS_POOL_ATTRIBUTES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAttributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetAttributes(&self, pstoragepoolattributes: *mut VDS_POOL_ATTRIBUTES) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetAttributes)(::windows::core::Vtable::as_raw(self), pstoragepoolattributes).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1664,9 +1647,8 @@ pub struct IVdsStoragePool_Vtbl {
 #[repr(transparent)]
 pub struct IVdsSubSystem(::windows::core::IUnknown);
 impl IVdsSubSystem {
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_SUB_SYSTEM_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties(&self, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), psubsystemprop).ok()
     }
     pub unsafe fn GetProvider(&self) -> ::windows::core::Result<IVdsProvider> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1766,9 +1748,8 @@ pub struct IVdsSubSystem_Vtbl {
 #[repr(transparent)]
 pub struct IVdsSubSystem2(::windows::core::IUnknown);
 impl IVdsSubSystem2 {
-    pub unsafe fn GetProperties2(&self) -> ::windows::core::Result<VDS_SUB_SYSTEM_PROP2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties2)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties2(&self, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties2)(::windows::core::Vtable::as_raw(self), psubsystemprop2).ok()
     }
     pub unsafe fn GetDrive2(&self, sbusnumber: i16, sslotnumber: i16, ulenclosurenumber: u32) -> ::windows::core::Result<IVdsDrive> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

@@ -1002,7 +1002,7 @@ impl INetLanConnectionUiInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetRasConnectionIpUiInfo_Impl: Sized {
-    fn GetUiInfo(&self) -> ::windows::core::Result<RASCON_IPUI>;
+    fn GetUiInfo(&self, pinfo: *mut RASCON_IPUI) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for INetRasConnectionIpUiInfo {}
@@ -1012,13 +1012,7 @@ impl INetRasConnectionIpUiInfo_Vtbl {
         unsafe extern "system" fn GetUiInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetRasConnectionIpUiInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *mut RASCON_IPUI) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUiInfo() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pinfo, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetUiInfo(::core::mem::transmute_copy(&pinfo)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUiInfo: GetUiInfo::<Identity, Impl, OFFSET> }
     }

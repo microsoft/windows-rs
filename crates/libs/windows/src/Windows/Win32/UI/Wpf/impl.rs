@@ -444,7 +444,7 @@ pub trait IMILBitmapEffectImpl_Impl: Sized {
     fn IsInPlaceModificationAllowed(&self, poutputconnector: &::core::option::Option<IMILBitmapEffectOutputConnector>) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetParentEffect(&self, pparenteffect: &::core::option::Option<IMILBitmapEffectGroup>) -> ::windows::core::Result<()>;
     fn GetInputSource(&self, uiindex: u32) -> ::windows::core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
-    fn GetInputSourceBounds(&self, uiindex: u32) -> ::windows::core::Result<MilRectD>;
+    fn GetInputSourceBounds(&self, uiindex: u32, prect: *mut MilRectD) -> ::windows::core::Result<()>;
     fn GetInputBitmapSource(&self, uiindex: u32, prendercontext: &::core::option::Option<IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()>;
     fn GetOutputBitmapSource(&self, uiindex: u32, prendercontext: &::core::option::Option<IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()>;
     fn Initialize(&self, pinner: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -484,13 +484,7 @@ impl IMILBitmapEffectImpl_Vtbl {
         unsafe extern "system" fn GetInputSourceBounds<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, prect: *mut MilRectD) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetInputSourceBounds(::core::mem::transmute_copy(&uiindex)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(prect, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetInputSourceBounds(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute_copy(&prect)).into()
         }
         unsafe extern "system" fn GetInputBitmapSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, prendercontext: *mut ::core::ffi::c_void, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -793,7 +787,7 @@ pub trait IMILBitmapEffectRenderContext_Impl: Sized {
     fn GetOutputPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn SetUseSoftwareRenderer(&self, fsoftware: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn SetInitialTransform(&self, pmatrix: *const MILMatrixF) -> ::windows::core::Result<()>;
-    fn GetFinalTransform(&self) -> ::windows::core::Result<MILMatrixF>;
+    fn GetFinalTransform(&self, pmatrix: *mut MILMatrixF) -> ::windows::core::Result<()>;
     fn SetOutputDPI(&self, dbldpix: f64, dbldpiy: f64) -> ::windows::core::Result<()>;
     fn GetOutputDPI(&self, pdbldpix: *mut f64, pdbldpiy: *mut f64) -> ::windows::core::Result<()>;
     fn SetRegionOfInterest(&self, prect: *const MilRectD) -> ::windows::core::Result<()>;
@@ -832,13 +826,7 @@ impl IMILBitmapEffectRenderContext_Vtbl {
         unsafe extern "system" fn GetFinalTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmatrix: *mut MILMatrixF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFinalTransform() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pmatrix, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetFinalTransform(::core::mem::transmute_copy(&pmatrix)).into()
         }
         unsafe extern "system" fn SetOutputDPI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dbldpix: f64, dbldpiy: f64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

@@ -5891,9 +5891,8 @@ impl IDXVAHD_Device {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetVideoProcessorDeviceCaps(&self) -> ::windows::core::Result<DXVAHD_VPDEVCAPS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVideoProcessorDeviceCaps)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetVideoProcessorDeviceCaps(&self, pcaps: *mut DXVAHD_VPDEVCAPS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetVideoProcessorDeviceCaps)(::windows::core::Vtable::as_raw(self), pcaps).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -6650,9 +6649,8 @@ impl IDirectXVideoProcessor {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetVideoProcessorCaps(&self) -> ::windows::core::Result<DXVA2_VideoProcessorCaps> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVideoProcessorCaps)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetVideoProcessorCaps(&self, pcaps: *mut DXVA2_VideoProcessorCaps) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetVideoProcessorCaps)(::windows::core::Vtable::as_raw(self), pcaps).ok()
     }
     pub unsafe fn GetProcAmpRange(&self, procampcap: u32) -> ::windows::core::Result<DXVA2_ValueRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6743,9 +6741,8 @@ impl IDirectXVideoProcessorService {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetVideoProcessorCaps(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::Result<DXVA2_VideoProcessorCaps> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVideoProcessorCaps)(::windows::core::Vtable::as_raw(self), videoprocdeviceguid, pvideodesc, rendertargetformat, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetVideoProcessorCaps(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, pcaps: *mut DXVA2_VideoProcessorCaps) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetVideoProcessorCaps)(::windows::core::Vtable::as_raw(self), videoprocdeviceguid, pvideodesc, rendertargetformat, pcaps).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -10695,9 +10692,8 @@ impl IMFClock {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetState)(::windows::core::Vtable::as_raw(self), dwreserved, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<MFCLOCK_PROPERTIES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties(&self, pclockproperties: *mut MFCLOCK_PROPERTIES) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pclockproperties).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFClock, ::windows::core::IUnknown);
@@ -12151,9 +12147,8 @@ pub struct IMFExtendedCameraController_Vtbl {
 #[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsicModel(::windows::core::IUnknown);
 impl IMFExtendedCameraIntrinsicModel {
-    pub unsafe fn GetModel(&self) -> ::windows::core::Result<MFExtendedCameraIntrinsic_IntrinsicModel> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetModel)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetModel(&self, pintrinsicmodel: *mut MFExtendedCameraIntrinsic_IntrinsicModel) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetModel)(::windows::core::Vtable::as_raw(self), pintrinsicmodel).ok()
     }
     pub unsafe fn SetModel(&self, pintrinsicmodel: *const MFExtendedCameraIntrinsic_IntrinsicModel) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetModel)(::windows::core::Vtable::as_raw(self), pintrinsicmodel).ok()
@@ -12261,9 +12256,8 @@ pub struct IMFExtendedCameraIntrinsics_Vtbl {
 #[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsicsDistortionModel6KT(::windows::core::IUnknown);
 impl IMFExtendedCameraIntrinsicsDistortionModel6KT {
-    pub unsafe fn GetDistortionModel(&self) -> ::windows::core::Result<MFCameraIntrinsic_DistortionModel6KT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDistortionModel)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetDistortionModel(&self, pdistortionmodel: *mut MFCameraIntrinsic_DistortionModel6KT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetDistortionModel)(::windows::core::Vtable::as_raw(self), pdistortionmodel).ok()
     }
     pub unsafe fn SetDistortionModel(&self, pdistortionmodel: *const MFCameraIntrinsic_DistortionModel6KT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetDistortionModel)(::windows::core::Vtable::as_raw(self), pdistortionmodel).ok()
@@ -12303,9 +12297,8 @@ pub struct IMFExtendedCameraIntrinsicsDistortionModel6KT_Vtbl {
 #[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsicsDistortionModelArcTan(::windows::core::IUnknown);
 impl IMFExtendedCameraIntrinsicsDistortionModelArcTan {
-    pub unsafe fn GetDistortionModel(&self) -> ::windows::core::Result<MFCameraIntrinsic_DistortionModelArcTan> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDistortionModel)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetDistortionModel(&self, pdistortionmodel: *mut MFCameraIntrinsic_DistortionModelArcTan) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetDistortionModel)(::windows::core::Vtable::as_raw(self), pdistortionmodel).ok()
     }
     pub unsafe fn SetDistortionModel(&self, pdistortionmodel: *const MFCameraIntrinsic_DistortionModelArcTan) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetDistortionModel)(::windows::core::Vtable::as_raw(self), pdistortionmodel).ok()
@@ -12846,9 +12839,8 @@ impl IMFImageSharingEngine {
     {
         (::windows::core::Vtable::vtable(self).SetSource)(::windows::core::Vtable::as_raw(self), pstream.into().abi()).ok()
     }
-    pub unsafe fn GetDevice(&self) -> ::windows::core::Result<DEVICE_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetDevice(&self, pdevice: *mut DEVICE_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), pdevice).ok()
     }
     pub unsafe fn Shutdown(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
@@ -15829,9 +15821,8 @@ impl IMFMediaSharingEngine {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.OnVideoStreamTick)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetDevice(&self) -> ::windows::core::Result<DEVICE_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetDevice(&self, pdevice: *mut DEVICE_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), pdevice).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFMediaSharingEngine, ::windows::core::IUnknown, IMFMediaEngine);
@@ -19190,9 +19181,8 @@ impl IMFPresentationClock {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetState)(::windows::core::Vtable::as_raw(self), dwreserved, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<MFCLOCK_PROPERTIES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties(&self, pclockproperties: *mut MFCLOCK_PROPERTIES) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetProperties)(::windows::core::Vtable::as_raw(self), pclockproperties).ok()
     }
     pub unsafe fn SetTimeSource<P0>(&self, ptimesource: P0) -> ::windows::core::Result<()>
     where
@@ -19471,9 +19461,8 @@ impl IMFPresentationTimeSource {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetState)(::windows::core::Vtable::as_raw(self), dwreserved, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<MFCLOCK_PROPERTIES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProperties(&self, pclockproperties: *mut MFCLOCK_PROPERTIES) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetProperties)(::windows::core::Vtable::as_raw(self), pclockproperties).ok()
     }
     pub unsafe fn GetUnderlyingClock(&self) -> ::windows::core::Result<IMFClock> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -21564,9 +21553,8 @@ pub struct IMFSensorProcessActivity_Vtbl {
 #[repr(transparent)]
 pub struct IMFSensorProfile(::windows::core::IUnknown);
 impl IMFSensorProfile {
-    pub unsafe fn GetProfileId(&self) -> ::windows::core::Result<SENSORPROFILEID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProfileId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProfileId(&self, pid: *mut SENSORPROFILEID) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProfileId)(::windows::core::Vtable::as_raw(self), pid).ok()
     }
     pub unsafe fn AddProfileFilter<P0>(&self, streamid: u32, wzfiltersetstring: P0) -> ::windows::core::Result<()>
     where
@@ -22219,9 +22207,8 @@ impl IMFSinkWriter {
     pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetServiceForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, guidservice, riid, ppvobject).ok()
     }
-    pub unsafe fn GetStatistics(&self, dwstreamindex: u32) -> ::windows::core::Result<MF_SINK_WRITER_STATISTICS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStatistics)(::windows::core::Vtable::as_raw(self), dwstreamindex, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetStatistics(&self, dwstreamindex: u32, pstats: *mut MF_SINK_WRITER_STATISTICS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetStatistics)(::windows::core::Vtable::as_raw(self), dwstreamindex, pstats).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFSinkWriter, ::windows::core::IUnknown);
@@ -22444,9 +22431,8 @@ impl IMFSinkWriterEx {
     pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetServiceForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, guidservice, riid, ppvobject).ok()
     }
-    pub unsafe fn GetStatistics(&self, dwstreamindex: u32) -> ::windows::core::Result<MF_SINK_WRITER_STATISTICS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStatistics)(::windows::core::Vtable::as_raw(self), dwstreamindex, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetStatistics(&self, dwstreamindex: u32, pstats: *mut MF_SINK_WRITER_STATISTICS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetStatistics)(::windows::core::Vtable::as_raw(self), dwstreamindex, pstats).ok()
     }
     pub unsafe fn GetTransformForStream(&self, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: ::core::option::Option<*mut ::windows::core::GUID>, pptransform: *mut ::core::option::Option<IMFTransform>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetTransformForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, dwtransformindex, ::core::mem::transmute(pguidcategory.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pptransform)).ok()
@@ -25744,9 +25730,8 @@ impl IMFTransform {
     pub unsafe fn GetStreamIDs(&self, pdwinputids: &mut [u32], pdwoutputids: &mut [u32]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetStreamIDs)(::windows::core::Vtable::as_raw(self), pdwinputids.len() as _, ::core::mem::transmute(pdwinputids.as_ptr()), pdwoutputids.len() as _, ::core::mem::transmute(pdwoutputids.as_ptr())).ok()
     }
-    pub unsafe fn GetInputStreamInfo(&self, dwinputstreamid: u32) -> ::windows::core::Result<MFT_INPUT_STREAM_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputStreamInfo)(::windows::core::Vtable::as_raw(self), dwinputstreamid, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetInputStreamInfo(&self, dwinputstreamid: u32, pstreaminfo: *mut MFT_INPUT_STREAM_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetInputStreamInfo)(::windows::core::Vtable::as_raw(self), dwinputstreamid, pstreaminfo).ok()
     }
     pub unsafe fn GetOutputStreamInfo(&self, dwoutputstreamid: u32) -> ::windows::core::Result<MFT_OUTPUT_STREAM_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -26448,9 +26433,8 @@ impl IMFVideoMixerBitmap {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAlphaBitmapParameters(&self) -> ::windows::core::Result<MFVideoAlphaBitmapParams> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAlphaBitmapParameters)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetAlphaBitmapParameters(&self, pbmpparms: *mut MFVideoAlphaBitmapParams) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetAlphaBitmapParameters)(::windows::core::Vtable::as_raw(self), pbmpparms).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFVideoMixerBitmap, ::windows::core::IUnknown);
@@ -26704,9 +26688,8 @@ impl IMFVideoProcessor {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetVideoProcessorCaps(&self, lpvideoprocessormode: *const ::windows::core::GUID) -> ::windows::core::Result<DXVA2_VideoProcessorCaps> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVideoProcessorCaps)(::windows::core::Vtable::as_raw(self), lpvideoprocessormode, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetVideoProcessorCaps(&self, lpvideoprocessormode: *const ::windows::core::GUID, lpvideoprocessorcaps: *mut DXVA2_VideoProcessorCaps) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetVideoProcessorCaps)(::windows::core::Vtable::as_raw(self), lpvideoprocessormode, lpvideoprocessorcaps).ok()
     }
     pub unsafe fn GetVideoProcessorMode(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -27853,13 +27836,11 @@ impl IOPMVideoOutput {
     pub unsafe fn FinishInitialization(&self, pparameters: *const OPM_ENCRYPTED_INITIALIZATION_PARAMETERS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FinishInitialization)(::windows::core::Vtable::as_raw(self), pparameters).ok()
     }
-    pub unsafe fn GetInformation(&self, pparameters: *const OPM_GET_INFO_PARAMETERS) -> ::windows::core::Result<OPM_REQUESTED_INFORMATION> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInformation)(::windows::core::Vtable::as_raw(self), pparameters, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetInformation(&self, pparameters: *const OPM_GET_INFO_PARAMETERS, prequestedinformation: *mut OPM_REQUESTED_INFORMATION) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetInformation)(::windows::core::Vtable::as_raw(self), pparameters, prequestedinformation).ok()
     }
-    pub unsafe fn COPPCompatibleGetInformation(&self, pparameters: *const OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS) -> ::windows::core::Result<OPM_REQUESTED_INFORMATION> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).COPPCompatibleGetInformation)(::windows::core::Vtable::as_raw(self), pparameters, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn COPPCompatibleGetInformation(&self, pparameters: *const OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS, prequestedinformation: *mut OPM_REQUESTED_INFORMATION) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).COPPCompatibleGetInformation)(::windows::core::Vtable::as_raw(self), pparameters, prequestedinformation).ok()
     }
     pub unsafe fn Configure(&self, pparameters: *const OPM_CONFIGURE_PARAMETERS, pbadditionalparameters: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Configure)(::windows::core::Vtable::as_raw(self), pparameters, pbadditionalparameters.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbadditionalparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()

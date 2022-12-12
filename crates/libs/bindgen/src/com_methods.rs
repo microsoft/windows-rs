@@ -79,6 +79,35 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 }
             }
         }
+        SignatureKind::ReturnValue => {
+            let args = gen.win32_args(&signature.params, kind);
+            let params = gen.win32_params(&signature.params, kind);
+            let return_type = signature.params[signature.params.len() - 1].ty.deref();
+            let is_nullable = gen.reader.type_is_nullable(&return_type);
+            let return_type = gen.type_name(&return_type);
+
+            if is_nullable {
+                quote! {
+                    #doc
+                    #features
+                    pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type> #where_clause {
+                        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                        (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args);
+                        <#return_type as ::windows::core::Abi>::from_abi(result__.assume_init())
+                    }
+                }
+            } else {
+                quote! {
+                    #doc
+                    #features
+                    pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
+                        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                        (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args);
+                        result__.assume_init()
+                    }
+                }
+            }
+        }
         SignatureKind::ReturnStruct => {
             let args = gen.win32_args(&signature.params, kind);
             let params = gen.win32_params(&signature.params, kind);

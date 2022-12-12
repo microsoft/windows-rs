@@ -5231,7 +5231,7 @@ impl IWMVideoMediaProps_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMWatermarkInfo_Impl: Sized {
     fn GetWatermarkEntryCount(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE) -> ::windows::core::Result<u32>;
-    fn GetWatermarkEntry(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE, dwentrynum: u32) -> ::windows::core::Result<WMT_WATERMARK_ENTRY>;
+    fn GetWatermarkEntry(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE, dwentrynum: u32, pentry: *mut WMT_WATERMARK_ENTRY) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWMWatermarkInfo {}
 impl IWMWatermarkInfo_Vtbl {
@@ -5250,13 +5250,7 @@ impl IWMWatermarkInfo_Vtbl {
         unsafe extern "system" fn GetWatermarkEntry<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMWatermarkInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wmettype: WMT_WATERMARK_ENTRY_TYPE, dwentrynum: u32, pentry: *mut WMT_WATERMARK_ENTRY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetWatermarkEntry(::core::mem::transmute_copy(&wmettype), ::core::mem::transmute_copy(&dwentrynum)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pentry, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetWatermarkEntry(::core::mem::transmute_copy(&wmettype), ::core::mem::transmute_copy(&dwentrynum), ::core::mem::transmute_copy(&pentry)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -5414,7 +5408,7 @@ pub trait IWMWriterAdvanced_Impl: Sized {
     fn SetLiveSource(&self, fislivesource: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn IsRealTime(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetWriterTime(&self) -> ::windows::core::Result<u64>;
-    fn GetStatistics(&self, wstreamnum: u16) -> ::windows::core::Result<WM_WRITER_STATISTICS>;
+    fn GetStatistics(&self, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS) -> ::windows::core::Result<()>;
     fn SetSyncTolerance(&self, mswindow: u32) -> ::windows::core::Result<()>;
     fn GetSyncTolerance(&self) -> ::windows::core::Result<u32>;
 }
@@ -5490,13 +5484,7 @@ impl IWMWriterAdvanced_Vtbl {
         unsafe extern "system" fn GetStatistics<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMWriterAdvanced_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStatistics(::core::mem::transmute_copy(&wstreamnum)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pstats, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetStatistics(::core::mem::transmute_copy(&wstreamnum), ::core::mem::transmute_copy(&pstats)).into()
         }
         unsafe extern "system" fn SetSyncTolerance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMWriterAdvanced_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mswindow: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5567,7 +5555,7 @@ impl IWMWriterAdvanced2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterAdvanced3_Impl: Sized + IWMWriterAdvanced2_Impl {
-    fn GetStatisticsEx(&self, wstreamnum: u16) -> ::windows::core::Result<WM_WRITER_STATISTICS_EX>;
+    fn GetStatisticsEx(&self, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS_EX) -> ::windows::core::Result<()>;
     fn SetNonBlocking(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5578,13 +5566,7 @@ impl IWMWriterAdvanced3_Vtbl {
         unsafe extern "system" fn GetStatisticsEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMWriterAdvanced3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS_EX) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStatisticsEx(::core::mem::transmute_copy(&wstreamnum)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pstats, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetStatisticsEx(::core::mem::transmute_copy(&wstreamnum), ::core::mem::transmute_copy(&pstats)).into()
         }
         unsafe extern "system" fn SetNonBlocking<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMWriterAdvanced3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

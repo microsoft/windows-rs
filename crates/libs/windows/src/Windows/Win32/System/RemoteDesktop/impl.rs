@@ -3209,11 +3209,11 @@ impl IWRdsGraphicsChannelManager_Vtbl {
 pub trait IWRdsProtocolConnection_Impl: Sized {
     fn GetLogonErrorRedirector(&self) -> ::windows::core::Result<IWRdsProtocolLogonErrorRedirector>;
     fn AcceptConnection(&self) -> ::windows::core::Result<()>;
-    fn GetClientData(&self) -> ::windows::core::Result<WTS_CLIENT_DATA>;
+    fn GetClientData(&self, pclientdata: *mut WTS_CLIENT_DATA) -> ::windows::core::Result<()>;
     fn GetClientMonitorData(&self, pnummonitors: *mut u32, pprimarymonitor: *mut u32) -> ::windows::core::Result<()>;
-    fn GetUserCredentials(&self) -> ::windows::core::Result<WTS_USER_CREDENTIAL>;
+    fn GetUserCredentials(&self, pusercreds: *mut WTS_USER_CREDENTIAL) -> ::windows::core::Result<()>;
     fn GetLicenseConnection(&self) -> ::windows::core::Result<IWRdsProtocolLicenseConnection>;
-    fn AuthenticateClientToSession(&self) -> ::windows::core::Result<WTS_SESSION_ID>;
+    fn AuthenticateClientToSession(&self, sessionid: *mut WTS_SESSION_ID) -> ::windows::core::Result<()>;
     fn NotifySessionId(&self, sessionid: *const WTS_SESSION_ID, sessionhandle: super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
     fn GetInputHandles(&self, pkeyboardhandle: *mut super::super::Foundation::HANDLE_PTR, pmousehandle: *mut super::super::Foundation::HANDLE_PTR, pbeephandle: *mut super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
     fn GetVideoHandle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE_PTR>;
@@ -3224,7 +3224,7 @@ pub trait IWRdsProtocolConnection_Impl: Sized {
     fn PreDisconnect(&self, disconnectreason: u32) -> ::windows::core::Result<()>;
     fn DisconnectNotify(&self) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
-    fn GetProtocolStatus(&self) -> ::windows::core::Result<WTS_PROTOCOL_STATUS>;
+    fn GetProtocolStatus(&self, pprotocolstatus: *mut WTS_PROTOCOL_STATUS) -> ::windows::core::Result<()>;
     fn GetLastInputTime(&self) -> ::windows::core::Result<u64>;
     fn SetErrorInfo(&self, ulerror: u32) -> ::windows::core::Result<()>;
     fn CreateVirtualChannel(&self, szendpointname: &::windows::core::PCSTR, bstatic: super::super::Foundation::BOOL, requestedpriority: u32) -> ::windows::core::Result<usize>;
@@ -3256,13 +3256,7 @@ impl IWRdsProtocolConnection_Vtbl {
         unsafe extern "system" fn GetClientData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclientdata: *mut WTS_CLIENT_DATA) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetClientData() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pclientdata, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetClientData(::core::mem::transmute_copy(&pclientdata)).into()
         }
         unsafe extern "system" fn GetClientMonitorData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnummonitors: *mut u32, pprimarymonitor: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3272,13 +3266,7 @@ impl IWRdsProtocolConnection_Vtbl {
         unsafe extern "system" fn GetUserCredentials<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pusercreds: *mut WTS_USER_CREDENTIAL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUserCredentials() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pusercreds, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetUserCredentials(::core::mem::transmute_copy(&pusercreds)).into()
         }
         unsafe extern "system" fn GetLicenseConnection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pplicenseconnection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3294,13 +3282,7 @@ impl IWRdsProtocolConnection_Vtbl {
         unsafe extern "system" fn AuthenticateClientToSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: *mut WTS_SESSION_ID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AuthenticateClientToSession() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(sessionid, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.AuthenticateClientToSession(::core::mem::transmute_copy(&sessionid)).into()
         }
         unsafe extern "system" fn NotifySessionId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: *const WTS_SESSION_ID, sessionhandle: super::super::Foundation::HANDLE_PTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3361,13 +3343,7 @@ impl IWRdsProtocolConnection_Vtbl {
         unsafe extern "system" fn GetProtocolStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprotocolstatus: *mut WTS_PROTOCOL_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProtocolStatus() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pprotocolstatus, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProtocolStatus(::core::mem::transmute_copy(&pprotocolstatus)).into()
         }
         unsafe extern "system" fn GetLastInputTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plastinputtime: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3507,7 +3483,7 @@ impl IWRdsProtocolConnectionCallback_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait IWRdsProtocolConnectionSettings_Impl: Sized {
     fn SetConnectionSetting(&self, propertyid: &::windows::core::GUID, ppropertyentriesin: *const WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
-    fn GetConnectionSetting(&self, propertyid: &::windows::core::GUID) -> ::windows::core::Result<WTS_PROPERTY_VALUE>;
+    fn GetConnectionSetting(&self, propertyid: &::windows::core::GUID, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWRdsProtocolConnectionSettings {}
 impl IWRdsProtocolConnectionSettings_Vtbl {
@@ -3520,13 +3496,7 @@ impl IWRdsProtocolConnectionSettings_Vtbl {
         unsafe extern "system" fn GetConnectionSetting<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: ::windows::core::GUID, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetConnectionSetting(::core::mem::transmute(&propertyid)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppropertyentriesout, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetConnectionSetting(::core::mem::transmute(&propertyid), ::core::mem::transmute_copy(&ppropertyentriesout)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -3793,7 +3763,7 @@ impl IWRdsProtocolManager_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolSettings_Impl: Sized {
-    fn GetSettings(&self, wrdssettingtype: WRDS_SETTING_TYPE, wrdssettinglevel: WRDS_SETTING_LEVEL) -> ::windows::core::Result<WRDS_SETTINGS>;
+    fn GetSettings(&self, wrdssettingtype: WRDS_SETTING_TYPE, wrdssettinglevel: WRDS_SETTING_LEVEL, pwrdssettings: *mut WRDS_SETTINGS) -> ::windows::core::Result<()>;
     fn MergeSettings(&self, pwrdssettings: *const WRDS_SETTINGS, wrdsconnectionsettinglevel: WRDS_CONNECTION_SETTING_LEVEL, pwrdsconnectionsettings: *mut WRDS_CONNECTION_SETTINGS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3804,13 +3774,7 @@ impl IWRdsProtocolSettings_Vtbl {
         unsafe extern "system" fn GetSettings<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wrdssettingtype: WRDS_SETTING_TYPE, wrdssettinglevel: WRDS_SETTING_LEVEL, pwrdssettings: *mut WRDS_SETTINGS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSettings(::core::mem::transmute_copy(&wrdssettingtype), ::core::mem::transmute_copy(&wrdssettinglevel)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pwrdssettings, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetSettings(::core::mem::transmute_copy(&wrdssettingtype), ::core::mem::transmute_copy(&wrdssettinglevel), ::core::mem::transmute_copy(&pwrdssettings)).into()
         }
         unsafe extern "system" fn MergeSettings<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwrdssettings: *const WRDS_SETTINGS, wrdsconnectionsettinglevel: WRDS_CONNECTION_SETTING_LEVEL, pwrdsconnectionsettings: *mut WRDS_CONNECTION_SETTINGS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4142,10 +4106,10 @@ pub trait IWTSProtocolConnection_Impl: Sized {
     fn GetLogonErrorRedirector(&self) -> ::windows::core::Result<IWTSProtocolLogonErrorRedirector>;
     fn SendPolicyData(&self, ppolicydata: *const WTS_POLICY_DATA) -> ::windows::core::Result<()>;
     fn AcceptConnection(&self) -> ::windows::core::Result<()>;
-    fn GetClientData(&self) -> ::windows::core::Result<WTS_CLIENT_DATA>;
-    fn GetUserCredentials(&self) -> ::windows::core::Result<WTS_USER_CREDENTIAL>;
+    fn GetClientData(&self, pclientdata: *mut WTS_CLIENT_DATA) -> ::windows::core::Result<()>;
+    fn GetUserCredentials(&self, pusercreds: *mut WTS_USER_CREDENTIAL) -> ::windows::core::Result<()>;
     fn GetLicenseConnection(&self) -> ::windows::core::Result<IWTSProtocolLicenseConnection>;
-    fn AuthenticateClientToSession(&self) -> ::windows::core::Result<WTS_SESSION_ID>;
+    fn AuthenticateClientToSession(&self, sessionid: *mut WTS_SESSION_ID) -> ::windows::core::Result<()>;
     fn NotifySessionId(&self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
     fn GetProtocolHandles(&self, pkeyboardhandle: *mut super::super::Foundation::HANDLE_PTR, pmousehandle: *mut super::super::Foundation::HANDLE_PTR, pbeephandle: *mut super::super::Foundation::HANDLE_PTR, pvideohandle: *mut super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
     fn ConnectNotify(&self, sessionid: u32) -> ::windows::core::Result<()>;
@@ -4155,7 +4119,7 @@ pub trait IWTSProtocolConnection_Impl: Sized {
     fn GetUserData(&self, ppolicydata: *const WTS_POLICY_DATA, pclientdata: *mut WTS_USER_DATA) -> ::windows::core::Result<()>;
     fn DisconnectNotify(&self) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
-    fn GetProtocolStatus(&self) -> ::windows::core::Result<WTS_PROTOCOL_STATUS>;
+    fn GetProtocolStatus(&self, pprotocolstatus: *mut WTS_PROTOCOL_STATUS) -> ::windows::core::Result<()>;
     fn GetLastInputTime(&self) -> ::windows::core::Result<u64>;
     fn SetErrorInfo(&self, ulerror: u32) -> ::windows::core::Result<()>;
     fn SendBeep(&self, frequency: u32, duration: u32) -> ::windows::core::Result<()>;
@@ -4192,24 +4156,12 @@ impl IWTSProtocolConnection_Vtbl {
         unsafe extern "system" fn GetClientData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclientdata: *mut WTS_CLIENT_DATA) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetClientData() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pclientdata, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetClientData(::core::mem::transmute_copy(&pclientdata)).into()
         }
         unsafe extern "system" fn GetUserCredentials<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pusercreds: *mut WTS_USER_CREDENTIAL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUserCredentials() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pusercreds, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetUserCredentials(::core::mem::transmute_copy(&pusercreds)).into()
         }
         unsafe extern "system" fn GetLicenseConnection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pplicenseconnection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4225,13 +4177,7 @@ impl IWTSProtocolConnection_Vtbl {
         unsafe extern "system" fn AuthenticateClientToSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: *mut WTS_SESSION_ID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AuthenticateClientToSession() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(sessionid, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.AuthenticateClientToSession(::core::mem::transmute_copy(&sessionid)).into()
         }
         unsafe extern "system" fn NotifySessionId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: *const WTS_SESSION_ID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4281,13 +4227,7 @@ impl IWTSProtocolConnection_Vtbl {
         unsafe extern "system" fn GetProtocolStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprotocolstatus: *mut WTS_PROTOCOL_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProtocolStatus() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pprotocolstatus, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProtocolStatus(::core::mem::transmute_copy(&pprotocolstatus)).into()
         }
         unsafe extern "system" fn GetLastInputTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSProtocolConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plastinputtime: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5297,7 +5237,7 @@ impl IWorkspaceScriptable3_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait ItsPubPlugin_Impl: Sized {
     fn GetResourceList(&self, userid: &::windows::core::PCWSTR, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource) -> ::windows::core::Result<()>;
-    fn GetResource(&self, alias: &::windows::core::PCWSTR, flags: i32) -> ::windows::core::Result<pluginResource>;
+    fn GetResource(&self, alias: &::windows::core::PCWSTR, flags: i32, resource: *mut pluginResource) -> ::windows::core::Result<()>;
     fn GetCacheLastUpdateTime(&self) -> ::windows::core::Result<u64>;
     fn pluginName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn pluginVersion(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5314,13 +5254,7 @@ impl ItsPubPlugin_Vtbl {
         unsafe extern "system" fn GetResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ItsPubPlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, alias: ::windows::core::PCWSTR, flags: i32, resource: *mut pluginResource) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetResource(::core::mem::transmute(&alias), ::core::mem::transmute_copy(&flags)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(resource, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetResource(::core::mem::transmute(&alias), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&resource)).into()
         }
         unsafe extern "system" fn GetCacheLastUpdateTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ItsPubPlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastupdatetime: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5377,7 +5311,7 @@ impl ItsPubPlugin_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait ItsPubPlugin2_Impl: Sized + ItsPubPlugin_Impl {
     fn GetResource2List(&self, userid: &::windows::core::PCWSTR, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource2) -> ::windows::core::Result<()>;
-    fn GetResource2(&self, alias: &::windows::core::PCWSTR, flags: i32) -> ::windows::core::Result<pluginResource2>;
+    fn GetResource2(&self, alias: &::windows::core::PCWSTR, flags: i32, resource: *mut pluginResource2) -> ::windows::core::Result<()>;
     fn ResolvePersonalDesktop(&self, userid: &::windows::core::PCWSTR, poolid: &::windows::core::PCWSTR, epdresolutiontype: TSPUB_PLUGIN_PD_RESOLUTION_TYPE, ppdassignmenttype: *mut TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE, endpointname: ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn DeletePersonalDesktopAssignment(&self, userid: &::windows::core::PCWSTR, poolid: &::windows::core::PCWSTR, endpointname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
@@ -5392,13 +5326,7 @@ impl ItsPubPlugin2_Vtbl {
         unsafe extern "system" fn GetResource2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ItsPubPlugin2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, alias: ::windows::core::PCWSTR, flags: i32, resource: *mut pluginResource2) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetResource2(::core::mem::transmute(&alias), ::core::mem::transmute_copy(&flags)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(resource, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetResource2(::core::mem::transmute(&alias), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&resource)).into()
         }
         unsafe extern "system" fn ResolvePersonalDesktop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ItsPubPlugin2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, userid: ::windows::core::PCWSTR, poolid: ::windows::core::PCWSTR, epdresolutiontype: TSPUB_PLUGIN_PD_RESOLUTION_TYPE, ppdassignmenttype: *mut TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE, endpointname: ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

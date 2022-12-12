@@ -866,7 +866,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssDifferentialSoftwareSnapshotMgmt3_Impl: Sized + IVssDifferentialSoftwareSnapshotMgmt2_Impl {
     fn SetVolumeProtectLevel(&self, pwszvolumename: *const u16, protectionlevel: VSS_PROTECTION_LEVEL) -> ::windows::core::Result<()>;
-    fn GetVolumeProtectLevel(&self, pwszvolumename: *const u16) -> ::windows::core::Result<VSS_VOLUME_PROTECTION_INFO>;
+    fn GetVolumeProtectLevel(&self, pwszvolumename: *const u16, protectionlevel: *mut VSS_VOLUME_PROTECTION_INFO) -> ::windows::core::Result<()>;
     fn ClearVolumeProtectFault(&self, pwszvolumename: *const u16) -> ::windows::core::Result<()>;
     fn DeleteUnusedDiffAreas(&self, pwszdiffareavolumename: *const u16) -> ::windows::core::Result<()>;
     fn QuerySnapshotDeltaBitmap(&self, idsnapshotolder: &::windows::core::GUID, idsnapshotyounger: &::windows::core::GUID, pcblocksizeperbit: *mut u32, pcbitmaplength: *mut u32, ppbbitmap: *mut *mut u8) -> ::windows::core::Result<()>;
@@ -884,13 +884,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
         unsafe extern "system" fn GetVolumeProtectLevel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssDifferentialSoftwareSnapshotMgmt3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, protectionlevel: *mut VSS_VOLUME_PROTECTION_INFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetVolumeProtectLevel(::core::mem::transmute_copy(&pwszvolumename)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(protectionlevel, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetVolumeProtectLevel(::core::mem::transmute_copy(&pwszvolumename), ::core::mem::transmute_copy(&protectionlevel)).into()
         }
         unsafe extern "system" fn ClearVolumeProtectFault<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssDifferentialSoftwareSnapshotMgmt3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1056,7 +1050,7 @@ impl IVssExpressWriter_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IVssFileShareSnapshotProvider_Impl: Sized {
     fn SetContext(&self, lcontext: i32) -> ::windows::core::Result<()>;
-    fn GetSnapshotProperties(&self, snapshotid: &::windows::core::GUID) -> ::windows::core::Result<VSS_SNAPSHOT_PROP>;
+    fn GetSnapshotProperties(&self, snapshotid: &::windows::core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> ::windows::core::Result<()>;
     fn Query(&self, queriedobjectid: &::windows::core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE) -> ::windows::core::Result<IVssEnumObject>;
     fn DeleteSnapshots(&self, sourceobjectid: &::windows::core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: super::super::Foundation::BOOL, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn BeginPrepareSnapshot(&self, snapshotsetid: &::windows::core::GUID, snapshotid: &::windows::core::GUID, pwszsharepath: *const u16, lnewcontext: i32, providerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -1077,13 +1071,7 @@ impl IVssFileShareSnapshotProvider_Vtbl {
         unsafe extern "system" fn GetSnapshotProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSnapshotProperties(::core::mem::transmute(&snapshotid)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pprop, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetSnapshotProperties(::core::mem::transmute(&snapshotid), ::core::mem::transmute_copy(&pprop)).into()
         }
         unsafe extern "system" fn Query<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queriedobjectid: ::windows::core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1434,7 +1422,7 @@ impl IVssSnapshotMgmt2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IVssSoftwareSnapshotProvider_Impl: Sized {
     fn SetContext(&self, lcontext: i32) -> ::windows::core::Result<()>;
-    fn GetSnapshotProperties(&self, snapshotid: &::windows::core::GUID) -> ::windows::core::Result<VSS_SNAPSHOT_PROP>;
+    fn GetSnapshotProperties(&self, snapshotid: &::windows::core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> ::windows::core::Result<()>;
     fn Query(&self, queriedobjectid: &::windows::core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE) -> ::windows::core::Result<IVssEnumObject>;
     fn DeleteSnapshots(&self, sourceobjectid: &::windows::core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: super::super::Foundation::BOOL, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn BeginPrepareSnapshot(&self, snapshotsetid: &::windows::core::GUID, snapshotid: &::windows::core::GUID, pwszvolumename: *const u16, lnewcontext: i32) -> ::windows::core::Result<()>;
@@ -1457,13 +1445,7 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
         unsafe extern "system" fn GetSnapshotProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSnapshotProperties(::core::mem::transmute(&snapshotid)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pprop, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetSnapshotProperties(::core::mem::transmute(&snapshotid), ::core::mem::transmute_copy(&pprop)).into()
         }
         unsafe extern "system" fn Query<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queriedobjectid: ::windows::core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

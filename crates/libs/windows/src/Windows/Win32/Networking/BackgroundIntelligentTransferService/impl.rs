@@ -322,7 +322,7 @@ impl IBackgroundCopyError_Vtbl {
 pub trait IBackgroundCopyFile_Impl: Sized {
     fn GetRemoteName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetLocalName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
-    fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS>;
+    fn GetProgress(&self, pval: *mut BG_FILE_PROGRESS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundCopyFile {}
@@ -354,13 +354,7 @@ impl IBackgroundCopyFile_Vtbl {
         unsafe extern "system" fn GetProgress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut BG_FILE_PROGRESS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProgress() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProgress(::core::mem::transmute_copy(&pval)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -745,8 +739,8 @@ pub trait IBackgroundCopyJob_Impl: Sized {
     fn Complete(&self) -> ::windows::core::Result<()>;
     fn GetId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetType(&self) -> ::windows::core::Result<BG_JOB_TYPE>;
-    fn GetProgress(&self) -> ::windows::core::Result<BG_JOB_PROGRESS>;
-    fn GetTimes(&self) -> ::windows::core::Result<BG_JOB_TIMES>;
+    fn GetProgress(&self, pval: *mut BG_JOB_PROGRESS) -> ::windows::core::Result<()>;
+    fn GetTimes(&self, pval: *mut BG_JOB_TIMES) -> ::windows::core::Result<()>;
     fn GetState(&self) -> ::windows::core::Result<BG_JOB_STATE>;
     fn GetError(&self) -> ::windows::core::Result<IBackgroundCopyError>;
     fn GetOwner(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -840,24 +834,12 @@ impl IBackgroundCopyJob_Vtbl {
         unsafe extern "system" fn GetProgress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut BG_JOB_PROGRESS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProgress() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProgress(::core::mem::transmute_copy(&pval)).into()
         }
         unsafe extern "system" fn GetTimes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut BG_JOB_TIMES) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTimes() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetTimes(::core::mem::transmute_copy(&pval)).into()
         }
         unsafe extern "system" fn GetState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut BG_JOB_STATE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

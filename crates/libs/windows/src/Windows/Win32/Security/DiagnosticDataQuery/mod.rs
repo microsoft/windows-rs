@@ -89,13 +89,12 @@ pub unsafe fn DdqGetDiagnosticDataAccessLevelAllowed() -> ::windows::core::Resul
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdqGetDiagnosticRecordAtIndex<P0>(hrecord: P0, index: u32) -> ::windows::core::Result<DIAGNOSTIC_DATA_RECORD>
+pub unsafe fn DdqGetDiagnosticRecordAtIndex<P0>(hrecord: P0, index: u32, record: *mut DIAGNOSTIC_DATA_RECORD) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::HDIAGNOSTIC_RECORD>,
 {
     ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordAtIndex ( hrecord : super:: HDIAGNOSTIC_RECORD , index : u32 , record : *mut DIAGNOSTIC_DATA_RECORD ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordAtIndex(hrecord.into(), index, result__.as_mut_ptr()).from_abi(result__)
+    DdqGetDiagnosticRecordAtIndex(hrecord.into(), index, record).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
@@ -241,13 +240,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
-pub unsafe fn DdqGetDiagnosticRecordSummary<P0>(hsession: P0, producernames: &[::windows::core::PCWSTR]) -> ::windows::core::Result<DIAGNOSTIC_DATA_GENERAL_STATS>
+pub unsafe fn DdqGetDiagnosticRecordSummary<P0>(hsession: P0, producernames: &[::windows::core::PCWSTR], generalstats: *mut DIAGNOSTIC_DATA_GENERAL_STATS) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
     ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordSummary ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const :: windows::core::PCWSTR , producernamecount : u32 , generalstats : *mut DIAGNOSTIC_DATA_GENERAL_STATS ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordSummary(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, result__.as_mut_ptr()).from_abi(result__)
+    DdqGetDiagnosticRecordSummary(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, generalstats).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
@@ -271,13 +269,12 @@ where
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdqGetDiagnosticReportAtIndex<P0>(hreport: P0, index: u32) -> ::windows::core::Result<DIAGNOSTIC_REPORT_DATA>
+pub unsafe fn DdqGetDiagnosticReportAtIndex<P0>(hreport: P0, index: u32, report: *mut DIAGNOSTIC_REPORT_DATA) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::HDIAGNOSTIC_REPORT>,
 {
     ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticReportAtIndex ( hreport : super:: HDIAGNOSTIC_REPORT , index : u32 , report : *mut DIAGNOSTIC_REPORT_DATA ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticReportAtIndex(hreport.into(), index, result__.as_mut_ptr()).from_abi(result__)
+    DdqGetDiagnosticReportAtIndex(hreport.into(), index, report).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]

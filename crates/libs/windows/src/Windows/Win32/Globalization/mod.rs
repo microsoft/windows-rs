@@ -9277,9 +9277,8 @@ impl IMultiLanguage {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetNumberOfCodePageInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetCodePageInfo(&self, uicodepage: u32) -> ::windows::core::Result<MIMECPINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCodePageInfo)(::windows::core::Vtable::as_raw(self), uicodepage, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetCodePageInfo(&self, uicodepage: u32, pcodepageinfo: *mut MIMECPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetCodePageInfo)(::windows::core::Vtable::as_raw(self), uicodepage, pcodepageinfo).ok()
     }
     pub unsafe fn GetFamilyCodePage(&self, uicodepage: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9289,9 +9288,8 @@ impl IMultiLanguage {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).EnumCodePages)(::windows::core::Vtable::as_raw(self), grfflags, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetCharsetInfo(&self, charset: &::windows::core::BSTR) -> ::windows::core::Result<MIMECSETINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCharsetInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(charset), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetCharsetInfo(&self, charset: &::windows::core::BSTR, pcharsetinfo: *mut MIMECSETINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetCharsetInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(charset), pcharsetinfo).ok()
     }
     pub unsafe fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).IsConvertible)(::windows::core::Vtable::as_raw(self), dwsrcencoding, dwdstencoding).ok()
@@ -9325,9 +9323,8 @@ impl IMultiLanguage {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).EnumRfc1766)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetRfc1766Info(&self, locale: u32) -> ::windows::core::Result<RFC1766INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRfc1766Info)(::windows::core::Vtable::as_raw(self), locale, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetRfc1766Info(&self, locale: u32, prfc1766info: *mut RFC1766INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetRfc1766Info)(::windows::core::Vtable::as_raw(self), locale, prfc1766info).ok()
     }
     pub unsafe fn CreateConvertCharset(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> ::windows::core::Result<IMLangConvertCharset> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9385,9 +9382,8 @@ impl IMultiLanguage2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetNumberOfCodePageInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetCodePageInfo(&self, uicodepage: u32, langid: u16) -> ::windows::core::Result<MIMECPINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCodePageInfo)(::windows::core::Vtable::as_raw(self), uicodepage, langid, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetCodePageInfo(&self, uicodepage: u32, langid: u16, pcodepageinfo: *mut MIMECPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetCodePageInfo)(::windows::core::Vtable::as_raw(self), uicodepage, langid, pcodepageinfo).ok()
     }
     pub unsafe fn GetFamilyCodePage(&self, uicodepage: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9397,9 +9393,8 @@ impl IMultiLanguage2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).EnumCodePages)(::windows::core::Vtable::as_raw(self), grfflags, langid, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetCharsetInfo(&self, charset: &::windows::core::BSTR) -> ::windows::core::Result<MIMECSETINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCharsetInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(charset), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetCharsetInfo(&self, charset: &::windows::core::BSTR, pcharsetinfo: *mut MIMECSETINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetCharsetInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(charset), pcharsetinfo).ok()
     }
     pub unsafe fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).IsConvertible)(::windows::core::Vtable::as_raw(self), dwsrcencoding, dwdstencoding).ok()
@@ -9433,9 +9428,8 @@ impl IMultiLanguage2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).EnumRfc1766)(::windows::core::Vtable::as_raw(self), langid, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetRfc1766Info(&self, locale: u32, langid: u16) -> ::windows::core::Result<RFC1766INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRfc1766Info)(::windows::core::Vtable::as_raw(self), locale, langid, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetRfc1766Info(&self, locale: u32, langid: u16, prfc1766info: *mut RFC1766INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetRfc1766Info)(::windows::core::Vtable::as_raw(self), locale, langid, prfc1766info).ok()
     }
     pub unsafe fn CreateConvertCharset(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> ::windows::core::Result<IMLangConvertCharset> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9588,9 +9582,8 @@ impl IMultiLanguage3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetNumberOfCodePageInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetCodePageInfo(&self, uicodepage: u32, langid: u16) -> ::windows::core::Result<MIMECPINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCodePageInfo)(::windows::core::Vtable::as_raw(self), uicodepage, langid, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetCodePageInfo(&self, uicodepage: u32, langid: u16, pcodepageinfo: *mut MIMECPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetCodePageInfo)(::windows::core::Vtable::as_raw(self), uicodepage, langid, pcodepageinfo).ok()
     }
     pub unsafe fn GetFamilyCodePage(&self, uicodepage: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9600,9 +9593,8 @@ impl IMultiLanguage3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.EnumCodePages)(::windows::core::Vtable::as_raw(self), grfflags, langid, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetCharsetInfo(&self, charset: &::windows::core::BSTR) -> ::windows::core::Result<MIMECSETINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCharsetInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(charset), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetCharsetInfo(&self, charset: &::windows::core::BSTR, pcharsetinfo: *mut MIMECSETINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetCharsetInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(charset), pcharsetinfo).ok()
     }
     pub unsafe fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.IsConvertible)(::windows::core::Vtable::as_raw(self), dwsrcencoding, dwdstencoding).ok()
@@ -9636,9 +9628,8 @@ impl IMultiLanguage3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.EnumRfc1766)(::windows::core::Vtable::as_raw(self), langid, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetRfc1766Info(&self, locale: u32, langid: u16) -> ::windows::core::Result<RFC1766INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetRfc1766Info)(::windows::core::Vtable::as_raw(self), locale, langid, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetRfc1766Info(&self, locale: u32, langid: u16, prfc1766info: *mut RFC1766INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetRfc1766Info)(::windows::core::Vtable::as_raw(self), locale, langid, prfc1766info).ok()
     }
     pub unsafe fn CreateConvertCharset(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> ::windows::core::Result<IMLangConvertCharset> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

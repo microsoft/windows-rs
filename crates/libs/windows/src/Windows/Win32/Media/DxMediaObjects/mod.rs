@@ -305,15 +305,13 @@ impl IMediaObject {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetInputCurrentType(&self, dwinputstreamindex: u32) -> ::windows::core::Result<DMO_MEDIA_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputCurrentType)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetInputCurrentType(&self, dwinputstreamindex: u32, pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetInputCurrentType)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, pmt).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetOutputCurrentType(&self, dwoutputstreamindex: u32) -> ::windows::core::Result<DMO_MEDIA_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOutputCurrentType)(::windows::core::Vtable::as_raw(self), dwoutputstreamindex, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetOutputCurrentType(&self, dwoutputstreamindex: u32, pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetOutputCurrentType)(::windows::core::Vtable::as_raw(self), dwoutputstreamindex, pmt).ok()
     }
     pub unsafe fn GetInputSizeInfo(&self, dwinputstreamindex: u32, pcbsize: *mut u32, pcbmaxlookahead: *mut u32, pcbalignment: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetInputSizeInfo)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, pcbsize, pcbmaxlookahead, pcbalignment).ok()

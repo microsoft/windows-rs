@@ -126,7 +126,7 @@ impl IKsJackContainerId_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IKsJackDescription_Impl: Sized {
     fn GetJackCount(&self) -> ::windows::core::Result<u32>;
-    fn GetJackDescription(&self, njack: u32) -> ::windows::core::Result<KSJACK_DESCRIPTION>;
+    fn GetJackDescription(&self, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IKsJackDescription {}
@@ -147,13 +147,7 @@ impl IKsJackDescription_Vtbl {
         unsafe extern "system" fn GetJackDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IKsJackDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetJackDescription(::core::mem::transmute_copy(&njack)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdescription, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetJackDescription(::core::mem::transmute_copy(&njack), ::core::mem::transmute_copy(&pdescription)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -208,7 +202,7 @@ impl IKsJackDescription2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IKsJackSinkInformation_Impl: Sized {
-    fn GetJackSinkInformation(&self) -> ::windows::core::Result<KSJACK_SINK_INFORMATION>;
+    fn GetJackSinkInformation(&self, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IKsJackSinkInformation {}
@@ -218,13 +212,7 @@ impl IKsJackSinkInformation_Vtbl {
         unsafe extern "system" fn GetJackSinkInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IKsJackSinkInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetJackSinkInformation() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pjacksinkinformation, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetJackSinkInformation(::core::mem::transmute_copy(&pjacksinkinformation)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetJackSinkInformation: GetJackSinkInformation::<Identity, Impl, OFFSET> }
     }

@@ -106,13 +106,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[inline]
-pub unsafe fn PrjGetVirtualizationInstanceInfo<P0>(namespacevirtualizationcontext: P0) -> ::windows::core::Result<PRJ_VIRTUALIZATION_INSTANCE_INFO>
+pub unsafe fn PrjGetVirtualizationInstanceInfo<P0>(namespacevirtualizationcontext: P0, virtualizationinstanceinfo: *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjGetVirtualizationInstanceInfo ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT , virtualizationinstanceinfo : *mut PRJ_VIRTUALIZATION_INSTANCE_INFO ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext.into(), result__.as_mut_ptr()).from_abi(result__)
+    PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext.into(), virtualizationinstanceinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[inline]

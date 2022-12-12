@@ -494,9 +494,8 @@ impl IMILBitmapEffectImpl {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetInputSource)(::windows::core::Vtable::as_raw(self), uiindex, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetInputSourceBounds(&self, uiindex: u32) -> ::windows::core::Result<MilRectD> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputSourceBounds)(::windows::core::Vtable::as_raw(self), uiindex, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetInputSourceBounds(&self, uiindex: u32, prect: *mut MilRectD) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetInputSourceBounds)(::windows::core::Vtable::as_raw(self), uiindex, prect).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
@@ -1005,9 +1004,8 @@ impl IMILBitmapEffectRenderContext {
     pub unsafe fn SetInitialTransform(&self, pmatrix: *const MILMatrixF) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetInitialTransform)(::windows::core::Vtable::as_raw(self), pmatrix).ok()
     }
-    pub unsafe fn GetFinalTransform(&self) -> ::windows::core::Result<MILMatrixF> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFinalTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetFinalTransform(&self, pmatrix: *mut MILMatrixF) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetFinalTransform)(::windows::core::Vtable::as_raw(self), pmatrix).ok()
     }
     pub unsafe fn SetOutputDPI(&self, dbldpix: f64, dbldpiy: f64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetOutputDPI)(::windows::core::Vtable::as_raw(self), dbldpix, dbldpiy).ok()

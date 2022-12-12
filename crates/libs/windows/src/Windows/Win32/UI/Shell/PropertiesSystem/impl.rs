@@ -139,7 +139,7 @@ impl INamedPropertyStore_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 pub trait IObjectWithPropertyKey_Impl: Sized {
     fn SetPropertyKey(&self, key: *const PROPERTYKEY) -> ::windows::core::Result<()>;
-    fn GetPropertyKey(&self) -> ::windows::core::Result<PROPERTYKEY>;
+    fn GetPropertyKey(&self, pkey: *mut PROPERTYKEY) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IObjectWithPropertyKey {}
 impl IObjectWithPropertyKey_Vtbl {
@@ -152,13 +152,7 @@ impl IObjectWithPropertyKey_Vtbl {
         unsafe extern "system" fn GetPropertyKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IObjectWithPropertyKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkey: *mut PROPERTYKEY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPropertyKey() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pkey, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetPropertyKey(::core::mem::transmute_copy(&pkey)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -338,7 +332,7 @@ impl IPropertyChangeArray_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IPropertyDescription_Impl: Sized {
-    fn GetPropertyKey(&self) -> ::windows::core::Result<PROPERTYKEY>;
+    fn GetPropertyKey(&self, pkey: *mut PROPERTYKEY) -> ::windows::core::Result<()>;
     fn GetCanonicalName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetPropertyType(&self) -> ::windows::core::Result<u16>;
     fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -368,13 +362,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetPropertyKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkey: *mut PROPERTYKEY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPropertyKey() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pkey, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetPropertyKey(::core::mem::transmute_copy(&pkey)).into()
         }
         unsafe extern "system" fn GetCanonicalName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -950,7 +938,7 @@ impl IPropertyEnumTypeList_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyStore_Impl: Sized {
     fn GetCount(&self) -> ::windows::core::Result<u32>;
-    fn GetAt(&self, iprop: u32) -> ::windows::core::Result<PROPERTYKEY>;
+    fn GetAt(&self, iprop: u32, pkey: *mut PROPERTYKEY) -> ::windows::core::Result<()>;
     fn GetValue(&self, key: *const PROPERTYKEY) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn SetValue(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn Commit(&self) -> ::windows::core::Result<()>;
@@ -974,13 +962,7 @@ impl IPropertyStore_Vtbl {
         unsafe extern "system" fn GetAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iprop: u32, pkey: *mut PROPERTYKEY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(::core::mem::transmute_copy(&iprop)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pkey, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetAt(::core::mem::transmute_copy(&iprop), ::core::mem::transmute_copy(&pkey)).into()
         }
         unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, pv: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

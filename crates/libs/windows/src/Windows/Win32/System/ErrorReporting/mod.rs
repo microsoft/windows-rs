@@ -274,38 +274,35 @@ pub unsafe fn WerStorePurge() -> ::windows::core::Result<()> {
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WerStoreQueryReportMetadataV1<P0, P1>(hreportstore: P0, pszreportkey: P1) -> ::windows::core::Result<WER_REPORT_METADATA_V1>
+pub unsafe fn WerStoreQueryReportMetadataV1<P0, P1>(hreportstore: P0, pszreportkey: P1, preportmetadata: *mut WER_REPORT_METADATA_V1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HREPORTSTORE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wer.dll""system" fn WerStoreQueryReportMetadataV1 ( hreportstore : HREPORTSTORE , pszreportkey : :: windows::core::PCWSTR , preportmetadata : *mut WER_REPORT_METADATA_V1 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreQueryReportMetadataV1(hreportstore.into(), pszreportkey.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    WerStoreQueryReportMetadataV1(hreportstore.into(), pszreportkey.into().abi(), preportmetadata).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WerStoreQueryReportMetadataV2<P0, P1>(hreportstore: P0, pszreportkey: P1) -> ::windows::core::Result<WER_REPORT_METADATA_V2>
+pub unsafe fn WerStoreQueryReportMetadataV2<P0, P1>(hreportstore: P0, pszreportkey: P1, preportmetadata: *mut WER_REPORT_METADATA_V2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HREPORTSTORE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wer.dll""system" fn WerStoreQueryReportMetadataV2 ( hreportstore : HREPORTSTORE , pszreportkey : :: windows::core::PCWSTR , preportmetadata : *mut WER_REPORT_METADATA_V2 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreQueryReportMetadataV2(hreportstore.into(), pszreportkey.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    WerStoreQueryReportMetadataV2(hreportstore.into(), pszreportkey.into().abi(), preportmetadata).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WerStoreQueryReportMetadataV3<P0, P1>(hreportstore: P0, pszreportkey: P1) -> ::windows::core::Result<WER_REPORT_METADATA_V3>
+pub unsafe fn WerStoreQueryReportMetadataV3<P0, P1>(hreportstore: P0, pszreportkey: P1, preportmetadata: *mut WER_REPORT_METADATA_V3) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HREPORTSTORE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wer.dll""system" fn WerStoreQueryReportMetadataV3 ( hreportstore : HREPORTSTORE , pszreportkey : :: windows::core::PCWSTR , preportmetadata : *mut WER_REPORT_METADATA_V3 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreQueryReportMetadataV3(hreportstore.into(), pszreportkey.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    WerStoreQueryReportMetadataV3(hreportstore.into(), pszreportkey.into().abi(), preportmetadata).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]

@@ -559,7 +559,7 @@ pub trait ISimilarityFileIdTable_Impl: Sized {
     fn CreateTableIndirect(&self, fileidfile: &::core::option::Option<IRdcFileWriter>, truncate: super::super::Foundation::BOOL, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Append(&self, similarityfileid: *const SimilarityFileId) -> ::windows::core::Result<u32>;
-    fn Lookup(&self, similarityfileindex: u32) -> ::windows::core::Result<SimilarityFileId>;
+    fn Lookup(&self, similarityfileindex: u32, similarityfileid: *mut SimilarityFileId) -> ::windows::core::Result<()>;
     fn Invalidate(&self, similarityfileindex: u32) -> ::windows::core::Result<()>;
     fn GetRecordCount(&self) -> ::windows::core::Result<u32>;
 }
@@ -609,13 +609,7 @@ impl ISimilarityFileIdTable_Vtbl {
         unsafe extern "system" fn Lookup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISimilarityFileIdTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, similarityfileindex: u32, similarityfileid: *mut SimilarityFileId) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Lookup(::core::mem::transmute_copy(&similarityfileindex)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(similarityfileid, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Lookup(::core::mem::transmute_copy(&similarityfileindex), ::core::mem::transmute_copy(&similarityfileid)).into()
         }
         unsafe extern "system" fn Invalidate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISimilarityFileIdTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, similarityfileindex: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -745,7 +739,7 @@ pub trait ISimilarityTraitsMapping_Impl: Sized {
     fn GetFileSize(&self) -> ::windows::core::Result<u64>;
     fn OpenMapping(&self, accessmode: RdcMappingAccessMode, begin: u64, end: u64) -> ::windows::core::Result<u64>;
     fn ResizeMapping(&self, accessmode: RdcMappingAccessMode, begin: u64, end: u64) -> ::windows::core::Result<u64>;
-    fn GetPageSize(&self, pagesize: *mut u32);
+    fn GetPageSize(&self, pagesize: *mut u32) -> ();
     fn CreateView(&self, minimummappedpages: u32, accessmode: RdcMappingAccessMode) -> ::windows::core::Result<ISimilarityTraitsMappedView>;
 }
 impl ::windows::core::RuntimeName for ISimilarityTraitsMapping {}
