@@ -15,7 +15,7 @@ impl IPropertyStore_Impl for Object {
     fn GetCount(&self) -> Result<u32> {
         Ok(123)
     }
-    fn GetAt(&self, _: u32) -> Result<PROPERTYKEY> {
+    fn GetAt(&self, _: u32, _: *mut PROPERTYKEY) -> Result<()> {
         todo!()
     }
     fn GetValue(&self, _: *const PROPERTYKEY) -> Result<PROPVARIANT> {

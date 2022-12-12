@@ -3,8 +3,11 @@ use windows::{core::*, Win32::Foundation::*, Win32::Graphics::Direct3D10::*, Win
 struct Reflection;
 
 impl ID3D12FunctionParameterReflection_Impl for Reflection {
-    fn GetDesc(&self) -> Result<D3D12_PARAMETER_DESC> {
-        Ok(D3D12_PARAMETER_DESC { Name: s!("test"), ..Default::default() })
+    fn GetDesc(&self, pdesc: *mut D3D12_PARAMETER_DESC) -> Result<()> {
+        unsafe {
+            *pdesc = D3D12_PARAMETER_DESC { Name: s!("test"), ..Default::default() };
+            Ok(())
+        }
     }
 }
 
@@ -33,7 +36,7 @@ impl ID3D10EffectVariable_Impl for Variable {
     fn GetType(&self) -> ::core::option::Option<ID3D10EffectType> {
         todo!();
     }
-    fn GetDesc(&self) -> ::windows::core::Result<D3D10_EFFECT_VARIABLE_DESC> {
+    fn GetDesc(&self, _: *mut D3D10_EFFECT_VARIABLE_DESC) -> ::windows::core::Result<()> {
         todo!();
     }
     fn GetAnnotationByIndex(&self, _: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -134,7 +137,8 @@ fn test() -> Result<()> {
         CoInitializeEx(None, COINIT_MULTITHREADED)?;
 
         let reflection = ID3D12FunctionParameterReflection::new(&Reflection);
-        let desc = reflection.GetDesc()?;
+        let mut desc = Default::default();
+        reflection.GetDesc(&mut desc)?;
         assert_eq!("test", desc.Name.to_string().unwrap());
 
         let variable = Variable::default();
