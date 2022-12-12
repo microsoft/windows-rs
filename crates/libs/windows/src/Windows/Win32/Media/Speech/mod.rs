@@ -5166,8 +5166,11 @@ impl ISpeechFileStream {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Open(&self, filename: &::windows::core::BSTR, filemode: SpeechStreamFileMode, doevents: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(filename), filemode, doevents).ok()
+    pub unsafe fn Open<P0>(&self, filename: &::windows::core::BSTR, filemode: SpeechStreamFileMode, doevents: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(filename), filemode, doevents.into()).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
@@ -6298,8 +6301,11 @@ impl ISpeechObjectToken {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR, categoryid: &::windows::core::BSTR, createifnotexist: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(id), ::core::mem::transmute_copy(categoryid), createifnotexist).ok()
+    pub unsafe fn SetId<P0>(&self, id: &::windows::core::BSTR, categoryid: &::windows::core::BSTR, createifnotexist: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(id), ::core::mem::transmute_copy(categoryid), createifnotexist.into()).ok()
     }
     pub unsafe fn GetAttribute(&self, attributename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6321,8 +6327,11 @@ impl ISpeechObjectToken {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RemoveStorageFileName(&self, objectstorageclsid: &::windows::core::BSTR, keyname: &::windows::core::BSTR, deletefile: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RemoveStorageFileName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(objectstorageclsid), ::core::mem::transmute_copy(keyname), deletefile).ok()
+    pub unsafe fn RemoveStorageFileName<P0>(&self, objectstorageclsid: &::windows::core::BSTR, keyname: &::windows::core::BSTR, deletefile: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).RemoveStorageFileName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(objectstorageclsid), ::core::mem::transmute_copy(keyname), deletefile.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6437,8 +6446,11 @@ impl ISpeechObjectTokenCategory {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR, createifnotexist: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(id), createifnotexist).ok()
+    pub unsafe fn SetId<P0>(&self, id: &::windows::core::BSTR, createifnotexist: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(id), createifnotexist.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7037,15 +7049,21 @@ impl ISpeechPhraseInfo {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetText(&self, startelement: i32, elements: i32, usereplacements: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetText<P0>(&self, startelement: i32, elements: i32, usereplacements: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetText)(::windows::core::Vtable::as_raw(self), startelement, elements, usereplacements, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetText)(::windows::core::Vtable::as_raw(self), startelement, elements, usereplacements.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDisplayAttributes(&self, startelement: i32, elements: i32, usereplacements: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<SpeechDisplayAttributes> {
+    pub unsafe fn GetDisplayAttributes<P0>(&self, startelement: i32, elements: i32, usereplacements: P0) -> ::windows::core::Result<SpeechDisplayAttributes>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDisplayAttributes)(::windows::core::Vtable::as_raw(self), startelement, elements, usereplacements, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetDisplayAttributes)(::windows::core::Vtable::as_raw(self), startelement, elements, usereplacements.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7670,8 +7688,11 @@ impl ISpeechRecoContext {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllowVoiceFormatMatchingOnNextSet(&self, allow: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAllowVoiceFormatMatchingOnNextSet)(::windows::core::Vtable::as_raw(self), allow).ok()
+    pub unsafe fn SetAllowVoiceFormatMatchingOnNextSet<P0>(&self, allow: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAllowVoiceFormatMatchingOnNextSet)(::windows::core::Vtable::as_raw(self), allow.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8215,8 +8236,11 @@ impl ISpeechRecoResult2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTextFeedback(&self, feedback: &::windows::core::BSTR, wassuccessful: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTextFeedback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(feedback), wassuccessful).ok()
+    pub unsafe fn SetTextFeedback<P0>(&self, feedback: &::windows::core::BSTR, wassuccessful: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetTextFeedback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(feedback), wassuccessful.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8333,8 +8357,11 @@ impl ISpeechRecoResultDispatch {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTextFeedback(&self, feedback: &::windows::core::BSTR, wassuccessful: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTextFeedback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(feedback), wassuccessful).ok()
+    pub unsafe fn SetTextFeedback<P0>(&self, feedback: &::windows::core::BSTR, wassuccessful: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetTextFeedback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(feedback), wassuccessful.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8516,8 +8543,11 @@ impl ISpeechRecognizer {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllowAudioInputFormatChangesOnNextSet(&self, allow: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAllowAudioInputFormatChangesOnNextSet)(::windows::core::Vtable::as_raw(self), allow).ok()
+    pub unsafe fn SetAllowAudioInputFormatChangesOnNextSet<P0>(&self, allow: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAllowAudioInputFormatChangesOnNextSet)(::windows::core::Vtable::as_raw(self), allow.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8885,8 +8915,11 @@ pub struct ISpeechResourceLoader(::windows::core::IUnknown);
 impl ISpeechResourceLoader {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LoadResource(&self, bstrresourceuri: &::windows::core::BSTR, falwaysreload: super::super::Foundation::VARIANT_BOOL, pstream: *mut ::core::option::Option<::windows::core::IUnknown>, pbstrmimetype: ::core::option::Option<*mut ::windows::core::BSTR>, pfmodified: *mut super::super::Foundation::VARIANT_BOOL, pbstrredirecturl: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).LoadResource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrresourceuri), falwaysreload, ::core::mem::transmute(pstream), ::core::mem::transmute(pbstrmimetype.unwrap_or(::std::ptr::null_mut())), pfmodified, ::core::mem::transmute(pbstrredirecturl.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn LoadResource<P0>(&self, bstrresourceuri: &::windows::core::BSTR, falwaysreload: P0, pstream: *mut ::core::option::Option<::windows::core::IUnknown>, pbstrmimetype: ::core::option::Option<*mut ::windows::core::BSTR>, pfmodified: *mut super::super::Foundation::VARIANT_BOOL, pbstrredirecturl: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).LoadResource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrresourceuri), falwaysreload.into(), ::core::mem::transmute(pstream), ::core::mem::transmute(pbstrmimetype.unwrap_or(::std::ptr::null_mut())), pfmodified, ::core::mem::transmute(pbstrredirecturl.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetLocalCopy(&self, bstrresourceuri: &::windows::core::BSTR, pbstrlocalpath: *mut ::windows::core::BSTR, pbstrmimetype: ::core::option::Option<*mut ::windows::core::BSTR>, pbstrredirecturl: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetLocalCopy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrresourceuri), ::core::mem::transmute(pbstrlocalpath), ::core::mem::transmute(pbstrmimetype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbstrredirecturl.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9086,8 +9119,11 @@ impl ISpeechVoice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllowAudioOutputFormatChangesOnNextSet(&self, allow: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAllowAudioOutputFormatChangesOnNextSet)(::windows::core::Vtable::as_raw(self), allow).ok()
+    pub unsafe fn SetAllowAudioOutputFormatChangesOnNextSet<P0>(&self, allow: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAllowAudioOutputFormatChangesOnNextSet)(::windows::core::Vtable::as_raw(self), allow.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

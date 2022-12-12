@@ -47,7 +47,7 @@
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"] fn SetThreadDpiAwarenessContext ( dpicontext : DPI_AWARENESS_CONTEXT ) -> DPI_AWARENESS_CONTEXT );
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"] fn SetThreadDpiHostingBehavior ( value : DPI_HOSTING_BEHAVIOR ) -> DPI_HOSTING_BEHAVIOR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"] fn SystemParametersInfoForDpi ( uiaction : u32 , uiparam : u32 , pvparam : *mut ::core::ffi::c_void , fwinini : u32 , dpi : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"] fn SystemParametersInfoForDpi ( uiaction : u32 , uiparam : u32 , pvparam : *const ::core::ffi::c_void , fwinini : u32 , dpi : u32 ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = -3i32 as _;
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]

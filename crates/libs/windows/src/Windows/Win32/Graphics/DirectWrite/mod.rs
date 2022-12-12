@@ -2611,8 +2611,8 @@ impl IDWriteFont {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: ::core::option::Option<*mut ::core::option::Option<IDWriteLocalizedStrings>>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings.unwrap_or(::std::ptr::null_mut())), exists).ok()
+    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: *mut ::core::option::Option<IDWriteLocalizedStrings>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings), exists).ok()
     }
     pub unsafe fn GetSimulations(&self) -> DWRITE_FONT_SIMULATIONS {
         (::windows::core::Vtable::vtable(self).GetSimulations)(::windows::core::Vtable::as_raw(self))
@@ -2709,8 +2709,8 @@ impl IDWriteFont1 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: ::core::option::Option<*mut ::core::option::Option<IDWriteLocalizedStrings>>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings.unwrap_or(::std::ptr::null_mut())), exists).ok()
+    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: *mut ::core::option::Option<IDWriteLocalizedStrings>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings), exists).ok()
     }
     pub unsafe fn GetSimulations(&self) -> DWRITE_FONT_SIMULATIONS {
         (::windows::core::Vtable::vtable(self).base__.GetSimulations)(::windows::core::Vtable::as_raw(self))
@@ -2813,8 +2813,8 @@ impl IDWriteFont2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: ::core::option::Option<*mut ::core::option::Option<IDWriteLocalizedStrings>>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings.unwrap_or(::std::ptr::null_mut())), exists).ok()
+    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: *mut ::core::option::Option<IDWriteLocalizedStrings>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings), exists).ok()
     }
     pub unsafe fn GetSimulations(&self) -> DWRITE_FONT_SIMULATIONS {
         (::windows::core::Vtable::vtable(self).base__.base__.GetSimulations)(::windows::core::Vtable::as_raw(self))
@@ -2916,8 +2916,8 @@ impl IDWriteFont3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: ::core::option::Option<*mut ::core::option::Option<IDWriteLocalizedStrings>>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings.unwrap_or(::std::ptr::null_mut())), exists).ok()
+    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: *mut ::core::option::Option<IDWriteLocalizedStrings>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings), exists).ok()
     }
     pub unsafe fn GetSimulations(&self) -> DWRITE_FONT_SIMULATIONS {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetSimulations)(::windows::core::Vtable::as_raw(self))
@@ -4227,8 +4227,8 @@ impl IDWriteFontFace3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: ::core::option::Option<*mut ::core::option::Option<IDWriteLocalizedStrings>>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings.unwrap_or(::std::ptr::null_mut())), exists).ok()
+    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: *mut ::core::option::Option<IDWriteLocalizedStrings>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings), exists).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4527,8 +4527,8 @@ impl IDWriteFontFace4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: ::core::option::Option<*mut ::core::option::Option<IDWriteLocalizedStrings>>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings.unwrap_or(::std::ptr::null_mut())), exists).ok()
+    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: *mut ::core::option::Option<IDWriteLocalizedStrings>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings), exists).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4581,8 +4581,8 @@ impl IDWriteFontFace4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn GetGlyphImageData(&self, glyphid: u16, pixelsperem: u32, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS, glyphdata: *mut DWRITE_GLYPH_IMAGE_DATA, glyphdatacontext: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetGlyphImageData)(::windows::core::Vtable::as_raw(self), glyphid, pixelsperem, glyphimageformat, glyphdata, ::core::mem::transmute(glyphdatacontext.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetGlyphImageData(&self, glyphid: u16, pixelsperem: u32, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS, glyphdata: *mut DWRITE_GLYPH_IMAGE_DATA, glyphdatacontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetGlyphImageData)(::windows::core::Vtable::as_raw(self), glyphid, pixelsperem, glyphimageformat, glyphdata, glyphdatacontext).ok()
     }
     pub unsafe fn ReleaseGlyphImageData(&self, glyphdatacontext: *mut ::core::ffi::c_void) {
         (::windows::core::Vtable::vtable(self).ReleaseGlyphImageData)(::windows::core::Vtable::as_raw(self), glyphdatacontext)
@@ -4814,8 +4814,8 @@ impl IDWriteFontFace5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: ::core::option::Option<*mut ::core::option::Option<IDWriteLocalizedStrings>>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings.unwrap_or(::std::ptr::null_mut())), exists).ok()
+    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: *mut ::core::option::Option<IDWriteLocalizedStrings>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings), exists).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4868,8 +4868,8 @@ impl IDWriteFontFace5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn GetGlyphImageData(&self, glyphid: u16, pixelsperem: u32, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS, glyphdata: *mut DWRITE_GLYPH_IMAGE_DATA, glyphdatacontext: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetGlyphImageData)(::windows::core::Vtable::as_raw(self), glyphid, pixelsperem, glyphimageformat, glyphdata, ::core::mem::transmute(glyphdatacontext.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetGlyphImageData(&self, glyphid: u16, pixelsperem: u32, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS, glyphdata: *mut DWRITE_GLYPH_IMAGE_DATA, glyphdatacontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetGlyphImageData)(::windows::core::Vtable::as_raw(self), glyphid, pixelsperem, glyphimageformat, glyphdata, glyphdatacontext).ok()
     }
     pub unsafe fn ReleaseGlyphImageData(&self, glyphdatacontext: *mut ::core::ffi::c_void) {
         (::windows::core::Vtable::vtable(self).base__.ReleaseGlyphImageData)(::windows::core::Vtable::as_raw(self), glyphdatacontext)
@@ -5128,8 +5128,8 @@ impl IDWriteFontFace6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: ::core::option::Option<*mut ::core::option::Option<IDWriteLocalizedStrings>>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings.unwrap_or(::std::ptr::null_mut())), exists).ok()
+    pub unsafe fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: *mut ::core::option::Option<IDWriteLocalizedStrings>, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetInformationalStrings)(::windows::core::Vtable::as_raw(self), informationalstringid, ::core::mem::transmute(informationalstrings), exists).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5182,8 +5182,8 @@ impl IDWriteFontFace6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn GetGlyphImageData(&self, glyphid: u16, pixelsperem: u32, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS, glyphdata: *mut DWRITE_GLYPH_IMAGE_DATA, glyphdatacontext: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetGlyphImageData)(::windows::core::Vtable::as_raw(self), glyphid, pixelsperem, glyphimageformat, glyphdata, ::core::mem::transmute(glyphdatacontext.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetGlyphImageData(&self, glyphid: u16, pixelsperem: u32, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS, glyphdata: *mut DWRITE_GLYPH_IMAGE_DATA, glyphdatacontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.GetGlyphImageData)(::windows::core::Vtable::as_raw(self), glyphid, pixelsperem, glyphimageformat, glyphdata, glyphdatacontext).ok()
     }
     pub unsafe fn ReleaseGlyphImageData(&self, glyphdatacontext: *mut ::core::ffi::c_void) {
         (::windows::core::Vtable::vtable(self).base__.base__.ReleaseGlyphImageData)(::windows::core::Vtable::as_raw(self), glyphdatacontext)
@@ -5465,13 +5465,13 @@ pub struct IDWriteFontFaceReference1_Vtbl {
 #[repr(transparent)]
 pub struct IDWriteFontFallback(::windows::core::IUnknown);
 impl IDWriteFontFallback {
-    pub unsafe fn MapCharacters<P0, P1, P2>(&self, analysissource: P0, textposition: u32, textlength: u32, basefontcollection: P1, basefamilyname: P2, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: ::core::option::Option<*mut ::core::option::Option<IDWriteFont>>, scale: *mut f32) -> ::windows::core::Result<()>
+    pub unsafe fn MapCharacters<P0, P1, P2>(&self, analysissource: P0, textposition: u32, textlength: u32, basefontcollection: P1, basefamilyname: P2, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: *mut ::core::option::Option<IDWriteFont>, scale: *mut f32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDWriteTextAnalysisSource>>,
         P1: ::std::convert::Into<::windows::core::InParam<IDWriteFontCollection>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).MapCharacters)(::windows::core::Vtable::as_raw(self), analysissource.into().abi(), textposition, textlength, basefontcollection.into().abi(), basefamilyname.into().abi(), baseweight, basestyle, basestretch, mappedlength, ::core::mem::transmute(mappedfont.unwrap_or(::std::ptr::null_mut())), scale).ok()
+        (::windows::core::Vtable::vtable(self).MapCharacters)(::windows::core::Vtable::as_raw(self), analysissource.into().abi(), textposition, textlength, basefontcollection.into().abi(), basefamilyname.into().abi(), baseweight, basestyle, basestretch, mappedlength, ::core::mem::transmute(mappedfont), scale).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDWriteFontFallback, ::windows::core::IUnknown);
@@ -5509,13 +5509,13 @@ pub struct IDWriteFontFallback_Vtbl {
 #[repr(transparent)]
 pub struct IDWriteFontFallback1(::windows::core::IUnknown);
 impl IDWriteFontFallback1 {
-    pub unsafe fn MapCharacters<P0, P1, P2>(&self, analysissource: P0, textposition: u32, textlength: u32, basefontcollection: P1, basefamilyname: P2, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: ::core::option::Option<*mut ::core::option::Option<IDWriteFont>>, scale: *mut f32) -> ::windows::core::Result<()>
+    pub unsafe fn MapCharacters<P0, P1, P2>(&self, analysissource: P0, textposition: u32, textlength: u32, basefontcollection: P1, basefamilyname: P2, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: *mut ::core::option::Option<IDWriteFont>, scale: *mut f32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDWriteTextAnalysisSource>>,
         P1: ::std::convert::Into<::windows::core::InParam<IDWriteFontCollection>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.MapCharacters)(::windows::core::Vtable::as_raw(self), analysissource.into().abi(), textposition, textlength, basefontcollection.into().abi(), basefamilyname.into().abi(), baseweight, basestyle, basestretch, mappedlength, ::core::mem::transmute(mappedfont.unwrap_or(::std::ptr::null_mut())), scale).ok()
+        (::windows::core::Vtable::vtable(self).base__.MapCharacters)(::windows::core::Vtable::as_raw(self), analysissource.into().abi(), textposition, textlength, basefontcollection.into().abi(), basefamilyname.into().abi(), baseweight, basestyle, basestretch, mappedlength, ::core::mem::transmute(mappedfont), scale).ok()
     }
     pub unsafe fn MapCharacters2<P0, P1, P2>(&self, analysissource: P0, textposition: u32, textlength: u32, basefontcollection: P1, basefamilyname: P2, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE], mappedlength: *mut u32, scale: *mut f32, mappedfontface: *mut ::core::option::Option<IDWriteFontFace5>) -> ::windows::core::Result<()>
     where
@@ -6324,8 +6324,8 @@ impl IDWriteFontSet {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPropertyValues3(&self, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut super::super::Foundation::BOOL, values: ::core::option::Option<*mut ::core::option::Option<IDWriteLocalizedStrings>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPropertyValues3)(::windows::core::Vtable::as_raw(self), listindex, propertyid, exists, ::core::mem::transmute(values.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPropertyValues3(&self, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut super::super::Foundation::BOOL, values: *mut ::core::option::Option<IDWriteLocalizedStrings>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetPropertyValues3)(::windows::core::Vtable::as_raw(self), listindex, propertyid, exists, ::core::mem::transmute(values)).ok()
     }
     pub unsafe fn GetPropertyOccurrenceCount(&self, property: *const DWRITE_FONT_PROPERTY) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6432,8 +6432,8 @@ impl IDWriteFontSet1 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPropertyValues3(&self, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut super::super::Foundation::BOOL, values: ::core::option::Option<*mut ::core::option::Option<IDWriteLocalizedStrings>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPropertyValues3)(::windows::core::Vtable::as_raw(self), listindex, propertyid, exists, ::core::mem::transmute(values.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPropertyValues3(&self, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut super::super::Foundation::BOOL, values: *mut ::core::option::Option<IDWriteLocalizedStrings>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetPropertyValues3)(::windows::core::Vtable::as_raw(self), listindex, propertyid, exists, ::core::mem::transmute(values)).ok()
     }
     pub unsafe fn GetPropertyOccurrenceCount(&self, property: *const DWRITE_FONT_PROPERTY) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6613,8 +6613,8 @@ impl IDWriteFontSet2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPropertyValues3(&self, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut super::super::Foundation::BOOL, values: ::core::option::Option<*mut ::core::option::Option<IDWriteLocalizedStrings>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPropertyValues3)(::windows::core::Vtable::as_raw(self), listindex, propertyid, exists, ::core::mem::transmute(values.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPropertyValues3(&self, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut super::super::Foundation::BOOL, values: *mut ::core::option::Option<IDWriteLocalizedStrings>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.GetPropertyValues3)(::windows::core::Vtable::as_raw(self), listindex, propertyid, exists, ::core::mem::transmute(values)).ok()
     }
     pub unsafe fn GetPropertyOccurrenceCount(&self, property: *const DWRITE_FONT_PROPERTY) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6778,8 +6778,8 @@ impl IDWriteFontSet3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPropertyValues3(&self, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut super::super::Foundation::BOOL, values: ::core::option::Option<*mut ::core::option::Option<IDWriteLocalizedStrings>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPropertyValues3)(::windows::core::Vtable::as_raw(self), listindex, propertyid, exists, ::core::mem::transmute(values.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPropertyValues3(&self, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut super::super::Foundation::BOOL, values: *mut ::core::option::Option<IDWriteLocalizedStrings>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPropertyValues3)(::windows::core::Vtable::as_raw(self), listindex, propertyid, exists, ::core::mem::transmute(values)).ok()
     }
     pub unsafe fn GetPropertyOccurrenceCount(&self, property: *const DWRITE_FONT_PROPERTY) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7824,8 +7824,9 @@ impl IDWriteRemoteFontFileStream {
     pub unsafe fn GetLocality(&self) -> DWRITE_LOCALITY {
         (::windows::core::Vtable::vtable(self).GetLocality)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn BeginDownload(&self, downloadoperationid: *const ::windows::core::GUID, filefragments: &[DWRITE_FILE_FRAGMENT], asyncresult: ::core::option::Option<*mut ::core::option::Option<IDWriteAsyncResult>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BeginDownload)(::windows::core::Vtable::as_raw(self), downloadoperationid, ::core::mem::transmute(filefragments.as_ptr()), filefragments.len() as _, ::core::mem::transmute(asyncresult.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn BeginDownload(&self, downloadoperationid: *const ::windows::core::GUID, filefragments: &[DWRITE_FILE_FRAGMENT]) -> ::windows::core::Result<IDWriteAsyncResult> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).BeginDownload)(::windows::core::Vtable::as_raw(self), downloadoperationid, ::core::mem::transmute(filefragments.as_ptr()), filefragments.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDWriteRemoteFontFileStream, ::windows::core::IUnknown, IDWriteFontFileStream);

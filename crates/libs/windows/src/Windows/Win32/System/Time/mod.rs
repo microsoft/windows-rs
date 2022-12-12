@@ -104,6 +104,8 @@ pub unsafe fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: ::core::o
     TzSpecificLocalTimeToSystemTimeEx(::core::mem::transmute(lptimezoneinformation.unwrap_or(::std::ptr::null())), lplocaltime, lpuniversaltime)
 }
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
+pub const TIME_ZONE_ID_INVALID: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const TSF_Authenticated: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const TSF_Hardware: u32 = 1u32;

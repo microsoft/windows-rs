@@ -1125,9 +1125,12 @@ impl IWdsTransportConfigurationManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_WdsTransportServicesRunning(&self, brealtimestatus: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn get_WdsTransportServicesRunning<P0>(&self, brealtimestatus: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_WdsTransportServicesRunning)(::windows::core::Vtable::as_raw(self), brealtimestatus, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_WdsTransportServicesRunning)(::windows::core::Vtable::as_raw(self), brealtimestatus.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnableWdsTransportServices(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnableWdsTransportServices)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1222,9 +1225,12 @@ impl IWdsTransportConfigurationManager2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_WdsTransportServicesRunning(&self, brealtimestatus: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn get_WdsTransportServicesRunning<P0>(&self, brealtimestatus: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.get_WdsTransportServicesRunning)(::windows::core::Vtable::as_raw(self), brealtimestatus, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.get_WdsTransportServicesRunning)(::windows::core::Vtable::as_raw(self), brealtimestatus.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnableWdsTransportServices(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.EnableWdsTransportServices)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1460,8 +1466,11 @@ impl IWdsTransportDiagnosticsPolicy {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled(&self, benabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), benabled).ok()
+    pub unsafe fn SetEnabled<P0>(&self, benabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), benabled.into()).ok()
     }
     pub unsafe fn Components(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1620,8 +1629,11 @@ impl IWdsTransportMulticastSessionPolicy {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSlowClientFallback(&self, bclientfallback: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSlowClientFallback)(::windows::core::Vtable::as_raw(self), bclientfallback).ok()
+    pub unsafe fn SetSlowClientFallback<P0>(&self, bclientfallback: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSlowClientFallback)(::windows::core::Vtable::as_raw(self), bclientfallback.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1750,8 +1762,11 @@ impl IWdsTransportNamespace {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Deregister(&self, bterminatesessions: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Deregister)(::windows::core::Vtable::as_raw(self), bterminatesessions).ok()
+    pub unsafe fn Deregister<P0>(&self, bterminatesessions: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).Deregister)(::windows::core::Vtable::as_raw(self), bterminatesessions.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1920,8 +1935,11 @@ impl IWdsTransportNamespaceAutoCast {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Deregister(&self, bterminatesessions: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Deregister)(::windows::core::Vtable::as_raw(self), bterminatesessions).ok()
+    pub unsafe fn Deregister<P0>(&self, bterminatesessions: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.Deregister)(::windows::core::Vtable::as_raw(self), bterminatesessions.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1995,9 +2013,12 @@ impl IWdsTransportNamespaceManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RetrieveNamespaces(&self, bszcontentprovider: &::windows::core::BSTR, bsznamespacename: &::windows::core::BSTR, bincludetombstones: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<IWdsTransportCollection> {
+    pub unsafe fn RetrieveNamespaces<P0>(&self, bszcontentprovider: &::windows::core::BSTR, bsznamespacename: &::windows::core::BSTR, bincludetombstones: P0) -> ::windows::core::Result<IWdsTransportCollection>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RetrieveNamespaces)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bszcontentprovider), ::core::mem::transmute_copy(bsznamespacename), bincludetombstones, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RetrieveNamespaces)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bszcontentprovider), ::core::mem::transmute_copy(bsznamespacename), bincludetombstones.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2124,8 +2145,11 @@ impl IWdsTransportNamespaceScheduledCast {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Deregister(&self, bterminatesessions: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Deregister)(::windows::core::Vtable::as_raw(self), bterminatesessions).ok()
+    pub unsafe fn Deregister<P0>(&self, bterminatesessions: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.Deregister)(::windows::core::Vtable::as_raw(self), bterminatesessions.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2259,8 +2283,11 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Deregister(&self, bterminatesessions: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.Deregister)(::windows::core::Vtable::as_raw(self), bterminatesessions).ok()
+    pub unsafe fn Deregister<P0>(&self, bterminatesessions: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.Deregister)(::windows::core::Vtable::as_raw(self), bterminatesessions.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2411,8 +2438,11 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Deregister(&self, bterminatesessions: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.Deregister)(::windows::core::Vtable::as_raw(self), bterminatesessions).ok()
+    pub unsafe fn Deregister<P0>(&self, bterminatesessions: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.Deregister)(::windows::core::Vtable::as_raw(self), bterminatesessions.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2826,8 +2856,11 @@ impl IWdsTransportServicePolicy2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableTftpVariableWindowExtension(&self, benabletftpvariablewindowextension: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnableTftpVariableWindowExtension)(::windows::core::Vtable::as_raw(self), benabletftpvariablewindowextension).ok()
+    pub unsafe fn SetEnableTftpVariableWindowExtension<P0>(&self, benabletftpvariablewindowextension: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnableTftpVariableWindowExtension)(::windows::core::Vtable::as_raw(self), benabletftpvariablewindowextension.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

@@ -112,26 +112,26 @@ impl IXmlReader {
     pub unsafe fn MoveToElement(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).MoveToElement)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn GetQualifiedName(&self, ppwszqualifiedname: ::core::option::Option<*mut ::windows::core::PWSTR>, pcwchqualifiedname: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetQualifiedName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppwszqualifiedname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcwchqualifiedname.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetQualifiedName(&self, ppwszqualifiedname: *mut ::windows::core::PWSTR, pcwchqualifiedname: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetQualifiedName)(::windows::core::Vtable::as_raw(self), ppwszqualifiedname, ::core::mem::transmute(pcwchqualifiedname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetNamespaceUri(&self, ppwsznamespaceuri: ::core::option::Option<*mut ::windows::core::PWSTR>, pcwchnamespaceuri: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNamespaceUri)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppwsznamespaceuri.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcwchnamespaceuri.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetNamespaceUri(&self, ppwsznamespaceuri: *mut ::windows::core::PWSTR, pcwchnamespaceuri: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetNamespaceUri)(::windows::core::Vtable::as_raw(self), ppwsznamespaceuri, ::core::mem::transmute(pcwchnamespaceuri.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetLocalName(&self, ppwszlocalname: ::core::option::Option<*mut ::windows::core::PWSTR>, pcwchlocalname: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLocalName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppwszlocalname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcwchlocalname.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetLocalName(&self, ppwszlocalname: *mut ::windows::core::PWSTR, pcwchlocalname: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetLocalName)(::windows::core::Vtable::as_raw(self), ppwszlocalname, ::core::mem::transmute(pcwchlocalname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetPrefix(&self, ppwszprefix: ::core::option::Option<*mut ::windows::core::PWSTR>, pcwchprefix: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPrefix)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppwszprefix.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcwchprefix.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPrefix(&self, ppwszprefix: *mut ::windows::core::PWSTR, pcwchprefix: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetPrefix)(::windows::core::Vtable::as_raw(self), ppwszprefix, ::core::mem::transmute(pcwchprefix.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetValue(&self, ppwszvalue: ::core::option::Option<*mut ::windows::core::PWSTR>, pcwchvalue: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppwszvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcwchvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetValue(&self, ppwszvalue: *mut ::windows::core::PWSTR, pcwchvalue: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), ppwszvalue, ::core::mem::transmute(pcwchvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadValueChunk(&self, pwchbuffer: &mut [u16], pcwchread: *mut u32) -> ::windows::core::HRESULT {
         (::windows::core::Vtable::vtable(self).ReadValueChunk)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwchbuffer.as_ptr()), pwchbuffer.len() as _, pcwchread)
     }
-    pub unsafe fn GetBaseUri(&self, ppwszbaseuri: ::core::option::Option<*mut ::windows::core::PWSTR>, pcwchbaseuri: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBaseUri)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppwszbaseuri.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcwchbaseuri.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetBaseUri(&self, ppwszbaseuri: *mut ::windows::core::PWSTR, pcwchbaseuri: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetBaseUri)(::windows::core::Vtable::as_raw(self), ppwszbaseuri, ::core::mem::transmute(pcwchbaseuri.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

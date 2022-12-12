@@ -2696,6 +2696,8 @@ pub const E_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-214
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const FACILTIY_MUI_ERROR_CODE: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FALSE: BOOL = BOOL(0i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const FA_E_HOMEGROUP_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927198i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const FA_E_MAX_PERSISTED_ITEMS_REACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927200i32);
@@ -12116,6 +12118,8 @@ pub const TPM_E_WRONG_ENTITYTYPE: ::windows::core::HRESULT = ::windows::core::HR
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const TPM_E_ZERO_EXHAUST_ENABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144795392i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const TRUE: BOOL = BOOL(1i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const TRUST_E_ACTION_UNKNOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146762750i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const TRUST_E_BAD_DIGEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146869232i32);
@@ -12481,6 +12485,10 @@ pub const UTC_E_UNABLE_TO_RESOLVE_SESSION: ::windows::core::HRESULT = ::windows:
 pub const UTC_E_UNAPPROVED_SCRIPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2017128391i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const UTC_E_WINRT_INIT_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2017128425i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const VARIANT_FALSE: VARIANT_BOOL = VARIANT_BOOL(0i16);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const VARIANT_TRUE: VARIANT_BOOL = VARIANT_BOOL(-1i16);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const VIEW_E_DRAW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221184i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -13420,101 +13428,6 @@ unsafe impl ::windows::core::Abi for NTSTATUS_FACILITY_CODE {
 impl ::core::fmt::Debug for NTSTATUS_FACILITY_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NTSTATUS_FACILITY_CODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VARIANT_BOOL(pub i16);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const VARIANT_TRUE: VARIANT_BOOL = VARIANT_BOOL(-1i16);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const VARIANT_FALSE: VARIANT_BOOL = VARIANT_BOOL(0i16);
-impl ::core::marker::Copy for VARIANT_BOOL {}
-impl ::core::clone::Clone for VARIANT_BOOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VARIANT_BOOL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VARIANT_BOOL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VARIANT_BOOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VARIANT_BOOL").field(&self.0).finish()
-    }
-}
-impl VARIANT_BOOL {
-    #[inline]
-    pub fn as_bool(self) -> bool {
-        self.0 != 0
-    }
-    #[inline]
-    pub fn ok(self) -> ::windows::core::Result<()> {
-        if self.as_bool() {
-            Ok(())
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-    #[inline]
-    #[track_caller]
-    pub fn unwrap(self) {
-        self.ok().unwrap();
-    }
-    #[inline]
-    #[track_caller]
-    pub fn expect(self, msg: &str) {
-        self.ok().expect(msg);
-    }
-}
-impl ::core::convert::From<VARIANT_BOOL> for bool {
-    fn from(value: VARIANT_BOOL) -> Self {
-        value.as_bool()
-    }
-}
-impl ::core::convert::From<&VARIANT_BOOL> for bool {
-    fn from(value: &VARIANT_BOOL) -> Self {
-        value.as_bool()
-    }
-}
-impl ::core::convert::From<bool> for VARIANT_BOOL {
-    fn from(value: bool) -> Self {
-        if value {
-            VARIANT_TRUE
-        } else {
-            VARIANT_FALSE
-        }
-    }
-}
-impl ::core::convert::From<&bool> for VARIANT_BOOL {
-    fn from(value: &bool) -> Self {
-        (*value).into()
-    }
-}
-impl ::core::cmp::PartialEq<bool> for VARIANT_BOOL {
-    fn eq(&self, other: &bool) -> bool {
-        self.as_bool() == *other
-    }
-}
-impl ::core::cmp::PartialEq<VARIANT_BOOL> for bool {
-    fn eq(&self, other: &VARIANT_BOOL) -> bool {
-        *self == other.as_bool()
-    }
-}
-impl ::core::ops::Not for VARIANT_BOOL {
-    type Output = Self;
-    fn not(self) -> Self::Output {
-        if self.as_bool() {
-            VARIANT_FALSE
-        } else {
-            VARIANT_TRUE
-        }
     }
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -21171,6 +21084,101 @@ impl ::core::cmp::Eq for UNICODE_STRING {}
 impl ::core::default::Default for UNICODE_STRING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VARIANT_BOOL(pub i16);
+impl ::core::default::Default for VARIANT_BOOL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for VARIANT_BOOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for VARIANT_BOOL {}
+impl ::core::fmt::Debug for VARIANT_BOOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VARIANT_BOOL").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<VARIANT_BOOL>> for VARIANT_BOOL {
+    fn from(optional: ::core::option::Option<VARIANT_BOOL>) -> VARIANT_BOOL {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for VARIANT_BOOL {
+    type Abi = Self;
+}
+impl VARIANT_BOOL {
+    #[inline]
+    pub fn as_bool(self) -> bool {
+        self.0 != 0
+    }
+    #[inline]
+    pub fn ok(self) -> ::windows::core::Result<()> {
+        if self.as_bool() {
+            Ok(())
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+    #[inline]
+    #[track_caller]
+    pub fn unwrap(self) {
+        self.ok().unwrap();
+    }
+    #[inline]
+    #[track_caller]
+    pub fn expect(self, msg: &str) {
+        self.ok().expect(msg);
+    }
+}
+impl ::core::convert::From<VARIANT_BOOL> for bool {
+    fn from(value: VARIANT_BOOL) -> Self {
+        value.as_bool()
+    }
+}
+impl ::core::convert::From<&VARIANT_BOOL> for bool {
+    fn from(value: &VARIANT_BOOL) -> Self {
+        value.as_bool()
+    }
+}
+impl ::core::convert::From<bool> for VARIANT_BOOL {
+    fn from(value: bool) -> Self {
+        if value {
+            VARIANT_TRUE
+        } else {
+            VARIANT_FALSE
+        }
+    }
+}
+impl ::core::convert::From<&bool> for VARIANT_BOOL {
+    fn from(value: &bool) -> Self {
+        (*value).into()
+    }
+}
+impl ::core::cmp::PartialEq<bool> for VARIANT_BOOL {
+    fn eq(&self, other: &bool) -> bool {
+        self.as_bool() == *other
+    }
+}
+impl ::core::cmp::PartialEq<VARIANT_BOOL> for bool {
+    fn eq(&self, other: &VARIANT_BOOL) -> bool {
+        *self == other.as_bool()
+    }
+}
+impl ::core::ops::Not for VARIANT_BOOL {
+    type Output = Self;
+    fn not(self) -> Self::Output {
+        if self.as_bool() {
+            VARIANT_FALSE
+        } else {
+            VARIANT_TRUE
+        }
     }
 }
 #[repr(transparent)]

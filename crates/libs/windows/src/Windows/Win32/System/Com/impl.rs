@@ -4250,7 +4250,7 @@ pub trait ITypeInfo_Impl: Sized {
     fn GetVarDesc(&self, index: u32) -> ::windows::core::Result<*mut VARDESC>;
     fn GetNames(&self, memid: i32, rgbstrnames: *mut ::windows::core::BSTR, cmaxnames: u32, pcnames: *mut u32) -> ::windows::core::Result<()>;
     fn GetRefTypeOfImplType(&self, index: u32) -> ::windows::core::Result<u32>;
-    fn GetImplTypeFlags(&self, index: u32) -> ::windows::core::Result<i32>;
+    fn GetImplTypeFlags(&self, index: u32) -> ::windows::core::Result<IMPLTYPEFLAGS>;
     fn GetIDsOfNames(&self, rgsznames: *const ::windows::core::PCWSTR, cnames: u32, pmemid: *mut i32) -> ::windows::core::Result<()>;
     fn Invoke(&self, pvinstance: *const ::core::ffi::c_void, memid: i32, wflags: DISPATCH_FLAGS, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()>;
     fn GetDocumentation(&self, memid: i32, pbstrname: *mut ::windows::core::BSTR, pbstrdocstring: *mut ::windows::core::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -4329,7 +4329,7 @@ impl ITypeInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetImplTypeFlags<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pimpltypeflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetImplTypeFlags<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pimpltypeflags: *mut IMPLTYPEFLAGS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetImplTypeFlags(::core::mem::transmute_copy(&index)) {
@@ -5291,7 +5291,7 @@ pub trait IUriBuilder_Impl: Sized {
     fn CreateUriSimple(&self, dwallowencodingpropertymask: u32, dwreserved: usize) -> ::windows::core::Result<IUri>;
     fn CreateUri(&self, dwcreateflags: u32, dwallowencodingpropertymask: u32, dwreserved: usize) -> ::windows::core::Result<IUri>;
     fn CreateUriWithFlags(&self, dwcreateflags: u32, dwuribuilderflags: u32, dwallowencodingpropertymask: u32, dwreserved: usize) -> ::windows::core::Result<IUri>;
-    fn GetIUri(&self, ppiuri: *mut ::core::option::Option<IUri>) -> ::windows::core::Result<()>;
+    fn GetIUri(&self) -> ::windows::core::Result<IUri>;
     fn SetIUri(&self, piuri: &::core::option::Option<IUri>) -> ::windows::core::Result<()>;
     fn GetFragment(&self, pcchfragment: *mut u32, ppwzfragment: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn GetHost(&self, pcchhost: *mut u32, ppwzhost: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
@@ -5353,7 +5353,13 @@ impl IUriBuilder_Vtbl {
         unsafe extern "system" fn GetIUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUriBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppiuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetIUri(::core::mem::transmute_copy(&ppiuri)).into()
+            match this.GetIUri() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppiuri, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetIUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUriBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piuri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

@@ -739,22 +739,22 @@ pub unsafe fn GetTrusteeTypeW(ptrustee: ::core::option::Option<*const TRUSTEE_W>
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LookupSecurityDescriptorPartsA<P0>(ppowner: ::core::option::Option<*mut *mut TRUSTEE_A>, ppgroup: ::core::option::Option<*mut *mut TRUSTEE_A>, pccountofaccessentries: ::core::option::Option<*mut u32>, pplistofaccessentries: ::core::option::Option<*mut *mut EXPLICIT_ACCESS_A>, pccountofauditentries: ::core::option::Option<*mut u32>, pplistofauditentries: ::core::option::Option<*mut *mut EXPLICIT_ACCESS_A>, psd: P0) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn LookupSecurityDescriptorPartsA<P0>(ppowner: ::core::option::Option<*mut *mut TRUSTEE_A>, ppgroup: ::core::option::Option<*mut *mut TRUSTEE_A>, pccountofaccessentries: ::core::option::Option<*mut u32>, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_A, pccountofauditentries: ::core::option::Option<*mut u32>, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_A, psd: P0) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::PSECURITY_DESCRIPTOR>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn LookupSecurityDescriptorPartsA ( ppowner : *mut *mut TRUSTEE_A , ppgroup : *mut *mut TRUSTEE_A , pccountofaccessentries : *mut u32 , pplistofaccessentries : *mut *mut EXPLICIT_ACCESS_A , pccountofauditentries : *mut u32 , pplistofauditentries : *mut *mut EXPLICIT_ACCESS_A , psd : super:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: WIN32_ERROR );
-    LookupSecurityDescriptorPartsA(::core::mem::transmute(ppowner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppgroup.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pccountofaccessentries.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pplistofaccessentries.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pccountofauditentries.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pplistofauditentries.unwrap_or(::std::ptr::null_mut())), psd.into())
+    LookupSecurityDescriptorPartsA(::core::mem::transmute(ppowner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppgroup.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pccountofaccessentries.unwrap_or(::std::ptr::null_mut())), pplistofaccessentries, ::core::mem::transmute(pccountofauditentries.unwrap_or(::std::ptr::null_mut())), pplistofauditentries, psd.into())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LookupSecurityDescriptorPartsW<P0>(ppowner: ::core::option::Option<*mut *mut TRUSTEE_W>, ppgroup: ::core::option::Option<*mut *mut TRUSTEE_W>, pccountofaccessentries: ::core::option::Option<*mut u32>, pplistofaccessentries: ::core::option::Option<*mut *mut EXPLICIT_ACCESS_W>, pccountofauditentries: ::core::option::Option<*mut u32>, pplistofauditentries: ::core::option::Option<*mut *mut EXPLICIT_ACCESS_W>, psd: P0) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn LookupSecurityDescriptorPartsW<P0>(ppowner: ::core::option::Option<*mut *mut TRUSTEE_W>, ppgroup: ::core::option::Option<*mut *mut TRUSTEE_W>, pccountofaccessentries: ::core::option::Option<*mut u32>, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_W, pccountofauditentries: ::core::option::Option<*mut u32>, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_W, psd: P0) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::PSECURITY_DESCRIPTOR>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn LookupSecurityDescriptorPartsW ( ppowner : *mut *mut TRUSTEE_W , ppgroup : *mut *mut TRUSTEE_W , pccountofaccessentries : *mut u32 , pplistofaccessentries : *mut *mut EXPLICIT_ACCESS_W , pccountofauditentries : *mut u32 , pplistofauditentries : *mut *mut EXPLICIT_ACCESS_W , psd : super:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: WIN32_ERROR );
-    LookupSecurityDescriptorPartsW(::core::mem::transmute(ppowner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppgroup.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pccountofaccessentries.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pplistofaccessentries.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pccountofauditentries.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pplistofauditentries.unwrap_or(::std::ptr::null_mut())), psd.into())
+    LookupSecurityDescriptorPartsW(::core::mem::transmute(ppowner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppgroup.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pccountofaccessentries.unwrap_or(::std::ptr::null_mut())), pplistofaccessentries, ::core::mem::transmute(pccountofauditentries.unwrap_or(::std::ptr::null_mut())), pplistofauditentries, psd.into())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2237,8 +2237,11 @@ impl IAzApplication3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBizRulesEnabled(&self, benabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBizRulesEnabled)(::windows::core::Vtable::as_raw(self), benabled).ok()
+    pub unsafe fn SetBizRulesEnabled<P0>(&self, benabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetBizRulesEnabled)(::windows::core::Vtable::as_raw(self), benabled.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2812,9 +2815,12 @@ impl IAzApplicationGroup2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RoleAssignments(&self, bstrscopename: &::windows::core::BSTR, brecursive: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<IAzRoleAssignments> {
+    pub unsafe fn RoleAssignments<P0>(&self, bstrscopename: &::windows::core::BSTR, brecursive: P0) -> ::windows::core::Result<IAzRoleAssignments>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RoleAssignments)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrscopename), brecursive, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RoleAssignments)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrscopename), brecursive.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5134,9 +5140,12 @@ impl IAzOperation2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RoleAssignments(&self, bstrscopename: &::windows::core::BSTR, brecursive: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<IAzRoleAssignments> {
+    pub unsafe fn RoleAssignments<P0>(&self, bstrscopename: &::windows::core::BSTR, brecursive: P0) -> ::windows::core::Result<IAzRoleAssignments>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RoleAssignments)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrscopename), brecursive, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RoleAssignments)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrscopename), brecursive.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5966,9 +5975,12 @@ impl IAzRoleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RoleAssignments(&self, bstrscopename: &::windows::core::BSTR, brecursive: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<IAzRoleAssignments> {
+    pub unsafe fn RoleAssignments<P0>(&self, bstrscopename: &::windows::core::BSTR, brecursive: P0) -> ::windows::core::Result<IAzRoleAssignments>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RoleAssignments)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrscopename), brecursive, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RoleAssignments)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrscopename), brecursive.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn AddRoleDefinition(&self, bstrroledefinition: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddRoleDefinition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrroledefinition)).ok()
@@ -7261,9 +7273,12 @@ impl IAzTask2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RoleAssignments(&self, bstrscopename: &::windows::core::BSTR, brecursive: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<IAzRoleAssignments> {
+    pub unsafe fn RoleAssignments<P0>(&self, bstrscopename: &::windows::core::BSTR, brecursive: P0) -> ::windows::core::Result<IAzRoleAssignments>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RoleAssignments)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrscopename), brecursive, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RoleAssignments)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrscopename), brecursive.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]

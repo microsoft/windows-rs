@@ -59,12 +59,12 @@ pub unsafe fn WcmGetProfileList(preserved: ::core::option::Option<*mut ::core::f
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
-pub unsafe fn WcmQueryProperty<P0>(pinterface: ::core::option::Option<*const ::windows::core::GUID>, strprofilename: P0, property: WCM_PROPERTY, preserved: ::core::option::Option<*mut ::core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: ::core::option::Option<*mut *mut u8>) -> u32
+pub unsafe fn WcmQueryProperty<P0>(pinterface: ::core::option::Option<*const ::windows::core::GUID>, strprofilename: P0, property: WCM_PROPERTY, preserved: ::core::option::Option<*mut ::core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wcmapi.dll""system" fn WcmQueryProperty ( pinterface : *const :: windows::core::GUID , strprofilename : :: windows::core::PCWSTR , property : WCM_PROPERTY , preserved : *mut ::core::ffi::c_void , pdwdatasize : *mut u32 , ppdata : *mut *mut u8 ) -> u32 );
-    WcmQueryProperty(::core::mem::transmute(pinterface.unwrap_or(::std::ptr::null())), strprofilename.into().abi(), property, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())), pdwdatasize, ::core::mem::transmute(ppdata.unwrap_or(::std::ptr::null_mut())))
+    WcmQueryProperty(::core::mem::transmute(pinterface.unwrap_or(::std::ptr::null())), strprofilename.into().abi(), property, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())), pdwdatasize, ppdata)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

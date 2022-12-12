@@ -29,6 +29,8 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"] fn TzSpecificLocalTimeToSystemTimeEx ( lptimezoneinformation : *const DYNAMIC_TIME_ZONE_INFORMATION , lplocaltime : *const super::super::Foundation:: SYSTEMTIME , lpuniversaltime : *mut super::super::Foundation:: SYSTEMTIME ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
+pub const TIME_ZONE_ID_INVALID: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const TSF_Authenticated: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const TSF_Hardware: u32 = 1u32;

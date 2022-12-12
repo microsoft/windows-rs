@@ -1736,6 +1736,24 @@ pub const VARIANT_NOVALUEPROP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VARIANT_USE_NLS: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VAR_CALENDAR_GREGORIAN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VAR_CALENDAR_HIJRI: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VAR_CALENDAR_THAI: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VAR_DATEVALUEONLY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VAR_FORMAT_NOSUBSTITUTE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VAR_FOURDIGITYEARS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VAR_LOCALBOOL: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VAR_TIMEVALUEONLY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VAR_VALIDDATE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VTDATEGRE_MAX: u32 = 2958465u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VTDATEGRE_MIN: i32 = -657434i32;
@@ -3365,7 +3383,7 @@ impl ::core::clone::Clone for OLEMENUGROUPWIDTHS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 pub struct OLEUIBUSYA {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: BUSY_DIALOG_FLAGS,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: ::windows_sys::core::PCSTR,
     pub lpfnHook: LPFNOLEUIHOOK,
@@ -3389,7 +3407,7 @@ impl ::core::clone::Clone for OLEUIBUSYA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 pub struct OLEUIBUSYW {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: BUSY_DIALOG_FLAGS,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: ::windows_sys::core::PCWSTR,
     pub lpfnHook: LPFNOLEUIHOOK,

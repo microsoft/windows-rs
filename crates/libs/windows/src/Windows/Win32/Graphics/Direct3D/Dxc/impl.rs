@@ -453,7 +453,7 @@ impl IDxcExtraOutputs_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcIncludeHandler_Impl: Sized {
-    fn LoadSource(&self, pfilename: &::windows::core::PCWSTR, ppincludesource: *mut ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
+    fn LoadSource(&self, pfilename: &::windows::core::PCWSTR) -> ::windows::core::Result<IDxcBlob>;
 }
 impl ::windows::core::RuntimeName for IDxcIncludeHandler {}
 impl IDxcIncludeHandler_Vtbl {
@@ -461,7 +461,13 @@ impl IDxcIncludeHandler_Vtbl {
         unsafe extern "system" fn LoadSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcIncludeHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilename: ::windows::core::PCWSTR, ppincludesource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.LoadSource(::core::mem::transmute(&pfilename), ::core::mem::transmute_copy(&ppincludesource)).into()
+            match this.LoadSource(::core::mem::transmute(&pfilename)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppincludesource, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LoadSource: LoadSource::<Identity, Impl, OFFSET> }
     }
@@ -647,8 +653,8 @@ impl IDxcLinker_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcOperationResult_Impl: Sized {
     fn GetStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn GetResult(&self, ppresult: *mut ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
-    fn GetErrorBuffer(&self, pperrors: *mut ::core::option::Option<IDxcBlobEncoding>) -> ::windows::core::Result<()>;
+    fn GetResult(&self) -> ::windows::core::Result<IDxcBlob>;
+    fn GetErrorBuffer(&self) -> ::windows::core::Result<IDxcBlobEncoding>;
 }
 impl ::windows::core::RuntimeName for IDxcOperationResult {}
 impl IDxcOperationResult_Vtbl {
@@ -667,12 +673,24 @@ impl IDxcOperationResult_Vtbl {
         unsafe extern "system" fn GetResult<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcOperationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetResult(::core::mem::transmute_copy(&ppresult)).into()
+            match this.GetResult() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetErrorBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcOperationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pperrors: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetErrorBuffer(::core::mem::transmute_copy(&pperrors)).into()
+            match this.GetErrorBuffer() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pperrors, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

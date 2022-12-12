@@ -22,8 +22,11 @@ impl IRDPSRAPIApplication {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShared(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShared)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetShared<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShared)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -111,8 +114,11 @@ impl IRDPSRAPIApplicationFilter {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetEnabled<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -675,8 +681,11 @@ impl IRDPSRAPIInvitation {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRevoked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRevoked)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetRevoked<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetRevoked)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1507,8 +1516,11 @@ impl IRDPSRAPIViewer {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSmartSizing(&self, vbsmartsizing: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSmartSizing)(::windows::core::Vtable::as_raw(self), vbsmartsizing).ok()
+    pub unsafe fn SetSmartSizing<P0>(&self, vbsmartsizing: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSmartSizing)(::windows::core::Vtable::as_raw(self), vbsmartsizing.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1769,8 +1781,11 @@ impl IRDPSRAPIWindow {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShared(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShared)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetShared<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShared)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1900,8 +1915,11 @@ pub struct IRDPViewerInputSink(::windows::core::IUnknown);
 impl IRDPViewerInputSink {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SendMouseButtonEvent(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: super::super::Foundation::VARIANT_BOOL, xpos: u32, ypos: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SendMouseButtonEvent)(::windows::core::Vtable::as_raw(self), buttontype, vbbuttondown, xpos, ypos).ok()
+    pub unsafe fn SendMouseButtonEvent<P0>(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: P0, xpos: u32, ypos: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SendMouseButtonEvent)(::windows::core::Vtable::as_raw(self), buttontype, vbbuttondown.into(), xpos, ypos).ok()
     }
     pub unsafe fn SendMouseMoveEvent(&self, xpos: u32, ypos: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SendMouseMoveEvent)(::windows::core::Vtable::as_raw(self), xpos, ypos).ok()
@@ -1911,8 +1929,13 @@ impl IRDPViewerInputSink {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SendKeyboardEvent(&self, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: super::super::Foundation::VARIANT_BOOL, vbrepeat: super::super::Foundation::VARIANT_BOOL, vbextended: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SendKeyboardEvent)(::windows::core::Vtable::as_raw(self), codetype, keycode, vbkeyup, vbrepeat, vbextended).ok()
+    pub unsafe fn SendKeyboardEvent<P0, P1, P2>(&self, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: P0, vbrepeat: P1, vbextended: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P2: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SendKeyboardEvent)(::windows::core::Vtable::as_raw(self), codetype, keycode, vbkeyup.into(), vbrepeat.into(), vbextended.into()).ok()
     }
     pub unsafe fn SendSyncEvent(&self, syncflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SendSyncEvent)(::windows::core::Vtable::as_raw(self), syncflags).ok()

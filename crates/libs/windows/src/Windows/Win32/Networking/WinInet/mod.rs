@@ -809,12 +809,12 @@ pub unsafe fn GetUrlCacheConfigInfoW(lpcacheconfiginfo: *mut INTERNET_CACHE_CONF
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUrlCacheEntryBinaryBlob<P0>(pwszurlname: P0, dwtype: *mut u32, pftexpiretime: *mut super::super::Foundation::FILETIME, pftaccesstime: *mut super::super::Foundation::FILETIME, pftmodifiedtime: *mut super::super::Foundation::FILETIME, ppbblob: ::core::option::Option<*mut *mut u8>, pcbblob: *mut u32) -> u32
+pub unsafe fn GetUrlCacheEntryBinaryBlob<P0>(pwszurlname: P0, dwtype: *mut u32, pftexpiretime: *mut super::super::Foundation::FILETIME, pftaccesstime: *mut super::super::Foundation::FILETIME, pftmodifiedtime: *mut super::super::Foundation::FILETIME, ppbblob: *mut *mut u8, pcbblob: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wininet.dll""system" fn GetUrlCacheEntryBinaryBlob ( pwszurlname : :: windows::core::PCWSTR , dwtype : *mut u32 , pftexpiretime : *mut super::super::Foundation:: FILETIME , pftaccesstime : *mut super::super::Foundation:: FILETIME , pftmodifiedtime : *mut super::super::Foundation:: FILETIME , ppbblob : *mut *mut u8 , pcbblob : *mut u32 ) -> u32 );
-    GetUrlCacheEntryBinaryBlob(pwszurlname.into().abi(), dwtype, pftexpiretime, pftaccesstime, pftmodifiedtime, ::core::mem::transmute(ppbblob.unwrap_or(::std::ptr::null_mut())), pcbblob)
+    GetUrlCacheEntryBinaryBlob(pwszurlname.into().abi(), dwtype, pftexpiretime, pftaccesstime, pftmodifiedtime, ppbblob, pcbblob)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3906,11 +3906,11 @@ pub const INTERNET_CUSTOMDIAL_UNATTENDED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_CUSTOMDIAL_WILL_SUPPLY_STATE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_DEFAULT_FTP_PORT: u32 = 21u32;
+pub const INTERNET_DEFAULT_FTP_PORT: u16 = 21u16;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_DEFAULT_GOPHER_PORT: u32 = 70u32;
+pub const INTERNET_DEFAULT_GOPHER_PORT: u16 = 70u16;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_DEFAULT_SOCKS_PORT: u32 = 1080u32;
+pub const INTERNET_DEFAULT_SOCKS_PORT: u16 = 1080u16;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_DIALSTATE_DISCONNECTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]

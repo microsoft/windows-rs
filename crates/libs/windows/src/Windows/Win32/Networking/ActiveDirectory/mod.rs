@@ -2379,8 +2379,11 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAbstract(&self, fabstract: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAbstract)(::windows::core::Vtable::as_raw(self), fabstract).ok()
+    pub unsafe fn SetAbstract<P0>(&self, fabstract: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAbstract)(::windows::core::Vtable::as_raw(self), fabstract.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2390,8 +2393,11 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAuxiliary(&self, fauxiliary: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAuxiliary)(::windows::core::Vtable::as_raw(self), fauxiliary).ok()
+    pub unsafe fn SetAuxiliary<P0>(&self, fauxiliary: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAuxiliary)(::windows::core::Vtable::as_raw(self), fauxiliary.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2478,8 +2484,11 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContainer(&self, fcontainer: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetContainer)(::windows::core::Vtable::as_raw(self), fcontainer).ok()
+    pub unsafe fn SetContainer<P0>(&self, fcontainer: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetContainer)(::windows::core::Vtable::as_raw(self), fcontainer.into()).ok()
     }
     pub unsafe fn HelpFileName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3028,8 +3037,11 @@ impl IADsComputerOperations {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Shutdown(&self, breboot: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self), breboot).ok()
+    pub unsafe fn Shutdown<P0>(&self, breboot: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self), breboot.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6509,8 +6521,11 @@ impl IADsProperty {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMultiValued(&self, fmultivalued: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMultiValued)(::windows::core::Vtable::as_raw(self), fmultivalued).ok()
+    pub unsafe fn SetMultiValued<P0>(&self, fmultivalued: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetMultiValued)(::windows::core::Vtable::as_raw(self), fmultivalued.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7280,8 +7295,11 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOwnerDefaulted(&self, fownerdefaulted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOwnerDefaulted)(::windows::core::Vtable::as_raw(self), fownerdefaulted).ok()
+    pub unsafe fn SetOwnerDefaulted<P0>(&self, fownerdefaulted: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetOwnerDefaulted)(::windows::core::Vtable::as_raw(self), fownerdefaulted.into()).ok()
     }
     pub unsafe fn Group(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7298,8 +7316,11 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGroupDefaulted(&self, fgroupdefaulted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGroupDefaulted)(::windows::core::Vtable::as_raw(self), fgroupdefaulted).ok()
+    pub unsafe fn SetGroupDefaulted<P0>(&self, fgroupdefaulted: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetGroupDefaulted)(::windows::core::Vtable::as_raw(self), fgroupdefaulted.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7323,8 +7344,11 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDaclDefaulted(&self, fdacldefaulted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDaclDefaulted)(::windows::core::Vtable::as_raw(self), fdacldefaulted).ok()
+    pub unsafe fn SetDaclDefaulted<P0>(&self, fdacldefaulted: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetDaclDefaulted)(::windows::core::Vtable::as_raw(self), fdacldefaulted.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7348,8 +7372,11 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSaclDefaulted(&self, fsacldefaulted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSaclDefaulted)(::windows::core::Vtable::as_raw(self), fsacldefaulted).ok()
+    pub unsafe fn SetSaclDefaulted<P0>(&self, fsacldefaulted: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSaclDefaulted)(::windows::core::Vtable::as_raw(self), fsacldefaulted.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8526,8 +8553,11 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAccountDisabled(&self, faccountdisabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAccountDisabled)(::windows::core::Vtable::as_raw(self), faccountdisabled).ok()
+    pub unsafe fn SetAccountDisabled<P0>(&self, faccountdisabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAccountDisabled)(::windows::core::Vtable::as_raw(self), faccountdisabled.into()).ok()
     }
     pub unsafe fn AccountExpirationDate(&self) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8558,8 +8588,11 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsAccountLocked(&self, fisaccountlocked: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIsAccountLocked)(::windows::core::Vtable::as_raw(self), fisaccountlocked).ok()
+    pub unsafe fn SetIsAccountLocked<P0>(&self, fisaccountlocked: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetIsAccountLocked)(::windows::core::Vtable::as_raw(self), fisaccountlocked.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8619,8 +8652,11 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPasswordRequired(&self, fpasswordrequired: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPasswordRequired)(::windows::core::Vtable::as_raw(self), fpasswordrequired).ok()
+    pub unsafe fn SetPasswordRequired<P0>(&self, fpasswordrequired: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetPasswordRequired)(::windows::core::Vtable::as_raw(self), fpasswordrequired.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8630,8 +8666,11 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRequireUniquePassword(&self, frequireuniquepassword: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRequireUniquePassword)(::windows::core::Vtable::as_raw(self), frequireuniquepassword).ok()
+    pub unsafe fn SetRequireUniquePassword<P0>(&self, frequireuniquepassword: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetRequireUniquePassword)(::windows::core::Vtable::as_raw(self), frequireuniquepassword.into()).ok()
     }
     pub unsafe fn EmailAddress(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

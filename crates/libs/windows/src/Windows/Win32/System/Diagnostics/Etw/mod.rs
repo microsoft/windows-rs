@@ -393,12 +393,12 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhCreatePayloadFilter<P0>(providerguid: *const ::windows::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: P0, payloadpredicates: &[PAYLOAD_FILTER_PREDICATE], payloadfilter: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> u32
+pub unsafe fn TdhCreatePayloadFilter<P0>(providerguid: *const ::windows::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: P0, payloadpredicates: &[PAYLOAD_FILTER_PREDICATE], payloadfilter: *mut *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
 {
     ::windows::core::link ! ( "tdh.dll""system" fn TdhCreatePayloadFilter ( providerguid : *const :: windows::core::GUID , eventdescriptor : *const EVENT_DESCRIPTOR , eventmatchany : super::super::super::Foundation:: BOOLEAN , payloadpredicatecount : u32 , payloadpredicates : *const PAYLOAD_FILTER_PREDICATE , payloadfilter : *mut *mut ::core::ffi::c_void ) -> u32 );
-    TdhCreatePayloadFilter(providerguid, eventdescriptor, eventmatchany.into(), payloadpredicates.len() as _, ::core::mem::transmute(payloadpredicates.as_ptr()), ::core::mem::transmute(payloadfilter.unwrap_or(::std::ptr::null_mut())))
+    TdhCreatePayloadFilter(providerguid, eventdescriptor, eventmatchany.into(), payloadpredicates.len() as _, ::core::mem::transmute(payloadpredicates.as_ptr()), payloadfilter)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[inline]

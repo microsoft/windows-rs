@@ -87,7 +87,7 @@ impl ID2D1Bitmap_Vtbl {
 pub trait ID2D1Bitmap1_Impl: Sized + ID2D1Bitmap_Impl {
     fn GetColorContext(&self, colorcontext: *mut ::core::option::Option<ID2D1ColorContext>);
     fn GetOptions(&self) -> D2D1_BITMAP_OPTIONS;
-    fn GetSurface(&self, dxgisurface: *mut ::core::option::Option<super::Dxgi::IDXGISurface>) -> ::windows::core::Result<()>;
+    fn GetSurface(&self) -> ::windows::core::Result<super::Dxgi::IDXGISurface>;
     fn Map(&self, options: D2D1_MAP_OPTIONS) -> ::windows::core::Result<D2D1_MAPPED_RECT>;
     fn Unmap(&self) -> ::windows::core::Result<()>;
 }
@@ -109,7 +109,13 @@ impl ID2D1Bitmap1_Vtbl {
         unsafe extern "system" fn GetSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Bitmap1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dxgisurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSurface(::core::mem::transmute_copy(&dxgisurface)).into()
+            match this.GetSurface() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(dxgisurface, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Map<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Bitmap1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: D2D1_MAP_OPTIONS, mappedrect: *mut D2D1_MAPPED_RECT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4218,7 +4224,7 @@ pub trait ID2D1Properties_Impl: Sized {
     fn GetValueByName(&self, name: &::windows::core::PCWSTR, r#type: D2D1_PROPERTY_TYPE, data: *mut u8, datasize: u32) -> ::windows::core::Result<()>;
     fn GetValue(&self, index: u32, r#type: D2D1_PROPERTY_TYPE, data: *mut u8, datasize: u32) -> ::windows::core::Result<()>;
     fn GetValueSize(&self, index: u32) -> u32;
-    fn GetSubProperties(&self, index: u32, subproperties: *mut ::core::option::Option<ID2D1Properties>) -> ::windows::core::Result<()>;
+    fn GetSubProperties(&self, index: u32) -> ::windows::core::Result<ID2D1Properties>;
 }
 impl ::windows::core::RuntimeName for ID2D1Properties {}
 impl ID2D1Properties_Vtbl {
@@ -4276,7 +4282,13 @@ impl ID2D1Properties_Vtbl {
         unsafe extern "system" fn GetSubProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, subproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSubProperties(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&subproperties)).into()
+            match this.GetSubProperties(::core::mem::transmute_copy(&index)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(subproperties, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -5199,7 +5211,7 @@ pub trait ID2D1SvgDocument_Impl: Sized + ID2D1Resource_Impl {
     fn GetViewportSize(&self) -> Common::D2D_SIZE_F;
     fn SetRoot(&self, root: &::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<()>;
     fn GetRoot(&self, root: *mut ::core::option::Option<ID2D1SvgElement>);
-    fn FindElementById(&self, id: &::windows::core::PCWSTR, svgelement: *mut ::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<()>;
+    fn FindElementById(&self, id: &::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1SvgElement>;
     fn Serialize(&self, outputxmlstream: &::core::option::Option<super::super::System::Com::IStream>, subtree: &::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<()>;
     fn Deserialize(&self, inputxmlstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<ID2D1SvgElement>;
     fn CreatePaint(&self, painttype: D2D1_SVG_PAINT_TYPE, color: *const Common::D2D1_COLOR_F, id: &::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1SvgPaint>;
@@ -5235,7 +5247,13 @@ impl ID2D1SvgDocument_Vtbl {
         unsafe extern "system" fn FindElementById<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::windows::core::PCWSTR, svgelement: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FindElementById(::core::mem::transmute(&id), ::core::mem::transmute_copy(&svgelement)).into()
+            match this.FindElementById(::core::mem::transmute(&id)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(svgelement, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Serialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputxmlstream: *mut ::core::ffi::c_void, subtree: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5327,8 +5345,8 @@ pub trait ID2D1SvgElement_Impl: Sized + ID2D1Resource_Impl {
     fn HasChildren(&self) -> super::super::Foundation::BOOL;
     fn GetFirstChild(&self, child: *mut ::core::option::Option<ID2D1SvgElement>);
     fn GetLastChild(&self, child: *mut ::core::option::Option<ID2D1SvgElement>);
-    fn GetPreviousChild(&self, referencechild: &::core::option::Option<ID2D1SvgElement>, previouschild: *mut ::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<()>;
-    fn GetNextChild(&self, referencechild: &::core::option::Option<ID2D1SvgElement>, nextchild: *mut ::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<()>;
+    fn GetPreviousChild(&self, referencechild: &::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<ID2D1SvgElement>;
+    fn GetNextChild(&self, referencechild: &::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<ID2D1SvgElement>;
     fn InsertChildBefore(&self, newchild: &::core::option::Option<ID2D1SvgElement>, referencechild: &::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<()>;
     fn AppendChild(&self, newchild: &::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<()>;
     fn ReplaceChild(&self, newchild: &::core::option::Option<ID2D1SvgElement>, oldchild: &::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<()>;
@@ -5398,12 +5416,24 @@ impl ID2D1SvgElement_Vtbl {
         unsafe extern "system" fn GetPreviousChild<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, referencechild: *mut ::core::ffi::c_void, previouschild: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPreviousChild(::core::mem::transmute(&referencechild), ::core::mem::transmute_copy(&previouschild)).into()
+            match this.GetPreviousChild(::core::mem::transmute(&referencechild)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(previouschild, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetNextChild<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, referencechild: *mut ::core::ffi::c_void, nextchild: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetNextChild(::core::mem::transmute(&referencechild), ::core::mem::transmute_copy(&nextchild)).into()
+            match this.GetNextChild(::core::mem::transmute(&referencechild)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(nextchild, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn InsertChildBefore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: *mut ::core::ffi::c_void, referencechild: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

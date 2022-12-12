@@ -719,21 +719,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[inline]
-pub unsafe fn SCardGetReaderIconA<P0>(hcontext: usize, szreadername: P0, pbicon: ::core::option::Option<*mut u8>, pcbicon: *mut u32) -> i32
+pub unsafe fn SCardGetReaderIconA<P0>(hcontext: usize, szreadername: P0, pbicon: *mut u8, pcbicon: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "winscard.dll""system" fn SCardGetReaderIconA ( hcontext : usize , szreadername : :: windows::core::PCSTR , pbicon : *mut u8 , pcbicon : *mut u32 ) -> i32 );
-    SCardGetReaderIconA(hcontext, szreadername.into().abi(), ::core::mem::transmute(pbicon.unwrap_or(::std::ptr::null_mut())), pcbicon)
+    SCardGetReaderIconA(hcontext, szreadername.into().abi(), pbicon, pcbicon)
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[inline]
-pub unsafe fn SCardGetReaderIconW<P0>(hcontext: usize, szreadername: P0, pbicon: ::core::option::Option<*mut u8>, pcbicon: *mut u32) -> i32
+pub unsafe fn SCardGetReaderIconW<P0>(hcontext: usize, szreadername: P0, pbicon: *mut u8, pcbicon: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "winscard.dll""system" fn SCardGetReaderIconW ( hcontext : usize , szreadername : :: windows::core::PCWSTR , pbicon : *mut u8 , pcbicon : *mut u32 ) -> i32 );
-    SCardGetReaderIconW(hcontext, szreadername.into().abi(), ::core::mem::transmute(pbicon.unwrap_or(::std::ptr::null_mut())), pcbicon)
+    SCardGetReaderIconW(hcontext, szreadername.into().abi(), pbicon, pcbicon)
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[inline]

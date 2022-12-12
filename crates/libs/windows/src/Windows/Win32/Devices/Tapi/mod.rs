@@ -3709,8 +3709,11 @@ impl ITAddress {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMessageWaiting(&self, fmessagewaiting: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMessageWaiting)(::windows::core::Vtable::as_raw(self), fmessagewaiting).ok()
+    pub unsafe fn SetMessageWaiting<P0>(&self, fmessagewaiting: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetMessageWaiting)(::windows::core::Vtable::as_raw(self), fmessagewaiting.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3720,8 +3723,11 @@ impl ITAddress {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDoNotDisturb(&self, fdonotdisturb: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDoNotDisturb)(::windows::core::Vtable::as_raw(self), fdonotdisturb).ok()
+    pub unsafe fn SetDoNotDisturb<P0>(&self, fdonotdisturb: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetDoNotDisturb)(::windows::core::Vtable::as_raw(self), fdonotdisturb.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3878,8 +3884,11 @@ impl ITAddress2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMessageWaiting(&self, fmessagewaiting: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetMessageWaiting)(::windows::core::Vtable::as_raw(self), fmessagewaiting).ok()
+    pub unsafe fn SetMessageWaiting<P0>(&self, fmessagewaiting: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetMessageWaiting)(::windows::core::Vtable::as_raw(self), fmessagewaiting.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3889,8 +3898,11 @@ impl ITAddress2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDoNotDisturb(&self, fdonotdisturb: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDoNotDisturb)(::windows::core::Vtable::as_raw(self), fdonotdisturb).ok()
+    pub unsafe fn SetDoNotDisturb<P0>(&self, fdonotdisturb: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetDoNotDisturb)(::windows::core::Vtable::as_raw(self), fdonotdisturb.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3935,8 +3947,11 @@ impl ITAddress2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).put_EventFilter)(::windows::core::Vtable::as_raw(self), tapievent, lsubevent, benable).ok()
+    pub unsafe fn put_EventFilter<P0>(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).put_EventFilter)(::windows::core::Vtable::as_raw(self), tapievent, lsubevent, benable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5111,8 +5126,11 @@ impl ITAutomatedPhoneControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPhoneHandlingEnabled(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPhoneHandlingEnabled)(::windows::core::Vtable::as_raw(self), fenabled).ok()
+    pub unsafe fn SetPhoneHandlingEnabled<P0>(&self, fenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetPhoneHandlingEnabled)(::windows::core::Vtable::as_raw(self), fenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5129,8 +5147,11 @@ impl ITAutomatedPhoneControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoDialtone(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAutoDialtone)(::windows::core::Vtable::as_raw(self), fenabled).ok()
+    pub unsafe fn SetAutoDialtone<P0>(&self, fenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAutoDialtone)(::windows::core::Vtable::as_raw(self), fenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5140,8 +5161,11 @@ impl ITAutomatedPhoneControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoStopTonesOnOnHook(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAutoStopTonesOnOnHook)(::windows::core::Vtable::as_raw(self), fenabled).ok()
+    pub unsafe fn SetAutoStopTonesOnOnHook<P0>(&self, fenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAutoStopTonesOnOnHook)(::windows::core::Vtable::as_raw(self), fenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5151,8 +5175,11 @@ impl ITAutomatedPhoneControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoStopRingOnOffHook(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAutoStopRingOnOffHook)(::windows::core::Vtable::as_raw(self), fenabled).ok()
+    pub unsafe fn SetAutoStopRingOnOffHook<P0>(&self, fenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAutoStopRingOnOffHook)(::windows::core::Vtable::as_raw(self), fenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5162,8 +5189,11 @@ impl ITAutomatedPhoneControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoKeypadTones(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAutoKeypadTones)(::windows::core::Vtable::as_raw(self), fenabled).ok()
+    pub unsafe fn SetAutoKeypadTones<P0>(&self, fenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAutoKeypadTones)(::windows::core::Vtable::as_raw(self), fenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5180,8 +5210,11 @@ impl ITAutomatedPhoneControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoVolumeControl(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAutoVolumeControl)(::windows::core::Vtable::as_raw(self), fenabled).ok()
+    pub unsafe fn SetAutoVolumeControl<P0>(&self, fenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAutoVolumeControl)(::windows::core::Vtable::as_raw(self), fenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5212,11 +5245,12 @@ impl ITAutomatedPhoneControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SelectCall<P0>(&self, pcall: P0, fselectdefaultterminals: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn SelectCall<P0, P1>(&self, pcall: P0, fselectdefaultterminals: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITCallInfo>>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SelectCall)(::windows::core::Vtable::as_raw(self), pcall.into().abi(), fselectdefaultterminals).ok()
+        (::windows::core::Vtable::vtable(self).SelectCall)(::windows::core::Vtable::as_raw(self), pcall.into().abi(), fselectdefaultterminals.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5422,8 +5456,11 @@ pub struct ITBasicCallControl(::windows::core::IUnknown);
 impl ITBasicCallControl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Connect(&self, fsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Connect)(::windows::core::Vtable::as_raw(self), fsync).ok()
+    pub unsafe fn Connect<P0>(&self, fsync: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).Connect)(::windows::core::Vtable::as_raw(self), fsync.into()).ok()
     }
     pub unsafe fn Answer(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Answer)(::windows::core::Vtable::as_raw(self)).ok()
@@ -5433,8 +5470,11 @@ impl ITBasicCallControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Hold(&self, fhold: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Hold)(::windows::core::Vtable::as_raw(self), fhold).ok()
+    pub unsafe fn Hold<P0>(&self, fhold: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).Hold)(::windows::core::Vtable::as_raw(self), fhold.into()).ok()
     }
     pub unsafe fn HandoffDirect(&self, papplicationname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).HandoffDirect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(papplicationname)).ok()
@@ -5444,19 +5484,21 @@ impl ITBasicCallControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Conference<P0>(&self, pcall: P0, fsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn Conference<P0, P1>(&self, pcall: P0, fsync: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITBasicCallControl>>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Conference)(::windows::core::Vtable::as_raw(self), pcall.into().abi(), fsync).ok()
+        (::windows::core::Vtable::vtable(self).Conference)(::windows::core::Vtable::as_raw(self), pcall.into().abi(), fsync.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Transfer<P0>(&self, pcall: P0, fsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn Transfer<P0, P1>(&self, pcall: P0, fsync: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITBasicCallControl>>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Transfer)(::windows::core::Vtable::as_raw(self), pcall.into().abi(), fsync).ok()
+        (::windows::core::Vtable::vtable(self).Transfer)(::windows::core::Vtable::as_raw(self), pcall.into().abi(), fsync.into()).ok()
     }
     pub unsafe fn BlindTransfer(&self, pdestaddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).BlindTransfer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pdestaddress)).ok()
@@ -5572,8 +5614,11 @@ pub struct ITBasicCallControl2(::windows::core::IUnknown);
 impl ITBasicCallControl2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Connect(&self, fsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Connect)(::windows::core::Vtable::as_raw(self), fsync).ok()
+    pub unsafe fn Connect<P0>(&self, fsync: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.Connect)(::windows::core::Vtable::as_raw(self), fsync.into()).ok()
     }
     pub unsafe fn Answer(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Answer)(::windows::core::Vtable::as_raw(self)).ok()
@@ -5583,8 +5628,11 @@ impl ITBasicCallControl2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Hold(&self, fhold: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Hold)(::windows::core::Vtable::as_raw(self), fhold).ok()
+    pub unsafe fn Hold<P0>(&self, fhold: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.Hold)(::windows::core::Vtable::as_raw(self), fhold.into()).ok()
     }
     pub unsafe fn HandoffDirect(&self, papplicationname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.HandoffDirect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(papplicationname)).ok()
@@ -5594,19 +5642,21 @@ impl ITBasicCallControl2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Conference<P0>(&self, pcall: P0, fsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn Conference<P0, P1>(&self, pcall: P0, fsync: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITBasicCallControl>>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Conference)(::windows::core::Vtable::as_raw(self), pcall.into().abi(), fsync).ok()
+        (::windows::core::Vtable::vtable(self).base__.Conference)(::windows::core::Vtable::as_raw(self), pcall.into().abi(), fsync.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Transfer<P0>(&self, pcall: P0, fsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn Transfer<P0, P1>(&self, pcall: P0, fsync: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITBasicCallControl>>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Transfer)(::windows::core::Vtable::as_raw(self), pcall.into().abi(), fsync).ok()
+        (::windows::core::Vtable::vtable(self).base__.Transfer)(::windows::core::Vtable::as_raw(self), pcall.into().abi(), fsync.into()).ok()
     }
     pub unsafe fn BlindTransfer(&self, pdestaddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.BlindTransfer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pdestaddress)).ok()
@@ -6045,8 +6095,11 @@ impl ITCallInfo2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).put_EventFilter)(::windows::core::Vtable::as_raw(self), tapievent, lsubevent, benable).ok()
+    pub unsafe fn put_EventFilter<P0>(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).put_EventFilter)(::windows::core::Vtable::as_raw(self), tapievent, lsubevent, benable.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6978,13 +7031,19 @@ impl ITDirectory {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableAutoRefresh(&self, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnableAutoRefresh)(::windows::core::Vtable::as_raw(self), fenable).ok()
+    pub unsafe fn EnableAutoRefresh<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).EnableAutoRefresh)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Connect(&self, fsecure: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Connect)(::windows::core::Vtable::as_raw(self), fsecure).ok()
+    pub unsafe fn Connect<P0>(&self, fsecure: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).Connect)(::windows::core::Vtable::as_raw(self), fsecure.into()).ok()
     }
     pub unsafe fn Bind(&self, pdomainname: &::windows::core::BSTR, pusername: &::windows::core::BSTR, ppassword: &::windows::core::BSTR, lflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Bind)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pdomainname), ::core::mem::transmute_copy(pusername), ::core::mem::transmute_copy(ppassword), lflags).ok()
@@ -7246,8 +7305,11 @@ impl ITDirectoryObjectConference {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsEncrypted(&self, fencrypted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIsEncrypted)(::windows::core::Vtable::as_raw(self), fencrypted).ok()
+    pub unsafe fn SetIsEncrypted<P0>(&self, fencrypted: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetIsEncrypted)(::windows::core::Vtable::as_raw(self), fencrypted.into()).ok()
     }
     pub unsafe fn StartTime(&self) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10338,12 +10400,14 @@ impl ITTAPI {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RegisterCallNotifications<P0>(&self, paddress: P0, fmonitor: super::super::Foundation::VARIANT_BOOL, fowner: super::super::Foundation::VARIANT_BOOL, lmediatypes: i32, lcallbackinstance: i32) -> ::windows::core::Result<i32>
+    pub unsafe fn RegisterCallNotifications<P0, P1, P2>(&self, paddress: P0, fmonitor: P1, fowner: P2, lmediatypes: i32, lcallbackinstance: i32) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITAddress>>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P2: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterCallNotifications)(::windows::core::Vtable::as_raw(self), paddress.into().abi(), fmonitor, fowner, lmediatypes, lcallbackinstance, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RegisterCallNotifications)(::windows::core::Vtable::as_raw(self), paddress.into().abi(), fmonitor.into(), fowner.into(), lmediatypes, lcallbackinstance, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn UnregisterNotifications(&self, lregister: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnregisterNotifications)(::windows::core::Vtable::as_raw(self), lregister).ok()
@@ -10360,8 +10424,11 @@ impl ITTAPI {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCallHubTracking(&self, paddresses: super::super::System::Com::VARIANT, btracking: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCallHubTracking)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(paddresses), btracking).ok()
+    pub unsafe fn SetCallHubTracking<P0>(&self, paddresses: super::super::System::Com::VARIANT, btracking: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetCallHubTracking)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(paddresses), btracking.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10377,18 +10444,27 @@ impl ITTAPI {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterRequestRecipient(&self, lregistrationinstance: i32, lrequestmode: i32, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RegisterRequestRecipient)(::windows::core::Vtable::as_raw(self), lregistrationinstance, lrequestmode, fenable).ok()
+    pub unsafe fn RegisterRequestRecipient<P0>(&self, lregistrationinstance: i32, lrequestmode: i32, fenable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).RegisterRequestRecipient)(::windows::core::Vtable::as_raw(self), lregistrationinstance, lrequestmode, fenable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAssistedTelephonyPriority(&self, pappfilename: &::windows::core::BSTR, fpriority: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAssistedTelephonyPriority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pappfilename), fpriority).ok()
+    pub unsafe fn SetAssistedTelephonyPriority<P0>(&self, pappfilename: &::windows::core::BSTR, fpriority: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAssistedTelephonyPriority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pappfilename), fpriority.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetApplicationPriority(&self, pappfilename: &::windows::core::BSTR, lmediatype: i32, fpriority: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetApplicationPriority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pappfilename), lmediatype, fpriority).ok()
+    pub unsafe fn SetApplicationPriority<P0>(&self, pappfilename: &::windows::core::BSTR, lmediatype: i32, fpriority: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetApplicationPriority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pappfilename), lmediatype, fpriority.into()).ok()
     }
     pub unsafe fn SetEventFilter(&self, lfiltermask: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetEventFilter)(::windows::core::Vtable::as_raw(self), lfiltermask).ok()
@@ -10501,12 +10577,14 @@ impl ITTAPI2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RegisterCallNotifications<P0>(&self, paddress: P0, fmonitor: super::super::Foundation::VARIANT_BOOL, fowner: super::super::Foundation::VARIANT_BOOL, lmediatypes: i32, lcallbackinstance: i32) -> ::windows::core::Result<i32>
+    pub unsafe fn RegisterCallNotifications<P0, P1, P2>(&self, paddress: P0, fmonitor: P1, fowner: P2, lmediatypes: i32, lcallbackinstance: i32) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITAddress>>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P2: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.RegisterCallNotifications)(::windows::core::Vtable::as_raw(self), paddress.into().abi(), fmonitor, fowner, lmediatypes, lcallbackinstance, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.RegisterCallNotifications)(::windows::core::Vtable::as_raw(self), paddress.into().abi(), fmonitor.into(), fowner.into(), lmediatypes, lcallbackinstance, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn UnregisterNotifications(&self, lregister: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.UnregisterNotifications)(::windows::core::Vtable::as_raw(self), lregister).ok()
@@ -10523,8 +10601,11 @@ impl ITTAPI2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCallHubTracking(&self, paddresses: super::super::System::Com::VARIANT, btracking: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetCallHubTracking)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(paddresses), btracking).ok()
+    pub unsafe fn SetCallHubTracking<P0>(&self, paddresses: super::super::System::Com::VARIANT, btracking: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetCallHubTracking)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(paddresses), btracking.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10540,18 +10621,27 @@ impl ITTAPI2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterRequestRecipient(&self, lregistrationinstance: i32, lrequestmode: i32, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.RegisterRequestRecipient)(::windows::core::Vtable::as_raw(self), lregistrationinstance, lrequestmode, fenable).ok()
+    pub unsafe fn RegisterRequestRecipient<P0>(&self, lregistrationinstance: i32, lrequestmode: i32, fenable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.RegisterRequestRecipient)(::windows::core::Vtable::as_raw(self), lregistrationinstance, lrequestmode, fenable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAssistedTelephonyPriority(&self, pappfilename: &::windows::core::BSTR, fpriority: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetAssistedTelephonyPriority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pappfilename), fpriority).ok()
+    pub unsafe fn SetAssistedTelephonyPriority<P0>(&self, pappfilename: &::windows::core::BSTR, fpriority: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetAssistedTelephonyPriority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pappfilename), fpriority.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetApplicationPriority(&self, pappfilename: &::windows::core::BSTR, lmediatype: i32, fpriority: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetApplicationPriority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pappfilename), lmediatype, fpriority).ok()
+    pub unsafe fn SetApplicationPriority<P0>(&self, pappfilename: &::windows::core::BSTR, lmediatype: i32, fpriority: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetApplicationPriority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pappfilename), lmediatype, fpriority.into()).ok()
     }
     pub unsafe fn SetEventFilter(&self, lfiltermask: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetEventFilter)(::windows::core::Vtable::as_raw(self), lfiltermask).ok()

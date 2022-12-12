@@ -1,9 +1,9 @@
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, ppoutbuffer: ::core::option::Option<*mut *mut ::core::ffi::c_void>, puloutbuffersize: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, ppoutbuffer: *mut *mut ::core::ffi::c_void, puloutbuffersize: *mut u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "cryptui.dll""system" fn CertSelectionGetSerializedBlob ( pcsi : *const CERT_SELECTUI_INPUT , ppoutbuffer : *mut *mut ::core::ffi::c_void , puloutbuffersize : *mut u32 ) -> :: windows::core::HRESULT );
-    CertSelectionGetSerializedBlob(pcsi, ::core::mem::transmute(ppoutbuffer.unwrap_or(::std::ptr::null_mut())), puloutbuffersize).ok()
+    CertSelectionGetSerializedBlob(pcsi, ppoutbuffer, puloutbuffersize).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

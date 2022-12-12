@@ -903,8 +903,11 @@ impl IDiscFormat2Data {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBufferUnderrunFreeDisabled)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetBufferUnderrunFreeDisabled<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetBufferUnderrunFreeDisabled)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -914,8 +917,11 @@ impl IDiscFormat2Data {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPostgapAlreadyInImage(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPostgapAlreadyInImage)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetPostgapAlreadyInImage<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetPostgapAlreadyInImage)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -953,8 +959,11 @@ impl IDiscFormat2Data {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetForceMediaToBeClosed(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetForceMediaToBeClosed)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetForceMediaToBeClosed<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetForceMediaToBeClosed)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -964,8 +973,11 @@ impl IDiscFormat2Data {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDisableConsumerDvdCompatibilityMode(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDisableConsumerDvdCompatibilityMode)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetDisableConsumerDvdCompatibilityMode<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetDisableConsumerDvdCompatibilityMode)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1018,8 +1030,11 @@ impl IDiscFormat2Data {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetForceOverwrite(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetForceOverwrite)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetForceOverwrite<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetForceOverwrite)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1046,8 +1061,11 @@ impl IDiscFormat2Data {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetWriteSpeed)(::windows::core::Vtable::as_raw(self), requestedsectorspersecond, rotationtypeispurecav).ok()
+    pub unsafe fn SetWriteSpeed<P0>(&self, requestedsectorspersecond: i32, rotationtypeispurecav: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetWriteSpeed)(::windows::core::Vtable::as_raw(self), requestedsectorspersecond, rotationtypeispurecav.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1324,8 +1342,11 @@ impl IDiscFormat2Erase {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullErase(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetFullErase)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetFullErase<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetFullErase)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1473,8 +1494,11 @@ impl IDiscFormat2RawCD {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetWriteSpeed)(::windows::core::Vtable::as_raw(self), requestedsectorspersecond, rotationtypeispurecav).ok()
+    pub unsafe fn SetWriteSpeed<P0>(&self, requestedsectorspersecond: i32, rotationtypeispurecav: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetWriteSpeed)(::windows::core::Vtable::as_raw(self), requestedsectorspersecond, rotationtypeispurecav.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1492,8 +1516,11 @@ impl IDiscFormat2RawCD {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBufferUnderrunFreeDisabled)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetBufferUnderrunFreeDisabled<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetBufferUnderrunFreeDisabled)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1809,8 +1836,11 @@ impl IDiscFormat2TrackAtOnce {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetWriteSpeed)(::windows::core::Vtable::as_raw(self), requestedsectorspersecond, rotationtypeispurecav).ok()
+    pub unsafe fn SetWriteSpeed<P0>(&self, requestedsectorspersecond: i32, rotationtypeispurecav: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetWriteSpeed)(::windows::core::Vtable::as_raw(self), requestedsectorspersecond, rotationtypeispurecav.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1828,8 +1858,11 @@ impl IDiscFormat2TrackAtOnce {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBufferUnderrunFreeDisabled)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetBufferUnderrunFreeDisabled<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetBufferUnderrunFreeDisabled)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1855,8 +1888,11 @@ impl IDiscFormat2TrackAtOnce {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDoNotFinalizeMedia(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDoNotFinalizeMedia)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetDoNotFinalizeMedia<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetDoNotFinalizeMedia)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2465,8 +2501,11 @@ impl IDiscRecorder2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AcquireExclusiveAccess(&self, force: super::super::Foundation::VARIANT_BOOL, __midl__idiscrecorder20000: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AcquireExclusiveAccess)(::windows::core::Vtable::as_raw(self), force, ::core::mem::transmute_copy(__midl__idiscrecorder20000)).ok()
+    pub unsafe fn AcquireExclusiveAccess<P0>(&self, force: P0, __midl__idiscrecorder20000: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).AcquireExclusiveAccess)(::windows::core::Vtable::as_raw(self), force.into(), ::core::mem::transmute_copy(__midl__idiscrecorder20000)).ok()
     }
     pub unsafe fn ReleaseExclusiveAccess(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReleaseExclusiveAccess)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3064,8 +3103,11 @@ impl IFileSystemImage {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStrictFileSystemCompliance(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetStrictFileSystemCompliance)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetStrictFileSystemCompliance<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetStrictFileSystemCompliance)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3075,8 +3117,11 @@ impl IFileSystemImage {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseRestrictedCharacterSet(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUseRestrictedCharacterSet)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetUseRestrictedCharacterSet<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetUseRestrictedCharacterSet)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn FileSystemsToCreate(&self) -> ::windows::core::Result<FsiFileSystems> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3198,8 +3243,11 @@ impl IFileSystemImage {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStageFiles(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetStageFiles)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetStageFiles<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetStageFiles)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3446,8 +3494,11 @@ impl IFileSystemImage2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStrictFileSystemCompliance(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetStrictFileSystemCompliance)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetStrictFileSystemCompliance<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetStrictFileSystemCompliance)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3457,8 +3508,11 @@ impl IFileSystemImage2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseRestrictedCharacterSet(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUseRestrictedCharacterSet)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetUseRestrictedCharacterSet<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetUseRestrictedCharacterSet)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn FileSystemsToCreate(&self) -> ::windows::core::Result<FsiFileSystems> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3580,8 +3634,11 @@ impl IFileSystemImage2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStageFiles(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetStageFiles)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetStageFiles<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetStageFiles)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3740,8 +3797,11 @@ impl IFileSystemImage3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStrictFileSystemCompliance(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetStrictFileSystemCompliance)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetStrictFileSystemCompliance<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetStrictFileSystemCompliance)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3751,8 +3811,11 @@ impl IFileSystemImage3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseRestrictedCharacterSet(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetUseRestrictedCharacterSet)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetUseRestrictedCharacterSet<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetUseRestrictedCharacterSet)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn FileSystemsToCreate(&self) -> ::windows::core::Result<FsiFileSystems> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3874,8 +3937,11 @@ impl IFileSystemImage3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStageFiles(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetStageFiles)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetStageFiles<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetStageFiles)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3907,8 +3973,11 @@ impl IFileSystemImage3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCreateRedundantUdfMetadataFiles(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCreateRedundantUdfMetadataFiles)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetCreateRedundantUdfMetadataFiles<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetCreateRedundantUdfMetadataFiles)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4163,8 +4232,11 @@ impl IFsiDirectoryItem {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn FileSystemName(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4207,8 +4279,11 @@ impl IFsiDirectoryItem {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddTree(&self, sourcedirectory: &::windows::core::BSTR, includebasedirectory: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AddTree)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(sourcedirectory), includebasedirectory).ok()
+    pub unsafe fn AddTree<P0>(&self, sourcedirectory: &::windows::core::BSTR, includebasedirectory: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).AddTree)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(sourcedirectory), includebasedirectory.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4329,8 +4404,11 @@ impl IFsiDirectoryItem2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn FileSystemName(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4373,8 +4451,11 @@ impl IFsiDirectoryItem2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddTree(&self, sourcedirectory: &::windows::core::BSTR, includebasedirectory: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.AddTree)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(sourcedirectory), includebasedirectory).ok()
+    pub unsafe fn AddTree<P0>(&self, sourcedirectory: &::windows::core::BSTR, includebasedirectory: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.AddTree)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(sourcedirectory), includebasedirectory.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4392,8 +4473,11 @@ impl IFsiDirectoryItem2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddTreeWithNamedStreams(&self, sourcedirectory: &::windows::core::BSTR, includebasedirectory: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AddTreeWithNamedStreams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(sourcedirectory), includebasedirectory).ok()
+    pub unsafe fn AddTreeWithNamedStreams<P0>(&self, sourcedirectory: &::windows::core::BSTR, includebasedirectory: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).AddTreeWithNamedStreams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(sourcedirectory), includebasedirectory.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4479,8 +4563,11 @@ impl IFsiFileItem {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn FileSystemName(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4607,8 +4694,11 @@ impl IFsiFileItem2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn FileSystemName(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4675,8 +4765,11 @@ impl IFsiFileItem2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsRealTime(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIsRealTime)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetIsRealTime<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetIsRealTime)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4779,8 +4872,11 @@ impl IFsiItem {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIsHidden)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetIsHidden)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn FileSystemName(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5092,8 +5188,11 @@ impl IMultisession {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInUse(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetInUse)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetInUse<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetInUse)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5174,8 +5273,11 @@ impl IMultisessionRandomWrite {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInUse(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetInUse)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetInUse<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetInUse)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5255,8 +5357,11 @@ impl IMultisessionSequential {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInUse(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetInUse)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetInUse<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetInUse)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5351,8 +5456,11 @@ impl IMultisessionSequential2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInUse(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetInUse)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetInUse<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetInUse)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5643,8 +5751,11 @@ impl IRawCDImageCreator {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDisableGaplessAudio(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDisableGaplessAudio)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetDisableGaplessAudio<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetDisableGaplessAudio)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5810,8 +5921,11 @@ impl IRawCDImageTrackInfo {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAudioHasPreemphasis(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAudioHasPreemphasis)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetAudioHasPreemphasis<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAudioHasPreemphasis)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6358,8 +6472,11 @@ impl IWriteEngine2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseStreamingWrite12(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUseStreamingWrite12)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetUseStreamingWrite12<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetUseStreamingWrite12)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

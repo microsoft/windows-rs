@@ -1447,8 +1447,9 @@ pub struct IWiaMiniDrvTransferCallback(::windows::core::IUnknown);
 impl IWiaMiniDrvTransferCallback {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetNextStream(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR, ppistream: ::core::option::Option<*mut ::core::option::Option<super::super::System::Com::IStream>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNextStream)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), ::core::mem::transmute(ppistream.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetNextStream(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetNextStream)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SendMessage(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SendMessage)(::windows::core::Vtable::as_raw(self), lflags, pwiatransferparams).ok()
@@ -1846,8 +1847,9 @@ impl IWiaTransferCallback {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetNextStream(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR, ppdestination: ::core::option::Option<*mut ::core::option::Option<super::super::System::Com::IStream>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNextStream)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), ::core::mem::transmute(ppdestination.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetNextStream(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetNextStream)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWiaTransferCallback, ::windows::core::IUnknown);

@@ -3808,16 +3808,16 @@ where
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: ::core::option::Option<*mut ::core::ffi::c_void>, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "user32.dll""system" fn SystemParametersInfoA ( uiaction : SYSTEM_PARAMETERS_INFO_ACTION , uiparam : u32 , pvparam : *mut ::core::ffi::c_void , fwinini : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS ) -> super::super::Foundation:: BOOL );
-    SystemParametersInfoA(uiaction, uiparam, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null_mut())), fwinini)
+pub unsafe fn SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: ::core::option::Option<*const ::core::ffi::c_void>, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
+    ::windows::core::link ! ( "user32.dll""system" fn SystemParametersInfoA ( uiaction : SYSTEM_PARAMETERS_INFO_ACTION , uiparam : u32 , pvparam : *const ::core::ffi::c_void , fwinini : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS ) -> super::super::Foundation:: BOOL );
+    SystemParametersInfoA(uiaction, uiparam, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null())), fwinini)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: ::core::option::Option<*mut ::core::ffi::c_void>, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "user32.dll""system" fn SystemParametersInfoW ( uiaction : SYSTEM_PARAMETERS_INFO_ACTION , uiparam : u32 , pvparam : *mut ::core::ffi::c_void , fwinini : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS ) -> super::super::Foundation:: BOOL );
-    SystemParametersInfoW(uiaction, uiparam, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null_mut())), fwinini)
+pub unsafe fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: ::core::option::Option<*const ::core::ffi::c_void>, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
+    ::windows::core::link ! ( "user32.dll""system" fn SystemParametersInfoW ( uiaction : SYSTEM_PARAMETERS_INFO_ACTION , uiparam : u32 , pvparam : *const ::core::ffi::c_void , fwinini : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS ) -> super::super::Foundation:: BOOL );
+    SystemParametersInfoW(uiaction, uiparam, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null())), fwinini)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5232,16 +5232,6 @@ pub const LLMHF_INJECTED: u32 = 1u32;
 pub const LLMHF_LOWER_IL_INJECTED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const LR_COLOR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const MAPVK_VK_TO_CHAR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const MAPVK_VK_TO_VSC: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const MAPVK_VK_TO_VSC_EX: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const MAPVK_VSC_TO_VK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const MAPVK_VSC_TO_VK_EX: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const MAXIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]

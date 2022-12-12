@@ -123,8 +123,11 @@ impl IRTCBuddy {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPersistent(&self, fpersistent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetPersistent)(::windows::core::Vtable::as_raw(self), fpersistent).ok()
+    pub unsafe fn SetPersistent<P0>(&self, fpersistent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetPersistent)(::windows::core::Vtable::as_raw(self), fpersistent.into()).ok()
     }
     pub unsafe fn Status(&self) -> ::windows::core::Result<RTC_PRESENCE_STATUS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -198,8 +201,11 @@ impl IRTCBuddy2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPersistent(&self, fpersistent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetPersistent)(::windows::core::Vtable::as_raw(self), fpersistent).ok()
+    pub unsafe fn SetPersistent<P0>(&self, fpersistent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetPersistent)(::windows::core::Vtable::as_raw(self), fpersistent.into()).ok()
     }
     pub unsafe fn Status(&self) -> ::windows::core::Result<RTC_PRESENCE_STATUS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -567,8 +573,11 @@ impl IRTCClient {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPreferredMediaTypes(&self, lmediatypes: i32, fpersistent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPreferredMediaTypes)(::windows::core::Vtable::as_raw(self), lmediatypes, fpersistent).ok()
+    pub unsafe fn SetPreferredMediaTypes<P0>(&self, lmediatypes: i32, fpersistent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetPreferredMediaTypes)(::windows::core::Vtable::as_raw(self), lmediatypes, fpersistent.into()).ok()
     }
     pub unsafe fn PreferredMediaTypes(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -594,9 +603,13 @@ impl IRTCClient {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_NetworkAddresses(&self, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn get_NetworkAddresses<P0, P1>(&self, ftcp: P0, fexternal: P1) -> ::windows::core::Result<super::Com::VARIANT>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_NetworkAddresses)(::windows::core::Vtable::as_raw(self), ftcp, fexternal, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_NetworkAddresses)(::windows::core::Vtable::as_raw(self), ftcp.into(), fexternal.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn put_Volume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).put_Volume)(::windows::core::Vtable::as_raw(self), endevice, lvolume).ok()
@@ -607,8 +620,11 @@ impl IRTCClient {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).put_AudioMuted)(::windows::core::Vtable::as_raw(self), endevice, fmuted).ok()
+    pub unsafe fn put_AudioMuted<P0>(&self, endevice: RTC_AUDIO_DEVICE, fmuted: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).put_AudioMuted)(::windows::core::Vtable::as_raw(self), endevice, fmuted.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -638,8 +654,11 @@ impl IRTCClient {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPreferredAEC(&self, benable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPreferredAEC)(::windows::core::Vtable::as_raw(self), benable).ok()
+    pub unsafe fn SetPreferredAEC<P0>(&self, benable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetPreferredAEC)(::windows::core::Vtable::as_raw(self), benable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -704,8 +723,11 @@ impl IRTCClient {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PlayRing(&self, entype: RTC_RING_TYPE, bplay: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PlayRing)(::windows::core::Vtable::as_raw(self), entype, bplay).ok()
+    pub unsafe fn PlayRing<P0>(&self, entype: RTC_RING_TYPE, bplay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).PlayRing)(::windows::core::Vtable::as_raw(self), entype, bplay.into()).ok()
     }
     pub unsafe fn SendDTMF(&self, endtmf: RTC_DTMF) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SendDTMF)(::windows::core::Vtable::as_raw(self), endtmf).ok()
@@ -842,8 +864,11 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPreferredMediaTypes(&self, lmediatypes: i32, fpersistent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetPreferredMediaTypes)(::windows::core::Vtable::as_raw(self), lmediatypes, fpersistent).ok()
+    pub unsafe fn SetPreferredMediaTypes<P0>(&self, lmediatypes: i32, fpersistent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetPreferredMediaTypes)(::windows::core::Vtable::as_raw(self), lmediatypes, fpersistent.into()).ok()
     }
     pub unsafe fn PreferredMediaTypes(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -869,9 +894,13 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_NetworkAddresses(&self, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn get_NetworkAddresses<P0, P1>(&self, ftcp: P0, fexternal: P1) -> ::windows::core::Result<super::Com::VARIANT>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.get_NetworkAddresses)(::windows::core::Vtable::as_raw(self), ftcp, fexternal, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.get_NetworkAddresses)(::windows::core::Vtable::as_raw(self), ftcp.into(), fexternal.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn put_Volume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.put_Volume)(::windows::core::Vtable::as_raw(self), endevice, lvolume).ok()
@@ -882,8 +911,11 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.put_AudioMuted)(::windows::core::Vtable::as_raw(self), endevice, fmuted).ok()
+    pub unsafe fn put_AudioMuted<P0>(&self, endevice: RTC_AUDIO_DEVICE, fmuted: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.put_AudioMuted)(::windows::core::Vtable::as_raw(self), endevice, fmuted.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -913,8 +945,11 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPreferredAEC(&self, benable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetPreferredAEC)(::windows::core::Vtable::as_raw(self), benable).ok()
+    pub unsafe fn SetPreferredAEC<P0>(&self, benable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetPreferredAEC)(::windows::core::Vtable::as_raw(self), benable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -979,8 +1014,11 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PlayRing(&self, entype: RTC_RING_TYPE, bplay: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.PlayRing)(::windows::core::Vtable::as_raw(self), entype, bplay).ok()
+    pub unsafe fn PlayRing<P0>(&self, entype: RTC_RING_TYPE, bplay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.PlayRing)(::windows::core::Vtable::as_raw(self), entype, bplay.into()).ok()
     }
     pub unsafe fn SendDTMF(&self, endtmf: RTC_DTMF) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SendDTMF)(::windows::core::Vtable::as_raw(self), endtmf).ok()
@@ -1003,8 +1041,12 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InvokeTuningWizardEx(&self, hwndparent: isize, fallowaudio: super::super::Foundation::VARIANT_BOOL, fallowvideo: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InvokeTuningWizardEx)(::windows::core::Vtable::as_raw(self), hwndparent, fallowaudio, fallowvideo).ok()
+    pub unsafe fn InvokeTuningWizardEx<P0, P1>(&self, hwndparent: isize, fallowaudio: P0, fallowvideo: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).InvokeTuningWizardEx)(::windows::core::Vtable::as_raw(self), hwndparent, fallowaudio.into(), fallowvideo.into()).ok()
     }
     pub unsafe fn Version(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1195,8 +1237,11 @@ pub struct IRTCClientPresence(::windows::core::IUnknown);
 impl IRTCClientPresence {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnablePresence(&self, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnablePresence)(::windows::core::Vtable::as_raw(self), fusestorage, ::core::mem::transmute(varstorage)).ok()
+    pub unsafe fn EnablePresence<P0>(&self, fusestorage: P0, varstorage: super::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).EnablePresence)(::windows::core::Vtable::as_raw(self), fusestorage.into(), ::core::mem::transmute(varstorage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1205,8 +1250,11 @@ impl IRTCClientPresence {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Import(&self, varstorage: super::Com::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Import)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varstorage), freplaceall).ok()
+    pub unsafe fn Import<P0>(&self, varstorage: super::Com::VARIANT, freplaceall: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).Import)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varstorage), freplaceall.into()).ok()
     }
     pub unsafe fn EnumerateBuddies(&self) -> ::windows::core::Result<IRTCEnumBuddies> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1224,12 +1272,13 @@ impl IRTCClientPresence {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddBuddy<P0>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCBuddy>
+    pub unsafe fn AddBuddy<P0, P1>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fpersistent: P0, pprofile: P1, lflags: i32) -> ::windows::core::Result<IRTCBuddy>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddBuddy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fpersistent, pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddBuddy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fpersistent.into(), pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RemoveBuddy<P0>(&self, pbuddy: P0) -> ::windows::core::Result<()>
     where
@@ -1253,9 +1302,13 @@ impl IRTCClientPresence {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddWatcher(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fblocked: super::super::Foundation::VARIANT_BOOL, fpersistent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<IRTCWatcher> {
+    pub unsafe fn AddWatcher<P0, P1>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fblocked: P0, fpersistent: P1) -> ::windows::core::Result<IRTCWatcher>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddWatcher)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fblocked, fpersistent, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddWatcher)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fblocked.into(), fpersistent.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RemoveWatcher<P0>(&self, pwatcher: P0) -> ::windows::core::Result<()>
     where
@@ -1354,8 +1407,11 @@ pub struct IRTCClientPresence2(::windows::core::IUnknown);
 impl IRTCClientPresence2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnablePresence(&self, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnablePresence)(::windows::core::Vtable::as_raw(self), fusestorage, ::core::mem::transmute(varstorage)).ok()
+    pub unsafe fn EnablePresence<P0>(&self, fusestorage: P0, varstorage: super::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.EnablePresence)(::windows::core::Vtable::as_raw(self), fusestorage.into(), ::core::mem::transmute(varstorage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1364,8 +1420,11 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Import(&self, varstorage: super::Com::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Import)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varstorage), freplaceall).ok()
+    pub unsafe fn Import<P0>(&self, varstorage: super::Com::VARIANT, freplaceall: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.Import)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varstorage), freplaceall.into()).ok()
     }
     pub unsafe fn EnumerateBuddies(&self) -> ::windows::core::Result<IRTCEnumBuddies> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1383,12 +1442,13 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddBuddy<P0>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCBuddy>
+    pub unsafe fn AddBuddy<P0, P1>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fpersistent: P0, pprofile: P1, lflags: i32) -> ::windows::core::Result<IRTCBuddy>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.AddBuddy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fpersistent, pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.AddBuddy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fpersistent.into(), pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RemoveBuddy<P0>(&self, pbuddy: P0) -> ::windows::core::Result<()>
     where
@@ -1412,9 +1472,13 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddWatcher(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fblocked: super::super::Foundation::VARIANT_BOOL, fpersistent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<IRTCWatcher> {
+    pub unsafe fn AddWatcher<P0, P1>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fblocked: P0, fpersistent: P1) -> ::windows::core::Result<IRTCWatcher>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.AddWatcher)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fblocked, fpersistent, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.AddWatcher)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fblocked.into(), fpersistent.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RemoveWatcher<P0>(&self, pwatcher: P0) -> ::windows::core::Result<()>
     where
@@ -1479,12 +1543,13 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddWatcherEx<P0>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCWatcher2>
+    pub unsafe fn AddWatcherEx<P0, P1>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: P0, enscope: RTC_ACE_SCOPE, pprofile: P1, lflags: i32) -> ::windows::core::Result<IRTCWatcher2>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddWatcherEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), enstate, fpersistent, enscope, pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddWatcherEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), enstate, fpersistent.into(), enscope, pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn get_WatcherEx(&self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: &::windows::core::BSTR) -> ::windows::core::Result<IRTCWatcher2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1508,12 +1573,13 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddBuddyEx<P0>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: P0, lflags: i32) -> ::windows::core::Result<IRTCBuddy2>
+    pub unsafe fn AddBuddyEx<P0, P1>(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fpersistent: P0, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: P1, lflags: i32) -> ::windows::core::Result<IRTCBuddy2>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddBuddyEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fpersistent, ensubscriptiontype, pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddBuddyEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fpersistent.into(), ensubscriptiontype, pprofile.into().abi(), lflags, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IRTCClientPresence2, ::windows::core::IUnknown, IRTCClientPresence);
@@ -2752,8 +2818,11 @@ impl IRTCPresenceContact {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPersistent(&self, fpersistent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPersistent)(::windows::core::Vtable::as_raw(self), fpersistent).ok()
+    pub unsafe fn SetPersistent<P0>(&self, fpersistent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetPersistent)(::windows::core::Vtable::as_raw(self), fpersistent.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IRTCPresenceContact, ::windows::core::IUnknown);
@@ -4714,8 +4783,11 @@ impl IRTCWatcher {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPersistent(&self, fpersistent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetPersistent)(::windows::core::Vtable::as_raw(self), fpersistent).ok()
+    pub unsafe fn SetPersistent<P0>(&self, fpersistent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetPersistent)(::windows::core::Vtable::as_raw(self), fpersistent.into()).ok()
     }
     pub unsafe fn State(&self) -> ::windows::core::Result<RTC_WATCHER_STATE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4788,8 +4860,11 @@ impl IRTCWatcher2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPersistent(&self, fpersistent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetPersistent)(::windows::core::Vtable::as_raw(self), fpersistent).ok()
+    pub unsafe fn SetPersistent<P0>(&self, fpersistent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetPersistent)(::windows::core::Vtable::as_raw(self), fpersistent.into()).ok()
     }
     pub unsafe fn State(&self) -> ::windows::core::Result<RTC_WATCHER_STATE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

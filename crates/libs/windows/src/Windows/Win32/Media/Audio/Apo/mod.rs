@@ -581,11 +581,11 @@ pub struct IAudioSystemEffects2(::windows::core::IUnknown);
 impl IAudioSystemEffects2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectsList<P0>(&self, ppeffectsids: ::core::option::Option<*mut *mut ::windows::core::GUID>, pceffects: *mut u32, event: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetEffectsList<P0>(&self, ppeffectsids: *mut *mut ::windows::core::GUID, pceffects: *mut u32, event: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).GetEffectsList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppeffectsids.unwrap_or(::std::ptr::null_mut())), pceffects, event.into()).ok()
+        (::windows::core::Vtable::vtable(self).GetEffectsList)(::windows::core::Vtable::as_raw(self), ppeffectsids, pceffects, event.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAudioSystemEffects2, ::windows::core::IUnknown, IAudioSystemEffects);
@@ -626,19 +626,19 @@ pub struct IAudioSystemEffects3(::windows::core::IUnknown);
 impl IAudioSystemEffects3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectsList<P0>(&self, ppeffectsids: ::core::option::Option<*mut *mut ::windows::core::GUID>, pceffects: *mut u32, event: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetEffectsList<P0>(&self, ppeffectsids: *mut *mut ::windows::core::GUID, pceffects: *mut u32, event: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetEffectsList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppeffectsids.unwrap_or(::std::ptr::null_mut())), pceffects, event.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetEffectsList)(::windows::core::Vtable::as_raw(self), ppeffectsids, pceffects, event.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetControllableSystemEffectsList<P0>(&self, effects: ::core::option::Option<*mut *mut AUDIO_SYSTEMEFFECT>, numeffects: *mut u32, event: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetControllableSystemEffectsList<P0>(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).GetControllableSystemEffectsList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(effects.unwrap_or(::std::ptr::null_mut())), numeffects, event.into()).ok()
+        (::windows::core::Vtable::vtable(self).GetControllableSystemEffectsList)(::windows::core::Vtable::as_raw(self), effects, numeffects, event.into()).ok()
     }
     pub unsafe fn SetAudioSystemEffectState(&self, effectid: ::windows::core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetAudioSystemEffectState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(effectid), state).ok()

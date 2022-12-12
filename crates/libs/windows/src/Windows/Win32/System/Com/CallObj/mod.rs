@@ -30,8 +30,8 @@ impl ICallFrame {
     pub unsafe fn GetIIDAndMethod(&self, piid: *mut ::windows::core::GUID, pimethod: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetIIDAndMethod)(::windows::core::Vtable::as_raw(self), piid, pimethod).ok()
     }
-    pub unsafe fn GetNames(&self, pwszinterface: ::core::option::Option<*mut ::windows::core::PWSTR>, pwszmethod: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszinterface.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pwszmethod.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetNames(&self, pwszinterface: *mut ::windows::core::PWSTR, pwszmethod: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetNames)(::windows::core::Vtable::as_raw(self), pwszinterface, pwszmethod).ok()
     }
     pub unsafe fn GetStackLocation(&self) -> *mut ::core::ffi::c_void {
         (::windows::core::Vtable::vtable(self).GetStackLocation)(::windows::core::Vtable::as_raw(self))
@@ -282,8 +282,8 @@ impl ICallIndirect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMethodInfo(&self, imethod: u32, pinfo: *mut CALLFRAMEINFO, pwszmethod: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetMethodInfo)(::windows::core::Vtable::as_raw(self), imethod, pinfo, ::core::mem::transmute(pwszmethod.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetMethodInfo(&self, imethod: u32, pinfo: *mut CALLFRAMEINFO, pwszmethod: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetMethodInfo)(::windows::core::Vtable::as_raw(self), imethod, pinfo, pwszmethod).ok()
     }
     pub unsafe fn GetStackSize(&self, imethod: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -291,8 +291,8 @@ impl ICallIndirect {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIID(&self, piid: ::core::option::Option<*mut ::windows::core::GUID>, pfderivesfromidispatch: ::core::option::Option<*mut super::super::super::Foundation::BOOL>, pcmethod: ::core::option::Option<*mut u32>, pwszinterface: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetIID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(piid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfderivesfromidispatch.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcmethod.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pwszinterface.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetIID(&self, piid: ::core::option::Option<*mut ::windows::core::GUID>, pfderivesfromidispatch: ::core::option::Option<*mut super::super::super::Foundation::BOOL>, pcmethod: ::core::option::Option<*mut u32>, pwszinterface: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetIID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(piid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfderivesfromidispatch.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcmethod.unwrap_or(::std::ptr::null_mut())), pwszinterface).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICallIndirect, ::windows::core::IUnknown);
@@ -342,8 +342,8 @@ impl ICallInterceptor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMethodInfo(&self, imethod: u32, pinfo: *mut CALLFRAMEINFO, pwszmethod: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetMethodInfo)(::windows::core::Vtable::as_raw(self), imethod, pinfo, ::core::mem::transmute(pwszmethod.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetMethodInfo(&self, imethod: u32, pinfo: *mut CALLFRAMEINFO, pwszmethod: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetMethodInfo)(::windows::core::Vtable::as_raw(self), imethod, pinfo, pwszmethod).ok()
     }
     pub unsafe fn GetStackSize(&self, imethod: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -351,8 +351,8 @@ impl ICallInterceptor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIID(&self, piid: ::core::option::Option<*mut ::windows::core::GUID>, pfderivesfromidispatch: ::core::option::Option<*mut super::super::super::Foundation::BOOL>, pcmethod: ::core::option::Option<*mut u32>, pwszinterface: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetIID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(piid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfderivesfromidispatch.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcmethod.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pwszinterface.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetIID(&self, piid: ::core::option::Option<*mut ::windows::core::GUID>, pfderivesfromidispatch: ::core::option::Option<*mut super::super::super::Foundation::BOOL>, pcmethod: ::core::option::Option<*mut u32>, pwszinterface: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetIID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(piid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfderivesfromidispatch.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcmethod.unwrap_or(::std::ptr::null_mut())), pwszinterface).ok()
     }
     pub unsafe fn RegisterSink<P0>(&self, psink: P0) -> ::windows::core::Result<()>
     where

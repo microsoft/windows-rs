@@ -513,12 +513,12 @@ pub unsafe fn DeleteAce(pacl: *mut ACL, dwaceindex: u32) -> super::Foundation::B
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeriveCapabilitySidsFromName<P0>(capname: P0, capabilitygroupsids: ::core::option::Option<*mut *mut super::Foundation::PSID>, capabilitygroupsidcount: *mut u32, capabilitysids: ::core::option::Option<*mut *mut super::Foundation::PSID>, capabilitysidcount: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn DeriveCapabilitySidsFromName<P0>(capname: P0, capabilitygroupsids: *mut *mut super::Foundation::PSID, capabilitygroupsidcount: *mut u32, capabilitysids: *mut *mut super::Foundation::PSID, capabilitysidcount: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "api-ms-win-security-base-l1-2-2.dll""system" fn DeriveCapabilitySidsFromName ( capname : :: windows::core::PCWSTR , capabilitygroupsids : *mut *mut super::Foundation:: PSID , capabilitygroupsidcount : *mut u32 , capabilitysids : *mut *mut super::Foundation:: PSID , capabilitysidcount : *mut u32 ) -> super::Foundation:: BOOL );
-    DeriveCapabilitySidsFromName(capname.into().abi(), ::core::mem::transmute(capabilitygroupsids.unwrap_or(::std::ptr::null_mut())), capabilitygroupsidcount, ::core::mem::transmute(capabilitysids.unwrap_or(::std::ptr::null_mut())), capabilitysidcount)
+    DeriveCapabilitySidsFromName(capname.into().abi(), capabilitygroupsids, capabilitygroupsidcount, capabilitysids, capabilitysidcount)
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1337,11 +1337,11 @@ pub unsafe fn SetSecurityAccessMask(securityinformation: u32, desiredaccess: *mu
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorControl<P0>(psecuritydescriptor: P0, controlbitsofinterest: u16, controlbitstoset: u16) -> super::Foundation::BOOL
+pub unsafe fn SetSecurityDescriptorControl<P0>(psecuritydescriptor: P0, controlbitsofinterest: SECURITY_DESCRIPTOR_CONTROL, controlbitstoset: SECURITY_DESCRIPTOR_CONTROL) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn SetSecurityDescriptorControl ( psecuritydescriptor : PSECURITY_DESCRIPTOR , controlbitsofinterest : u16 , controlbitstoset : u16 ) -> super::Foundation:: BOOL );
+    ::windows::core::link ! ( "advapi32.dll""system" fn SetSecurityDescriptorControl ( psecuritydescriptor : PSECURITY_DESCRIPTOR , controlbitsofinterest : SECURITY_DESCRIPTOR_CONTROL , controlbitstoset : SECURITY_DESCRIPTOR_CONTROL ) -> super::Foundation:: BOOL );
     SetSecurityDescriptorControl(psecuritydescriptor.into(), controlbitsofinterest, controlbitstoset)
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
@@ -1417,6 +1417,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const CVT_SECONDS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub const SECURITY_DYNAMIC_TRACKING: super::Foundation::BOOLEAN = super::Foundation::BOOLEAN(1u8);
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub const SECURITY_STATIC_TRACKING: super::Foundation::BOOLEAN = super::Foundation::BOOLEAN(0u8);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const cwcFILENAMESUFFIXMAX: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]

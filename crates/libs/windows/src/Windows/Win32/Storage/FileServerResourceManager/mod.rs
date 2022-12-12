@@ -214,8 +214,11 @@ impl IFsrmActionCommand {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMonitorCommand(&self, monitorcommand: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMonitorCommand)(::windows::core::Vtable::as_raw(self), monitorcommand).ok()
+    pub unsafe fn SetMonitorCommand<P0>(&self, monitorcommand: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetMonitorCommand)(::windows::core::Vtable::as_raw(self), monitorcommand.into()).ok()
     }
     pub unsafe fn KillTimeOut(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -232,8 +235,11 @@ impl IFsrmActionCommand {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogResult(&self, logresults: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetLogResult)(::windows::core::Vtable::as_raw(self), logresults).ok()
+    pub unsafe fn SetLogResult<P0>(&self, logresults: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetLogResult)(::windows::core::Vtable::as_raw(self), logresults.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -907,8 +913,11 @@ impl IFsrmClassificationManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClassificationReportEnabled(&self, reportenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetClassificationReportEnabled)(::windows::core::Vtable::as_raw(self), reportenabled).ok()
+    pub unsafe fn SetClassificationReportEnabled<P0>(&self, reportenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetClassificationReportEnabled)(::windows::core::Vtable::as_raw(self), reportenabled.into()).ok()
     }
     pub unsafe fn ClassificationLastReportPathWithoutExtension(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1157,8 +1166,11 @@ impl IFsrmClassificationManager2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClassificationReportEnabled(&self, reportenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetClassificationReportEnabled)(::windows::core::Vtable::as_raw(self), reportenabled).ok()
+    pub unsafe fn SetClassificationReportEnabled<P0>(&self, reportenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetClassificationReportEnabled)(::windows::core::Vtable::as_raw(self), reportenabled.into()).ok()
     }
     pub unsafe fn ClassificationLastReportPathWithoutExtension(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1505,8 +1517,11 @@ impl IFsrmClassifierModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetEnabled)(::windows::core::Vtable::as_raw(self), enabled).ok()
+    pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetEnabled)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1516,8 +1531,11 @@ impl IFsrmClassifierModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNeedsFileContent(&self, needsfilecontent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetNeedsFileContent)(::windows::core::Vtable::as_raw(self), needsfilecontent).ok()
+    pub unsafe fn SetNeedsFileContent<P0>(&self, needsfilecontent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetNeedsFileContent)(::windows::core::Vtable::as_raw(self), needsfilecontent.into()).ok()
     }
     pub unsafe fn Account(&self) -> ::windows::core::Result<FsrmAccountType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1578,8 +1596,11 @@ impl IFsrmClassifierModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNeedsExplicitValue(&self, needsexplicitvalue: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetNeedsExplicitValue)(::windows::core::Vtable::as_raw(self), needsexplicitvalue).ok()
+    pub unsafe fn SetNeedsExplicitValue<P0>(&self, needsexplicitvalue: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetNeedsExplicitValue)(::windows::core::Vtable::as_raw(self), needsexplicitvalue.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2443,8 +2464,11 @@ impl IFsrmFileGroupImported {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOverwriteOnCommit)(::windows::core::Vtable::as_raw(self), overwrite).ok()
+    pub unsafe fn SetOverwriteOnCommit<P0>(&self, overwrite: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetOverwriteOnCommit)(::windows::core::Vtable::as_raw(self), overwrite.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2633,8 +2657,11 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), enabled).ok()
+    pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
     pub unsafe fn OperationType(&self) -> ::windows::core::Result<FsrmFileManagementType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2677,8 +2704,11 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReportEnabled(&self, reportenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetReportEnabled)(::windows::core::Vtable::as_raw(self), reportenabled).ok()
+    pub unsafe fn SetReportEnabled<P0>(&self, reportenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetReportEnabled)(::windows::core::Vtable::as_raw(self), reportenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3705,8 +3735,11 @@ impl IFsrmFileScreenTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOverwriteOnCommit)(::windows::core::Vtable::as_raw(self), overwrite).ok()
+    pub unsafe fn SetOverwriteOnCommit<P0>(&self, overwrite: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetOverwriteOnCommit)(::windows::core::Vtable::as_raw(self), overwrite.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4211,8 +4244,11 @@ impl IFsrmPipelineModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), enabled).ok()
+    pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4222,8 +4258,11 @@ impl IFsrmPipelineModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNeedsFileContent(&self, needsfilecontent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetNeedsFileContent)(::windows::core::Vtable::as_raw(self), needsfilecontent).ok()
+    pub unsafe fn SetNeedsFileContent<P0>(&self, needsfilecontent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetNeedsFileContent)(::windows::core::Vtable::as_raw(self), needsfilecontent.into()).ok()
     }
     pub unsafe fn Account(&self) -> ::windows::core::Result<FsrmAccountType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6169,8 +6208,11 @@ impl IFsrmQuotaTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOverwriteOnCommit)(::windows::core::Vtable::as_raw(self), overwrite).ok()
+    pub unsafe fn SetOverwriteOnCommit<P0>(&self, overwrite: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetOverwriteOnCommit)(::windows::core::Vtable::as_raw(self), overwrite.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6957,8 +6999,11 @@ impl IFsrmSetting {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDisableCommandLine(&self, disablecommandline: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDisableCommandLine)(::windows::core::Vtable::as_raw(self), disablecommandline).ok()
+    pub unsafe fn SetDisableCommandLine<P0>(&self, disablecommandline: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetDisableCommandLine)(::windows::core::Vtable::as_raw(self), disablecommandline.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6968,8 +7013,11 @@ impl IFsrmSetting {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableScreeningAudit(&self, enablescreeningaudit: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnableScreeningAudit)(::windows::core::Vtable::as_raw(self), enablescreeningaudit).ok()
+    pub unsafe fn SetEnableScreeningAudit<P0>(&self, enablescreeningaudit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnableScreeningAudit)(::windows::core::Vtable::as_raw(self), enablescreeningaudit.into()).ok()
     }
     pub unsafe fn EmailTest(&self, mailto: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EmailTest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(mailto)).ok()
@@ -7106,8 +7154,11 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetEnabled)(::windows::core::Vtable::as_raw(self), enabled).ok()
+    pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetEnabled)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7117,8 +7168,11 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNeedsFileContent(&self, needsfilecontent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetNeedsFileContent)(::windows::core::Vtable::as_raw(self), needsfilecontent).ok()
+    pub unsafe fn SetNeedsFileContent<P0>(&self, needsfilecontent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetNeedsFileContent)(::windows::core::Vtable::as_raw(self), needsfilecontent.into()).ok()
     }
     pub unsafe fn Account(&self) -> ::windows::core::Result<FsrmAccountType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7171,8 +7225,11 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUpdatesFileContent(&self, updatesfilecontent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUpdatesFileContent)(::windows::core::Vtable::as_raw(self), updatesfilecontent).ok()
+    pub unsafe fn SetUpdatesFileContent<P0>(&self, updatesfilecontent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetUpdatesFileContent)(::windows::core::Vtable::as_raw(self), updatesfilecontent.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

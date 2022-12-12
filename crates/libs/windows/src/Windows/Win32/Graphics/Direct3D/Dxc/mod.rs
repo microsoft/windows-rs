@@ -668,11 +668,12 @@ pub struct IDxcExtraOutputs_Vtbl {
 #[repr(transparent)]
 pub struct IDxcIncludeHandler(::windows::core::IUnknown);
 impl IDxcIncludeHandler {
-    pub unsafe fn LoadSource<P0>(&self, pfilename: P0, ppincludesource: ::core::option::Option<*mut ::core::option::Option<IDxcBlob>>) -> ::windows::core::Result<()>
+    pub unsafe fn LoadSource<P0>(&self, pfilename: P0) -> ::windows::core::Result<IDxcBlob>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).LoadSource)(::windows::core::Vtable::as_raw(self), pfilename.into().abi(), ::core::mem::transmute(ppincludesource.unwrap_or(::std::ptr::null_mut()))).ok()
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).LoadSource)(::windows::core::Vtable::as_raw(self), pfilename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcIncludeHandler, ::windows::core::IUnknown);
@@ -880,11 +881,13 @@ impl IDxcOperationResult {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetResult(&self, ppresult: ::core::option::Option<*mut ::core::option::Option<IDxcBlob>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppresult.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetResult(&self) -> ::windows::core::Result<IDxcBlob> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetErrorBuffer(&self, pperrors: ::core::option::Option<*mut ::core::option::Option<IDxcBlobEncoding>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetErrorBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pperrors.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetErrorBuffer(&self) -> ::windows::core::Result<IDxcBlobEncoding> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetErrorBuffer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcOperationResult, ::windows::core::IUnknown);
@@ -1195,11 +1198,13 @@ impl IDxcResult {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetResult(&self, ppresult: ::core::option::Option<*mut ::core::option::Option<IDxcBlob>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetResult)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppresult.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetResult(&self) -> ::windows::core::Result<IDxcBlob> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.GetResult)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetErrorBuffer(&self, pperrors: ::core::option::Option<*mut ::core::option::Option<IDxcBlobEncoding>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetErrorBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pperrors.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetErrorBuffer(&self) -> ::windows::core::Result<IDxcBlobEncoding> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.GetErrorBuffer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

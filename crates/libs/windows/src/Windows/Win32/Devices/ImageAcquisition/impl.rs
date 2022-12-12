@@ -1581,7 +1581,7 @@ impl IWiaMiniDrvCallBack_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWiaMiniDrvTransferCallback_Impl: Sized {
-    fn GetNextStream(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR, ppistream: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn GetNextStream(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream>;
     fn SendMessage(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1592,7 +1592,13 @@ impl IWiaMiniDrvTransferCallback_Vtbl {
         unsafe extern "system" fn GetNextStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrvTransferCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, bstritemname: *mut ::core::ffi::c_void, bstrfullitemname: *mut ::core::ffi::c_void, ppistream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetNextStream(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&bstritemname), ::core::mem::transmute(&bstrfullitemname), ::core::mem::transmute_copy(&ppistream)).into()
+            match this.GetNextStream(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&bstritemname), ::core::mem::transmute(&bstrfullitemname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppistream, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SendMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrvTransferCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1892,7 +1898,7 @@ impl IWiaTransfer_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWiaTransferCallback_Impl: Sized {
     fn TransferCallback(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::core::Result<()>;
-    fn GetNextStream(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR, ppdestination: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn GetNextStream(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IWiaTransferCallback {}
@@ -1907,7 +1913,13 @@ impl IWiaTransferCallback_Vtbl {
         unsafe extern "system" fn GetNextStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaTransferCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, bstritemname: *mut ::core::ffi::c_void, bstrfullitemname: *mut ::core::ffi::c_void, ppdestination: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetNextStream(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&bstritemname), ::core::mem::transmute(&bstrfullitemname), ::core::mem::transmute_copy(&ppdestination)).into()
+            match this.GetNextStream(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&bstritemname), ::core::mem::transmute(&bstrfullitemname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppdestination, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

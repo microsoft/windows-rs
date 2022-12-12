@@ -1448,8 +1448,11 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogAppend(&self, append: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogAppend)(::windows::core::Vtable::as_raw(self), append).ok()
+    pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogAppend)(::windows::core::Vtable::as_raw(self), append.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1459,8 +1462,11 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogCircular(&self, circular: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogCircular)(::windows::core::Vtable::as_raw(self), circular).ok()
+    pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogCircular)(::windows::core::Vtable::as_raw(self), circular.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1470,8 +1476,11 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogOverwrite(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogOverwrite)(::windows::core::Vtable::as_raw(self), overwrite).ok()
+    pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogOverwrite)(::windows::core::Vtable::as_raw(self), overwrite.into()).ok()
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1503,9 +1512,12 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateOutputLocation(&self, latest: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateOutputLocation)(::windows::core::Vtable::as_raw(self), latest, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateOutputLocation)(::windows::core::Vtable::as_raw(self), latest.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1526,8 +1538,11 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventLog(&self, log: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEventLog)(::windows::core::Vtable::as_raw(self), log).ok()
+    pub unsafe fn SetEventLog<P0>(&self, log: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEventLog)(::windows::core::Vtable::as_raw(self), log.into()).ok()
     }
     pub unsafe fn SampleInterval(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1551,8 +1566,11 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTaskRunAsSelf(&self, runasself: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTaskRunAsSelf)(::windows::core::Vtable::as_raw(self), runasself).ok()
+    pub unsafe fn SetTaskRunAsSelf<P0>(&self, runasself: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetTaskRunAsSelf)(::windows::core::Vtable::as_raw(self), runasself.into()).ok()
     }
     pub unsafe fn TaskArguments(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1706,8 +1724,11 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogAppend(&self, append: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogAppend)(::windows::core::Vtable::as_raw(self), append).ok()
+    pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogAppend)(::windows::core::Vtable::as_raw(self), append.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1717,8 +1738,11 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogCircular(&self, circular: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogCircular)(::windows::core::Vtable::as_raw(self), circular).ok()
+    pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogCircular)(::windows::core::Vtable::as_raw(self), circular.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1728,8 +1752,11 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogOverwrite(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogOverwrite)(::windows::core::Vtable::as_raw(self), overwrite).ok()
+    pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogOverwrite)(::windows::core::Vtable::as_raw(self), overwrite.into()).ok()
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1761,9 +1788,12 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateOutputLocation(&self, latest: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateOutputLocation)(::windows::core::Vtable::as_raw(self), latest, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateOutputLocation)(::windows::core::Vtable::as_raw(self), latest.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1773,8 +1803,11 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogApiNamesOnly(&self, logapinames: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetLogApiNamesOnly)(::windows::core::Vtable::as_raw(self), logapinames).ok()
+    pub unsafe fn SetLogApiNamesOnly<P0>(&self, logapinames: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetLogApiNamesOnly)(::windows::core::Vtable::as_raw(self), logapinames.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1784,8 +1817,11 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogApisRecursively(&self, logrecursively: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetLogApisRecursively)(::windows::core::Vtable::as_raw(self), logrecursively).ok()
+    pub unsafe fn SetLogApisRecursively<P0>(&self, logrecursively: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetLogApisRecursively)(::windows::core::Vtable::as_raw(self), logrecursively.into()).ok()
     }
     pub unsafe fn ExePath(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1975,8 +2011,11 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogAppend(&self, append: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogAppend)(::windows::core::Vtable::as_raw(self), append).ok()
+    pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogAppend)(::windows::core::Vtable::as_raw(self), append.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1986,8 +2025,11 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogCircular(&self, circular: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogCircular)(::windows::core::Vtable::as_raw(self), circular).ok()
+    pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogCircular)(::windows::core::Vtable::as_raw(self), circular.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1997,8 +2039,11 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogOverwrite(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogOverwrite)(::windows::core::Vtable::as_raw(self), overwrite).ok()
+    pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogOverwrite)(::windows::core::Vtable::as_raw(self), overwrite.into()).ok()
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2030,9 +2075,12 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateOutputLocation(&self, latest: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateOutputLocation)(::windows::core::Vtable::as_raw(self), latest, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateOutputLocation)(::windows::core::Vtable::as_raw(self), latest.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn FileMaxCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2085,8 +2133,11 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetQueryNetworkAdapters(&self, network: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetQueryNetworkAdapters)(::windows::core::Vtable::as_raw(self), network).ok()
+    pub unsafe fn SetQueryNetworkAdapters<P0>(&self, network: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetQueryNetworkAdapters)(::windows::core::Vtable::as_raw(self), network.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2327,8 +2378,11 @@ impl ICounterItem2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSelected(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSelected)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetSelected<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSelected)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2338,8 +2392,11 @@ impl ICounterItem2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVisible(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetVisible)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetVisible<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetVisible)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2544,8 +2601,11 @@ impl IDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogAppend(&self, append: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetLogAppend)(::windows::core::Vtable::as_raw(self), append).ok()
+    pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetLogAppend)(::windows::core::Vtable::as_raw(self), append.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2555,8 +2615,11 @@ impl IDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogCircular(&self, circular: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetLogCircular)(::windows::core::Vtable::as_raw(self), circular).ok()
+    pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetLogCircular)(::windows::core::Vtable::as_raw(self), circular.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2566,8 +2629,11 @@ impl IDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogOverwrite(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetLogOverwrite)(::windows::core::Vtable::as_raw(self), overwrite).ok()
+    pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetLogOverwrite)(::windows::core::Vtable::as_raw(self), overwrite.into()).ok()
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2599,9 +2665,12 @@ impl IDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateOutputLocation(&self, latest: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateOutputLocation)(::windows::core::Vtable::as_raw(self), latest, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateOutputLocation)(::windows::core::Vtable::as_raw(self), latest.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2896,8 +2965,11 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSegment(&self, segment: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSegment)(::windows::core::Vtable::as_raw(self), segment).ok()
+    pub unsafe fn SetSegment<P0>(&self, segment: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSegment)(::windows::core::Vtable::as_raw(self), segment.into()).ok()
     }
     pub unsafe fn SegmentMaxDuration(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2964,8 +3036,11 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTaskRunAsSelf(&self, runasself: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTaskRunAsSelf)(::windows::core::Vtable::as_raw(self), runasself).ok()
+    pub unsafe fn SetTaskRunAsSelf<P0>(&self, runasself: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetTaskRunAsSelf)(::windows::core::Vtable::as_raw(self), runasself.into()).ok()
     }
     pub unsafe fn TaskArguments(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2995,8 +3070,11 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSchedulesEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSchedulesEnabled)(::windows::core::Vtable::as_raw(self), enabled).ok()
+    pub unsafe fn SetSchedulesEnabled<P0>(&self, enabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSchedulesEnabled)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
     pub unsafe fn UserAccount(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3021,8 +3099,11 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStopOnCompletion(&self, stop: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetStopOnCompletion)(::windows::core::Vtable::as_raw(self), stop).ok()
+    pub unsafe fn SetStopOnCompletion<P0>(&self, stop: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetStopOnCompletion)(::windows::core::Vtable::as_raw(self), stop.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3047,13 +3128,19 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Start(&self, synchronous: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Start)(::windows::core::Vtable::as_raw(self), synchronous).ok()
+    pub unsafe fn Start<P0>(&self, synchronous: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).Start)(::windows::core::Vtable::as_raw(self), synchronous.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Stop(&self, synchronous: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Stop)(::windows::core::Vtable::as_raw(self), synchronous).ok()
+    pub unsafe fn Stop<P0>(&self, synchronous: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).Stop)(::windows::core::Vtable::as_raw(self), synchronous.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3334,8 +3421,11 @@ impl IDataManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), fenabled).ok()
+    pub unsafe fn SetEnabled<P0>(&self, fenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), fenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3345,8 +3435,11 @@ impl IDataManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCheckBeforeRunning(&self, fcheck: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCheckBeforeRunning)(::windows::core::Vtable::as_raw(self), fcheck).ok()
+    pub unsafe fn SetCheckBeforeRunning<P0>(&self, fcheck: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetCheckBeforeRunning)(::windows::core::Vtable::as_raw(self), fcheck.into()).ok()
     }
     pub unsafe fn MinFreeDisk(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3875,8 +3968,11 @@ impl IPerformanceCounterDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogAppend(&self, append: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogAppend)(::windows::core::Vtable::as_raw(self), append).ok()
+    pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogAppend)(::windows::core::Vtable::as_raw(self), append.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3886,8 +3982,11 @@ impl IPerformanceCounterDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogCircular(&self, circular: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogCircular)(::windows::core::Vtable::as_raw(self), circular).ok()
+    pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogCircular)(::windows::core::Vtable::as_raw(self), circular.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3897,8 +3996,11 @@ impl IPerformanceCounterDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogOverwrite(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogOverwrite)(::windows::core::Vtable::as_raw(self), overwrite).ok()
+    pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogOverwrite)(::windows::core::Vtable::as_raw(self), overwrite.into()).ok()
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3930,9 +4032,12 @@ impl IPerformanceCounterDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateOutputLocation(&self, latest: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateOutputLocation)(::windows::core::Vtable::as_raw(self), latest, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateOutputLocation)(::windows::core::Vtable::as_raw(self), latest.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn DataSourceName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4299,8 +4404,11 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowVerticalGrid)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowVerticalGrid<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowVerticalGrid)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4310,8 +4418,11 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowHorizontalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowHorizontalGrid)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowHorizontalGrid<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowHorizontalGrid)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4321,8 +4432,11 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowLegend(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowLegend)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowLegend<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowLegend)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4332,8 +4446,11 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowScaleLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowScaleLabels)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowScaleLabels<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowScaleLabels)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4343,8 +4460,11 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowValueBar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowValueBar)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowValueBar<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowValueBar)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4382,8 +4502,11 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetManualUpdate(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetManualUpdate)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetManualUpdate<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetManualUpdate)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4481,8 +4604,11 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHighlight(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetHighlight)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetHighlight<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetHighlight)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4492,8 +4618,11 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowToolbar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowToolbar)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowToolbar<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowToolbar)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     pub unsafe fn Paste(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Paste)(::windows::core::Vtable::as_raw(self)).ok()
@@ -4506,8 +4635,11 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReadOnly(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetReadOnly)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetReadOnly<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetReadOnly)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4524,8 +4656,11 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMonitorDuplicateInstances)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetMonitorDuplicateInstances<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetMonitorDuplicateInstances)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4798,8 +4933,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetShowVerticalGrid)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowVerticalGrid<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetShowVerticalGrid)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4809,8 +4947,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowHorizontalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetShowHorizontalGrid)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowHorizontalGrid<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetShowHorizontalGrid)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4820,8 +4961,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowLegend(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetShowLegend)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowLegend<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetShowLegend)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4831,8 +4975,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowScaleLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetShowScaleLabels)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowScaleLabels<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetShowScaleLabels)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4842,8 +4989,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowValueBar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetShowValueBar)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowValueBar<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetShowValueBar)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4881,8 +5031,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetManualUpdate(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetManualUpdate)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetManualUpdate<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetManualUpdate)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4980,8 +5133,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHighlight(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetHighlight)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetHighlight<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetHighlight)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4991,8 +5147,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowToolbar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetShowToolbar)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowToolbar<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetShowToolbar)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     pub unsafe fn Paste(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Paste)(::windows::core::Vtable::as_raw(self)).ok()
@@ -5005,8 +5164,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReadOnly(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetReadOnly)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetReadOnly<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetReadOnly)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5023,8 +5185,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetMonitorDuplicateInstances)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetMonitorDuplicateInstances<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetMonitorDuplicateInstances)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5068,8 +5233,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableDigitGrouping(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnableDigitGrouping)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetEnableDigitGrouping<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnableDigitGrouping)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5079,8 +5247,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableToolTips(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnableToolTips)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetEnableToolTips<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnableToolTips)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5090,8 +5261,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowTimeAxisLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowTimeAxisLabels)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowTimeAxisLabels<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowTimeAxisLabels)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5101,8 +5275,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetChartScroll(&self, bscroll: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetChartScroll)(::windows::core::Vtable::as_raw(self), bscroll).ok()
+    pub unsafe fn SetChartScroll<P0>(&self, bscroll: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetChartScroll)(::windows::core::Vtable::as_raw(self), bscroll.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5119,8 +5296,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ScaleToFit(&self, bselectedcountersonly: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ScaleToFit)(::windows::core::Vtable::as_raw(self), bselectedcountersonly).ok()
+    pub unsafe fn ScaleToFit<P0>(&self, bselectedcountersonly: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).ScaleToFit)(::windows::core::Vtable::as_raw(self), bselectedcountersonly.into()).ok()
     }
     pub unsafe fn SaveAs(&self, bstrfilename: &::windows::core::BSTR, esysmonfiletype: SysmonFileType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SaveAs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrfilename), esysmonfiletype).ok()
@@ -5147,8 +5327,11 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BatchingLock(&self, flock: super::super::Foundation::VARIANT_BOOL, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BatchingLock)(::windows::core::Vtable::as_raw(self), flock, ebatchreason).ok()
+    pub unsafe fn BatchingLock<P0>(&self, flock: P0, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).BatchingLock)(::windows::core::Vtable::as_raw(self), flock.into(), ebatchreason).ok()
     }
     pub unsafe fn LoadSettings(&self, bstrsettingfilename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).LoadSettings)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrsettingfilename)).ok()
@@ -5345,8 +5528,11 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogAppend(&self, append: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogAppend)(::windows::core::Vtable::as_raw(self), append).ok()
+    pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogAppend)(::windows::core::Vtable::as_raw(self), append.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5356,8 +5542,11 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogCircular(&self, circular: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogCircular)(::windows::core::Vtable::as_raw(self), circular).ok()
+    pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogCircular)(::windows::core::Vtable::as_raw(self), circular.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5367,8 +5556,11 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogOverwrite(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetLogOverwrite)(::windows::core::Vtable::as_raw(self), overwrite).ok()
+    pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetLogOverwrite)(::windows::core::Vtable::as_raw(self), overwrite.into()).ok()
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5400,9 +5592,12 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateOutputLocation(&self, latest: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateOutputLocation)(::windows::core::Vtable::as_raw(self), latest, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateOutputLocation)(::windows::core::Vtable::as_raw(self), latest.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn BufferSize(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5502,8 +5697,11 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPreallocateFile(&self, allocate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPreallocateFile)(::windows::core::Vtable::as_raw(self), allocate).ok()
+    pub unsafe fn SetPreallocateFile<P0>(&self, allocate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetPreallocateFile)(::windows::core::Vtable::as_raw(self), allocate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5513,8 +5711,11 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetProcessMode(&self, process: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetProcessMode)(::windows::core::Vtable::as_raw(self), process).ok()
+    pub unsafe fn SetProcessMode<P0>(&self, process: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetProcessMode)(::windows::core::Vtable::as_raw(self), process.into()).ok()
     }
     pub unsafe fn RealTimeBuffersLost(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5704,8 +5905,11 @@ impl ITraceDataProvider {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFilterEnabled(&self, filterenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetFilterEnabled)(::windows::core::Vtable::as_raw(self), filterenabled).ok()
+    pub unsafe fn SetFilterEnabled<P0>(&self, filterenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetFilterEnabled)(::windows::core::Vtable::as_raw(self), filterenabled.into()).ok()
     }
     pub unsafe fn FilterType(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6118,8 +6322,11 @@ impl IValueMapItem {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), enabled).ok()
+    pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
     pub unsafe fn Key(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6253,8 +6460,11 @@ impl _ICounterItemUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSelected(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSelected)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetSelected<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSelected)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6264,8 +6474,11 @@ impl _ICounterItemUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVisible(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetVisible)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetVisible<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetVisible)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6394,8 +6607,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowVerticalGrid)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowVerticalGrid<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowVerticalGrid)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6405,8 +6621,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowHorizontalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowHorizontalGrid)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowHorizontalGrid<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowHorizontalGrid)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6416,8 +6635,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowLegend(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowLegend)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowLegend<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowLegend)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6427,8 +6649,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowScaleLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowScaleLabels)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowScaleLabels<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowScaleLabels)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6438,8 +6663,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowValueBar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowValueBar)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowValueBar<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowValueBar)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6477,8 +6705,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetManualUpdate(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetManualUpdate)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetManualUpdate<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetManualUpdate)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6576,8 +6807,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHighlight(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetHighlight)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetHighlight<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetHighlight)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6587,8 +6821,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowToolbar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowToolbar)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowToolbar<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowToolbar)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     pub unsafe fn Paste(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Paste)(::windows::core::Vtable::as_raw(self)).ok()
@@ -6601,8 +6838,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReadOnly(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetReadOnly)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetReadOnly<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetReadOnly)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6619,8 +6859,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMonitorDuplicateInstances)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetMonitorDuplicateInstances<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetMonitorDuplicateInstances)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6664,8 +6907,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableDigitGrouping(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnableDigitGrouping)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetEnableDigitGrouping<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnableDigitGrouping)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6675,8 +6921,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnableToolTips(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnableToolTips)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetEnableToolTips<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnableToolTips)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6686,8 +6935,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowTimeAxisLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowTimeAxisLabels)(::windows::core::Vtable::as_raw(self), bstate).ok()
+    pub unsafe fn SetShowTimeAxisLabels<P0>(&self, bstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowTimeAxisLabels)(::windows::core::Vtable::as_raw(self), bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6697,8 +6949,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetChartScroll(&self, bscroll: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetChartScroll)(::windows::core::Vtable::as_raw(self), bscroll).ok()
+    pub unsafe fn SetChartScroll<P0>(&self, bscroll: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetChartScroll)(::windows::core::Vtable::as_raw(self), bscroll.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6715,8 +6970,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ScaleToFit(&self, bselectedcountersonly: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ScaleToFit)(::windows::core::Vtable::as_raw(self), bselectedcountersonly).ok()
+    pub unsafe fn ScaleToFit<P0>(&self, bselectedcountersonly: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).ScaleToFit)(::windows::core::Vtable::as_raw(self), bselectedcountersonly.into()).ok()
     }
     pub unsafe fn SaveAs(&self, bstrfilename: &::windows::core::BSTR, esysmonfiletype: SysmonFileType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SaveAs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrfilename), esysmonfiletype).ok()
@@ -6743,8 +7001,11 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BatchingLock(&self, flock: super::super::Foundation::VARIANT_BOOL, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BatchingLock)(::windows::core::Vtable::as_raw(self), flock, ebatchreason).ok()
+    pub unsafe fn BatchingLock<P0>(&self, flock: P0, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).BatchingLock)(::windows::core::Vtable::as_raw(self), flock.into(), ebatchreason).ok()
     }
     pub unsafe fn LoadSettings(&self, bstrsettingfilename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).LoadSettings)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrsettingfilename)).ok()
@@ -7333,6 +7594,22 @@ pub const PERF_TYPE_ZERO: u32 = 3072u32;
 pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_WILDCARD_INSTANCE: ::windows::core::PCWSTR = ::windows::w!("*");
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PLAL_ALERT_CMD_LINE_A_NAME: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PLAL_ALERT_CMD_LINE_C_NAME: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PLAL_ALERT_CMD_LINE_D_TIME: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PLAL_ALERT_CMD_LINE_L_VAL: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PLAL_ALERT_CMD_LINE_MASK: u32 = 32512u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PLAL_ALERT_CMD_LINE_M_VAL: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PLAL_ALERT_CMD_LINE_SINGLE: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PLAL_ALERT_CMD_LINE_U_TEXT: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PLA_CAPABILITY_AUTOLOGGER: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]

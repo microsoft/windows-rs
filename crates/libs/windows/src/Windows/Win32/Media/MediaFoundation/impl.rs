@@ -7882,7 +7882,7 @@ impl IMFMediaEngineClassFactoryEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
 pub trait IMFMediaEngineEME_Impl: Sized {
-    fn Keys(&self, keys: *mut ::core::option::Option<IMFMediaKeys>) -> ::windows::core::Result<()>;
+    fn Keys(&self) -> ::windows::core::Result<IMFMediaKeys>;
     fn SetMediaKeys(&self, keys: &::core::option::Option<IMFMediaKeys>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IMFMediaEngineEME {}
@@ -7891,7 +7891,13 @@ impl IMFMediaEngineEME_Vtbl {
         unsafe extern "system" fn Keys<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keys: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Keys(::core::mem::transmute_copy(&keys)).into()
+            match this.Keys() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(keys, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetMediaKeys<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keys: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -8558,7 +8564,7 @@ impl IMFMediaEngineSrcElements_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
 pub trait IMFMediaEngineSrcElementsEx_Impl: Sized + IMFMediaEngineSrcElements_Impl {
     fn AddElementEx(&self, purl: &::windows::core::BSTR, ptype: &::windows::core::BSTR, pmedia: &::windows::core::BSTR, keysystem: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn GetKeySystem(&self, index: u32, ptype: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn GetKeySystem(&self, index: u32) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 impl ::windows::core::RuntimeName for IMFMediaEngineSrcElementsEx {}
 impl IMFMediaEngineSrcElementsEx_Vtbl {
@@ -8571,7 +8577,13 @@ impl IMFMediaEngineSrcElementsEx_Vtbl {
         unsafe extern "system" fn GetKeySystem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineSrcElementsEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, ptype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetKeySystem(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&ptype)).into()
+            match this.GetKeySystem(::core::mem::transmute_copy(&index)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ptype, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base__: IMFMediaEngineSrcElements_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -13351,7 +13363,7 @@ pub trait IMFSensorDevice_Impl: Sized {
     fn GetDeviceType(&self) -> ::windows::core::Result<MFSensorDeviceType>;
     fn GetFlags(&self) -> ::windows::core::Result<u64>;
     fn GetSymbolicLink(&self, symboliclink: ::windows::core::PWSTR, cchsymboliclink: i32, pcchwritten: *mut i32) -> ::windows::core::Result<()>;
-    fn GetDeviceAttributes(&self, ppattributes: *mut ::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
+    fn GetDeviceAttributes(&self) -> ::windows::core::Result<IMFAttributes>;
     fn GetStreamAttributesCount(&self, etype: MFSensorStreamType) -> ::windows::core::Result<u32>;
     fn GetStreamAttributes(&self, etype: MFSensorStreamType, dwindex: u32) -> ::windows::core::Result<IMFAttributes>;
     fn SetSensorDeviceMode(&self, emode: MFSensorDeviceMode) -> ::windows::core::Result<()>;
@@ -13401,7 +13413,13 @@ impl IMFSensorDevice_Vtbl {
         unsafe extern "system" fn GetDeviceAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSensorDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppattributes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDeviceAttributes(::core::mem::transmute_copy(&ppattributes)).into()
+            match this.GetDeviceAttributes() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppattributes, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetStreamAttributesCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSensorDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, etype: MFSensorStreamType, pdwcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -13462,7 +13480,7 @@ impl IMFSensorDevice_Vtbl {
 pub trait IMFSensorGroup_Impl: Sized {
     fn GetSymbolicLink(&self, symboliclink: ::windows::core::PWSTR, cchsymboliclink: i32, pcchwritten: *mut i32) -> ::windows::core::Result<()>;
     fn GetFlags(&self) -> ::windows::core::Result<u64>;
-    fn GetSensorGroupAttributes(&self, ppattributes: *mut ::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
+    fn GetSensorGroupAttributes(&self) -> ::windows::core::Result<IMFAttributes>;
     fn GetSensorDeviceCount(&self) -> ::windows::core::Result<u32>;
     fn GetSensorDevice(&self, dwindex: u32) -> ::windows::core::Result<IMFSensorDevice>;
     fn SetDefaultSensorDeviceIndex(&self, dwindex: u32) -> ::windows::core::Result<()>;
@@ -13491,7 +13509,13 @@ impl IMFSensorGroup_Vtbl {
         unsafe extern "system" fn GetSensorGroupAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSensorGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppattributes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSensorGroupAttributes(::core::mem::transmute_copy(&ppattributes)).into()
+            match this.GetSensorGroupAttributes() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppattributes, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetSensorDeviceCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSensorGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -15377,9 +15401,9 @@ pub trait IMFTimedTextCue_Impl: Sized {
     fn GetStartTime(&self) -> f64;
     fn GetDuration(&self) -> f64;
     fn GetTrackId(&self) -> u32;
-    fn GetData(&self, data: *mut ::core::option::Option<IMFTimedTextBinary>) -> ::windows::core::Result<()>;
-    fn GetRegion(&self, region: *mut ::core::option::Option<IMFTimedTextRegion>) -> ::windows::core::Result<()>;
-    fn GetStyle(&self, style: *mut ::core::option::Option<IMFTimedTextStyle>) -> ::windows::core::Result<()>;
+    fn GetData(&self) -> ::windows::core::Result<IMFTimedTextBinary>;
+    fn GetRegion(&self) -> ::windows::core::Result<IMFTimedTextRegion>;
+    fn GetStyle(&self) -> ::windows::core::Result<IMFTimedTextStyle>;
     fn GetLineCount(&self) -> u32;
     fn GetLine(&self, index: u32) -> ::windows::core::Result<IMFTimedTextFormattedText>;
 }
@@ -15425,17 +15449,35 @@ impl IMFTimedTextCue_Vtbl {
         unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTimedTextCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetData(::core::mem::transmute_copy(&data)).into()
+            match this.GetData() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(data, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetRegion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTimedTextCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, region: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetRegion(::core::mem::transmute_copy(&region)).into()
+            match this.GetRegion() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(region, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetStyle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTimedTextCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, style: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetStyle(::core::mem::transmute_copy(&style)).into()
+            match this.GetStyle() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(style, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetLineCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTimedTextCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -15555,7 +15597,7 @@ impl IMFTimedTextCueList_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
 pub trait IMFTimedTextFormattedText_Impl: Sized {
-    fn GetText(&self, text: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn GetText(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetSubformattingCount(&self) -> u32;
     fn GetSubformatting(&self, index: u32, firstchar: *mut u32, charlength: *mut u32, style: *mut ::core::option::Option<IMFTimedTextStyle>) -> ::windows::core::Result<()>;
 }
@@ -15565,7 +15607,13 @@ impl IMFTimedTextFormattedText_Vtbl {
         unsafe extern "system" fn GetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTimedTextFormattedText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetText(::core::mem::transmute_copy(&text)).into()
+            match this.GetText() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(text, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetSubformattingCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTimedTextFormattedText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -16040,8 +16088,8 @@ impl IMFTimedTextStyle_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMFTimedTextStyle2_Impl: Sized {
-    fn GetRuby(&self, ruby: *mut ::core::option::Option<IMFTimedTextRuby>) -> ::windows::core::Result<()>;
-    fn GetBouten(&self, bouten: *mut ::core::option::Option<IMFTimedTextBouten>) -> ::windows::core::Result<()>;
+    fn GetRuby(&self) -> ::windows::core::Result<IMFTimedTextRuby>;
+    fn GetBouten(&self) -> ::windows::core::Result<IMFTimedTextBouten>;
     fn IsTextCombined(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetFontAngleInDegrees(&self) -> ::windows::core::Result<f64>;
 }
@@ -16053,12 +16101,24 @@ impl IMFTimedTextStyle2_Vtbl {
         unsafe extern "system" fn GetRuby<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTimedTextStyle2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ruby: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetRuby(::core::mem::transmute_copy(&ruby)).into()
+            match this.GetRuby() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ruby, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetBouten<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTimedTextStyle2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bouten: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetBouten(::core::mem::transmute_copy(&bouten)).into()
+            match this.GetBouten() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(bouten, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn IsTextCombined<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTimedTextStyle2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -16710,11 +16770,11 @@ impl IMFTrackedSample_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
 pub trait IMFTranscodeProfile_Impl: Sized {
     fn SetAudioAttributes(&self, pattrs: &::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
-    fn GetAudioAttributes(&self, ppattrs: *mut ::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
+    fn GetAudioAttributes(&self) -> ::windows::core::Result<IMFAttributes>;
     fn SetVideoAttributes(&self, pattrs: &::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
-    fn GetVideoAttributes(&self, ppattrs: *mut ::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
+    fn GetVideoAttributes(&self) -> ::windows::core::Result<IMFAttributes>;
     fn SetContainerAttributes(&self, pattrs: &::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
-    fn GetContainerAttributes(&self, ppattrs: *mut ::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
+    fn GetContainerAttributes(&self) -> ::windows::core::Result<IMFAttributes>;
 }
 impl ::windows::core::RuntimeName for IMFTranscodeProfile {}
 impl IMFTranscodeProfile_Vtbl {
@@ -16727,7 +16787,13 @@ impl IMFTranscodeProfile_Vtbl {
         unsafe extern "system" fn GetAudioAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTranscodeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppattrs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAudioAttributes(::core::mem::transmute_copy(&ppattrs)).into()
+            match this.GetAudioAttributes() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppattrs, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetVideoAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTranscodeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattrs: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -16737,7 +16803,13 @@ impl IMFTranscodeProfile_Vtbl {
         unsafe extern "system" fn GetVideoAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTranscodeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppattrs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetVideoAttributes(::core::mem::transmute_copy(&ppattrs)).into()
+            match this.GetVideoAttributes() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppattrs, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetContainerAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTranscodeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattrs: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -16747,7 +16819,13 @@ impl IMFTranscodeProfile_Vtbl {
         unsafe extern "system" fn GetContainerAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTranscodeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppattrs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetContainerAttributes(::core::mem::transmute_copy(&ppattrs)).into()
+            match this.GetContainerAttributes() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppattrs, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

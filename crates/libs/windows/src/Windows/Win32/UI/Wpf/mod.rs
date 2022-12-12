@@ -845,19 +845,21 @@ impl IMILBitmapEffectPrimitive {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TransformPoint<P0>(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: P0, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn TransformPoint<P0, P1>(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: P0, pcontext: P1, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IMILBitmapEffectRenderContext>>,
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<::windows::core::InParam<IMILBitmapEffectRenderContext>>,
     {
-        (::windows::core::Vtable::vtable(self).TransformPoint)(::windows::core::Vtable::as_raw(self), uiindex, p, fforwardtransform, pcontext.into().abi(), pfpointtransformed).ok()
+        (::windows::core::Vtable::vtable(self).TransformPoint)(::windows::core::Vtable::as_raw(self), uiindex, p, fforwardtransform.into(), pcontext.into().abi(), pfpointtransformed).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TransformRect<P0>(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: P0) -> ::windows::core::Result<()>
+    pub unsafe fn TransformRect<P0, P1>(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: P0, pcontext: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IMILBitmapEffectRenderContext>>,
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<::windows::core::InParam<IMILBitmapEffectRenderContext>>,
     {
-        (::windows::core::Vtable::vtable(self).TransformRect)(::windows::core::Vtable::as_raw(self), uiindex, p, fforwardtransform, pcontext.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).TransformRect)(::windows::core::Vtable::as_raw(self), uiindex, p, fforwardtransform.into(), pcontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -994,8 +996,11 @@ impl IMILBitmapEffectRenderContext {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseSoftwareRenderer(&self, fsoftware: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUseSoftwareRenderer)(::windows::core::Vtable::as_raw(self), fsoftware).ok()
+    pub unsafe fn SetUseSoftwareRenderer<P0>(&self, fsoftware: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetUseSoftwareRenderer)(::windows::core::Vtable::as_raw(self), fsoftware.into()).ok()
     }
     pub unsafe fn SetInitialTransform(&self, pmatrix: *const MILMatrixF) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetInitialTransform)(::windows::core::Vtable::as_raw(self), pmatrix).ok()

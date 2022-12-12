@@ -152,14 +152,14 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn DevGetObjects(objecttype: DEV_OBJECT_TYPE, queryflags: u32, prequestedproperties: ::core::option::Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: ::core::option::Option<&[DEVPROP_FILTER_EXPRESSION]>, pcobjectcount: *mut u32, ppobjects: ::core::option::Option<*mut *mut DEV_OBJECT>) -> ::windows::core::Result<()> {
+pub unsafe fn DevGetObjects(objecttype: DEV_OBJECT_TYPE, queryflags: u32, prequestedproperties: ::core::option::Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: ::core::option::Option<&[DEVPROP_FILTER_EXPRESSION]>, pcobjectcount: *mut u32, ppobjects: *mut *mut DEV_OBJECT) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "api-ms-win-devices-query-l1-1-0.dll""system" fn DevGetObjects ( objecttype : DEV_OBJECT_TYPE , queryflags : u32 , crequestedproperties : u32 , prequestedproperties : *const super::Properties:: DEVPROPCOMPKEY , cfilterexpressioncount : u32 , pfilter : *const DEVPROP_FILTER_EXPRESSION , pcobjectcount : *mut u32 , ppobjects : *mut *mut DEV_OBJECT ) -> :: windows::core::HRESULT );
-    DevGetObjects(objecttype, queryflags, prequestedproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prequestedproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pfilter.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pfilter.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcobjectcount, ::core::mem::transmute(ppobjects.unwrap_or(::std::ptr::null_mut()))).ok()
+    DevGetObjects(objecttype, queryflags, prequestedproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prequestedproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pfilter.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pfilter.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcobjectcount, ppobjects).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn DevGetObjectsEx(objecttype: DEV_OBJECT_TYPE, queryflags: u32, prequestedproperties: ::core::option::Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: ::core::option::Option<&[DEVPROP_FILTER_EXPRESSION]>, pextendedparameters: ::core::option::Option<&[DEV_QUERY_PARAMETER]>, pcobjectcount: *mut u32, ppobjects: ::core::option::Option<*mut *mut DEV_OBJECT>) -> ::windows::core::Result<()> {
+pub unsafe fn DevGetObjectsEx(objecttype: DEV_OBJECT_TYPE, queryflags: u32, prequestedproperties: ::core::option::Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: ::core::option::Option<&[DEVPROP_FILTER_EXPRESSION]>, pextendedparameters: ::core::option::Option<&[DEV_QUERY_PARAMETER]>, pcobjectcount: *mut u32, ppobjects: *mut *mut DEV_OBJECT) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "api-ms-win-devices-query-l1-1-1.dll""system" fn DevGetObjectsEx ( objecttype : DEV_OBJECT_TYPE , queryflags : u32 , crequestedproperties : u32 , prequestedproperties : *const super::Properties:: DEVPROPCOMPKEY , cfilterexpressioncount : u32 , pfilter : *const DEVPROP_FILTER_EXPRESSION , cextendedparametercount : u32 , pextendedparameters : *const DEV_QUERY_PARAMETER , pcobjectcount : *mut u32 , ppobjects : *mut *mut DEV_OBJECT ) -> :: windows::core::HRESULT );
     DevGetObjectsEx(
         objecttype,
@@ -171,7 +171,7 @@ pub unsafe fn DevGetObjectsEx(objecttype: DEV_OBJECT_TYPE, queryflags: u32, preq
         pextendedparameters.as_deref().map_or(0, |slice| slice.len() as _),
         ::core::mem::transmute(pextendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         pcobjectcount,
-        ::core::mem::transmute(ppobjects.unwrap_or(::std::ptr::null_mut())),
+        ppobjects,
     )
     .ok()
 }

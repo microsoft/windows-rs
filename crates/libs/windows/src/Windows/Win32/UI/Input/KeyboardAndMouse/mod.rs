@@ -185,34 +185,34 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
-pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32 {
-    ::windows::core::link ! ( "user32.dll""system" fn MapVirtualKeyA ( ucode : u32 , umaptype : u32 ) -> u32 );
+pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE) -> u32 {
+    ::windows::core::link ! ( "user32.dll""system" fn MapVirtualKeyA ( ucode : u32 , umaptype : MAP_VIRTUAL_KEY_TYPE ) -> u32 );
     MapVirtualKeyA(ucode, umaptype)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn MapVirtualKeyExA<P0>(ucode: u32, umaptype: u32, dwhkl: P0) -> u32
+pub unsafe fn MapVirtualKeyExA<P0>(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn MapVirtualKeyExA ( ucode : u32 , umaptype : u32 , dwhkl : super::super::TextServices:: HKL ) -> u32 );
+    ::windows::core::link ! ( "user32.dll""system" fn MapVirtualKeyExA ( ucode : u32 , umaptype : MAP_VIRTUAL_KEY_TYPE , dwhkl : super::super::TextServices:: HKL ) -> u32 );
     MapVirtualKeyExA(ucode, umaptype, dwhkl.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn MapVirtualKeyExW<P0>(ucode: u32, umaptype: u32, dwhkl: P0) -> u32
+pub unsafe fn MapVirtualKeyExW<P0>(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn MapVirtualKeyExW ( ucode : u32 , umaptype : u32 , dwhkl : super::super::TextServices:: HKL ) -> u32 );
+    ::windows::core::link ! ( "user32.dll""system" fn MapVirtualKeyExW ( ucode : u32 , umaptype : MAP_VIRTUAL_KEY_TYPE , dwhkl : super::super::TextServices:: HKL ) -> u32 );
     MapVirtualKeyExW(ucode, umaptype, dwhkl.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
-pub unsafe fn MapVirtualKeyW(ucode: u32, umaptype: u32) -> u32 {
-    ::windows::core::link ! ( "user32.dll""system" fn MapVirtualKeyW ( ucode : u32 , umaptype : u32 ) -> u32 );
+pub unsafe fn MapVirtualKeyW(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE) -> u32 {
+    ::windows::core::link ! ( "user32.dll""system" fn MapVirtualKeyW ( ucode : u32 , umaptype : MAP_VIRTUAL_KEY_TYPE ) -> u32 );
     MapVirtualKeyW(ucode, umaptype)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
@@ -926,6 +926,39 @@ impl ::core::ops::Not for KEYBD_EVENT_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MAP_VIRTUAL_KEY_TYPE(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MAPVK_VK_TO_VSC: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MAPVK_VSC_TO_VK: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MAPVK_VK_TO_CHAR: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MAPVK_VSC_TO_VK_EX: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MAPVK_VK_TO_VSC_EX: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(4u32);
+impl ::core::marker::Copy for MAP_VIRTUAL_KEY_TYPE {}
+impl ::core::clone::Clone for MAP_VIRTUAL_KEY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MAP_VIRTUAL_KEY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MAP_VIRTUAL_KEY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MAP_VIRTUAL_KEY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MAP_VIRTUAL_KEY_TYPE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]

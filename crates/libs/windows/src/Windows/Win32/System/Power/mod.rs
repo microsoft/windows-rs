@@ -3186,12 +3186,12 @@ impl ::core::default::Default for PROCESSOR_OBJECT_INFO_EX {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub struct PROCESSOR_POWER_INFORMATION {
-    pub Number: u64,
-    pub MaxMhz: u64,
-    pub CurrentMhz: u64,
-    pub MhzLimit: u64,
-    pub MaxIdleState: u64,
-    pub CurrentIdleState: u64,
+    pub Number: u32,
+    pub MaxMhz: u32,
+    pub CurrentMhz: u32,
+    pub MhzLimit: u32,
+    pub MaxIdleState: u32,
+    pub CurrentIdleState: u32,
 }
 impl ::core::marker::Copy for PROCESSOR_POWER_INFORMATION {}
 impl ::core::clone::Clone for PROCESSOR_POWER_INFORMATION {
@@ -3524,9 +3524,9 @@ impl ::core::default::Default for SYSTEM_POWER_CAPABILITIES {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub struct SYSTEM_POWER_INFORMATION {
-    pub MaxIdlenessAllowed: u64,
-    pub Idleness: u64,
-    pub TimeRemaining: u64,
+    pub MaxIdlenessAllowed: u32,
+    pub Idleness: u32,
+    pub TimeRemaining: u32,
     pub CoolingMode: POWER_COOLING_MODE,
 }
 impl ::core::marker::Copy for SYSTEM_POWER_INFORMATION {}

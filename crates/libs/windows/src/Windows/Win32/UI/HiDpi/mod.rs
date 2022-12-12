@@ -258,9 +258,9 @@ pub unsafe fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HO
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: ::core::option::Option<*mut ::core::ffi::c_void>, fwinini: u32, dpi: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "user32.dll""system" fn SystemParametersInfoForDpi ( uiaction : u32 , uiparam : u32 , pvparam : *mut ::core::ffi::c_void , fwinini : u32 , dpi : u32 ) -> super::super::Foundation:: BOOL );
-    SystemParametersInfoForDpi(uiaction, uiparam, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null_mut())), fwinini, dpi)
+pub unsafe fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: ::core::option::Option<*const ::core::ffi::c_void>, fwinini: u32, dpi: u32) -> super::super::Foundation::BOOL {
+    ::windows::core::link ! ( "user32.dll""system" fn SystemParametersInfoForDpi ( uiaction : u32 , uiparam : u32 , pvparam : *const ::core::ffi::c_void , fwinini : u32 , dpi : u32 ) -> super::super::Foundation:: BOOL );
+    SystemParametersInfoForDpi(uiaction, uiparam, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null())), fwinini, dpi)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-3i32 as _);

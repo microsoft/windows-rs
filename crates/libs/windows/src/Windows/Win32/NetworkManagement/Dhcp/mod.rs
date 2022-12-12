@@ -62,12 +62,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[inline]
-pub unsafe fn DhcpAuditLogGetParams<P0>(serveripaddress: P0, flags: u32, auditlogdir: ::core::option::Option<*mut ::windows::core::PWSTR>, diskcheckinterval: *mut u32, maxlogfilessize: *mut u32, minspaceondisk: *mut u32) -> u32
+pub unsafe fn DhcpAuditLogGetParams<P0>(serveripaddress: P0, flags: u32, auditlogdir: *mut ::windows::core::PWSTR, diskcheckinterval: *mut u32, maxlogfilessize: *mut u32, minspaceondisk: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "dhcpsapi.dll""system" fn DhcpAuditLogGetParams ( serveripaddress : :: windows::core::PCWSTR , flags : u32 , auditlogdir : *mut :: windows::core::PWSTR , diskcheckinterval : *mut u32 , maxlogfilessize : *mut u32 , minspaceondisk : *mut u32 ) -> u32 );
-    DhcpAuditLogGetParams(serveripaddress.into().abi(), flags, ::core::mem::transmute(auditlogdir.unwrap_or(::std::ptr::null_mut())), diskcheckinterval, maxlogfilessize, minspaceondisk)
+    DhcpAuditLogGetParams(serveripaddress.into().abi(), flags, auditlogdir, diskcheckinterval, maxlogfilessize, minspaceondisk)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[inline]

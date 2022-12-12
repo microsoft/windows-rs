@@ -38,15 +38,13 @@ fn test() -> Result<()> {
         let mut node_type = XmlNodeType_None;
         reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1005
-        reader.GetLocalName(Some(&mut name), Some(&mut name_len))?;
+        reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "html");
 
         let mut node_type = XmlNodeType_None;
         reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1005
-        reader.GetLocalName(Some(&mut name), Some(&mut name_len))?;
+        reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "head");
 
         let mut node_type = XmlNodeType_None;
@@ -117,25 +115,24 @@ fn lite() -> Result<()> {
         let mut node_type = XmlNodeType_None;
         reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1005
-        reader.GetLocalName(Some(&mut name), Some(&mut name_len))?;
+        reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "html");
 
         assert_eq!(reader.GetAttributeCount()?, 2);
         reader.MoveToFirstAttribute().ok()?;
 
-        reader.GetLocalName(Some(&mut name), Some(&mut name_len))?;
+        reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "no-value");
 
-        reader.GetValue(Some(&mut name), Some(&mut name_len))?;
+        reader.GetValue(&mut name, Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "");
 
         reader.MoveToNextAttribute().ok()?;
 
-        reader.GetLocalName(Some(&mut name), Some(&mut name_len))?;
+        reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "with-value");
 
-        reader.GetValue(Some(&mut name), Some(&mut name_len))?;
+        reader.GetValue(&mut name, Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "value");
 
         Ok(())

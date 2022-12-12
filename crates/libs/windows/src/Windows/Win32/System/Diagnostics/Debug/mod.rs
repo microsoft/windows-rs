@@ -78,9 +78,12 @@ pub unsafe fn CloseThreadWaitChainSession(wcthandle: *const ::core::ffi::c_void)
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ContinueDebugEvent(dwprocessid: u32, dwthreadid: u32, dwcontinuestatus: u32) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ContinueDebugEvent ( dwprocessid : u32 , dwthreadid : u32 , dwcontinuestatus : u32 ) -> super::super::super::Foundation:: BOOL );
-    ContinueDebugEvent(dwprocessid, dwthreadid, dwcontinuestatus)
+pub unsafe fn ContinueDebugEvent<P0>(dwprocessid: u32, dwthreadid: u32, dwcontinuestatus: P0) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::NTSTATUS>,
+{
+    ::windows::core::link ! ( "kernel32.dll""system" fn ContinueDebugEvent ( dwprocessid : u32 , dwthreadid : u32 , dwcontinuestatus : super::super::super::Foundation:: NTSTATUS ) -> super::super::super::Foundation:: BOOL );
+    ContinueDebugEvent(dwprocessid, dwthreadid, dwcontinuestatus.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -789,9 +792,9 @@ pub unsafe fn MessageBeep(utype: super::super::super::UI::WindowsAndMessaging::M
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MiniDumpReadDumpStream(baseofdump: *const ::core::ffi::c_void, streamnumber: u32, dir: ::core::option::Option<*mut *mut MINIDUMP_DIRECTORY>, streampointer: ::core::option::Option<*mut *mut ::core::ffi::c_void>, streamsize: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::BOOL {
+pub unsafe fn MiniDumpReadDumpStream(baseofdump: *const ::core::ffi::c_void, streamnumber: u32, dir: *mut *mut MINIDUMP_DIRECTORY, streampointer: *mut *mut ::core::ffi::c_void, streamsize: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::BOOL {
     ::windows::core::link ! ( "dbghelp.dll""system" fn MiniDumpReadDumpStream ( baseofdump : *const ::core::ffi::c_void , streamnumber : u32 , dir : *mut *mut MINIDUMP_DIRECTORY , streampointer : *mut *mut ::core::ffi::c_void , streamsize : *mut u32 ) -> super::super::super::Foundation:: BOOL );
-    MiniDumpReadDumpStream(baseofdump, streamnumber, ::core::mem::transmute(dir.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(streampointer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(streamsize.unwrap_or(::std::ptr::null_mut())))
+    MiniDumpReadDumpStream(baseofdump, streamnumber, dir, streampointer, ::core::mem::transmute(streamsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
@@ -28929,11 +28932,11 @@ pub struct IDebugThreadCall64_Vtbl {
 #[repr(transparent)]
 pub struct IDynamicConceptProviderConcept(::windows::core::IUnknown);
 impl IDynamicConceptProviderConcept {
-    pub unsafe fn GetConcept<P0>(&self, contextobject: P0, conceptid: *const ::windows::core::GUID, conceptinterface: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>, conceptmetadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>, hasconcept: *mut bool) -> ::windows::core::Result<()>
+    pub unsafe fn GetConcept<P0>(&self, contextobject: P0, conceptid: *const ::windows::core::GUID, conceptinterface: *mut ::core::option::Option<::windows::core::IUnknown>, conceptmetadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>, hasconcept: *mut bool) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IModelObject>>,
     {
-        (::windows::core::Vtable::vtable(self).GetConcept)(::windows::core::Vtable::as_raw(self), contextobject.into().abi(), conceptid, ::core::mem::transmute(conceptinterface.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(conceptmetadata.unwrap_or(::std::ptr::null_mut())), hasconcept).ok()
+        (::windows::core::Vtable::vtable(self).GetConcept)(::windows::core::Vtable::as_raw(self), contextobject.into().abi(), conceptid, ::core::mem::transmute(conceptinterface), ::core::mem::transmute(conceptmetadata.unwrap_or(::std::ptr::null_mut())), hasconcept).ok()
     }
     pub unsafe fn SetConcept<P0, P1, P2>(&self, contextobject: P0, conceptid: *const ::windows::core::GUID, conceptinterface: P1, conceptmetadata: P2) -> ::windows::core::Result<()>
     where
@@ -30660,8 +30663,9 @@ pub struct IModelMethod_Vtbl {
 #[repr(transparent)]
 pub struct IModelObject(::windows::core::IUnknown);
 impl IModelObject {
-    pub unsafe fn GetContext(&self, context: ::core::option::Option<*mut ::core::option::Option<IDebugHostContext>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(context.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetContext(&self) -> ::windows::core::Result<IDebugHostContext> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetKind(&self) -> ::windows::core::Result<ModelObjectKind> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -30733,8 +30737,8 @@ impl IModelObject {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetNumberOfParentModels)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetParentModel(&self, i: u64, model: *mut ::core::option::Option<IModelObject>, contextobject: ::core::option::Option<*mut ::core::option::Option<IModelObject>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetParentModel)(::windows::core::Vtable::as_raw(self), i, ::core::mem::transmute(model), ::core::mem::transmute(contextobject.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetParentModel(&self, i: u64, model: *mut ::core::option::Option<IModelObject>, contextobject: *mut ::core::option::Option<IModelObject>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetParentModel)(::windows::core::Vtable::as_raw(self), i, ::core::mem::transmute(model), ::core::mem::transmute(contextobject)).ok()
     }
     pub unsafe fn AddParentModel<P0, P1>(&self, model: P0, contextobject: P1, r#override: u8) -> ::windows::core::Result<()>
     where

@@ -487,8 +487,8 @@ impl IABContainer {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetSearchCriteria(&self, ulflags: u32, lpprestriction: ::core::option::Option<*mut *mut SRestriction>, lppcontainerlist: ::core::option::Option<*mut *mut SBinaryArray>, lpulsearchstate: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSearchCriteria)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpprestriction.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lppcontainerlist.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpulsearchstate.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetSearchCriteria(&self, ulflags: u32, lpprestriction: *mut *mut SRestriction, lppcontainerlist: *mut *mut SBinaryArray, lpulsearchstate: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetSearchCriteria)(::windows::core::Vtable::as_raw(self), ulflags, lpprestriction, lppcontainerlist, ::core::mem::transmute(lpulsearchstate.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows::core::Result<IMAPIProp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -872,8 +872,8 @@ impl IDistList {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetSearchCriteria(&self, ulflags: u32, lpprestriction: ::core::option::Option<*mut *mut SRestriction>, lppcontainerlist: ::core::option::Option<*mut *mut SBinaryArray>, lpulsearchstate: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSearchCriteria)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpprestriction.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lppcontainerlist.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpulsearchstate.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetSearchCriteria(&self, ulflags: u32, lpprestriction: *mut *mut SRestriction, lppcontainerlist: *mut *mut SBinaryArray, lpulsearchstate: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetSearchCriteria)(::windows::core::Vtable::as_raw(self), ulflags, lpprestriction, lppcontainerlist, ::core::mem::transmute(lpulsearchstate.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows::core::Result<IMAPIProp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1037,8 +1037,8 @@ impl IMAPIContainer {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetSearchCriteria(&self, ulflags: u32, lpprestriction: ::core::option::Option<*mut *mut SRestriction>, lppcontainerlist: ::core::option::Option<*mut *mut SBinaryArray>, lpulsearchstate: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSearchCriteria)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpprestriction.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lppcontainerlist.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpulsearchstate.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetSearchCriteria(&self, ulflags: u32, lpprestriction: *mut *mut SRestriction, lppcontainerlist: *mut *mut SBinaryArray, lpulsearchstate: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSearchCriteria)(::windows::core::Vtable::as_raw(self), ulflags, lpprestriction, lppcontainerlist, ::core::mem::transmute(lpulsearchstate.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMAPIContainer, ::windows::core::IUnknown, IMAPIProp);
@@ -1191,8 +1191,8 @@ impl IMAPIFolder {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetSearchCriteria(&self, ulflags: u32, lpprestriction: ::core::option::Option<*mut *mut SRestriction>, lppcontainerlist: ::core::option::Option<*mut *mut SBinaryArray>, lpulsearchstate: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSearchCriteria)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpprestriction.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lppcontainerlist.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpulsearchstate.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetSearchCriteria(&self, ulflags: u32, lpprestriction: *mut *mut SRestriction, lppcontainerlist: *mut *mut SBinaryArray, lpulsearchstate: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetSearchCriteria)(::windows::core::Vtable::as_raw(self), ulflags, lpprestriction, lppcontainerlist, ::core::mem::transmute(lpulsearchstate.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateMessage(&self, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lppmessage: *mut ::core::option::Option<IMessage>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CreateMessage)(::windows::core::Vtable::as_raw(self), lpinterface, ulflags, ::core::mem::transmute(lppmessage)).ok()
@@ -1936,8 +1936,8 @@ impl IMsgStore {
     pub unsafe fn SetReceiveFolder(&self, lpszmessageclass: ::core::option::Option<*const i8>, ulflags: u32, cbentryid: u32, lpentryid: *const ENTRYID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetReceiveFolder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszmessageclass.unwrap_or(::std::ptr::null())), ulflags, cbentryid, lpentryid).ok()
     }
-    pub unsafe fn GetReceiveFolder(&self, lpszmessageclass: ::core::option::Option<*const i8>, ulflags: u32, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID, lppszexplicitclass: ::core::option::Option<*mut *mut i8>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetReceiveFolder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszmessageclass.unwrap_or(::std::ptr::null())), ulflags, lpcbentryid, lppentryid, ::core::mem::transmute(lppszexplicitclass.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetReceiveFolder(&self, lpszmessageclass: ::core::option::Option<*const i8>, ulflags: u32, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID, lppszexplicitclass: *mut *mut i8) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetReceiveFolder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszmessageclass.unwrap_or(::std::ptr::null())), ulflags, lpcbentryid, lppentryid, lppszexplicitclass).ok()
     }
     pub unsafe fn GetReceiveFolderTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2442,13 +2442,14 @@ impl IWABObject {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LDAPUrl<P0, P1, P2>(&self, lpiab: P0, hwnd: P1, ulflags: u32, lpszurl: P2, lppmailuser: ::core::option::Option<*mut ::core::option::Option<IMailUser>>) -> ::windows::core::Result<()>
+    pub unsafe fn LDAPUrl<P0, P1, P2>(&self, lpiab: P0, hwnd: P1, ulflags: u32, lpszurl: P2) -> ::windows::core::Result<IMailUser>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IAddrBook>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).LDAPUrl)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), hwnd.into(), ulflags, lpszurl.into().abi(), ::core::mem::transmute(lppmailuser.unwrap_or(::std::ptr::null_mut()))).ok()
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).LDAPUrl)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), hwnd.into(), ulflags, lpszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn VCardCreate<P0, P1, P2>(&self, lpiab: P0, ulflags: u32, lpszvcard: P1, lpmailuser: P2) -> ::windows::core::Result<()>
     where
