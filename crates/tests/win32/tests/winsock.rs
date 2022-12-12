@@ -49,7 +49,7 @@ fn sockaddr_in() {
     let sockaddr_in: SOCKADDR_IN = socket_addr_v4.into();
 
     // These fields should be host byte order
-    assert_eq!(sockaddr_in.sin_family, AF_INET.0 as u16);
+    assert_eq!(sockaddr_in.sin_family, AF_INET);
 
     // These fields should be network byte order
     assert_eq!(sockaddr_in.sin_port, PORT_NETWORK_BYTE_ORDER);
@@ -62,7 +62,7 @@ fn sockaddr_in6() {
     let sockaddr_in6: SOCKADDR_IN6 = socket_addr_v6.into();
 
     // These fields should be host byte order
-    assert_eq!(sockaddr_in6.sin6_family, AF_INET6.0 as u16);
+    assert_eq!(sockaddr_in6.sin6_family, AF_INET6);
     assert_eq!(sockaddr_in6.sin6_port, PORT_NETWORK_BYTE_ORDER);
 
     // These fields should be network byte order
@@ -79,8 +79,8 @@ fn sockaddr_inet4() {
     let sockaddr_inet: SOCKADDR_INET = socket_addr_v4.into();
 
     // These fields should be host byte order
-    assert_eq!(unsafe { sockaddr_inet.si_family }, AF_INET.0 as u16);
-    assert_eq!(unsafe { sockaddr_inet.Ipv4.sin_family }, AF_INET.0 as u16);
+    assert_eq!(unsafe { sockaddr_inet.si_family }, AF_INET);
+    assert_eq!(unsafe { sockaddr_inet.Ipv4.sin_family }, AF_INET);
 
     // These fields should be network byte order
     assert_eq!(unsafe { sockaddr_inet.Ipv4.sin_port }, PORT_NETWORK_BYTE_ORDER);
@@ -93,8 +93,8 @@ fn sockaddr_inet6() {
     let sockaddr_inet: SOCKADDR_INET = socket_addr_v6.into();
 
     // These fields should be host byte order
-    assert_eq!(unsafe { sockaddr_inet.si_family }, AF_INET6.0 as u16);
-    assert_eq!(unsafe { sockaddr_inet.Ipv6.sin6_family }, AF_INET6.0 as u16);
+    assert_eq!(unsafe { sockaddr_inet.si_family }, AF_INET6);
+    assert_eq!(unsafe { sockaddr_inet.Ipv6.sin6_family }, AF_INET6);
 
     // These fields should be network byte order
     assert_eq!(unsafe { sockaddr_inet.Ipv6.sin6_port }, PORT_NETWORK_BYTE_ORDER);

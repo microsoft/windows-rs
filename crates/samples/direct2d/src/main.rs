@@ -172,8 +172,8 @@ impl Window {
             }));
 
             let mut previous = None;
-            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1005
-            target.GetTarget(Some(&mut previous));
+            // TODO: workaround for https://github.com/microsoft/windows-rs/issues/2246
+            target.GetTarget(&mut previous);
             target.SetTarget(clock);
             target.Clear(None);
             self.draw_clock()?;
