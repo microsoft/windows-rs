@@ -416,7 +416,7 @@ impl IColumnsRowset_Vtbl {
 pub trait ICommand_Impl: Sized {
     fn Cancel(&self) -> ::windows::core::Result<()>;
     fn Execute(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, pparams: *mut DBPARAMS, pcrowsaffected: *mut isize, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetDBSession(&self, riid: *const ::windows::core::GUID, ppsession: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetDBSession(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl ::windows::core::RuntimeName for ICommand {}
 impl ICommand_Vtbl {
@@ -434,7 +434,13 @@ impl ICommand_Vtbl {
         unsafe extern "system" fn GetDBSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDBSession(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppsession)).into()
+            match this.GetDBSession(::core::mem::transmute_copy(&riid)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppsession, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2051,7 +2057,7 @@ impl IErrorLookup_Vtbl {
 pub trait IErrorRecords_Impl: Sized {
     fn AddErrorRecord(&self, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, punkcustomerror: &::core::option::Option<::windows::core::IUnknown>, dwdynamicerrorid: u32) -> ::windows::core::Result<()>;
     fn GetBasicErrorInfo(&self, ulrecordnum: u32) -> ::windows::core::Result<ERRORINFO>;
-    fn GetCustomErrorObject(&self, ulrecordnum: u32, riid: *const ::windows::core::GUID, ppobject: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetCustomErrorObject(&self, ulrecordnum: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetErrorInfo(&self, ulrecordnum: u32, lcid: u32) -> ::windows::core::Result<super::Com::IErrorInfo>;
     fn GetErrorParameters(&self, ulrecordnum: u32) -> ::windows::core::Result<super::Com::DISPPARAMS>;
     fn GetRecordCount(&self) -> ::windows::core::Result<u32>;
@@ -2080,7 +2086,13 @@ impl IErrorRecords_Vtbl {
         unsafe extern "system" fn GetCustomErrorObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IErrorRecords_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulrecordnum: u32, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCustomErrorObject(::core::mem::transmute_copy(&ulrecordnum), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppobject)).into()
+            match this.GetCustomErrorObject(::core::mem::transmute_copy(&ulrecordnum), ::core::mem::transmute_copy(&riid)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppobject, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetErrorInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IErrorRecords_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulrecordnum: u32, lcid: u32, pperrorinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2131,7 +2143,7 @@ impl IErrorRecords_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IGetDataSource_Impl: Sized {
-    fn GetDataSource(&self, riid: *const ::windows::core::GUID, ppdatasource: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetDataSource(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl ::windows::core::RuntimeName for IGetDataSource {}
 impl IGetDataSource_Vtbl {
@@ -2139,7 +2151,13 @@ impl IGetDataSource_Vtbl {
         unsafe extern "system" fn GetDataSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGetDataSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDataSource(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppdatasource)).into()
+            match this.GetDataSource(::core::mem::transmute_copy(&riid)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppdatasource, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDataSource: GetDataSource::<Identity, Impl, OFFSET> }
     }
@@ -3650,8 +3668,8 @@ impl IRowsetIndex_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRowsetInfo_Impl: Sized {
     fn GetProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::Result<()>;
-    fn GetReferencedRowset(&self, iordinal: usize, riid: *const ::windows::core::GUID, ppreferencedrowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetSpecification(&self, riid: *const ::windows::core::GUID, ppspecification: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetReferencedRowset(&self, iordinal: usize, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetSpecification(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IRowsetInfo {}
@@ -3666,12 +3684,24 @@ impl IRowsetInfo_Vtbl {
         unsafe extern "system" fn GetReferencedRowset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iordinal: usize, riid: *const ::windows::core::GUID, ppreferencedrowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetReferencedRowset(::core::mem::transmute_copy(&iordinal), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppreferencedrowset)).into()
+            match this.GetReferencedRowset(::core::mem::transmute_copy(&iordinal), ::core::mem::transmute_copy(&riid)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppreferencedrowset, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetSpecification<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppspecification: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSpecification(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppspecification)).into()
+            match this.GetSpecification(::core::mem::transmute_copy(&riid)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppspecification, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

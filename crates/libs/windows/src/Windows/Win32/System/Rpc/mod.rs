@@ -84,15 +84,15 @@ pub unsafe fn I_RpcBindingInqClientTokenAttributes(binding: *const ::core::ffi::
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn I_RpcBindingInqDynamicEndpointA(binding: *const ::core::ffi::c_void, dynamicendpoint: ::core::option::Option<*mut *mut u8>) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingInqDynamicEndpointA(binding: *const ::core::ffi::c_void, dynamicendpoint: *mut *mut u8) -> RPC_STATUS {
     ::windows::core::link ! ( "rpcrt4.dll""system" fn I_RpcBindingInqDynamicEndpointA ( binding : *const ::core::ffi::c_void , dynamicendpoint : *mut *mut u8 ) -> RPC_STATUS );
-    I_RpcBindingInqDynamicEndpointA(binding, ::core::mem::transmute(dynamicendpoint.unwrap_or(::std::ptr::null_mut())))
+    I_RpcBindingInqDynamicEndpointA(binding, dynamicendpoint)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn I_RpcBindingInqDynamicEndpointW(binding: *const ::core::ffi::c_void, dynamicendpoint: ::core::option::Option<*mut *mut u16>) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingInqDynamicEndpointW(binding: *const ::core::ffi::c_void, dynamicendpoint: *mut *mut u16) -> RPC_STATUS {
     ::windows::core::link ! ( "rpcrt4.dll""system" fn I_RpcBindingInqDynamicEndpointW ( binding : *const ::core::ffi::c_void , dynamicendpoint : *mut *mut u16 ) -> RPC_STATUS );
-    I_RpcBindingInqDynamicEndpointW(binding, ::core::mem::transmute(dynamicendpoint.unwrap_or(::std::ptr::null_mut())))
+    I_RpcBindingInqDynamicEndpointW(binding, dynamicendpoint)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]

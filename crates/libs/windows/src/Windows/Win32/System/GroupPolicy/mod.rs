@@ -417,9 +417,12 @@ impl IGPM {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePermission(&self, bstrtrustee: &::windows::core::BSTR, perm: GPMPermissionType, binheritable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<IGPMPermission> {
+    pub unsafe fn CreatePermission<P0>(&self, bstrtrustee: &::windows::core::BSTR, perm: GPMPermissionType, binheritable: P0) -> ::windows::core::Result<IGPMPermission>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePermission)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrtrustee), perm, binheritable, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreatePermission)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrtrustee), perm, binheritable.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -574,9 +577,12 @@ impl IGPM2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePermission(&self, bstrtrustee: &::windows::core::BSTR, perm: GPMPermissionType, binheritable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<IGPMPermission> {
+    pub unsafe fn CreatePermission<P0>(&self, bstrtrustee: &::windows::core::BSTR, perm: GPMPermissionType, binheritable: P0) -> ::windows::core::Result<IGPMPermission>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreatePermission)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrtrustee), perm, binheritable, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreatePermission)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrtrustee), perm, binheritable.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1371,9 +1377,15 @@ impl IGPMConstants {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_SecurityFlags(&self, vbowner: super::super::Foundation::VARIANT_BOOL, vbgroup: super::super::Foundation::VARIANT_BOOL, vbdacl: super::super::Foundation::VARIANT_BOOL, vbsacl: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<i32> {
+    pub unsafe fn get_SecurityFlags<P0, P1, P2, P3>(&self, vbowner: P0, vbgroup: P1, vbdacl: P2, vbsacl: P3) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P2: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P3: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_SecurityFlags)(::windows::core::Vtable::as_raw(self), vbowner, vbgroup, vbdacl, vbsacl, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_SecurityFlags)(::windows::core::Vtable::as_raw(self), vbowner.into(), vbgroup.into(), vbdacl.into(), vbsacl.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn DoNotValidateDC(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1465,9 +1477,12 @@ impl IGPMConstants {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_RsopPlanningLoopbackOption(&self, vbmerge: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<i32> {
+    pub unsafe fn get_RsopPlanningLoopbackOption<P0>(&self, vbmerge: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_RsopPlanningLoopbackOption)(::windows::core::Vtable::as_raw(self), vbmerge, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_RsopPlanningLoopbackOption)(::windows::core::Vtable::as_raw(self), vbmerge.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RsopPlanningAssumeUserWQLFilterTrue(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1724,9 +1739,15 @@ impl IGPMConstants2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_SecurityFlags(&self, vbowner: super::super::Foundation::VARIANT_BOOL, vbgroup: super::super::Foundation::VARIANT_BOOL, vbdacl: super::super::Foundation::VARIANT_BOOL, vbsacl: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<i32> {
+    pub unsafe fn get_SecurityFlags<P0, P1, P2, P3>(&self, vbowner: P0, vbgroup: P1, vbdacl: P2, vbsacl: P3) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P2: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P3: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.get_SecurityFlags)(::windows::core::Vtable::as_raw(self), vbowner, vbgroup, vbdacl, vbsacl, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.get_SecurityFlags)(::windows::core::Vtable::as_raw(self), vbowner.into(), vbgroup.into(), vbdacl.into(), vbsacl.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn DoNotValidateDC(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1818,9 +1839,12 @@ impl IGPMConstants2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_RsopPlanningLoopbackOption(&self, vbmerge: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<i32> {
+    pub unsafe fn get_RsopPlanningLoopbackOption<P0>(&self, vbmerge: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.get_RsopPlanningLoopbackOption)(::windows::core::Vtable::as_raw(self), vbmerge, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.get_RsopPlanningLoopbackOption)(::windows::core::Vtable::as_raw(self), vbmerge.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RsopPlanningAssumeUserWQLFilterTrue(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2191,8 +2215,11 @@ impl IGPMDomain2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn LoadStarterGPO(&self, bstrloadfile: &::windows::core::BSTR, boverwrite: super::super::Foundation::VARIANT_BOOL, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).LoadStarterGPO)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrloadfile), boverwrite, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn LoadStarterGPO<P0>(&self, bstrloadfile: &::windows::core::BSTR, boverwrite: P0, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).LoadStarterGPO)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrloadfile), boverwrite.into(), pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2368,8 +2395,11 @@ impl IGPMDomain3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn LoadStarterGPO(&self, bstrloadfile: &::windows::core::BSTR, boverwrite: super::super::Foundation::VARIANT_BOOL, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.LoadStarterGPO)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrloadfile), boverwrite, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn LoadStarterGPO<P0>(&self, bstrloadfile: &::windows::core::BSTR, boverwrite: P0, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.LoadStarterGPO)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrloadfile), boverwrite.into(), pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2503,13 +2533,19 @@ impl IGPMGPO {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUserEnabled(&self, vbenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUserEnabled)(::windows::core::Vtable::as_raw(self), vbenabled).ok()
+    pub unsafe fn SetUserEnabled<P0>(&self, vbenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetUserEnabled)(::windows::core::Vtable::as_raw(self), vbenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetComputerEnabled(&self, vbenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetComputerEnabled)(::windows::core::Vtable::as_raw(self), vbenabled).ok()
+    pub unsafe fn SetComputerEnabled<P0>(&self, vbenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetComputerEnabled)(::windows::core::Vtable::as_raw(self), vbenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2774,13 +2810,19 @@ impl IGPMGPO2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUserEnabled(&self, vbenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUserEnabled)(::windows::core::Vtable::as_raw(self), vbenabled).ok()
+    pub unsafe fn SetUserEnabled<P0>(&self, vbenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetUserEnabled)(::windows::core::Vtable::as_raw(self), vbenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetComputerEnabled(&self, vbenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetComputerEnabled)(::windows::core::Vtable::as_raw(self), vbenabled).ok()
+    pub unsafe fn SetComputerEnabled<P0>(&self, vbenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetComputerEnabled)(::windows::core::Vtable::as_raw(self), vbenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2977,13 +3019,19 @@ impl IGPMGPO3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUserEnabled(&self, vbenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetUserEnabled)(::windows::core::Vtable::as_raw(self), vbenabled).ok()
+    pub unsafe fn SetUserEnabled<P0>(&self, vbenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetUserEnabled)(::windows::core::Vtable::as_raw(self), vbenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetComputerEnabled(&self, vbenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetComputerEnabled)(::windows::core::Vtable::as_raw(self), vbenabled).ok()
+    pub unsafe fn SetComputerEnabled<P0>(&self, vbenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetComputerEnabled)(::windows::core::Vtable::as_raw(self), vbenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3216,8 +3264,11 @@ impl IGPMGPOLink {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetEnabled<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3227,8 +3278,11 @@ impl IGPMGPOLink {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnforced(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnforced)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetEnforced<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnforced)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn SOMLinkOrder(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4038,8 +4092,11 @@ impl IGPMSOM {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGPOInheritanceBlocked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGPOInheritanceBlocked)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetGPOInheritanceBlocked<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetGPOInheritanceBlocked)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4514,8 +4571,12 @@ impl IGPMStarterGPO {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Save(&self, bstrsavefile: &::windows::core::BSTR, boverwrite: super::super::Foundation::VARIANT_BOOL, bsaveassystem: super::super::Foundation::VARIANT_BOOL, bstrlanguage: *const super::Com::VARIANT, bstrauthor: *const super::Com::VARIANT, bstrproduct: *const super::Com::VARIANT, bstruniqueid: *const super::Com::VARIANT, bstrversion: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Save)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrsavefile), boverwrite, bsaveassystem, bstrlanguage, bstrauthor, bstrproduct, bstruniqueid, bstrversion, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn Save<P0, P1>(&self, bstrsavefile: &::windows::core::BSTR, boverwrite: P0, bsaveassystem: P1, bstrlanguage: *const super::Com::VARIANT, bstrauthor: *const super::Com::VARIANT, bstrproduct: *const super::Com::VARIANT, bstruniqueid: *const super::Com::VARIANT, bstrversion: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).Save)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrsavefile), boverwrite.into(), bsaveassystem.into(), bstrlanguage, bstrauthor, bstrproduct, bstruniqueid, bstrversion, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

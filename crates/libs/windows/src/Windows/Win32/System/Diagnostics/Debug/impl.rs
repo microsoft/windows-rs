@@ -31152,7 +31152,7 @@ impl IModelMethod_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IModelObject_Impl: Sized {
-    fn GetContext(&self, context: *mut ::core::option::Option<IDebugHostContext>) -> ::windows::core::Result<()>;
+    fn GetContext(&self) -> ::windows::core::Result<IDebugHostContext>;
     fn GetKind(&self) -> ::windows::core::Result<ModelObjectKind>;
     fn GetIntrinsicValue(&self) -> ::windows::core::Result<super::super::Com::VARIANT>;
     fn GetIntrinsicValueAs(&self, vt: super::super::Com::VARENUM) -> ::windows::core::Result<super::super::Com::VARIANT>;
@@ -31194,7 +31194,13 @@ impl IModelObject_Vtbl {
         unsafe extern "system" fn GetContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IModelObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetContext(::core::mem::transmute_copy(&context)).into()
+            match this.GetContext() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(context, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetKind<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IModelObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: *mut ModelObjectKind) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

@@ -1352,8 +1352,8 @@ where
 #[repr(transparent)]
 pub struct IActivateAudioInterfaceAsyncOperation(::windows::core::IUnknown);
 impl IActivateAudioInterfaceAsyncOperation {
-    pub unsafe fn GetActivateResult(&self, activateresult: *mut ::windows::core::HRESULT, activatedinterface: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetActivateResult)(::windows::core::Vtable::as_raw(self), activateresult, ::core::mem::transmute(activatedinterface.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetActivateResult(&self, activateresult: *mut ::windows::core::HRESULT, activatedinterface: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetActivateResult)(::windows::core::Vtable::as_raw(self), activateresult, ::core::mem::transmute(activatedinterface)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IActivateAudioInterfaceAsyncOperation, ::windows::core::IUnknown);
@@ -2220,8 +2220,8 @@ impl IAudioEffectsManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAudioEffects(&self, effects: ::core::option::Option<*mut *mut AUDIO_EFFECT>, numeffects: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetAudioEffects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(effects.unwrap_or(::std::ptr::null_mut())), numeffects).ok()
+    pub unsafe fn GetAudioEffects(&self, effects: *mut *mut AUDIO_EFFECT, numeffects: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetAudioEffects)(::windows::core::Vtable::as_raw(self), effects, numeffects).ok()
     }
     pub unsafe fn SetAudioEffectState(&self, effectid: ::windows::core::GUID, state: AUDIO_EFFECT_STATE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetAudioEffectState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(effectid), state).ok()

@@ -1650,9 +1650,9 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_result(ld: *mut LDAP, msgid: u32, all: u32, timeout: ::core::option::Option<*const LDAP_TIMEVAL>, res: ::core::option::Option<*mut *mut LDAPMessage>) -> u32 {
+pub unsafe fn ldap_result(ld: *mut LDAP, msgid: u32, all: u32, timeout: ::core::option::Option<*const LDAP_TIMEVAL>, res: *mut *mut LDAPMessage) -> u32 {
     ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_result ( ld : *mut LDAP , msgid : u32 , all : u32 , timeout : *const LDAP_TIMEVAL , res : *mut *mut LDAPMessage ) -> u32 );
-    ldap_result(ld, msgid, all, ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
+    ldap_result(ld, msgid, all, ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), res)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1777,35 +1777,35 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_ext_s<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, servercontrols: ::core::option::Option<*const *const LDAPControlA>, clientcontrols: ::core::option::Option<*const *const LDAPControlA>, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: ::core::option::Option<*mut *mut LDAPMessage>) -> u32
+pub unsafe fn ldap_search_ext_s<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, servercontrols: ::core::option::Option<*const *const LDAPControlA>, clientcontrols: ::core::option::Option<*const *const LDAPControlA>, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_search_ext_s ( ld : *mut LDAP , base : :: windows::core::PCSTR , scope : u32 , filter : :: windows::core::PCSTR , attrs : *const *const i8 , attrsonly : u32 , servercontrols : *const *const LDAPControlA , clientcontrols : *const *const LDAPControlA , timeout : *mut LDAP_TIMEVAL , sizelimit : u32 , res : *mut *mut LDAPMessage ) -> u32 );
-    ldap_search_ext_s(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, ::core::mem::transmute(servercontrols.unwrap_or(::std::ptr::null())), ::core::mem::transmute(clientcontrols.unwrap_or(::std::ptr::null())), timeout, sizelimit, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
+    ldap_search_ext_s(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, ::core::mem::transmute(servercontrols.unwrap_or(::std::ptr::null())), ::core::mem::transmute(clientcontrols.unwrap_or(::std::ptr::null())), timeout, sizelimit, res)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_ext_sA<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, servercontrols: ::core::option::Option<*const *const LDAPControlA>, clientcontrols: ::core::option::Option<*const *const LDAPControlA>, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: ::core::option::Option<*mut *mut LDAPMessage>) -> u32
+pub unsafe fn ldap_search_ext_sA<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, servercontrols: ::core::option::Option<*const *const LDAPControlA>, clientcontrols: ::core::option::Option<*const *const LDAPControlA>, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_search_ext_sA ( ld : *mut LDAP , base : :: windows::core::PCSTR , scope : u32 , filter : :: windows::core::PCSTR , attrs : *const *const i8 , attrsonly : u32 , servercontrols : *const *const LDAPControlA , clientcontrols : *const *const LDAPControlA , timeout : *mut LDAP_TIMEVAL , sizelimit : u32 , res : *mut *mut LDAPMessage ) -> u32 );
-    ldap_search_ext_sA(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, ::core::mem::transmute(servercontrols.unwrap_or(::std::ptr::null())), ::core::mem::transmute(clientcontrols.unwrap_or(::std::ptr::null())), timeout, sizelimit, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
+    ldap_search_ext_sA(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, ::core::mem::transmute(servercontrols.unwrap_or(::std::ptr::null())), ::core::mem::transmute(clientcontrols.unwrap_or(::std::ptr::null())), timeout, sizelimit, res)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_ext_sW<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const u16, attrsonly: u32, servercontrols: ::core::option::Option<*const *const LDAPControlW>, clientcontrols: ::core::option::Option<*const *const LDAPControlW>, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: ::core::option::Option<*mut *mut LDAPMessage>) -> u32
+pub unsafe fn ldap_search_ext_sW<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const u16, attrsonly: u32, servercontrols: ::core::option::Option<*const *const LDAPControlW>, clientcontrols: ::core::option::Option<*const *const LDAPControlW>, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_search_ext_sW ( ld : *mut LDAP , base : :: windows::core::PCWSTR , scope : u32 , filter : :: windows::core::PCWSTR , attrs : *const *const u16 , attrsonly : u32 , servercontrols : *const *const LDAPControlW , clientcontrols : *const *const LDAPControlW , timeout : *mut LDAP_TIMEVAL , sizelimit : u32 , res : *mut *mut LDAPMessage ) -> u32 );
-    ldap_search_ext_sW(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, ::core::mem::transmute(servercontrols.unwrap_or(::std::ptr::null())), ::core::mem::transmute(clientcontrols.unwrap_or(::std::ptr::null())), timeout, sizelimit, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
+    ldap_search_ext_sW(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, ::core::mem::transmute(servercontrols.unwrap_or(::std::ptr::null())), ::core::mem::transmute(clientcontrols.unwrap_or(::std::ptr::null())), timeout, sizelimit, res)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1843,68 +1843,68 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_s<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, res: ::core::option::Option<*mut *mut LDAPMessage>) -> u32
+pub unsafe fn ldap_search_s<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_search_s ( ld : *mut LDAP , base : :: windows::core::PCSTR , scope : u32 , filter : :: windows::core::PCSTR , attrs : *const *const i8 , attrsonly : u32 , res : *mut *mut LDAPMessage ) -> u32 );
-    ldap_search_s(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
+    ldap_search_s(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, res)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_sA<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, res: ::core::option::Option<*mut *mut LDAPMessage>) -> u32
+pub unsafe fn ldap_search_sA<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_search_sA ( ld : *mut LDAP , base : :: windows::core::PCSTR , scope : u32 , filter : :: windows::core::PCSTR , attrs : *const *const i8 , attrsonly : u32 , res : *mut *mut LDAPMessage ) -> u32 );
-    ldap_search_sA(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
+    ldap_search_sA(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, res)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_sW<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const u16, attrsonly: u32, res: ::core::option::Option<*mut *mut LDAPMessage>) -> u32
+pub unsafe fn ldap_search_sW<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const u16, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_search_sW ( ld : *mut LDAP , base : :: windows::core::PCWSTR , scope : u32 , filter : :: windows::core::PCWSTR , attrs : *const *const u16 , attrsonly : u32 , res : *mut *mut LDAPMessage ) -> u32 );
-    ldap_search_sW(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
+    ldap_search_sW(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, res)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_st<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: ::core::option::Option<*mut *mut LDAPMessage>) -> u32
+pub unsafe fn ldap_search_st<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_search_st ( ld : *mut LDAP , base : :: windows::core::PCSTR , scope : u32 , filter : :: windows::core::PCSTR , attrs : *const *const i8 , attrsonly : u32 , timeout : *mut LDAP_TIMEVAL , res : *mut *mut LDAPMessage ) -> u32 );
-    ldap_search_st(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, timeout, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
+    ldap_search_st(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, timeout, res)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_stA<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: ::core::option::Option<*mut *mut LDAPMessage>) -> u32
+pub unsafe fn ldap_search_stA<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_search_stA ( ld : *mut LDAP , base : :: windows::core::PCSTR , scope : u32 , filter : :: windows::core::PCSTR , attrs : *const *const i8 , attrsonly : u32 , timeout : *mut LDAP_TIMEVAL , res : *mut *mut LDAPMessage ) -> u32 );
-    ldap_search_stA(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, timeout, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
+    ldap_search_stA(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, timeout, res)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_stW<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const u16, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: ::core::option::Option<*mut *mut LDAPMessage>) -> u32
+pub unsafe fn ldap_search_stW<P0, P1>(ld: *mut LDAP, base: P0, scope: u32, filter: P1, attrs: *const *const u16, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_search_stW ( ld : *mut LDAP , base : :: windows::core::PCWSTR , scope : u32 , filter : :: windows::core::PCWSTR , attrs : *const *const u16 , attrsonly : u32 , timeout : *mut LDAP_TIMEVAL , res : *mut *mut LDAPMessage ) -> u32 );
-    ldap_search_stW(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, timeout, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
+    ldap_search_stW(ld, base.into().abi(), scope, filter.into().abi(), attrs, attrsonly, timeout, res)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]

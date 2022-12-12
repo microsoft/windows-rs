@@ -276,8 +276,11 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetuserHomeMediaSharingState(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetuserHomeMediaSharingState)(::windows::core::Vtable::as_raw(self), sharingenabled).ok()
+    pub unsafe fn SetuserHomeMediaSharingState<P0>(&self, sharingenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetuserHomeMediaSharingState)(::windows::core::Vtable::as_raw(self), sharingenabled.into()).ok()
     }
     pub unsafe fn userHomeMediaSharingLibraryName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -294,8 +297,11 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetcomputerHomeMediaSharingAllowedState(&self, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetcomputerHomeMediaSharingAllowedState)(::windows::core::Vtable::as_raw(self), sharingallowed).ok()
+    pub unsafe fn SetcomputerHomeMediaSharingAllowedState<P0>(&self, sharingallowed: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetcomputerHomeMediaSharingAllowedState)(::windows::core::Vtable::as_raw(self), sharingallowed.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -305,8 +311,11 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetuserInternetMediaSharingState(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetuserInternetMediaSharingState)(::windows::core::Vtable::as_raw(self), sharingenabled).ok()
+    pub unsafe fn SetuserInternetMediaSharingState<P0>(&self, sharingenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetuserInternetMediaSharingState)(::windows::core::Vtable::as_raw(self), sharingenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -316,8 +325,11 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetcomputerInternetMediaSharingAllowedState(&self, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetcomputerInternetMediaSharingAllowedState)(::windows::core::Vtable::as_raw(self), sharingallowed).ok()
+    pub unsafe fn SetcomputerInternetMediaSharingAllowedState<P0>(&self, sharingallowed: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetcomputerInternetMediaSharingAllowedState)(::windows::core::Vtable::as_raw(self), sharingallowed.into()).ok()
     }
     pub unsafe fn internetMediaSharingSecurityGroup(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -334,18 +346,27 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetallowSharingToAllDevices(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetallowSharingToAllDevices)(::windows::core::Vtable::as_raw(self), sharingenabled).ok()
+    pub unsafe fn SetallowSharingToAllDevices<P0>(&self, sharingenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetallowSharingToAllDevices)(::windows::core::Vtable::as_raw(self), sharingenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setDefaultAuthorization(&self, macaddresses: &::windows::core::BSTR, friendlyname: &::windows::core::BSTR, authorization: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).setDefaultAuthorization)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(macaddresses), ::core::mem::transmute_copy(friendlyname), authorization).ok()
+    pub unsafe fn setDefaultAuthorization<P0>(&self, macaddresses: &::windows::core::BSTR, friendlyname: &::windows::core::BSTR, authorization: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).setDefaultAuthorization)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(macaddresses), ::core::mem::transmute_copy(friendlyname), authorization.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setAuthorizationState(&self, macaddress: &::windows::core::BSTR, authorizationstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).setAuthorizationState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(macaddress), authorizationstate).ok()
+    pub unsafe fn setAuthorizationState<P0>(&self, macaddress: &::windows::core::BSTR, authorizationstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).setAuthorizationState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(macaddress), authorizationstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

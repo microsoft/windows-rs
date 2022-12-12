@@ -58,9 +58,9 @@ pub unsafe fn WinBioCancel(sessionhandle: u32) -> ::windows::core::Result<()> {
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
-pub unsafe fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, unitid: ::core::option::Option<*mut u32>, sample: ::core::option::Option<*mut *mut WINBIO_BIR>, samplesize: ::core::option::Option<*mut usize>, rejectdetail: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+pub unsafe fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, unitid: ::core::option::Option<*mut u32>, sample: *mut *mut WINBIO_BIR, samplesize: ::core::option::Option<*mut usize>, rejectdetail: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "winbio.dll""system" fn WinBioCaptureSample ( sessionhandle : u32 , purpose : u8 , flags : u8 , unitid : *mut u32 , sample : *mut *mut WINBIO_BIR , samplesize : *mut usize , rejectdetail : *mut u32 ) -> :: windows::core::HRESULT );
-    WinBioCaptureSample(sessionhandle, purpose, flags, ::core::mem::transmute(unitid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sample.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(samplesize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(rejectdetail.unwrap_or(::std::ptr::null_mut()))).ok()
+    WinBioCaptureSample(sessionhandle, purpose, flags, ::core::mem::transmute(unitid.unwrap_or(::std::ptr::null_mut())), sample, ::core::mem::transmute(samplesize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(rejectdetail.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
@@ -148,9 +148,9 @@ pub unsafe fn WinBioEnumDatabases(factor: u32, storageschemaarray: *mut *mut WIN
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
-pub unsafe fn WinBioEnumEnrollments(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactorarray: ::core::option::Option<*mut *mut u8>, subfactorcount: ::core::option::Option<*mut usize>) -> ::windows::core::Result<()> {
+pub unsafe fn WinBioEnumEnrollments(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactorarray: *mut *mut u8, subfactorcount: ::core::option::Option<*mut usize>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "winbio.dll""system" fn WinBioEnumEnrollments ( sessionhandle : u32 , unitid : u32 , identity : *const WINBIO_IDENTITY , subfactorarray : *mut *mut u8 , subfactorcount : *mut usize ) -> :: windows::core::HRESULT );
-    WinBioEnumEnrollments(sessionhandle, unitid, identity, ::core::mem::transmute(subfactorarray.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(subfactorcount.unwrap_or(::std::ptr::null_mut()))).ok()
+    WinBioEnumEnrollments(sessionhandle, unitid, identity, subfactorarray, ::core::mem::transmute(subfactorcount.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
@@ -198,9 +198,9 @@ pub unsafe fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
-pub unsafe fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: ::core::option::Option<*const WINBIO_IDENTITY>, subfactor: u8, propertybuffer: ::core::option::Option<*mut *mut ::core::ffi::c_void>, propertybuffersize: ::core::option::Option<*mut usize>) -> ::windows::core::Result<()> {
+pub unsafe fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: ::core::option::Option<*const WINBIO_IDENTITY>, subfactor: u8, propertybuffer: *mut *mut ::core::ffi::c_void, propertybuffersize: ::core::option::Option<*mut usize>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "winbio.dll""system" fn WinBioGetProperty ( sessionhandle : u32 , propertytype : u32 , propertyid : u32 , unitid : u32 , identity : *const WINBIO_IDENTITY , subfactor : u8 , propertybuffer : *mut *mut ::core::ffi::c_void , propertybuffersize : *mut usize ) -> :: windows::core::HRESULT );
-    WinBioGetProperty(sessionhandle, propertytype, propertyid, unitid, ::core::mem::transmute(identity.unwrap_or(::std::ptr::null())), subfactor, ::core::mem::transmute(propertybuffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(propertybuffersize.unwrap_or(::std::ptr::null_mut()))).ok()
+    WinBioGetProperty(sessionhandle, propertytype, propertyid, unitid, ::core::mem::transmute(identity.unwrap_or(::std::ptr::null())), subfactor, propertybuffer, ::core::mem::transmute(propertybuffersize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]

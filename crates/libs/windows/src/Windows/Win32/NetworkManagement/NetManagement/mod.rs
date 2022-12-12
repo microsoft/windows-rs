@@ -305,12 +305,13 @@ pub unsafe fn NetFreeAadJoinInformation(pjoininfo: ::core::option::Option<*const
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn NetGetAadJoinInformation<P0>(pcsztenantid: P0, ppjoininfo: ::core::option::Option<*mut *mut DSREG_JOIN_INFO>) -> ::windows::core::Result<()>
+pub unsafe fn NetGetAadJoinInformation<P0>(pcsztenantid: P0) -> ::windows::core::Result<*mut DSREG_JOIN_INFO>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGetAadJoinInformation ( pcsztenantid : :: windows::core::PCWSTR , ppjoininfo : *mut *mut DSREG_JOIN_INFO ) -> :: windows::core::HRESULT );
-    NetGetAadJoinInformation(pcsztenantid.into().abi(), ::core::mem::transmute(ppjoininfo.unwrap_or(::std::ptr::null_mut()))).ok()
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    NetGetAadJoinInformation(pcsztenantid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]

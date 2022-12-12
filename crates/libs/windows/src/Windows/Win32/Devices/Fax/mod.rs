@@ -937,19 +937,21 @@ impl IFaxAccountNotify {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn OnIncomingMessageAdded<P0>(&self, pfaxaccount: P0, bstrmessageid: &::windows::core::BSTR, faddedtoreceivefolder: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn OnIncomingMessageAdded<P0, P1>(&self, pfaxaccount: P0, bstrmessageid: &::windows::core::BSTR, faddedtoreceivefolder: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IFaxAccount>>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).OnIncomingMessageAdded)(::windows::core::Vtable::as_raw(self), pfaxaccount.into().abi(), ::core::mem::transmute_copy(bstrmessageid), faddedtoreceivefolder).ok()
+        (::windows::core::Vtable::vtable(self).OnIncomingMessageAdded)(::windows::core::Vtable::as_raw(self), pfaxaccount.into().abi(), ::core::mem::transmute_copy(bstrmessageid), faddedtoreceivefolder.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn OnIncomingMessageRemoved<P0>(&self, pfaxaccount: P0, bstrmessageid: &::windows::core::BSTR, fremovedfromreceivefolder: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn OnIncomingMessageRemoved<P0, P1>(&self, pfaxaccount: P0, bstrmessageid: &::windows::core::BSTR, fremovedfromreceivefolder: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IFaxAccount>>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).OnIncomingMessageRemoved)(::windows::core::Vtable::as_raw(self), pfaxaccount.into().abi(), ::core::mem::transmute_copy(bstrmessageid), fremovedfromreceivefolder).ok()
+        (::windows::core::Vtable::vtable(self).OnIncomingMessageRemoved)(::windows::core::Vtable::as_raw(self), pfaxaccount.into().abi(), ::core::mem::transmute_copy(bstrmessageid), fremovedfromreceivefolder.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1417,8 +1419,11 @@ impl IFaxActivityLogging {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogIncoming(&self, blogincoming: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetLogIncoming)(::windows::core::Vtable::as_raw(self), blogincoming).ok()
+    pub unsafe fn SetLogIncoming<P0>(&self, blogincoming: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetLogIncoming)(::windows::core::Vtable::as_raw(self), blogincoming.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1428,8 +1433,11 @@ impl IFaxActivityLogging {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogOutgoing(&self, blogoutgoing: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetLogOutgoing)(::windows::core::Vtable::as_raw(self), blogoutgoing).ok()
+    pub unsafe fn SetLogOutgoing<P0>(&self, blogoutgoing: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetLogOutgoing)(::windows::core::Vtable::as_raw(self), blogoutgoing.into()).ok()
     }
     pub unsafe fn DatabasePath(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1515,8 +1523,11 @@ impl IFaxConfiguration {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseArchive(&self, busearchive: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUseArchive)(::windows::core::Vtable::as_raw(self), busearchive).ok()
+    pub unsafe fn SetUseArchive<P0>(&self, busearchive: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetUseArchive)(::windows::core::Vtable::as_raw(self), busearchive.into()).ok()
     }
     pub unsafe fn ArchiveLocation(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1533,8 +1544,11 @@ impl IFaxConfiguration {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSizeQuotaWarning(&self, bsizequotawarning: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSizeQuotaWarning)(::windows::core::Vtable::as_raw(self), bsizequotawarning).ok()
+    pub unsafe fn SetSizeQuotaWarning<P0>(&self, bsizequotawarning: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSizeQuotaWarning)(::windows::core::Vtable::as_raw(self), bsizequotawarning.into()).ok()
     }
     pub unsafe fn HighQuotaWaterMark(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1573,8 +1587,11 @@ impl IFaxConfiguration {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOutgoingQueueBlocked(&self, boutgoingblocked: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOutgoingQueueBlocked)(::windows::core::Vtable::as_raw(self), boutgoingblocked).ok()
+    pub unsafe fn SetOutgoingQueueBlocked<P0>(&self, boutgoingblocked: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetOutgoingQueueBlocked)(::windows::core::Vtable::as_raw(self), boutgoingblocked.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1584,8 +1601,11 @@ impl IFaxConfiguration {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOutgoingQueuePaused(&self, boutgoingpaused: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOutgoingQueuePaused)(::windows::core::Vtable::as_raw(self), boutgoingpaused).ok()
+    pub unsafe fn SetOutgoingQueuePaused<P0>(&self, boutgoingpaused: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetOutgoingQueuePaused)(::windows::core::Vtable::as_raw(self), boutgoingpaused.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1595,8 +1615,11 @@ impl IFaxConfiguration {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllowPersonalCoverPages(&self, ballowpersonalcoverpages: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAllowPersonalCoverPages)(::windows::core::Vtable::as_raw(self), ballowpersonalcoverpages).ok()
+    pub unsafe fn SetAllowPersonalCoverPages<P0>(&self, ballowpersonalcoverpages: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAllowPersonalCoverPages)(::windows::core::Vtable::as_raw(self), ballowpersonalcoverpages.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1606,8 +1629,11 @@ impl IFaxConfiguration {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseDeviceTSID(&self, busedevicetsid: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUseDeviceTSID)(::windows::core::Vtable::as_raw(self), busedevicetsid).ok()
+    pub unsafe fn SetUseDeviceTSID<P0>(&self, busedevicetsid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetUseDeviceTSID)(::windows::core::Vtable::as_raw(self), busedevicetsid.into()).ok()
     }
     pub unsafe fn Retries(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1652,8 +1678,11 @@ impl IFaxConfiguration {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBranding(&self, bbranding: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBranding)(::windows::core::Vtable::as_raw(self), bbranding).ok()
+    pub unsafe fn SetBranding<P0>(&self, bbranding: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetBranding)(::windows::core::Vtable::as_raw(self), bbranding.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1663,8 +1692,11 @@ impl IFaxConfiguration {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIncomingQueueBlocked(&self, bincomingblocked: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIncomingQueueBlocked)(::windows::core::Vtable::as_raw(self), bincomingblocked).ok()
+    pub unsafe fn SetIncomingQueueBlocked<P0>(&self, bincomingblocked: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetIncomingQueueBlocked)(::windows::core::Vtable::as_raw(self), bincomingblocked.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1674,8 +1706,11 @@ impl IFaxConfiguration {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoCreateAccountOnConnect(&self, bautocreateaccountonconnect: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAutoCreateAccountOnConnect)(::windows::core::Vtable::as_raw(self), bautocreateaccountonconnect).ok()
+    pub unsafe fn SetAutoCreateAccountOnConnect<P0>(&self, bautocreateaccountonconnect: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAutoCreateAccountOnConnect)(::windows::core::Vtable::as_raw(self), bautocreateaccountonconnect.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1685,8 +1720,11 @@ impl IFaxConfiguration {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIncomingFaxesArePublic(&self, bincomingfaxesarepublic: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIncomingFaxesArePublic)(::windows::core::Vtable::as_raw(self), bincomingfaxesarepublic).ok()
+    pub unsafe fn SetIncomingFaxesArePublic<P0>(&self, bincomingfaxesarepublic: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetIncomingFaxesArePublic)(::windows::core::Vtable::as_raw(self), bincomingfaxesarepublic.into()).ok()
     }
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Refresh)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1890,8 +1928,11 @@ impl IFaxDevice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSendEnabled(&self, bsendenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSendEnabled)(::windows::core::Vtable::as_raw(self), bsendenabled).ok()
+    pub unsafe fn SetSendEnabled<P0>(&self, bsendenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSendEnabled)(::windows::core::Vtable::as_raw(self), bsendenabled.into()).ok()
     }
     pub unsafe fn ReceiveMode(&self) -> ::windows::core::Result<FAX_DEVICE_RECEIVE_MODE_ENUM> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1940,8 +1981,11 @@ impl IFaxDevice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UseRoutingMethod(&self, bstrmethodguid: &::windows::core::BSTR, buse: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).UseRoutingMethod)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmethodguid), buse).ok()
+    pub unsafe fn UseRoutingMethod<P0>(&self, bstrmethodguid: &::windows::core::BSTR, buse: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).UseRoutingMethod)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmethodguid), buse.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2467,8 +2511,11 @@ impl IFaxDocument {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGroupBroadcastReceipts(&self, busegrouping: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGroupBroadcastReceipts)(::windows::core::Vtable::as_raw(self), busegrouping).ok()
+    pub unsafe fn SetGroupBroadcastReceipts<P0>(&self, busegrouping: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetGroupBroadcastReceipts)(::windows::core::Vtable::as_raw(self), busegrouping.into()).ok()
     }
     pub unsafe fn Priority(&self) -> ::windows::core::Result<FAX_PRIORITY_TYPE_ENUM> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2514,8 +2561,11 @@ impl IFaxDocument {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttachFaxToReceipt(&self, battachfax: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAttachFaxToReceipt)(::windows::core::Vtable::as_raw(self), battachfax).ok()
+    pub unsafe fn SetAttachFaxToReceipt<P0>(&self, battachfax: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAttachFaxToReceipt)(::windows::core::Vtable::as_raw(self), battachfax.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2721,8 +2771,11 @@ impl IFaxDocument2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGroupBroadcastReceipts(&self, busegrouping: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGroupBroadcastReceipts)(::windows::core::Vtable::as_raw(self), busegrouping).ok()
+    pub unsafe fn SetGroupBroadcastReceipts<P0>(&self, busegrouping: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetGroupBroadcastReceipts)(::windows::core::Vtable::as_raw(self), busegrouping.into()).ok()
     }
     pub unsafe fn Priority(&self) -> ::windows::core::Result<FAX_PRIORITY_TYPE_ENUM> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2768,8 +2821,11 @@ impl IFaxDocument2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttachFaxToReceipt(&self, battachfax: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetAttachFaxToReceipt)(::windows::core::Vtable::as_raw(self), battachfax).ok()
+    pub unsafe fn SetAttachFaxToReceipt<P0>(&self, battachfax: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetAttachFaxToReceipt)(::windows::core::Vtable::as_raw(self), battachfax.into()).ok()
     }
     pub unsafe fn SubmissionId(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3419,8 +3475,11 @@ impl IFaxIncomingArchive {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseArchive(&self, busearchive: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUseArchive)(::windows::core::Vtable::as_raw(self), busearchive).ok()
+    pub unsafe fn SetUseArchive<P0>(&self, busearchive: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetUseArchive)(::windows::core::Vtable::as_raw(self), busearchive.into()).ok()
     }
     pub unsafe fn ArchiveFolder(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3437,8 +3496,11 @@ impl IFaxIncomingArchive {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSizeQuotaWarning(&self, bsizequotawarning: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSizeQuotaWarning)(::windows::core::Vtable::as_raw(self), bsizequotawarning).ok()
+    pub unsafe fn SetSizeQuotaWarning<P0>(&self, bsizequotawarning: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSizeQuotaWarning)(::windows::core::Vtable::as_raw(self), bsizequotawarning.into()).ok()
     }
     pub unsafe fn HighQuotaWaterMark(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3949,8 +4011,11 @@ impl IFaxIncomingMessage2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHasCoverPage(&self, bhascoverpage: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetHasCoverPage)(::windows::core::Vtable::as_raw(self), bhascoverpage).ok()
+    pub unsafe fn SetHasCoverPage<P0>(&self, bhascoverpage: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetHasCoverPage)(::windows::core::Vtable::as_raw(self), bhascoverpage.into()).ok()
     }
     pub unsafe fn Recipients(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3973,8 +4038,11 @@ impl IFaxIncomingMessage2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRead(&self, bread: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRead)(::windows::core::Vtable::as_raw(self), bread).ok()
+    pub unsafe fn SetRead<P0>(&self, bread: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetRead)(::windows::core::Vtable::as_raw(self), bread.into()).ok()
     }
     pub unsafe fn ReAssign(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReAssign)(::windows::core::Vtable::as_raw(self)).ok()
@@ -4147,8 +4215,11 @@ impl IFaxIncomingQueue {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBlocked(&self, bblocked: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBlocked)(::windows::core::Vtable::as_raw(self), bblocked).ok()
+    pub unsafe fn SetBlocked<P0>(&self, bblocked: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetBlocked)(::windows::core::Vtable::as_raw(self), bblocked.into()).ok()
     }
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Refresh)(::windows::core::Vtable::as_raw(self)).ok()
@@ -4648,8 +4719,11 @@ impl IFaxOutboundRoutingRule {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseDevice(&self, busedevice: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUseDevice)(::windows::core::Vtable::as_raw(self), busedevice).ok()
+    pub unsafe fn SetUseDevice<P0>(&self, busedevice: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetUseDevice)(::windows::core::Vtable::as_raw(self), busedevice.into()).ok()
     }
     pub unsafe fn DeviceId(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4759,9 +4833,12 @@ impl IFaxOutboundRoutingRules {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Add(&self, lcountrycode: i32, lareacode: i32, busedevice: super::super::Foundation::VARIANT_BOOL, bstrgroupname: &::windows::core::BSTR, ldeviceid: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule> {
+    pub unsafe fn Add<P0>(&self, lcountrycode: i32, lareacode: i32, busedevice: P0, bstrgroupname: &::windows::core::BSTR, ldeviceid: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), lcountrycode, lareacode, busedevice, ::core::mem::transmute_copy(bstrgroupname), ldeviceid, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), lcountrycode, lareacode, busedevice.into(), ::core::mem::transmute_copy(bstrgroupname), ldeviceid, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4830,8 +4907,11 @@ impl IFaxOutgoingArchive {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseArchive(&self, busearchive: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUseArchive)(::windows::core::Vtable::as_raw(self), busearchive).ok()
+    pub unsafe fn SetUseArchive<P0>(&self, busearchive: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetUseArchive)(::windows::core::Vtable::as_raw(self), busearchive.into()).ok()
     }
     pub unsafe fn ArchiveFolder(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4848,8 +4928,11 @@ impl IFaxOutgoingArchive {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSizeQuotaWarning(&self, bsizequotawarning: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSizeQuotaWarning)(::windows::core::Vtable::as_raw(self), bsizequotawarning).ok()
+    pub unsafe fn SetSizeQuotaWarning<P0>(&self, bsizequotawarning: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSizeQuotaWarning)(::windows::core::Vtable::as_raw(self), bsizequotawarning.into()).ok()
     }
     pub unsafe fn HighQuotaWaterMark(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5680,8 +5763,11 @@ impl IFaxOutgoingMessage2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRead(&self, bread: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRead)(::windows::core::Vtable::as_raw(self), bread).ok()
+    pub unsafe fn SetRead<P0>(&self, bread: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetRead)(::windows::core::Vtable::as_raw(self), bread.into()).ok()
     }
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Save)(::windows::core::Vtable::as_raw(self)).ok()
@@ -5836,8 +5922,11 @@ impl IFaxOutgoingQueue {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBlocked(&self, bblocked: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBlocked)(::windows::core::Vtable::as_raw(self), bblocked).ok()
+    pub unsafe fn SetBlocked<P0>(&self, bblocked: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetBlocked)(::windows::core::Vtable::as_raw(self), bblocked.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5847,8 +5936,11 @@ impl IFaxOutgoingQueue {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPaused(&self, bpaused: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPaused)(::windows::core::Vtable::as_raw(self), bpaused).ok()
+    pub unsafe fn SetPaused<P0>(&self, bpaused: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetPaused)(::windows::core::Vtable::as_raw(self), bpaused.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5858,8 +5950,11 @@ impl IFaxOutgoingQueue {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllowPersonalCoverPages(&self, ballowpersonalcoverpages: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAllowPersonalCoverPages)(::windows::core::Vtable::as_raw(self), ballowpersonalcoverpages).ok()
+    pub unsafe fn SetAllowPersonalCoverPages<P0>(&self, ballowpersonalcoverpages: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAllowPersonalCoverPages)(::windows::core::Vtable::as_raw(self), ballowpersonalcoverpages.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5869,8 +5964,11 @@ impl IFaxOutgoingQueue {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseDeviceTSID(&self, busedevicetsid: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUseDeviceTSID)(::windows::core::Vtable::as_raw(self), busedevicetsid).ok()
+    pub unsafe fn SetUseDeviceTSID<P0>(&self, busedevicetsid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetUseDeviceTSID)(::windows::core::Vtable::as_raw(self), busedevicetsid.into()).ok()
     }
     pub unsafe fn Retries(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5915,8 +6013,11 @@ impl IFaxOutgoingQueue {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBranding(&self, bbranding: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBranding)(::windows::core::Vtable::as_raw(self), bbranding).ok()
+    pub unsafe fn SetBranding<P0>(&self, bbranding: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetBranding)(::windows::core::Vtable::as_raw(self), bbranding.into()).ok()
     }
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Refresh)(::windows::core::Vtable::as_raw(self)).ok()
@@ -6102,8 +6203,11 @@ impl IFaxReceiptOptions {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseForInboundRouting(&self, buseforinboundrouting: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUseForInboundRouting)(::windows::core::Vtable::as_raw(self), buseforinboundrouting).ok()
+    pub unsafe fn SetUseForInboundRouting<P0>(&self, buseforinboundrouting: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetUseForInboundRouting)(::windows::core::Vtable::as_raw(self), buseforinboundrouting.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7322,11 +7426,14 @@ impl IFaxServerNotify2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn OnQueuesStatusChange<P0>(&self, pfaxserver: P0, boutgoingqueueblocked: super::super::Foundation::VARIANT_BOOL, boutgoingqueuepaused: super::super::Foundation::VARIANT_BOOL, bincomingqueueblocked: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn OnQueuesStatusChange<P0, P1, P2, P3>(&self, pfaxserver: P0, boutgoingqueueblocked: P1, boutgoingqueuepaused: P2, bincomingqueueblocked: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IFaxServer2>>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P2: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P3: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).OnQueuesStatusChange)(::windows::core::Vtable::as_raw(self), pfaxserver.into().abi(), boutgoingqueueblocked, boutgoingqueuepaused, bincomingqueueblocked).ok()
+        (::windows::core::Vtable::vtable(self).OnQueuesStatusChange)(::windows::core::Vtable::as_raw(self), pfaxserver.into().abi(), boutgoingqueueblocked.into(), boutgoingqueuepaused.into(), bincomingqueueblocked.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7346,11 +7453,15 @@ impl IFaxServerNotify2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn OnDeviceStatusChange<P0>(&self, pfaxserver: P0, ldeviceid: i32, bpoweredoff: super::super::Foundation::VARIANT_BOOL, bsending: super::super::Foundation::VARIANT_BOOL, breceiving: super::super::Foundation::VARIANT_BOOL, bringing: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn OnDeviceStatusChange<P0, P1, P2, P3, P4>(&self, pfaxserver: P0, ldeviceid: i32, bpoweredoff: P1, bsending: P2, breceiving: P3, bringing: P4) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IFaxServer2>>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P2: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P3: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P4: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).OnDeviceStatusChange)(::windows::core::Vtable::as_raw(self), pfaxserver.into().abi(), ldeviceid, bpoweredoff, bsending, breceiving, bringing).ok()
+        (::windows::core::Vtable::vtable(self).OnDeviceStatusChange)(::windows::core::Vtable::as_raw(self), pfaxserver.into().abi(), ldeviceid, bpoweredoff.into(), bsending.into(), breceiving.into(), bringing.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8512,6 +8623,8 @@ pub const STI_EVENTHANDLING_PENDING: u32 = 4u32;
 pub const STI_EVENTHANDLING_POLLING: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const STI_GENCAP_AUTO_PORTSELECT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
+pub const STI_GENCAP_COMMON_MASK: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const STI_GENCAP_GENERATE_ARRIVALEVENT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]

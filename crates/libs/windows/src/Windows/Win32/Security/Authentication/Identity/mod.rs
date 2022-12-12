@@ -1548,9 +1548,9 @@ pub unsafe fn SspiDecryptAuthIdentityEx(options: u32, encryptedauthdata: *mut ::
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
-pub unsafe fn SspiEncodeAuthIdentityAsStrings(pauthidentity: *const ::core::ffi::c_void, ppszusername: ::core::option::Option<*mut ::windows::core::PWSTR>, ppszdomainname: ::core::option::Option<*mut ::windows::core::PWSTR>, ppszpackedcredentialsstring: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
+pub unsafe fn SspiEncodeAuthIdentityAsStrings(pauthidentity: *const ::core::ffi::c_void, ppszusername: *mut ::windows::core::PWSTR, ppszdomainname: *mut ::windows::core::PWSTR, ppszpackedcredentialsstring: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "secur32.dll""system" fn SspiEncodeAuthIdentityAsStrings ( pauthidentity : *const ::core::ffi::c_void , ppszusername : *mut :: windows::core::PWSTR , ppszdomainname : *mut :: windows::core::PWSTR , ppszpackedcredentialsstring : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    SspiEncodeAuthIdentityAsStrings(pauthidentity, ::core::mem::transmute(ppszusername.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppszdomainname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppszpackedcredentialsstring.unwrap_or(::std::ptr::null_mut()))).ok()
+    SspiEncodeAuthIdentityAsStrings(pauthidentity, ppszusername, ppszdomainname, ::core::mem::transmute(ppszpackedcredentialsstring.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]

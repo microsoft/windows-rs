@@ -298,16 +298,17 @@ impl ID2D1Bitmap1 {
     pub unsafe fn CopyFromMemory(&self, dstrect: ::core::option::Option<*const Common::D2D_RECT_U>, srcdata: *const ::core::ffi::c_void, pitch: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CopyFromMemory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(dstrect.unwrap_or(::std::ptr::null())), srcdata, pitch).ok()
     }
-    pub unsafe fn GetColorContext(&self, colorcontext: ::core::option::Option<*mut ::core::option::Option<ID2D1ColorContext>>) {
-        (::windows::core::Vtable::vtable(self).GetColorContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(colorcontext.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetColorContext(&self, colorcontext: *mut ::core::option::Option<ID2D1ColorContext>) {
+        (::windows::core::Vtable::vtable(self).GetColorContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(colorcontext))
     }
     pub unsafe fn GetOptions(&self) -> D2D1_BITMAP_OPTIONS {
         (::windows::core::Vtable::vtable(self).GetOptions)(::windows::core::Vtable::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn GetSurface(&self, dxgisurface: ::core::option::Option<*mut ::core::option::Option<super::Dxgi::IDXGISurface>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSurface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(dxgisurface.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetSurface(&self) -> ::windows::core::Result<super::Dxgi::IDXGISurface> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetSurface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Map(&self, options: D2D1_MAP_OPTIONS) -> ::windows::core::Result<D2D1_MAPPED_RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -402,8 +403,8 @@ impl ID2D1BitmapBrush {
     pub unsafe fn GetInterpolationMode(&self) -> D2D1_BITMAP_INTERPOLATION_MODE {
         (::windows::core::Vtable::vtable(self).GetInterpolationMode)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn GetBitmap(&self, bitmap: ::core::option::Option<*mut ::core::option::Option<ID2D1Bitmap>>) {
-        (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(bitmap.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetBitmap(&self, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) {
+        (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(bitmap))
     }
 }
 ::windows::core::interface_hierarchy!(ID2D1BitmapBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
@@ -491,8 +492,8 @@ impl ID2D1BitmapBrush1 {
     pub unsafe fn GetInterpolationMode(&self) -> D2D1_BITMAP_INTERPOLATION_MODE {
         (::windows::core::Vtable::vtable(self).base__.GetInterpolationMode)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn GetBitmap(&self, bitmap: ::core::option::Option<*mut ::core::option::Option<ID2D1Bitmap>>) {
-        (::windows::core::Vtable::vtable(self).base__.GetBitmap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(bitmap.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetBitmap(&self, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) {
+        (::windows::core::Vtable::vtable(self).base__.GetBitmap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(bitmap))
     }
     pub unsafe fn SetInterpolationMode1(&self, interpolationmode: D2D1_INTERPOLATION_MODE) {
         (::windows::core::Vtable::vtable(self).SetInterpolationMode1)(::windows::core::Vtable::as_raw(self), interpolationmode)
@@ -773,8 +774,8 @@ impl ID2D1BitmapRenderTarget {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
-    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<*mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>>) {
-        (::windows::core::Vtable::vtable(self).base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) {
+        (::windows::core::Vtable::vtable(self).base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams))
     }
     pub unsafe fn SetTags(&self, tag1: u64, tag2: u64) {
         (::windows::core::Vtable::vtable(self).base__.SetTags)(::windows::core::Vtable::as_raw(self), tag1, tag2)
@@ -3053,8 +3054,8 @@ impl ID2D1DCRenderTarget {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
-    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<*mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>>) {
-        (::windows::core::Vtable::vtable(self).base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) {
+        (::windows::core::Vtable::vtable(self).base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams))
     }
     pub unsafe fn SetTags(&self, tag1: u64, tag2: u64) {
         (::windows::core::Vtable::vtable(self).base__.SetTags)(::windows::core::Vtable::as_raw(self), tag1, tag2)
@@ -4073,8 +4074,8 @@ impl ID2D1DeviceContext {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
-    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<*mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>>) {
-        (::windows::core::Vtable::vtable(self).base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) {
+        (::windows::core::Vtable::vtable(self).base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams))
     }
     pub unsafe fn SetTags(&self, tag1: u64, tag2: u64) {
         (::windows::core::Vtable::vtable(self).base__.SetTags)(::windows::core::Vtable::as_raw(self), tag1, tag2)
@@ -4281,8 +4282,8 @@ impl ID2D1DeviceContext {
     {
         (::windows::core::Vtable::vtable(self).SetTarget)(::windows::core::Vtable::as_raw(self), image.into().abi())
     }
-    pub unsafe fn GetTarget(&self, image: ::core::option::Option<*mut ::core::option::Option<ID2D1Image>>) {
-        (::windows::core::Vtable::vtable(self).GetTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTarget(&self, image: *mut ::core::option::Option<ID2D1Image>) {
+        (::windows::core::Vtable::vtable(self).GetTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -4761,8 +4762,8 @@ impl ID2D1DeviceContext1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
-    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<*mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams))
     }
     pub unsafe fn SetTags(&self, tag1: u64, tag2: u64) {
         (::windows::core::Vtable::vtable(self).base__.base__.SetTags)(::windows::core::Vtable::as_raw(self), tag1, tag2)
@@ -4969,8 +4970,8 @@ impl ID2D1DeviceContext1 {
     {
         (::windows::core::Vtable::vtable(self).base__.SetTarget)(::windows::core::Vtable::as_raw(self), image.into().abi())
     }
-    pub unsafe fn GetTarget(&self, image: ::core::option::Option<*mut ::core::option::Option<ID2D1Image>>) {
-        (::windows::core::Vtable::vtable(self).base__.GetTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTarget(&self, image: *mut ::core::option::Option<ID2D1Image>) {
+        (::windows::core::Vtable::vtable(self).base__.GetTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -5370,8 +5371,8 @@ impl ID2D1DeviceContext2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
-    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<*mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams))
     }
     pub unsafe fn SetTags(&self, tag1: u64, tag2: u64) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetTags)(::windows::core::Vtable::as_raw(self), tag1, tag2)
@@ -5578,8 +5579,8 @@ impl ID2D1DeviceContext2 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetTarget)(::windows::core::Vtable::as_raw(self), image.into().abi())
     }
-    pub unsafe fn GetTarget(&self, image: ::core::option::Option<*mut ::core::option::Option<ID2D1Image>>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTarget(&self, image: *mut ::core::option::Option<ID2D1Image>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.GetTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -6078,8 +6079,8 @@ impl ID2D1DeviceContext3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
-    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<*mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams))
     }
     pub unsafe fn SetTags(&self, tag1: u64, tag2: u64) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetTags)(::windows::core::Vtable::as_raw(self), tag1, tag2)
@@ -6286,8 +6287,8 @@ impl ID2D1DeviceContext3 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetTarget)(::windows::core::Vtable::as_raw(self), image.into().abi())
     }
-    pub unsafe fn GetTarget(&self, image: ::core::option::Option<*mut ::core::option::Option<ID2D1Image>>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTarget(&self, image: *mut ::core::option::Option<ID2D1Image>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -6770,8 +6771,8 @@ impl ID2D1DeviceContext4 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
-    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<*mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams))
     }
     pub unsafe fn SetTags(&self, tag1: u64, tag2: u64) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetTags)(::windows::core::Vtable::as_raw(self), tag1, tag2)
@@ -6978,8 +6979,8 @@ impl ID2D1DeviceContext4 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetTarget)(::windows::core::Vtable::as_raw(self), image.into().abi())
     }
-    pub unsafe fn GetTarget(&self, image: ::core::option::Option<*mut ::core::option::Option<ID2D1Image>>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTarget(&self, image: *mut ::core::option::Option<ID2D1Image>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -7543,8 +7544,8 @@ impl ID2D1DeviceContext5 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
-    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<*mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams))
     }
     pub unsafe fn SetTags(&self, tag1: u64, tag2: u64) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetTags)(::windows::core::Vtable::as_raw(self), tag1, tag2)
@@ -7751,8 +7752,8 @@ impl ID2D1DeviceContext5 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetTarget)(::windows::core::Vtable::as_raw(self), image.into().abi())
     }
-    pub unsafe fn GetTarget(&self, image: ::core::option::Option<*mut ::core::option::Option<ID2D1Image>>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTarget(&self, image: *mut ::core::option::Option<ID2D1Image>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -8331,8 +8332,8 @@ impl ID2D1DeviceContext6 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
-    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<*mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams))
     }
     pub unsafe fn SetTags(&self, tag1: u64, tag2: u64) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetTags)(::windows::core::Vtable::as_raw(self), tag1, tag2)
@@ -8539,8 +8540,8 @@ impl ID2D1DeviceContext6 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetTarget)(::windows::core::Vtable::as_raw(self), image.into().abi())
     }
-    pub unsafe fn GetTarget(&self, image: ::core::option::Option<*mut ::core::option::Option<ID2D1Image>>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTarget(&self, image: *mut ::core::option::Option<ID2D1Image>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -9044,8 +9045,8 @@ impl ID2D1DrawingStateBlock {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
-    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<*mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>>) {
-        (::windows::core::Vtable::vtable(self).GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) {
+        (::windows::core::Vtable::vtable(self).GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams))
     }
 }
 ::windows::core::interface_hierarchy!(ID2D1DrawingStateBlock, ::windows::core::IUnknown, ID2D1Resource);
@@ -9121,8 +9122,8 @@ impl ID2D1DrawingStateBlock1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
-    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<*mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>>) {
-        (::windows::core::Vtable::vtable(self).base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) {
+        (::windows::core::Vtable::vtable(self).base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams))
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -9216,8 +9217,9 @@ impl ID2D1Effect {
     pub unsafe fn GetValueSize(&self, index: u32) -> u32 {
         (::windows::core::Vtable::vtable(self).base__.GetValueSize)(::windows::core::Vtable::as_raw(self), index)
     }
-    pub unsafe fn GetSubProperties(&self, index: u32, subproperties: ::core::option::Option<*mut ::core::option::Option<ID2D1Properties>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSubProperties)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(subproperties.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetSubProperties(&self, index: u32) -> ::windows::core::Result<ID2D1Properties> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.GetSubProperties)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9231,8 +9233,8 @@ impl ID2D1Effect {
     pub unsafe fn SetInputCount(&self, inputcount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetInputCount)(::windows::core::Vtable::as_raw(self), inputcount).ok()
     }
-    pub unsafe fn GetInput(&self, index: u32, input: ::core::option::Option<*mut ::core::option::Option<ID2D1Image>>) {
-        (::windows::core::Vtable::vtable(self).GetInput)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(input.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetInput(&self, index: u32, input: *mut ::core::option::Option<ID2D1Image>) {
+        (::windows::core::Vtable::vtable(self).GetInput)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(input))
     }
     pub unsafe fn GetInputCount(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).GetInputCount)(::windows::core::Vtable::as_raw(self))
@@ -12801,8 +12803,8 @@ impl ID2D1HwndRenderTarget {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
-    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<*mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>>) {
-        (::windows::core::Vtable::vtable(self).base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) {
+        (::windows::core::Vtable::vtable(self).base__.GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams))
     }
     pub unsafe fn SetTags(&self, tag1: u64, tag2: u64) {
         (::windows::core::Vtable::vtable(self).base__.SetTags)(::windows::core::Vtable::as_raw(self), tag1, tag2)
@@ -13024,8 +13026,8 @@ impl ID2D1ImageBrush {
     pub unsafe fn SetSourceRectangle(&self, sourcerectangle: *const Common::D2D_RECT_F) {
         (::windows::core::Vtable::vtable(self).SetSourceRectangle)(::windows::core::Vtable::as_raw(self), sourcerectangle)
     }
-    pub unsafe fn GetImage(&self, image: ::core::option::Option<*mut ::core::option::Option<ID2D1Image>>) {
-        (::windows::core::Vtable::vtable(self).GetImage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetImage(&self, image: *mut ::core::option::Option<ID2D1Image>) {
+        (::windows::core::Vtable::vtable(self).GetImage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(image))
     }
     pub unsafe fn GetExtendModeX(&self) -> D2D1_EXTEND_MODE {
         (::windows::core::Vtable::vtable(self).GetExtendModeX)(::windows::core::Vtable::as_raw(self))
@@ -13168,8 +13170,8 @@ impl ID2D1ImageSourceFromWic {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
-    pub unsafe fn GetSource(&self, wicbitmapsource: ::core::option::Option<*mut ::core::option::Option<super::Imaging::IWICBitmapSource>>) {
-        (::windows::core::Vtable::vtable(self).GetSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(wicbitmapsource.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetSource(&self, wicbitmapsource: *mut ::core::option::Option<super::Imaging::IWICBitmapSource>) {
+        (::windows::core::Vtable::vtable(self).GetSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(wicbitmapsource))
     }
 }
 ::windows::core::interface_hierarchy!(ID2D1ImageSourceFromWic, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image, ID2D1ImageSource);
@@ -14145,8 +14147,9 @@ impl ID2D1Properties {
     pub unsafe fn GetValueSize(&self, index: u32) -> u32 {
         (::windows::core::Vtable::vtable(self).GetValueSize)(::windows::core::Vtable::as_raw(self), index)
     }
-    pub unsafe fn GetSubProperties(&self, index: u32, subproperties: ::core::option::Option<*mut ::core::option::Option<ID2D1Properties>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSubProperties)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(subproperties.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetSubProperties(&self, index: u32) -> ::windows::core::Result<ID2D1Properties> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetSubProperties)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID2D1Properties, ::windows::core::IUnknown);
@@ -14748,8 +14751,8 @@ impl ID2D1RenderTarget {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
-    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: ::core::option::Option<*mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>>) {
-        (::windows::core::Vtable::vtable(self).GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) {
+        (::windows::core::Vtable::vtable(self).GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams))
     }
     pub unsafe fn SetTags(&self, tag1: u64, tag2: u64) {
         (::windows::core::Vtable::vtable(self).SetTags)(::windows::core::Vtable::as_raw(self), tag1, tag2)
@@ -15613,8 +15616,8 @@ impl ID2D1SvgAttribute {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         (::windows::core::Vtable::vtable(self).base__.GetFactory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(factory))
     }
-    pub unsafe fn GetElement(&self, element: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) {
-        (::windows::core::Vtable::vtable(self).GetElement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(element.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetElement(&self, element: *mut ::core::option::Option<ID2D1SvgElement>) {
+        (::windows::core::Vtable::vtable(self).GetElement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(element))
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ID2D1SvgAttribute> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -15678,14 +15681,15 @@ impl ID2D1SvgDocument {
     {
         (::windows::core::Vtable::vtable(self).SetRoot)(::windows::core::Vtable::as_raw(self), root.into().abi()).ok()
     }
-    pub unsafe fn GetRoot(&self, root: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) {
-        (::windows::core::Vtable::vtable(self).GetRoot)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(root.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetRoot(&self, root: *mut ::core::option::Option<ID2D1SvgElement>) {
+        (::windows::core::Vtable::vtable(self).GetRoot)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(root))
     }
-    pub unsafe fn FindElementById<P0>(&self, id: P0, svgelement: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) -> ::windows::core::Result<()>
+    pub unsafe fn FindElementById<P0>(&self, id: P0) -> ::windows::core::Result<ID2D1SvgElement>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).FindElementById)(::windows::core::Vtable::as_raw(self), id.into().abi(), ::core::mem::transmute(svgelement.unwrap_or(::std::ptr::null_mut()))).ok()
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).FindElementById)(::windows::core::Vtable::as_raw(self), id.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -15795,8 +15799,8 @@ impl ID2D1SvgElement {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         (::windows::core::Vtable::vtable(self).base__.GetFactory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(factory))
     }
-    pub unsafe fn GetDocument(&self, document: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgDocument>>) {
-        (::windows::core::Vtable::vtable(self).GetDocument)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(document.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetDocument(&self, document: *mut ::core::option::Option<ID2D1SvgDocument>) {
+        (::windows::core::Vtable::vtable(self).GetDocument)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(document))
     }
     pub unsafe fn GetTagName(&self, name: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetTagName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name.as_ptr()), name.len() as _).ok()
@@ -15809,31 +15813,33 @@ impl ID2D1SvgElement {
     pub unsafe fn IsTextContent(&self) -> super::super::Foundation::BOOL {
         (::windows::core::Vtable::vtable(self).IsTextContent)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn GetParent(&self, parent: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) {
-        (::windows::core::Vtable::vtable(self).GetParent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(parent.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetParent(&self, parent: *mut ::core::option::Option<ID2D1SvgElement>) {
+        (::windows::core::Vtable::vtable(self).GetParent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(parent))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasChildren(&self) -> super::super::Foundation::BOOL {
         (::windows::core::Vtable::vtable(self).HasChildren)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn GetFirstChild(&self, child: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) {
-        (::windows::core::Vtable::vtable(self).GetFirstChild)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(child.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetFirstChild(&self, child: *mut ::core::option::Option<ID2D1SvgElement>) {
+        (::windows::core::Vtable::vtable(self).GetFirstChild)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(child))
     }
-    pub unsafe fn GetLastChild(&self, child: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) {
-        (::windows::core::Vtable::vtable(self).GetLastChild)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(child.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetLastChild(&self, child: *mut ::core::option::Option<ID2D1SvgElement>) {
+        (::windows::core::Vtable::vtable(self).GetLastChild)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(child))
     }
-    pub unsafe fn GetPreviousChild<P0>(&self, referencechild: P0, previouschild: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) -> ::windows::core::Result<()>
+    pub unsafe fn GetPreviousChild<P0>(&self, referencechild: P0) -> ::windows::core::Result<ID2D1SvgElement>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID2D1SvgElement>>,
     {
-        (::windows::core::Vtable::vtable(self).GetPreviousChild)(::windows::core::Vtable::as_raw(self), referencechild.into().abi(), ::core::mem::transmute(previouschild.unwrap_or(::std::ptr::null_mut()))).ok()
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetPreviousChild)(::windows::core::Vtable::as_raw(self), referencechild.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetNextChild<P0>(&self, referencechild: P0, nextchild: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) -> ::windows::core::Result<()>
+    pub unsafe fn GetNextChild<P0>(&self, referencechild: P0) -> ::windows::core::Result<ID2D1SvgElement>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID2D1SvgElement>>,
     {
-        (::windows::core::Vtable::vtable(self).GetNextChild)(::windows::core::Vtable::as_raw(self), referencechild.into().abi(), ::core::mem::transmute(nextchild.unwrap_or(::std::ptr::null_mut()))).ok()
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetNextChild)(::windows::core::Vtable::as_raw(self), referencechild.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn InsertChildBefore<P0, P1>(&self, newchild: P0, referencechild: P1) -> ::windows::core::Result<()>
     where
@@ -15924,12 +15930,13 @@ impl ID2D1SvgElement {
     {
         (::windows::core::Vtable::vtable(self).SetAttributeValue3)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, value.into().abi()).ok()
     }
-    pub unsafe fn GetAttributeValue<P0, T>(&self, name: P0, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    pub unsafe fn GetAttributeValue<P0, T>(&self, name: P0) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         T: ::windows::core::Interface,
     {
-        (::windows::core::Vtable::vtable(self).GetAttributeValue)(::windows::core::Vtable::as_raw(self), name.into().abi(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetAttributeValue)(::windows::core::Vtable::as_raw(self), name.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetAttributeValue2<P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()>
     where
@@ -16039,8 +16046,8 @@ impl ID2D1SvgGlyphStyle {
     {
         (::windows::core::Vtable::vtable(self).SetFill)(::windows::core::Vtable::as_raw(self), brush.into().abi()).ok()
     }
-    pub unsafe fn GetFill(&self, brush: ::core::option::Option<*mut ::core::option::Option<ID2D1Brush>>) {
-        (::windows::core::Vtable::vtable(self).GetFill)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(brush.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetFill(&self, brush: *mut ::core::option::Option<ID2D1Brush>) {
+        (::windows::core::Vtable::vtable(self).GetFill)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(brush))
     }
     pub unsafe fn SetStroke<P0>(&self, brush: P0, strokewidth: f32, dashes: ::core::option::Option<&[f32]>, dashoffset: f32) -> ::windows::core::Result<()>
     where
@@ -16097,8 +16104,8 @@ impl ID2D1SvgPaint {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         (::windows::core::Vtable::vtable(self).base__.base__.GetFactory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(factory))
     }
-    pub unsafe fn GetElement(&self, element: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) {
-        (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(element.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetElement(&self, element: *mut ::core::option::Option<ID2D1SvgElement>) {
+        (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(element))
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ID2D1SvgAttribute> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -16183,8 +16190,8 @@ impl ID2D1SvgPathData {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         (::windows::core::Vtable::vtable(self).base__.base__.GetFactory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(factory))
     }
-    pub unsafe fn GetElement(&self, element: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) {
-        (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(element.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetElement(&self, element: *mut ::core::option::Option<ID2D1SvgElement>) {
+        (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(element))
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ID2D1SvgAttribute> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -16270,8 +16277,8 @@ impl ID2D1SvgPointCollection {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         (::windows::core::Vtable::vtable(self).base__.base__.GetFactory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(factory))
     }
-    pub unsafe fn GetElement(&self, element: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) {
-        (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(element.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetElement(&self, element: *mut ::core::option::Option<ID2D1SvgElement>) {
+        (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(element))
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ID2D1SvgAttribute> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -16341,8 +16348,8 @@ impl ID2D1SvgStrokeDashArray {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         (::windows::core::Vtable::vtable(self).base__.base__.GetFactory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(factory))
     }
-    pub unsafe fn GetElement(&self, element: ::core::option::Option<*mut ::core::option::Option<ID2D1SvgElement>>) {
-        (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(element.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetElement(&self, element: *mut ::core::option::Option<ID2D1SvgElement>) {
+        (::windows::core::Vtable::vtable(self).base__.GetElement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(element))
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ID2D1SvgAttribute> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -16802,8 +16809,8 @@ impl ID2D1TransformedImageSource {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         (::windows::core::Vtable::vtable(self).base__.base__.GetFactory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(factory))
     }
-    pub unsafe fn GetSource(&self, imagesource: ::core::option::Option<*mut ::core::option::Option<ID2D1ImageSource>>) {
-        (::windows::core::Vtable::vtable(self).GetSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(imagesource.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn GetSource(&self, imagesource: *mut ::core::option::Option<ID2D1ImageSource>) {
+        (::windows::core::Vtable::vtable(self).GetSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(imagesource))
     }
     pub unsafe fn GetProperties(&self, properties: *mut D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES) {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), properties)

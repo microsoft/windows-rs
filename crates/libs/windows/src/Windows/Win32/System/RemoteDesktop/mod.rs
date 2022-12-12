@@ -1404,8 +1404,11 @@ pub struct IRemoteDesktopClientTouchPointer(::windows::core::IUnknown);
 impl IRemoteDesktopClientTouchPointer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), enabled).ok()
+    pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1415,8 +1418,11 @@ impl IRemoteDesktopClientTouchPointer {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventsEnabled(&self, eventsenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEventsEnabled)(::windows::core::Vtable::as_raw(self), eventsenabled).ok()
+    pub unsafe fn SetEventsEnabled<P0>(&self, eventsenabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEventsEnabled)(::windows::core::Vtable::as_raw(self), eventsenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6276,8 +6282,11 @@ impl IWorkspace2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn StartRemoteApplicationEx(&self, bstrworkspaceid: &::windows::core::BSTR, bstrrequestingappid: &::windows::core::BSTR, bstrrequestingappfamilyname: &::windows::core::BSTR, blaunchintoimmersiveclient: super::super::Foundation::VARIANT_BOOL, bstrimmersiveclientactivationcontext: &::windows::core::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StartRemoteApplicationEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrworkspaceid), ::core::mem::transmute_copy(bstrrequestingappid), ::core::mem::transmute_copy(bstrrequestingappfamilyname), blaunchintoimmersiveclient, ::core::mem::transmute_copy(bstrimmersiveclientactivationcontext), psaparams).ok()
+    pub unsafe fn StartRemoteApplicationEx<P0>(&self, bstrworkspaceid: &::windows::core::BSTR, bstrrequestingappid: &::windows::core::BSTR, bstrrequestingappfamilyname: &::windows::core::BSTR, blaunchintoimmersiveclient: P0, bstrimmersiveclientactivationcontext: &::windows::core::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).StartRemoteApplicationEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrworkspaceid), ::core::mem::transmute_copy(bstrrequestingappid), ::core::mem::transmute_copy(bstrrequestingappfamilyname), blaunchintoimmersiveclient.into(), ::core::mem::transmute_copy(bstrimmersiveclientactivationcontext), psaparams).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWorkspace2, ::windows::core::IUnknown, IWorkspace);
@@ -6333,8 +6342,11 @@ impl IWorkspace3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn StartRemoteApplicationEx(&self, bstrworkspaceid: &::windows::core::BSTR, bstrrequestingappid: &::windows::core::BSTR, bstrrequestingappfamilyname: &::windows::core::BSTR, blaunchintoimmersiveclient: super::super::Foundation::VARIANT_BOOL, bstrimmersiveclientactivationcontext: &::windows::core::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.StartRemoteApplicationEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrworkspaceid), ::core::mem::transmute_copy(bstrrequestingappid), ::core::mem::transmute_copy(bstrrequestingappfamilyname), blaunchintoimmersiveclient, ::core::mem::transmute_copy(bstrimmersiveclientactivationcontext), psaparams).ok()
+    pub unsafe fn StartRemoteApplicationEx<P0>(&self, bstrworkspaceid: &::windows::core::BSTR, bstrrequestingappid: &::windows::core::BSTR, bstrrequestingappfamilyname: &::windows::core::BSTR, blaunchintoimmersiveclient: P0, bstrimmersiveclientactivationcontext: &::windows::core::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.StartRemoteApplicationEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrworkspaceid), ::core::mem::transmute_copy(bstrrequestingappid), ::core::mem::transmute_copy(bstrrequestingappfamilyname), blaunchintoimmersiveclient.into(), ::core::mem::transmute_copy(bstrimmersiveclientactivationcontext), psaparams).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6584,30 +6596,45 @@ pub struct IWorkspaceResTypeRegistry(::windows::core::IUnknown);
 impl IWorkspaceResTypeRegistry {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddResourceType(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL, bstrfileextension: &::windows::core::BSTR, bstrlauncher: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AddResourceType)(::windows::core::Vtable::as_raw(self), fmachinewide, ::core::mem::transmute_copy(bstrfileextension), ::core::mem::transmute_copy(bstrlauncher)).ok()
+    pub unsafe fn AddResourceType<P0>(&self, fmachinewide: P0, bstrfileextension: &::windows::core::BSTR, bstrlauncher: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).AddResourceType)(::windows::core::Vtable::as_raw(self), fmachinewide.into(), ::core::mem::transmute_copy(bstrfileextension), ::core::mem::transmute_copy(bstrlauncher)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteResourceType(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL, bstrfileextension: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeleteResourceType)(::windows::core::Vtable::as_raw(self), fmachinewide, ::core::mem::transmute_copy(bstrfileextension)).ok()
+    pub unsafe fn DeleteResourceType<P0>(&self, fmachinewide: P0, bstrfileextension: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).DeleteResourceType)(::windows::core::Vtable::as_raw(self), fmachinewide.into(), ::core::mem::transmute_copy(bstrfileextension)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetRegisteredFileExtensions(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
+    pub unsafe fn GetRegisteredFileExtensions<P0>(&self, fmachinewide: P0) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRegisteredFileExtensions)(::windows::core::Vtable::as_raw(self), fmachinewide, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetRegisteredFileExtensions)(::windows::core::Vtable::as_raw(self), fmachinewide.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetResourceTypeInfo(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL, bstrfileextension: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetResourceTypeInfo<P0>(&self, fmachinewide: P0, bstrfileextension: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResourceTypeInfo)(::windows::core::Vtable::as_raw(self), fmachinewide, ::core::mem::transmute_copy(bstrfileextension), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetResourceTypeInfo)(::windows::core::Vtable::as_raw(self), fmachinewide.into(), ::core::mem::transmute_copy(bstrfileextension), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ModifyResourceType(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL, bstrfileextension: &::windows::core::BSTR, bstrlauncher: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ModifyResourceType)(::windows::core::Vtable::as_raw(self), fmachinewide, ::core::mem::transmute_copy(bstrfileextension), ::core::mem::transmute_copy(bstrlauncher)).ok()
+    pub unsafe fn ModifyResourceType<P0>(&self, fmachinewide: P0, bstrfileextension: &::windows::core::BSTR, bstrlauncher: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).ModifyResourceType)(::windows::core::Vtable::as_raw(self), fmachinewide.into(), ::core::mem::transmute_copy(bstrfileextension), ::core::mem::transmute_copy(bstrlauncher)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6680,9 +6707,12 @@ impl IWorkspaceScriptable {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsWorkspaceCredentialSpecified(&self, bstrworkspaceid: &::windows::core::BSTR, bcountunauthenticatedcredentials: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsWorkspaceCredentialSpecified<P0>(&self, bstrworkspaceid: &::windows::core::BSTR, bcountunauthenticatedcredentials: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsWorkspaceCredentialSpecified)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrworkspaceid), bcountunauthenticatedcredentials, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).IsWorkspaceCredentialSpecified)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrworkspaceid), bcountunauthenticatedcredentials.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6763,9 +6793,12 @@ impl IWorkspaceScriptable2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsWorkspaceCredentialSpecified(&self, bstrworkspaceid: &::windows::core::BSTR, bcountunauthenticatedcredentials: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsWorkspaceCredentialSpecified<P0>(&self, bstrworkspaceid: &::windows::core::BSTR, bcountunauthenticatedcredentials: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsWorkspaceCredentialSpecified)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrworkspaceid), bcountunauthenticatedcredentials, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.IsWorkspaceCredentialSpecified)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrworkspaceid), bcountunauthenticatedcredentials.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6841,9 +6874,12 @@ impl IWorkspaceScriptable3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsWorkspaceCredentialSpecified(&self, bstrworkspaceid: &::windows::core::BSTR, bcountunauthenticatedcredentials: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsWorkspaceCredentialSpecified<P0>(&self, bstrworkspaceid: &::windows::core::BSTR, bcountunauthenticatedcredentials: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.IsWorkspaceCredentialSpecified)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrworkspaceid), bcountunauthenticatedcredentials, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.IsWorkspaceCredentialSpecified)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrworkspaceid), bcountunauthenticatedcredentials.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

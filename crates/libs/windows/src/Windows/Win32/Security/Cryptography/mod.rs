@@ -998,9 +998,9 @@ where
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CertFindCertificateInCRL(pcert: *const CERT_CONTEXT, pcrlcontext: *const CRL_CONTEXT, dwflags: u32, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>, ppcrlentry: ::core::option::Option<*mut *mut CRL_ENTRY>) -> super::super::Foundation::BOOL {
+pub unsafe fn CertFindCertificateInCRL(pcert: *const CERT_CONTEXT, pcrlcontext: *const CRL_CONTEXT, dwflags: u32, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>, ppcrlentry: *mut *mut CRL_ENTRY) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "crypt32.dll""system" fn CertFindCertificateInCRL ( pcert : *const CERT_CONTEXT , pcrlcontext : *const CRL_CONTEXT , dwflags : u32 , pvreserved : *mut ::core::ffi::c_void , ppcrlentry : *mut *mut CRL_ENTRY ) -> super::super::Foundation:: BOOL );
-    CertFindCertificateInCRL(pcert, pcrlcontext, dwflags, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppcrlentry.unwrap_or(::std::ptr::null_mut())))
+    CertFindCertificateInCRL(pcert, pcrlcontext, dwflags, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut())), ppcrlentry)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2457,13 +2457,13 @@ where
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptRetrieveTimeStamp<P0, P1>(wszurl: P0, dwretrievalflags: u32, dwtimeout: u32, pszhashid: P1, ppara: ::core::option::Option<*const CRYPT_TIMESTAMP_PARA>, pbdata: &[u8], pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: ::core::option::Option<*mut *mut CERT_CONTEXT>, phstore: ::core::option::Option<*mut HCERTSTORE>) -> super::super::Foundation::BOOL
+pub unsafe fn CryptRetrieveTimeStamp<P0, P1>(wszurl: P0, dwretrievalflags: u32, dwtimeout: u32, pszhashid: P1, ppara: ::core::option::Option<*const CRYPT_TIMESTAMP_PARA>, pbdata: &[u8], pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut *mut CERT_CONTEXT, phstore: ::core::option::Option<*mut HCERTSTORE>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "crypt32.dll""system" fn CryptRetrieveTimeStamp ( wszurl : :: windows::core::PCWSTR , dwretrievalflags : u32 , dwtimeout : u32 , pszhashid : :: windows::core::PCSTR , ppara : *const CRYPT_TIMESTAMP_PARA , pbdata : *const u8 , cbdata : u32 , pptscontext : *mut *mut CRYPT_TIMESTAMP_CONTEXT , pptssigner : *mut *mut CERT_CONTEXT , phstore : *mut HCERTSTORE ) -> super::super::Foundation:: BOOL );
-    CryptRetrieveTimeStamp(wszurl.into().abi(), dwretrievalflags, dwtimeout, pszhashid.into().abi(), ::core::mem::transmute(ppara.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbdata.as_ptr()), pbdata.len() as _, pptscontext, ::core::mem::transmute(pptssigner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phstore.unwrap_or(::std::ptr::null_mut())))
+    CryptRetrieveTimeStamp(wszurl.into().abi(), dwretrievalflags, dwtimeout, pszhashid.into().abi(), ::core::mem::transmute(ppara.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbdata.as_ptr()), pbdata.len() as _, pptscontext, pptssigner, ::core::mem::transmute(phstore.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2784,18 +2784,19 @@ where
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptVerifyTimeStampSignature<P0>(pbtscontentinfo: &[u8], pbdata: ::core::option::Option<&[u8]>, hadditionalstore: P0, pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: ::core::option::Option<*mut *mut CERT_CONTEXT>, phstore: ::core::option::Option<*mut HCERTSTORE>) -> super::super::Foundation::BOOL
+pub unsafe fn CryptVerifyTimeStampSignature<P0>(pbtscontentinfo: &[u8], pbdata: ::core::option::Option<&[u8]>, hadditionalstore: P0, pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut *mut CERT_CONTEXT, phstore: ::core::option::Option<*mut HCERTSTORE>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HCERTSTORE>,
 {
     ::windows::core::link ! ( "crypt32.dll""system" fn CryptVerifyTimeStampSignature ( pbtscontentinfo : *const u8 , cbtscontentinfo : u32 , pbdata : *const u8 , cbdata : u32 , hadditionalstore : HCERTSTORE , pptscontext : *mut *mut CRYPT_TIMESTAMP_CONTEXT , pptssigner : *mut *mut CERT_CONTEXT , phstore : *mut HCERTSTORE ) -> super::super::Foundation:: BOOL );
-    CryptVerifyTimeStampSignature(::core::mem::transmute(pbtscontentinfo.as_ptr()), pbtscontentinfo.len() as _, ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbdata.as_deref().map_or(0, |slice| slice.len() as _), hadditionalstore.into(), pptscontext, ::core::mem::transmute(pptssigner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phstore.unwrap_or(::std::ptr::null_mut())))
+    CryptVerifyTimeStampSignature(::core::mem::transmute(pbtscontentinfo.as_ptr()), pbtscontentinfo.len() as _, ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbdata.as_deref().map_or(0, |slice| slice.len() as _), hadditionalstore.into(), pptscontext, pptssigner, ::core::mem::transmute(phstore.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
-pub unsafe fn CryptXmlAddObject(hsignatureorobject: *const ::core::ffi::c_void, dwflags: u32, rgproperty: ::core::option::Option<&[CRYPT_XML_PROPERTY]>, pencoded: *const CRYPT_XML_BLOB, ppobject: ::core::option::Option<*mut *mut CRYPT_XML_OBJECT>) -> ::windows::core::Result<()> {
+pub unsafe fn CryptXmlAddObject(hsignatureorobject: *const ::core::ffi::c_void, dwflags: u32, rgproperty: ::core::option::Option<&[CRYPT_XML_PROPERTY]>, pencoded: *const CRYPT_XML_BLOB) -> ::windows::core::Result<*mut CRYPT_XML_OBJECT> {
     ::windows::core::link ! ( "cryptxml.dll""system" fn CryptXmlAddObject ( hsignatureorobject : *const ::core::ffi::c_void , dwflags : u32 , rgproperty : *const CRYPT_XML_PROPERTY , cproperty : u32 , pencoded : *const CRYPT_XML_BLOB , ppobject : *mut *mut CRYPT_XML_OBJECT ) -> :: windows::core::HRESULT );
-    CryptXmlAddObject(hsignatureorobject, dwflags, ::core::mem::transmute(rgproperty.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len() as _), pencoded, ::core::mem::transmute(ppobject.unwrap_or(::std::ptr::null_mut()))).ok()
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    CryptXmlAddObject(hsignatureorobject, dwflags, ::core::mem::transmute(rgproperty.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len() as _), pencoded, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
@@ -3496,8 +3497,12 @@ impl ICertSrvSetup {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InitializeDefaults(&self, bserver: super::super::Foundation::VARIANT_BOOL, bclient: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InitializeDefaults)(::windows::core::Vtable::as_raw(self), bserver, bclient).ok()
+    pub unsafe fn InitializeDefaults<P0, P1>(&self, bserver: P0, bclient: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).InitializeDefaults)(::windows::core::Vtable::as_raw(self), bserver.into(), bclient.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3554,19 +3559,30 @@ impl ICertSrvSetup {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CAImportPFX(&self, bstrfilename: &::windows::core::BSTR, bstrpasswd: &::windows::core::BSTR, boverwriteexistingkey: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<ICertSrvSetupKeyInformation> {
+    pub unsafe fn CAImportPFX<P0>(&self, bstrfilename: &::windows::core::BSTR, bstrpasswd: &::windows::core::BSTR, boverwriteexistingkey: P0) -> ::windows::core::Result<ICertSrvSetupKeyInformation>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CAImportPFX)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrfilename), ::core::mem::transmute_copy(bstrpasswd), boverwriteexistingkey, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CAImportPFX)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrfilename), ::core::mem::transmute_copy(bstrpasswd), boverwriteexistingkey.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCADistinguishedName(&self, bstrcadn: &::windows::core::BSTR, bignoreunicode: super::super::Foundation::VARIANT_BOOL, boverwriteexistingkey: super::super::Foundation::VARIANT_BOOL, boverwriteexistingcainds: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCADistinguishedName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcadn), bignoreunicode, boverwriteexistingkey, boverwriteexistingcainds).ok()
+    pub unsafe fn SetCADistinguishedName<P0, P1, P2>(&self, bstrcadn: &::windows::core::BSTR, bignoreunicode: P0, boverwriteexistingkey: P1, boverwriteexistingcainds: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P2: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetCADistinguishedName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcadn), bignoreunicode.into(), boverwriteexistingkey.into(), boverwriteexistingcainds.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDatabaseInformation(&self, bstrdbdirectory: &::windows::core::BSTR, bstrlogdirectory: &::windows::core::BSTR, bstrsharedfolder: &::windows::core::BSTR, bforceoverwrite: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDatabaseInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdbdirectory), ::core::mem::transmute_copy(bstrlogdirectory), ::core::mem::transmute_copy(bstrsharedfolder), bforceoverwrite).ok()
+    pub unsafe fn SetDatabaseInformation<P0>(&self, bstrdbdirectory: &::windows::core::BSTR, bstrlogdirectory: &::windows::core::BSTR, bstrsharedfolder: &::windows::core::BSTR, bforceoverwrite: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetDatabaseInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdbdirectory), ::core::mem::transmute_copy(bstrlogdirectory), ::core::mem::transmute_copy(bstrsharedfolder), bforceoverwrite.into()).ok()
     }
     pub unsafe fn SetParentCAInformation(&self, bstrcaconfiguration: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetParentCAInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcaconfiguration)).ok()
@@ -3579,8 +3595,11 @@ impl ICertSrvSetup {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PreUnInstall(&self, bclientonly: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PreUnInstall)(::windows::core::Vtable::as_raw(self), bclientonly).ok()
+    pub unsafe fn PreUnInstall<P0>(&self, bclientonly: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).PreUnInstall)(::windows::core::Vtable::as_raw(self), bclientonly.into()).ok()
     }
     pub unsafe fn PostUnInstall(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).PostUnInstall)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3712,8 +3731,11 @@ impl ICertSrvSetupKeyInformation {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExisting(&self, bval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetExisting)(::windows::core::Vtable::as_raw(self), bval).ok()
+    pub unsafe fn SetExisting<P0>(&self, bval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetExisting)(::windows::core::Vtable::as_raw(self), bval.into()).ok()
     }
     pub unsafe fn ContainerName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4087,15 +4109,21 @@ impl IMSCEPSetup {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProviderNameList(&self, bexchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetProviderNameList<P0>(&self, bexchange: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProviderNameList)(::windows::core::Vtable::as_raw(self), bexchange, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetProviderNameList)(::windows::core::Vtable::as_raw(self), bexchange.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetKeyLengthList(&self, bexchange: super::super::Foundation::VARIANT_BOOL, bstrprovidername: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetKeyLengthList<P0>(&self, bexchange: P0, bstrprovidername: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetKeyLengthList)(::windows::core::Vtable::as_raw(self), bexchange, ::core::mem::transmute_copy(bstrprovidername), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetKeyLengthList)(::windows::core::Vtable::as_raw(self), bexchange.into(), ::core::mem::transmute_copy(bstrprovidername), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Install(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Install)(::windows::core::Vtable::as_raw(self)).ok()

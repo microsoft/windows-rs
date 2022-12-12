@@ -414,8 +414,11 @@ impl ISdoMachine2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConfigAgainstTemplates(&self, bstrservicename: &::windows::core::BSTR, ppconfigroot: *mut ::core::option::Option<::windows::core::IUnknown>, pptemplatesroot: *mut ::core::option::Option<::windows::core::IUnknown>, bforcedsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SyncConfigAgainstTemplates)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrservicename), ::core::mem::transmute(ppconfigroot), ::core::mem::transmute(pptemplatesroot), bforcedsync).ok()
+    pub unsafe fn SyncConfigAgainstTemplates<P0>(&self, bstrservicename: &::windows::core::BSTR, ppconfigroot: *mut ::core::option::Option<::windows::core::IUnknown>, pptemplatesroot: *mut ::core::option::Option<::windows::core::IUnknown>, bforcedsync: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SyncConfigAgainstTemplates)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrservicename), ::core::mem::transmute(ppconfigroot), ::core::mem::transmute(pptemplatesroot), bforcedsync.into()).ok()
     }
     pub unsafe fn ImportRemoteTemplates<P0>(&self, plocaltemplatesroot: P0, bstrremotemachinename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where

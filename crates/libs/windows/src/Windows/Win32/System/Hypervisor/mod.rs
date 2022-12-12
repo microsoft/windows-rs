@@ -3951,33 +3951,41 @@ impl ::core::default::Default for MODULE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct SOCKADDR_HV {
-    pub Family: u16,
+    pub Family: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub Reserved: u16,
     pub VmId: ::windows::core::GUID,
     pub ServiceId: ::windows::core::GUID,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for SOCKADDR_HV {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for SOCKADDR_HV {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::fmt::Debug for SOCKADDR_HV {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SOCKADDR_HV").field("Family", &self.Family).field("Reserved", &self.Reserved).field("VmId", &self.VmId).field("ServiceId", &self.ServiceId).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for SOCKADDR_HV {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for SOCKADDR_HV {
     fn eq(&self, other: &Self) -> bool {
         self.Family == other.Family && self.Reserved == other.Reserved && self.VmId == other.VmId && self.ServiceId == other.ServiceId
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for SOCKADDR_HV {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for SOCKADDR_HV {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

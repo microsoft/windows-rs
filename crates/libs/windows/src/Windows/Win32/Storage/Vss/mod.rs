@@ -578,21 +578,24 @@ impl IVssComponentEx {
     {
         (::windows::core::Vtable::vtable(self).SetPostSnapshotFailureMsg)(::windows::core::Vtable::as_raw(self), wszfailuremsg.into().abi()).ok()
     }
-    pub unsafe fn GetPrepareForBackupFailureMsg(&self, pbstrfailuremsg: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPrepareForBackupFailureMsg)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrfailuremsg.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPrepareForBackupFailureMsg(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetPrepareForBackupFailureMsg)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetPostSnapshotFailureMsg(&self, pbstrfailuremsg: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPostSnapshotFailureMsg)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrfailuremsg.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPostSnapshotFailureMsg(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetPostSnapshotFailureMsg)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetAuthoritativeRestore(&self) -> ::windows::core::Result<bool> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetAuthoritativeRestore)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetRollForward(&self, prolltype: *mut VSS_ROLLFORWARD_TYPE, pbstrpoint: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRollForward)(::windows::core::Vtable::as_raw(self), prolltype, ::core::mem::transmute(pbstrpoint.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetRollForward(&self, prolltype: *mut VSS_ROLLFORWARD_TYPE, pbstrpoint: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetRollForward)(::windows::core::Vtable::as_raw(self), prolltype, ::core::mem::transmute(pbstrpoint)).ok()
     }
-    pub unsafe fn GetRestoreName(&self, pbstrname: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRestoreName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrname.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetRestoreName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetRestoreName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVssComponentEx, ::windows::core::IUnknown, IVssComponent);
@@ -807,21 +810,24 @@ impl IVssComponentEx2 {
     {
         (::windows::core::Vtable::vtable(self).base__.SetPostSnapshotFailureMsg)(::windows::core::Vtable::as_raw(self), wszfailuremsg.into().abi()).ok()
     }
-    pub unsafe fn GetPrepareForBackupFailureMsg(&self, pbstrfailuremsg: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPrepareForBackupFailureMsg)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrfailuremsg.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPrepareForBackupFailureMsg(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.GetPrepareForBackupFailureMsg)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetPostSnapshotFailureMsg(&self, pbstrfailuremsg: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPostSnapshotFailureMsg)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrfailuremsg.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPostSnapshotFailureMsg(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.GetPostSnapshotFailureMsg)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetAuthoritativeRestore(&self) -> ::windows::core::Result<bool> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetAuthoritativeRestore)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetRollForward(&self, prolltype: *mut VSS_ROLLFORWARD_TYPE, pbstrpoint: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetRollForward)(::windows::core::Vtable::as_raw(self), prolltype, ::core::mem::transmute(pbstrpoint.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetRollForward(&self, prolltype: *mut VSS_ROLLFORWARD_TYPE, pbstrpoint: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetRollForward)(::windows::core::Vtable::as_raw(self), prolltype, ::core::mem::transmute(pbstrpoint)).ok()
     }
-    pub unsafe fn GetRestoreName(&self, pbstrname: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetRestoreName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrname.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetRestoreName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.GetRestoreName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetFailure<P0>(&self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: P0, dwreserved: u32) -> ::windows::core::Result<()>
     where
@@ -2218,11 +2224,12 @@ impl IVssWriterImpl {
     pub unsafe fn GetCurrentVolumeCount(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).GetCurrentVolumeCount)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn GetSnapshotDeviceName<P0>(&self, wszoriginalvolume: P0, ppwszsnapshotdevice: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
+    pub unsafe fn GetSnapshotDeviceName<P0>(&self, wszoriginalvolume: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetSnapshotDeviceName)(::windows::core::Vtable::as_raw(self), wszoriginalvolume.into().abi(), ::core::mem::transmute(ppwszsnapshotdevice.unwrap_or(::std::ptr::null_mut()))).ok()
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetSnapshotDeviceName)(::windows::core::Vtable::as_raw(self), wszoriginalvolume.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCurrentSnapshotSetId(&self) -> ::windows::core::GUID {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();

@@ -7246,8 +7246,11 @@ impl Folder3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetShowWebViewBarricade(&self, bshowwebviewbarricade: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetShowWebViewBarricade)(::windows::core::Vtable::as_raw(self), bshowwebviewbarricade).ok()
+    pub unsafe fn SetShowWebViewBarricade<P0>(&self, bshowwebviewbarricade: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetShowWebViewBarricade)(::windows::core::Vtable::as_raw(self), bshowwebviewbarricade.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12685,17 +12688,17 @@ impl IConnectableCredentialProviderCredential {
     pub unsafe fn CommandLinkClicked(&self, dwfieldid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CommandLinkClicked)(::windows::core::Vtable::as_raw(self), dwfieldid).ok()
     }
-    pub unsafe fn GetSerialization(&self, pcpgsr: *mut CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE, pcpcs: *mut CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION, ppszoptionalstatustext: ::core::option::Option<*mut ::windows::core::PWSTR>, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSerialization)(::windows::core::Vtable::as_raw(self), pcpgsr, pcpcs, ::core::mem::transmute(ppszoptionalstatustext.unwrap_or(::std::ptr::null_mut())), pcpsioptionalstatusicon).ok()
+    pub unsafe fn GetSerialization(&self, pcpgsr: *mut CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE, pcpcs: *mut CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION, ppszoptionalstatustext: *mut ::windows::core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetSerialization)(::windows::core::Vtable::as_raw(self), pcpgsr, pcpcs, ppszoptionalstatustext, pcpsioptionalstatusicon).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReportResult<P0, P1>(&self, ntsstatus: P0, ntssubstatus: P1, ppszoptionalstatustext: ::core::option::Option<*mut ::windows::core::PWSTR>, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> ::windows::core::Result<()>
+    pub unsafe fn ReportResult<P0, P1>(&self, ntsstatus: P0, ntssubstatus: P1, ppszoptionalstatustext: *mut ::windows::core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::NTSTATUS>,
         P1: ::std::convert::Into<super::super::Foundation::NTSTATUS>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ReportResult)(::windows::core::Vtable::as_raw(self), ntsstatus.into(), ntssubstatus.into(), ::core::mem::transmute(ppszoptionalstatustext.unwrap_or(::std::ptr::null_mut())), pcpsioptionalstatusicon).ok()
+        (::windows::core::Vtable::vtable(self).base__.ReportResult)(::windows::core::Vtable::as_raw(self), ntsstatus.into(), ntssubstatus.into(), ppszoptionalstatustext, pcpsioptionalstatusicon).ok()
     }
     pub unsafe fn Connect<P0>(&self, pqcws: P0) -> ::windows::core::Result<()>
     where
@@ -13418,17 +13421,17 @@ impl ICredentialProviderCredential {
     pub unsafe fn CommandLinkClicked(&self, dwfieldid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CommandLinkClicked)(::windows::core::Vtable::as_raw(self), dwfieldid).ok()
     }
-    pub unsafe fn GetSerialization(&self, pcpgsr: *mut CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE, pcpcs: *mut CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION, ppszoptionalstatustext: ::core::option::Option<*mut ::windows::core::PWSTR>, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSerialization)(::windows::core::Vtable::as_raw(self), pcpgsr, pcpcs, ::core::mem::transmute(ppszoptionalstatustext.unwrap_or(::std::ptr::null_mut())), pcpsioptionalstatusicon).ok()
+    pub unsafe fn GetSerialization(&self, pcpgsr: *mut CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE, pcpcs: *mut CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION, ppszoptionalstatustext: *mut ::windows::core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSerialization)(::windows::core::Vtable::as_raw(self), pcpgsr, pcpcs, ppszoptionalstatustext, pcpsioptionalstatusicon).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReportResult<P0, P1>(&self, ntsstatus: P0, ntssubstatus: P1, ppszoptionalstatustext: ::core::option::Option<*mut ::windows::core::PWSTR>, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> ::windows::core::Result<()>
+    pub unsafe fn ReportResult<P0, P1>(&self, ntsstatus: P0, ntssubstatus: P1, ppszoptionalstatustext: *mut ::windows::core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::NTSTATUS>,
         P1: ::std::convert::Into<super::super::Foundation::NTSTATUS>,
     {
-        (::windows::core::Vtable::vtable(self).ReportResult)(::windows::core::Vtable::as_raw(self), ntsstatus.into(), ntssubstatus.into(), ::core::mem::transmute(ppszoptionalstatustext.unwrap_or(::std::ptr::null_mut())), pcpsioptionalstatusicon).ok()
+        (::windows::core::Vtable::vtable(self).ReportResult)(::windows::core::Vtable::as_raw(self), ntsstatus.into(), ntssubstatus.into(), ppszoptionalstatustext, pcpsioptionalstatusicon).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICredentialProviderCredential, ::windows::core::IUnknown);
@@ -13562,20 +13565,21 @@ impl ICredentialProviderCredential2 {
     pub unsafe fn CommandLinkClicked(&self, dwfieldid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CommandLinkClicked)(::windows::core::Vtable::as_raw(self), dwfieldid).ok()
     }
-    pub unsafe fn GetSerialization(&self, pcpgsr: *mut CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE, pcpcs: *mut CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION, ppszoptionalstatustext: ::core::option::Option<*mut ::windows::core::PWSTR>, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSerialization)(::windows::core::Vtable::as_raw(self), pcpgsr, pcpcs, ::core::mem::transmute(ppszoptionalstatustext.unwrap_or(::std::ptr::null_mut())), pcpsioptionalstatusicon).ok()
+    pub unsafe fn GetSerialization(&self, pcpgsr: *mut CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE, pcpcs: *mut CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION, ppszoptionalstatustext: *mut ::windows::core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetSerialization)(::windows::core::Vtable::as_raw(self), pcpgsr, pcpcs, ppszoptionalstatustext, pcpsioptionalstatusicon).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReportResult<P0, P1>(&self, ntsstatus: P0, ntssubstatus: P1, ppszoptionalstatustext: ::core::option::Option<*mut ::windows::core::PWSTR>, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> ::windows::core::Result<()>
+    pub unsafe fn ReportResult<P0, P1>(&self, ntsstatus: P0, ntssubstatus: P1, ppszoptionalstatustext: *mut ::windows::core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::NTSTATUS>,
         P1: ::std::convert::Into<super::super::Foundation::NTSTATUS>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ReportResult)(::windows::core::Vtable::as_raw(self), ntsstatus.into(), ntssubstatus.into(), ::core::mem::transmute(ppszoptionalstatustext.unwrap_or(::std::ptr::null_mut())), pcpsioptionalstatusicon).ok()
+        (::windows::core::Vtable::vtable(self).base__.ReportResult)(::windows::core::Vtable::as_raw(self), ntsstatus.into(), ntssubstatus.into(), ppszoptionalstatustext, pcpsioptionalstatusicon).ok()
     }
-    pub unsafe fn GetUserSid(&self, sid: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetUserSid)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(sid.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetUserSid(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetUserSid)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ICredentialProviderCredential2, ::windows::core::IUnknown, ICredentialProviderCredential);
@@ -19403,8 +19407,11 @@ impl IFileSearchBand {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSearchParameters(&self, pbstrsearchid: *const ::windows::core::BSTR, bnavtoresults: super::super::Foundation::VARIANT_BOOL, pvarscope: *const super::super::System::Com::VARIANT, pvarqueryfile: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSearchParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrsearchid), bnavtoresults, pvarscope, pvarqueryfile).ok()
+    pub unsafe fn SetSearchParameters<P0>(&self, pbstrsearchid: *const ::windows::core::BSTR, bnavtoresults: P0, pvarscope: *const super::super::System::Com::VARIANT, pvarqueryfile: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSearchParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrsearchid), bnavtoresults.into(), pvarscope, pvarqueryfile).ok()
     }
     pub unsafe fn SearchID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -24235,8 +24242,13 @@ impl INewWDEvents {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWizardButtons(&self, vfenableback: super::super::Foundation::VARIANT_BOOL, vfenablenext: super::super::Foundation::VARIANT_BOOL, vflastpage: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetWizardButtons)(::windows::core::Vtable::as_raw(self), vfenableback, vfenablenext, vflastpage).ok()
+    pub unsafe fn SetWizardButtons<P0, P1, P2>(&self, vfenableback: P0, vfenablenext: P1, vflastpage: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P2: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetWizardButtons)(::windows::core::Vtable::as_raw(self), vfenableback.into(), vfenablenext.into(), vflastpage.into()).ok()
     }
     pub unsafe fn SetHeaderText(&self, bstrheadertitle: &::windows::core::BSTR, bstrheadersubtitle: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetHeaderText)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrheadertitle), ::core::mem::transmute_copy(bstrheadersubtitle)).ok()
@@ -29722,11 +29734,12 @@ impl IShellFolderView {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetItemSpacing)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetCallback<P0>(&self, pnewcb: P0, ppoldcb: ::core::option::Option<*mut ::core::option::Option<IShellFolderViewCB>>) -> ::windows::core::Result<()>
+    pub unsafe fn SetCallback<P0>(&self, pnewcb: P0) -> ::windows::core::Result<IShellFolderViewCB>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IShellFolderViewCB>>,
     {
-        (::windows::core::Vtable::vtable(self).SetCallback)(::windows::core::Vtable::as_raw(self), pnewcb.into().abi(), ::core::mem::transmute(ppoldcb.unwrap_or(::std::ptr::null_mut()))).ok()
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).SetCallback)(::windows::core::Vtable::as_raw(self), pnewcb.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Select(&self, dwflags: SFVS_SELECT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Select)(::windows::core::Vtable::as_raw(self), dwflags).ok()
@@ -32691,8 +32704,11 @@ impl IShellUIHelper {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ImportExportFavorites(&self, fimport: super::super::Foundation::VARIANT_BOOL, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport, ::core::mem::transmute_copy(strimpexppath)).ok()
+    pub unsafe fn ImportExportFavorites<P0>(&self, fimport: P0, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport.into(), ::core::mem::transmute_copy(strimpexppath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -32833,8 +32849,11 @@ impl IShellUIHelper2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ImportExportFavorites(&self, fimport: super::super::Foundation::VARIANT_BOOL, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport, ::core::mem::transmute_copy(strimpexppath)).ok()
+    pub unsafe fn ImportExportFavorites<P0>(&self, fimport: P0, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport.into(), ::core::mem::transmute_copy(strimpexppath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -32868,8 +32887,12 @@ impl IShellUIHelper2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeSettings(&self, fsqm: super::super::Foundation::VARIANT_BOOL, fphishing: super::super::Foundation::VARIANT_BOOL, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm, fphishing, ::core::mem::transmute_copy(bstrlocale)).ok()
+    pub unsafe fn CustomizeSettings<P0, P1>(&self, fsqm: P0, fphishing: P1, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm.into(), fphishing.into(), ::core::mem::transmute_copy(bstrlocale)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32895,8 +32918,11 @@ impl IShellUIHelper2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeClearType(&self, fset: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset).ok()
+    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset.into()).ok()
     }
     pub unsafe fn IsSearchProviderInstalled(&self, url: &::windows::core::BSTR) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -32914,8 +32940,11 @@ impl IShellUIHelper2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunOnceRequiredSettingsComplete(&self, fcomplete: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete).ok()
+    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33042,8 +33071,11 @@ impl IShellUIHelper3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ImportExportFavorites(&self, fimport: super::super::Foundation::VARIANT_BOOL, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport, ::core::mem::transmute_copy(strimpexppath)).ok()
+    pub unsafe fn ImportExportFavorites<P0>(&self, fimport: P0, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport.into(), ::core::mem::transmute_copy(strimpexppath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -33077,8 +33109,12 @@ impl IShellUIHelper3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeSettings(&self, fsqm: super::super::Foundation::VARIANT_BOOL, fphishing: super::super::Foundation::VARIANT_BOOL, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm, fphishing, ::core::mem::transmute_copy(bstrlocale)).ok()
+    pub unsafe fn CustomizeSettings<P0, P1>(&self, fsqm: P0, fphishing: P1, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm.into(), fphishing.into(), ::core::mem::transmute_copy(bstrlocale)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33104,8 +33140,11 @@ impl IShellUIHelper3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeClearType(&self, fset: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset).ok()
+    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset.into()).ok()
     }
     pub unsafe fn IsSearchProviderInstalled(&self, url: &::windows::core::BSTR) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -33123,8 +33162,11 @@ impl IShellUIHelper3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunOnceRequiredSettingsComplete(&self, fcomplete: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete).ok()
+    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33159,13 +33201,19 @@ impl IShellUIHelper3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRecentlyClosedVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRecentlyClosedVisible)(::windows::core::Vtable::as_raw(self), fvisible).ok()
+    pub unsafe fn SetRecentlyClosedVisible<P0>(&self, fvisible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetRecentlyClosedVisible)(::windows::core::Vtable::as_raw(self), fvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetActivitiesVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetActivitiesVisible)(::windows::core::Vtable::as_raw(self), fvisible).ok()
+    pub unsafe fn SetActivitiesVisible<P0>(&self, fvisible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetActivitiesVisible)(::windows::core::Vtable::as_raw(self), fvisible.into()).ok()
     }
     pub unsafe fn ContentDiscoveryReset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ContentDiscoveryReset)(::windows::core::Vtable::as_raw(self)).ok()
@@ -33178,8 +33226,11 @@ impl IShellUIHelper3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableSuggestedSites(&self, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnableSuggestedSites)(::windows::core::Vtable::as_raw(self), fenable).ok()
+    pub unsafe fn EnableSuggestedSites<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).EnableSuggestedSites)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn NavigateToSuggestedSites(&self, bstrrelativeurl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).NavigateToSuggestedSites)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrrelativeurl)).ok()
@@ -33299,8 +33350,11 @@ impl IShellUIHelper4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ImportExportFavorites(&self, fimport: super::super::Foundation::VARIANT_BOOL, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport, ::core::mem::transmute_copy(strimpexppath)).ok()
+    pub unsafe fn ImportExportFavorites<P0>(&self, fimport: P0, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport.into(), ::core::mem::transmute_copy(strimpexppath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -33334,8 +33388,12 @@ impl IShellUIHelper4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeSettings(&self, fsqm: super::super::Foundation::VARIANT_BOOL, fphishing: super::super::Foundation::VARIANT_BOOL, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm, fphishing, ::core::mem::transmute_copy(bstrlocale)).ok()
+    pub unsafe fn CustomizeSettings<P0, P1>(&self, fsqm: P0, fphishing: P1, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm.into(), fphishing.into(), ::core::mem::transmute_copy(bstrlocale)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33361,8 +33419,11 @@ impl IShellUIHelper4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeClearType(&self, fset: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset).ok()
+    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset.into()).ok()
     }
     pub unsafe fn IsSearchProviderInstalled(&self, url: &::windows::core::BSTR) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -33380,8 +33441,11 @@ impl IShellUIHelper4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunOnceRequiredSettingsComplete(&self, fcomplete: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete).ok()
+    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33416,13 +33480,19 @@ impl IShellUIHelper4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRecentlyClosedVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetRecentlyClosedVisible)(::windows::core::Vtable::as_raw(self), fvisible).ok()
+    pub unsafe fn SetRecentlyClosedVisible<P0>(&self, fvisible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetRecentlyClosedVisible)(::windows::core::Vtable::as_raw(self), fvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetActivitiesVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetActivitiesVisible)(::windows::core::Vtable::as_raw(self), fvisible).ok()
+    pub unsafe fn SetActivitiesVisible<P0>(&self, fvisible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetActivitiesVisible)(::windows::core::Vtable::as_raw(self), fvisible.into()).ok()
     }
     pub unsafe fn ContentDiscoveryReset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.ContentDiscoveryReset)(::windows::core::Vtable::as_raw(self)).ok()
@@ -33435,8 +33505,11 @@ impl IShellUIHelper4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableSuggestedSites(&self, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnableSuggestedSites)(::windows::core::Vtable::as_raw(self), fenable).ok()
+    pub unsafe fn EnableSuggestedSites<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.EnableSuggestedSites)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn NavigateToSuggestedSites(&self, bstrrelativeurl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.NavigateToSuggestedSites)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrrelativeurl)).ok()
@@ -33464,8 +33537,12 @@ impl IShellUIHelper4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn msSiteModeUpdateThumbBarButton(&self, buttonid: super::super::System::Com::VARIANT, fenabled: super::super::Foundation::VARIANT_BOOL, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).msSiteModeUpdateThumbBarButton)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buttonid), fenabled, fvisible).ok()
+    pub unsafe fn msSiteModeUpdateThumbBarButton<P0, P1>(&self, buttonid: super::super::System::Com::VARIANT, fenabled: P0, fvisible: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).msSiteModeUpdateThumbBarButton)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buttonid), fenabled.into(), fvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -33508,9 +33585,12 @@ impl IShellUIHelper4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn msIsSiteModeFirstRun(&self, fpreservestate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn msIsSiteModeFirstRun<P0>(&self, fpreservestate: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).msIsSiteModeFirstRun)(::windows::core::Vtable::as_raw(self), fpreservestate, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).msIsSiteModeFirstRun)(::windows::core::Vtable::as_raw(self), fpreservestate.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn msAddTrackingProtectionList(&self, url: &::windows::core::BSTR, bstrfiltername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).msAddTrackingProtectionList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(url), ::core::mem::transmute_copy(bstrfiltername)).ok()
@@ -33653,8 +33733,11 @@ impl IShellUIHelper5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ImportExportFavorites(&self, fimport: super::super::Foundation::VARIANT_BOOL, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport, ::core::mem::transmute_copy(strimpexppath)).ok()
+    pub unsafe fn ImportExportFavorites<P0>(&self, fimport: P0, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport.into(), ::core::mem::transmute_copy(strimpexppath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -33688,8 +33771,12 @@ impl IShellUIHelper5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeSettings(&self, fsqm: super::super::Foundation::VARIANT_BOOL, fphishing: super::super::Foundation::VARIANT_BOOL, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm, fphishing, ::core::mem::transmute_copy(bstrlocale)).ok()
+    pub unsafe fn CustomizeSettings<P0, P1>(&self, fsqm: P0, fphishing: P1, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm.into(), fphishing.into(), ::core::mem::transmute_copy(bstrlocale)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33715,8 +33802,11 @@ impl IShellUIHelper5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeClearType(&self, fset: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset).ok()
+    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset.into()).ok()
     }
     pub unsafe fn IsSearchProviderInstalled(&self, url: &::windows::core::BSTR) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -33734,8 +33824,11 @@ impl IShellUIHelper5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunOnceRequiredSettingsComplete(&self, fcomplete: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete).ok()
+    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33770,13 +33863,19 @@ impl IShellUIHelper5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRecentlyClosedVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetRecentlyClosedVisible)(::windows::core::Vtable::as_raw(self), fvisible).ok()
+    pub unsafe fn SetRecentlyClosedVisible<P0>(&self, fvisible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetRecentlyClosedVisible)(::windows::core::Vtable::as_raw(self), fvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetActivitiesVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetActivitiesVisible)(::windows::core::Vtable::as_raw(self), fvisible).ok()
+    pub unsafe fn SetActivitiesVisible<P0>(&self, fvisible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetActivitiesVisible)(::windows::core::Vtable::as_raw(self), fvisible.into()).ok()
     }
     pub unsafe fn ContentDiscoveryReset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.ContentDiscoveryReset)(::windows::core::Vtable::as_raw(self)).ok()
@@ -33789,8 +33888,11 @@ impl IShellUIHelper5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableSuggestedSites(&self, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.EnableSuggestedSites)(::windows::core::Vtable::as_raw(self), fenable).ok()
+    pub unsafe fn EnableSuggestedSites<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.EnableSuggestedSites)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn NavigateToSuggestedSites(&self, bstrrelativeurl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.NavigateToSuggestedSites)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrrelativeurl)).ok()
@@ -33818,8 +33920,12 @@ impl IShellUIHelper5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn msSiteModeUpdateThumbBarButton(&self, buttonid: super::super::System::Com::VARIANT, fenabled: super::super::Foundation::VARIANT_BOOL, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.msSiteModeUpdateThumbBarButton)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buttonid), fenabled, fvisible).ok()
+    pub unsafe fn msSiteModeUpdateThumbBarButton<P0, P1>(&self, buttonid: super::super::System::Com::VARIANT, fenabled: P0, fvisible: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.msSiteModeUpdateThumbBarButton)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buttonid), fenabled.into(), fvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -33862,9 +33968,12 @@ impl IShellUIHelper5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn msIsSiteModeFirstRun(&self, fpreservestate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn msIsSiteModeFirstRun<P0>(&self, fpreservestate: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.msIsSiteModeFirstRun)(::windows::core::Vtable::as_raw(self), fpreservestate, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.msIsSiteModeFirstRun)(::windows::core::Vtable::as_raw(self), fpreservestate.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn msAddTrackingProtectionList(&self, url: &::windows::core::BSTR, bstrfiltername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.msAddTrackingProtectionList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(url), ::core::mem::transmute_copy(bstrfiltername)).ok()
@@ -33904,8 +34013,11 @@ impl IShellUIHelper5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msChangeDefaultBrowser(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).msChangeDefaultBrowser)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msChangeDefaultBrowser<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).msChangeDefaultBrowser)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -33998,8 +34110,11 @@ impl IShellUIHelper6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ImportExportFavorites(&self, fimport: super::super::Foundation::VARIANT_BOOL, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport, ::core::mem::transmute_copy(strimpexppath)).ok()
+    pub unsafe fn ImportExportFavorites<P0>(&self, fimport: P0, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport.into(), ::core::mem::transmute_copy(strimpexppath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -34033,8 +34148,12 @@ impl IShellUIHelper6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeSettings(&self, fsqm: super::super::Foundation::VARIANT_BOOL, fphishing: super::super::Foundation::VARIANT_BOOL, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm, fphishing, ::core::mem::transmute_copy(bstrlocale)).ok()
+    pub unsafe fn CustomizeSettings<P0, P1>(&self, fsqm: P0, fphishing: P1, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm.into(), fphishing.into(), ::core::mem::transmute_copy(bstrlocale)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -34060,8 +34179,11 @@ impl IShellUIHelper6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeClearType(&self, fset: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset).ok()
+    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset.into()).ok()
     }
     pub unsafe fn IsSearchProviderInstalled(&self, url: &::windows::core::BSTR) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -34079,8 +34201,11 @@ impl IShellUIHelper6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunOnceRequiredSettingsComplete(&self, fcomplete: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete).ok()
+    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -34115,13 +34240,19 @@ impl IShellUIHelper6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRecentlyClosedVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetRecentlyClosedVisible)(::windows::core::Vtable::as_raw(self), fvisible).ok()
+    pub unsafe fn SetRecentlyClosedVisible<P0>(&self, fvisible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetRecentlyClosedVisible)(::windows::core::Vtable::as_raw(self), fvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetActivitiesVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetActivitiesVisible)(::windows::core::Vtable::as_raw(self), fvisible).ok()
+    pub unsafe fn SetActivitiesVisible<P0>(&self, fvisible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetActivitiesVisible)(::windows::core::Vtable::as_raw(self), fvisible.into()).ok()
     }
     pub unsafe fn ContentDiscoveryReset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.ContentDiscoveryReset)(::windows::core::Vtable::as_raw(self)).ok()
@@ -34134,8 +34265,11 @@ impl IShellUIHelper6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableSuggestedSites(&self, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.EnableSuggestedSites)(::windows::core::Vtable::as_raw(self), fenable).ok()
+    pub unsafe fn EnableSuggestedSites<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.EnableSuggestedSites)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn NavigateToSuggestedSites(&self, bstrrelativeurl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.NavigateToSuggestedSites)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrrelativeurl)).ok()
@@ -34163,8 +34297,12 @@ impl IShellUIHelper6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn msSiteModeUpdateThumbBarButton(&self, buttonid: super::super::System::Com::VARIANT, fenabled: super::super::Foundation::VARIANT_BOOL, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.msSiteModeUpdateThumbBarButton)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buttonid), fenabled, fvisible).ok()
+    pub unsafe fn msSiteModeUpdateThumbBarButton<P0, P1>(&self, buttonid: super::super::System::Com::VARIANT, fenabled: P0, fvisible: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.msSiteModeUpdateThumbBarButton)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buttonid), fenabled.into(), fvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -34207,9 +34345,12 @@ impl IShellUIHelper6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn msIsSiteModeFirstRun(&self, fpreservestate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn msIsSiteModeFirstRun<P0>(&self, fpreservestate: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.msIsSiteModeFirstRun)(::windows::core::Vtable::as_raw(self), fpreservestate, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.msIsSiteModeFirstRun)(::windows::core::Vtable::as_raw(self), fpreservestate.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn msAddTrackingProtectionList(&self, url: &::windows::core::BSTR, bstrfiltername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.msAddTrackingProtectionList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(url), ::core::mem::transmute_copy(bstrfiltername)).ok()
@@ -34249,8 +34390,11 @@ impl IShellUIHelper6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msChangeDefaultBrowser(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.msChangeDefaultBrowser)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msChangeDefaultBrowser<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.msChangeDefaultBrowser)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     pub unsafe fn msStopPeriodicTileUpdate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).msStopPeriodicTileUpdate)(::windows::core::Vtable::as_raw(self)).ok()
@@ -34270,8 +34414,11 @@ impl IShellUIHelper6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueue(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).msEnableTileNotificationQueue)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueue<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).msEnableTileNotificationQueue)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -34281,18 +34428,27 @@ impl IShellUIHelper6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueueForSquare150x150(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).msEnableTileNotificationQueueForSquare150x150)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueueForSquare150x150<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).msEnableTileNotificationQueueForSquare150x150)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueueForWide310x150(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).msEnableTileNotificationQueueForWide310x150)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueueForWide310x150<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).msEnableTileNotificationQueueForWide310x150)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueueForSquare310x310(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).msEnableTileNotificationQueueForSquare310x310)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueueForSquare310x310<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).msEnableTileNotificationQueueForSquare310x310)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -34432,8 +34588,11 @@ impl IShellUIHelper7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ImportExportFavorites(&self, fimport: super::super::Foundation::VARIANT_BOOL, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport, ::core::mem::transmute_copy(strimpexppath)).ok()
+    pub unsafe fn ImportExportFavorites<P0>(&self, fimport: P0, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport.into(), ::core::mem::transmute_copy(strimpexppath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -34467,8 +34626,12 @@ impl IShellUIHelper7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeSettings(&self, fsqm: super::super::Foundation::VARIANT_BOOL, fphishing: super::super::Foundation::VARIANT_BOOL, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm, fphishing, ::core::mem::transmute_copy(bstrlocale)).ok()
+    pub unsafe fn CustomizeSettings<P0, P1>(&self, fsqm: P0, fphishing: P1, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm.into(), fphishing.into(), ::core::mem::transmute_copy(bstrlocale)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -34494,8 +34657,11 @@ impl IShellUIHelper7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeClearType(&self, fset: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset).ok()
+    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset.into()).ok()
     }
     pub unsafe fn IsSearchProviderInstalled(&self, url: &::windows::core::BSTR) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -34513,8 +34679,11 @@ impl IShellUIHelper7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunOnceRequiredSettingsComplete(&self, fcomplete: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete).ok()
+    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -34549,13 +34718,19 @@ impl IShellUIHelper7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRecentlyClosedVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetRecentlyClosedVisible)(::windows::core::Vtable::as_raw(self), fvisible).ok()
+    pub unsafe fn SetRecentlyClosedVisible<P0>(&self, fvisible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetRecentlyClosedVisible)(::windows::core::Vtable::as_raw(self), fvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetActivitiesVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetActivitiesVisible)(::windows::core::Vtable::as_raw(self), fvisible).ok()
+    pub unsafe fn SetActivitiesVisible<P0>(&self, fvisible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetActivitiesVisible)(::windows::core::Vtable::as_raw(self), fvisible.into()).ok()
     }
     pub unsafe fn ContentDiscoveryReset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.ContentDiscoveryReset)(::windows::core::Vtable::as_raw(self)).ok()
@@ -34568,8 +34743,11 @@ impl IShellUIHelper7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableSuggestedSites(&self, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.EnableSuggestedSites)(::windows::core::Vtable::as_raw(self), fenable).ok()
+    pub unsafe fn EnableSuggestedSites<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.EnableSuggestedSites)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn NavigateToSuggestedSites(&self, bstrrelativeurl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.NavigateToSuggestedSites)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrrelativeurl)).ok()
@@ -34597,8 +34775,12 @@ impl IShellUIHelper7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn msSiteModeUpdateThumbBarButton(&self, buttonid: super::super::System::Com::VARIANT, fenabled: super::super::Foundation::VARIANT_BOOL, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.msSiteModeUpdateThumbBarButton)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buttonid), fenabled, fvisible).ok()
+    pub unsafe fn msSiteModeUpdateThumbBarButton<P0, P1>(&self, buttonid: super::super::System::Com::VARIANT, fenabled: P0, fvisible: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.msSiteModeUpdateThumbBarButton)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buttonid), fenabled.into(), fvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -34641,9 +34823,12 @@ impl IShellUIHelper7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn msIsSiteModeFirstRun(&self, fpreservestate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn msIsSiteModeFirstRun<P0>(&self, fpreservestate: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.msIsSiteModeFirstRun)(::windows::core::Vtable::as_raw(self), fpreservestate, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.msIsSiteModeFirstRun)(::windows::core::Vtable::as_raw(self), fpreservestate.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn msAddTrackingProtectionList(&self, url: &::windows::core::BSTR, bstrfiltername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.msAddTrackingProtectionList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(url), ::core::mem::transmute_copy(bstrfiltername)).ok()
@@ -34683,8 +34868,11 @@ impl IShellUIHelper7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msChangeDefaultBrowser(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.msChangeDefaultBrowser)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msChangeDefaultBrowser<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.msChangeDefaultBrowser)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     pub unsafe fn msStopPeriodicTileUpdate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.msStopPeriodicTileUpdate)(::windows::core::Vtable::as_raw(self)).ok()
@@ -34704,8 +34892,11 @@ impl IShellUIHelper7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueue(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.msEnableTileNotificationQueue)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueue<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.msEnableTileNotificationQueue)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -34715,18 +34906,27 @@ impl IShellUIHelper7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueueForSquare150x150(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.msEnableTileNotificationQueueForSquare150x150)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueueForSquare150x150<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.msEnableTileNotificationQueueForSquare150x150)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueueForWide310x150(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.msEnableTileNotificationQueueForWide310x150)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueueForWide310x150<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.msEnableTileNotificationQueueForWide310x150)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueueForSquare310x310(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.msEnableTileNotificationQueueForSquare310x310)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueueForSquare310x310<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.msEnableTileNotificationQueueForSquare310x310)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -34749,8 +34949,11 @@ impl IShellUIHelper7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExperimentalFlag(&self, bstrflagstring: &::windows::core::BSTR, vfflag: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetExperimentalFlag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrflagstring), vfflag).ok()
+    pub unsafe fn SetExperimentalFlag<P0>(&self, bstrflagstring: &::windows::core::BSTR, vfflag: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetExperimentalFlag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrflagstring), vfflag.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -34776,8 +34979,11 @@ impl IShellUIHelper7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNeedIEAutoLaunchFlag(&self, bstrurl: &::windows::core::BSTR, flag: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetNeedIEAutoLaunchFlag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl), flag).ok()
+    pub unsafe fn SetNeedIEAutoLaunchFlag<P0>(&self, bstrurl: &::windows::core::BSTR, flag: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetNeedIEAutoLaunchFlag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl), flag.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -34787,8 +34993,11 @@ impl IShellUIHelper7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LaunchIE(&self, bstrurl: &::windows::core::BSTR, automated: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).LaunchIE)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl), automated).ok()
+    pub unsafe fn LaunchIE<P0>(&self, bstrurl: &::windows::core::BSTR, automated: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).LaunchIE)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl), automated.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -34895,8 +35104,11 @@ impl IShellUIHelper8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ImportExportFavorites(&self, fimport: super::super::Foundation::VARIANT_BOOL, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport, ::core::mem::transmute_copy(strimpexppath)).ok()
+    pub unsafe fn ImportExportFavorites<P0>(&self, fimport: P0, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport.into(), ::core::mem::transmute_copy(strimpexppath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -34930,8 +35142,12 @@ impl IShellUIHelper8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeSettings(&self, fsqm: super::super::Foundation::VARIANT_BOOL, fphishing: super::super::Foundation::VARIANT_BOOL, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm, fphishing, ::core::mem::transmute_copy(bstrlocale)).ok()
+    pub unsafe fn CustomizeSettings<P0, P1>(&self, fsqm: P0, fphishing: P1, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm.into(), fphishing.into(), ::core::mem::transmute_copy(bstrlocale)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -34957,8 +35173,11 @@ impl IShellUIHelper8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeClearType(&self, fset: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset).ok()
+    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset.into()).ok()
     }
     pub unsafe fn IsSearchProviderInstalled(&self, url: &::windows::core::BSTR) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -34976,8 +35195,11 @@ impl IShellUIHelper8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunOnceRequiredSettingsComplete(&self, fcomplete: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete).ok()
+    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -35012,13 +35234,19 @@ impl IShellUIHelper8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRecentlyClosedVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetRecentlyClosedVisible)(::windows::core::Vtable::as_raw(self), fvisible).ok()
+    pub unsafe fn SetRecentlyClosedVisible<P0>(&self, fvisible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetRecentlyClosedVisible)(::windows::core::Vtable::as_raw(self), fvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetActivitiesVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetActivitiesVisible)(::windows::core::Vtable::as_raw(self), fvisible).ok()
+    pub unsafe fn SetActivitiesVisible<P0>(&self, fvisible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetActivitiesVisible)(::windows::core::Vtable::as_raw(self), fvisible.into()).ok()
     }
     pub unsafe fn ContentDiscoveryReset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.ContentDiscoveryReset)(::windows::core::Vtable::as_raw(self)).ok()
@@ -35031,8 +35259,11 @@ impl IShellUIHelper8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableSuggestedSites(&self, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.EnableSuggestedSites)(::windows::core::Vtable::as_raw(self), fenable).ok()
+    pub unsafe fn EnableSuggestedSites<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.EnableSuggestedSites)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn NavigateToSuggestedSites(&self, bstrrelativeurl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.NavigateToSuggestedSites)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrrelativeurl)).ok()
@@ -35060,8 +35291,12 @@ impl IShellUIHelper8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn msSiteModeUpdateThumbBarButton(&self, buttonid: super::super::System::Com::VARIANT, fenabled: super::super::Foundation::VARIANT_BOOL, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.msSiteModeUpdateThumbBarButton)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buttonid), fenabled, fvisible).ok()
+    pub unsafe fn msSiteModeUpdateThumbBarButton<P0, P1>(&self, buttonid: super::super::System::Com::VARIANT, fenabled: P0, fvisible: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.msSiteModeUpdateThumbBarButton)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buttonid), fenabled.into(), fvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -35104,9 +35339,12 @@ impl IShellUIHelper8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn msIsSiteModeFirstRun(&self, fpreservestate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn msIsSiteModeFirstRun<P0>(&self, fpreservestate: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.msIsSiteModeFirstRun)(::windows::core::Vtable::as_raw(self), fpreservestate, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.msIsSiteModeFirstRun)(::windows::core::Vtable::as_raw(self), fpreservestate.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn msAddTrackingProtectionList(&self, url: &::windows::core::BSTR, bstrfiltername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.msAddTrackingProtectionList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(url), ::core::mem::transmute_copy(bstrfiltername)).ok()
@@ -35146,8 +35384,11 @@ impl IShellUIHelper8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msChangeDefaultBrowser(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.msChangeDefaultBrowser)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msChangeDefaultBrowser<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.msChangeDefaultBrowser)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     pub unsafe fn msStopPeriodicTileUpdate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.msStopPeriodicTileUpdate)(::windows::core::Vtable::as_raw(self)).ok()
@@ -35167,8 +35408,11 @@ impl IShellUIHelper8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueue(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.msEnableTileNotificationQueue)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueue<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.msEnableTileNotificationQueue)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -35178,18 +35422,27 @@ impl IShellUIHelper8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueueForSquare150x150(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.msEnableTileNotificationQueueForSquare150x150)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueueForSquare150x150<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.msEnableTileNotificationQueueForSquare150x150)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueueForWide310x150(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.msEnableTileNotificationQueueForWide310x150)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueueForWide310x150<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.msEnableTileNotificationQueueForWide310x150)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueueForSquare310x310(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.msEnableTileNotificationQueueForSquare310x310)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueueForSquare310x310<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.msEnableTileNotificationQueueForSquare310x310)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -35212,8 +35465,11 @@ impl IShellUIHelper8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExperimentalFlag(&self, bstrflagstring: &::windows::core::BSTR, vfflag: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetExperimentalFlag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrflagstring), vfflag).ok()
+    pub unsafe fn SetExperimentalFlag<P0>(&self, bstrflagstring: &::windows::core::BSTR, vfflag: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetExperimentalFlag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrflagstring), vfflag.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -35239,8 +35495,11 @@ impl IShellUIHelper8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNeedIEAutoLaunchFlag(&self, bstrurl: &::windows::core::BSTR, flag: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetNeedIEAutoLaunchFlag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl), flag).ok()
+    pub unsafe fn SetNeedIEAutoLaunchFlag<P0>(&self, bstrurl: &::windows::core::BSTR, flag: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetNeedIEAutoLaunchFlag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl), flag.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -35250,8 +35509,11 @@ impl IShellUIHelper8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LaunchIE(&self, bstrurl: &::windows::core::BSTR, automated: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.LaunchIE)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl), automated).ok()
+    pub unsafe fn LaunchIE<P0>(&self, bstrurl: &::windows::core::BSTR, automated: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.LaunchIE)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl), automated.into()).ok()
     }
     pub unsafe fn GetCVListData(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -35363,8 +35625,11 @@ impl IShellUIHelper9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ImportExportFavorites(&self, fimport: super::super::Foundation::VARIANT_BOOL, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport, ::core::mem::transmute_copy(strimpexppath)).ok()
+    pub unsafe fn ImportExportFavorites<P0>(&self, fimport: P0, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.ImportExportFavorites)(::windows::core::Vtable::as_raw(self), fimport.into(), ::core::mem::transmute_copy(strimpexppath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -35398,8 +35663,12 @@ impl IShellUIHelper9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeSettings(&self, fsqm: super::super::Foundation::VARIANT_BOOL, fphishing: super::super::Foundation::VARIANT_BOOL, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm, fphishing, ::core::mem::transmute_copy(bstrlocale)).ok()
+    pub unsafe fn CustomizeSettings<P0, P1>(&self, fsqm: P0, fphishing: P1, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CustomizeSettings)(::windows::core::Vtable::as_raw(self), fsqm.into(), fphishing.into(), ::core::mem::transmute_copy(bstrlocale)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -35425,8 +35694,11 @@ impl IShellUIHelper9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomizeClearType(&self, fset: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset).ok()
+    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CustomizeClearType)(::windows::core::Vtable::as_raw(self), fset.into()).ok()
     }
     pub unsafe fn IsSearchProviderInstalled(&self, url: &::windows::core::BSTR) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -35444,8 +35716,11 @@ impl IShellUIHelper9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunOnceRequiredSettingsComplete(&self, fcomplete: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete).ok()
+    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.RunOnceRequiredSettingsComplete)(::windows::core::Vtable::as_raw(self), fcomplete.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -35480,13 +35755,19 @@ impl IShellUIHelper9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRecentlyClosedVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetRecentlyClosedVisible)(::windows::core::Vtable::as_raw(self), fvisible).ok()
+    pub unsafe fn SetRecentlyClosedVisible<P0>(&self, fvisible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetRecentlyClosedVisible)(::windows::core::Vtable::as_raw(self), fvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetActivitiesVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetActivitiesVisible)(::windows::core::Vtable::as_raw(self), fvisible).ok()
+    pub unsafe fn SetActivitiesVisible<P0>(&self, fvisible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetActivitiesVisible)(::windows::core::Vtable::as_raw(self), fvisible.into()).ok()
     }
     pub unsafe fn ContentDiscoveryReset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.ContentDiscoveryReset)(::windows::core::Vtable::as_raw(self)).ok()
@@ -35499,8 +35780,11 @@ impl IShellUIHelper9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableSuggestedSites(&self, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.EnableSuggestedSites)(::windows::core::Vtable::as_raw(self), fenable).ok()
+    pub unsafe fn EnableSuggestedSites<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.EnableSuggestedSites)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
     pub unsafe fn NavigateToSuggestedSites(&self, bstrrelativeurl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.NavigateToSuggestedSites)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrrelativeurl)).ok()
@@ -35528,8 +35812,12 @@ impl IShellUIHelper9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn msSiteModeUpdateThumbBarButton(&self, buttonid: super::super::System::Com::VARIANT, fenabled: super::super::Foundation::VARIANT_BOOL, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.msSiteModeUpdateThumbBarButton)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buttonid), fenabled, fvisible).ok()
+    pub unsafe fn msSiteModeUpdateThumbBarButton<P0, P1>(&self, buttonid: super::super::System::Com::VARIANT, fenabled: P0, fvisible: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.msSiteModeUpdateThumbBarButton)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buttonid), fenabled.into(), fvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -35572,9 +35860,12 @@ impl IShellUIHelper9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn msIsSiteModeFirstRun(&self, fpreservestate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn msIsSiteModeFirstRun<P0>(&self, fpreservestate: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.msIsSiteModeFirstRun)(::windows::core::Vtable::as_raw(self), fpreservestate, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.msIsSiteModeFirstRun)(::windows::core::Vtable::as_raw(self), fpreservestate.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn msAddTrackingProtectionList(&self, url: &::windows::core::BSTR, bstrfiltername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.msAddTrackingProtectionList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(url), ::core::mem::transmute_copy(bstrfiltername)).ok()
@@ -35614,8 +35905,11 @@ impl IShellUIHelper9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msChangeDefaultBrowser(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.msChangeDefaultBrowser)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msChangeDefaultBrowser<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.msChangeDefaultBrowser)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     pub unsafe fn msStopPeriodicTileUpdate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.msStopPeriodicTileUpdate)(::windows::core::Vtable::as_raw(self)).ok()
@@ -35635,8 +35929,11 @@ impl IShellUIHelper9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueue(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.msEnableTileNotificationQueue)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueue<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.msEnableTileNotificationQueue)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -35646,18 +35943,27 @@ impl IShellUIHelper9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueueForSquare150x150(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.msEnableTileNotificationQueueForSquare150x150)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueueForSquare150x150<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.msEnableTileNotificationQueueForSquare150x150)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueueForWide310x150(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.msEnableTileNotificationQueueForWide310x150)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueueForWide310x150<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.msEnableTileNotificationQueueForWide310x150)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn msEnableTileNotificationQueueForSquare310x310(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.msEnableTileNotificationQueueForSquare310x310)(::windows::core::Vtable::as_raw(self), fchange).ok()
+    pub unsafe fn msEnableTileNotificationQueueForSquare310x310<P0>(&self, fchange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.msEnableTileNotificationQueueForSquare310x310)(::windows::core::Vtable::as_raw(self), fchange.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -35680,8 +35986,11 @@ impl IShellUIHelper9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExperimentalFlag(&self, bstrflagstring: &::windows::core::BSTR, vfflag: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetExperimentalFlag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrflagstring), vfflag).ok()
+    pub unsafe fn SetExperimentalFlag<P0>(&self, bstrflagstring: &::windows::core::BSTR, vfflag: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetExperimentalFlag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrflagstring), vfflag.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -35707,8 +36016,11 @@ impl IShellUIHelper9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNeedIEAutoLaunchFlag(&self, bstrurl: &::windows::core::BSTR, flag: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetNeedIEAutoLaunchFlag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl), flag).ok()
+    pub unsafe fn SetNeedIEAutoLaunchFlag<P0>(&self, bstrurl: &::windows::core::BSTR, flag: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetNeedIEAutoLaunchFlag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl), flag.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -35718,8 +36030,11 @@ impl IShellUIHelper9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LaunchIE(&self, bstrurl: &::windows::core::BSTR, automated: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.LaunchIE)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl), automated).ok()
+    pub unsafe fn LaunchIE<P0>(&self, bstrurl: &::windows::core::BSTR, automated: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.LaunchIE)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl), automated.into()).ok()
     }
     pub unsafe fn GetCVListData(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -36270,8 +36585,11 @@ impl IShellWindows {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnActivated(&self, lcookie: i32, factive: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnActivated)(::windows::core::Vtable::as_raw(self), lcookie, factive).ok()
+    pub unsafe fn OnActivated<P0>(&self, lcookie: i32, factive: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).OnActivated)(::windows::core::Vtable::as_raw(self), lcookie, factive.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -36286,8 +36604,11 @@ impl IShellWindows {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ProcessAttachDetach(&self, fattach: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ProcessAttachDetach)(::windows::core::Vtable::as_raw(self), fattach).ok()
+    pub unsafe fn ProcessAttachDetach<P0>(&self, fattach: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).ProcessAttachDetach)(::windows::core::Vtable::as_raw(self), fattach.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -41696,8 +42017,11 @@ impl IWebBrowser2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVisible(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetVisible)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetVisible<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetVisible)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -41707,8 +42031,11 @@ impl IWebBrowser2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStatusBar(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetStatusBar)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetStatusBar<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetStatusBar)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     pub unsafe fn StatusText(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -41732,8 +42059,11 @@ impl IWebBrowser2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMenuBar(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetMenuBar)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetMenuBar<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetMenuBar)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -41743,8 +42073,11 @@ impl IWebBrowser2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullScreen(&self, bfullscreen: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetFullScreen)(::windows::core::Vtable::as_raw(self), bfullscreen).ok()
+    pub unsafe fn SetFullScreen<P0>(&self, bfullscreen: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetFullScreen)(::windows::core::Vtable::as_raw(self), bfullscreen.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -41781,8 +42114,11 @@ impl IWebBrowser2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOffline(&self, boffline: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOffline)(::windows::core::Vtable::as_raw(self), boffline).ok()
+    pub unsafe fn SetOffline<P0>(&self, boffline: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetOffline)(::windows::core::Vtable::as_raw(self), boffline.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -41792,8 +42128,11 @@ impl IWebBrowser2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSilent(&self, bsilent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSilent)(::windows::core::Vtable::as_raw(self), bsilent).ok()
+    pub unsafe fn SetSilent<P0>(&self, bsilent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSilent)(::windows::core::Vtable::as_raw(self), bsilent.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -41803,8 +42142,11 @@ impl IWebBrowser2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRegisterAsBrowser(&self, bregister: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRegisterAsBrowser)(::windows::core::Vtable::as_raw(self), bregister).ok()
+    pub unsafe fn SetRegisterAsBrowser<P0>(&self, bregister: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetRegisterAsBrowser)(::windows::core::Vtable::as_raw(self), bregister.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -41814,8 +42156,11 @@ impl IWebBrowser2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRegisterAsDropTarget(&self, bregister: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRegisterAsDropTarget)(::windows::core::Vtable::as_raw(self), bregister).ok()
+    pub unsafe fn SetRegisterAsDropTarget<P0>(&self, bregister: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetRegisterAsDropTarget)(::windows::core::Vtable::as_raw(self), bregister.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -41825,8 +42170,11 @@ impl IWebBrowser2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTheaterMode(&self, bregister: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTheaterMode)(::windows::core::Vtable::as_raw(self), bregister).ok()
+    pub unsafe fn SetTheaterMode<P0>(&self, bregister: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetTheaterMode)(::windows::core::Vtable::as_raw(self), bregister.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -41836,8 +42184,11 @@ impl IWebBrowser2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAddressBar(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAddressBar)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetAddressBar<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAddressBar)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -41847,8 +42198,11 @@ impl IWebBrowser2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetResizable(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetResizable)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetResizable<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetResizable)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -42116,8 +42470,11 @@ impl IWebBrowserApp {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVisible(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetVisible)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetVisible<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetVisible)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -42127,8 +42484,11 @@ impl IWebBrowserApp {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStatusBar(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetStatusBar)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetStatusBar<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetStatusBar)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     pub unsafe fn StatusText(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -42152,8 +42512,11 @@ impl IWebBrowserApp {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMenuBar(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMenuBar)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetMenuBar<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetMenuBar)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -42163,8 +42526,11 @@ impl IWebBrowserApp {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullScreen(&self, bfullscreen: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetFullScreen)(::windows::core::Vtable::as_raw(self), bfullscreen).ok()
+    pub unsafe fn SetFullScreen<P0>(&self, bfullscreen: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetFullScreen)(::windows::core::Vtable::as_raw(self), bfullscreen.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -42355,8 +42721,13 @@ impl IWebWizardHost {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWizardButtons(&self, vfenableback: super::super::Foundation::VARIANT_BOOL, vfenablenext: super::super::Foundation::VARIANT_BOOL, vflastpage: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetWizardButtons)(::windows::core::Vtable::as_raw(self), vfenableback, vfenablenext, vflastpage).ok()
+    pub unsafe fn SetWizardButtons<P0, P1, P2>(&self, vfenableback: P0, vfenablenext: P1, vflastpage: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P2: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetWizardButtons)(::windows::core::Vtable::as_raw(self), vfenableback.into(), vfenablenext.into(), vflastpage.into()).ok()
     }
     pub unsafe fn SetHeaderText(&self, bstrheadertitle: &::windows::core::BSTR, bstrheadersubtitle: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetHeaderText)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrheadertitle), ::core::mem::transmute_copy(bstrheadersubtitle)).ok()
@@ -42451,8 +42822,13 @@ impl IWebWizardHost2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWizardButtons(&self, vfenableback: super::super::Foundation::VARIANT_BOOL, vfenablenext: super::super::Foundation::VARIANT_BOOL, vflastpage: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetWizardButtons)(::windows::core::Vtable::as_raw(self), vfenableback, vfenablenext, vflastpage).ok()
+    pub unsafe fn SetWizardButtons<P0, P1, P2>(&self, vfenableback: P0, vfenablenext: P1, vflastpage: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P2: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetWizardButtons)(::windows::core::Vtable::as_raw(self), vfenableback.into(), vfenablenext.into(), vflastpage.into()).ok()
     }
     pub unsafe fn SetHeaderText(&self, bstrheadertitle: &::windows::core::BSTR, bstrheadersubtitle: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetHeaderText)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrheadertitle), ::core::mem::transmute_copy(bstrheadersubtitle)).ok()

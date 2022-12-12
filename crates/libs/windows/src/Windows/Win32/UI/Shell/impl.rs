@@ -4119,7 +4119,7 @@ impl ICredentialProviderCredential_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait ICredentialProviderCredential2_Impl: Sized + ICredentialProviderCredential_Impl {
-    fn GetUserSid(&self, sid: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn GetUserSid(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::windows::core::RuntimeName for ICredentialProviderCredential2 {}
@@ -4129,7 +4129,13 @@ impl ICredentialProviderCredential2_Vtbl {
         unsafe extern "system" fn GetUserSid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICredentialProviderCredential2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetUserSid(::core::mem::transmute_copy(&sid)).into()
+            match this.GetUserSid() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(sid, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base__: ICredentialProviderCredential_Vtbl::new::<Identity, Impl, OFFSET>(), GetUserSid: GetUserSid::<Identity, Impl, OFFSET> }
     }
@@ -14937,7 +14943,7 @@ pub trait IShellFolderView_Impl: Sized {
     fn SetClipboard(&self, bmove: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetPoints(&self, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
     fn GetItemSpacing(&self) -> ::windows::core::Result<ITEMSPACING>;
-    fn SetCallback(&self, pnewcb: &::core::option::Option<IShellFolderViewCB>, ppoldcb: *mut ::core::option::Option<IShellFolderViewCB>) -> ::windows::core::Result<()>;
+    fn SetCallback(&self, pnewcb: &::core::option::Option<IShellFolderViewCB>) -> ::windows::core::Result<IShellFolderViewCB>;
     fn Select(&self, dwflags: SFVS_SELECT) -> ::windows::core::Result<()>;
     fn QuerySupport(&self, pdwsupport: *mut u32) -> ::windows::core::Result<()>;
     fn SetAutomationObject(&self, pdisp: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
@@ -15130,7 +15136,13 @@ impl IShellFolderView_Vtbl {
         unsafe extern "system" fn SetCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnewcb: *mut ::core::ffi::c_void, ppoldcb: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCallback(::core::mem::transmute(&pnewcb), ::core::mem::transmute_copy(&ppoldcb)).into()
+            match this.SetCallback(::core::mem::transmute(&pnewcb)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppoldcb, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Select<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: SFVS_SELECT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

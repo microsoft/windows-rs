@@ -616,8 +616,11 @@ impl IInkCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), collecting).ok()
+    pub unsafe fn SetEnabled<P0>(&self, collecting: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), collecting.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -669,8 +672,11 @@ impl IInkCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAutoRedraw)(::windows::core::Vtable::as_raw(self), autoredraw).ok()
+    pub unsafe fn SetAutoRedraw<P0>(&self, autoredraw: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAutoRedraw)(::windows::core::Vtable::as_raw(self), autoredraw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -693,8 +699,11 @@ impl IInkCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDynamicRendering)(::windows::core::Vtable::as_raw(self), enabled).ok()
+    pub unsafe fn SetDynamicRendering<P0>(&self, enabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetDynamicRendering)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -770,13 +779,19 @@ impl IInkCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSupportHighContrastInk)(::windows::core::Vtable::as_raw(self), support).ok()
+    pub unsafe fn SetSupportHighContrastInk<P0>(&self, support: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSupportHighContrastInk)(::windows::core::Vtable::as_raw(self), support.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGestureStatus)(::windows::core::Vtable::as_raw(self), gesture, listen).ok()
+    pub unsafe fn SetGestureStatus<P0>(&self, gesture: InkApplicationGesture, listen: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetGestureStatus)(::windows::core::Vtable::as_raw(self), gesture, listen.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -799,8 +814,11 @@ impl IInkCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAllTabletsMode)(::windows::core::Vtable::as_raw(self), usemouseforinput).ok()
+    pub unsafe fn SetAllTabletsMode<P0>(&self, usemouseforinput: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAllTabletsMode)(::windows::core::Vtable::as_raw(self), usemouseforinput.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -818,8 +836,11 @@ impl IInkCollector {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEventInterest)(::windows::core::Vtable::as_raw(self), eventid, listen).ok()
+    pub unsafe fn SetEventInterest<P0>(&self, eventid: InkCollectorEventInterest, listen: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEventInterest)(::windows::core::Vtable::as_raw(self), eventid, listen.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1391,8 +1412,11 @@ impl IInkDisp {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDirty(&self, dirty: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDirty)(::windows::core::Vtable::as_raw(self), dirty).ok()
+    pub unsafe fn SetDirty<P0>(&self, dirty: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetDirty)(::windows::core::Vtable::as_raw(self), dirty.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2024,8 +2048,11 @@ impl IInkDrawingAttributes {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFitToCurve(&self, flag: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetFitToCurve)(::windows::core::Vtable::as_raw(self), flag).ok()
+    pub unsafe fn SetFitToCurve<P0>(&self, flag: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetFitToCurve)(::windows::core::Vtable::as_raw(self), flag.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2035,8 +2062,11 @@ impl IInkDrawingAttributes {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIgnorePressure(&self, flag: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIgnorePressure)(::windows::core::Vtable::as_raw(self), flag).ok()
+    pub unsafe fn SetIgnorePressure<P0>(&self, flag: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetIgnorePressure)(::windows::core::Vtable::as_raw(self), flag.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2046,8 +2076,11 @@ impl IInkDrawingAttributes {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAntiAliased(&self, flag: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAntiAliased)(::windows::core::Vtable::as_raw(self), flag).ok()
+    pub unsafe fn SetAntiAliased<P0>(&self, flag: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAntiAliased)(::windows::core::Vtable::as_raw(self), flag.into()).ok()
     }
     pub unsafe fn Transparency(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2181,8 +2214,11 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUseMouseForInput(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUseMouseForInput)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetUseMouseForInput<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetUseMouseForInput)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn InkMode(&self) -> ::windows::core::Result<InkMode> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2269,8 +2305,11 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGestureStatus)(::windows::core::Vtable::as_raw(self), gesture, listen).ok()
+    pub unsafe fn SetGestureStatus<P0>(&self, gesture: InkApplicationGesture, listen: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetGestureStatus)(::windows::core::Vtable::as_raw(self), gesture, listen.into()).ok()
     }
     pub unsafe fn SetBackColor(&self, clr: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBackColor)(::windows::core::Vtable::as_raw(self), clr).ok()
@@ -2357,8 +2396,11 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetLocked)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetLocked<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetLocked)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2368,8 +2410,11 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetEnabled<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn MaxLength(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2386,8 +2431,11 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMultiLine(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMultiLine)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetMultiLine<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetMultiLine)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     pub unsafe fn ScrollBars(&self) -> ::windows::core::Result<ScrollBarsConstants> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2404,8 +2452,11 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDisableNoScroll(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDisableNoScroll)(::windows::core::Vtable::as_raw(self), newval).ok()
+    pub unsafe fn SetDisableNoScroll<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetDisableNoScroll)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3086,8 +3137,11 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), collecting).ok()
+    pub unsafe fn SetEnabled<P0>(&self, collecting: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), collecting.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3139,8 +3193,11 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAutoRedraw)(::windows::core::Vtable::as_raw(self), autoredraw).ok()
+    pub unsafe fn SetAutoRedraw<P0>(&self, autoredraw: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAutoRedraw)(::windows::core::Vtable::as_raw(self), autoredraw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3163,8 +3220,11 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDynamicRendering)(::windows::core::Vtable::as_raw(self), enabled).ok()
+    pub unsafe fn SetDynamicRendering<P0>(&self, enabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetDynamicRendering)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3282,8 +3342,11 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSupportHighContrastInk)(::windows::core::Vtable::as_raw(self), support).ok()
+    pub unsafe fn SetSupportHighContrastInk<P0>(&self, support: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSupportHighContrastInk)(::windows::core::Vtable::as_raw(self), support.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3293,8 +3356,11 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSupportHighContrastSelectionUI(&self, support: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSupportHighContrastSelectionUI)(::windows::core::Vtable::as_raw(self), support).ok()
+    pub unsafe fn SetSupportHighContrastSelectionUI<P0>(&self, support: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSupportHighContrastSelectionUI)(::windows::core::Vtable::as_raw(self), support.into()).ok()
     }
     pub unsafe fn HitTestSelection(&self, x: i32, y: i32) -> ::windows::core::Result<SelectionHitResult> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3310,8 +3376,11 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGestureStatus)(::windows::core::Vtable::as_raw(self), gesture, listen).ok()
+    pub unsafe fn SetGestureStatus<P0>(&self, gesture: InkApplicationGesture, listen: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetGestureStatus)(::windows::core::Vtable::as_raw(self), gesture, listen.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3334,8 +3403,11 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAllTabletsMode)(::windows::core::Vtable::as_raw(self), usemouseforinput).ok()
+    pub unsafe fn SetAllTabletsMode<P0>(&self, usemouseforinput: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAllTabletsMode)(::windows::core::Vtable::as_raw(self), usemouseforinput.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3353,8 +3425,11 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEventInterest)(::windows::core::Vtable::as_raw(self), eventid, listen).ok()
+    pub unsafe fn SetEventInterest<P0>(&self, eventid: InkCollectorEventInterest, listen: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEventInterest)(::windows::core::Vtable::as_raw(self), eventid, listen.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3612,8 +3687,11 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAutoRedraw)(::windows::core::Vtable::as_raw(self), autoredraw).ok()
+    pub unsafe fn SetAutoRedraw<P0>(&self, autoredraw: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAutoRedraw)(::windows::core::Vtable::as_raw(self), autoredraw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3636,8 +3714,11 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDynamicRendering)(::windows::core::Vtable::as_raw(self), enabled).ok()
+    pub unsafe fn SetDynamicRendering<P0>(&self, enabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetDynamicRendering)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3784,8 +3865,11 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSupportHighContrastInk)(::windows::core::Vtable::as_raw(self), support).ok()
+    pub unsafe fn SetSupportHighContrastInk<P0>(&self, support: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSupportHighContrastInk)(::windows::core::Vtable::as_raw(self), support.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3795,8 +3879,11 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSupportHighContrastSelectionUI(&self, support: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSupportHighContrastSelectionUI)(::windows::core::Vtable::as_raw(self), support).ok()
+    pub unsafe fn SetSupportHighContrastSelectionUI<P0>(&self, support: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetSupportHighContrastSelectionUI)(::windows::core::Vtable::as_raw(self), support.into()).ok()
     }
     pub unsafe fn HitTestSelection(&self, x: i32, y: i32) -> ::windows::core::Result<SelectionHitResult> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3804,8 +3891,11 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGestureStatus)(::windows::core::Vtable::as_raw(self), gesture, listen).ok()
+    pub unsafe fn SetGestureStatus<P0>(&self, gesture: InkApplicationGesture, listen: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetGestureStatus)(::windows::core::Vtable::as_raw(self), gesture, listen.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3828,8 +3918,11 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAllTabletsMode)(::windows::core::Vtable::as_raw(self), usemouseforinput).ok()
+    pub unsafe fn SetAllTabletsMode<P0>(&self, usemouseforinput: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAllTabletsMode)(::windows::core::Vtable::as_raw(self), usemouseforinput.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3847,8 +3940,11 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEventInterest)(::windows::core::Vtable::as_raw(self), eventid, listen).ok()
+    pub unsafe fn SetEventInterest<P0>(&self, eventid: InkCollectorEventInterest, listen: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEventInterest)(::windows::core::Vtable::as_raw(self), eventid, listen.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3858,8 +3954,11 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInkEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetInkEnabled)(::windows::core::Vtable::as_raw(self), collecting).ok()
+    pub unsafe fn SetInkEnabled<P0>(&self, collecting: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetInkEnabled)(::windows::core::Vtable::as_raw(self), collecting.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3869,8 +3968,11 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled(&self, vbool: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), vbool).ok()
+    pub unsafe fn SetEnabled<P0>(&self, vbool: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), vbool.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5286,8 +5388,11 @@ impl IInkRenderer {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ScaleTransform)(::windows::core::Vtable::as_raw(self), horizontalmultiplier, verticalmultiplier, applyonpenwidth).ok()
+    pub unsafe fn ScaleTransform<P0>(&self, horizontalmultiplier: f32, verticalmultiplier: f32, applyonpenwidth: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).ScaleTransform)(::windows::core::Vtable::as_raw(self), horizontalmultiplier, verticalmultiplier, applyonpenwidth.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5542,11 +5647,12 @@ impl IInkStrokeDisp {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Transform<P0>(&self, transform: P0, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn Transform<P0, P1>(&self, transform: P0, applyonpenwidth: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IInkTransform>>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Transform)(::windows::core::Vtable::as_raw(self), transform.into().abi(), applyonpenwidth).ok()
+        (::windows::core::Vtable::vtable(self).Transform)(::windows::core::Vtable::as_raw(self), transform.into().abi(), applyonpenwidth.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5794,11 +5900,12 @@ impl IInkStrokes {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Transform<P0>(&self, transform: P0, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn Transform<P0, P1>(&self, transform: P0, applyonpenwidth: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IInkTransform>>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Transform)(::windows::core::Vtable::as_raw(self), transform.into().abi(), applyonpenwidth).ok()
+        (::windows::core::Vtable::vtable(self).Transform)(::windows::core::Vtable::as_raw(self), transform.into().abi(), applyonpenwidth.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6212,8 +6319,12 @@ impl IInkTransform {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Reflect(&self, horizontally: super::super::Foundation::VARIANT_BOOL, vertically: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Reflect)(::windows::core::Vtable::as_raw(self), horizontally, vertically).ok()
+    pub unsafe fn Reflect<P0, P1>(&self, horizontally: P0, vertically: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).Reflect)(::windows::core::Vtable::as_raw(self), horizontally.into(), vertically.into()).ok()
     }
     pub unsafe fn Shear(&self, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Shear)(::windows::core::Vtable::as_raw(self), horizontalcomponent, verticalcomponent).ok()
@@ -6538,8 +6649,11 @@ impl IMathInputControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCustomPaint(&self, element: i32, paint: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCustomPaint)(::windows::core::Vtable::as_raw(self), element, paint).ok()
+    pub unsafe fn SetCustomPaint<P0>(&self, element: i32, paint: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetCustomPaint)(::windows::core::Vtable::as_raw(self), element, paint.into()).ok()
     }
     pub unsafe fn SetCaptionText(&self, captiontext: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCaptionText)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(captiontext)).ok()
@@ -6557,8 +6671,11 @@ impl IMathInputControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableExtendedButtons(&self, extended: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnableExtendedButtons)(::windows::core::Vtable::as_raw(self), extended).ok()
+    pub unsafe fn EnableExtendedButtons<P0>(&self, extended: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).EnableExtendedButtons)(::windows::core::Vtable::as_raw(self), extended.into()).ok()
     }
     pub unsafe fn GetPreviewHeight(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6569,8 +6686,11 @@ impl IMathInputControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableAutoGrow(&self, autogrow: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnableAutoGrow)(::windows::core::Vtable::as_raw(self), autogrow).ok()
+    pub unsafe fn EnableAutoGrow<P0>(&self, autogrow: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).EnableAutoGrow)(::windows::core::Vtable::as_raw(self), autogrow.into()).ok()
     }
     pub unsafe fn AddFunctionName(&self, functionname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddFunctionName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(functionname)).ok()
@@ -6704,8 +6824,11 @@ impl IPenInputPanel {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVisible(&self, visible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetVisible)(::windows::core::Vtable::as_raw(self), visible).ok()
+    pub unsafe fn SetVisible<P0>(&self, visible: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetVisible)(::windows::core::Vtable::as_raw(self), visible.into()).ok()
     }
     pub unsafe fn Top(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6745,8 +6868,11 @@ impl IPenInputPanel {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoShow(&self, autoshow: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAutoShow)(::windows::core::Vtable::as_raw(self), autoshow).ok()
+    pub unsafe fn SetAutoShow<P0>(&self, autoshow: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAutoShow)(::windows::core::Vtable::as_raw(self), autoshow.into()).ok()
     }
     pub unsafe fn MoveTo(&self, left: i32, top: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).MoveTo)(::windows::core::Vtable::as_raw(self), left, top).ok()
@@ -6759,8 +6885,11 @@ impl IPenInputPanel {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableTsf(&self, enable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnableTsf)(::windows::core::Vtable::as_raw(self), enable).ok()
+    pub unsafe fn EnableTsf<P0>(&self, enable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).EnableTsf)(::windows::core::Vtable::as_raw(self), enable.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

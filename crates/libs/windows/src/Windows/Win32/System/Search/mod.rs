@@ -1999,11 +1999,11 @@ impl IAccessor {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetBindings<P0>(&self, haccessor: P0, pdwaccessorflags: *mut u32, pcbindings: ::core::option::Option<*mut usize>, prgbindings: ::core::option::Option<*mut *mut DBBINDING>) -> ::windows::core::Result<()>
+    pub unsafe fn GetBindings<P0>(&self, haccessor: P0, pdwaccessorflags: *mut u32, pcbindings: ::core::option::Option<*mut usize>, prgbindings: *mut *mut DBBINDING) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<HACCESSOR>,
     {
-        (::windows::core::Vtable::vtable(self).GetBindings)(::windows::core::Vtable::as_raw(self), haccessor.into(), pdwaccessorflags, ::core::mem::transmute(pcbindings.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(prgbindings.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetBindings)(::windows::core::Vtable::as_raw(self), haccessor.into(), pdwaccessorflags, ::core::mem::transmute(pcbindings.unwrap_or(::std::ptr::null_mut())), prgbindings).ok()
     }
     pub unsafe fn ReleaseAccessor<P0>(&self, haccessor: P0, pcrefcount: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
@@ -2346,8 +2346,8 @@ pub struct IColumnsInfo(::windows::core::IUnknown);
 impl IColumnsInfo {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-    pub unsafe fn GetColumnInfo(&self, pccolumns: *mut usize, prginfo: ::core::option::Option<*mut *mut DBCOLUMNINFO>, ppstringsbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetColumnInfo)(::windows::core::Vtable::as_raw(self), pccolumns, ::core::mem::transmute(prginfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppstringsbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetColumnInfo(&self, pccolumns: *mut usize, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetColumnInfo)(::windows::core::Vtable::as_raw(self), pccolumns, prginfo, ::core::mem::transmute(ppstringsbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -2397,8 +2397,8 @@ pub struct IColumnsInfo2(::windows::core::IUnknown);
 impl IColumnsInfo2 {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-    pub unsafe fn GetColumnInfo(&self, pccolumns: *mut usize, prginfo: ::core::option::Option<*mut *mut DBCOLUMNINFO>, ppstringsbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetColumnInfo)(::windows::core::Vtable::as_raw(self), pccolumns, ::core::mem::transmute(prginfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppstringsbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetColumnInfo(&self, pccolumns: *mut usize, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetColumnInfo)(::windows::core::Vtable::as_raw(self), pccolumns, prginfo, ::core::mem::transmute(ppstringsbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -2510,8 +2510,9 @@ impl ICommand {
     {
         (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), riid, ::core::mem::transmute(pparams.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcrowsaffected.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pprowset.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetDBSession(&self, riid: *const ::windows::core::GUID, ppsession: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDBSession)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(ppsession.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetDBSession(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetDBSession)(::windows::core::Vtable::as_raw(self), riid, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ICommand, ::windows::core::IUnknown);
@@ -2736,8 +2737,8 @@ pub struct ICommandProperties(::windows::core::IUnknown);
 impl ICommandProperties {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: ::core::option::Option<*mut *mut DBPROPSET>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, ::core::mem::transmute(prgpropertysets.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, prgpropertysets).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2838,8 +2839,9 @@ impl ICommandText {
     {
         (::windows::core::Vtable::vtable(self).base__.Execute)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), riid, ::core::mem::transmute(pparams.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcrowsaffected.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pprowset.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetDBSession(&self, riid: *const ::windows::core::GUID, ppsession: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDBSession)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(ppsession.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetDBSession(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.GetDBSession)(::windows::core::Vtable::as_raw(self), riid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCommandText(&self, pguiddialect: ::core::option::Option<*mut ::windows::core::GUID>, ppwszcommand: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCommandText)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguiddialect.unwrap_or(::std::ptr::null_mut())), ppwszcommand).ok()
@@ -2928,8 +2930,8 @@ pub struct ICommandWithParameters(::windows::core::IUnknown);
 impl ICommandWithParameters {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetParameterInfo(&self, pcparams: *mut usize, prgparaminfo: ::core::option::Option<*mut *mut DBPARAMINFO>, ppnamesbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetParameterInfo)(::windows::core::Vtable::as_raw(self), pcparams, ::core::mem::transmute(prgparaminfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppnamesbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetParameterInfo(&self, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetParameterInfo)(::windows::core::Vtable::as_raw(self), pcparams, prgparaminfo, ::core::mem::transmute(ppnamesbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn MapParameterNames(&self, cparamnames: usize, rgparamnames: *const ::windows::core::PCWSTR, rgparamordinals: *mut isize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).MapParameterNames)(::windows::core::Vtable::as_raw(self), cparamnames, rgparamnames, rgparamordinals).ok()
@@ -3787,13 +3789,13 @@ pub struct IDBBinderProperties(::windows::core::IUnknown);
 impl IDBBinderProperties {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: ::core::option::Option<*mut *mut DBPROPSET>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetProperties)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, ::core::mem::transmute(prgpropertysets.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetProperties)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, prgpropertysets).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropertyInfo(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: ::core::option::Option<*mut *mut DBPROPINFOSET>, ppdescbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPropertyInfo)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets, ::core::mem::transmute(prgpropertyinfosets.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPropertyInfo(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetPropertyInfo)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets, prgpropertyinfosets, ::core::mem::transmute(ppdescbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3932,8 +3934,8 @@ impl IDBDataSourceAdmin {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCreationProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: ::core::option::Option<*mut *mut DBPROPINFOSET>, ppdescbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCreationProperties)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets, ::core::mem::transmute(prgpropertyinfosets.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetCreationProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetCreationProperties)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets, prgpropertyinfosets, ::core::mem::transmute(ppdescbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4138,13 +4140,13 @@ pub struct IDBProperties(::windows::core::IUnknown);
 impl IDBProperties {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: ::core::option::Option<*mut *mut DBPROPSET>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, ::core::mem::transmute(prgpropertysets.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, prgpropertysets).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropertyInfo(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: ::core::option::Option<*mut *mut DBPROPINFOSET>, ppdescbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPropertyInfo)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets, ::core::mem::transmute(prgpropertyinfosets.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPropertyInfo(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetPropertyInfo)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets, prgpropertyinfosets, ::core::mem::transmute(ppdescbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4243,14 +4245,14 @@ pub struct IDBSchemaRowset(::windows::core::IUnknown);
 impl IDBSchemaRowset {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetRowset<P0>(&self, punkouter: P0, rguidschema: *const ::windows::core::GUID, rgrestrictions: ::core::option::Option<&[super::Com::VARIANT]>, riid: *const ::windows::core::GUID, rgpropertysets: ::core::option::Option<&mut [DBPROPSET]>, pprowset: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()>
+    pub unsafe fn GetRowset<P0>(&self, punkouter: P0, rguidschema: *const ::windows::core::GUID, rgrestrictions: ::core::option::Option<&[super::Com::VARIANT]>, riid: *const ::windows::core::GUID, rgpropertysets: ::core::option::Option<&mut [DBPROPSET]>, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).GetRowset)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), rguidschema, rgrestrictions.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgrestrictions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), riid, rgpropertysets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertysets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pprowset.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetRowset)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), rguidschema, rgrestrictions.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgrestrictions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), riid, rgpropertysets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertysets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pprowset)).ok()
     }
-    pub unsafe fn GetSchemas(&self, pcschemas: *mut u32, prgschemas: ::core::option::Option<*mut *mut ::windows::core::GUID>, prgrestrictionsupport: ::core::option::Option<*mut *mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSchemas)(::windows::core::Vtable::as_raw(self), pcschemas, ::core::mem::transmute(prgschemas.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(prgrestrictionsupport.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetSchemas(&self, pcschemas: *mut u32, prgschemas: *mut *mut ::windows::core::GUID, prgrestrictionsupport: *mut *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSchemas)(::windows::core::Vtable::as_raw(self), pcschemas, prgschemas, prgrestrictionsupport).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDBSchemaRowset, ::windows::core::IUnknown);
@@ -4863,8 +4865,8 @@ impl IErrorLookup {
     pub unsafe fn GetErrorDescription(&self, hrerror: ::windows::core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: ::core::option::Option<*mut ::windows::core::BSTR>, pbstrdescription: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetErrorDescription)(::windows::core::Vtable::as_raw(self), hrerror, dwlookupid, pdispparams, lcid, ::core::mem::transmute(pbstrsource.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbstrdescription.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetHelpInfo(&self, hrerror: ::windows::core::HRESULT, dwlookupid: u32, lcid: u32, pbstrhelpfile: ::core::option::Option<*mut ::windows::core::BSTR>, pdwhelpcontext: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetHelpInfo)(::windows::core::Vtable::as_raw(self), hrerror, dwlookupid, lcid, ::core::mem::transmute(pbstrhelpfile.unwrap_or(::std::ptr::null_mut())), pdwhelpcontext).ok()
+    pub unsafe fn GetHelpInfo(&self, hrerror: ::windows::core::HRESULT, dwlookupid: u32, lcid: u32, pbstrhelpfile: *mut ::windows::core::BSTR, pdwhelpcontext: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetHelpInfo)(::windows::core::Vtable::as_raw(self), hrerror, dwlookupid, lcid, ::core::mem::transmute(pbstrhelpfile), pdwhelpcontext).ok()
     }
     pub unsafe fn ReleaseErrors(&self, dwdynamicerrorid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReleaseErrors)(::windows::core::Vtable::as_raw(self), dwdynamicerrorid).ok()
@@ -4920,8 +4922,9 @@ impl IErrorRecords {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetBasicErrorInfo)(::windows::core::Vtable::as_raw(self), ulrecordnum, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetCustomErrorObject(&self, ulrecordnum: u32, riid: *const ::windows::core::GUID, ppobject: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCustomErrorObject)(::windows::core::Vtable::as_raw(self), ulrecordnum, riid, ::core::mem::transmute(ppobject.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetCustomErrorObject(&self, ulrecordnum: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetCustomErrorObject)(::windows::core::Vtable::as_raw(self), ulrecordnum, riid, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4987,8 +4990,9 @@ pub struct IErrorRecords_Vtbl {
 #[repr(transparent)]
 pub struct IGetDataSource(::windows::core::IUnknown);
 impl IGetDataSource {
-    pub unsafe fn GetDataSource(&self, riid: *const ::windows::core::GUID, ppdatasource: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDataSource)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(ppdatasource.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetDataSource(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetDataSource)(::windows::core::Vtable::as_raw(self), riid, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IGetDataSource, ::windows::core::IUnknown);
@@ -7406,14 +7410,16 @@ pub struct IRowsetInfo(::windows::core::IUnknown);
 impl IRowsetInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: ::core::option::Option<*mut *mut DBPROPSET>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, ::core::mem::transmute(prgpropertysets.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, prgpropertysets).ok()
     }
-    pub unsafe fn GetReferencedRowset(&self, iordinal: usize, riid: *const ::windows::core::GUID, ppreferencedrowset: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetReferencedRowset)(::windows::core::Vtable::as_raw(self), iordinal, riid, ::core::mem::transmute(ppreferencedrowset.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetReferencedRowset(&self, iordinal: usize, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetReferencedRowset)(::windows::core::Vtable::as_raw(self), iordinal, riid, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetSpecification(&self, riid: *const ::windows::core::GUID, ppspecification: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSpecification)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(ppspecification.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetSpecification(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetSpecification)(::windows::core::Vtable::as_raw(self), riid, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IRowsetInfo, ::windows::core::IUnknown);
@@ -10666,8 +10672,8 @@ pub struct ISessionProperties(::windows::core::IUnknown);
 impl ISessionProperties {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: ::core::option::Option<*mut *mut DBPROPSET>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, ::core::mem::transmute(prgpropertysets.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, prgpropertysets).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12491,8 +12497,8 @@ impl IViewFilter {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetFilterBindings(&self, pcbindings: *mut usize, prgbindings: ::core::option::Option<*mut *mut DBBINDING>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFilterBindings)(::windows::core::Vtable::as_raw(self), pcbindings, ::core::mem::transmute(prgbindings.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetFilterBindings(&self, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetFilterBindings)(::windows::core::Vtable::as_raw(self), pcbindings, prgbindings).ok()
     }
     pub unsafe fn SetFilter<P0>(&self, haccessor: P0, compareops: &[u32], pcriteriadata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -16001,15 +16007,27 @@ pub const PRRE: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRSomeBits: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const PRTH_E_ACCESS_DENIED: u32 = 2147750405u32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const PRTH_E_ACL_IS_READ_NONE: u32 = 2147750417u32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const PRTH_E_ACL_TOO_BIG: u32 = 2147750418u32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const PRTH_E_BAD_REQUEST: u32 = 2147750408u32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_E_CANT_TRANSFORM_DENIED_ACE: i32 = -2147216881i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_E_CANT_TRANSFORM_EXTERNAL_ACL: i32 = -2147216882i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const PRTH_E_COMM_ERROR: u32 = 2147750400u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_E_DATABASE_OPEN_ERROR: i32 = -2147216875i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_E_HTTPS_CERTIFICATE_ERROR: i32 = -2147216861i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_E_HTTPS_REQUIRE_CERTIFICATE: i32 = -2147216860i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const PRTH_E_HTTP_CANNOT_CONNECT: u32 = 2147750409u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_E_INIT_FAILED: i32 = -2147216872i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -16019,11 +16037,19 @@ pub const PRTH_E_LOAD_FAILED: i32 = -2147216873i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_E_MIME_EXCLUDED: i32 = -2147216883i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const PRTH_E_NOT_REDIRECTED: u32 = 2147750407u32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_E_NO_PROPERTY: i32 = -2147216877i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const PRTH_E_OBJ_NOT_FOUND: u32 = 2147750401u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_E_OPLOCK_BROKEN: i32 = -2147216874i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const PRTH_E_REQUEST_ERROR: u32 = 2147750402u32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_E_RETRY: i32 = -2147216885i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const PRTH_E_SERVER_ERROR: u32 = 2147750406u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_E_TRUNCATED: i32 = -2147216870i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -16031,9 +16057,15 @@ pub const PRTH_E_VOLUME_MOUNT_POINT: i32 = -2147216871i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_E_WININET: i32 = -2147216886i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const PRTH_S_ACL_IS_READ_EVERYONE: u32 = 266768u32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_S_MAX_DOWNLOAD: i32 = 266764i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_S_MAX_GROWTH: i32 = 266761i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const PRTH_S_NOT_ALL_PARTS: u32 = 266779u32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const PRTH_S_NOT_MODIFIED: u32 = 266755u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRTH_S_TRY_IMPERSONATING: i32 = 266789i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]

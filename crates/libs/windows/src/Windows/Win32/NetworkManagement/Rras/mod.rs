@@ -802,12 +802,12 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigInterfaceEnum<P0>(hmprconfig: P0, dwlevel: u32, lplpbuffer: ::core::option::Option<*mut *mut u8>, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn MprConfigInterfaceEnum<P0>(hmprconfig: P0, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "mprapi.dll""system" fn MprConfigInterfaceEnum ( hmprconfig : super::super::Foundation:: HANDLE , dwlevel : u32 , lplpbuffer : *mut *mut u8 , dwprefmaxlen : u32 , lpdwentriesread : *mut u32 , lpdwtotalentries : *mut u32 , lpdwresumehandle : *mut u32 ) -> u32 );
-    MprConfigInterfaceEnum(hmprconfig.into(), dwlevel, ::core::mem::transmute(lplpbuffer.unwrap_or(::std::ptr::null_mut())), dwprefmaxlen, lpdwentriesread, lpdwtotalentries, ::core::mem::transmute(lpdwresumehandle.unwrap_or(::std::ptr::null_mut())))
+    MprConfigInterfaceEnum(hmprconfig.into(), dwlevel, lplpbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, ::core::mem::transmute(lpdwresumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
@@ -879,13 +879,13 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigInterfaceTransportEnum<P0, P1>(hmprconfig: P0, hrouterinterface: P1, dwlevel: u32, lplpbuffer: ::core::option::Option<*mut *mut u8>, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn MprConfigInterfaceTransportEnum<P0, P1>(hmprconfig: P0, hrouterinterface: P1, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "mprapi.dll""system" fn MprConfigInterfaceTransportEnum ( hmprconfig : super::super::Foundation:: HANDLE , hrouterinterface : super::super::Foundation:: HANDLE , dwlevel : u32 , lplpbuffer : *mut *mut u8 , dwprefmaxlen : u32 , lpdwentriesread : *mut u32 , lpdwtotalentries : *mut u32 , lpdwresumehandle : *mut u32 ) -> u32 );
-    MprConfigInterfaceTransportEnum(hmprconfig.into(), hrouterinterface.into(), dwlevel, ::core::mem::transmute(lplpbuffer.unwrap_or(::std::ptr::null_mut())), dwprefmaxlen, lpdwentriesread, lpdwtotalentries, ::core::mem::transmute(lpdwresumehandle.unwrap_or(::std::ptr::null_mut())))
+    MprConfigInterfaceTransportEnum(hmprconfig.into(), hrouterinterface.into(), dwlevel, lplpbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, ::core::mem::transmute(lpdwresumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1054,12 +1054,12 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigTransportEnum<P0>(hmprconfig: P0, dwlevel: u32, lplpbuffer: ::core::option::Option<*mut *mut u8>, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn MprConfigTransportEnum<P0>(hmprconfig: P0, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "mprapi.dll""system" fn MprConfigTransportEnum ( hmprconfig : super::super::Foundation:: HANDLE , dwlevel : u32 , lplpbuffer : *mut *mut u8 , dwprefmaxlen : u32 , lpdwentriesread : *mut u32 , lpdwtotalentries : *mut u32 , lpdwresumehandle : *mut u32 ) -> u32 );
-    MprConfigTransportEnum(hmprconfig.into(), dwlevel, ::core::mem::transmute(lplpbuffer.unwrap_or(::std::ptr::null_mut())), dwprefmaxlen, lpdwentriesread, lpdwtotalentries, ::core::mem::transmute(lpdwresumehandle.unwrap_or(::std::ptr::null_mut())))
+    MprConfigTransportEnum(hmprconfig.into(), dwlevel, lplpbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, ::core::mem::transmute(lpdwresumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

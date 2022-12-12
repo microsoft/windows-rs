@@ -190,7 +190,7 @@ pub trait ICreateTypeInfo_Impl: Sized {
     fn AddRefTypeInfo(&self, ptinfo: &::core::option::Option<super::Com::ITypeInfo>, phreftype: *const u32) -> ::windows::core::Result<()>;
     fn AddFuncDesc(&self, index: u32, pfuncdesc: *const super::Com::FUNCDESC) -> ::windows::core::Result<()>;
     fn AddImplType(&self, index: u32, hreftype: u32) -> ::windows::core::Result<()>;
-    fn SetImplTypeFlags(&self, index: u32, impltypeflags: i32) -> ::windows::core::Result<()>;
+    fn SetImplTypeFlags(&self, index: u32, impltypeflags: super::Com::IMPLTYPEFLAGS) -> ::windows::core::Result<()>;
     fn SetAlignment(&self, cbalignment: u16) -> ::windows::core::Result<()>;
     fn SetSchema(&self, pstrschema: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn AddVarDesc(&self, index: u32, pvardesc: *const super::Com::VARDESC) -> ::windows::core::Result<()>;
@@ -251,7 +251,7 @@ impl ICreateTypeInfo_Vtbl {
             let this = (*this).get_impl();
             this.AddImplType(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&hreftype)).into()
         }
-        unsafe extern "system" fn SetImplTypeFlags<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, impltypeflags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetImplTypeFlags<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, impltypeflags: super::Com::IMPLTYPEFLAGS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetImplTypeFlags(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&impltypeflags)).into()

@@ -1546,23 +1546,23 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetPatchFileListA<P0, P1>(szproductcode: P0, szpatchpackages: P1, pcfiles: *mut u32, pphfilerecords: ::core::option::Option<*mut *mut MSIHANDLE>) -> u32
+pub unsafe fn MsiGetPatchFileListA<P0, P1>(szproductcode: P0, szpatchpackages: P1, pcfiles: *mut u32, pphfilerecords: *mut *mut MSIHANDLE) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetPatchFileListA ( szproductcode : :: windows::core::PCSTR , szpatchpackages : :: windows::core::PCSTR , pcfiles : *mut u32 , pphfilerecords : *mut *mut MSIHANDLE ) -> u32 );
-    MsiGetPatchFileListA(szproductcode.into().abi(), szpatchpackages.into().abi(), pcfiles, ::core::mem::transmute(pphfilerecords.unwrap_or(::std::ptr::null_mut())))
+    MsiGetPatchFileListA(szproductcode.into().abi(), szpatchpackages.into().abi(), pcfiles, pphfilerecords)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetPatchFileListW<P0, P1>(szproductcode: P0, szpatchpackages: P1, pcfiles: *mut u32, pphfilerecords: ::core::option::Option<*mut *mut MSIHANDLE>) -> u32
+pub unsafe fn MsiGetPatchFileListW<P0, P1>(szproductcode: P0, szpatchpackages: P1, pcfiles: *mut u32, pphfilerecords: *mut *mut MSIHANDLE) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetPatchFileListW ( szproductcode : :: windows::core::PCWSTR , szpatchpackages : :: windows::core::PCWSTR , pcfiles : *mut u32 , pphfilerecords : *mut *mut MSIHANDLE ) -> u32 );
-    MsiGetPatchFileListW(szproductcode.into().abi(), szpatchpackages.into().abi(), pcfiles, ::core::mem::transmute(pphfilerecords.unwrap_or(::std::ptr::null_mut())))
+    MsiGetPatchFileListW(szproductcode.into().abi(), szpatchpackages.into().abi(), pcfiles, pphfilerecords)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -3906,8 +3906,11 @@ impl IMsmMerge {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CloseDatabase(&self, commit: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CloseDatabase)(::windows::core::Vtable::as_raw(self), commit).ok()
+    pub unsafe fn CloseDatabase<P0>(&self, commit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).CloseDatabase)(::windows::core::Vtable::as_raw(self), commit.into()).ok()
     }
     pub unsafe fn CloseModule(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CloseModule)(::windows::core::Vtable::as_raw(self)).ok()

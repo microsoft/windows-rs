@@ -713,8 +713,11 @@ impl ICOMAdminCatalog2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateServiceForApplication(&self, bstrapplicationidorname: &::windows::core::BSTR, bstrservicename: &::windows::core::BSTR, bstrstarttype: &::windows::core::BSTR, bstrerrorcontrol: &::windows::core::BSTR, bstrdependencies: &::windows::core::BSTR, bstrrunas: &::windows::core::BSTR, bstrpassword: &::windows::core::BSTR, bdesktopok: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CreateServiceForApplication)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrapplicationidorname), ::core::mem::transmute_copy(bstrservicename), ::core::mem::transmute_copy(bstrstarttype), ::core::mem::transmute_copy(bstrerrorcontrol), ::core::mem::transmute_copy(bstrdependencies), ::core::mem::transmute_copy(bstrrunas), ::core::mem::transmute_copy(bstrpassword), bdesktopok).ok()
+    pub unsafe fn CreateServiceForApplication<P0>(&self, bstrapplicationidorname: &::windows::core::BSTR, bstrservicename: &::windows::core::BSTR, bstrstarttype: &::windows::core::BSTR, bstrerrorcontrol: &::windows::core::BSTR, bstrdependencies: &::windows::core::BSTR, bstrrunas: &::windows::core::BSTR, bstrpassword: &::windows::core::BSTR, bdesktopok: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).CreateServiceForApplication)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrapplicationidorname), ::core::mem::transmute_copy(bstrservicename), ::core::mem::transmute_copy(bstrstarttype), ::core::mem::transmute_copy(bstrerrorcontrol), ::core::mem::transmute_copy(bstrdependencies), ::core::mem::transmute_copy(bstrrunas), ::core::mem::transmute_copy(bstrpassword), bdesktopok.into()).ok()
     }
     pub unsafe fn DeleteServiceForApplication(&self, bstrapplicationidorname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteServiceForApplication)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrapplicationidorname)).ok()
@@ -3199,8 +3202,11 @@ pub struct IContextState(::windows::core::IUnknown);
 impl IContextState {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDeactivateOnReturn(&self, bdeactivate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDeactivateOnReturn)(::windows::core::Vtable::as_raw(self), bdeactivate).ok()
+    pub unsafe fn SetDeactivateOnReturn<P0>(&self, bdeactivate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetDeactivateOnReturn)(::windows::core::Vtable::as_raw(self), bdeactivate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3523,8 +3529,11 @@ impl ICrmCompensatorVariants {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BeginCommitVariants(&self, brecovery: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BeginCommitVariants)(::windows::core::Vtable::as_raw(self), brecovery).ok()
+    pub unsafe fn BeginCommitVariants<P0>(&self, brecovery: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).BeginCommitVariants)(::windows::core::Vtable::as_raw(self), brecovery.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3537,8 +3546,11 @@ impl ICrmCompensatorVariants {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BeginAbortVariants(&self, brecovery: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BeginAbortVariants)(::windows::core::Vtable::as_raw(self), brecovery).ok()
+    pub unsafe fn BeginAbortVariants<P0>(&self, brecovery: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).BeginAbortVariants)(::windows::core::Vtable::as_raw(self), brecovery.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

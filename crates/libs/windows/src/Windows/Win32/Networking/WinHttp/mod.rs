@@ -27,11 +27,11 @@ pub unsafe fn WinHttpCloseHandle(hinternet: *mut ::core::ffi::c_void) -> super::
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[inline]
-pub unsafe fn WinHttpConnect<P0>(hsession: *mut ::core::ffi::c_void, pswzservername: P0, nserverport: INTERNET_PORT, dwreserved: u32) -> *mut ::core::ffi::c_void
+pub unsafe fn WinHttpConnect<P0>(hsession: *mut ::core::ffi::c_void, pswzservername: P0, nserverport: u16, dwreserved: u32) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "winhttp.dll""system" fn WinHttpConnect ( hsession : *mut ::core::ffi::c_void , pswzservername : :: windows::core::PCWSTR , nserverport : INTERNET_PORT , dwreserved : u32 ) -> *mut ::core::ffi::c_void );
+    ::windows::core::link ! ( "winhttp.dll""system" fn WinHttpConnect ( hsession : *mut ::core::ffi::c_void , pswzservername : :: windows::core::PCWSTR , nserverport : u16 , dwreserved : u32 ) -> *mut ::core::ffi::c_void );
     WinHttpConnect(hsession, pswzservername.into().abi(), nserverport, dwreserved)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`*"]
@@ -57,9 +57,9 @@ pub unsafe fn WinHttpCreateUrl(lpurlcomponents: *const URL_COMPONENTS, dwflags: 
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinHttpDetectAutoProxyConfigUrl(dwautodetectflags: u32, ppwstrautoconfigurl: ::core::option::Option<*mut ::windows::core::PWSTR>) -> super::super::Foundation::BOOL {
+pub unsafe fn WinHttpDetectAutoProxyConfigUrl(dwautodetectflags: u32, ppwstrautoconfigurl: *mut ::windows::core::PWSTR) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "winhttp.dll""system" fn WinHttpDetectAutoProxyConfigUrl ( dwautodetectflags : u32 , ppwstrautoconfigurl : *mut :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
-    WinHttpDetectAutoProxyConfigUrl(dwautodetectflags, ::core::mem::transmute(ppwstrautoconfigurl.unwrap_or(::std::ptr::null_mut())))
+    WinHttpDetectAutoProxyConfigUrl(dwautodetectflags, ppwstrautoconfigurl)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -601,6 +601,12 @@ pub const ICU_ESCAPE_AUTHORITY: u32 = 8192u32;
 pub const ICU_NO_ENCODE: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const ICU_NO_META: u32 = 134217728u32;
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const INTERNET_DEFAULT_HTTPS_PORT: u16 = 443u16;
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const INTERNET_DEFAULT_HTTP_PORT: u16 = 80u16;
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const INTERNET_DEFAULT_PORT: u16 = 0u16;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const NETWORKING_KEY_BUFSIZE: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
@@ -1317,35 +1323,6 @@ pub const WINHTTP_TIME_FORMAT_BUFSIZE: u32 = 62u32;
 pub const WINHTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: u32 = 15000u32;
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct INTERNET_PORT(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const INTERNET_DEFAULT_HTTP_PORT: INTERNET_PORT = INTERNET_PORT(80u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const INTERNET_DEFAULT_HTTPS_PORT: INTERNET_PORT = INTERNET_PORT(443u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const INTERNET_DEFAULT_PORT: INTERNET_PORT = INTERNET_PORT(0u32);
-impl ::core::marker::Copy for INTERNET_PORT {}
-impl ::core::clone::Clone for INTERNET_PORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERNET_PORT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for INTERNET_PORT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for INTERNET_PORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INTERNET_PORT").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

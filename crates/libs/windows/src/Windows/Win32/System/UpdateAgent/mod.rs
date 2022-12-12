@@ -375,8 +375,11 @@ impl IAutomaticUpdatesSettings2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIncludeRecommendedUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIncludeRecommendedUpdates)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIncludeRecommendedUpdates<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetIncludeRecommendedUpdates)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -486,8 +489,11 @@ impl IAutomaticUpdatesSettings3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIncludeRecommendedUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetIncludeRecommendedUpdates)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIncludeRecommendedUpdates<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetIncludeRecommendedUpdates)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -503,8 +509,11 @@ impl IAutomaticUpdatesSettings3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNonAdministratorsElevated(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetNonAdministratorsElevated)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetNonAdministratorsElevated<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetNonAdministratorsElevated)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -514,8 +523,11 @@ impl IAutomaticUpdatesSettings3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFeaturedUpdatesEnabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetFeaturedUpdatesEnabled)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetFeaturedUpdatesEnabled<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetFeaturedUpdatesEnabled)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2367,8 +2379,11 @@ impl IUpdate {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIsHidden)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetIsHidden)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2487,8 +2502,11 @@ impl IUpdate {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache(&self, path: &::windows::core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles).ok()
+    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2777,8 +2795,11 @@ impl IUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2897,8 +2918,11 @@ impl IUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache(&self, path: &::windows::core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles).ok()
+    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3097,8 +3121,11 @@ impl IUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3217,8 +3244,11 @@ impl IUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache(&self, path: &::windows::core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles).ok()
+    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3411,8 +3441,11 @@ impl IUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3531,8 +3564,11 @@ impl IUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache(&self, path: &::windows::core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles).ok()
+    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3731,8 +3767,11 @@ impl IUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3851,8 +3890,11 @@ impl IUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache(&self, path: &::windows::core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles).ok()
+    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4319,8 +4361,11 @@ impl IUpdateDownloader {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIsForced)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsForced<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetIsForced)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     pub unsafe fn Priority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4994,8 +5039,11 @@ impl IUpdateInstaller {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIsForced)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsForced<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetIsForced)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5105,8 +5153,11 @@ impl IUpdateInstaller {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllowSourcePrompts(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAllowSourcePrompts)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetAllowSourcePrompts<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAllowSourcePrompts)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5244,8 +5295,11 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetIsForced)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsForced<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetIsForced)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5355,8 +5409,11 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllowSourcePrompts(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetAllowSourcePrompts)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetAllowSourcePrompts<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetAllowSourcePrompts)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5372,8 +5429,11 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetForceQuiet(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetForceQuiet)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetForceQuiet<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetForceQuiet)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5441,8 +5501,11 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetIsForced)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsForced<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetIsForced)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5552,8 +5615,11 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllowSourcePrompts(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetAllowSourcePrompts)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetAllowSourcePrompts<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetAllowSourcePrompts)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5569,8 +5635,11 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetForceQuiet(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetForceQuiet)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetForceQuiet<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetForceQuiet)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5580,8 +5649,11 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttemptCloseAppsIfNecessary(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAttemptCloseAppsIfNecessary)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetAttemptCloseAppsIfNecessary<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAttemptCloseAppsIfNecessary)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5649,8 +5721,11 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetIsForced)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsForced<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetIsForced)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5760,8 +5835,11 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllowSourcePrompts(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetAllowSourcePrompts)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetAllowSourcePrompts<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetAllowSourcePrompts)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5777,8 +5855,11 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetForceQuiet(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetForceQuiet)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetForceQuiet<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetForceQuiet)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5788,8 +5869,11 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttemptCloseAppsIfNecessary(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetAttemptCloseAppsIfNecessary)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetAttemptCloseAppsIfNecessary<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetAttemptCloseAppsIfNecessary)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     pub unsafe fn Commit(&self, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self), dwflags).ok()
@@ -5883,8 +5967,11 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCanAutomaticallyUpgradeService(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCanAutomaticallyUpgradeService)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetCanAutomaticallyUpgradeService<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetCanAutomaticallyUpgradeService)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     pub unsafe fn ClientApplicationID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5901,8 +5988,11 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIncludePotentiallySupersededUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIncludePotentiallySupersededUpdates)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIncludePotentiallySupersededUpdates<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetIncludePotentiallySupersededUpdates)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     pub unsafe fn ServerSelection(&self) -> ::windows::core::Result<ServerSelection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5953,8 +6043,11 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOnline(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOnline)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetOnline<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetOnline)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     pub unsafe fn GetTotalHistoryCount(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6066,8 +6159,11 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCanAutomaticallyUpgradeService(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetCanAutomaticallyUpgradeService)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetCanAutomaticallyUpgradeService<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetCanAutomaticallyUpgradeService)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     pub unsafe fn ClientApplicationID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6084,8 +6180,11 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIncludePotentiallySupersededUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetIncludePotentiallySupersededUpdates)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIncludePotentiallySupersededUpdates<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetIncludePotentiallySupersededUpdates)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     pub unsafe fn ServerSelection(&self) -> ::windows::core::Result<ServerSelection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6136,8 +6235,11 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOnline(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetOnline)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetOnline<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetOnline)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     pub unsafe fn GetTotalHistoryCount(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6158,8 +6260,11 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIgnoreDownloadPriority(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIgnoreDownloadPriority)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIgnoreDownloadPriority<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetIgnoreDownloadPriority)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6220,8 +6325,11 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCanAutomaticallyUpgradeService(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetCanAutomaticallyUpgradeService)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetCanAutomaticallyUpgradeService<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetCanAutomaticallyUpgradeService)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     pub unsafe fn ClientApplicationID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6238,8 +6346,11 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIncludePotentiallySupersededUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetIncludePotentiallySupersededUpdates)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIncludePotentiallySupersededUpdates<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetIncludePotentiallySupersededUpdates)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     pub unsafe fn ServerSelection(&self) -> ::windows::core::Result<ServerSelection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6290,8 +6401,11 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOnline(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetOnline)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetOnline<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetOnline)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     pub unsafe fn GetTotalHistoryCount(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6312,8 +6426,11 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIgnoreDownloadPriority(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetIgnoreDownloadPriority)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIgnoreDownloadPriority<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetIgnoreDownloadPriority)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     pub unsafe fn SearchScope(&self) -> ::windows::core::Result<SearchScope> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7318,8 +7435,11 @@ impl IWebProxy {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBypassProxyOnLocal(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBypassProxyOnLocal)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetBypassProxyOnLocal<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetBypassProxyOnLocal)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7359,8 +7479,11 @@ impl IWebProxy {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoDetect(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAutoDetect)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetAutoDetect<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetAutoDetect)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7545,8 +7668,11 @@ impl IWindowsDriverUpdate {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7665,8 +7791,11 @@ impl IWindowsDriverUpdate {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache(&self, path: &::windows::core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles).ok()
+    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7863,8 +7992,11 @@ impl IWindowsDriverUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7983,8 +8115,11 @@ impl IWindowsDriverUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache(&self, path: &::windows::core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles).ok()
+    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8215,8 +8350,11 @@ impl IWindowsDriverUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8335,8 +8473,11 @@ impl IWindowsDriverUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache(&self, path: &::windows::core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles).ok()
+    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8561,8 +8702,11 @@ impl IWindowsDriverUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8681,8 +8825,11 @@ impl IWindowsDriverUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache(&self, path: &::windows::core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles).ok()
+    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8923,8 +9070,11 @@ impl IWindowsDriverUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetIsHidden)(::windows::core::Vtable::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9043,8 +9193,11 @@ impl IWindowsDriverUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache(&self, path: &::windows::core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles).ok()
+    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CopyFromCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

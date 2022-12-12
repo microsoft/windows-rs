@@ -1650,8 +1650,8 @@ impl IAsyncRpcChannelBuffer {
     pub unsafe fn FreeBuffer(&self, pmessage: *mut RPCOLEMESSAGE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.FreeBuffer)(::windows::core::Vtable::as_raw(self), pmessage).ok()
     }
-    pub unsafe fn GetDestCtx(&self, pdwdestcontext: *mut u32, ppvdestcontext: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDestCtx)(::windows::core::Vtable::as_raw(self), pdwdestcontext, ::core::mem::transmute(ppvdestcontext.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetDestCtx(&self, pdwdestcontext: *mut u32, ppvdestcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDestCtx)(::windows::core::Vtable::as_raw(self), pdwdestcontext, ppvdestcontext).ok()
     }
     pub unsafe fn IsConnected(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.IsConnected)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2571,11 +2571,11 @@ pub struct IClassFactory_Vtbl {
 #[repr(transparent)]
 pub struct IClientSecurity(::windows::core::IUnknown);
 impl IClientSecurity {
-    pub unsafe fn QueryBlanket<P0>(&self, pproxy: P0, pauthnsvc: *mut u32, pauthzsvc: ::core::option::Option<*mut u32>, pserverprincname: *mut *mut u16, pauthnlevel: ::core::option::Option<*mut RPC_C_AUTHN_LEVEL>, pimplevel: ::core::option::Option<*mut RPC_C_IMP_LEVEL>, pauthinfo: ::core::option::Option<*mut *mut ::core::ffi::c_void>, pcapabilites: ::core::option::Option<*mut EOLE_AUTHENTICATION_CAPABILITIES>) -> ::windows::core::Result<()>
+    pub unsafe fn QueryBlanket<P0>(&self, pproxy: P0, pauthnsvc: *mut u32, pauthzsvc: ::core::option::Option<*mut u32>, pserverprincname: *mut *mut u16, pauthnlevel: ::core::option::Option<*mut RPC_C_AUTHN_LEVEL>, pimplevel: ::core::option::Option<*mut RPC_C_IMP_LEVEL>, pauthinfo: *mut *mut ::core::ffi::c_void, pcapabilites: ::core::option::Option<*mut EOLE_AUTHENTICATION_CAPABILITIES>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).QueryBlanket)(::windows::core::Vtable::as_raw(self), pproxy.into().abi(), pauthnsvc, ::core::mem::transmute(pauthzsvc.unwrap_or(::std::ptr::null_mut())), pserverprincname, ::core::mem::transmute(pauthnlevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pimplevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pauthinfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcapabilites.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).QueryBlanket)(::windows::core::Vtable::as_raw(self), pproxy.into().abi(), pauthnsvc, ::core::mem::transmute(pauthzsvc.unwrap_or(::std::ptr::null_mut())), pserverprincname, ::core::mem::transmute(pauthnlevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pimplevel.unwrap_or(::std::ptr::null_mut())), pauthinfo, ::core::mem::transmute(pcapabilites.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetBlanket<P0, P1>(&self, pproxy: P0, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: P1, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: ::core::option::Option<*const ::core::ffi::c_void>, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows::core::Result<()>
     where
@@ -5132,8 +5132,8 @@ impl IRpcChannelBuffer {
     pub unsafe fn FreeBuffer(&self, pmessage: *mut RPCOLEMESSAGE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FreeBuffer)(::windows::core::Vtable::as_raw(self), pmessage).ok()
     }
-    pub unsafe fn GetDestCtx(&self, pdwdestcontext: *mut u32, ppvdestcontext: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDestCtx)(::windows::core::Vtable::as_raw(self), pdwdestcontext, ::core::mem::transmute(ppvdestcontext.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetDestCtx(&self, pdwdestcontext: *mut u32, ppvdestcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetDestCtx)(::windows::core::Vtable::as_raw(self), pdwdestcontext, ppvdestcontext).ok()
     }
     pub unsafe fn IsConnected(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).IsConnected)(::windows::core::Vtable::as_raw(self)).ok()
@@ -5185,8 +5185,8 @@ impl IRpcChannelBuffer2 {
     pub unsafe fn FreeBuffer(&self, pmessage: *mut RPCOLEMESSAGE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.FreeBuffer)(::windows::core::Vtable::as_raw(self), pmessage).ok()
     }
-    pub unsafe fn GetDestCtx(&self, pdwdestcontext: *mut u32, ppvdestcontext: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDestCtx)(::windows::core::Vtable::as_raw(self), pdwdestcontext, ::core::mem::transmute(ppvdestcontext.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetDestCtx(&self, pdwdestcontext: *mut u32, ppvdestcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetDestCtx)(::windows::core::Vtable::as_raw(self), pdwdestcontext, ppvdestcontext).ok()
     }
     pub unsafe fn IsConnected(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.IsConnected)(::windows::core::Vtable::as_raw(self)).ok()
@@ -5238,8 +5238,8 @@ impl IRpcChannelBuffer3 {
     pub unsafe fn FreeBuffer(&self, pmessage: *mut RPCOLEMESSAGE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.FreeBuffer)(::windows::core::Vtable::as_raw(self), pmessage).ok()
     }
-    pub unsafe fn GetDestCtx(&self, pdwdestcontext: *mut u32, ppvdestcontext: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDestCtx)(::windows::core::Vtable::as_raw(self), pdwdestcontext, ::core::mem::transmute(ppvdestcontext.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetDestCtx(&self, pdwdestcontext: *mut u32, ppvdestcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDestCtx)(::windows::core::Vtable::as_raw(self), pdwdestcontext, ppvdestcontext).ok()
     }
     pub unsafe fn IsConnected(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.IsConnected)(::windows::core::Vtable::as_raw(self)).ok()
@@ -5760,8 +5760,8 @@ pub struct ISequentialStream_Vtbl {
 #[repr(transparent)]
 pub struct IServerSecurity(::windows::core::IUnknown);
 impl IServerSecurity {
-    pub unsafe fn QueryBlanket(&self, pauthnsvc: ::core::option::Option<*mut u32>, pauthzsvc: ::core::option::Option<*mut u32>, pserverprincname: *mut *mut u16, pauthnlevel: ::core::option::Option<*mut u32>, pimplevel: ::core::option::Option<*mut u32>, pprivs: ::core::option::Option<*mut *mut ::core::ffi::c_void>, pcapabilities: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QueryBlanket)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pauthnsvc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pauthzsvc.unwrap_or(::std::ptr::null_mut())), pserverprincname, ::core::mem::transmute(pauthnlevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pimplevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pprivs.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcapabilities.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn QueryBlanket(&self, pauthnsvc: ::core::option::Option<*mut u32>, pauthzsvc: ::core::option::Option<*mut u32>, pserverprincname: *mut *mut u16, pauthnlevel: ::core::option::Option<*mut u32>, pimplevel: ::core::option::Option<*mut u32>, pprivs: *mut *mut ::core::ffi::c_void, pcapabilities: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).QueryBlanket)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pauthnsvc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pauthzsvc.unwrap_or(::std::ptr::null_mut())), pserverprincname, ::core::mem::transmute(pauthnlevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pimplevel.unwrap_or(::std::ptr::null_mut())), pprivs, ::core::mem::transmute(pcapabilities.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ImpersonateClient(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ImpersonateClient)(::windows::core::Vtable::as_raw(self)).ok()
@@ -6457,7 +6457,7 @@ impl ITypeInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetRefTypeOfImplType)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetImplTypeFlags(&self, index: u32) -> ::windows::core::Result<i32> {
+    pub unsafe fn GetImplTypeFlags(&self, index: u32) -> ::windows::core::Result<IMPLTYPEFLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetImplTypeFlags)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -6555,7 +6555,7 @@ pub struct ITypeInfo_Vtbl {
     GetVarDesc: usize,
     pub GetNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memid: i32, rgbstrnames: *mut *mut ::core::ffi::c_void, cmaxnames: u32, pcnames: *mut u32) -> ::windows::core::HRESULT,
     pub GetRefTypeOfImplType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, preftype: *mut u32) -> ::windows::core::HRESULT,
-    pub GetImplTypeFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pimpltypeflags: *mut i32) -> ::windows::core::HRESULT,
+    pub GetImplTypeFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pimpltypeflags: *mut IMPLTYPEFLAGS) -> ::windows::core::HRESULT,
     pub GetIDsOfNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rgsznames: *const ::windows::core::PCWSTR, cnames: u32, pmemid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvinstance: *const ::core::ffi::c_void, memid: i32, wflags: DISPATCH_FLAGS, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
@@ -6614,7 +6614,7 @@ impl ITypeInfo2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetRefTypeOfImplType)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetImplTypeFlags(&self, index: u32) -> ::windows::core::Result<i32> {
+    pub unsafe fn GetImplTypeFlags(&self, index: u32) -> ::windows::core::Result<IMPLTYPEFLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetImplTypeFlags)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -7298,8 +7298,9 @@ impl IUriBuilder {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateUriWithFlags)(::windows::core::Vtable::as_raw(self), dwcreateflags, dwuribuilderflags, dwallowencodingpropertymask, dwreserved, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetIUri(&self, ppiuri: ::core::option::Option<*mut ::core::option::Option<IUri>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetIUri)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppiuri.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetIUri(&self) -> ::windows::core::Result<IUri> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetIUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetIUri<P0>(&self, piuri: P0) -> ::windows::core::Result<()>
     where
@@ -7307,31 +7308,31 @@ impl IUriBuilder {
     {
         (::windows::core::Vtable::vtable(self).SetIUri)(::windows::core::Vtable::as_raw(self), piuri.into().abi()).ok()
     }
-    pub unsafe fn GetFragment(&self, pcchfragment: *mut u32, ppwzfragment: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFragment)(::windows::core::Vtable::as_raw(self), pcchfragment, ::core::mem::transmute(ppwzfragment.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetFragment(&self, pcchfragment: *mut u32, ppwzfragment: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetFragment)(::windows::core::Vtable::as_raw(self), pcchfragment, ppwzfragment).ok()
     }
-    pub unsafe fn GetHost(&self, pcchhost: *mut u32, ppwzhost: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetHost)(::windows::core::Vtable::as_raw(self), pcchhost, ::core::mem::transmute(ppwzhost.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetHost(&self, pcchhost: *mut u32, ppwzhost: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetHost)(::windows::core::Vtable::as_raw(self), pcchhost, ppwzhost).ok()
     }
-    pub unsafe fn GetPassword(&self, pcchpassword: *mut u32, ppwzpassword: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPassword)(::windows::core::Vtable::as_raw(self), pcchpassword, ::core::mem::transmute(ppwzpassword.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPassword(&self, pcchpassword: *mut u32, ppwzpassword: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetPassword)(::windows::core::Vtable::as_raw(self), pcchpassword, ppwzpassword).ok()
     }
-    pub unsafe fn GetPath(&self, pcchpath: *mut u32, ppwzpath: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPath)(::windows::core::Vtable::as_raw(self), pcchpath, ::core::mem::transmute(ppwzpath.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPath(&self, pcchpath: *mut u32, ppwzpath: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetPath)(::windows::core::Vtable::as_raw(self), pcchpath, ppwzpath).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPort(&self, pfhasport: *mut super::super::Foundation::BOOL, pdwport: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPort)(::windows::core::Vtable::as_raw(self), pfhasport, pdwport).ok()
     }
-    pub unsafe fn GetQuery(&self, pcchquery: *mut u32, ppwzquery: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetQuery)(::windows::core::Vtable::as_raw(self), pcchquery, ::core::mem::transmute(ppwzquery.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetQuery(&self, pcchquery: *mut u32, ppwzquery: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetQuery)(::windows::core::Vtable::as_raw(self), pcchquery, ppwzquery).ok()
     }
-    pub unsafe fn GetSchemeName(&self, pcchschemename: *mut u32, ppwzschemename: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSchemeName)(::windows::core::Vtable::as_raw(self), pcchschemename, ::core::mem::transmute(ppwzschemename.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetSchemeName(&self, pcchschemename: *mut u32, ppwzschemename: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSchemeName)(::windows::core::Vtable::as_raw(self), pcchschemename, ppwzschemename).ok()
     }
-    pub unsafe fn GetUserName(&self, pcchusername: *mut u32, ppwzusername: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetUserName)(::windows::core::Vtable::as_raw(self), pcchusername, ::core::mem::transmute(ppwzusername.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetUserName(&self, pcchusername: *mut u32, ppwzusername: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetUserName)(::windows::core::Vtable::as_raw(self), pcchusername, ppwzusername).ok()
     }
     pub unsafe fn SetFragment<P0>(&self, pwznewvalue: P0) -> ::windows::core::Result<()>
     where

@@ -31643,7 +31643,7 @@ pub trait IMediaFilter_Impl: Sized + super::super::System::Com::IPersist_Impl {
     fn Run(&self, tstart: i64) -> ::windows::core::Result<()>;
     fn GetState(&self, dwmillisecstimeout: u32) -> ::windows::core::Result<FILTER_STATE>;
     fn SetSyncSource(&self, pclock: &::core::option::Option<super::IReferenceClock>) -> ::windows::core::Result<()>;
-    fn GetSyncSource(&self, pclock: *mut ::core::option::Option<super::IReferenceClock>) -> ::windows::core::Result<()>;
+    fn GetSyncSource(&self) -> ::windows::core::Result<super::IReferenceClock>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMediaFilter {}
@@ -31684,7 +31684,13 @@ impl IMediaFilter_Vtbl {
         unsafe extern "system" fn GetSyncSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclock: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSyncSource(::core::mem::transmute_copy(&pclock)).into()
+            match this.GetSyncSource() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pclock, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base__: super::super::System::Com::IPersist_Vtbl::new::<Identity, Impl, OFFSET>(),

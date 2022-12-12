@@ -2253,11 +2253,12 @@ impl IMbnSmsEvents {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn OnSmsReadComplete<P0>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: super::super::Foundation::VARIANT_BOOL, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>
+    pub unsafe fn OnSmsReadComplete<P0, P1>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: P1, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IMbnSms>>,
+        P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).OnSmsReadComplete)(::windows::core::Vtable::as_raw(self), sms.into().abi(), smsformat, readmsgs, moremsgs, requestid, status).ok()
+        (::windows::core::Vtable::vtable(self).OnSmsReadComplete)(::windows::core::Vtable::as_raw(self), sms.into().abi(), smsformat, readmsgs, moremsgs.into(), requestid, status).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

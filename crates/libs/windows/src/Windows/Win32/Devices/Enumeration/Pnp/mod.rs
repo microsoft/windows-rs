@@ -43,14 +43,15 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
-pub unsafe fn SwDeviceInterfaceRegister<P0, P1, P2>(hswdevice: P0, pinterfaceclassguid: *const ::windows::core::GUID, pszreferencestring: P1, pproperties: ::core::option::Option<&[super::super::Properties::DEVPROPERTY]>, fenabled: P2, ppszdeviceinterfaceid: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
+pub unsafe fn SwDeviceInterfaceRegister<P0, P1, P2>(hswdevice: P0, pinterfaceclassguid: *const ::windows::core::GUID, pszreferencestring: P1, pproperties: ::core::option::Option<&[super::super::Properties::DEVPROPERTY]>, fenabled: P2) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<HSWDEVICE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "cfgmgr32.dll""system" fn SwDeviceInterfaceRegister ( hswdevice : HSWDEVICE , pinterfaceclassguid : *const :: windows::core::GUID , pszreferencestring : :: windows::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , fenabled : super::super::super::Foundation:: BOOL , ppszdeviceinterfaceid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    SwDeviceInterfaceRegister(hswdevice.into(), pinterfaceclassguid, pszreferencestring.into().abi(), pproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), fenabled.into(), ::core::mem::transmute(ppszdeviceinterfaceid.unwrap_or(::std::ptr::null_mut()))).ok()
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    SwDeviceInterfaceRegister(hswdevice.into(), pinterfaceclassguid, pszreferencestring.into().abi(), pproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), fenabled.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

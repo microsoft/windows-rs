@@ -514,8 +514,11 @@ impl INetworkCostManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDestinationAddresses(&self, pdestipaddrlist: &[NLM_SOCKADDR], bappend: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDestinationAddresses)(::windows::core::Vtable::as_raw(self), pdestipaddrlist.len() as _, ::core::mem::transmute(pdestipaddrlist.as_ptr()), bappend).ok()
+    pub unsafe fn SetDestinationAddresses<P0>(&self, pdestipaddrlist: &[NLM_SOCKADDR], bappend: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetDestinationAddresses)(::windows::core::Vtable::as_raw(self), pdestipaddrlist.len() as _, ::core::mem::transmute(pdestipaddrlist.as_ptr()), bappend.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INetworkCostManager, ::windows::core::IUnknown);
