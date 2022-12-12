@@ -152,6 +152,39 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 }
             }
         }
+        SignatureKind::ReturnValue => {
+            let args = gen.win32_args(&signature.params, kind);
+            let params = gen.win32_params(&signature.params, kind);
+            let return_type = signature.params[signature.params.len() - 1].ty.deref();
+            let is_nullable = gen.reader.type_is_nullable(&return_type);
+            let return_type = gen.type_name(&return_type);
+
+            if is_nullable {
+                quote! {
+                    #doc
+                    #features
+                    #[inline]
+                    pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type> #where_clause {
+                        #link
+                        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                        #name(#args);
+                        <#return_type as ::windows::core::Abi>::from_abi(result__.assume_init())
+                    }
+                }
+            } else {
+                quote! {
+                    #doc
+                    #features
+                    #[inline]
+                    pub unsafe fn #name<#generics>(#params) -> #return_type #where_clause {
+                        #link
+                        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                        #name(#args);
+                        result__.assume_init()
+                    }
+                }
+            }
+        }
         SignatureKind::ReturnStruct | SignatureKind::PreserveSig => {
             if handle_last_error(gen, def, &signature) {
                 let args = gen.win32_args(&signature.params, kind);

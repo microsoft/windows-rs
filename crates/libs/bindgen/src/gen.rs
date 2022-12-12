@@ -809,7 +809,7 @@ impl<'a> Gen<'a> {
                 (quote! {}, quote! { -> #hresult }, quote! {})
             }
         } else if let Some(return_type) = &signature.return_type {
-            if self.reader.type_is_udt(return_type) {
+            if self.reader.type_is_struct(return_type) {
                 let tokens = self.type_abi_name(return_type);
                 (quote! {}, quote! {}, quote! { result__: *mut #tokens, })
             } else {
@@ -880,7 +880,7 @@ impl<'a> Gen<'a> {
                 SignatureKind::Query(query) if query.object == position => {
                     quote! { result__.as_mut_ptr(), }
                 }
-                SignatureKind::ResultValue if params.len() - 1 == position => {
+                SignatureKind::ReturnValue | SignatureKind::ResultValue if params.len() - 1 == position => {
                     quote! { result__.as_mut_ptr(), }
                 }
                 SignatureKind::QueryOptional(query) if query.object == position => {
@@ -954,7 +954,7 @@ impl<'a> Gen<'a> {
                         continue;
                     }
                 }
-                SignatureKind::ResultValue if params.len() - 1 == position => {
+                SignatureKind::ReturnValue | SignatureKind::ResultValue if params.len() - 1 == position => {
                     continue;
                 }
                 _ => {}

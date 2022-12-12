@@ -69,6 +69,7 @@ pub enum SignatureKind {
     ResultValue,
     ResultVoid,
     ReturnStruct,
+    ReturnValue,
     ReturnVoid,
     PreserveSig,
 }
@@ -924,7 +925,7 @@ impl<'a> Reader<'a> {
     fn type_def_is_composable(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ComposableAttribute")
     }
-    pub fn type_def_is_udt(&self, row: TypeDef) -> bool {
+    fn type_def_is_struct(&self, row: TypeDef) -> bool {
         // This check is used to detect virtual functions that return C-style PODs that affect how the stack is packed for x86.
         // It could be defined as a struct with more than one field but that check is complicated as it would have to detect
         // nested structs. Fortunately, this is rare enough that this check is sufficient.
@@ -1340,6 +1341,10 @@ impl<'a> Reader<'a> {
         if self.param_kind(param.def).is_array() {
             return false;
         }
+        // If it's bigger than 128 bits, best to pass as a reference.
+        if self.type_size(&param.ty.deref()) > 16 {
+            return false;
+        }
         // TODO: find a way to treat this like COM interface result values.
         !self.type_is_callback(&param.ty.deref())
     }
@@ -1362,12 +1367,7 @@ impl<'a> Reader<'a> {
                         }
                     }
 
-                    if signature.params.last().map_or(false, |param| self.signature_param_is_retval(param))
-                        && signature.params[..signature.params.len() - 1].iter().all(|param| {
-                            let flags = self.param_flags(param.def);
-                            flags.input() && !flags.output()
-                        })
-                    {
+                    if self.signature_is_retval(signature) {
                         return SignatureKind::ResultValue;
                     }
 
@@ -1376,14 +1376,25 @@ impl<'a> Reader<'a> {
                 Type::TypeDef((def, _)) if self.type_def_type_name(*def) == TypeName::NTSTATUS => {
                     return SignatureKind::ResultVoid;
                 }
-                _ if self.type_is_udt(return_type) => {
+                _ if self.type_is_struct(return_type) => {
                     return SignatureKind::ReturnStruct;
                 }
                 _ => return SignatureKind::PreserveSig,
             }
         }
 
+        if self.signature_is_retval(signature) {
+            return SignatureKind::ReturnValue;
+        }
+
         SignatureKind::ReturnVoid
+    }
+    fn signature_is_retval(&self, signature: &Signature) -> bool {
+        signature.params.last().map_or(false, |param| self.signature_param_is_retval(param))
+            && signature.params[..signature.params.len() - 1].iter().all(|param| {
+                let flags = self.param_flags(param.def);
+                flags.input() && !flags.output()
+            })
     }
     fn signature_param_is_query_guid(&self, params: &[SignatureParam]) -> Option<usize> {
         params.iter().rposition(|param| param.ty == Type::ConstPtr((Box::new(Type::GUID), 1)) && !self.param_flags(param.def).output())
@@ -1718,9 +1729,9 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
-    pub fn type_is_udt(&self, ty: &Type) -> bool {
+    pub fn type_is_struct(&self, ty: &Type) -> bool {
         match ty {
-            Type::TypeDef((row, _)) => self.type_def_is_udt(*row),
+            Type::TypeDef((row, _)) => self.type_def_is_struct(*row),
             Type::GUID => true,
             _ => false,
         }
