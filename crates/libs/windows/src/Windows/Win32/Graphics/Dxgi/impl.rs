@@ -2,7 +2,7 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIAdapter_Impl: Sized + IDXGIObject_Impl {
     fn EnumOutputs(&self, output: u32) -> ::windows::core::Result<IDXGIOutput>;
-    fn GetDesc(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC>;
+    fn GetDesc(&self, pdesc: *mut DXGI_ADAPTER_DESC) -> ::windows::core::Result<()>;
     fn CheckInterfaceSupport(&self, interfacename: *const ::windows::core::GUID) -> ::windows::core::Result<i64>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -24,13 +24,7 @@ impl IDXGIAdapter_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_ADAPTER_DESC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDesc() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
         unsafe extern "system" fn CheckInterfaceSupport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfacename: *const ::windows::core::GUID, pumdversion: *mut i64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -57,7 +51,7 @@ impl IDXGIAdapter_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIAdapter1_Impl: Sized + IDXGIAdapter_Impl {
-    fn GetDesc1(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC1>;
+    fn GetDesc1(&self, pdesc: *mut DXGI_ADAPTER_DESC1) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IDXGIAdapter1 {}
@@ -67,13 +61,7 @@ impl IDXGIAdapter1_Vtbl {
         unsafe extern "system" fn GetDesc1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIAdapter1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_ADAPTER_DESC1) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDesc1() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetDesc1(::core::mem::transmute_copy(&pdesc)).into()
         }
         Self { base__: IDXGIAdapter_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
     }
@@ -84,7 +72,7 @@ impl IDXGIAdapter1_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIAdapter2_Impl: Sized + IDXGIAdapter1_Impl {
-    fn GetDesc2(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC2>;
+    fn GetDesc2(&self, pdesc: *mut DXGI_ADAPTER_DESC2) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IDXGIAdapter2 {}
@@ -94,13 +82,7 @@ impl IDXGIAdapter2_Vtbl {
         unsafe extern "system" fn GetDesc2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIAdapter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_ADAPTER_DESC2) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDesc2() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetDesc2(::core::mem::transmute_copy(&pdesc)).into()
         }
         Self { base__: IDXGIAdapter1_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc2: GetDesc2::<Identity, Impl, OFFSET> }
     }
@@ -113,7 +95,7 @@ impl IDXGIAdapter2_Vtbl {
 pub trait IDXGIAdapter3_Impl: Sized + IDXGIAdapter2_Impl {
     fn RegisterHardwareContentProtectionTeardownStatusEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
     fn UnregisterHardwareContentProtectionTeardownStatus(&self, dwcookie: u32);
-    fn QueryVideoMemoryInfo(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP) -> ::windows::core::Result<DXGI_QUERY_VIDEO_MEMORY_INFO>;
+    fn QueryVideoMemoryInfo(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, pvideomemoryinfo: *mut DXGI_QUERY_VIDEO_MEMORY_INFO) -> ::windows::core::Result<()>;
     fn SetVideoMemoryReservation(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, reservation: u64) -> ::windows::core::Result<()>;
     fn RegisterVideoMemoryBudgetChangeNotificationEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
     fn UnregisterVideoMemoryBudgetChangeNotification(&self, dwcookie: u32);
@@ -142,13 +124,7 @@ impl IDXGIAdapter3_Vtbl {
         unsafe extern "system" fn QueryVideoMemoryInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, pvideomemoryinfo: *mut DXGI_QUERY_VIDEO_MEMORY_INFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueryVideoMemoryInfo(::core::mem::transmute_copy(&nodeindex), ::core::mem::transmute_copy(&memorysegmentgroup)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pvideomemoryinfo, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.QueryVideoMemoryInfo(::core::mem::transmute_copy(&nodeindex), ::core::mem::transmute_copy(&memorysegmentgroup), ::core::mem::transmute_copy(&pvideomemoryinfo)).into()
         }
         unsafe extern "system" fn SetVideoMemoryReservation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, reservation: u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -188,7 +164,7 @@ impl IDXGIAdapter3_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIAdapter4_Impl: Sized + IDXGIAdapter3_Impl {
-    fn GetDesc3(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC3>;
+    fn GetDesc3(&self, pdesc: *mut DXGI_ADAPTER_DESC3) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IDXGIAdapter4 {}
@@ -198,13 +174,7 @@ impl IDXGIAdapter4_Vtbl {
         unsafe extern "system" fn GetDesc3<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIAdapter4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_ADAPTER_DESC3) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDesc3() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetDesc3(::core::mem::transmute_copy(&pdesc)).into()
         }
         Self { base__: IDXGIAdapter3_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc3: GetDesc3::<Identity, Impl, OFFSET> }
     }
@@ -1372,18 +1342,18 @@ impl IDXGIObject_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput_Impl: Sized + IDXGIObject_Impl {
-    fn GetDesc(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC>;
+    fn GetDesc(&self, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::core::Result<()>;
     fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()>;
     fn FindClosestMatchingMode(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn WaitForVBlank(&self) -> ::windows::core::Result<()>;
     fn TakeOwnership(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, exclusive: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn ReleaseOwnership(&self);
-    fn GetGammaControlCapabilities(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>;
+    fn GetGammaControlCapabilities(&self, pgammacaps: *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::core::Result<()>;
     fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()>;
-    fn GetGammaControl(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL>;
+    fn GetGammaControl(&self, parray: *mut Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()>;
     fn SetDisplaySurface(&self, pscanoutsurface: &::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()>;
     fn GetDisplaySurfaceData(&self, pdestination: &::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()>;
-    fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS>;
+    fn GetFrameStatistics(&self, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl ::windows::core::RuntimeName for IDXGIOutput {}
@@ -1393,13 +1363,7 @@ impl IDXGIOutput_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDesc() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
         unsafe extern "system" fn GetDisplayModeList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1429,13 +1393,7 @@ impl IDXGIOutput_Vtbl {
         unsafe extern "system" fn GetGammaControlCapabilities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgammacaps: *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGammaControlCapabilities() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pgammacaps, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetGammaControlCapabilities(::core::mem::transmute_copy(&pgammacaps)).into()
         }
         unsafe extern "system" fn SetGammaControl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1445,13 +1403,7 @@ impl IDXGIOutput_Vtbl {
         unsafe extern "system" fn GetGammaControl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parray: *mut Common::DXGI_GAMMA_CONTROL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGammaControl() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(parray, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetGammaControl(::core::mem::transmute_copy(&parray)).into()
         }
         unsafe extern "system" fn SetDisplaySurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pscanoutsurface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1466,13 +1418,7 @@ impl IDXGIOutput_Vtbl {
         unsafe extern "system" fn GetFrameStatistics<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFrameStatistics() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pstats, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetFrameStatistics(::core::mem::transmute_copy(&pstats)).into()
         }
         Self {
             base__: IDXGIObject_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1653,7 +1599,7 @@ impl IDXGIOutput5_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput6_Impl: Sized + IDXGIOutput5_Impl {
-    fn GetDesc1(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC1>;
+    fn GetDesc1(&self, pdesc: *mut DXGI_OUTPUT_DESC1) -> ::windows::core::Result<()>;
     fn CheckHardwareCompositionSupport(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1664,13 +1610,7 @@ impl IDXGIOutput6_Vtbl {
         unsafe extern "system" fn GetDesc1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIOutput6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_OUTPUT_DESC1) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDesc1() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetDesc1(::core::mem::transmute_copy(&pdesc)).into()
         }
         unsafe extern "system" fn CheckHardwareCompositionSupport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIOutput6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pflags: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1881,7 +1821,7 @@ impl IDXGIResource1_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGISurface_Impl: Sized + IDXGIDeviceSubObject_Impl {
-    fn GetDesc(&self) -> ::windows::core::Result<DXGI_SURFACE_DESC>;
+    fn GetDesc(&self, pdesc: *mut DXGI_SURFACE_DESC) -> ::windows::core::Result<()>;
     fn Map(&self, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> ::windows::core::Result<()>;
     fn Unmap(&self) -> ::windows::core::Result<()>;
 }
@@ -1893,13 +1833,7 @@ impl IDXGISurface_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_SURFACE_DESC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDesc() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
         unsafe extern "system" fn Map<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1987,11 +1921,11 @@ pub trait IDXGISwapChain_Impl: Sized + IDXGIDeviceSubObject_Impl {
     fn GetBuffer(&self, buffer: u32, riid: *const ::windows::core::GUID, ppsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn SetFullscreenState(&self, fullscreen: super::super::Foundation::BOOL, ptarget: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()>;
     fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()>;
-    fn GetDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC>;
+    fn GetDesc(&self, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<()>;
     fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()>;
     fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::core::Result<()>;
     fn GetContainingOutput(&self) -> ::windows::core::Result<IDXGIOutput>;
-    fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS>;
+    fn GetFrameStatistics(&self, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::core::Result<()>;
     fn GetLastPresentCount(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2022,13 +1956,7 @@ impl IDXGISwapChain_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDesc() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
         unsafe extern "system" fn ResizeBuffers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2054,13 +1982,7 @@ impl IDXGISwapChain_Vtbl {
         unsafe extern "system" fn GetFrameStatistics<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFrameStatistics() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pstats, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetFrameStatistics(::core::mem::transmute_copy(&pstats)).into()
         }
         unsafe extern "system" fn GetLastPresentCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plastpresentcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2094,8 +2016,8 @@ impl IDXGISwapChain_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGISwapChain1_Impl: Sized + IDXGISwapChain_Impl {
-    fn GetDesc1(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC1>;
-    fn GetFullscreenDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>;
+    fn GetDesc1(&self, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> ::windows::core::Result<()>;
+    fn GetFullscreenDesc(&self, pdesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> ::windows::core::Result<()>;
     fn GetHwnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
     fn GetCoreWindow(&self, refiid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::HRESULT;
@@ -2114,24 +2036,12 @@ impl IDXGISwapChain1_Vtbl {
         unsafe extern "system" fn GetDesc1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISwapChain1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDesc1() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetDesc1(::core::mem::transmute_copy(&pdesc)).into()
         }
         unsafe extern "system" fn GetFullscreenDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISwapChain1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFullscreenDesc() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetFullscreenDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
         unsafe extern "system" fn GetHwnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISwapChain1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2230,7 +2140,7 @@ pub trait IDXGISwapChain2_Impl: Sized + IDXGISwapChain1_Impl {
     fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32>;
     fn GetFrameLatencyWaitableObject(&self) -> super::super::Foundation::HANDLE;
     fn SetMatrixTransform(&self, pmatrix: *const DXGI_MATRIX_3X2_F) -> ::windows::core::Result<()>;
-    fn GetMatrixTransform(&self) -> ::windows::core::Result<DXGI_MATRIX_3X2_F>;
+    fn GetMatrixTransform(&self, pmatrix: *mut DXGI_MATRIX_3X2_F) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows::core::RuntimeName for IDXGISwapChain2 {}
@@ -2276,13 +2186,7 @@ impl IDXGISwapChain2_Vtbl {
         unsafe extern "system" fn GetMatrixTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISwapChain2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmatrix: *mut DXGI_MATRIX_3X2_F) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMatrixTransform() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pmatrix, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetMatrixTransform(::core::mem::transmute_copy(&pmatrix)).into()
         }
         Self {
             base__: IDXGISwapChain1_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2373,7 +2277,7 @@ impl IDXGISwapChain4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"implement\"`*"]
 pub trait IDXGISwapChainMedia_Impl: Sized {
-    fn GetFrameStatisticsMedia(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS_MEDIA>;
+    fn GetFrameStatisticsMedia(&self, pstats: *mut DXGI_FRAME_STATISTICS_MEDIA) -> ::windows::core::Result<()>;
     fn SetPresentDuration(&self, duration: u32) -> ::windows::core::Result<()>;
     fn CheckPresentDurationSupport(&self, desiredpresentduration: u32, pclosestsmallerpresentduration: *mut u32, pclosestlargerpresentduration: *mut u32) -> ::windows::core::Result<()>;
 }
@@ -2383,13 +2287,7 @@ impl IDXGISwapChainMedia_Vtbl {
         unsafe extern "system" fn GetFrameStatisticsMedia<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISwapChainMedia_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstats: *mut DXGI_FRAME_STATISTICS_MEDIA) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFrameStatisticsMedia() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pstats, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetFrameStatisticsMedia(::core::mem::transmute_copy(&pstats)).into()
         }
         unsafe extern "system" fn SetPresentDuration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISwapChainMedia_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

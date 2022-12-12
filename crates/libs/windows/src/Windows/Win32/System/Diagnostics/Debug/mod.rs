@@ -3931,9 +3931,8 @@ pub struct IActiveScriptError(::windows::core::IUnknown);
 impl IActiveScriptError {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetExceptionInfo(&self) -> ::windows::core::Result<super::super::Com::EXCEPINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetExceptionInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetExceptionInfo(&self, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetExceptionInfo)(::windows::core::Vtable::as_raw(self), pexcepinfo).ok()
     }
     pub unsafe fn GetSourcePosition(&self, pdwsourcecontext: *mut u32, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetSourcePosition)(::windows::core::Vtable::as_raw(self), pdwsourcecontext, pullinenumber, plcharacterposition).ok()
@@ -3983,9 +3982,8 @@ pub struct IActiveScriptError64(::windows::core::IUnknown);
 impl IActiveScriptError64 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetExceptionInfo(&self) -> ::windows::core::Result<super::super::Com::EXCEPINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetExceptionInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetExceptionInfo(&self, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetExceptionInfo)(::windows::core::Vtable::as_raw(self), pexcepinfo).ok()
     }
     pub unsafe fn GetSourcePosition(&self, pdwsourcecontext: *mut u32, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetSourcePosition)(::windows::core::Vtable::as_raw(self), pdwsourcecontext, pullinenumber, plcharacterposition).ok()
@@ -4033,9 +4031,8 @@ pub struct IActiveScriptErrorDebug(::windows::core::IUnknown);
 impl IActiveScriptErrorDebug {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetExceptionInfo(&self) -> ::windows::core::Result<super::super::Com::EXCEPINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetExceptionInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetExceptionInfo(&self, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetExceptionInfo)(::windows::core::Vtable::as_raw(self), pexcepinfo).ok()
     }
     pub unsafe fn GetSourcePosition(&self, pdwsourcecontext: *mut u32, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetSourcePosition)(::windows::core::Vtable::as_raw(self), pdwsourcecontext, pullinenumber, plcharacterposition).ok()
@@ -5794,9 +5791,8 @@ pub struct IActiveScriptWinRTErrorDebug(::windows::core::IUnknown);
 impl IActiveScriptWinRTErrorDebug {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetExceptionInfo(&self) -> ::windows::core::Result<super::super::Com::EXCEPINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetExceptionInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetExceptionInfo(&self, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetExceptionInfo)(::windows::core::Vtable::as_raw(self), pexcepinfo).ok()
     }
     pub unsafe fn GetSourcePosition(&self, pdwsourcecontext: *mut u32, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetSourcePosition)(::windows::core::Vtable::as_raw(self), pdwsourcecontext, pullinenumber, plcharacterposition).ok()
@@ -9059,9 +9055,8 @@ impl IDebugBreakpoint {
     {
         (::windows::core::Vtable::vtable(self).SetOffsetExpression)(::windows::core::Vtable::as_raw(self), expression.into().abi()).ok()
     }
-    pub unsafe fn GetParameters(&self) -> ::windows::core::Result<DEBUG_BREAKPOINT_PARAMETERS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParameters)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetParameters(&self, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetParameters)(::windows::core::Vtable::as_raw(self), params).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDebugBreakpoint, ::windows::core::IUnknown);
@@ -9190,9 +9185,8 @@ impl IDebugBreakpoint2 {
     {
         (::windows::core::Vtable::vtable(self).SetOffsetExpression)(::windows::core::Vtable::as_raw(self), expression.into().abi()).ok()
     }
-    pub unsafe fn GetParameters(&self) -> ::windows::core::Result<DEBUG_BREAKPOINT_PARAMETERS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParameters)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetParameters(&self, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetParameters)(::windows::core::Vtable::as_raw(self), params).ok()
     }
     pub unsafe fn GetCommandWide(&self, buffer: ::core::option::Option<&mut [u16]>, commandsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCommandWide)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(commandsize.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9343,9 +9337,8 @@ impl IDebugBreakpoint3 {
     {
         (::windows::core::Vtable::vtable(self).SetOffsetExpression)(::windows::core::Vtable::as_raw(self), expression.into().abi()).ok()
     }
-    pub unsafe fn GetParameters(&self) -> ::windows::core::Result<DEBUG_BREAKPOINT_PARAMETERS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParameters)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetParameters(&self, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetParameters)(::windows::core::Vtable::as_raw(self), params).ok()
     }
     pub unsafe fn GetCommandWide(&self, buffer: ::core::option::Option<&mut [u16]>, commandsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCommandWide)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(commandsize.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -13541,9 +13534,8 @@ impl IDebugControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32) -> ::windows::core::Result<DEBUG_VALUE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CoerceValue)(::windows::core::Vtable::as_raw(self), r#in, outtype, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).CoerceValue)(::windows::core::Vtable::as_raw(self), r#in, outtype, out).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14106,9 +14098,8 @@ impl IDebugControl2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32) -> ::windows::core::Result<DEBUG_VALUE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CoerceValue)(::windows::core::Vtable::as_raw(self), r#in, outtype, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).CoerceValue)(::windows::core::Vtable::as_raw(self), r#in, outtype, out).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14725,9 +14716,8 @@ impl IDebugControl3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32) -> ::windows::core::Result<DEBUG_VALUE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CoerceValue)(::windows::core::Vtable::as_raw(self), r#in, outtype, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).CoerceValue)(::windows::core::Vtable::as_raw(self), r#in, outtype, out).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15418,9 +15408,8 @@ impl IDebugControl4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32) -> ::windows::core::Result<DEBUG_VALUE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CoerceValue)(::windows::core::Vtable::as_raw(self), r#in, outtype, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).CoerceValue)(::windows::core::Vtable::as_raw(self), r#in, outtype, out).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16474,9 +16463,8 @@ impl IDebugControl5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32) -> ::windows::core::Result<DEBUG_VALUE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CoerceValue)(::windows::core::Vtable::as_raw(self), r#in, outtype, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).CoerceValue)(::windows::core::Vtable::as_raw(self), r#in, outtype, out).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17571,9 +17559,8 @@ impl IDebugControl6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32) -> ::windows::core::Result<DEBUG_VALUE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CoerceValue)(::windows::core::Vtable::as_raw(self), r#in, outtype, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).CoerceValue)(::windows::core::Vtable::as_raw(self), r#in, outtype, out).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -18677,9 +18664,8 @@ impl IDebugControl7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32) -> ::windows::core::Result<DEBUG_VALUE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CoerceValue)(::windows::core::Vtable::as_raw(self), r#in, outtype, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).CoerceValue)(::windows::core::Vtable::as_raw(self), r#in, outtype, out).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19748,9 +19734,8 @@ impl IDebugDataSpaces2 {
     }
     #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
     #[cfg(feature = "Win32_System_Memory")]
-    pub unsafe fn QueryVirtual(&self, offset: u64) -> ::windows::core::Result<super::super::Memory::MEMORY_BASIC_INFORMATION64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryVirtual)(::windows::core::Vtable::as_raw(self), offset, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn QueryVirtual(&self, offset: u64, info: *mut super::super::Memory::MEMORY_BASIC_INFORMATION64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).QueryVirtual)(::windows::core::Vtable::as_raw(self), offset, info).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDebugDataSpaces2, ::windows::core::IUnknown);
@@ -19894,15 +19879,13 @@ impl IDebugDataSpaces3 {
     }
     #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
     #[cfg(feature = "Win32_System_Memory")]
-    pub unsafe fn QueryVirtual(&self, offset: u64) -> ::windows::core::Result<super::super::Memory::MEMORY_BASIC_INFORMATION64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryVirtual)(::windows::core::Vtable::as_raw(self), offset, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn QueryVirtual(&self, offset: u64, info: *mut super::super::Memory::MEMORY_BASIC_INFORMATION64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).QueryVirtual)(::windows::core::Vtable::as_raw(self), offset, info).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
     #[cfg(feature = "Win32_System_SystemInformation")]
-    pub unsafe fn ReadImageNtHeaders(&self, imagebase: u64) -> ::windows::core::Result<IMAGE_NT_HEADERS64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ReadImageNtHeaders)(::windows::core::Vtable::as_raw(self), imagebase, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn ReadImageNtHeaders(&self, imagebase: u64, headers: *mut IMAGE_NT_HEADERS64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).ReadImageNtHeaders)(::windows::core::Vtable::as_raw(self), imagebase, headers).ok()
     }
     pub unsafe fn ReadTagged(&self, tag: *const ::windows::core::GUID, offset: u32, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, buffersize: u32, totalsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadTagged)(::windows::core::Vtable::as_raw(self), tag, offset, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize, ::core::mem::transmute(totalsize.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -20067,15 +20050,13 @@ impl IDebugDataSpaces4 {
     }
     #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
     #[cfg(feature = "Win32_System_Memory")]
-    pub unsafe fn QueryVirtual(&self, offset: u64) -> ::windows::core::Result<super::super::Memory::MEMORY_BASIC_INFORMATION64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryVirtual)(::windows::core::Vtable::as_raw(self), offset, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn QueryVirtual(&self, offset: u64, info: *mut super::super::Memory::MEMORY_BASIC_INFORMATION64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).QueryVirtual)(::windows::core::Vtable::as_raw(self), offset, info).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
     #[cfg(feature = "Win32_System_SystemInformation")]
-    pub unsafe fn ReadImageNtHeaders(&self, imagebase: u64) -> ::windows::core::Result<IMAGE_NT_HEADERS64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ReadImageNtHeaders)(::windows::core::Vtable::as_raw(self), imagebase, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn ReadImageNtHeaders(&self, imagebase: u64, headers: *mut IMAGE_NT_HEADERS64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).ReadImageNtHeaders)(::windows::core::Vtable::as_raw(self), imagebase, headers).ok()
     }
     pub unsafe fn ReadTagged(&self, tag: *const ::windows::core::GUID, offset: u32, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, buffersize: u32, totalsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadTagged)(::windows::core::Vtable::as_raw(self), tag, offset, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize, ::core::mem::transmute(totalsize.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -21458,9 +21439,8 @@ pub struct IDebugExpressionContext_Vtbl {
 #[repr(transparent)]
 pub struct IDebugExtendedProperty(::windows::core::IUnknown);
 impl IDebugExtendedProperty {
-    pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32) -> ::windows::core::Result<DebugPropertyInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPropertyInfo)(::windows::core::Vtable::as_raw(self), dwfieldspec, nradix, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetPropertyInfo)(::windows::core::Vtable::as_raw(self), dwfieldspec, nradix, ppropertyinfo).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -21483,9 +21463,8 @@ impl IDebugExtendedProperty {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32) -> ::windows::core::Result<ExtendedDebugPropertyInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetExtendedPropertyInfo)(::windows::core::Vtable::as_raw(self), dwfieldspec, nradix, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetExtendedPropertyInfo)(::windows::core::Vtable::as_raw(self), dwfieldspec, nradix, pextendedpropertyinfo).ok()
     }
     pub unsafe fn EnumExtendedMembers(&self, dwfieldspec: u32, nradix: u32) -> ::windows::core::Result<IEnumDebugExtendedPropertyInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -23906,9 +23885,8 @@ pub struct IDebugPlmClient3_Vtbl {
 #[repr(transparent)]
 pub struct IDebugProperty(::windows::core::IUnknown);
 impl IDebugProperty {
-    pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32) -> ::windows::core::Result<DebugPropertyInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPropertyInfo)(::windows::core::Vtable::as_raw(self), dwfieldspec, nradix, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetPropertyInfo)(::windows::core::Vtable::as_raw(self), dwfieldspec, nradix, ppropertyinfo).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -24172,9 +24150,8 @@ impl IDebugRegisters {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetValue(&self, register: u32) -> ::windows::core::Result<DEBUG_VALUE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), register, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetValue(&self, register: u32, value: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), register, value).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24278,9 +24255,8 @@ impl IDebugRegisters2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetValue(&self, register: u32) -> ::windows::core::Result<DEBUG_VALUE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), register, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetValue(&self, register: u32, value: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), register, value).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24966,9 +24942,8 @@ impl IDebugSymbolGroup2 {
     pub unsafe fn GetSymbolValueTextWide(&self, index: u32, buffer: ::core::option::Option<&mut [u16]>, namesize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetSymbolValueTextWide)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(namesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetSymbolEntryInformation(&self, index: u32) -> ::windows::core::Result<DEBUG_SYMBOL_ENTRY> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSymbolEntryInformation)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSymbolEntryInformation(&self, index: u32, entry: *mut DEBUG_SYMBOL_ENTRY) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSymbolEntryInformation)(::windows::core::Vtable::as_raw(self), index, entry).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDebugSymbolGroup2, ::windows::core::IUnknown);
@@ -26220,9 +26195,8 @@ impl IDebugSymbols3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetSymbolEntryByToken)(::windows::core::Vtable::as_raw(self), modulebase, token, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetSymbolEntryInformation(&self, id: *const DEBUG_MODULE_AND_ID) -> ::windows::core::Result<DEBUG_SYMBOL_ENTRY> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSymbolEntryInformation)(::windows::core::Vtable::as_raw(self), id, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSymbolEntryInformation(&self, id: *const DEBUG_MODULE_AND_ID, info: *mut DEBUG_SYMBOL_ENTRY) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSymbolEntryInformation)(::windows::core::Vtable::as_raw(self), id, info).ok()
     }
     pub unsafe fn GetSymbolEntryString(&self, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: ::core::option::Option<&mut [u8]>, stringsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetSymbolEntryString)(::windows::core::Vtable::as_raw(self), id, which, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(stringsize.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -26261,9 +26235,8 @@ impl IDebugSymbols3 {
     pub unsafe fn GetSourceEntryOffsetRegions(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, regions: ::core::option::Option<&mut [DEBUG_OFFSET_REGION]>, regionsavail: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetSourceEntryOffsetRegions)(::windows::core::Vtable::as_raw(self), entry, flags, ::core::mem::transmute(regions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), regions.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(regionsavail.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetSourceEntryBySourceEntry(&self, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32) -> ::windows::core::Result<DEBUG_SYMBOL_SOURCE_ENTRY> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSourceEntryBySourceEntry)(::windows::core::Vtable::as_raw(self), fromentry, flags, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSourceEntryBySourceEntry(&self, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSourceEntryBySourceEntry)(::windows::core::Vtable::as_raw(self), fromentry, flags, toentry).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDebugSymbols3, ::windows::core::IUnknown);
@@ -26946,9 +26919,8 @@ impl IDebugSymbols4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetSymbolEntryByToken)(::windows::core::Vtable::as_raw(self), modulebase, token, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetSymbolEntryInformation(&self, id: *const DEBUG_MODULE_AND_ID) -> ::windows::core::Result<DEBUG_SYMBOL_ENTRY> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSymbolEntryInformation)(::windows::core::Vtable::as_raw(self), id, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSymbolEntryInformation(&self, id: *const DEBUG_MODULE_AND_ID, info: *mut DEBUG_SYMBOL_ENTRY) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSymbolEntryInformation)(::windows::core::Vtable::as_raw(self), id, info).ok()
     }
     pub unsafe fn GetSymbolEntryString(&self, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: ::core::option::Option<&mut [u8]>, stringsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetSymbolEntryString)(::windows::core::Vtable::as_raw(self), id, which, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(stringsize.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -26987,9 +26959,8 @@ impl IDebugSymbols4 {
     pub unsafe fn GetSourceEntryOffsetRegions(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, regions: ::core::option::Option<&mut [DEBUG_OFFSET_REGION]>, regionsavail: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetSourceEntryOffsetRegions)(::windows::core::Vtable::as_raw(self), entry, flags, ::core::mem::transmute(regions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), regions.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(regionsavail.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetSourceEntryBySourceEntry(&self, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32) -> ::windows::core::Result<DEBUG_SYMBOL_SOURCE_ENTRY> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSourceEntryBySourceEntry)(::windows::core::Vtable::as_raw(self), fromentry, flags, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSourceEntryBySourceEntry(&self, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSourceEntryBySourceEntry)(::windows::core::Vtable::as_raw(self), fromentry, flags, toentry).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -27710,9 +27681,8 @@ impl IDebugSymbols5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetSymbolEntryByToken)(::windows::core::Vtable::as_raw(self), modulebase, token, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetSymbolEntryInformation(&self, id: *const DEBUG_MODULE_AND_ID) -> ::windows::core::Result<DEBUG_SYMBOL_ENTRY> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSymbolEntryInformation)(::windows::core::Vtable::as_raw(self), id, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSymbolEntryInformation(&self, id: *const DEBUG_MODULE_AND_ID, info: *mut DEBUG_SYMBOL_ENTRY) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSymbolEntryInformation)(::windows::core::Vtable::as_raw(self), id, info).ok()
     }
     pub unsafe fn GetSymbolEntryString(&self, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: ::core::option::Option<&mut [u8]>, stringsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetSymbolEntryString)(::windows::core::Vtable::as_raw(self), id, which, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(stringsize.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -27751,9 +27721,8 @@ impl IDebugSymbols5 {
     pub unsafe fn GetSourceEntryOffsetRegions(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, regions: ::core::option::Option<&mut [DEBUG_OFFSET_REGION]>, regionsavail: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetSourceEntryOffsetRegions)(::windows::core::Vtable::as_raw(self), entry, flags, ::core::mem::transmute(regions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), regions.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(regionsavail.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetSourceEntryBySourceEntry(&self, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32) -> ::windows::core::Result<DEBUG_SYMBOL_SOURCE_ENTRY> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSourceEntryBySourceEntry)(::windows::core::Vtable::as_raw(self), fromentry, flags, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSourceEntryBySourceEntry(&self, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSourceEntryBySourceEntry)(::windows::core::Vtable::as_raw(self), fromentry, flags, toentry).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -30061,9 +30030,8 @@ pub struct IJsDebugProcess_Vtbl {
 #[repr(transparent)]
 pub struct IJsDebugProperty(::windows::core::IUnknown);
 impl IJsDebugProperty {
-    pub unsafe fn GetPropertyInfo(&self, nradix: u32) -> ::windows::core::Result<JsDebugPropertyInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPropertyInfo)(::windows::core::Vtable::as_raw(self), nradix, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetPropertyInfo(&self, nradix: u32, ppropertyinfo: *mut JsDebugPropertyInfo) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetPropertyInfo)(::windows::core::Vtable::as_raw(self), nradix, ppropertyinfo).ok()
     }
     pub unsafe fn GetMembers(&self, members: JS_PROPERTY_MEMBERS) -> ::windows::core::Result<IJsEnumDebugProperty> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

@@ -82,13 +82,12 @@ pub unsafe fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: 
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmGetCompositionTimingInfo<P0>(hwnd: P0) -> ::windows::core::Result<DWM_TIMING_INFO>
+pub unsafe fn DwmGetCompositionTimingInfo<P0>(hwnd: P0, ptiminginfo: *mut DWM_TIMING_INFO) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "dwmapi.dll""system" fn DwmGetCompositionTimingInfo ( hwnd : super::super::Foundation:: HWND , ptiminginfo : *mut DWM_TIMING_INFO ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DwmGetCompositionTimingInfo(hwnd.into(), result__.as_mut_ptr()).from_abi(result__)
+    DwmGetCompositionTimingInfo(hwnd.into(), ptiminginfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
@@ -99,10 +98,9 @@ pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> ::windows::core::Result
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
-pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32) -> ::windows::core::Result<MilMatrix3x2D> {
+pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32, ptransform: *mut MilMatrix3x2D) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "dwmapi.dll""system" fn DwmGetGraphicsStreamTransformHint ( uindex : u32 , ptransform : *mut MilMatrix3x2D ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DwmGetGraphicsStreamTransformHint(uindex, result__.as_mut_ptr()).from_abi(result__)
+    DwmGetGraphicsStreamTransformHint(uindex, ptransform).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -3648,7 +3648,7 @@ impl ITaskSettings3_Vtbl {
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"implement\"`*"]
 pub trait ITaskTrigger_Impl: Sized {
     fn SetTrigger(&self, ptrigger: *const TASK_TRIGGER) -> ::windows::core::Result<()>;
-    fn GetTrigger(&self) -> ::windows::core::Result<TASK_TRIGGER>;
+    fn GetTrigger(&self, ptrigger: *mut TASK_TRIGGER) -> ::windows::core::Result<()>;
     fn GetTriggerString(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
 impl ::windows::core::RuntimeName for ITaskTrigger {}
@@ -3662,13 +3662,7 @@ impl ITaskTrigger_Vtbl {
         unsafe extern "system" fn GetTrigger<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptrigger: *mut TASK_TRIGGER) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTrigger() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ptrigger, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetTrigger(::core::mem::transmute_copy(&ptrigger)).into()
         }
         unsafe extern "system" fn GetTriggerString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwsztrigger: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

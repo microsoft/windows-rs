@@ -489,9 +489,8 @@ impl IAMCertifiedOutputProtection {
     pub unsafe fn ProtectionCommand(&self, cmd: *const AMCOPPCommand) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ProtectionCommand)(::windows::core::Vtable::as_raw(self), cmd).ok()
     }
-    pub unsafe fn ProtectionStatus(&self, pstatusinput: *const AMCOPPStatusInput) -> ::windows::core::Result<AMCOPPStatusOutput> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ProtectionStatus)(::windows::core::Vtable::as_raw(self), pstatusinput, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn ProtectionStatus(&self, pstatusinput: *const AMCOPPStatusInput, pstatusoutput: *mut AMCOPPStatusOutput) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).ProtectionStatus)(::windows::core::Vtable::as_raw(self), pstatusinput, pstatusoutput).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAMCertifiedOutputProtection, ::windows::core::IUnknown);
@@ -3624,9 +3623,8 @@ impl IAMStreamControl {
     {
         (::windows::core::Vtable::vtable(self).StopAt)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptstop.unwrap_or(::std::ptr::null())), bsendextra.into(), dwcookie).ok()
     }
-    pub unsafe fn GetInfo(&self) -> ::windows::core::Result<AM_STREAM_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetInfo(&self, pinfo: *mut AM_STREAM_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAMStreamControl, ::windows::core::IUnknown);
@@ -4046,9 +4044,8 @@ impl IAMTimecodeGenerator {
     pub unsafe fn SetTimecode(&self, ptimecodesample: *mut super::TIMECODE_SAMPLE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetTimecode)(::windows::core::Vtable::as_raw(self), ptimecodesample).ok()
     }
-    pub unsafe fn GetTimecode(&self) -> ::windows::core::Result<super::TIMECODE_SAMPLE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTimecode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetTimecode(&self, ptimecodesample: *mut super::TIMECODE_SAMPLE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetTimecode)(::windows::core::Vtable::as_raw(self), ptimecodesample).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAMTimecodeGenerator, ::windows::core::IUnknown);
@@ -4103,9 +4100,8 @@ impl IAMTimecodeReader {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).VITCLine)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetTimecode(&self) -> ::windows::core::Result<super::TIMECODE_SAMPLE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTimecode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetTimecode(&self, ptimecodesample: *mut super::TIMECODE_SAMPLE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetTimecode)(::windows::core::Vtable::as_raw(self), ptimecodesample).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAMTimecodeReader, ::windows::core::IUnknown);
@@ -7347,9 +7343,8 @@ impl IAudioData {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn GetFormat(&self) -> ::windows::core::Result<super::Audio::WAVEFORMATEX> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetFormat(&self, pwaveformatcurrent: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetFormat)(::windows::core::Vtable::as_raw(self), pwaveformatcurrent).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
@@ -7426,9 +7421,8 @@ impl IAudioMediaStream {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn GetFormat(&self) -> ::windows::core::Result<super::Audio::WAVEFORMATEX> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetFormat(&self, pwaveformatcurrent: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetFormat)(::windows::core::Vtable::as_raw(self), pwaveformatcurrent).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
@@ -10530,9 +10524,8 @@ impl IBaseFilter {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).FindPin)(::windows::core::Vtable::as_raw(self), id.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn QueryFilterInfo(&self) -> ::windows::core::Result<FILTER_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryFilterInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn QueryFilterInfo(&self, pinfo: *mut FILTER_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).QueryFilterInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
     }
     pub unsafe fn JoinFilterGraph<P0, P1>(&self, pgraph: P0, pname: P1) -> ::windows::core::Result<()>
     where
@@ -17132,15 +17125,13 @@ impl IDirectDrawVideo {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
-    pub unsafe fn GetCaps(&self) -> ::windows::core::Result<super::super::Graphics::DirectDraw::DDCAPS_DX7> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCaps)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetCaps(&self, pcaps: *mut super::super::Graphics::DirectDraw::DDCAPS_DX7) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetCaps)(::windows::core::Vtable::as_raw(self), pcaps).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
-    pub unsafe fn GetEmulatedCaps(&self) -> ::windows::core::Result<super::super::Graphics::DirectDraw::DDCAPS_DX7> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEmulatedCaps)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetEmulatedCaps(&self, pcaps: *mut super::super::Graphics::DirectDraw::DDCAPS_DX7) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetEmulatedCaps)(::windows::core::Vtable::as_raw(self), pcaps).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -19937,12 +19928,11 @@ impl IDvdGraphBuilder {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RenderDvdVideoVolume<P0>(&self, lpcwszpathname: P0, dwflags: u32) -> ::windows::core::Result<AM_DVD_RENDERSTATUS>
+    pub unsafe fn RenderDvdVideoVolume<P0>(&self, lpcwszpathname: P0, dwflags: u32, pstatus: *mut AM_DVD_RENDERSTATUS) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RenderDvdVideoVolume)(::windows::core::Vtable::as_raw(self), lpcwszpathname.into().abi(), dwflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RenderDvdVideoVolume)(::windows::core::Vtable::as_raw(self), lpcwszpathname.into().abi(), dwflags, pstatus).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDvdGraphBuilder, ::windows::core::IUnknown);
@@ -20028,13 +20018,11 @@ impl IDvdInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetSubpictureLanguage)(::windows::core::Vtable::as_raw(self), ulstream, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetTitleAttributes(&self, ultitle: u32) -> ::windows::core::Result<DVD_ATR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTitleAttributes)(::windows::core::Vtable::as_raw(self), ultitle, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetTitleAttributes(&self, ultitle: u32, patr: *mut DVD_ATR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetTitleAttributes)(::windows::core::Vtable::as_raw(self), ultitle, patr).ok()
     }
-    pub unsafe fn GetVMGAttributes(&self) -> ::windows::core::Result<DVD_ATR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVMGAttributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetVMGAttributes(&self, patr: *mut DVD_ATR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetVMGAttributes)(::windows::core::Vtable::as_raw(self), patr).ok()
     }
     pub unsafe fn GetCurrentVideoAttributes(&self) -> ::windows::core::Result<*mut u8> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -20179,27 +20167,23 @@ impl IDvdInfo2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVMGAttributes(&self) -> ::windows::core::Result<DVD_MenuAttributes> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVMGAttributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetVMGAttributes(&self, patr: *mut DVD_MenuAttributes) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetVMGAttributes)(::windows::core::Vtable::as_raw(self), patr).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCurrentVideoAttributes(&self) -> ::windows::core::Result<DVD_VideoAttributes> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrentVideoAttributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetCurrentVideoAttributes(&self, patr: *mut DVD_VideoAttributes) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetCurrentVideoAttributes)(::windows::core::Vtable::as_raw(self), patr).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAudioAttributes(&self, ulstream: u32) -> ::windows::core::Result<DVD_AudioAttributes> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAudioAttributes)(::windows::core::Vtable::as_raw(self), ulstream, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetAudioAttributes(&self, ulstream: u32, patr: *mut DVD_AudioAttributes) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetAudioAttributes)(::windows::core::Vtable::as_raw(self), ulstream, patr).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetKaraokeAttributes(&self, ulstream: u32) -> ::windows::core::Result<DVD_KaraokeAttributes> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetKaraokeAttributes)(::windows::core::Vtable::as_raw(self), ulstream, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetKaraokeAttributes(&self, ulstream: u32, pattributes: *mut DVD_KaraokeAttributes) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetKaraokeAttributes)(::windows::core::Vtable::as_raw(self), ulstream, pattributes).ok()
     }
     pub unsafe fn GetSubpictureAttributes(&self, ulstream: u32) -> ::windows::core::Result<DVD_SubpictureAttributes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -20275,9 +20259,8 @@ impl IDvdInfo2 {
     pub unsafe fn GetDefaultSubpictureLanguage(&self, planguage: *mut u32, psubpictureextension: *mut DVD_SUBPICTURE_LANG_EXT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetDefaultSubpictureLanguage)(::windows::core::Vtable::as_raw(self), planguage, psubpictureextension).ok()
     }
-    pub unsafe fn GetDecoderCaps(&self) -> ::windows::core::Result<DVD_DECODER_CAPS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDecoderCaps)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetDecoderCaps(&self, pcaps: *mut DVD_DECODER_CAPS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetDecoderCaps)(::windows::core::Vtable::as_raw(self), pcaps).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -37581,9 +37564,8 @@ impl IMediaParamInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetParamCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetParamInfo(&self, dwparamindex: u32) -> ::windows::core::Result<MP_PARAMINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParamInfo)(::windows::core::Vtable::as_raw(self), dwparamindex, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetParamInfo(&self, dwparamindex: u32, pinfo: *mut MP_PARAMINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetParamInfo)(::windows::core::Vtable::as_raw(self), dwparamindex, pinfo).ok()
     }
     pub unsafe fn GetParamText(&self, dwparamindex: u32) -> ::windows::core::Result<*mut u16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -38354,9 +38336,8 @@ impl IMediaStreamFilter {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.FindPin)(::windows::core::Vtable::as_raw(self), id.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn QueryFilterInfo(&self) -> ::windows::core::Result<FILTER_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.QueryFilterInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn QueryFilterInfo(&self, pinfo: *mut FILTER_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.QueryFilterInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
     }
     pub unsafe fn JoinFilterGraph<P0, P1>(&self, pgraph: P0, pname: P1) -> ::windows::core::Result<()>
     where
@@ -39420,9 +39401,8 @@ impl IMpegAudioDecoder {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn AudioFormat(&self) -> ::windows::core::Result<MPEG1WAVEFORMAT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AudioFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn AudioFormat(&self, lpfmt: *mut MPEG1WAVEFORMAT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).AudioFormat)(::windows::core::Vtable::as_raw(self), lpfmt).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMpegAudioDecoder, ::windows::core::IUnknown);
@@ -40688,15 +40668,13 @@ impl IPin {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn ConnectionMediaType(&self) -> ::windows::core::Result<super::MediaFoundation::AM_MEDIA_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ConnectionMediaType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn ConnectionMediaType(&self, pmt: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).ConnectionMediaType)(::windows::core::Vtable::as_raw(self), pmt).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryPinInfo(&self) -> ::windows::core::Result<PIN_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryPinInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn QueryPinInfo(&self, pinfo: *mut PIN_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).QueryPinInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
     }
     pub unsafe fn QueryDirection(&self) -> ::windows::core::Result<PIN_DIRECTION> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -42903,9 +42881,8 @@ pub struct IStreamBufferConfigure3_Vtbl {
 #[repr(transparent)]
 pub struct IStreamBufferDataCounters(::windows::core::IUnknown);
 impl IStreamBufferDataCounters {
-    pub unsafe fn GetData(&self) -> ::windows::core::Result<SBE_PIN_DATA> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetData(&self, ppindata: *mut SBE_PIN_DATA) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), ppindata).ok()
     }
     pub unsafe fn ResetData(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ResetData)(::windows::core::Vtable::as_raw(self)).ok()
@@ -44871,9 +44848,8 @@ impl IVMRDeinterlaceControl9 {
     pub unsafe fn GetNumberOfDeinterlaceModes(&self, lpvideodescription: *const VMR9VideoDesc, lpdwnumdeinterlacemodes: *mut u32, lpdeinterlacemodes: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetNumberOfDeinterlaceModes)(::windows::core::Vtable::as_raw(self), lpvideodescription, lpdwnumdeinterlacemodes, lpdeinterlacemodes).ok()
     }
-    pub unsafe fn GetDeinterlaceModeCaps(&self, lpdeinterlacemode: *const ::windows::core::GUID, lpvideodescription: *const VMR9VideoDesc) -> ::windows::core::Result<VMR9DeinterlaceCaps> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDeinterlaceModeCaps)(::windows::core::Vtable::as_raw(self), lpdeinterlacemode, lpvideodescription, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetDeinterlaceModeCaps(&self, lpdeinterlacemode: *const ::windows::core::GUID, lpvideodescription: *const VMR9VideoDesc, lpdeinterlacecaps: *mut VMR9DeinterlaceCaps) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetDeinterlaceModeCaps)(::windows::core::Vtable::as_raw(self), lpdeinterlacemode, lpvideodescription, lpdeinterlacecaps).ok()
     }
     pub unsafe fn GetDeinterlaceMode(&self, dwstreamid: u32) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -45536,9 +45512,8 @@ impl IVMRMixerBitmap9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetAlphaBitmapParameters(&self) -> ::windows::core::Result<VMR9AlphaBitmap> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAlphaBitmapParameters)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetAlphaBitmapParameters(&self, pbmpparms: *mut VMR9AlphaBitmap) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetAlphaBitmapParameters)(::windows::core::Vtable::as_raw(self), pbmpparms).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVMRMixerBitmap9, ::windows::core::IUnknown);

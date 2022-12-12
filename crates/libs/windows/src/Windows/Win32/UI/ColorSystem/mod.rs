@@ -1067,9 +1067,8 @@ impl IDeviceModelPlugIn {
     {
         (::windows::core::Vtable::vtable(self).SetTransformDeviceModelInfo)(::windows::core::Vtable::as_raw(self), imodelposition, pidevicemodelother.into().abi()).ok()
     }
-    pub unsafe fn GetPrimarySamples(&self) -> ::windows::core::Result<PrimaryXYZColors> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPrimarySamples)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetPrimarySamples(&self, pprimarycolor: *mut PrimaryXYZColors) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetPrimarySamples)(::windows::core::Vtable::as_raw(self), pprimarycolor).ok()
     }
     pub unsafe fn GetGamutBoundaryMeshSize(&self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetGamutBoundaryMeshSize)(::windows::core::Vtable::as_raw(self), pnumvertices, pnumtriangles).ok()

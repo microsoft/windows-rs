@@ -263,9 +263,8 @@ impl IKsJackDescription {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetJackDescription(&self, njack: u32) -> ::windows::core::Result<KSJACK_DESCRIPTION> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetJackDescription)(::windows::core::Vtable::as_raw(self), njack, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetJackDescription(&self, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetJackDescription)(::windows::core::Vtable::as_raw(self), njack, pdescription).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IKsJackDescription, ::windows::core::IUnknown);
@@ -350,9 +349,8 @@ pub struct IKsJackSinkInformation(::windows::core::IUnknown);
 impl IKsJackSinkInformation {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetJackSinkInformation(&self) -> ::windows::core::Result<KSJACK_SINK_INFORMATION> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetJackSinkInformation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetJackSinkInformation(&self, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetJackSinkInformation)(::windows::core::Vtable::as_raw(self), pjacksinkinformation).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IKsJackSinkInformation, ::windows::core::IUnknown);

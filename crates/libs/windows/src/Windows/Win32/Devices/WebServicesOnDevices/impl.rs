@@ -55,7 +55,7 @@ pub trait IWSDAsyncResult_Impl: Sized {
     fn HasCompleted(&self) -> ::windows::core::Result<()>;
     fn GetAsyncState(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Abort(&self) -> ::windows::core::Result<()>;
-    fn GetEvent(&self) -> ::windows::core::Result<WSD_EVENT>;
+    fn GetEvent(&self, pevent: *mut WSD_EVENT) -> ::windows::core::Result<()>;
     fn GetEndpointProxy(&self) -> ::windows::core::Result<IWSDEndpointProxy>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -97,13 +97,7 @@ impl IWSDAsyncResult_Vtbl {
         unsafe extern "system" fn GetEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDAsyncResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: *mut WSD_EVENT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEvent() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pevent, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetEvent(::core::mem::transmute_copy(&pevent)).into()
         }
         unsafe extern "system" fn GetEndpointProxy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDAsyncResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppendpoint: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1333,7 +1327,7 @@ impl IWSDTransportAddress_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub trait IWSDUdpAddress_Impl: Sized + IWSDTransportAddress_Impl {
     fn SetSockaddr(&self, psockaddr: *const super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows::core::Result<()>;
-    fn GetSockaddr(&self) -> ::windows::core::Result<super::super::Networking::WinSock::SOCKADDR_STORAGE>;
+    fn GetSockaddr(&self, psockaddr: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows::core::Result<()>;
     fn SetExclusive(&self, fexclusive: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetExclusive(&self) -> ::windows::core::Result<()>;
     fn SetMessageType(&self, messagetype: WSDUdpMessageType) -> ::windows::core::Result<()>;
@@ -1356,13 +1350,7 @@ impl IWSDUdpAddress_Vtbl {
         unsafe extern "system" fn GetSockaddr<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDUdpAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psockaddr: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSockaddr() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(psockaddr, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetSockaddr(::core::mem::transmute_copy(&psockaddr)).into()
         }
         unsafe extern "system" fn SetExclusive<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDUdpAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fexclusive: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1443,7 +1431,7 @@ impl IWSDUdpAddress_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDUdpMessageParameters_Impl: Sized + IWSDMessageParameters_Impl {
     fn SetRetransmitParams(&self, pparams: *const WSDUdpRetransmitParams) -> ::windows::core::Result<()>;
-    fn GetRetransmitParams(&self) -> ::windows::core::Result<WSDUdpRetransmitParams>;
+    fn GetRetransmitParams(&self, pparams: *mut WSDUdpRetransmitParams) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWSDUdpMessageParameters {}
 impl IWSDUdpMessageParameters_Vtbl {
@@ -1456,13 +1444,7 @@ impl IWSDUdpMessageParameters_Vtbl {
         unsafe extern "system" fn GetRetransmitParams<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDUdpMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparams: *mut WSDUdpRetransmitParams) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRetransmitParams() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pparams, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetRetransmitParams(::core::mem::transmute_copy(&pparams)).into()
         }
         Self {
             base__: IWSDMessageParameters_Vtbl::new::<Identity, Impl, OFFSET>(),

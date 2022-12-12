@@ -1224,9 +1224,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[inline]
-pub unsafe fn QuerySecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32) {
+pub unsafe fn QuerySecurityAccessMask(securityinformation: u32) -> u32 {
     ::windows::core::link ! ( "advapi32.dll""system" fn QuerySecurityAccessMask ( securityinformation : u32 , desiredaccess : *mut u32 ) -> ( ) );
-    QuerySecurityAccessMask(securityinformation, desiredaccess)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    QuerySecurityAccessMask(securityinformation, result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1330,9 +1332,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[inline]
-pub unsafe fn SetSecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32) {
+pub unsafe fn SetSecurityAccessMask(securityinformation: u32) -> u32 {
     ::windows::core::link ! ( "advapi32.dll""system" fn SetSecurityAccessMask ( securityinformation : u32 , desiredaccess : *mut u32 ) -> ( ) );
-    SetSecurityAccessMask(securityinformation, desiredaccess)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    SetSecurityAccessMask(securityinformation, result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -176,9 +176,8 @@ impl IAudioMediaType {
     pub unsafe fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX {
         (::windows::core::Vtable::vtable(self).GetAudioFormat)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn GetUncompressedAudioFormat(&self) -> ::windows::core::Result<UNCOMPRESSEDAUDIOFORMAT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUncompressedAudioFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetUncompressedAudioFormat(&self, puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetUncompressedAudioFormat)(::windows::core::Vtable::as_raw(self), puncompressedaudioformat).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAudioMediaType, ::windows::core::IUnknown);

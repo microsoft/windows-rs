@@ -381,9 +381,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
-pub unsafe fn EngQueryLocalTime(param0: *mut ENG_TIME_FIELDS) {
+pub unsafe fn EngQueryLocalTime() -> ENG_TIME_FIELDS {
     ::windows::core::link ! ( "gdi32.dll""system" fn EngQueryLocalTime ( param0 : *mut ENG_TIME_FIELDS ) -> ( ) );
-    EngQueryLocalTime(param0)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    EngQueryLocalTime(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]

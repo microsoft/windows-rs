@@ -517,7 +517,7 @@ impl IDCompositionDesktopDevice_Vtbl {
 pub trait IDCompositionDevice_Impl: Sized {
     fn Commit(&self) -> ::windows::core::Result<()>;
     fn WaitForCommitCompletion(&self) -> ::windows::core::Result<()>;
-    fn GetFrameStatistics(&self) -> ::windows::core::Result<DCOMPOSITION_FRAME_STATISTICS>;
+    fn GetFrameStatistics(&self, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::core::Result<()>;
     fn CreateTargetForHwnd(&self, hwnd: super::super::Foundation::HWND, topmost: super::super::Foundation::BOOL) -> ::windows::core::Result<IDCompositionTarget>;
     fn CreateVisual(&self) -> ::windows::core::Result<IDCompositionVisual>;
     fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface>;
@@ -558,13 +558,7 @@ impl IDCompositionDevice_Vtbl {
         unsafe extern "system" fn GetFrameStatistics<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFrameStatistics() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(statistics, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetFrameStatistics(::core::mem::transmute_copy(&statistics)).into()
         }
         unsafe extern "system" fn CreateTargetForHwnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, topmost: super::super::Foundation::BOOL, target: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -834,7 +828,7 @@ impl IDCompositionDevice_Vtbl {
 pub trait IDCompositionDevice2_Impl: Sized {
     fn Commit(&self) -> ::windows::core::Result<()>;
     fn WaitForCommitCompletion(&self) -> ::windows::core::Result<()>;
-    fn GetFrameStatistics(&self) -> ::windows::core::Result<DCOMPOSITION_FRAME_STATISTICS>;
+    fn GetFrameStatistics(&self, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::core::Result<()>;
     fn CreateVisual(&self) -> ::windows::core::Result<IDCompositionVisual2>;
     fn CreateSurfaceFactory(&self, renderingdevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IDCompositionSurfaceFactory>;
     fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface>;
@@ -872,13 +866,7 @@ impl IDCompositionDevice2_Vtbl {
         unsafe extern "system" fn GetFrameStatistics<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFrameStatistics() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(statistics, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetFrameStatistics(::core::mem::transmute_copy(&statistics)).into()
         }
         unsafe extern "system" fn CreateVisual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

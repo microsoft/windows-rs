@@ -1310,30 +1310,27 @@ impl IActiveIMMApp {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub unsafe fn GetCandidateWindow<P0>(&self, himc: P0, dwindex: u32) -> ::windows::core::Result<CANDIDATEFORM>
+    pub unsafe fn GetCandidateWindow<P0>(&self, himc: P0, dwindex: u32, pcandidate: *mut CANDIDATEFORM) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCandidateWindow)(::windows::core::Vtable::as_raw(self), himc.into(), dwindex, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetCandidateWindow)(::windows::core::Vtable::as_raw(self), himc.into(), dwindex, pcandidate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetCompositionFontA<P0>(&self, himc: P0) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTA>
+    pub unsafe fn GetCompositionFontA<P0>(&self, himc: P0, plf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCompositionFontA)(::windows::core::Vtable::as_raw(self), himc.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetCompositionFontA)(::windows::core::Vtable::as_raw(self), himc.into(), plf).ok()
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetCompositionFontW<P0>(&self, himc: P0) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTW>
+    pub unsafe fn GetCompositionFontW<P0>(&self, himc: P0, plf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCompositionFontW)(::windows::core::Vtable::as_raw(self), himc.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetCompositionFontW)(::windows::core::Vtable::as_raw(self), himc.into(), plf).ok()
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -1353,12 +1350,11 @@ impl IActiveIMMApp {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub unsafe fn GetCompositionWindow<P0>(&self, himc: P0) -> ::windows::core::Result<COMPOSITIONFORM>
+    pub unsafe fn GetCompositionWindow<P0>(&self, himc: P0, pcompform: *mut COMPOSITIONFORM) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCompositionWindow)(::windows::core::Vtable::as_raw(self), himc.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetCompositionWindow)(::windows::core::Vtable::as_raw(self), himc.into(), pcompform).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -2175,30 +2171,27 @@ impl IActiveIMMIME {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub unsafe fn GetCandidateWindow<P0>(&self, himc: P0, dwindex: u32) -> ::windows::core::Result<CANDIDATEFORM>
+    pub unsafe fn GetCandidateWindow<P0>(&self, himc: P0, dwindex: u32, pcandidate: *mut CANDIDATEFORM) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCandidateWindow)(::windows::core::Vtable::as_raw(self), himc.into(), dwindex, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetCandidateWindow)(::windows::core::Vtable::as_raw(self), himc.into(), dwindex, pcandidate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetCompositionFontA<P0>(&self, himc: P0) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTA>
+    pub unsafe fn GetCompositionFontA<P0>(&self, himc: P0, plf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCompositionFontA)(::windows::core::Vtable::as_raw(self), himc.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetCompositionFontA)(::windows::core::Vtable::as_raw(self), himc.into(), plf).ok()
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetCompositionFontW<P0>(&self, himc: P0) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTW>
+    pub unsafe fn GetCompositionFontW<P0>(&self, himc: P0, plf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCompositionFontW)(::windows::core::Vtable::as_raw(self), himc.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetCompositionFontW)(::windows::core::Vtable::as_raw(self), himc.into(), plf).ok()
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -2218,12 +2211,11 @@ impl IActiveIMMIME {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub unsafe fn GetCompositionWindow<P0>(&self, himc: P0) -> ::windows::core::Result<COMPOSITIONFORM>
+    pub unsafe fn GetCompositionWindow<P0>(&self, himc: P0, pcompform: *mut COMPOSITIONFORM) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCompositionWindow)(::windows::core::Vtable::as_raw(self), himc.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetCompositionWindow)(::windows::core::Vtable::as_raw(self), himc.into(), pcompform).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]

@@ -7127,7 +7127,7 @@ pub trait IDirectorySearch_Impl: Sized {
     fn GetNextRow(&self, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT;
     fn GetPreviousRow(&self, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT;
     fn GetNextColumnName(&self, hsearchhandle: ADS_SEARCH_HANDLE, ppszcolumnname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-    fn GetColumn(&self, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: &::windows::core::PCWSTR) -> ::windows::core::Result<ADS_SEARCH_COLUMN>;
+    fn GetColumn(&self, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: &::windows::core::PCWSTR, psearchcolumn: *mut ADS_SEARCH_COLUMN) -> ::windows::core::Result<()>;
     fn FreeColumn(&self, psearchcolumn: *const ADS_SEARCH_COLUMN) -> ::windows::core::Result<()>;
     fn CloseSearchHandle(&self, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::Result<()>;
 }
@@ -7180,13 +7180,7 @@ impl IDirectorySearch_Vtbl {
         unsafe extern "system" fn GetColumn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: ::windows::core::PCWSTR, psearchcolumn: *mut ADS_SEARCH_COLUMN) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetColumn(::core::mem::transmute_copy(&hsearchresult), ::core::mem::transmute(&szcolumnname)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(psearchcolumn, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetColumn(::core::mem::transmute_copy(&hsearchresult), ::core::mem::transmute(&szcolumnname), ::core::mem::transmute_copy(&psearchcolumn)).into()
         }
         unsafe extern "system" fn FreeColumn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psearchcolumn: *const ADS_SEARCH_COLUMN) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

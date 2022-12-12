@@ -45,9 +45,11 @@ pub unsafe fn GetIntegratedDisplaySize() -> ::windows::core::Result<f64> {
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) {
+pub unsafe fn GetLocalTime() -> super::super::Foundation::SYSTEMTIME {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetLocalTime ( lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME ) -> ( ) );
-    GetLocalTime(lpsystemtime)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    GetLocalTime(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -159,9 +161,11 @@ pub unsafe fn GetSystemLeapSecondInformation(enabled: *mut super::super::Foundat
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSystemTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) {
+pub unsafe fn GetSystemTime() -> super::super::Foundation::SYSTEMTIME {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetSystemTime ( lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME ) -> ( ) );
-    GetSystemTime(lpsystemtime)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    GetSystemTime(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -180,16 +184,20 @@ pub unsafe fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimei
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME) {
+pub unsafe fn GetSystemTimeAsFileTime() -> super::super::Foundation::FILETIME {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetSystemTimeAsFileTime ( lpsystemtimeasfiletime : *mut super::super::Foundation:: FILETIME ) -> ( ) );
-    GetSystemTimeAsFileTime(lpsystemtimeasfiletime)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    GetSystemTimeAsFileTime(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME) {
+pub unsafe fn GetSystemTimePreciseAsFileTime() -> super::super::Foundation::FILETIME {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetSystemTimePreciseAsFileTime ( lpsystemtimeasfiletime : *mut super::super::Foundation:: FILETIME ) -> ( ) );
-    GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    GetSystemTimePreciseAsFileTime(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]

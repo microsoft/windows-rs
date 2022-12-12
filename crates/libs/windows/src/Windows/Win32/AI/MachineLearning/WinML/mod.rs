@@ -135,8 +135,10 @@ impl IMLOperatorKernelContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AllocateTemporaryData)(::windows::core::Vtable::as_raw(self), size, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetExecutionInterface(&self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>) {
-        (::windows::core::Vtable::vtable(self).GetExecutionInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(executionobject))
+    pub unsafe fn GetExecutionInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetExecutionInterface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
+        <::windows::core::IUnknown as ::windows::core::Abi>::from_abi(result__.assume_init())
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorKernelContext, ::windows::core::IUnknown);
@@ -229,8 +231,10 @@ impl IMLOperatorKernelCreationContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetTensorShapeDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetExecutionInterface(&self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>) {
-        (::windows::core::Vtable::vtable(self).GetExecutionInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(executionobject))
+    pub unsafe fn GetExecutionInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetExecutionInterface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
+        <::windows::core::IUnknown as ::windows::core::Abi>::from_abi(result__.assume_init())
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorKernelCreationContext, ::windows::core::IUnknown, IMLOperatorAttributes);
@@ -515,8 +519,10 @@ impl IMLOperatorTensor {
     pub unsafe fn GetData(&self) -> *mut ::core::ffi::c_void {
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn GetDataInterface(&self, datainterface: *mut ::core::option::Option<::windows::core::IUnknown>) {
-        (::windows::core::Vtable::vtable(self).GetDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datainterface))
+    pub unsafe fn GetDataInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetDataInterface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
+        <::windows::core::IUnknown as ::windows::core::Abi>::from_abi(result__.assume_init())
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorTensor, ::windows::core::IUnknown);

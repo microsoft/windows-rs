@@ -6,9 +6,11 @@ pub unsafe fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_EN
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
-pub unsafe fn RtlInitializeSListHead(listhead: *mut SLIST_HEADER) {
+pub unsafe fn RtlInitializeSListHead() -> SLIST_HEADER {
     ::windows::core::link ! ( "ntdll.dll""system" fn RtlInitializeSListHead ( listhead : *mut SLIST_HEADER ) -> ( ) );
-    RtlInitializeSListHead(listhead)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    RtlInitializeSListHead(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]

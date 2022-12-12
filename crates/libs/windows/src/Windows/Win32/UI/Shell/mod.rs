@@ -12063,9 +12063,8 @@ impl ICategorizer {
     pub unsafe fn GetCategory(&self, cidl: u32, apidl: *const *const Common::ITEMIDLIST, rgcategoryids: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCategory)(::windows::core::Vtable::as_raw(self), cidl, apidl, rgcategoryids).ok()
     }
-    pub unsafe fn GetCategoryInfo(&self, dwcategoryid: u32) -> ::windows::core::Result<CATEGORY_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCategoryInfo)(::windows::core::Vtable::as_raw(self), dwcategoryid, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetCategoryInfo(&self, dwcategoryid: u32, pci: *mut CATEGORY_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetCategoryInfo)(::windows::core::Vtable::as_raw(self), dwcategoryid, pci).ok()
     }
     pub unsafe fn CompareCategory(&self, csfflags: CATSORT_FLAGS, dwcategoryid1: u32, dwcategoryid2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CompareCategory)(::windows::core::Vtable::as_raw(self), csfflags, dwcategoryid1, dwcategoryid2).ok()
@@ -12272,9 +12271,8 @@ impl IColumnProvider {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn GetColumnInfo(&self, dwindex: u32) -> ::windows::core::Result<SHCOLUMNINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetColumnInfo)(::windows::core::Vtable::as_raw(self), dwindex, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetColumnInfo(&self, dwindex: u32, psci: *mut SHCOLUMNINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetColumnInfo)(::windows::core::Vtable::as_raw(self), dwindex, psci).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -13933,9 +13931,8 @@ impl ICredentialProviderFilter {
     pub unsafe fn Filter(&self, cpus: CREDENTIAL_PROVIDER_USAGE_SCENARIO, dwflags: u32, rgclsidproviders: *const ::windows::core::GUID, rgballow: *mut super::super::Foundation::BOOL, cproviders: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Filter)(::windows::core::Vtable::as_raw(self), cpus, dwflags, rgclsidproviders, rgballow, cproviders).ok()
     }
-    pub unsafe fn UpdateRemoteCredential(&self, pcpcsin: *const CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION) -> ::windows::core::Result<CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).UpdateRemoteCredential)(::windows::core::Vtable::as_raw(self), pcpcsin, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn UpdateRemoteCredential(&self, pcpcsin: *const CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION, pcpcsout: *mut CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).UpdateRemoteCredential)(::windows::core::Vtable::as_raw(self), pcpcsin, pcpcsout).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICredentialProviderFilter, ::windows::core::IUnknown);
@@ -19546,9 +19543,8 @@ impl IFileSystemBindData {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-    pub unsafe fn GetFindData(&self) -> ::windows::core::Result<super::super::Storage::FileSystem::WIN32_FIND_DATAW> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFindData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetFindData(&self, pfd: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAW) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetFindData)(::windows::core::Vtable::as_raw(self), pfd).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IFileSystemBindData, ::windows::core::IUnknown);
@@ -19598,9 +19594,8 @@ impl IFileSystemBindData2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-    pub unsafe fn GetFindData(&self) -> ::windows::core::Result<super::super::Storage::FileSystem::WIN32_FIND_DATAW> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetFindData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetFindData(&self, pfd: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAW) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetFindData)(::windows::core::Vtable::as_raw(self), pfd).ok()
     }
     pub unsafe fn SetFileID(&self, lifileid: i64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetFileID)(::windows::core::Vtable::as_raw(self), lifileid).ok()
@@ -21091,9 +21086,8 @@ impl IHlinkBrowseContext {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBrowseWindowInfo(&self) -> ::windows::core::Result<HLBWINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBrowseWindowInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetBrowseWindowInfo(&self, phlbwi: *mut HLBWINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetBrowseWindowInfo)(::windows::core::Vtable::as_raw(self), phlbwi).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22336,9 +22330,8 @@ impl IKnownFolder {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetRedirectionCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetFolderDefinition(&self) -> ::windows::core::Result<KNOWNFOLDER_DEFINITION> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFolderDefinition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetFolderDefinition(&self, pkfd: *mut KNOWNFOLDER_DEFINITION) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetFolderDefinition)(::windows::core::Vtable::as_raw(self), pkfd).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IKnownFolder, ::windows::core::IUnknown);
@@ -25494,9 +25487,8 @@ impl IPersistFolder3 {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetFolderTargetInfo(&self) -> ::windows::core::Result<PERSIST_FOLDER_TARGET_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFolderTargetInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetFolderTargetInfo(&self, ppfti: *mut PERSIST_FOLDER_TARGET_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetFolderTargetInfo)(::windows::core::Vtable::as_raw(self), ppfti).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -26074,9 +26066,8 @@ impl IPropertyKeyStore {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn GetKeyAt(&self, index: i32) -> ::windows::core::Result<PropertiesSystem::PROPERTYKEY> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetKeyAt)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetKeyAt(&self, index: i32, pkey: *mut PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetKeyAt)(::windows::core::Vtable::as_raw(self), index, pkey).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -26156,15 +26147,13 @@ impl IPublishedApp {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSlowAppInfo(&self) -> ::windows::core::Result<SLOWAPPINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSlowAppInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSlowAppInfo(&self, psaid: *mut SLOWAPPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetSlowAppInfo)(::windows::core::Vtable::as_raw(self), psaid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCachedSlowAppInfo(&self) -> ::windows::core::Result<SLOWAPPINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCachedSlowAppInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetCachedSlowAppInfo(&self, psaid: *mut SLOWAPPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetCachedSlowAppInfo)(::windows::core::Vtable::as_raw(self), psaid).ok()
     }
     pub unsafe fn IsInstalled(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.IsInstalled)(::windows::core::Vtable::as_raw(self)).ok()
@@ -26233,15 +26222,13 @@ impl IPublishedApp2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSlowAppInfo(&self) -> ::windows::core::Result<SLOWAPPINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSlowAppInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSlowAppInfo(&self, psaid: *mut SLOWAPPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.GetSlowAppInfo)(::windows::core::Vtable::as_raw(self), psaid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCachedSlowAppInfo(&self) -> ::windows::core::Result<SLOWAPPINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetCachedSlowAppInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetCachedSlowAppInfo(&self, psaid: *mut SLOWAPPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.GetCachedSlowAppInfo)(::windows::core::Vtable::as_raw(self), psaid).ok()
     }
     pub unsafe fn IsInstalled(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.IsInstalled)(::windows::core::Vtable::as_raw(self)).ok()
@@ -27508,15 +27495,13 @@ impl IShellApp {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSlowAppInfo(&self) -> ::windows::core::Result<SLOWAPPINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSlowAppInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSlowAppInfo(&self, psaid: *mut SLOWAPPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSlowAppInfo)(::windows::core::Vtable::as_raw(self), psaid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCachedSlowAppInfo(&self) -> ::windows::core::Result<SLOWAPPINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCachedSlowAppInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetCachedSlowAppInfo(&self, psaid: *mut SLOWAPPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetCachedSlowAppInfo)(::windows::core::Vtable::as_raw(self), psaid).ok()
     }
     pub unsafe fn IsInstalled(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).IsInstalled)(::windows::core::Vtable::as_raw(self)).ok()
@@ -27804,9 +27789,8 @@ pub struct IShellDetails(::windows::core::IUnknown);
 impl IShellDetails {
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetDetailsOf(&self, pidl: ::core::option::Option<*const Common::ITEMIDLIST>, icolumn: u32) -> ::windows::core::Result<Common::SHELLDETAILS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDetailsOf)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pidl.unwrap_or(::std::ptr::null())), icolumn, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetDetailsOf(&self, pidl: ::core::option::Option<*const Common::ITEMIDLIST>, icolumn: u32, pdetails: *mut Common::SHELLDETAILS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetDetailsOf)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pidl.unwrap_or(::std::ptr::null())), icolumn, pdetails).ok()
     }
     pub unsafe fn ColumnClick(&self, icolumn: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ColumnClick)(::windows::core::Vtable::as_raw(self), icolumn).ok()
@@ -29280,9 +29264,8 @@ impl IShellFolder {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetDisplayNameOf(&self, pidl: *const Common::ITEMIDLIST, uflags: SHGDNF) -> ::windows::core::Result<Common::STRRET> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDisplayNameOf)(::windows::core::Vtable::as_raw(self), pidl, uflags, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetDisplayNameOf(&self, pidl: *const Common::ITEMIDLIST, uflags: SHGDNF, pname: *mut Common::STRRET) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetDisplayNameOf)(::windows::core::Vtable::as_raw(self), pidl, uflags, pname).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
@@ -29439,9 +29422,8 @@ impl IShellFolder2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetDisplayNameOf(&self, pidl: *const Common::ITEMIDLIST, uflags: SHGDNF) -> ::windows::core::Result<Common::STRRET> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayNameOf)(::windows::core::Vtable::as_raw(self), pidl, uflags, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetDisplayNameOf(&self, pidl: *const Common::ITEMIDLIST, uflags: SHGDNF, pname: *mut Common::STRRET) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetDisplayNameOf)(::windows::core::Vtable::as_raw(self), pidl, uflags, pname).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
@@ -29475,15 +29457,13 @@ impl IShellFolder2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetDetailsOf(&self, pidl: *const Common::ITEMIDLIST, icolumn: u32) -> ::windows::core::Result<Common::SHELLDETAILS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDetailsOf)(::windows::core::Vtable::as_raw(self), pidl, icolumn, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetDetailsOf(&self, pidl: *const Common::ITEMIDLIST, icolumn: u32, psd: *mut Common::SHELLDETAILS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetDetailsOf)(::windows::core::Vtable::as_raw(self), pidl, icolumn, psd).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn MapColumnToSCID(&self, icolumn: u32) -> ::windows::core::Result<PropertiesSystem::PROPERTYKEY> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MapColumnToSCID)(::windows::core::Vtable::as_raw(self), icolumn, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn MapColumnToSCID(&self, icolumn: u32, pscid: *mut PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).MapColumnToSCID)(::windows::core::Vtable::as_raw(self), icolumn, pscid).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IShellFolder2, ::windows::core::IUnknown, IShellFolder);
@@ -32136,9 +32116,8 @@ impl IShellMenu {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn GetState(&self) -> ::windows::core::Result<SMDATA> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetState(&self, psmd: *mut SMDATA) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetState)(::windows::core::Vtable::as_raw(self), psmd).ok()
     }
     pub unsafe fn SetMenuToolbar<P0>(&self, punk: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
@@ -36689,9 +36668,8 @@ impl ISortColumnArray {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn GetAt(&self, index: u32) -> ::windows::core::Result<SORTCOLUMN> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetAt(&self, index: u32, sortcolumn: *mut SORTCOLUMN) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), index, sortcolumn).ok()
     }
     pub unsafe fn GetSortType(&self) -> ::windows::core::Result<SORT_ORDER_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -37368,9 +37346,8 @@ impl ISyncMgrConflictItems {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetItem(&self, iindex: u32) -> ::windows::core::Result<CONFIRM_CONFLICT_ITEM> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), iindex, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetItem(&self, iindex: u32, piteminfo: *mut CONFIRM_CONFLICT_ITEM) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), iindex, piteminfo).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISyncMgrConflictItems, ::windows::core::IUnknown);
@@ -40067,9 +40044,8 @@ impl ITrackShellMenu {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn GetState(&self) -> ::windows::core::Result<SMDATA> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetState(&self, psmd: *mut SMDATA) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetState)(::windows::core::Vtable::as_raw(self), psmd).ok()
     }
     pub unsafe fn SetMenuToolbar<P0>(&self, punk: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
@@ -40700,12 +40676,11 @@ impl ITravelLogClient {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn GetWindowData<P0>(&self, pstream: P0) -> ::windows::core::Result<WINDOWDATA>
+    pub unsafe fn GetWindowData<P0>(&self, pstream: P0, pwindata: *mut WINDOWDATA) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetWindowData)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetWindowData)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), pwindata).ok()
     }
     pub unsafe fn LoadHistoryPosition<P0>(&self, pszurllocation: P0, dwposition: u32) -> ::windows::core::Result<()>
     where
@@ -41605,9 +41580,8 @@ impl IVisualProperties {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetFont(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::LOGFONTW> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFont)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetFont(&self, plf: *mut super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetFont)(::windows::core::Vtable::as_raw(self), plf).ok()
     }
     pub unsafe fn SetTheme<P0, P1>(&self, pszsubappname: P0, pszsubidlist: P1) -> ::windows::core::Result<()>
     where

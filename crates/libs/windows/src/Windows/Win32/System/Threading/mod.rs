@@ -898,9 +898,11 @@ pub unsafe fn GetCurrentProcessorNumber() -> u32 {
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCESSOR_NUMBER) {
+pub unsafe fn GetCurrentProcessorNumberEx() -> super::Kernel::PROCESSOR_NUMBER {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetCurrentProcessorNumberEx ( procnumber : *mut super::Kernel:: PROCESSOR_NUMBER ) -> ( ) );
-    GetCurrentProcessorNumberEx(procnumber)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    GetCurrentProcessorNumberEx(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1397,15 +1399,19 @@ pub unsafe fn InitOnceExecuteOnce(initonce: *mut RTL_RUN_ONCE, initfn: PINIT_ONC
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn InitOnceInitialize(initonce: *mut RTL_RUN_ONCE) {
+pub unsafe fn InitOnceInitialize() -> RTL_RUN_ONCE {
     ::windows::core::link ! ( "kernel32.dll""system" fn InitOnceInitialize ( initonce : *mut RTL_RUN_ONCE ) -> ( ) );
-    InitOnceInitialize(initonce)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    InitOnceInitialize(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn InitializeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE) {
+pub unsafe fn InitializeConditionVariable() -> RTL_CONDITION_VARIABLE {
     ::windows::core::link ! ( "kernel32.dll""system" fn InitializeConditionVariable ( conditionvariable : *mut RTL_CONDITION_VARIABLE ) -> ( ) );
-    InitializeConditionVariable(conditionvariable)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    InitializeConditionVariable(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -1438,15 +1444,19 @@ pub unsafe fn InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_A
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER) {
+pub unsafe fn InitializeSListHead() -> super::Kernel::SLIST_HEADER {
     ::windows::core::link ! ( "kernel32.dll""system" fn InitializeSListHead ( listhead : *mut super::Kernel:: SLIST_HEADER ) -> ( ) );
-    InitializeSListHead(listhead)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    InitializeSListHead(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn InitializeSRWLock(srwlock: *mut RTL_SRWLOCK) {
+pub unsafe fn InitializeSRWLock() -> RTL_SRWLOCK {
     ::windows::core::link ! ( "kernel32.dll""system" fn InitializeSRWLock ( srwlock : *mut RTL_SRWLOCK ) -> ( ) );
-    InitializeSRWLock(srwlock)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    InitializeSRWLock(result__.as_mut_ptr());
+    result__.assume_init()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

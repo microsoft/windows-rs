@@ -76,7 +76,7 @@ pub trait IMLOperatorKernelContext_Impl: Sized {
     fn GetOutputTensor(&self, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32) -> ::windows::core::Result<IMLOperatorTensor>;
     fn GetOutputTensor2(&self, outputindex: u32) -> ::windows::core::Result<IMLOperatorTensor>;
     fn AllocateTemporaryData(&self, size: usize) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetExecutionInterface(&self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>);
+    fn GetExecutionInterface(&self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>) -> ();
 }
 impl ::windows::core::RuntimeName for IMLOperatorKernelContext {}
 impl IMLOperatorKernelContext_Vtbl {
@@ -153,7 +153,7 @@ pub trait IMLOperatorKernelCreationContext_Impl: Sized + IMLOperatorAttributes_I
     fn GetOutputEdgeDescription(&self, outputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription>;
     fn HasTensorShapeDescription(&self) -> bool;
     fn GetTensorShapeDescription(&self) -> ::windows::core::Result<IMLOperatorTensorShapeDescription>;
-    fn GetExecutionInterface(&self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>);
+    fn GetExecutionInterface(&self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>) -> ();
 }
 impl ::windows::core::RuntimeName for IMLOperatorKernelCreationContext {}
 impl IMLOperatorKernelCreationContext_Vtbl {
@@ -398,7 +398,7 @@ pub trait IMLOperatorTensor_Impl: Sized {
     fn IsCpuData(&self) -> bool;
     fn IsDataInterface(&self) -> bool;
     fn GetData(&self) -> *mut ::core::ffi::c_void;
-    fn GetDataInterface(&self, datainterface: *mut ::core::option::Option<::windows::core::IUnknown>);
+    fn GetDataInterface(&self, datainterface: *mut ::core::option::Option<::windows::core::IUnknown>) -> ();
 }
 impl ::windows::core::RuntimeName for IMLOperatorTensor {}
 impl IMLOperatorTensor_Vtbl {

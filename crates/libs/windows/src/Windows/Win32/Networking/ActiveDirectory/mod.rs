@@ -9320,13 +9320,12 @@ impl IDirectorySearch {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetColumn<P0, P1>(&self, hsearchresult: P0, szcolumnname: P1) -> ::windows::core::Result<ADS_SEARCH_COLUMN>
+    pub unsafe fn GetColumn<P0, P1>(&self, hsearchresult: P0, szcolumnname: P1, psearchcolumn: *mut ADS_SEARCH_COLUMN) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<ADS_SEARCH_HANDLE>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetColumn)(::windows::core::Vtable::as_raw(self), hsearchresult.into(), szcolumnname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetColumn)(::windows::core::Vtable::as_raw(self), hsearchresult.into(), szcolumnname.into().abi(), psearchcolumn).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

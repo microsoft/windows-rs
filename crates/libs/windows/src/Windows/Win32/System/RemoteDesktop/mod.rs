@@ -4304,24 +4304,21 @@ impl IWRdsProtocolConnection {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetClientData(&self) -> ::windows::core::Result<WTS_CLIENT_DATA> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClientData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetClientData(&self, pclientdata: *mut WTS_CLIENT_DATA) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetClientData)(::windows::core::Vtable::as_raw(self), pclientdata).ok()
     }
     pub unsafe fn GetClientMonitorData(&self, pnummonitors: *mut u32, pprimarymonitor: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetClientMonitorData)(::windows::core::Vtable::as_raw(self), pnummonitors, pprimarymonitor).ok()
     }
-    pub unsafe fn GetUserCredentials(&self) -> ::windows::core::Result<WTS_USER_CREDENTIAL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUserCredentials)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetUserCredentials(&self, pusercreds: *mut WTS_USER_CREDENTIAL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetUserCredentials)(::windows::core::Vtable::as_raw(self), pusercreds).ok()
     }
     pub unsafe fn GetLicenseConnection(&self) -> ::windows::core::Result<IWRdsProtocolLicenseConnection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetLicenseConnection)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn AuthenticateClientToSession(&self) -> ::windows::core::Result<WTS_SESSION_ID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AuthenticateClientToSession)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn AuthenticateClientToSession(&self, sessionid: *mut WTS_SESSION_ID) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).AuthenticateClientToSession)(::windows::core::Vtable::as_raw(self), sessionid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4383,9 +4380,8 @@ impl IWRdsProtocolConnection {
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn GetProtocolStatus(&self) -> ::windows::core::Result<WTS_PROTOCOL_STATUS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProtocolStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProtocolStatus(&self, pprotocolstatus: *mut WTS_PROTOCOL_STATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProtocolStatus)(::windows::core::Vtable::as_raw(self), pprotocolstatus).ok()
     }
     pub unsafe fn GetLastInputTime(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4552,9 +4548,8 @@ impl IWRdsProtocolConnectionSettings {
     pub unsafe fn SetConnectionSetting(&self, propertyid: ::windows::core::GUID, ppropertyentriesin: *const WTS_PROPERTY_VALUE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetConnectionSetting)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propertyid), ppropertyentriesin).ok()
     }
-    pub unsafe fn GetConnectionSetting(&self, propertyid: ::windows::core::GUID) -> ::windows::core::Result<WTS_PROPERTY_VALUE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetConnectionSetting)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propertyid), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetConnectionSetting(&self, propertyid: ::windows::core::GUID, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetConnectionSetting)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propertyid), ppropertyentriesout).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWRdsProtocolConnectionSettings, ::windows::core::IUnknown);
@@ -4887,9 +4882,8 @@ pub struct IWRdsProtocolSettings(::windows::core::IUnknown);
 impl IWRdsProtocolSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSettings(&self, wrdssettingtype: WRDS_SETTING_TYPE, wrdssettinglevel: WRDS_SETTING_LEVEL) -> ::windows::core::Result<WRDS_SETTINGS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSettings)(::windows::core::Vtable::as_raw(self), wrdssettingtype, wrdssettinglevel, result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetSettings(&self, wrdssettingtype: WRDS_SETTING_TYPE, wrdssettinglevel: WRDS_SETTING_LEVEL, pwrdssettings: *mut WRDS_SETTINGS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetSettings)(::windows::core::Vtable::as_raw(self), wrdssettingtype, wrdssettinglevel, pwrdssettings).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5420,21 +5414,18 @@ impl IWTSProtocolConnection {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetClientData(&self) -> ::windows::core::Result<WTS_CLIENT_DATA> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClientData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetClientData(&self, pclientdata: *mut WTS_CLIENT_DATA) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetClientData)(::windows::core::Vtable::as_raw(self), pclientdata).ok()
     }
-    pub unsafe fn GetUserCredentials(&self) -> ::windows::core::Result<WTS_USER_CREDENTIAL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUserCredentials)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetUserCredentials(&self, pusercreds: *mut WTS_USER_CREDENTIAL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetUserCredentials)(::windows::core::Vtable::as_raw(self), pusercreds).ok()
     }
     pub unsafe fn GetLicenseConnection(&self) -> ::windows::core::Result<IWTSProtocolLicenseConnection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetLicenseConnection)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn AuthenticateClientToSession(&self) -> ::windows::core::Result<WTS_SESSION_ID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AuthenticateClientToSession)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn AuthenticateClientToSession(&self, sessionid: *mut WTS_SESSION_ID) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).AuthenticateClientToSession)(::windows::core::Vtable::as_raw(self), sessionid).ok()
     }
     pub unsafe fn NotifySessionId(&self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).NotifySessionId)(::windows::core::Vtable::as_raw(self), sessionid).ok()
@@ -5487,9 +5478,8 @@ impl IWTSProtocolConnection {
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn GetProtocolStatus(&self) -> ::windows::core::Result<WTS_PROTOCOL_STATUS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProtocolStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProtocolStatus(&self, pprotocolstatus: *mut WTS_PROTOCOL_STATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProtocolStatus)(::windows::core::Vtable::as_raw(self), pprotocolstatus).ok()
     }
     pub unsafe fn GetLastInputTime(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6967,12 +6957,11 @@ impl ItsPubPlugin {
     {
         (::windows::core::Vtable::vtable(self).GetResourceList)(::windows::core::Vtable::as_raw(self), userid.into().abi(), pceapplistsize, resourcelist).ok()
     }
-    pub unsafe fn GetResource<P0>(&self, alias: P0, flags: i32) -> ::windows::core::Result<pluginResource>
+    pub unsafe fn GetResource<P0>(&self, alias: P0, flags: i32, resource: *mut pluginResource) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResource)(::windows::core::Vtable::as_raw(self), alias.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetResource)(::windows::core::Vtable::as_raw(self), alias.into().abi(), flags, resource).ok()
     }
     pub unsafe fn GetCacheLastUpdateTime(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7038,12 +7027,11 @@ impl ItsPubPlugin2 {
     {
         (::windows::core::Vtable::vtable(self).base__.GetResourceList)(::windows::core::Vtable::as_raw(self), userid.into().abi(), pceapplistsize, resourcelist).ok()
     }
-    pub unsafe fn GetResource<P0>(&self, alias: P0, flags: i32) -> ::windows::core::Result<pluginResource>
+    pub unsafe fn GetResource<P0>(&self, alias: P0, flags: i32, resource: *mut pluginResource) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), alias.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), alias.into().abi(), flags, resource).ok()
     }
     pub unsafe fn GetCacheLastUpdateTime(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7070,12 +7058,11 @@ impl ItsPubPlugin2 {
     {
         (::windows::core::Vtable::vtable(self).GetResource2List)(::windows::core::Vtable::as_raw(self), userid.into().abi(), pceapplistsize, resourcelist).ok()
     }
-    pub unsafe fn GetResource2<P0>(&self, alias: P0, flags: i32) -> ::windows::core::Result<pluginResource2>
+    pub unsafe fn GetResource2<P0>(&self, alias: P0, flags: i32, resource: *mut pluginResource2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResource2)(::windows::core::Vtable::as_raw(self), alias.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetResource2)(::windows::core::Vtable::as_raw(self), alias.into().abi(), flags, resource).ok()
     }
     pub unsafe fn ResolvePersonalDesktop<P0, P1>(&self, userid: P0, poolid: P1, epdresolutiontype: TSPUB_PLUGIN_PD_RESOLUTION_TYPE, ppdassignmenttype: *mut TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE, endpointname: ::windows::core::PWSTR) -> ::windows::core::Result<()>
     where

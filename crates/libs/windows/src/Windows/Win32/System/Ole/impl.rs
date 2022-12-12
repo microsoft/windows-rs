@@ -1171,7 +1171,7 @@ pub trait IFont_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IFont>;
     fn IsEqual(&self, pfontother: &::core::option::Option<IFont>) -> ::windows::core::Result<()>;
     fn SetRatio(&self, cylogical: i32, cyhimetric: i32) -> ::windows::core::Result<()>;
-    fn QueryTextMetrics(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::TEXTMETRICW>;
+    fn QueryTextMetrics(&self, ptm: *mut super::super::Graphics::Gdi::TEXTMETRICW) -> ::windows::core::Result<()>;
     fn AddRefHfont(&self, hfont: super::super::Graphics::Gdi::HFONT) -> ::windows::core::Result<()>;
     fn ReleaseHfont(&self, hfont: super::super::Graphics::Gdi::HFONT) -> ::windows::core::Result<()>;
     fn SetHdc(&self, hdc: super::super::Graphics::Gdi::HDC) -> ::windows::core::Result<()>;
@@ -1344,13 +1344,7 @@ impl IFont_Vtbl {
         unsafe extern "system" fn QueryTextMetrics<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptm: *mut super::super::Graphics::Gdi::TEXTMETRICW) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueryTextMetrics() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ptm, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.QueryTextMetrics(::core::mem::transmute_copy(&ptm)).into()
         }
         unsafe extern "system" fn AddRefHfont<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hfont: super::super::Graphics::Gdi::HFONT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4255,7 +4249,7 @@ pub trait IPropertyPage_Impl: Sized {
     fn SetPageSite(&self, ppagesite: &::core::option::Option<IPropertyPageSite>) -> ::windows::core::Result<()>;
     fn Activate(&self, hwndparent: super::super::Foundation::HWND, prect: *const super::super::Foundation::RECT, bmodal: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Deactivate(&self) -> ::windows::core::Result<()>;
-    fn GetPageInfo(&self) -> ::windows::core::Result<PROPPAGEINFO>;
+    fn GetPageInfo(&self, ppageinfo: *mut PROPPAGEINFO) -> ::windows::core::Result<()>;
     fn SetObjects(&self, cobjects: u32, ppunk: *const ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Show(&self, ncmdshow: u32) -> ::windows::core::Result<()>;
     fn Move(&self, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
@@ -4287,13 +4281,7 @@ impl IPropertyPage_Vtbl {
         unsafe extern "system" fn GetPageInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyPage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppageinfo: *mut PROPPAGEINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPageInfo() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppageinfo, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetPageInfo(::core::mem::transmute_copy(&ppageinfo)).into()
         }
         unsafe extern "system" fn SetObjects<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyPage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cobjects: u32, ppunk: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

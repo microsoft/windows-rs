@@ -95,7 +95,7 @@ pub trait IAudioMediaType_Impl: Sized {
     fn IsCompressedFormat(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
     fn IsEqual(&self, piaudiotype: &::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<u32>;
     fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX;
-    fn GetUncompressedAudioFormat(&self) -> ::windows::core::Result<UNCOMPRESSEDAUDIOFORMAT>;
+    fn GetUncompressedAudioFormat(&self, puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IAudioMediaType {}
@@ -132,13 +132,7 @@ impl IAudioMediaType_Vtbl {
         unsafe extern "system" fn GetUncompressedAudioFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioMediaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUncompressedAudioFormat() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(puncompressedaudioformat, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetUncompressedAudioFormat(::core::mem::transmute_copy(&puncompressedaudioformat)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

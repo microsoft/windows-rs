@@ -489,9 +489,8 @@ impl IBackgroundCopyFile {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProgress(&self, pval: *mut BG_FILE_PROGRESS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProgress)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IBackgroundCopyFile, ::windows::core::IUnknown);
@@ -542,9 +541,8 @@ impl IBackgroundCopyFile2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProgress(&self, pval: *mut BG_FILE_PROGRESS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetProgress)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
@@ -600,9 +598,8 @@ impl IBackgroundCopyFile3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProgress(&self, pval: *mut BG_FILE_PROGRESS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
@@ -693,9 +690,8 @@ impl IBackgroundCopyFile4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProgress(&self, pval: *mut BG_FILE_PROGRESS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
@@ -777,9 +773,8 @@ impl IBackgroundCopyFile5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProgress(&self, pval: *mut BG_FILE_PROGRESS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
@@ -869,9 +864,8 @@ impl IBackgroundCopyFile6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProgress(&self, pval: *mut BG_FILE_PROGRESS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
@@ -1109,15 +1103,13 @@ impl IBackgroundCopyJob {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_JOB_PROGRESS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProgress(&self, pval: *mut BG_JOB_PROGRESS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetProgress)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTimes(&self) -> ::windows::core::Result<BG_JOB_TIMES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTimes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetTimes(&self, pval: *mut BG_JOB_TIMES) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetTimes)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     pub unsafe fn GetState(&self) -> ::windows::core::Result<BG_JOB_STATE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1377,15 +1369,13 @@ impl IBackgroundCopyJob2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_JOB_PROGRESS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProgress(&self, pval: *mut BG_JOB_PROGRESS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetProgress)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTimes(&self) -> ::windows::core::Result<BG_JOB_TIMES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetTimes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetTimes(&self, pval: *mut BG_JOB_TIMES) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.GetTimes)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     pub unsafe fn GetState(&self) -> ::windows::core::Result<BG_JOB_STATE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1581,15 +1571,13 @@ impl IBackgroundCopyJob3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_JOB_PROGRESS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProgress(&self, pval: *mut BG_JOB_PROGRESS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTimes(&self) -> ::windows::core::Result<BG_JOB_TIMES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetTimes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetTimes(&self, pval: *mut BG_JOB_TIMES) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.GetTimes)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     pub unsafe fn GetState(&self) -> ::windows::core::Result<BG_JOB_STATE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1802,15 +1790,13 @@ impl IBackgroundCopyJob4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_JOB_PROGRESS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProgress(&self, pval: *mut BG_JOB_PROGRESS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTimes(&self) -> ::windows::core::Result<BG_JOB_TIMES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetTimes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetTimes(&self, pval: *mut BG_JOB_TIMES) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetTimes)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     pub unsafe fn GetState(&self) -> ::windows::core::Result<BG_JOB_STATE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2052,15 +2038,13 @@ impl IBackgroundCopyJob5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_JOB_PROGRESS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetProgress(&self, pval: *mut BG_JOB_PROGRESS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTimes(&self) -> ::windows::core::Result<BG_JOB_TIMES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetTimes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetTimes(&self, pval: *mut BG_JOB_TIMES) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetTimes)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
     pub unsafe fn GetState(&self) -> ::windows::core::Result<BG_JOB_STATE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

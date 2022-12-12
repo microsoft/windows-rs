@@ -2961,9 +2961,8 @@ pub struct INetRasConnectionIpUiInfo(::windows::core::IUnknown);
 impl INetRasConnectionIpUiInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetUiInfo(&self) -> ::windows::core::Result<RASCON_IPUI> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUiInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn GetUiInfo(&self, pinfo: *mut RASCON_IPUI) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetUiInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INetRasConnectionIpUiInfo, ::windows::core::IUnknown);

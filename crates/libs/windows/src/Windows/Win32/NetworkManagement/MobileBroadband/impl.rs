@@ -814,7 +814,7 @@ impl IMbnDeviceServicesManager_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMbnInterface_Impl: Sized {
     fn InterfaceID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn GetInterfaceCapability(&self) -> ::windows::core::Result<MBN_INTERFACE_CAPS>;
+    fn GetInterfaceCapability(&self, interfacecaps: *mut MBN_INTERFACE_CAPS) -> ::windows::core::Result<()>;
     fn GetSubscriberInformation(&self) -> ::windows::core::Result<IMbnSubscriberInformation>;
     fn GetReadyState(&self) -> ::windows::core::Result<MBN_READY_STATE>;
     fn InEmergencyMode(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -844,13 +844,7 @@ impl IMbnInterface_Vtbl {
         unsafe extern "system" fn GetInterfaceCapability<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfacecaps: *mut MBN_INTERFACE_CAPS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetInterfaceCapability() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(interfacecaps, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetInterfaceCapability(::core::mem::transmute_copy(&interfacecaps)).into()
         }
         unsafe extern "system" fn GetSubscriberInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subscriberinformation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
