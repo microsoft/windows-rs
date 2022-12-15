@@ -37,7 +37,7 @@ fn writer() {
     {
         use metadata::reader::*;
 
-        let files = vec![File::new(temp_file.to_str().unwrap()).unwrap()];
+        let files = metadata::reader::File::with_default(&[temp_file.to_str().unwrap()]).unwrap();
         let reader = &Reader::new(&files);
         let def = reader.get(TypeName::new("TestWindows.Foundation", "IStringable")).next().unwrap();
         assert_eq!(reader.type_def_kind(def), TypeKind::Interface);
