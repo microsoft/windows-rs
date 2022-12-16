@@ -45,6 +45,15 @@ impl PWSTR {
         String::from_utf16(self.as_wide())
     }
 
+    /// Copy the `PWSTR` into an `HSTRING`.
+    ///
+    /// # Safety
+    ///
+    /// See the safety information for `PWSTR::as_wide`.
+    pub unsafe fn to_hstring(&self) -> Result<HSTRING> {
+        HSTRING::from_wide(self.as_wide())
+    }
+
     /// Allow this string to be displayed.
     ///
     /// # Safety

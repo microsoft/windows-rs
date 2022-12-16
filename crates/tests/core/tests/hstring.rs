@@ -41,7 +41,7 @@ fn display_format() {
 
 #[test]
 fn display_invalid_format() {
-    let s = HSTRING::from_wide(&[0xD834, 0xDD1E, 0x006d, 0x0075, 0x0073, 0xDD1E, 0x0069, 0x0063, 0xD834]);
+    let s = HSTRING::from_wide(&[0xD834, 0xDD1E, 0x006d, 0x0075, 0x0073, 0xDD1E, 0x0069, 0x0063, 0xD834]).unwrap();
     let d = format!("{}", s);
     assert_eq!(d, "𝄞mus�ic�");
 }
@@ -64,7 +64,7 @@ fn from_os_string_string() {
     use std::os::windows::prelude::OsStringExt;
     let o = std::ffi::OsString::from_wide(wide_data);
     let h = HSTRING::from(o);
-    let d = HSTRING::from_wide(wide_data);
+    let d = HSTRING::from_wide(wide_data).unwrap();
     assert_eq!(h, d);
 }
 
@@ -75,7 +75,7 @@ fn from_os_str_string() {
     let o = std::ffi::OsString::from_wide(wide_data);
     let o = o.as_os_str();
     let h = HSTRING::from(o);
-    let d = HSTRING::from_wide(wide_data);
+    let d = HSTRING::from_wide(wide_data).unwrap();
     assert_eq!(h, d);
 }
 
@@ -97,7 +97,7 @@ fn hstring_to_string() {
 fn hstring_to_string_err() {
     // 𝄞mu<invalid>ic
     let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
-    let h = HSTRING::from_wide(wide_data);
+    let h = HSTRING::from_wide(wide_data).unwrap();
     let err = String::try_from(h);
     assert!(err.is_err());
 }
@@ -106,7 +106,7 @@ fn hstring_to_string_err() {
 fn hstring_to_string_lossy() {
     // 𝄞mu<invalid>ic
     let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
-    let h = HSTRING::from_wide(wide_data);
+    let h = HSTRING::from_wide(wide_data).unwrap();
     let s = h.to_string_lossy();
     assert_eq!(s, "𝄞mu�ic");
 }
@@ -115,7 +115,7 @@ fn hstring_to_string_lossy() {
 fn hstring_to_os_string() {
     // 𝄞mu<invalid>ic
     let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
-    let h = HSTRING::from_wide(wide_data);
+    let h = HSTRING::from_wide(wide_data).unwrap();
     let s = h.to_os_string();
     use std::os::windows::prelude::OsStringExt;
     assert_eq!(s, std::ffi::OsString::from_wide(wide_data));
@@ -151,7 +151,7 @@ fn hstring_equality_combinations() {
 #[test]
 fn hstring_osstring_equality_combinations() {
     let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
-    let h = HSTRING::from_wide(wide_data);
+    let h = HSTRING::from_wide(wide_data).unwrap();
     use std::os::windows::prelude::OsStringExt;
     let s = std::ffi::OsString::from_wide(wide_data);
     let ss = s.as_os_str();

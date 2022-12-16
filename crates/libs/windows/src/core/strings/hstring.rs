@@ -44,7 +44,7 @@ impl HSTRING {
     }
 
     /// Create a `HSTRING` from a slice of 16 bit characters (wchars).
-    pub fn from_wide(value: &[u16]) -> Self {
+    pub fn from_wide(value: &[u16]) -> Result<Self> {
         unsafe { Self::from_wide_iter(value.iter().copied(), value.len() as u32) }
     }
 
@@ -61,12 +61,12 @@ impl HSTRING {
 
     /// # Safety
     /// len must not be less than the number of items in the iterator.
-    unsafe fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: u32) -> Self {
+    unsafe fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: u32) -> Result<Self> {
         if len == 0 {
-            return Self::new();
+            return Ok(Self::new());
         }
 
-        let mut ptr = Header::alloc(len);
+        let mut ptr = Header::alloc(len)?;
 
         // Place each utf-16 character into the buffer and
         // increase len as we go along.
@@ -79,7 +79,7 @@ impl HSTRING {
 
         // Write a 0 byte to the end of the buffer.
         std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
-        Self(std::ptr::NonNull::new(ptr))
+        Ok(Self(std::ptr::NonNull::new(ptr)))
     }
 
     const fn get_header(&self) -> Option<&Header> {
@@ -113,7 +113,7 @@ impl Default for HSTRING {
 impl Clone for HSTRING {
     fn clone(&self) -> Self {
         if let Some(header) = self.get_header() {
-            Self(std::ptr::NonNull::new(header.duplicate()))
+            Self(std::ptr::NonNull::new(header.duplicate().unwrap()))
         } else {
             Self::new()
         }
@@ -156,7 +156,7 @@ impl std::fmt::Debug for HSTRING {
 
 impl std::convert::From<&str> for HSTRING {
     fn from(value: &str) -> Self {
-        unsafe { Self::from_wide_iter(value.encode_utf16(), value.len() as u32) }
+        unsafe { Self::from_wide_iter(value.encode_utf16(), value.len() as u32).unwrap() }
     }
 }
 
@@ -182,7 +182,7 @@ impl std::convert::From<&std::path::Path> for HSTRING {
 #[cfg(windows)]
 impl std::convert::From<&std::ffi::OsStr> for HSTRING {
     fn from(value: &std::ffi::OsStr) -> Self {
-        unsafe { Self::from_wide_iter(std::os::windows::ffi::OsStrExt::encode_wide(value), value.len() as u32) }
+        unsafe { Self::from_wide_iter(std::os::windows::ffi::OsStrExt::encode_wide(value), value.len() as u32).unwrap() }
     }
 }
 
@@ -412,14 +412,14 @@ struct Header {
 }
 
 impl Header {
-    fn alloc(len: u32) -> *mut Header {
+    fn alloc(len: u32) -> Result<*mut Header> {
         debug_assert!(len != 0);
         // Allocate enough space for header and two bytes per character.
         // The space for the terminating null character is already accounted for inside of `Header`.
         let alloc_size = std::mem::size_of::<Header>() + 2 * len as usize;
 
         // TODO: allow this failure to propagate
-        let header = heap_alloc(alloc_size).expect("Could not successfully allocate for HSTRING") as *mut Header;
+        let header = heap_alloc(alloc_size)? as *mut Header;
 
         // SAFETY: uses `std::ptr::write` (since `header` is unintialized). `Header` is safe to be all zeros.
         unsafe {
@@ -428,23 +428,23 @@ impl Header {
             (*header).count = RefCount::new(1);
             (*header).data = &mut (*header).buffer_start;
         }
-        header
+        Ok(header)
     }
 
-    fn duplicate(&self) -> *mut Header {
+    fn duplicate(&self) -> Result<*mut Header> {
         if self.flags & REFERENCE_FLAG == 0 {
             // If this is not a "fast pass" string then simply increment the reference count.
             self.count.add_ref();
-            self as *const Header as *mut Header
+            Ok(self as *const Header as *mut Header)
         } else {
             // Otherwise, allocate a new string and copy the value into the new string.
-            let copy = Header::alloc(self.len);
+            let copy = Header::alloc(self.len)?;
             // SAFETY: since we are duplicating the string it is safe to copy all data from self to the initialized `copy`.
             // We copy `len + 1` characters since `len` does not account for the terminating null character.
             unsafe {
                 std::ptr::copy_nonoverlapping(self.data, (*copy).data, self.len as usize + 1);
             }
-            copy
+            Ok(copy)
         }
     }
 }

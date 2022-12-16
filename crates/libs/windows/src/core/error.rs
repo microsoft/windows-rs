@@ -53,7 +53,7 @@ impl Error {
 
             if self.code == code {
                 let message = if !message.is_empty() { message } else { fallback };
-                return HSTRING::from_wide(wide_trim_end(message.as_wide()));
+                return HSTRING::from_wide(wide_trim_end(message.as_wide())).unwrap_or_default();
             }
         }
 
@@ -121,7 +121,7 @@ impl std::convert::From<HRESULT> for Error {
 
         if let Ok(info) = GetErrorInfo() {
             let message = unsafe { info.GetDescription().unwrap_or_default() };
-            Self::new(code, HSTRING::from_wide(message.as_wide()))
+            Self::new(code, HSTRING::from_wide(message.as_wide()).unwrap_or_default())
         } else {
             Self { code, info: None }
         }
