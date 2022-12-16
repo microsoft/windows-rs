@@ -54,7 +54,7 @@ fn main() {
         let _ = std::fs::remove_dir_all(&output);
     }
     output.pop();
-    let files = vec![metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap()];
+    let files = metadata::reader::File::with_default(&[]).unwrap();
     let reader = &metadata::reader::Reader::new(&files);
     if !namespace.is_empty() {
         let tree = reader.tree(&namespace, &[]).expect("Namespace not found");

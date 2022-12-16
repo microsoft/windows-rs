@@ -3,7 +3,7 @@ fn size() {
     // Note: you can double check these export names from a Visual Studio x86 command prompt as follows:
     // dumpbin /exports kernel32.lib | findstr /i RtmConvertIpv6AddressAndLengthToNetAddress
 
-    let files = vec![metadata::reader::File::new("../../libs/metadata/default/Windows.Win32.winmd").unwrap()];
+    let files = metadata::reader::File::with_default(&[]).unwrap();
     let reader = &metadata::reader::Reader::new(&files);
 
     assert_eq!(struct_size(reader, "Windows.Win32.System.Com", "VARIANT"), 16);

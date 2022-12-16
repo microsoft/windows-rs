@@ -8,7 +8,7 @@ fn main() -> std::io::Result<()> {
 
     Command::new("midlrt.exe").arg("/winrt").arg("/nomidl").arg("/h").arg("nul").arg("/metadata_dir").arg(&metadata_dir).arg("/reference").arg(format!("{metadata_dir}\\Windows.Foundation.winmd")).arg("/winmd").arg(".windows/winmd/component.winmd").arg("src/component.idl").status()?;
 
-    let files = vec![metadata::reader::File::new("../../libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new(".windows/winmd/component.winmd").unwrap()];
+    let files = metadata::reader::File::with_default(&[".windows/winmd/component.winmd"])?;
     write("src/bindings.rs", bindgen::component("test_component", &files))?;
     Command::new("rustfmt").arg("src/bindings.rs").status()?;
 

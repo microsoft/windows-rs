@@ -52,6 +52,19 @@ fn error_invalid_winmd() -> Error {
 }
 
 impl File {
+    pub fn with_default(paths: &[&str]) -> Result<Vec<Self>> {
+        let mut files = Vec::new();
+        files.push(Self::from_buffer(std::include_bytes!("../../default/Windows.winmd").to_vec(), "Windows.winmd".to_string())?);
+        files.push(Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.winmd").to_vec(), "Windows.Win32.winmd".to_string())?);
+        files.push(Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.Interop.winmd").to_vec(), "Windows.Win32.Interop.winmd".to_string())?);
+
+        for path in paths {
+            files.push(Self::new(path)?);
+        }
+
+        Ok(files)
+    }
+
     pub fn new(path: &str) -> Result<Self> {
         let path = std::path::Path::new(path);
 

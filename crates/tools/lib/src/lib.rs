@@ -28,7 +28,7 @@ pub fn rustfmt(name: &str, tokens: &mut String) {
 
 /// Returns the libraries and their function and stack sizes used by the gnu and msvc tools to build the umbrella libs.
 pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
-    let files = vec![metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap()];
+    let files = metadata::reader::File::with_default(&[]).unwrap();
     let reader = &metadata::reader::Reader::new(&files);
     let mut libraries = BTreeMap::<String, BTreeMap<String, CallingConvention>>::new();
     let root = reader.tree("Windows.Win32", &[]).expect("`Windows` namespace not found");
