@@ -418,7 +418,6 @@ impl Header {
         // The space for the terminating null character is already accounted for inside of `Header`.
         let alloc_size = std::mem::size_of::<Header>() + 2 * len as usize;
 
-        // TODO: allow this failure to propagate
         let header = heap_alloc(alloc_size)? as *mut Header;
 
         // SAFETY: uses `std::ptr::write` (since `header` is unintialized). `Header` is safe to be all zeros.
