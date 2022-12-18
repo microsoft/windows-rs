@@ -21,12 +21,18 @@ impl BSTR {
         }
     }
 
-    pub fn from_wide(value: &[u16]) -> Self {
+    pub fn from_wide(value: &[u16]) -> Result<Self> {
         if value.is_empty() {
-            return Self(std::ptr::null_mut());
+            return Ok(Self::new());
         }
 
-        unsafe { Self(SysAllocStringLen(value.as_ptr(), value.len() as _)) }
+        let result = unsafe { Self(SysAllocStringLen(value.as_ptr(), value.len() as _)) };
+
+        if result.is_empty() {
+            Err(E_OUTOFMEMORY.into())
+        } else {
+            Ok(result)
+        }
     }
 
     pub fn as_wide(&self) -> &[u16] {
@@ -48,13 +54,13 @@ impl BSTR {
 }
 impl std::clone::Clone for BSTR {
     fn clone(&self) -> Self {
-        Self::from_wide(self.as_wide())
+        Self::from_wide(self.as_wide()).unwrap()
     }
 }
 impl std::convert::From<&str> for BSTR {
     fn from(value: &str) -> Self {
         let value: windows::core::alloc::vec::Vec<u16> = value.encode_utf16().collect();
-        Self::from_wide(&value)
+        Self::from_wide(&value).unwrap()
     }
 }
 impl std::convert::From<windows::core::alloc::string::String> for BSTR {

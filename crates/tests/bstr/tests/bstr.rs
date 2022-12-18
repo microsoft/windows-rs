@@ -31,7 +31,7 @@ fn clone() {
     assert_eq!(a.as_wide().len(), 0);
 
     let wide = &[0x68, 0x65, 0x6c, 0x6c, 0x6f];
-    let a = BSTR::from_wide(wide);
+    let a = BSTR::from_wide(wide).unwrap();
     assert!(!a.is_empty());
     assert!(a.len() == 5);
     assert_eq!(a.as_wide().len(), 5);
