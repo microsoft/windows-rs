@@ -1242,11 +1242,17 @@ pub struct IPublisherFilter_Vtbl {
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, methodname: *mut ::core::ffi::c_void, dispuserdefined: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub PrepareToFire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, methodname: *mut ::core::ffi::c_void, firingcontrol: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub const CEventClass: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdbec9c0_7a68_11d1_88f9_0080c7d771bf);
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub const CEventPublisher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab944620_79c6_11d1_88f9_0080c7d771bf);
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub const CEventSubscription: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7542e960_79c7_11d1_88f9_0080c7d771bf);
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub const CEventSystem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e14fba2_2e22_11d1_9964_00c04fbbb345);
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub const EventObjectChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0565000_9df4_11d1_a281_00c04fca0aa7);
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub const EventObjectChange2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb07bacd_cd56_4e63_a8ff_cbf0355fb9f4);
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]

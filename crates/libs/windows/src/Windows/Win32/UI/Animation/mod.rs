@@ -2164,12 +2164,19 @@ pub struct IUIAnimationVariableIntegerChangeHandler2_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnIntegerValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, newvalue: *const i32, previousvalue: *const i32, cdimension: u32) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UIAnimationManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c1fc63a_695c_47e8_a339_1a194be3d0b8);
+#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UIAnimationManager2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd25d8842_8884_4a4a_b321_091314379bdd);
+#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UIAnimationTimer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfcd4a0c_06b6_4384_b768_0daa792c380e);
+#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UIAnimationTransitionFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a9b1cdd_fcd7_419c_8b44_42fd17db1887);
+#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UIAnimationTransitionFactory2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84302f97_7f7b_4040_b190_72ac9d18e420);
+#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UIAnimationTransitionLibrary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d6322ad_aa85_4ef5_a828_86d71067d145);
+#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UIAnimationTransitionLibrary2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x812f944a_c5c8_4cd9_b0a6_b3da802f228d);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_REPEAT_INDEFINITELY: i32 = -1i32;

@@ -1211,6 +1211,7 @@ pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2u32;
 pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50dd5230_ba8a_11d1_bf5d_0000f805f530);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;

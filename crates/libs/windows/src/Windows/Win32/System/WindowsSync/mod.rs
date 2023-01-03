@@ -5062,6 +5062,7 @@ pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
 pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SyncProviderRegistration: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf82b4ef1_93a9_4dde_8015_f7950a1a6e31);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]

@@ -437,7 +437,9 @@ pub struct IWscProduct3_Vtbl {
     pub base__: IWscProduct2_Vtbl,
     pub AntivirusDaysUntilExpired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwdays: *mut u32) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSCDefaultProduct: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2981a36e_f22d_11e5_9ce9_5e5517507c66);
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSCProductList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17072f7b_9abe_4a74_a261_1eb76b55107a);
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]

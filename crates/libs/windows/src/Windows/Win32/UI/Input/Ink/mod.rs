@@ -277,7 +277,9 @@ pub struct IInkPresenterDesktop_Vtbl {
     pub SetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: f32, height: f32) -> ::windows::core::HRESULT,
     pub OnHighContrastChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 pub const InkD2DRenderer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4044e60c_7b01_4671_a97c_04e0210a07a5);
+#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 pub const InkDesktopHost: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x062584a6_f830_4bdc_a4d2_0a10ab062b1d);
 #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 #[repr(transparent)]

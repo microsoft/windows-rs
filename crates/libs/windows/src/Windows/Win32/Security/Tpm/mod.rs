@@ -264,9 +264,11 @@ pub struct ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
     pub ReportProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: TPMVSCMGR_STATUS) -> ::windows::core::HRESULT,
     pub ReportError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: TPMVSCMGR_ERROR) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 pub const RemoteTpmVirtualSmartCardManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x152ea2a8_70dc_4c59_8b2a_32aa3ca0dcac);
 #[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 pub const TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID: u32 = 130u32;
+#[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 pub const TpmVirtualSmartCardManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16a18e86_7f6e_4c20_ad89_4ffc0db7a96a);
 #[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 #[repr(transparent)]

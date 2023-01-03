@@ -11020,12 +11020,19 @@ pub struct ID3D12VersionedRootSignatureDeserializer_Vtbl {
     pub GetRootSignatureDescAtVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, converttoversion: D3D_ROOT_SIGNATURE_VERSION, ppdesc: *mut *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> ::windows::core::HRESULT,
     pub GetUnconvertedRootSignatureDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC,
 }
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const CLSID_D3D12Debug: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2352aeb_dd84_49fe_b97b_a9dcfdcc1b4f);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const CLSID_D3D12DeviceRemovedExtendedData: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a75bbc4_9ff4_4ad8_9f18_abae84dc5ff2);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const CLSID_D3D12SDKConfiguration: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cda6aca_a03e_49c8_9458_0334d20e07ce);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const CLSID_D3D12Tools: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe38216b1_3c8c_4833_aa09_0a06b65d96c8);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const D3D12ExperimentalShaderModels: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76f5573e_f13a_40f5_b297_81ce9e18933f);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const D3D12MetaCommand: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc734c97e_8077_48c8_9fdc_d9d1dd31dd77);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const D3D12TiledResourceTier4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9c4725f_a81a_4f56_8c5b_c51039d694fb);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const D3D12_16BIT_INDEX_STRIP_CUT_VALUE: u32 = 65535u32;
@@ -11593,6 +11600,7 @@ pub const D3D12_PACKED_TILE: u32 = 4294967295u32;
 pub const D3D12_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const D3D12_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const D3D12_PROTECTED_RESOURCES_SESSION_HARDWARE_PROTECTED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62b0084e_c70e_4daa_a109_30ff8d5a0482);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const D3D12_PS_CS_UAV_REGISTER_COMPONENTS: u32 = 1u32;
@@ -11936,9 +11944,11 @@ pub const D3D_SHADER_REQUIRES_VIEW_ID: u32 = 65536u32;
 pub const D3D_SHADER_REQUIRES_WAVE_MMA: u32 = 134217728u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const D3D_SHADER_REQUIRES_WAVE_OPS: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const DXGI_DEBUG_D3D12: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf59a98c_a950_4326_91ef_9bbaa17bfd95);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const LUID_DEFINED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub const WKPDID_D3DAutoDebugObjectNameW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4902e36_757a_4942_9594_b6769afa43cd);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]

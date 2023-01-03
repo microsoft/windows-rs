@@ -1053,7 +1053,9 @@ pub struct IIdentityStoreEx_Vtbl {
     pub CreateConnectedIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localname: ::windows::core::PCWSTR, connectedname: ::windows::core::PCWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub DeleteConnectedIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectedname: ::windows::core::PCWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const CIdentityProfileHandler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecf5bf46_e3b6_449a_b56b_43f58f867814);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const CoClassIdentityStore: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30d49246_d217_465f_b00b_ac9ddd652eb7);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_KEYWORD_ASSOCIATED: ::windows::core::PCWSTR = ::windows::w!("associated");
@@ -1063,6 +1065,7 @@ pub const IDENTITY_KEYWORD_CONNECTED: ::windows::core::PCWSTR = ::windows::w!("c
 pub const IDENTITY_KEYWORD_HOMEGROUP: ::windows::core::PCWSTR = ::windows::w!("homegroup");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_KEYWORD_LOCAL: ::windows::core::PCWSTR = ::windows::w!("local");
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const OID_OAssociatedIdentityProviderObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98c5a3dd_db68_4f1a_8d2b_9079cdfeaf61);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const STR_COMPLETE_ACCOUNT: ::windows::core::PCWSTR = ::windows::w!("CompleteAccount");

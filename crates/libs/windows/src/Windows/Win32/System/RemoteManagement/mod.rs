@@ -2570,7 +2570,9 @@ pub const WSMAN_STREAM_ID_STDERR: ::windows::core::PCWSTR = ::windows::w!("stder
 pub const WSMAN_STREAM_ID_STDIN: ::windows::core::PCWSTR = ::windows::w!("stdin");
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub const WSMAN_STREAM_ID_STDOUT: ::windows::core::PCWSTR = ::windows::w!("stdout");
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub const WSMan: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbced617b_ec03_420b_8508_977dc7a686bd);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub const WSManInternal: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de087a5_5dcb_4df7_bb12_0924ad8fbd9a);
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[repr(transparent)]

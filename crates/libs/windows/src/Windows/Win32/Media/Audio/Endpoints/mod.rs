@@ -701,6 +701,7 @@ pub struct IHardwareAudioEngineBase_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetGfxState: usize,
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 pub const DEVINTERFACE_AUDIOENDPOINTPLUGIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f2f7b66_65ac_4fa6_8ae4_123c78b89313);
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]

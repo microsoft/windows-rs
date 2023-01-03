@@ -1155,11 +1155,17 @@ pub const PKEY_PhotoAcquire_SkipImport: super::super::UI::Shell::PropertiesSyste
 pub const PKEY_PhotoAcquire_TransferResult: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 5u32 };
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PROGRESS_INDETERMINATE: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PhotoAcquire: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f26e02_e9f2_4a9f_9fdd_5a962fb26a98);
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PhotoAcquireAutoPlayDropTarget: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f20eb5_8fd6_4d9d_b75e_36801766c8f1);
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PhotoAcquireAutoPlayHWEventHandler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2b433_44e4_4d88_b2b0_2698a0a91dba);
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PhotoAcquireDeviceSelectionDialog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f29a34_b8a1_482c_bcf8_3ac7b0fe8f62);
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PhotoAcquireOptionsDialog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f210a1_62f0_438b_9f7e_9618d72a1831);
+#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PhotoProgressDialog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f24ca0_748f_4e8a_894f_0e0357c6799f);
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]

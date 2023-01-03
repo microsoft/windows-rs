@@ -975,7 +975,9 @@ pub struct IXAudio2VoiceCallback_Vtbl {
     pub OnLoopEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void),
     pub OnVoiceError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void, error: ::windows::core::HRESULT),
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const AudioReverb: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2633b16_471b_4498_b8c5_4f0959e2ec09);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const AudioVolumeMeter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fc3b166_972a_40cf_bc37_7db03db2fba3);
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FACILITY_XAPO: u32 = 2199u32;
@@ -999,6 +1001,7 @@ pub const FXECHO_MIN_DELAY: f32 = 1f32;
 pub const FXECHO_MIN_FEEDBACK: f32 = 0f32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FXECHO_MIN_WETDRYMIX: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FXEQ: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5e01117_d6c4_485a_a3f5_695196f3dbfa);
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FXEQ_DEFAULT_BANDWIDTH: f32 = 1f32;
@@ -1028,6 +1031,7 @@ pub const FXEQ_MIN_FRAMERATE: u32 = 22000u32;
 pub const FXEQ_MIN_FREQUENCY_CENTER: f32 = 20f32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FXEQ_MIN_GAIN: f32 = 0.126f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FXEcho: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5039d740_f736_449a_84d3_a56202557b87);
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FXLOUDNESS_DEFAULT_MOMENTARY_MS: u32 = 400u32;
@@ -1045,6 +1049,7 @@ pub const FXMASTERINGLIMITER_MAX_RELEASE: u32 = 20u32;
 pub const FXMASTERINGLIMITER_MIN_LOUDNESS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FXMASTERINGLIMITER_MIN_RELEASE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FXMasteringLimiter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4137916_2be1_46fd_8599_441536f49856);
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FXREVERB_DEFAULT_DIFFUSION: f32 = 0.9f32;
@@ -1058,6 +1063,7 @@ pub const FXREVERB_MAX_ROOMSIZE: f32 = 1f32;
 pub const FXREVERB_MIN_DIFFUSION: f32 = 0f32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FXREVERB_MIN_ROOMSIZE: f32 = 0.0001f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FXReverb: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9aca56_cb68_4807_b632_b137352e8596);
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const HRTF_DEFAULT_UNITY_GAIN_DISTANCE: f32 = 1f32;

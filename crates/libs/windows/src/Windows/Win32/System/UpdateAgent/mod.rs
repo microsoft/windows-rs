@@ -9531,18 +9531,29 @@ pub struct IWindowsUpdateAgentInfo_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetInfo: usize,
 }
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const AutomaticUpdates: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfe18e9c_6d87_4450_b37c_e02f0b373803);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const InstallationAgent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x317e92fc_1679_46fd_a0b5_f08914dd8623);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const LIBID_WUApiLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb596cc9f_56e5_419e_a622_e01bb457431e);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const StringCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72c97d74_7c3b_40ae_b77d_abdb22eba6fb);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const SystemInformation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc01b9ba0_bea7_41ba_b604_d0a36f469133);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const UPDATE_LOCKDOWN_WEBSITE_ACCESS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const UpdateCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13639463_00db_4646_803d_528026140d88);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const UpdateDownloader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5baf654a_5a07_4264_a255_9ff54c7151e7);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const UpdateInstaller: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2e0fe7f_d23e_48e1_93c0_6fa8cc346474);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const UpdateSearcher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb699e5e8_67ff_4177_88b0_3684a3388bfb);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const UpdateServiceManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8d253d9_89a4_4daa_87b6_1168369f0b21);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const UpdateSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cb43d7f_7eee_4906_8698_60da1c38f2fe);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const WU_E_ALL_UPDATES_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145124318i32);
@@ -10474,7 +10485,9 @@ pub const WU_S_UH_DOWNLOAD_SIZE_CALCULATED: ::windows::core::HRESULT = ::windows
 pub const WU_S_UH_INSTALLSTILLPENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(2367509i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const WU_S_UPDATE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(2359299i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const WebProxy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x650503cf_9108_4ddc_a2ce_6c2341e1c582);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const WindowsUpdateAgentInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2e88c2f_6f5b_4aaa_894b_55c847ad3a2d);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]

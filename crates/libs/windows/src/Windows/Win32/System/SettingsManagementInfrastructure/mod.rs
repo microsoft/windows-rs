@@ -885,6 +885,7 @@ pub struct ITargetInfo_Vtbl {
 pub const LIMITED_VALIDATION_MODE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const SettingsEngine: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb5_20b3_11da_81a5_0030f1642e3c);
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_ABORTOPERATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255384i32);

@@ -478,6 +478,7 @@ pub struct IWindowsMediaLibrarySharingServices_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     customSettingsApplied: usize,
 }
+#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
 pub const WindowsMediaLibrarySharingServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad581b00_7b64_4e59_a38d_d2c5bf51ddb3);
 #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
 #[repr(transparent)]

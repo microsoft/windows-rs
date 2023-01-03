@@ -41,6 +41,7 @@ pub struct IWaaSAssessor_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetOSUpdateAssessment: usize,
 }
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const WaaSAssessor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x098ef871_fa9f_46af_8958_c083515d7c9c);
 #[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 #[repr(transparent)]

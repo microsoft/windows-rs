@@ -142,6 +142,7 @@ pub struct IIsolatedAppLauncher_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Launch: usize,
 }
+#[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
 pub const IsolatedAppLauncher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]

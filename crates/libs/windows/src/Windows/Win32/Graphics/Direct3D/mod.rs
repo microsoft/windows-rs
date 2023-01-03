@@ -226,11 +226,17 @@ pub const D3D_SHADER_FEATURE_VIEW_ID: u32 = 65536u32;
 pub const D3D_SHADER_FEATURE_WAVE_MMA: u32 = 134217728u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_SHADER_FEATURE_WAVE_OPS: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c0f29e3_3f5f_4d35_84c9_bc0983b62c28);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5dc234f_72bb_4bec_9705_8cf258df6b6c);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const WKPDID_CommentStringW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0149dc0_90e8_4ec8_8144_e900ad266bb2);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const WKPDID_D3D12UniqueObjectId: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b39de15_ec04_4bae_ba4d_8cef79fc04c1);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const WKPDID_D3DDebugObjectName: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x429b8c22_9188_4b0c_8742_acb0bf85c200);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const WKPDID_D3DDebugObjectNameW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cca5fd8_921f_42c8_8566_70caf2a9b741);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]

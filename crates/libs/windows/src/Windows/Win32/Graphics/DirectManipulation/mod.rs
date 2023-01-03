@@ -1345,21 +1345,33 @@ pub struct IDirectManipulationViewportEventHandler_Vtbl {
     pub OnViewportUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnContentUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const CLSID_AutoScrollBehavior: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26126a51_3c70_4c9a_aec2_948849eeb093);
+#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const CLSID_DeferContactService: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7b67cf4_84bb_434e_86ae_6592bbc9abd9);
+#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const CLSID_DragDropConfigurationBehavior: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09b01b3e_ba6c_454d_82e8_95e352329f23);
+#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const CLSID_HorizontalIndicatorContent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7d18cf5_3ec7_44d5_a76b_3770f3cf903d);
+#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const CLSID_VerticalIndicatorContent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa10b5f17_afe0_4aa2_91e9_3e7001d2e6b4);
+#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const CLSID_VirtualViewportContent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3206a19a_86f0_4cb4_a7f3_16e3b7e2d852);
+#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DCompManipulationCompositor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79dea627_a08a_43ac_8ef5_6900b9299126);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_KEYBOARDFOCUS: u32 = 4294967294u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_MOUSEFOCUS: u32 = 4294967293u32;
+#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DirectManipulationManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54e211b6_3650_4f75_8334_fa359598e1c5);
+#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DirectManipulationPrimaryContent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaa02661_d59e_41c7_8393_3ba3bacb6b57);
+#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DirectManipulationSharedManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99793286_77cc_4b57_96db_3b354f6f9fb5);
+#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DirectManipulationUpdateManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fc1bfd5_1835_441a_b3b1_b6cc74b727d0);
+#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DirectManipulationViewport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34e211b6_3650_4f75_8334_fa359598e1c5);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
