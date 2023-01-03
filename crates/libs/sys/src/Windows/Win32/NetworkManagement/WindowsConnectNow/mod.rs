@@ -12,7 +12,9 @@ pub const PKEY_WCN_DeviceType_SubCategoryOUI: super::super::UI::Shell::Propertie
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_WCN_SSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81), pid: 32u32 };
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 pub const SID_WcnProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc100beca_d33a_4a4b_bf23_bbef4663d017);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 pub const WCNDeviceObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc100bea7_d33a_4a4b_bf23_bbef4663d017);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 pub const WCN_API_MAX_BUFFER_SIZE: u32 = 2096u32;

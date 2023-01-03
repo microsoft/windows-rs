@@ -21,7 +21,9 @@
 pub type IInertiaProcessor = *mut ::core::ffi::c_void;
 pub type IManipulationProcessor = *mut ::core::ffi::c_void;
 pub type _IManipulationEvents = *mut ::core::ffi::c_void;
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 pub const InertiaProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 pub const ManipulationProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 pub type GESTURECONFIG_ID = u32;

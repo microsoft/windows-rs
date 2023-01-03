@@ -27,6 +27,7 @@ pub const RADIUS_EXTENSION_PROCESS_EX: ::windows_sys::core::PCSTR = ::windows_sy
 pub const RADIUS_EXTENSION_TERM: ::windows_sys::core::PCSTR = ::windows_sys::s!("RadiusExtensionTerm");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
 pub const RADIUS_EXTENSION_VERSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
 pub const SdoMachine: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe9218ae7_9e91_11d1_bf60_0080c7846bc0);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
 pub type ACCOUNTINGPROPERTIES = i32;

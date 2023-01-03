@@ -146,7 +146,9 @@ pub const PKEY_SFX_Offload_ProcessingModes_Supported_For_Streaming: super::super
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_SFX_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 5u32 };
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub const SID_AudioProcessingObjectLoggingService: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8b8008af_09f9_456e_a173_bdb58499bce7);
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub const SID_AudioProcessingObjectRTQueue: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x458c1a1f_6899_4c12_99ac_e2e6ac253104);
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub type APO_BUFFER_FLAGS = i32;

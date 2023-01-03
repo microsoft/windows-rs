@@ -2313,6 +2313,7 @@ pub const PROXY_TYPE_AUTO_PROXY_URL: u32 = 4u32;
 pub const PROXY_TYPE_DIRECT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const PROXY_TYPE_PROXY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const ProofOfPossessionCookieInfoManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa9927f85_a304_4390_8b23_a75f1c668600);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const REDIRECT_CACHE_ENTRY: u32 = 2048u32;

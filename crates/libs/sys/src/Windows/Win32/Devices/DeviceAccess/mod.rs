@@ -2,6 +2,7 @@
 pub type ICreateDeviceAccessAsync = *mut ::core::ffi::c_void;
 pub type IDeviceIoControl = *mut ::core::ffi::c_void;
 pub type IDeviceRequestCompletionCallback = *mut ::core::ffi::c_void;
+#[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 pub const CLSID_DeviceIoControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x12d3e372_874b_457d_9fdf_73977778686c);
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 pub const DEV_PORT_1394: u32 = 8u32;
