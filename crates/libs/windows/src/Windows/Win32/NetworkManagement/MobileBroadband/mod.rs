@@ -2610,9 +2610,13 @@ pub struct IMbnVendorSpecificOperation_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetVendorSpecific: usize,
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MbnConnectionManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdfee05c_4418_11dd_90ed_001c257ccff1);
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MbnConnectionProfileManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdfee05a_4418_11dd_90ed_001c257ccff1);
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MbnDeviceServicesManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2269daa3_2a9f_4165_a501_ce00a6f7a75b);
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MbnInterfaceManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdfee05b_4418_11dd_90ed_001c257ccff1);
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]

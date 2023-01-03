@@ -1607,16 +1607,27 @@ pub struct IDxcVersionInfo3_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCustomVersionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pversionstring: *mut *mut i8) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const CLSID_DxcAssembler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd728db68_f903_4f80_94cd_dccf76ec7151);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const CLSID_DxcCompiler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73e22d93_e6ce_47f3_b5bf_f0664f39c1b0);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const CLSID_DxcCompilerArgs: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e56ae82_224d_470f_a1a1_fe3016ee9f9d);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const CLSID_DxcContainerBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94134294_411f_4574_b4d0_8741e25240d2);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const CLSID_DxcContainerReflection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9f54489_55b8_400c_ba3a_1675e4728b91);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const CLSID_DxcDiaDataSource: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd1f6b73_2ab0_484d_8edc_ebe7a43ca09f);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const CLSID_DxcLibrary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6245d6af_66e0_48fd_80b4_4d271796748c);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const CLSID_DxcLinker: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef6a8087_b0ea_4d56_9e45_d07e1a8b7806);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const CLSID_DxcOptimizer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae2cd79f_cc22_453f_9b6b_b124e7a5204c);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const CLSID_DxcPdbUtils: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54621dfb_f2ce_457e_ae8c_ec355faeec7c);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const CLSID_DxcValidator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ca3e215_f728_4cf3_8cdd_88af917587a1);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_ALL_RESOURCES_BOUND: ::windows::core::PCWSTR = ::windows::w!("-all_resources_bound");

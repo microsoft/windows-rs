@@ -341,7 +341,9 @@ pub struct IDedupReadFileCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupBackupSupport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73d6b2ad_2984_4715_b2e3_924c149744dd);
+#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPort: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f107207_1829_48b2_a64b_e61f8e0d9acb);
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]

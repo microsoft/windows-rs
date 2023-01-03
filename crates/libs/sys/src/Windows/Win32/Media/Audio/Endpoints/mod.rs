@@ -9,6 +9,7 @@ pub type IAudioEndpointVolumeEx = *mut ::core::ffi::c_void;
 pub type IAudioLfxControl = *mut ::core::ffi::c_void;
 pub type IAudioMeterInformation = *mut ::core::ffi::c_void;
 pub type IHardwareAudioEngineBase = *mut ::core::ffi::c_void;
+#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 pub const DEVINTERFACE_AUDIOENDPOINTPLUGIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9f2f7b66_65ac_4fa6_8ae4_123c78b89313);
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]

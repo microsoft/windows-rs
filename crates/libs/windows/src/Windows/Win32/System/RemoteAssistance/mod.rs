@@ -144,6 +144,7 @@ pub const DISPID_EVENT_ON_SEND_ERROR: u32 = 8u32;
 pub const DISPID_EVENT_ON_STATE_CHANGED: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const DISPID_EVENT_ON_TERMINATION: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RendezvousApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b7e019a_b5de_47fa_8966_9082f82fb192);
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 #[repr(transparent)]

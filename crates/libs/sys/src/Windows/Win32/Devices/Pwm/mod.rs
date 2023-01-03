@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
 pub const GUID_DEVINTERFACE_PWM_CONTROLLER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x60824b4c_eed1_4c9c_b49c_1b961461a819);
 #[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
 pub const GUID_DEVINTERFACE_PWM_CONTROLLER_WSZ: ::windows_sys::core::PCWSTR = ::windows_sys::w!("{60824B4C-EED1-4C9C-B49C-1B961461A819}");

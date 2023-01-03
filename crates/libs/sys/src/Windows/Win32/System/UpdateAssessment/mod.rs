@@ -1,4 +1,5 @@
 pub type IWaaSAssessor = *mut ::core::ffi::c_void;
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const WaaSAssessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x098ef871_fa9f_46af_8958_c083515d7c9c);
 #[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub type UpdateAssessmentStatus = i32;

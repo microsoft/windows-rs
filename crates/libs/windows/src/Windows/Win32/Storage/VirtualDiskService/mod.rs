@@ -1943,7 +1943,9 @@ pub struct IVdsSubSystemNaming_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const CLSID_VdsLoader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c38ed61_d565_4728_aeee_c80952f0ecde);
+#[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const CLSID_VdsService: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1933cb_86f6_4a98_8628_01be94c9a575);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const GPT_PARTITION_NAME_LENGTH: u32 = 36u32;

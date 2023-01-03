@@ -74,7 +74,12 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
                         let ident = to_ident(name);
                         let value = gen.guid(&guid);
                         let guid = gen.type_name(&Type::GUID);
-                        let constant = quote! { pub const #ident: #guid = #value; };
+                        let cfg = gen.reader.type_def_cfg(def, &[]);
+                        let doc = gen.cfg_doc(&cfg);
+                        let constant = quote! {
+                            #doc
+                            pub const #ident: #guid = #value;
+                        };
                         types.entry(TypeKind::Class).or_default().entry(name).or_default().combine(&constant);
                         continue;
                     }

@@ -5088,6 +5088,7 @@ pub const RTCAU_USE_LOGON_CRED: u32 = 65536u32;
 pub const RTCCS_FAIL_ON_REDIRECT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCCS_FORCE_PROFILE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCClient: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a42ea29_a2b7_40c4_b091_f6f024aa89be);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCEF_ALL: u32 = 33554431u32;

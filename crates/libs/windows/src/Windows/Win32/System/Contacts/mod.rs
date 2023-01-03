@@ -1429,6 +1429,7 @@ pub const CGD_DEFAULT: u32 = 0u32;
 pub const CGD_STRING_PROPERTY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 pub const CGD_UNKNOWN_PROPERTY: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 pub const CLSID_ContactAggregationManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96c8ad95_c199_44de_b34e_ac33c442df39);
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 pub const CONTACTLABEL_PUB_AGENT: ::windows::core::PCWSTR = ::windows::w!("Agent");
@@ -1626,7 +1627,9 @@ pub const CONTACTPROP_PUB_MAILER: ::windows::core::PCWSTR = ::windows::w!("Maile
 pub const CONTACTPROP_PUB_NOTES: ::windows::core::PCWSTR = ::windows::w!("Notes");
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 pub const CONTACTPROP_PUB_PROGID: ::windows::core::PCWSTR = ::windows::w!("ProgID");
+#[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 pub const Contact: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61b68808_8eee_4fd1_acb8_3d804c8db056);
+#[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 pub const ContactManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7165c8ab_af88_42bd_86fd_5310b4285a02);
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]

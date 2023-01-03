@@ -221,8 +221,11 @@ pub struct IDXCoreAdapterList_Vtbl {
     pub Sort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numpreferences: u32, preferences: *const DXCoreAdapterPreference) -> ::windows::core::HRESULT,
     pub IsAdapterPreferenceSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preference: DXCoreAdapterPreference) -> bool,
 }
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c47866b_7583_450d_f0f0_6bada895af4b);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x248e2800_a793_4724_abaa_23a6de1be090);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c9ece4d_2f6e_4f01_8c96_e89e331b47b1);
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 pub const _FACDXCORE: u32 = 2176u32;

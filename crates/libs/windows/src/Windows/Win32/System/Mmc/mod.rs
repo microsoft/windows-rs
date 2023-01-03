@@ -5242,8 +5242,11 @@ pub struct _EventConnector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const AUTO_WIDTH: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const AppEventsDHTMLConnector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xade6444b_c91f_4e37_92a4_5bb430a33340);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const Application: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49b2791a_b1ae_4c90_9b8e_e860ba07f889);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const ConsolePower: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0285374_dff1_11d3_b433_00c04f8ecd78);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const HDI_HIDDEN: u32 = 1u32;
@@ -5275,6 +5278,7 @@ pub const MMCLV_VIEWSTYLE_LIST: u32 = 3u32;
 pub const MMCLV_VIEWSTYLE_REPORT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const MMCLV_VIEWSTYLE_SMALLICON: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const MMCVersionInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6fedb1d_cf21_4bd9_af3b_c5468e9c6684);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const MMC_DEFAULT_OPERATION_COPY: u32 = 1u32;

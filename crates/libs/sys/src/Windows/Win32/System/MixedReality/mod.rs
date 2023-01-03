@@ -1,3 +1,4 @@
+#[doc = "*Required features: `\"Win32_System_MixedReality\"`*"]
 pub const PERCEPTIONFIELD_StateStream_TimeStamps: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xaa886119_f32f_49bf_92ca_f9ddf784d297);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_MixedReality\"`*"]

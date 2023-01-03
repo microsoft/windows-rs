@@ -2333,6 +2333,7 @@ pub struct IVssWriterImpl_Vtbl {
     pub GetSessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idsession: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub IsWriterShuttingDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> bool,
 }
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSSCoordinator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe579ab5f_1cc4_44b4_bed9_de0991ff0623);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_ASSOC_NO_MAX_SPACE: i32 = -1i32;
@@ -2500,6 +2501,7 @@ pub const VSS_S_ASYNC_FINISHED: ::windows::core::HRESULT = ::windows::core::HRES
 pub const VSS_S_ASYNC_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(271113i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_S_SOME_SNAPSHOTS_NOT_IMPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(271137i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VssSnapshotMgmt: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b5a2c52_3eb9_470a_96e2_6c6d4570e40f);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]

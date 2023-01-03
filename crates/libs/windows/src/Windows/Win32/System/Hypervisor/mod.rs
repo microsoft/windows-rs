@@ -1029,6 +1029,7 @@ where
     ::windows::core::link ! ( "winhvplatform.dll""system" fn WHvWriteVpciDeviceRegister ( partition : WHV_PARTITION_HANDLE , logicaldeviceid : u64 , register : *const WHV_VPCI_DEVICE_REGISTER , data : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     WHvWriteVpciDeviceRegister(partition.into(), logicaldeviceid, register, data).ok()
 }
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ff2c92b_6598_4e60_8e1c_0ccf4927e319);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HDV_PCI_BAR_COUNT: u32 = 6u32;
@@ -1042,12 +1043,19 @@ pub const HVSOCKET_CONNECT_TIMEOUT: u32 = 1u32;
 pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HVSOCKET_CONTAINER_PASSTHRU: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HV_GUID_BROADCAST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffffffff_ffff_ffff_ffff_ffffffffffff);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HV_GUID_CHILDREN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90db8b89_0d35_4f79_8ce9_49ea0ac8b7cd);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HV_GUID_LOOPBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0e16197_dd56_4a10_9195_5ee7a155a838);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HV_GUID_PARENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa42e7cda_d03f_480c_9cc2_a4de20abb878);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HV_GUID_SILOHOST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36bd0c5c_7276_4223_88ba_7d03b654c568);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HV_GUID_VSOCK_TEMPLATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_facb_11e6_bd58_64006a7986d3);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HV_GUID_ZERO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HV_PROTOCOL_RAW: u32 = 1u32;

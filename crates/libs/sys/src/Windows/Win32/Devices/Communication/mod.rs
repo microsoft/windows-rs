@@ -239,6 +239,7 @@ pub const MDM_X75_DATA_BTX: u32 = 4u32;
 pub const MDM_X75_DATA_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const MDM_X75_DATA_T_70: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const SID_3GPP_SUPSVCMODEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd7d08e07_d767_4478_b14a_eecc87ea12f7);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub type CLEAR_COMM_ERROR_FLAGS = u32;
