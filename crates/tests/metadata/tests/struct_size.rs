@@ -4,6 +4,9 @@ fn test_windows() {
 
     assert_eq!(156, std::mem::size_of::<DEVMODEA>());
     assert_eq!(220, std::mem::size_of::<DEVMODEW>());
+
+    assert_eq!(4, std::mem::align_of::<DEVMODEA>());
+    assert_eq!(4, std::mem::align_of::<DEVMODEW>());
 }
 
 #[test]
@@ -12,4 +15,7 @@ fn test_sys() {
 
     assert_eq!(156, std::mem::size_of::<DEVMODEA>());
     assert_eq!(220, std::mem::size_of::<DEVMODEW>());
+
+    assert_eq!(4, std::mem::align_of::<DEVMODEA>());
+    assert_eq!(4, std::mem::align_of::<DEVMODEW>());
 }
