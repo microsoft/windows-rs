@@ -5,4 +5,4 @@ To find the samples for a particular release you can use a specific release tag.
 
 https://github.com/microsoft/windows-rs/tree/0.42.0/crates/samples
 
-That will give you the samples that compile with version 0.39 of the windows crate.
+That will give you the samples that compile with version 0.42.0 of the `windows` and `windows-sys` crates.
