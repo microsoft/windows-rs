@@ -141,7 +141,7 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     };
 
-    tokens.combine(&gen.interface_core_traits(def, generics, &ident, &constraints, &phantoms, &features));
+    tokens.combine(&gen.interface_core_traits(&ident, &constraints, &phantoms, &features));
     tokens.combine(&gen.interface_trait(def, generics, &ident, &constraints, &features, true));
     tokens.combine(&gen.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
     tokens.combine(&gen.interface_vtbl(def, generics, &ident, &constraints, &features));

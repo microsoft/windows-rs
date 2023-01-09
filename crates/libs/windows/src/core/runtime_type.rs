@@ -1,5 +1,14 @@
 use super::*;
 
+#[cfg(not(feature = "default"))]
+#[doc(hidden)]
+pub unsafe trait RuntimeType: Abi + Clone {
+    const SIGNATURE: ConstBuffer;
+    type DefaultType: Clone;
+    fn from_default(from: &Self::DefaultType) -> Result<Self>;
+}
+
+#[cfg(feature = "default")]
 #[doc(hidden)]
 pub unsafe trait RuntimeType: Abi + Clone + PartialEq {
     const SIGNATURE: ConstBuffer;

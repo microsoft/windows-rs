@@ -12,9 +12,11 @@ fn main() -> Result<()> {
         let operation: IAsyncOperation<UserConsentVerificationResult> =
             interop.RequestVerificationForWindowAsync(window, h!("Hello from Rust"))?;
 
-        let result: UserConsentVerificationResult = operation.get()?;
-
-        println!("{result:?}");
+        if operation.get()? == UserConsentVerificationResult::Verified {
+            println!("Verified");
+        } else {
+            println!("Not verified");
+        }
 
         Ok(())
     }

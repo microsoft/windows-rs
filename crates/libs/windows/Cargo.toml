@@ -25,7 +25,7 @@ windows-interface = { path = "../interface",  version = "0.43.0", optional = tru
 [features]
 default = []
 deprecated = []
-implement = ["windows-implement", "windows-interface"]
+implement = ["windows-implement", "windows-interface", "default"]
 AI = []
 AI_MachineLearning = ["AI"]
 ApplicationModel = []

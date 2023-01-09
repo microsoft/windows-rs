@@ -1,6 +1,7 @@
 mod classes;
 mod com_methods;
 mod constants;
+mod default;
 mod delegates;
 mod enums;
 mod extensions;
@@ -123,6 +124,9 @@ pub fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
 
     for def in gen.reader.namespace_types(tree.namespace) {
         let type_name = gen.reader.type_def_type_name(def);
+        if REMAP_TYPES.iter().any(|(x, _)| x == &type_name) {
+            continue;
+        }
         if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
             continue;
         }
@@ -145,6 +149,32 @@ pub fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
     tokens.into_string()
 }
 
+pub fn namespace_default(gen: &Gen, tree: &Tree) -> String {
+    let mut types = BTreeMap::<&str, TokenStream>::new();
+
+    for def in gen.reader.namespace_types(tree.namespace) {
+        let type_name = gen.reader.type_def_type_name(def);
+        if REMAP_TYPES.iter().any(|(x, _)| x == &type_name) {
+            continue;
+        }
+        if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
+            continue;
+        }
+        let tokens = default::gen(gen, def);
+        if !tokens.is_empty() {
+            types.entry(type_name.name).or_default().combine(&tokens);
+        }
+    }
+
+    let types = types.values();
+
+    let tokens = quote! {
+        #(#types)*
+    };
+
+    tokens.into_string()
+}
+
 pub fn component(namespace: &str, files: &[File]) -> String {
     let reader = &Reader::new(files);
     let tree = reader.tree(namespace, &[]).expect("Namespace not found");
@@ -153,6 +183,7 @@ pub fn component(namespace: &str, files: &[File]) -> String {
     gen.component = true;
     let mut bindings = crate::namespace(&gen, &tree);
     bindings.push_str(&namespace_impl(&gen, &tree));
+    bindings.push_str(&namespace_default(&gen, &tree));
     bindings
 }
 

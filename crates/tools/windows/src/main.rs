@@ -66,7 +66,7 @@ windows-interface = { path = "../interface",  version = "0.43.0", optional = tru
 [features]
 default = []
 deprecated = []
-implement = ["windows-implement", "windows-interface"]
+implement = ["windows-implement", "windows-interface", "default"]
 "#
         .as_bytes(),
     )
@@ -98,9 +98,15 @@ fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &
     gen.doc = true;
     let mut tokens = bindgen::namespace(&gen, tree);
     tokens.push_str(r#"#[cfg(feature = "implement")] ::core::include!("impl.rs");"#);
+    tokens.push_str(r#"#[cfg(feature = "default")] ::core::include!("default.rs");"#);
     lib::format(tree.namespace, &mut tokens, rustfmt);
     std::fs::write(path.join("mod.rs"), tokens).unwrap();
+
     let mut tokens = bindgen::namespace_impl(&gen, tree);
     lib::format(tree.namespace, &mut tokens, rustfmt);
     std::fs::write(path.join("impl.rs"), tokens).unwrap();
+
+    let mut tokens = bindgen::namespace_default(&gen, tree);
+    lib::format(tree.namespace, &mut tokens, rustfmt);
+    std::fs::write(path.join("default.rs"), tokens).unwrap();
 }

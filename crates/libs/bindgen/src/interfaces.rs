@@ -73,20 +73,17 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
                 }
             }
         } else {
-            let mut bases = vtables.len();
             for ty in &vtables {
                 match ty {
                     Type::IUnknown | Type::IInspectable => {}
                     Type::TypeDef((def, _)) => {
-                        let kind = if gen.reader.type_def_type_name(*def) == TypeName::IDispatch { InterfaceKind::None } else { InterfaceKind::Default };
                         for method in gen.reader.type_def_methods(*def) {
-                            methods.combine(&com_methods::gen(gen, *def, kind, method, method_names, virtual_names, bases));
+                            method_names.add(gen, method);
+                            virtual_names.add(gen, method);
                         }
                     }
                     _ => unimplemented!(),
                 }
-
-                bases -= 1;
             }
             for method in gen.reader.type_def_methods(def) {
                 methods.combine(&com_methods::gen(gen, def, InterfaceKind::Default, method, method_names, virtual_names, 0));
@@ -172,7 +169,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         }
 
-        tokens.combine(&gen.interface_core_traits(def, generics, &ident, &constraints, &phantoms, &features));
+        tokens.combine(&gen.interface_core_traits(&ident, &constraints, &phantoms, &features));
         tokens.combine(&gen.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&gen.async_get(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&iterators::gen(gen, def, generics, &ident, &constraints, &phantoms, &cfg));

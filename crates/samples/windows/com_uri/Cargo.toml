@@ -5,6 +5,7 @@ edition = "2018"
 
 [dependencies.windows]
 path = "../../../libs/windows"
+default-features = false
 features = [
     "Win32_Foundation",
     "Win32_System_Com",

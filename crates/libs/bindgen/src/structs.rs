@@ -74,20 +74,9 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
 
     tokens.combine(&gen_struct_constants(gen, def, &name, &cfg));
     tokens.combine(&gen_copy_clone(gen, def, &name, &cfg));
-    tokens.combine(&gen_debug(gen, def, &name, &cfg));
     tokens.combine(&gen_windows_traits(gen, def, &name, &cfg));
-    tokens.combine(&gen_compare_traits(gen, def, &name, &cfg));
 
     if !gen.sys {
-        tokens.combine(&quote! {
-            #features
-            impl ::core::default::Default for #name {
-                fn default() -> Self {
-                    unsafe { ::core::mem::zeroed() }
-                }
-            }
-        });
-
         tokens.combine(&extensions::gen(gen.reader.type_def_type_name(def)));
     }
 
@@ -140,67 +129,6 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
         }
 
         tokens
-    }
-}
-
-fn gen_compare_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
-    let features = gen.cfg_features(cfg);
-
-    if gen.sys || gen.reader.type_def_has_explicit_layout(def) || gen.reader.type_def_has_packing(def) || gen.reader.type_def_has_callback(def) {
-        quote! {}
-    } else {
-        let fields = gen.reader.type_def_fields(def).filter_map(|f| {
-            let name = to_ident(gen.reader.field_name(f));
-            if gen.reader.field_flags(f).literal() {
-                None
-            } else {
-                Some(quote! { self.#name == other.#name })
-            }
-        });
-
-        quote! {
-            #features
-            impl ::core::cmp::PartialEq for #name {
-                fn eq(&self, other: &Self) -> bool {
-                    #(#fields)&&*
-                }
-            }
-            #features
-            impl ::core::cmp::Eq for #name {}
-        }
-    }
-}
-
-fn gen_debug(gen: &Gen, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> TokenStream {
-    if gen.sys || gen.reader.type_def_has_explicit_layout(def) || gen.reader.type_def_has_packing(def) {
-        quote! {}
-    } else {
-        let name = ident.as_str();
-        let features = gen.cfg_features(cfg);
-
-        let fields = gen.reader.type_def_fields(def).filter_map(|f| {
-            if gen.reader.field_flags(f).literal() {
-                None
-            } else {
-                let name = gen.reader.field_name(f);
-                let ident = to_ident(name);
-                let ty = gen.reader.field_type(f, Some(def));
-                if gen.reader.type_has_callback(&ty) {
-                    None
-                } else {
-                    Some(quote! { .field(#name, &self.#ident) })
-                }
-            }
-        });
-
-        quote! {
-            #features
-            impl ::core::fmt::Debug for #ident {
-                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                    f.debug_struct(#name) #(#fields)* .finish()
-                }
-            }
-        }
     }
 }
 
