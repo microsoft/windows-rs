@@ -44,6 +44,7 @@ jobs:
           cargo clippy -p sample_device_watcher &&
           cargo clippy -p sample_direct2d &&
           cargo clippy -p sample_direct3d12 &&
+          cargo clippy -p sample_direct3d12_no_default &&
           cargo clippy -p sample_enum_windows &&
           cargo clippy -p sample_enum_windows_sys &&
           cargo clippy -p sample_kernel_event &&
